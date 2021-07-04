@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="tilemap" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="32 bit">
+				<Option output="bin/Release/tilemap" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-m32" />
+				</Compiler>
+				<Linker>
+					<Add option="-m32" />
+				</Linker>
+			</Target>
+			<Target title="64 bit">
+				<Option output="bin/Release/tilemap64" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-m64" />
+				</Compiler>
+				<Linker>
+					<Add option="-m64" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Linker>
+			<Add option="-static-libstdc++" />
+			<Add option="-static-libgcc" />
+			<Add option="-static" />
+			<Add library="user32" />
+			<Add library="kernel32" />
+			<Add library="gdi32" />
+			<Add library="opengl32" />
+			<Add library="glu32" />
+			<Add library="ole32" />
+			<Add library="strmiids" />
+			<Add library="winmm" />
+		</Linker>
+		<Unit filename="bluegdk.cpp" />
+		<Unit filename="bluegdk.h" />
+		<Unit filename="tilemap.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

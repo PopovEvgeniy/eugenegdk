@@ -1,0 +1,1608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <meta http-equiv="content-type" content="text/html; charset=windows-1251"><title>Programmer reference</title></head><body> <big> </big>
+    <div style="text-align: center;"><big>Blue game development kit: Programmer
+        reference</big> </div>
+    <big><br>
+      <br>
+      Table of contents</big>
+    <ul id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId665557">Part 1. Welcome to
+        Blue game development kit</a><ul><li><a href="#mozTocId471990">Chapter 1.
+        Introduction</a></li><li><a href="#mozTocId85003">Chapter 2. A special
+        thanks</a></li><li><a href="#mozTocId810132">Chapter 3. License</a></li><li><a href="#mozTocId336772">Chapter 4. System
+        requirements</a></li><li><a href="#mozTocId928115">Chapter 5. Trouble
+        guide</a></li><li><a href="#mozTocId491993">Chapter 6. Compilers</a></li><li><a href="#mozTocId914689">Chapter 7. Library
+        name-space</a></li></ul></li><li><a href="#mozTocId859712">Part 2. Base things</a><ul><li><a href="#mozTocId312970">Chapter 1. Coordinate
+        system</a></li><li><a href="#mozTocId544184">Chapter 2. A game
+        cycle</a></li></ul></li><li><a href="#mozTocId760374">Part 3. Graphics</a><ul><li><a href="#mozTocId552078">Chapter 1. Base
+        graphics subsystem</a></li><li><a href="#mozTocId289525">Chapter 2. Picture
+        subsystem</a></li><li><a href="#mozTocId501089">Chapter 3. Animation subsystem</a></li><li><a href="#mozTocId455894"> Chapter 4.
+        Background</a></li><li><a href="#mozTocId662651"> Chapter 5. Sprites</a></li><li><a href="#mozTocId367464">Chapter 6. Text</a></li><li><a href="#mozTocId146800">Chapter 7. Tile-set</a></li><li><a href="#mozTocId67980">Chapter 8. Loading
+        images</a></li></ul></li><li><a href="#mozTocId64443">Part 4. Common things</a><ul><li><a href="#mozTocId236677">Chapter 1.
+        Interaction with operation system</a></li><li><a href="#mozTocId688163">Chapter
+        2. Filesystem</a></li><li><a href="#mozTocId853711">Chapter 3. Abnormal
+        program termination</a></li><li><a href="#mozTocId656377">Chapter 4. Timer</a></li><li><a href="#mozTocId638476">Chapter 5. Coordinate
+        system</a></li><li><a href="#mozTocId381935">Chapter 6. Collision</a></li></ul></li><li><a href="#mozTocId590919">
+        Part 5. Binary files</a><ul><li><a href="#mozTocId961921">
+        Chapter 1. Base binary files subsystem</a></li><li><a href="#mozTocId424835">
+        Chapter 2. File reader</a></li><li><a href="#mozTocId511135">
+        Chapter 3. File writer</a></li></ul></li><li><a href="#mozTocId291572">Part 6. Input</a><ul><li><a href="#mozTocId685403">Chapter 1. Keyboard</a></li><li><a href="#mozTocId686993">Chapter 2. Mouse</a></li><li><a href="#mozTocId861609">Chapter 3. Game-pad</a></li></ul></li><li><a href="#mozTocId897139">Part 7. Other
+        important things</a><ul><li><a href="#mozTocId585261">Chapter 1. Memory</a></li><li><a href="#mozTocId903881">Chapter 2. Multimedia</a></li></ul></li><li><a href="#mozTocId309127">Part 8. Internal
+        details of the library subsystems</a><ul><li><a href="#mozTocId383177">Chapter 1. A few
+        words for a curious programmer</a></li><li><a href="#mozTocId318160">Chapter 2. Internal
+        classes</a></li><li><a href="#mozTocId293644">Chapter 3. Base
+        graphics subsystem</a></li><li><a href="#mozTocId472209">Chapter 4. Game-pad</a></li><li><a href="#mozTocId804583">Chapter 5. Input</a></li><li><a href="#mozTocId692266">Chapter 6. Multimedia</a></li></ul></li><li><a href="#mozTocId78453">Version history</a></li></ul>
+    <big> </big>
+    <h1><a class="mozTocH1" name="mozTocId665557"></a><big>Part 1. Welcome to
+        Blue game development kit</big></h1>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId471990"></a><big>Chapter 1.
+        Introduction</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Introduction</span><br>
+      <br>
+      Hello from Russia. My name is Popov Evgeniy Alekseyevich. I am the
+      individual programmer. I enjoy creating a software. I also like old–school
+      video games. Do you want to develop a video games for Microsoft Windows?
+      You need a good multimedia library for do it. I made my own library. I
+      hope that my C++ library will be useful for many programmers.<br>
+      <br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Features</span><br>
+      <br>
+      Let me show the library features. Let’s go. </big>
+    <ul>
+      <li><big>Open source code.</big></li>
+      <li><big>Easy to use object–orientated design.</big></li>
+      <li><big>Very fast.</big></li>
+      <li><big>Minimum external dependencies: Only DirectX, OPENGL and standard
+          Windows API libraries.</big></li>
+      <li><big>Don’t need to link main program with library binary file. The
+          library is just source code files with all library codes.</big></li>
+    </ul>
+    <big><br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Installation</span><br>
+      <br>
+      How you can install this library? Follow this steps:<br>
+      <br>
+      Copy these files to you project directory: </big>
+    <ul>
+      <li><big>bluegdk.h</big></li>
+      <li><big>bluegdk.cpp</big></li>
+    </ul>
+    <big><br>
+      Add it to you project. Add this directive to you code: #include
+      "bluegdk.h"<br>
+      Yes. This is really all that you need to do.<br>
+      <br>
+      <span style="text-decoration: underline;">Feedback</span><br>
+      <br>
+      Send me <a href="mailto:tuzik87@inbox.ru">e-mail</a> if you want contact
+      with me. </big>
+    <h2><a class="mozTocH2" name="mozTocId85003"></a><big>Chapter 2. A special
+        thanks</big></h2>
+    <big><br>
+      What you need when you try to create a big thing? A technical
+      consultation. I need it too. I want to say «Big thanks for technical
+      consultation» to these peoples: </big>
+    <ul>
+      <li><a href="https://github.com/dmitrysmagin"><big>Dmitry Smagin</big></a></li>
+      <li><a href="https://bsg.org.ua"><big>Pavel Samko</big></a></li>
+      <li><a href="https://github.com/EXL"><big>EXL</big></a></li>
+      <li><a href="http://www.almost-university.com"><big>Vladimir Mozhenkov</big></a></li>
+      <li><a href="https://vk.com/strong666"><big>Vitaliy Molochkov</big></a></li>
+      <li><a href="mailto:eyegem@mail.ru"><big>Evgenia Germanova</big></a></li>
+      <li><big>DDMZ</big></li>
+    </ul>
+    <big><br>
+      Also thanks to PVS-Studio team for <a href="https://www.viva64.com/en/b/0614/">free
+        license</a>. </big>
+    <h2><a class="mozTocH2" name="mozTocId810132"></a><big>Chapter 3. License</big></h2>
+    <big><br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Blue game development kit
+        license</span><br>
+      <br>
+      Copyright (C) 2021 Popov Evgeniy Alekseyevich<br>
+      <br>
+      This software is provided 'as-is', without any express or implied<br>
+      warranty. In no event will the authors be held liable for any damages<br>
+      arising from the use of this software.<br>
+      Permission is granted to anyone to use this software for any purpose,<br>
+      including commercial applications, and to alter it and redistribute it<br>
+      freely, subject to the following restrictions:<br>
+      <br>
+      1. The origin of this software must not be misrepresented; you must not<br>
+      claim that you wrote the original software. If you use this software<br>
+      in a product, an acknowledgment in the product documentation would be<br>
+      appreciated but is not required.<br>
+      2. Altered source versions must be plainly marked as such, and must not be<br>
+      misrepresented as being the original software.<br>
+      3. This notice may not be removed or altered from any source distribution.<br>
+      <br>
+      <span style="text-decoration: underline;">Third-party license</span><br>
+      <br>
+      Copyright (c) 2007-2010 The Khronos Group Inc.<br>
+      <br>
+      Permission is hereby granted, free of charge, to any person obtaining a<br>
+      copy of this software and/or associated documentation files (the<br>
+      "Materials"), to deal in the Materials without restriction, including<br>
+      without limitation the rights to use, copy, modify, merge, publish,<br>
+      distribute, sublicense, and/or sell copies of the Materials, and to<br>
+      permit persons to whom the Materials are furnished to do so, subject to<br>
+      the following conditions:<br>
+      <br>
+      The above copyright notice and this permission notice shall be included<br>
+      in all copies or substantial portions of the Materials.<br>
+      <br>
+      THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+      OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+      MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+      NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+      DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+      OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE MATERIALS OR THE
+      USE OR OTHER DEALINGS IN THE MATERIALS. </big>
+    <h2><a class="mozTocH2" name="mozTocId336772"></a><big>Chapter 4. System
+        requirements</big></h2>
+    <big><br>
+    </big>
+    <p><big> System requirements of you game depend on the library system
+        requirement. You can see minimum system requirement bellow.</big></p>
+    <big><br>
+    </big>
+    <table style="text-align: left; width: 903px; height: 244px;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><big>Operation system </big></td>
+          <td style="vertical-align: top;"><big>Windows XP or higher </big></td>
+          <td style="vertical-align: top;"><big>Additional notes </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Additional software </big></td>
+          <td style="vertical-align: top;"><big>DirectX 8.1 or higher </big></td>
+          <td style="vertical-align: top;"><big>None </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>System type </big></td>
+          <td style="vertical-align: top;"><big>32 or 64 bits </big></td>
+          <td style="vertical-align: top;"><big>None </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Minimum color depth </big></td>
+          <td style="vertical-align: top;"><big>16 bits </big></td>
+          <td style="vertical-align: top;"><big>None </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Sound card </big></td>
+          <td style="vertical-align: top;"><big>Any sound card </big></td>
+          <td style="vertical-align: top;"><big>None </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Video-card </big></td>
+          <td style="vertical-align: top;"><big>A good video-card with hardware
+              acceleration </big></td>
+          <td style="vertical-align: top;"><big>Intel integrated graphics don’t
+              supported </big></td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="2" style="vertical-align: top;"><big>Processor
+              </big></td>
+          <td style="vertical-align: top;"><big>Intel Pentium 4 for 32 bit
+              system </big></td>
+          <td style="vertical-align: top;"><big>None </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Intel Core 2 Duo for 64 bit
+              system </big></td>
+          <td style="vertical-align: top;"><big>None </big></td>
+        </tr>
+      </tbody>
+    </table>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId928115"></a><big>Chapter 5. Trouble
+        guide</big></h2>
+    <big><br>
+      Install Microsoft <a href="https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads">Visual
+C++
+        Redistributable Packages</a> if you game don’t run. </big>
+    <h2><a class="mozTocH2" name="mozTocId491993"></a><big>Chapter 6. Compilers</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Supported compilers</span><br>
+      <br>
+      This library was successfully tested with these compilers: </big>
+    <ul>
+      <li><a href="https://jmeubank.github.io/tdm-gcc/"><big>TDM-GCC</big></a></li>
+      <li><a href="http://mingw-w64.org"><big>MINGW-w64</big></a></li>
+      <li><big>Visual C++ 2008</big></li>
+      <li><big>Visual C++ 2010</big></li>
+      <li><big>Visual C++ 2012</big></li>
+      <li><big>Visual C++ 2013</big></li>
+      <li><big>Visual C++ 2015</big></li>
+      <li><big>Visual C++ 2017</big></li>
+      <li><big>Visual C++ 2019</big></li>
+    </ul>
+    <big><span style="text-decoration: underline;">Windows XP support</span><br>
+      <br>
+      You need Visual C++ 2008, MINGW-w64 or TDM-GCC for Windows XP support.<br>
+      <br>
+      <span style="text-decoration: underline;">Compiler optimization</span><br>
+      <br>
+      Disable all compiler optimization. It needs for correct work. See
+      documentation of you favorite compiler for more information about compiler
+      optimization.<br>
+      <br>
+      <span style="text-decoration: underline;">Note for Visual C++ users</span><br>
+      <br>
+      You need disable pre-compiled headers before start compilation. Old Visual
+      C++ users can do it via project creation wizard. Visual C++ 2017 or higher
+      users must follow these steps:<br>
+      <br>
+      Go to «Project properties – C/C++ – Precompiled Headers»<br>
+      Set «Precomiled Header» option to «Not Using Precompiled Headers»<br>
+      Users of modern Visual C++ versions also must uncomment specific code in
+      SWGF.h file.<br>
+      <br>
+      <span style="text-decoration: underline;">Note for MINGW-w64 and TDM-GCC
+        users</span><br>
+      <br>
+      Don’t forget link you program with these files: </big>
+    <ul>
+      <li><big>user32.lib</big></li>
+      <li><big>kernel32.lib</big></li>
+      <li><big>gdi32.lib</big></li>
+      <li><big>opengl32.lib</big></li>
+  <li><big>glu32.lib<br>
+</big></li>
+
+      <li><big>ole32.lib</big></li>
+      <li><big>strmiids.lib</big></li>
+      <li><big>winmm.lib</big></li>
+    </ul>
+    <big><br>
+      See documentation of the compiler for more information about linking. </big>
+    <h2><a class="mozTocH2" name="mozTocId914689"></a><big>Chapter 7. Library
+        name-space</big></h2>
+    <big><br>
+      All library classes declared in <span style="font-style: italic;">BLUEGDK</span>
+      name-space. </big>
+    <h1><a class="mozTocH1" name="mozTocId859712"></a><big>Part 2. Base things</big></h1>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId312970"></a><big>Chapter 1. Coordinate
+        system</big></h2>
+    <big><br>
+      The library uses standard coordinate system. Coordinates start at top-left
+      corner. Look to this picture for understand it.<br>
+      <br>
+      <img style="width: 107px; height: 111px;" alt="" src="coordinate_system.png">
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId544184"></a><big>Chapter 2. A game
+        cycle</big></h2>
+    <big><br>
+      What is main point in you game? A game cycle. You can see structure of
+      typical game cycle below.<br>
+      <br>
+      <img style="width: 357px; height: 316px;" alt="" src="game_cycle.png"> </big>
+    <h1><a class="mozTocH1" name="mozTocId760374"></a><big>Part 3. Graphics</big></h1>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId552078"></a><big>Chapter 1. Base
+        graphics subsystem</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Introduce to base graphics
+        subsystem</span><br>
+      <br>
+      Base graphics subsystem rendering game scene.<br>
+      <br>
+      <span style="text-decoration: underline;">Render performance</span><br>
+      <br>Always use latest
+      video-card drivers. It can increase render performance.<br>
+      <br>
+      <span style="text-decoration: underline;">Fps limitation</span><br>
+      <br>
+      Fps is very important thing. Many fps need for good animation, but it also
+      needs high processor usage. Fps limit is 60 by default. It is optimal
+      value.<br>
+      <br>
+      <span style="text-decoration: underline;">Work with base graphics
+        subsystem</span><br>
+      <br>
+      <span style="font-style: italic;">Screen</span> class provide access to
+      the base graphic subsystem. It is derived from Frame class. Let’s look on
+      public methods.<br>
+      <br>
+<span style="font-style: italic;">void Screen::clear_screen();</span> – Clear the screen. Fill it by black color.<br>
+      <span style="font-style: italic;">void Screen::initialize();</span> –
+      Initialize the base graphic subsystem with default surface size.<span style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
+      <span style="font-style: italic;">bool Screen::sync();</span> – Show
+      current back-buffer content on screen. Return false if a game is
+      terminated. This method uses fps limit and do wait between frames.<br>
+      <span style="font-style: italic;">bool Screen::update();</span> – Show
+      current back-buffer content on screen. Return false if a game is
+      terminated. This method don’t use fps limit and need high processor usage.<br>
+      <span style="font-style: italic;">unsigned long int Screen::get_fps()
+        const;</span> – Return current fps value.<br>
+      <span style="font-style: italic;">unsigned long int Screen::get_color()
+        const;</span> – Return current color depth in bits per pixel.<br>
+      <span style="font-style: italic;">unsigned long int Screen::get_width()
+        const;</span> – Return the real screen width in pixels.<br>
+      <span style="font-style: italic;">unsigned long int Screen::get_height()
+        const;</span> – Return the real screen height in pixels.<span style="font-style: italic;"></span><br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId289525"></a><big>Chapter 2. Picture
+        subsystem</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Very important subsystems</span><br>
+      <br>Picture subsystem intend for store current image in memory buffer.<br>
+    </big><big><br>
+      <span style="text-decoration: underline;">Work with advanced graphics</span><br>
+      <br>
+      <span style="font-style: italic;">Picture</span> class provide simple
+      access to base image subsystem. Don’t use it directly. Let’s look to
+      public methods.<br>
+      <span style="font-style: italic;"></span><br>
+      <span style="font-style: italic;">unsigned char *Picture::get_image();</span>
+      – Return handle to image buffer.<br>
+<span style="font-style: italic;">void Picture::load_image(Image &amp;buffer);</span> – Load an image from memory buffer. Replace current image if exist.<br>
+      <span style="font-style: italic;">size_t Picture::get_length() const;</span>
+      – Return length of image buffer in bytes.<br>
+      <span style="font-style: italic;">unsigned long int Picture::get_image_width() const;</span> – Return image width in pixels.<br>
+      <span style="font-style: italic;">unsigned long int Picture::get_image_height() const;</span> – Return image height in
+      pixels.<span style="font-style: italic;"></span></big><big><br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId501089"></a><big>Chapter 3. Animation subsystem</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Very important subsystems</span><br>
+      <br>Animation subsystem let you control animation frames.<br>
+      <br>
+      <span style="text-decoration: underline;">Work with advanced graphics</span><br>
+      <br>
+      <span style="font-style: italic;">Frame</span> class provide simple
+      access to animation subsystem.
+      Don’t use it directly. Let’s look to public methods.<br>
+      <br>
+      <span style="font-style: italic;">void Frame::set_frames(unsigned long
+        int amount);</span> – Set amounts of frames in scrolling background or
+      animated sprite.<br>
+      <span style="font-style: italic;">unsigned long int Frame::get_frames()
+        const;</span> – Return amount of frames in scrolling background or
+      animated sprite.<br>
+      <span style="font-style: italic;">unsigned long int Frame::get_frame()
+        const;</span> – Return current frame in scrolling background or animated
+      sprite.<span style="font-style: italic;"><br>
+</span> </big>
+    <h2><a class="mozTocH2" name="mozTocId455894"></a><big> Chapter 4.
+        Background</big></h2>
+    <big> <br>
+      <span style="text-decoration: underline;">Level decoration</span><br>
+      <br>
+      Background is a big image. It like decoration in theater stage. Any game
+      has a background. There are two kind of background: normal background and
+      scrolling background. The scrolling background is a big image with few
+      frames. Horizontal orientated scrolling background like horizontal
+      orientated photo ribbon. Vertical orientated scrolling background like
+      vertical orientated photo ribbon.<br>
+      <br>
+      <span style="text-decoration: underline;">Background types</span><br>
+      <br>
+    </big>
+    <p><big> Background types codes look as predefined constants. You can see it
+        bellow.</big></p>
+    <big><br>
+    </big>
+    <table style="text-align: left; width: 554px; height: 124px;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><big>Background type </big></td>
+          <td style="vertical-align: top;"><big>Description </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>NORMAL_BACKGROUND </big></td>
+          <td style="vertical-align: top;"><big>Normal background </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>HORIZONTAL_BACKGROUND </big></td>
+          <td style="vertical-align: top;"><big>Horizontal scrolling background
+            </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>VERTICAL_BACKGROUND </big></td>
+          <td style="vertical-align: top;"><big>Vertical scrolling background </big></td>
+        </tr>
+      </tbody>
+    </table>
+    <big><br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Work with background</span><br>
+      <br>
+      Just use <span style="font-style: italic;">Background</span> class for
+      work with background. It is derived from <span style="font-style: italic;">Frame</span> and <span style="font-style: italic;">Picture</span> classes. Let’s look to public methods.<br>
+      </big><big style="font-style: italic;"></big><big><br>
+<span style="font-style: italic;">void Background::prepare(const unsigned long screen_width,const unsigned long screen_height);</span>&nbsp; – Prepare for drawing.</big><big><span style="font-style: italic;"></span><br>
+      <span style="font-style: italic;">void Background::set_target(const
+        unsigned long int target);</span> – Set target frame in scrolling
+      background.<br style="font-style: italic;">
+      <span style="font-style: italic;">void Background::step();</span> –
+      Increase number of target frame in scrolling background. Set it to 1 if
+      number of target frame more than amount of frames.</big><br>
+    <big> <span style="font-style: italic;">void Background::set_kind(const
+        BACKGROUND_TYPE target);</span> – Set background type.</big><br>
+    <big><i>void Background::set_setting(const BACKGROUND_TYPE kind,const
+        unsigned long int frames);</i> – Set background setting.</big><br>
+    <big> <span style="font-style: italic;">void Background::draw_background();</span>
+      – Draw a background.<br>
+      <br>
+      <span style="text-decoration: underline;">Important notes</span><br>
+      <br>
+      Always call <span style="font-style: italic;">set_kind</span> method
+      after load background image. Always call <span style="font-style: italic;">set_frames</span>
+      method before call <span style="font-style: italic;">set_kind</span>
+      method if you will use scrolling background. Also you can use <i>set_setting</i>
+      method instead calling <i>set_kind</i> method. Always call <span style="font-style: italic;">prepare</span> method after load an image. </big>
+    <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 5. Sprites</big></h2>
+    <big> <br>
+      <span style="text-decoration: underline;">Small important thing</span><br>
+      <br>
+      A sprite is a transparent image. It useful for many things: enemies,
+      bonuses, etc…<br>
+      <br>
+      <span style="text-decoration: underline;">Sprite types</span><br>
+      <br>
+      There are two kinds of sprites: normal sprites and strip.<br>
+      The strip is animated sprite. Do you remember analog camera? Strip look
+      like photo ribbon. Horizontal strip look like the horizontal orientated
+      photo ribbon. Vertical strip look like the vertical orientated photo
+      ribbon.<br>
+      <br>
+      <span style="text-decoration: underline;">Some words about sprite
+        transparency</span><br>
+      <br>
+      Some pixel will be ignored. Ignored pixels have a transparent color. How
+      to determinate it? The transparent color is color of first pixel.
+      Transparent mode is enabled by default.<br>
+      <br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Sprite type flags</span><br>
+      <br>
+    </big>
+    <p><big> Sprite types codes look as predefined constants. You can see it
+        bellow.</big></p>
+    <big><br>
+    </big>
+    <table style="text-align: left; width: 363px; height: 124px;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><big>Sprite type </big></td>
+          <td style="vertical-align: top;"><big>Description </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>SINGLE_SPRITE </big></td>
+          <td style="vertical-align: top;"><big>Normal sprite </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>HORIZONTAL_STRIP </big></td>
+          <td style="vertical-align: top;"><big>Horizontal strip </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>VERTICAL_STRIP </big></td>
+          <td style="vertical-align: top;"><big>Vertical strip </big></td>
+        </tr>
+      </tbody>
+    </table>
+    <big><br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Work with sprites</span><br>
+      <br>
+      Just use <span style="font-style: italic;">Sprites</span> class for work
+      with a sprite. It is derived from <span style="font-style: italic;">Frame</span> and <span style="font-style: italic;">Picture</span> classes. Let’s look to public methods.<br>
+      <br>
+<span style="font-style: italic;">void Sprite::prepare();</span>&nbsp; – Prepare for drawing.<br>
+      <span style="font-style: italic;">void Sprite::load_sprite(Image
+        &amp;buffer,const SPRITE_TYPE kind,const unsigned long int frames);</span>
+      – Load a sprite from memory buffer and set sprite setting.<br>
+      <span style="font-style: italic;">void Sprite::set_target(const unsigned
+        long int target);</span> – Set target frame in animated sprite.<br>
+      <span style="font-style: italic;">void Sprite::step();</span> – Increase
+      number of target frame in strip. Set it to 1 if number of target frame
+      more than amount of frames.<br>
+      <span style="font-style: italic;">void Sprite::set_kind(const SPRITE_TYPE
+        target);</span> – Set sprite type.<br>
+      <span style="font-style: italic;">SPRITE_TYPE Sprite::get_kind() const;</span>
+      – Get sprite type.<br>
+      <span style="font-style: italic;">void Sprite::set_transparent(const bool
+        enabled);</span> – Enable or disable transparent mode.<br>
+      <span style="font-style: italic;">bool Sprite::get_transparent() const;</span>
+      – Return true if transparent mode is enabled.<br>
+      <span style="font-style: italic;">void Sprite::set_x(const unsigned long
+        int x);</span> – Set x-coordinate of the sprite position.</big><br>
+    <big> <span style="font-style: italic;">void Sprite::set_y(const unsigned
+        long int y);</span> – Set y-coordinate of the sprite position.</big><br>
+    <big><i>void Sprite::increase_x();</i> – Increase x-coordinate of the
+      current sprite position.</big><br>
+    <big><i>void Sprite::decrease_x();</i> – Decrease x-coordinate of the
+      current sprite position.</big><br>
+    <big><i>void Sprite::increase_y();</i> – Increase y-coordinate of the
+      current sprite position.</big><br>
+    <big><i>void Sprite::decrease_y();</i> – Decrease y-coordinate of the
+      current sprite position.</big><br>
+    <big><i>void Sprite::increase_x(const unsigned long int increment);</i> –
+      Increase x-coordinate of the current sprite position with user-defined
+      increment.</big><br>
+    <big><i>void Sprite::decrease_x(const unsigned long int decrement);</i> –
+      Decrease x-coordinate of the current sprite position with user-defined
+      decrement.</big><br>
+    <big><i>void Sprite::increase_y(const unsigned long int increment);</i> –
+      Increase y-coordinate of the current sprite position with user-defined
+      increment.</big><br>
+    <big><i>void Sprite::decrease_y(const unsigned long int decrement);</i> –
+      Decrease y-coordinate of the current sprite position with user-defined
+      decrement.</big><big><br>
+      <span style="font-style: italic;">unsigned long int Sprite::get_x() const;</span>
+      – Return x-coordinate of the sprite position.<br>
+      <span style="font-style: italic;">unsigned long int Sprite::get_y() const;</span>
+      – Return y-coordinate of the sprite position.<br>
+      <span style="font-style: italic;">unsigned long int Sprite::get_width()
+        const;</span> – Return the width of the sprite.<br>
+      <span style="font-style: italic;">unsigned long int Sprite::get_height()
+        const;</span> – Return the height of the sprite.<br>
+      <span style="font-style: italic;">Sprite* Sprite::get_handle();</span> –
+      Return the handle to sprite object.<br>
+      <span style="font-style: italic;">Collision_Box Sprite::get_box() const;</span>
+      – Return collision related information.<br>
+<span style="font-style: italic;">void Sprite::clone(Sprite &amp;target);</span> – Create copy of exist sprite.<br>
+      <span style="font-style: italic;">void Sprite::set_position(const unsigned
+        long int x, const unsigned long int y);</span> – Set sprite position.<br>
+<span style="font-style: italic;">void Sprite::set_size(const unsigned long int width, const unsigned long int height);</span> – Change the sprite size.<br>
+<span style="font-style: italic;">void Sprite::horizontal_mirror();</span> – Do horizontal sprite mirror.<br>
+<span style="font-style: italic;">void Sprite::vertical_mirror();</span> – Do vertical sprite mirror.<br>
+    </big><big> <span style="font-style: italic;">void Sprite::draw_sprite();</span>
+      – Draw a sprite.</big><br>
+    <big> <span style="font-style: italic;">void Sprite::draw_sprite(const
+        unsigned long int x, const unsigned long int y);</span> – Set sprite
+      position and draw it.</big><br>
+    <big><i>void Sprite::draw_sprite(const bool transparency);</i> – Set
+      transparent mode and draw a sprite.</big><br>
+    <big><i>void Sprite::draw_sprite(const bool transparency,const unsigned long
+        int x, const unsigned long int y);</i> – Set transparent mode and draw a
+      sprite at target position.</big><br>
+    <big> <br>
+      <span style="text-decoration: underline;">Important notes</span><br>
+      <br>
+      Always call <span style="font-style: italic;">set_kind</span> method
+      after load sprite image. Always call <span style="font-style: italic;">set_frames</span>
+      method before call <span style="font-style: italic;">set_kind</span>
+      method if you will use animated sprite. Also you can use <span style="font-style: italic;">load_sprite</span>
+      method instead calling <span style="font-style: italic;">set_kind</span>
+      method. Always call <span style="font-style: italic;">prepare</span> method after load an image. </big>
+    <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 6. Text</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">How draw a text?</span><br>
+      <br>
+      Just use text subsystem for draw a text. This subsystem need a font for
+      text drawing. You must load a font before start draw the text. The font is
+      just horizontal strip with 256 frames.<br>
+      <br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Valid characters</span><br>
+      <br>
+      Characters from 8-bit code-pages are supported. Unicode don’t supported.<br>
+      <br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Work with text</span><br>
+      <br>
+      <span style="font-style: italic;">Text</span> class provide simple
+      interface to text subsystem. Let’s look to public methods.<br>
+      <br>
+      <span style="font-style: italic;">void Text::set_position(const unsigned
+        long int x,const unsigned long int y);</span> – Set output position.<br>
+      <span style="font-style: italic;">void Text::load_font(Sprite *font);</span>
+      – Load a font.<br>
+      <span style="font-style: italic;">void Text::draw_character(const char
+        target);</span> – Draw single character at current position.<br>
+      <span style="font-style: italic;">void Text::draw_text(const char *text);</span>
+      – Draw text at current position.<br>
+      <span style="font-style: italic;">void Text::draw_character(const unsigned
+        long int x,const unsigned long int y,const char target);</span> – Draw
+      single character at specific position.<br>
+      <span style="font-style: italic;">void Text::draw_text(const unsigned long
+        int x,const unsigned long int y,const char *text);</span> – Draw text at
+      specific position. </big>
+    <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 7. Tile-set</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Some words about complex
+        backgrounds</span><br>
+      <br>
+      Tile-set is very useful thing for constructing complex background. Tile is
+      a small non-transparent image. Each tile have fixed size. Tile-set is
+      matrix of tiles. Look to this picture for understand it.<br>
+      <br>
+      <img style="width: 380px; height: 249px;" alt="" src="tileset.png"><br>
+      <br>
+      <span style="text-decoration: underline;">Rows and columns</span><br>
+      <br>
+      First row index is 0. Last row index is row amount-1. First column index
+      is 0. Last column index is column amount-1.<br>
+      <br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Work with tile-set subsystem</span><br>
+      <br>
+      <span style="font-style: italic;">Tileset</span> class provide access to
+      the tile-set subsystem. It is derived from Picture class. Let’s look on
+      public methods.<br>
+      <br>
+<span style="font-style: italic;">Tileset::prepare();</span>&nbsp; – Prepare for drawing.<br>
+      <span style="font-style: italic;">unsigned long int
+        Tileset::get_tile_width() const;</span> – Return tile width in pixels.<br>
+      <span style="font-style: italic;">unsigned long int
+        Tileset::get_tile_height() const;</span> – Return tile height in pixels.<br>
+      <span style="font-style: italic;">unsigned long int Tileset::get_rows()
+        const;</span> – Return amount of rows.<br>
+      <span style="font-style: italic;">unsigned long int Tileset::get_columns()
+        const;</span> – Return amount of columns.<br>
+      <span style="font-style: italic;">void Tileset::select_tile(const unsigned
+        long int row,const unsigned long int column);</span> – Select target
+      tile.</big><br>
+    <big> <span style="font-style: italic;">void Tileset::draw_tile(const
+        unsigned long int x,const unsigned long int y);</span> – Draw selected
+      tile at specific position.</big><br>
+    <big><i>void Tileset::draw_tile(const unsigned long int row,const unsigned
+        long int column,const unsigned long int x,const unsigned long int y);</i>
+      – Draw target tile at specific position.</big><br>
+    <big> <span style="font-style: italic;">void Tileset::load_tileset(Image
+        &amp;buffer,const unsigned long int row_amount,const unsigned long int
+        column_amount);</span> – Load a tile-set.<br>
+<br>
+<span style="text-decoration: underline;">Important notes</span><br>
+<br>
+Always call <span style="font-style: italic;">prepare</span> method after load an image.<br>
+ </big>
+    <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 8. Loading
+        images</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Load an image from a files</span><br>
+      <br>
+      Use image loader for load an image from a file. <span style="font-style: italic;">Image</span>
+      class provide simple access to image loader. It is very simple class with
+      few methods.<br>
+      <br>
+      <span style="font-style: italic;">void Image::load_tga(const char *name);</span>
+      – Load a Truevision TGA image.<br>
+      <span style="font-style: italic;">void Image::load_pcx(const char *name);</span>
+      – Load a ZSoft PC Paintbrush image.<br>
+      <span style="font-style: italic;">unsigned long int Image::get_width()
+        const;</span> – Return width of current image.<br>
+      <span style="font-style: italic;">unsigned long int Image::get_height()
+        const;</span> – Return height of current image.<br>
+      <span style="font-style: italic;">size_t Image::get_length() const;</span>
+      – Return length of image buffer in bytes.<br>
+      <span style="font-style: italic;">unsigned char *Image::get_data();</span>
+      – Return handle to image buffer.<br>
+      <span style="font-style: italic;">void Image::destroy_image();</span> –
+      Destroy current image and free image buffer.<br>
+      <br>
+      <span style="text-decoration: underline;">Important remark</span><br>
+      <br>
+      New image replace current image if current image already exist.<br>
+      <br>
+      <span style="text-decoration: underline;">Supported format</span><br>
+      <br>
+    </big>
+    <p><big> All loading images must have correct specification. You can see
+        list of supported format below.</big></p>
+    <big><br>
+    </big>
+    <table style="text-align: left; width: 626px; height: 94px;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><big>Format </big></td>
+          <td style="vertical-align: top;"><big>Color </big></td>
+          <td style="vertical-align: top;"><big>Compression </big></td>
+          <td style="vertical-align: top;"><big>Palette </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Truevision TGA image </big></td>
+          <td style="vertical-align: top;"><big>24 bit </big></td>
+          <td style="vertical-align: top;"><big>None, RLE </big></td>
+          <td style="vertical-align: top;"><big>Not present </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>ZSoft PC Paintbrush </big></td>
+          <td style="vertical-align: top;"><big>24 bit </big></td>
+          <td style="vertical-align: top;"><big>RLE </big></td>
+          <td style="vertical-align: top;"><big>Not present </big></td>
+        </tr>
+      </tbody>
+    </table>
+    <big><br>
+      <span style="text-decoration: underline;">Recommend software</span><br>
+      <br>
+      You can use wide range of graphics software for convert you images to
+      correct format. I recommend use <a href="https://www.gimp.org">GIMP</a>
+      for do it. It is powerful open source and cross-platform image editor. </big>
+    <h1><a class="mozTocH1" name="mozTocId64443"></a><big>Part 4. Common things</big></h1>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId236677"></a><big>Chapter 1.
+        Interaction with operation system</big></h2>
+    <big><br>
+      You may need interaction with operation system. Just use <span style="font-style: italic;">System</span>
+      class for do it. Let’s look to public methods.<br>
+      <br>
+      <span style="font-style: italic;">unsigned long int
+        System::get_random(const unsigned long int number);</span> – Return a
+      random number from zero to number–1.<br>
+      <span style="font-style: italic;">void System::quit();</span> – Exit from
+      you program and return user to operation system.<br>
+      <span style="font-style: italic;">void System::run(const char *command);</span>
+      – Execute shell command or external program.<br>
+      <span style="font-style: italic;">char* System::read_environment(const
+        char *variable);</span> – Return value of specific system environment
+      variable.<br>
+      <span style="font-style: italic;">void System::enable_logging(const char
+        *name);</span> – Enable error logging. Error messages will redirect to a
+      log file.<span style="font-style: italic;"></span><br>
+      <br>
+      This is all that you must know about this class. It is just very simple
+      class for few important things.<br>
+      <br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId688163"></a><a id="mozTocId495779" class="mozTocH2"></a><big>Chapter
+        2. Filesystem</big></h2>
+    <big><br>
+      Filesystem subsystem let you doing some file operation. <span style="font-style: italic;">Filesystem</span>
+      class provide simple access to this subsystem. Let’s look to public
+      methods.<br>
+      <br>
+      <span style="font-style: italic;">void Filesystem::file_exist(const char
+        *name);</span> – Check the target file for exist.<br>
+      <span style="font-style: italic;">void Filesystem::delete_file(const char
+        *name);</span> – Delete the target file.<br>
+      <span style="font-style: italic;">bool Filesystem::get_status() const;</span>
+      – Return false if last file operation was failed.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 3. Abnormal
+        program termination</big></h2>
+    <big><br>
+      You can use Halt function for terminate program. This function declared in
+      <span style="font-style: italic;">SWGF</span> name-space.<br>
+      <br>
+      <span style="font-style: italic;">void SWGF::Halt(const char *message);</span>
+      – Terminate the program. Write error message to log file if logging
+      enabled. </big><big> </big>
+    <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 4. Timer</big></h2>
+    <big><br>
+      Timer is very useful thing. Just use <span style="font-style: italic;">Timer</span>
+      class for work with the timer. Let’s look to public methods.<br>
+      <br>
+      <span style="font-style: italic;">void Timer::set_timer(const unsigned
+        long int seconds);</span> – Set timer interval and initialize start
+      point.<br>
+      <span style="font-style: italic;">bool Timer::check_timer();</span> –
+      Initialize stop point. Return true and reinitialize start point if
+      interval between stop and start points large or equal than specific
+      seconds. </big>
+    <h2><a class="mozTocH2" name="mozTocId638476"></a><big>Chapter 5. Coordinate
+        system</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Two kinds of coordinate system</span><br>
+      <br>
+      This library use two kinds of coordinate system: Picture coordinate system
+      and screen coordinate system. You can convert values between these
+      systems. Use transformation subsystem to do it.<br>
+      <br>
+      <span style="text-decoration: underline;">Work with transformation
+        subsystem</span><br>
+      <br>
+      Just use <span style="font-style: italic;">Transformation</span> class
+      for work with the transformation subsystem. Let’s look to public methods.<br>
+      <br>
+      <span style="font-style: italic;">void Transformation::initialize(const
+        float screen_width,const float screen_height,const float Picture_width,const float Picture_height);</span> – Initialize the
+      subsystem.<br>
+      <span style="font-style: italic;">float Transformation::get_screen_x(const
+        float Picture_x) const;</span> – Convert Picture x-coordinate to screen
+      x-coordinate.<br>
+      <span style="font-style: italic;">float Transformation::get_screen_y(const
+        float Picture_y) const;</span> – Convert Picture y-coordinate to screen
+      y-coordinate.<br>
+      <span style="font-style: italic;">float
+        Transformation::get_Picture_x(const float screen_x) const;</span> –
+      Convert screen x-coordinate to Picture x-coordinate.<br>
+      <span style="font-style: italic;">float
+        Transformation::get_Picture_y(const float screen_y) const;</span> –
+      Convert screen y-coordinate to Picture y-coordinate. </big>
+    <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 6. Collision</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Very important thing for any
+        game</span><br>
+      <br>
+      What is very important thing for a video games? A collision.<br>
+      <br>
+      <span style="text-decoration: underline;">Collision detail</span><br>
+      <br>
+      Collision detector using bounding box collision method for detect
+      collision. Collision related information represent by special structure.
+      Let me introduce it.<br>
+      <br>
+      <span style="font-style: italic;">struct Collision_Box</span><br style="font-style: italic;">
+      <span style="font-style: italic;">{</span><br style="font-style: italic;">
+      <span style="font-style: italic;">unsigned long int x:32;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">unsigned long int y:32;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">unsigned long int width:32;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">unsigned long int height:32;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">};</span><br>
+      <br>
+      <span style="text-decoration: underline;">Work with collision detector</span><br>
+      <br>
+      <span style="font-style: italic;">Collision</span> class provide easy
+      access to collision detector. It is very simple class with few methods.
+      Let’s look to public methods.<br>
+      <br>
+      <span style="font-style: italic;">void Collision::set_target(const
+        Box_Collision &amp;first_target,const Box_Collision &amp;second_target);</span>
+      – Set targets for collision detector.<br>
+      <span style="font-style: italic;">bool
+        Collision::check_horizontal_collision() const;</span> – Return true if
+      horizontal collision between two object is accepted.<br>
+      <span style="font-style: italic;">bool
+        Collision::check_vertical_collision() const;</span> – Return true if
+      vertical collision between two objects is accepted.</big><br>
+    <big> <span style="font-style: italic;">bool Collision::check_collision()
+        const;</span> – Return true if horizontal or vertical collision between
+      two objects is accepted.</big><br>
+    <big><i>bool Collision::check_horizontal_collision(const Box_Collision
+        &amp;first_target,const Box_Collision &amp;second_target);</i> – Set
+      collision target and check horizontal collision.</big><br>
+    <big><i>bool Collision::check_vertical_collision(const Box_Collision
+        &amp;first_target,const Box_Collision &amp;second_target);</i> – Set
+      collision target and check vertical collision.</big><br>
+    <big><i>bool Collision::check_collision(const Box_Collision
+        &amp;first_target,const Box_Collision &amp;second_target);</i> – Set
+      collision target and check collision.</big><br>
+    <big> <span style="font-style: italic;">Collision_Box
+        Collision::generate_box(const unsigned long int x,const unsigned long
+        int y,const unsigned long int width,const unsigned long int height)
+        const;</span> – Generate collision related information from the object
+      properties. </big>
+    <h1><a class="mozTocH1" name="mozTocId590919"></a><a id="mozTocId81465" class="mozTocH1"></a><big>
+        Part 5. Binary files</big></h1>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId961921"></a><a id="mozTocId402543" class="mozTocH2"></a><big>
+        Chapter 1. Base binary files subsystem</big></h2>
+    <big> <br>
+      <u> Work with binary files</u><br>
+      <br>
+      <i>Binary_File</i> class provide simple access to base binary files
+      subsystem. Don’t use it directly. Let’s look to public methods.<br>
+      <br>
+      <i> void Binary_File::close();</i> – Close the file.<br>
+      <i> void Binary_File::set_position(const long int offset);</i> – Set the
+      file position.<br>
+      <i> long int Binary_File::get_position();</i> – Return current file
+      position.<br>
+      <i> long int Binary_File::get_length();</i> – Return file length in bytes.<br>
+      <i> bool Binary_File::check_error();</i> – Return true if last file
+      operation failed.<br>
+      <br>
+      <u>Important notice</u><br>
+      <br>
+      Target file size limit is 2 gigabytes. </big>
+    <h2><a class="mozTocH2" name="mozTocId424835"></a><a id="mozTocId3436" class="mozTocH2"></a><big>
+        Chapter 2. File reader</big></h2>
+    <big> <br>
+      File reader intend for reading data from a binary files. <i>Input_File</i>
+      class provide access to file reader. It is derived from <i>Binary_File</i>
+      class. Let’s look on public methods.<br>
+      <br>
+      <i> void Input_File::open(const char *name);</i> – Open a file for read.<br>
+      <i> void Input_File::read(void *buffer,const size_t length);</i> – Read
+      data from the file. </big>
+    <h2><a class="mozTocH2" name="mozTocId511135"></a><a id="mozTocId353425" class="mozTocH2"></a><big>
+        Chapter 3. File writer</big></h2>
+    <big> <br>
+      File writer intend for write data to binary files. <i>Output_File</i>
+      class provide access to file reader. It is derived from <i>Binary_File</i>
+      class. Let’s look on public methods.<br>
+      <br>
+      <i> void Output_File::open(const char *name);</i> – Open a file for write.<br>
+      <i> void Output_File::create_temp();</i> – Create a temporary file. This
+      file will be deleted when it closed.</big><br>
+    <big> <i> void Output_File::write(void *buffer,const size_t length);</i> –
+      Write data to the file.</big><br>
+    <big><i>void Output_File::flush();</i> – Force writing internal buffer data
+      to the file.</big><br>
+    <big> </big>
+    <h1><a class="mozTocH1" name="mozTocId291572"></a><big>Part 6. Input</big></h1>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId685403"></a><big>Chapter 1. Keyboard</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Low-level input</span><br>
+      <br>
+      Any keyboard has a built-in chip. It generates a special code when user
+      press or release key. This code is called «scan code».<br>
+      <br>
+      <span style="text-decoration: underline;">Working with keyboard</span><br>
+      <br>
+      Just use <span style="font-style: italic;">Keyboard</span> class for work
+      with keyboard. Let’s look on public methods.<br>
+      <br>
+      <span style="font-style: italic;">void Keyboard::initialize();</span> –
+      Initialize the subsystem.<br>
+      <span style="font-style: italic;">bool Keyboard::check_hold(const unsigned
+        char code);</span> – Return true if key with specific scan-code is
+      pressed or holding.<br>
+      <span style="font-style: italic;">bool Keyboard::check_press(const
+        unsigned char code);</span> – Return true if key with specific scan-code
+      is pressed.<br>
+      <span style="font-style: italic;">bool Keyboard::check_release(const
+        unsigned char code);</span> – Return true if key with specific scan-code
+      is released.<br>
+      <br>
+      <span style="text-decoration: underline;">List of supported scan-codes</span><br>
+      <br>
+    </big>
+    <p><big> You can see list of scan-codes bellow.</big></p>
+    <big><br>
+    </big>
+    <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><big>Key </big></td>
+          <td style="vertical-align: top;"><big>Code </big></td>
+          <td style="vertical-align: top;"><big>Key </big></td>
+          <td style="vertical-align: top;"><big>Code </big></td>
+          <td style="vertical-align: top;"><big>Key </big></td>
+          <td style="vertical-align: top;"><big>Code </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Escape </big></td>
+          <td style="vertical-align: top;"><big>1 </big></td>
+          <td style="vertical-align: top;"><big>A </big></td>
+          <td style="vertical-align: top;"><big>30 </big></td>
+          <td style="vertical-align: top;"><big>F1 </big></td>
+          <td style="vertical-align: top;"><big>59 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>! or 1 </big></td>
+          <td style="vertical-align: top;"><big>2 </big></td>
+          <td style="vertical-align: top;"><big>S </big></td>
+          <td style="vertical-align: top;"><big>31 </big></td>
+          <td style="vertical-align: top;"><big>F2</big></td>
+          <td style="vertical-align: top;"><big>60 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>@ or 2 </big></td>
+          <td style="vertical-align: top;"><big>3 </big></td>
+          <td style="vertical-align: top;"><big>D </big></td>
+          <td style="vertical-align: top;"><big>32 </big></td>
+          <td style="vertical-align: top;"><big>F3</big></td>
+          <td style="vertical-align: top;"><big>61 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big># or 3 </big></td>
+          <td style="vertical-align: top;"><big>4 </big></td>
+          <td style="vertical-align: top;"><big>F </big></td>
+          <td style="vertical-align: top;"><big>33 </big></td>
+          <td style="vertical-align: top;"><big>F4</big></td>
+          <td style="vertical-align: top;"><big>62 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>$ or 4 </big></td>
+          <td style="vertical-align: top;"><big>5 </big></td>
+          <td style="vertical-align: top;"><big>G </big></td>
+          <td style="vertical-align: top;"><big>34 </big></td>
+          <td style="vertical-align: top;"><big>F5</big></td>
+          <td style="vertical-align: top;"><big>63 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>% or 5 </big></td>
+          <td style="vertical-align: top;"><big>6 </big></td>
+          <td style="vertical-align: top;"><big>H </big></td>
+          <td style="vertical-align: top;"><big>35 </big></td>
+          <td style="vertical-align: top;"><big>F6</big></td>
+          <td style="vertical-align: top;"><big>64 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>^ or 6 </big></td>
+          <td style="vertical-align: top;"><big>7 </big></td>
+          <td style="vertical-align: top;"><big>J </big></td>
+          <td style="vertical-align: top;"><big>36 </big></td>
+          <td style="vertical-align: top;"><big>F7</big></td>
+          <td style="vertical-align: top;"><big>65 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>&amp; or 7 </big></td>
+          <td style="vertical-align: top;"><big>8 </big></td>
+          <td style="vertical-align: top;"><big>K </big></td>
+          <td style="vertical-align: top;"><big>37 </big></td>
+          <td style="vertical-align: top;"><big>F8</big></td>
+          <td style="vertical-align: top;"><big>66 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>* or 8 </big></td>
+          <td style="vertical-align: top;"><big>9 </big></td>
+          <td style="vertical-align: top;"><big>L </big></td>
+          <td style="vertical-align: top;"><big>38 </big></td>
+          <td style="vertical-align: top;"><big>F9</big></td>
+          <td style="vertical-align: top;"><big>67 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>( or 9 </big></td>
+          <td style="vertical-align: top;"><big>10 </big></td>
+          <td style="vertical-align: top;"><big>: or ;</big></td>
+          <td style="vertical-align: top;"><big>39 </big></td>
+          <td style="vertical-align: top;"><big>F10</big></td>
+          <td style="vertical-align: top;"><big>68 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>0 or ) </big></td>
+          <td style="vertical-align: top;"><big>11 </big></td>
+          <td style="vertical-align: top;"><big>" or ' </big></td>
+          <td style="vertical-align: top;"><big>40 </big></td>
+          <td style="vertical-align: top;"><big>F11</big></td>
+          <td style="vertical-align: top;"><big>133 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>_ or - </big></td>
+          <td style="vertical-align: top;"><big>12 </big></td>
+          <td style="vertical-align: top;"><big>~ or ` </big></td>
+          <td style="vertical-align: top;"><big>41 </big></td>
+          <td style="vertical-align: top;"><big>F12</big></td>
+          <td style="vertical-align: top;"><big>134 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>+ or = </big></td>
+          <td style="vertical-align: top;"><big>13 </big></td>
+          <td style="vertical-align: top;"><big>Left Shift </big></td>
+          <td style="vertical-align: top;"><big>42 </big></td>
+          <td style="vertical-align: top;"><big>Num Lock </big></td>
+          <td style="vertical-align: top;"><big>69 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Backspace </big></td>
+          <td style="vertical-align: top;"><big>14 </big></td>
+          <td style="vertical-align: top;"><big>| or \ </big></td>
+          <td style="vertical-align: top;"><big>43 </big></td>
+          <td style="vertical-align: top;"><big>Scroll Lock </big></td>
+          <td style="vertical-align: top;"><big>70 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Tab </big></td>
+          <td style="vertical-align: top;"><big>15 </big></td>
+          <td style="vertical-align: top;"><big>Z </big></td>
+          <td style="vertical-align: top;"><big>44 </big></td>
+          <td style="vertical-align: top;"><big>Home or 7 </big></td>
+          <td style="vertical-align: top;"><big>71 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Q </big></td>
+          <td style="vertical-align: top;"><big>16 </big></td>
+          <td style="vertical-align: top;"><big>X </big></td>
+          <td style="vertical-align: top;"><big>45 </big></td>
+          <td style="vertical-align: top;"><big>Up or 8 </big></td>
+          <td style="vertical-align: top;"><big>72 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>W </big></td>
+          <td style="vertical-align: top;"><big>17 </big></td>
+          <td style="vertical-align: top;"><big>C </big></td>
+          <td style="vertical-align: top;"><big>46 </big></td>
+          <td style="vertical-align: top;"><big>Page up or 9 </big></td>
+          <td style="vertical-align: top;"><big>73 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>E </big></td>
+          <td style="vertical-align: top;"><big>18 </big></td>
+          <td style="vertical-align: top;"><big>V </big></td>
+          <td style="vertical-align: top;"><big>47 </big></td>
+          <td style="vertical-align: top;"><big>Gray - </big></td>
+          <td style="vertical-align: top;"><big>74 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>R </big></td>
+          <td style="vertical-align: top;"><big>19 </big></td>
+          <td style="vertical-align: top;"><big>B </big></td>
+          <td style="vertical-align: top;"><big>48 </big></td>
+          <td style="vertical-align: top;"><big>Left or 4 </big></td>
+          <td style="vertical-align: top;"><big>75 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>T </big></td>
+          <td style="vertical-align: top;"><big>20 </big></td>
+          <td style="vertical-align: top;"><big>N </big></td>
+          <td style="vertical-align: top;"><big>49 </big></td>
+          <td style="vertical-align: top;"><big>Center or 5 </big></td>
+          <td style="vertical-align: top;"><big>76 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Y </big></td>
+          <td style="vertical-align: top;"><big>21 </big></td>
+          <td style="vertical-align: top;"><big>M </big></td>
+          <td style="vertical-align: top;"><big>50 </big></td>
+          <td style="vertical-align: top;"><big>Right or 6 </big></td>
+          <td style="vertical-align: top;"><big>77 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>U </big></td>
+          <td style="vertical-align: top;"><big>22 </big></td>
+          <td style="vertical-align: top;"><big>&lt; or , </big></td>
+          <td style="vertical-align: top;"><big>51 </big></td>
+          <td style="vertical-align: top;"><big>Gray + </big></td>
+          <td style="vertical-align: top;"><big>78 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>I </big></td>
+          <td style="vertical-align: top;"><big>23 </big></td>
+          <td style="vertical-align: top;"><big>&gt; or . </big></td>
+          <td style="vertical-align: top;"><big>52 </big></td>
+          <td style="vertical-align: top;"><big>End or 1 </big></td>
+          <td style="vertical-align: top;"><big>79 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>O </big></td>
+          <td style="vertical-align: top;"><big>24 </big></td>
+          <td style="vertical-align: top;"><big>? or / </big></td>
+          <td style="vertical-align: top;"><big>53 </big></td>
+          <td style="vertical-align: top;"><big>Down or 2 </big></td>
+          <td style="vertical-align: top;"><big>80 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>P </big></td>
+          <td style="vertical-align: top;"><big>25 </big></td>
+          <td style="vertical-align: top;"><big>Right shift </big></td>
+          <td style="vertical-align: top;"><big>54 </big></td>
+          <td style="vertical-align: top;"><big>Page down or 3 </big></td>
+          <td style="vertical-align: top;"><big>81 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>{ or [ </big></td>
+          <td style="vertical-align: top;"><big>26 </big></td>
+          <td style="vertical-align: top;"><big>Print Screen or * </big></td>
+          <td style="vertical-align: top;"><big>55 </big></td>
+          <td style="vertical-align: top;"><big>Insert or 0 </big></td>
+          <td style="vertical-align: top;"><big>82 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>} or ] </big></td>
+          <td style="vertical-align: top;"><big>27 </big></td>
+          <td style="vertical-align: top;"><big>Alt </big></td>
+          <td style="vertical-align: top;"><big>56 </big></td>
+          <td style="vertical-align: top;"><big>Delete or . </big></td>
+          <td style="vertical-align: top;"><big>83 </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Enter </big></td>
+          <td style="vertical-align: top;"><big>28 </big></td>
+          <td style="vertical-align: top;"><big>Spacebar </big></td>
+          <td style="vertical-align: top;"><big>57 </big></td>
+          <td style="vertical-align: top;"><big> </big><br>
+          </td>
+          <td style="vertical-align: top;"><big> </big><br>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Control </big></td>
+          <td style="vertical-align: top;"><big>29 </big></td>
+          <td style="vertical-align: top;"><big>Caps Lock </big></td>
+          <td style="vertical-align: top;"><big>58 </big></td>
+          <td style="vertical-align: top;"><big> </big><br>
+          </td>
+          <td style="vertical-align: top;"><big> </big><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId686993"></a><big>Chapter 2. Mouse</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">A few words about mouse</span><br>
+      <br>
+      Mouse is very useful for interaction with graphical user interface. But
+      mouse also can use in a video games.<br>
+      <br>
+      <span style="text-decoration: underline;">Working with mouse</span><br>
+      <br>
+      Just use <span style="font-style: italic;">Mouse</span> class for work
+      with mouse. Let’s look on public methods.<br>
+      <br>
+      <span style="font-style: italic;">void Mouse::show();</span> – Show mouse
+      cursor.<br>
+      <span style="font-style: italic;">void Mouse::hide();</span> – Hide mouse
+      cursor.<br>
+      <span style="font-style: italic;">unsigned long int Mouse::get_x();</span>
+      – Return x position of mouse.<br>
+      <span style="font-style: italic;">unsigned long int Mouse::get_y();</span>
+      – Return y position of mouse.<br>
+      <span style="font-style: italic;">void Mouse::set_position(const unsigned
+        long int x,const unsigned long int y);</span> – Set position of mouse.<br>
+      <span style="font-style: italic;">bool Mouse::check_hold(const
+        MOUSE_BUTTON button);</span> – Return true if specific mouse button is
+      pressed or holding.<br>
+      <span style="font-style: italic;">bool Mouse::check_press(const
+        MOUSE_BUTTON button);</span> – Return true if specific mouse button is
+      pressed.<br>
+      <span style="font-style: italic;">bool Mouse::check_release(const
+        MOUSE_BUTTON button);</span> – Return true if specific mouse button is
+      released.<br>
+      <br>
+      <span style="text-decoration: underline;">Mouse buttons</span><br>
+      <br>
+    </big>
+    <p><big> Mouse button codes look as predefined constants. You can see it
+        bellow.</big></p>
+    <big><br>
+    </big>
+    <table style="text-align: left; width: 300px; height: 124px;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><big>Mouse button code </big></td>
+          <td style="vertical-align: top;"><big>Button </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>MOUSE_LEFT </big></td>
+          <td style="vertical-align: top;"><big>Left button </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>MOUSE_RIGHT </big></td>
+          <td style="vertical-align: top;"><big>Right button </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>MOUSE_MIDDLE </big></td>
+          <td style="vertical-align: top;"><big>Middle button </big></td>
+        </tr>
+      </tbody>
+    </table>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId861609"></a><big>Chapter 3. Game-pad</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Best friend of retro gamer</span><br>
+      <br>
+      What is good choice for game control device when user play in arcade or
+      old-school style video-game? A game-pad. This library provides simple
+      access to a game-pads.<br>
+      <br>
+      <span style="text-decoration: underline;">Amount of connect game-pads</span><br>
+      <br>
+      You can connect a few game-pads. Any connected game-pad have an internal
+      index. First game-pad is 0. First game-pad will active by default at
+      program start.<br>
+      <br>
+      <span style="text-decoration: underline;">Ordinary buttons codes</span><br>
+      <br>
+      Ordinary buttons codes look as predefined constants. First button is <span style="font-style: italic;">GAMEPAD_BUTTON1</span>. Last button is <span style="font-style: italic;">GAMEPAD_BUTTON32</span>.<br>
+      <br>
+      <span style="text-decoration: underline;">D-pad buttons codes</span><br>
+      <br>
+    </big>
+    <p><big> D-pad button codes look as predefined constants. You can see it
+        bellow.</big></p>
+    <big><br>
+    </big>
+    <table style="text-align: left; width: 613px; height: 304px;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><big>D-pad button code </big></td>
+          <td style="vertical-align: top;"><big>D-pad button </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_NONE </big></td>
+          <td style="vertical-align: top;"><big>None of d-pad button is pressed
+              or holding </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_UP </big></td>
+          <td style="vertical-align: top;"><big>D-pad up </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_DOWN </big></td>
+          <td style="vertical-align: top;"><big>D-pad down </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_LEFT </big></td>
+          <td style="vertical-align: top;"><big>D-pad left </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_RIGHT </big></td>
+          <td style="vertical-align: top;"><big>D-pad right </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_UPLEFT </big></td>
+          <td style="vertical-align: top;"><big>Both D-pad up and D-pad left </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_UPRIGHT </big></td>
+          <td style="vertical-align: top;"><big>Both D-pad up and D-pad right </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_DOWNLEFT </big></td>
+          <td style="vertical-align: top;"><big>Both D-pad down and D-pad left </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_DOWNRIGHT </big></td>
+          <td style="vertical-align: top;"><big>Both D-pad down and D-pad right
+            </big></td>
+        </tr>
+      </tbody>
+    </table>
+    <big><br>
+      <span style="text-decoration: underline;">Sticks identifiers</span><br>
+      <br>
+    </big>
+    <p><big> Sticks identifiers look as predefined constants. You can see it
+        bellow.</big></p>
+    <big><br>
+    </big>
+    <table style="text-align: left; width: 365px; height: 94px;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><big>Identifiers </big></td>
+          <td style="vertical-align: top;"><big>Description </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_LEFT_STICK </big></td>
+          <td style="vertical-align: top;"><big>Left stick </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_RIGHT_STICK </big></td>
+          <td style="vertical-align: top;"><big>Right stick </big></td>
+        </tr>
+      </tbody>
+    </table>
+    <big><br>
+      <span style="text-decoration: underline;">Stick direction</span><br>
+      <br>
+    </big>
+    <p><big> Stick direction look as predefined constants. You can see it
+        bellow.</big></p>
+    <big><br>
+    </big>
+    <table style="text-align: left; width: 516px; height: 124px;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><big>Value </big></td>
+          <td style="vertical-align: top;"><big>X-direction </big></td>
+          <td style="vertical-align: top;"><big>Y-direction </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_NEUTRAL_DIRECTION </big></td>
+          <td style="vertical-align: top;"><big>Neutral </big></td>
+          <td style="vertical-align: top;"><big>Neutral </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_POSITIVE_DIRECTION </big></td>
+          <td style="vertical-align: top;"><big>Right </big></td>
+          <td style="vertical-align: top;"><big>Up </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>GAMEPAD_NEGATIVE_DIRECTION </big></td>
+          <td style="vertical-align: top;"><big>Left </big></td>
+          <td style="vertical-align: top;"><big>Down </big></td>
+        </tr>
+      </tbody>
+    </table>
+    <big><br>
+      <span style="text-decoration: underline;">Working with game-pad</span><br>
+      <br>
+      Just use <span style="font-style: italic;">Gamepad</span> class for work
+      with game-pad. Let’s look on public methods.<br>
+      <br>
+      <span style="font-style: italic;">unsigned char Gamepad::get_amount();</span>
+      – Return amount of connected game-pad.<br>
+      <span style="font-style: italic;">unsigned int
+        Gamepad::get_button_amount();</span> – Return amount of the game-pad
+      buttons.<br>
+      <span style="font-style: italic;">bool Gamepad::check_connection();</span>
+      – Return true if active game-pad is connected.<br>
+      <span style="font-style: italic;">void Gamepad::update();</span> – Update
+      internal game-pad state. Always call it before call another methods.<br>
+      <span style="font-style: italic;">void Gamepad::set_active(const unsigned
+        int gamepad);</span> – Set current active game-pad.<br>
+      <span style="font-style: italic;">unsigned int Gamepad::get_active()
+        const;</span> – Return index of current active game-pad.<br>
+      <span style="font-style: italic;">unsigned int Gamepad::get_last_index();</span>
+      – Return index of last connected game-pad.<br>
+      <span style="font-style: italic;">unsigned int Gamepad::get_max_amount()
+        const;</span> – Return maximum amount of connected game-pad.<br>
+      <span style="font-style: italic;">GAMEPAD_DPAD Gamepad::get_dpad() const;</span>
+      – Return code of current pressed or holding D-pad button.<br>
+      <span style="font-style: italic;">bool Gamepad::check_hold(const
+        GAMEPAD_BUTTONS button);</span> – Return true if the button is pressed
+      or holding.<br>
+      <span style="font-style: italic;">bool Gamepad::check_press(const
+        GAMEPAD_BUTTONS button);</span> – Return true if the button is pressed.<br>
+      <span style="font-style: italic;">bool Gamepad::check_released(const
+        GAMEPAD_BUTTONS button);</span> – Return true if the button is released.<br>
+      <span style="font-style: italic;">unsigned long int
+        Gamepad::get_sticks_amount();</span> – Return amount of the game-pad
+      sticks.<br>
+      <span style="font-style: italic;">GAMEPAD_DIRECTION
+        Gamepad::get_stick_x(const GAMEPAD_STICKS stick);</span> – Return
+      x-direction of specific stick.<br>
+      <span style="font-style: italic;">GAMEPAD_DIRECTION
+        Gamepad::get_stick_y(const GAMEPAD_STICKS stick);</span> – Return
+      y-direction of specific stick. </big>
+    <h1><a class="mozTocH1" name="mozTocId897139"></a><big>Part 7. Other
+        important things</big></h1>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId585261"></a><big>Chapter 1. Memory</big></h2>
+    <big><br>
+      RAM is very important resource. Just use <span style="font-style: italic;">Memory</span>
+      class for get total memory size and free memory size. Let’s look to public
+      methods.<br>
+      <br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_total_physical();</span> – Return total physical memory size
+      in bytes.<br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_free_physical();</span> – Return free physical memory size
+      in bytes.<br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_total_virtual();</span> – Return total <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
+        memory</a> size in bytes.<br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_free_virtual();</span> – Return free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
+        memory</a> size in bytes.<br>
+      <span style="font-style: italic;">unsigned long int Memory::get_usage();</span>
+      – Return percentage of physical memory usage. </big>
+    <h2><a class="mozTocH2" name="mozTocId903881"></a><big>Chapter 2. Multimedia</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Improve you game</span><br>
+      <br>
+      What is good things for a video games? A sounds and video. The sound can
+      improve game atmosphere. The video is very useful as splash between game
+      levels. It can use for show game story.<br>
+      <br>
+      <span style="text-decoration: underline;">Supported formats</span><br>
+      <br>
+    </big>
+    <p><big> You can see list of supported formats bellow.</big></p>
+    <big><br>
+    </big>
+    <table style="text-align: left; width: 315px; height: 214px;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><big>Format </big></td>
+          <td style="vertical-align: top;"><big>Type </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>WAVE </big></td>
+          <td style="vertical-align: top;"><big>Audio </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>MPEG Audio Layer 3 </big></td>
+          <td style="vertical-align: top;"><big>Audio </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Windows Media Audio </big></td>
+          <td style="vertical-align: top;"><big>Audio </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>MPEG–1 </big></td>
+          <td style="vertical-align: top;"><big>Video </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>MPEG–2 </big></td>
+          <td style="vertical-align: top;"><big>Video </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>Windows Media Video </big></td>
+          <td style="vertical-align: top;"><big>Video </big></td>
+        </tr>
+      </tbody>
+    </table>
+    <big><br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Additional formats</span><br>
+      <br>
+      You can use additional format if you install a third-party codecs.<br>
+      <br>
+      <span style="text-decoration: underline;">Working with multimedia</span><br>
+      <br>
+      Just use <span style="font-style: italic;">Multimedia</span> class for
+      work with multimedia. Let’s look on public methods.<br>
+      <br>
+      <span style="font-style: italic;">void Multimedia::initialize();</span> –
+      Initialize the multimedia subsystem.<br>
+      <span style="font-style: italic;">void Multimedia::load(const char
+        *target);</span> – Load a multimedia file.<br>
+      <span style="font-style: italic;">void Multimedia::play();</span> – Play a
+      content of the target file.<br>
+      <span style="font-style: italic;">void Multimedia::stop();</span> – Stop
+      playing a content of the target file.<br>
+      <span style="font-style: italic;">bool Multimedia::check_playing();</span>
+      – Return true if the multimedia resource is playing. </big>
+    <h1><a class="mozTocH1" name="mozTocId309127"></a><big>Part 8. Internal
+        details of the library subsystems</big></h1>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId383177"></a><big>Chapter 1. A few
+        words for a curious programmer</big></h2>
+    <big><br>
+      The library subsystems have a different internal structure. It hidden from
+      you and you don’t have access to it. Do you want know about hiding things?
+      Just read a next chapter. </big>
+    <h2><a class="mozTocH2" name="mozTocId318160"></a><big>Chapter 2. Internal
+        classes</big></h2>
+    <big><br>
+      Some classes designed for internal use only. Don’t touch them. What doing
+      these strange classes?<br>
+      <br>
+      <span style="font-style: italic;">Engine</span> create the game windows
+      and do message processing.<br>
+      <span style="font-style: italic;">Synchronization</span> implement the
+      synchronization timer.<br>
+      <span style="font-style: italic;">Display</span> implement display
+      manager.</big><br>
+    <big> <span style="font-style: italic;">FPS</span> implement fps counter.<br>
+    </big> <big><i>Unicode_Convertor</i> implement system code-page to UTF-16
+      convertor.</big><br>
+    <big> <span style="font-style: italic;">WINGL</span> contain Windows
+      specific OPENGL initialization code.<br>
+      <span style="font-style: italic;">Render</span> implement OPENGL render.<br>
+      <span style="font-style: italic;">Rectangle</span> intend for drawing
+      textured rectangle.<br>
+<span style="font-style: italic;">Coordinates</span> is base class for <span style="font-style: italic;">Rectangle</span> class.<br>
+      <span style="font-style: italic;">COM_Base</span> is base class for
+      <span style="font-style: italic;">Multimedia</span> class. </big>
+    <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
+        graphics subsystem</big></h2>
+    <big><span style="text-decoration: underline;"></span><br>
+      Base graphics subsystem working over <a href="http://opengl.org">OPENGL</a>.
+      OPENGL is very fast because it uses hardware acceleration.<br>
+      <span style="text-decoration: underline;"></span></big>
+    <big></big><br>
+<big><span style="font-style: italic;"></span> </big>
+    <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 4. Game-pad</big></h2>
+    <big><br>
+      Game-pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
+Multimedia
+        API</a>. </big>
+    <h2><a class="mozTocH2" name="mozTocId804583"></a><big>Chapter 5. Input</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Input back-end</span><br>
+      <br>
+      Keyboard and mouse input subsystems is very simple. It works over standard
+      Windows API.<br>
+      <br>
+      <span style="text-decoration: underline;">Internal key state</span><br>
+      <br>
+    </big>
+    <p><big> Internal state of keyboard keys and mouse buttons look as
+        predefined constants. You can see it bellow.</big></p>
+    <big><br>
+    </big>
+    <table style="text-align: left; width: 519px; height: 94px;" border="1" cellpadding="2" cellspacing="2">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><big>Key/button state </big></td>
+          <td style="vertical-align: top;"><big>Description </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>KEY_PRESSED </big></td>
+          <td style="vertical-align: top;"><big>A key\button is pressed or
+              holding </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>KEY_RELEASED </big></td>
+          <td style="vertical-align: top;"><big>A key\button is released </big></td>
+        </tr>
+      </tbody>
+    </table>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId692266"></a><big>Chapter 6. Multimedia</big></h2>
+    <big><br>
+      Multimedia subsystem working over <a href="https://docs.microsoft.com/en-us/windows/desktop/DirectShow/directshow">DirectShow</a>.
+      It available as part of <a href="https://docs.microsoft.com/en-us/windows/desktop/directx-sdk--august-2009-">DirectX</a>.
+      DirectX is pre-installed by default under modern versions of Windows. </big>
+    <h1><a class="mozTocH1" name="mozTocId78453"></a><big>Version history</big></h1>
+    <big><br>
+      0.1 – Initial version.<br>
+      0.1.1 – 0.7.6 – Internal unstable builds.</big><big><br>
+    </big>
+  </body></html>

@@ -1,0 +1,8 @@
+Media resources license
+
+All media resources is public domain.
+Sprite has been created by zxbranden(http://opengameart.org/users/zxbranden).
+Background image has been created by Rawdanitsu(http://opengameart.org/users/rawdanitsu).
+Background music has been created by Nikke(http://opengameart.org/users/nikke).
+Grass tileset has been created by Angry Amish(https://opengameart.org/users/angry-amish).
+The font is derived work from Symbola by George Douros(http://users.teilar.gr/~g1951d/).
