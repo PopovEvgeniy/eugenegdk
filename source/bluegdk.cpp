@@ -686,7 +686,7 @@ void Render::refresh()
  this->Swap();
 }
 
-Coordinates::Coordinates()
+Shape::Shape()
 {
  target_width=0;
  target_height=0;
@@ -694,7 +694,6 @@ Coordinates::Coordinates()
  total_height=0;
  current_x=0;
  current_y=0;
- angle=0;
  vertex[0].x=0;
  vertex[0].y=0;
  vertex[1].x=0;
@@ -711,24 +710,26 @@ Coordinates::Coordinates()
  point[2].v=0;
  point[3].u=0;
  point[3].v=0;
+ horizontal_mirror=DISABLE_MIRRORING;
+ vertical_mirror=DISABLE_MIRRORING;
 }
 
-Coordinates::~Coordinates()
+Shape::~Shape()
 {
 
 }
 
-float Coordinates::get_start_offset(const float current,const float total)
+float Shape::get_start_offset(const float current,const float total)
 {
  return (1.0/total)*(current-1);
 }
 
-float Coordinates::get_end_offset(const float current,const float total)
+float Shape::get_end_offset(const float current,const float total)
 {
  return (1.0/total)*current;
 }
 
-void Coordinates::reset_data()
+void Shape::reset_data()
 {
  vertex[0].x=0;
  vertex[0].y=target_height;
@@ -740,55 +741,45 @@ void Coordinates::reset_data()
  vertex[3].y=0;
 }
 
-unsigned long int Coordinates::get_total_width() const
+unsigned long int Shape::get_total_width() const
 {
  return total_width;
 }
 
-unsigned long int Coordinates::get_total_height() const
+unsigned long int Shape::get_total_height() const
 {
  return total_height;
 }
 
-void Coordinates::set_total_size(const unsigned long int width,const unsigned long int height)
+void Shape::set_total_size(const unsigned long int width,const unsigned long int height)
 {
  total_width=width;
  total_height=height;
 }
 
-unsigned long int Coordinates::get_x() const
+unsigned long int Shape::get_x() const
 {
  return current_x;
 }
 
-unsigned long int Coordinates::get_y() const
+unsigned long int Shape::get_y() const
 {
  return current_y;
 }
 
-float Coordinates::get_angle() const
-{
- return angle;
-}
-
-void Coordinates::set_size(const unsigned long int width,const unsigned long int height)
+void Shape::set_size(const unsigned long int width,const unsigned long int height)
 {
  target_width=width;
  target_height=height;
 }
 
-void Coordinates::set_position(const unsigned long int x,const unsigned long int y)
+void Shape::set_position(const unsigned long int x,const unsigned long int y)
 {
  current_x=x;
  current_y=y;
 }
 
-void Coordinates::rotate_model(const float degree)
-{
- angle=degree;
-}
-
-void Coordinates::set_horizontal_offset(const float current,const float total)
+void Shape::set_horizontal_offset(const float current,const float total)
 {
  point[0].u=this->get_start_offset(current,total);
  point[0].v=1;
@@ -800,7 +791,7 @@ void Coordinates::set_horizontal_offset(const float current,const float total)
  point[3].v=0;
 }
 
-void Coordinates::set_vertical_offset(const float current,const float total)
+void Shape::set_vertical_offset(const float current,const float total)
 {
  point[0].u=0;
  point[0].v=this->get_end_offset(current,total);
@@ -812,7 +803,7 @@ void Coordinates::set_vertical_offset(const float current,const float total)
  point[3].v=this->get_start_offset(current,total);
 }
 
-void Coordinates::set_tile_offset(const float row,const float rows,const float column,const float columns)
+void Shape::set_tile_offset(const float row,const float rows,const float column,const float columns)
 {
  point[0].u=this->get_start_offset(row,rows);
  point[0].v=this->get_end_offset(column,columns);
@@ -822,6 +813,22 @@ void Coordinates::set_tile_offset(const float row,const float rows,const float c
  point[2].v=this->get_start_offset(column,columns);
  point[3].u=this->get_start_offset(row,rows);
  point[3].v=this->get_start_offset(column,columns);
+}
+
+void Shape::set_mirror_status(const MIRROR_STATUS horizontal,const MIRROR_STATUS vertical)
+{
+ horizontal_mirror=horizontal;
+ vertical_mirror=vertical;
+}
+
+MIRROR_STATUS Shape::get_horizontal_mirror() const
+{
+ return horizontal_mirror;
+}
+
+MIRROR_STATUS Shape::get_vertical_mirror() const
+{
+ return vertical_mirror;
 }
 
 Rectangle::Rectangle()
@@ -884,11 +891,12 @@ void Rectangle::reset_model_matrix()
  glLoadIdentity();
 }
 
-void Rectangle::set_model_matrix_setting()
+void Rectangle::set_model_setting()
 {
  glMatrixMode(GL_MODELVIEW);
- glRotatef(this->get_angle(),0,0,0);
  glTranslatef(this->get_x(),this->get_y(),0);
+ glMatrixMode(GL_TEXTURE);
+ glScalef(this->get_horizontal_mirror(),this->get_vertical_mirror(),0);
 }
 
 void Rectangle::enable_transparent()
@@ -917,9 +925,10 @@ void Rectangle::draw()
 {
  this->reset_data();
  this->load_data();
- this->set_model_matrix_setting();
+ this->set_model_setting();
  this->draw_rectangle();
  this->reset_model_matrix();
+ this->reset_texture_matrix();
 }
 
 Screen::Screen()
@@ -2390,12 +2399,28 @@ void Sprite::clone(Sprite &target)
 
 void Sprite::horizontal_mirror()
 {
- target.rotate_model(180);
+ if (target.get_horizontal_mirror()==DISABLE_MIRRORING)
+ {
+  target.set_mirror_status(ENABLE_MIRRORING,target.get_vertical_mirror());
+ }
+ else
+ {
+  target.set_mirror_status(DISABLE_MIRRORING,target.get_vertical_mirror());
+ }
+
 }
 
 void Sprite::vertical_mirror()
 {
- target.rotate_model(90);
+ if (target.get_vertical_mirror()==DISABLE_MIRRORING)
+ {
+  target.set_mirror_status(target.get_horizontal_mirror(),ENABLE_MIRRORING);
+ }
+ else
+ {
+  target.set_mirror_status(target.get_horizontal_mirror(),DISABLE_MIRRORING);
+ }
+
 }
 
 void Sprite::draw_sprite()

@@ -73,6 +73,7 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #define GETSCANCODE(argument) ((argument >> 16)&0x7f)
 #define MOUSE 3
 
+enum MIRROR_STATUS {DISABLE_MIRRORING=1,ENABLE_MIRRORING=-1};
 enum BACKGROUND_TYPE {NORMAL_BACKGROUND=0,HORIZONTAL_BACKGROUND=1,VERTICAL_BACKGROUND=2};
 enum SPRITE_TYPE {SINGLE_SPRITE=0,HORIZONTAL_STRIP=1,VERTICAL_STRIP=2};
 enum MOUSE_BUTTON {MOUSE_LEFT=0,MOUSE_RIGHT=1,MOUSE_MIDDLE=2};
@@ -294,7 +295,7 @@ class Render:public WINGL
  ~Render();
 };
 
-class Coordinates
+class Shape
 {
  private:
  unsigned long int target_width;
@@ -303,7 +304,8 @@ class Coordinates
  unsigned long int total_height;
  unsigned long int current_x;
  unsigned long int current_y;
- float angle;
+ MIRROR_STATUS horizontal_mirror;
+ MIRROR_STATUS vertical_mirror;
  float get_start_offset(const float current,const float total);
  float get_end_offset(const float current,const float total);
  protected:
@@ -314,20 +316,21 @@ class Coordinates
  unsigned long int get_total_height() const;
  unsigned long int get_x() const;
  unsigned long int get_y() const;
- float get_angle() const;
  public:
- Coordinates();
- ~Coordinates();
+ Shape();
+ ~Shape();
  void set_total_size(const unsigned long int width,const unsigned long int height);
  void set_size(const unsigned long int width,const unsigned long int height);
  void set_position(const unsigned long int x,const unsigned long int y);
- void rotate_model(const float degree);
  void set_horizontal_offset(const float current,const float total);
  void set_vertical_offset(const float current,const float total);
  void set_tile_offset(const float row,const float rows,const float column,const float columns);
+ void set_mirror_status(const MIRROR_STATUS horizontal,const MIRROR_STATUS vertical);
+ MIRROR_STATUS get_horizontal_mirror() const;
+ MIRROR_STATUS get_vertical_mirror() const;
 };
 
-class Rectangle:public Coordinates
+class Rectangle:public Shape
 {
  private:
  unsigned int texture;
@@ -337,7 +340,7 @@ class Rectangle:public Coordinates
  void load_data();
  void draw_rectangle();
  void reset_model_matrix();
- void set_model_matrix_setting();
+ void set_model_setting();
  public:
  Rectangle();
  ~Rectangle();
