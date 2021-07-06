@@ -21,6 +21,9 @@
 
 
 
+
+
+
   
     <meta http-equiv="content-type" content="text/html; charset=windows-1251"><title>Programmer reference</title></head><body> <big> </big>
     <div style="text-align: center;"><big>Blue game development kit: Programmer
@@ -343,9 +346,9 @@ C++
       <span style="font-style: italic;">unsigned long int Screen::get_color()
         const;</span> – Return current color depth in bits per pixel.<br>
       <span style="font-style: italic;">unsigned long int Screen::get_width()
-        const;</span> – Return the real screen width in pixels.<br>
+        const;</span> – Return screen width in pixels.<br>
       <span style="font-style: italic;">unsigned long int Screen::get_height()
-        const;</span> – Return the real screen height in pixels.<span style="font-style: italic;"></span><br>
+        const;</span> – Return screen height in pixels.<span style="font-style: italic;"></span><br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId289525"></a><big>Chapter 2. Picture
         subsystem</big></h2>
@@ -568,6 +571,8 @@ C++
       <span style="font-style: italic;">void Sprite::set_position(const unsigned
         long int x, const unsigned long int y);</span> – Set sprite position.<br>
 <span style="font-style: italic;">void Sprite::set_size(const unsigned long int width, const unsigned long int height);</span> – Change the sprite size.<br>
+<span style="font-style: italic;">void Sprite::set_width(const unsigned long int width);</span> – Change the sprite width.<br>
+<span style="font-style: italic;">void Sprite::set_height(const unsigned long int height);</span> – Change the sprite height.<br>
 <span style="font-style: italic;">void Sprite::horizontal_mirror();</span> – Do horizontal sprite mirror.<br>
 <span style="font-style: italic;">void Sprite::vertical_mirror();</span> – Do vertical sprite mirror.<br>
     </big><big> <span style="font-style: italic;">void Sprite::draw_sprite();</span>
@@ -678,9 +683,7 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
       few methods.<br>
       <br>
       <span style="font-style: italic;">void Image::load_tga(const char *name);</span>
-      – Load a Truevision TGA image.<br>
-      <span style="font-style: italic;">void Image::load_pcx(const char *name);</span>
-      – Load a ZSoft PC Paintbrush image.<br>
+      – Load a Truevision TGA image.<span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">unsigned long int Image::get_width()
         const;</span> – Return width of current image.<br>
       <span style="font-style: italic;">unsigned long int Image::get_height()
@@ -717,12 +720,7 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
           <td style="vertical-align: top;"><big>None, RLE </big></td>
           <td style="vertical-align: top;"><big>Not present </big></td>
         </tr>
-        <tr>
-          <td style="vertical-align: top;"><big>ZSoft PC Paintbrush </big></td>
-          <td style="vertical-align: top;"><big>24 bit </big></td>
-          <td style="vertical-align: top;"><big>RLE </big></td>
-          <td style="vertical-align: top;"><big>Not present </big></td>
-        </tr>
+        
       </tbody>
     </table>
     <big><br>
@@ -1611,7 +1609,12 @@ Multimedia
 </big><big>
 0.7.8 </big><big>–</big><big> Small bug in sprite subsystem was fixed.<br>
 </big><big>
-0.7.9 </big><big>– </big><big>0.8.1 – Small changes.</big><br>
+0.7.9 </big><big>– </big><big>0.8.1 – Small changes.<br>
+0.8.2 – Sprite subsystem was improved.<br>
+0.8.3 – PCX support was removed.<br>
+0.8.4 – Small changes.<br>
+
+</big>
 <big>
     </big>
   </body></html>

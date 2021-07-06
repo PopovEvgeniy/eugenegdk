@@ -1856,71 +1856,6 @@ void Image::load_tga(const char *name)
  data=uncompressed;
 }
 
-void Image::load_pcx(const char *name)
-{
- Input_File target;
- unsigned long int x,y;
- size_t index,position,line,row,length,uncompressed_length;
- unsigned char repeat;
- unsigned char *original;
- unsigned char *uncompressed;
- PCX_head head;
- this->clear_buffer();
- target.open(name);
- length=static_cast<size_t>(target.get_length()-128);
- target.read(&head,128);
- if ((head.color*head.planes!=24)&&(head.compress!=1))
- {
-  Halt("Incorrect image format");
- }
- width=head.max_x-head.min_x+1;
- height=head.max_y-head.min_y+1;
- row=static_cast<size_t>(width)*3;
- line=static_cast<size_t>(head.planes)*static_cast<size_t>(head.plane_length);
- uncompressed_length=row*height;
- index=0;
- position=0;
- original=this->create_buffer(length);
- uncompressed=this->create_buffer(uncompressed_length);
- target.read(original,length);
- target.close();
- while (index<length)
- {
-  if (original[index]<192)
-  {
-   uncompressed[position]=original[index];
-   ++position;
-   ++index;
-  }
-  else
-  {
-   for (repeat=original[index]-192;repeat>0;--repeat)
-   {
-    uncompressed[position]=original[index+1];
-    ++position;
-   }
-   index+=2;
-  }
-
- }
- delete[] original;
- original=this->create_buffer(uncompressed_length);
- for (x=0;x<width;++x)
- {
-  for (y=0;y<height;++y)
-  {
-   index=static_cast<size_t>(x)*3+static_cast<size_t>(y)*row;
-   position=static_cast<size_t>(x)+static_cast<size_t>(y)*line;
-   original[index]=uncompressed[position+2*static_cast<size_t>(head.plane_length)];
-   original[index+1]=uncompressed[position+static_cast<size_t>(head.plane_length)];
-   original[index+2]=uncompressed[position];
-  }
-
- }
- delete[] uncompressed;
- data=original;
-}
-
 unsigned long int Image::get_width() const
 {
  return width;
@@ -2013,21 +1948,6 @@ void Picture::set_buffer(unsigned char *buffer)
 unsigned char *Picture::get_buffer()
 {
  return image;
-}
-
-unsigned char Picture::get_transparent_red() const
-{
- return image[2];
-}
-
-unsigned char Picture::get_transparent_green() const
-{
- return image[1];
-}
-
-unsigned char Picture::get_transparent_blue() const
-{
- return image[0];
 }
 
 size_t Picture::get_length() const
@@ -2383,6 +2303,16 @@ void Sprite::set_position(const unsigned long int x,const unsigned long int y)
 void Sprite::set_size(const unsigned long int width,const unsigned long int height)
 {
  sprite_width=width;
+ sprite_height=height;
+}
+
+void Sprite::set_width(const unsigned long int width)
+{
+ sprite_width=width;
+}
+
+void Sprite::set_height(const unsigned long int height)
+{
  sprite_height=height;
 }
 

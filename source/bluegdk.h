@@ -110,28 +110,6 @@ struct TGA_image
  unsigned char direction:5;
 };
 
-struct PCX_head
-{
- unsigned char vendor:8;
- unsigned char version:8;
- unsigned char compress:8;
- unsigned char color:8;
- unsigned short int min_x:16;
- unsigned short int min_y:16;
- unsigned short int max_x:16;
- unsigned short int max_y:16;
- unsigned short int vertical_dpi:16;
- unsigned short int horizontal_dpi:16;
- unsigned char palette[48];
- unsigned char reversed:8;
- unsigned char planes:8;
- unsigned short int plane_length:16;
- unsigned short int palette_type:16;
- unsigned short int screen_width:16;
- unsigned short int screen_height:16;
- unsigned char filled[54];
-};
-
 struct Collision_Box
 {
  unsigned long int x:32;
@@ -539,7 +517,6 @@ class Image
  Image();
  ~Image();
  void load_tga(const char *name);
- void load_pcx(const char *name);
  unsigned long int get_width() const;
  unsigned long int get_height() const;
  size_t get_length() const;
@@ -561,9 +538,6 @@ class Picture
  void set_height(const unsigned long int image_height);
  void set_buffer(unsigned char *buffer);
  unsigned char *get_buffer();
- unsigned char get_transparent_red() const;
- unsigned char get_transparent_green() const;
- unsigned char get_transparent_blue() const;
  public:
  Picture();
  ~Picture();
@@ -650,6 +624,8 @@ class Sprite:public Frame,public Picture
  void step();
  void set_position(const unsigned long int x,const unsigned long int y);
  void set_size(const unsigned long int width,const unsigned long int height);
+ void set_width(const unsigned long int width);
+ void set_height(const unsigned long int height);
  void clone(Sprite &target);
  void horizontal_mirror();
  void vertical_mirror();
