@@ -180,22 +180,10 @@ class Engine
  ~Engine();
 };
 
-class Timer
-{
- private:
- unsigned long int interval;
- time_t start;
- public:
- Timer();
- ~Timer();
- void set_timer(const unsigned long int seconds);
- bool check_timer();
-};
-
 class FPS
 {
  private:
- Timer timer;
+ time_t start;
  unsigned long int current;
  unsigned long int fps;
  protected:
@@ -314,10 +302,9 @@ class Rectangle:public Shape
  unsigned int texture;
  void create_texture(const void *buffer);
  void delete_texture();
- void reset_texture_matrix();
  void load_data();
  void draw_rectangle();
- void reset_model_matrix();
+ void reset_model_setting();
  void set_model_setting();
  public:
  Rectangle();
@@ -674,6 +661,18 @@ class Text
  void draw_text(const char *text);
  void draw_character(const unsigned long int x,const unsigned long int y,const char target);
  void draw_text(const unsigned long int x,const unsigned long int y,const char *text);
+};
+
+class Timer
+{
+ private:
+ unsigned long int interval;
+ time_t start;
+ public:
+ Timer();
+ ~Timer();
+ void set_timer(const unsigned long int seconds);
+ bool check_timer();
 };
 
 class Collision

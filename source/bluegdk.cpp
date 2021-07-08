@@ -317,38 +317,9 @@ bool Engine::process_message()
  return run;
 }
 
-Timer::Timer()
-{
- interval=0;
- start=time(NULL);
-}
-
-Timer::~Timer()
-{
-
-}
-
-void Timer::set_timer(const unsigned long int seconds)
-{
- interval=seconds;
- start=time(NULL);
-}
-
-bool Timer::check_timer()
-{
- bool result;
- result=false;
- if (difftime(time(NULL),start)>=interval)
- {
-  result=true;
-  start=time(NULL);
- }
- return result;
-}
-
 FPS::FPS()
 {
- timer.set_timer(1);
+ start=time(NULL);
  current=0;
  fps=0;
 }
@@ -361,10 +332,11 @@ FPS::~FPS()
 void FPS::update_counter()
 {
  ++current;
- if (timer.check_timer()==true)
+ if (difftime(time(NULL),start)>=1)
  {
   fps=current;
   current=0;
+  start=time(NULL);
  }
 
 }
@@ -867,12 +839,6 @@ void Rectangle::delete_texture()
 
 }
 
-void Rectangle::reset_texture_matrix()
-{
- glMatrixMode(GL_TEXTURE);
- glLoadIdentity();
-}
-
 void Rectangle::load_data()
 {
  glVertexPointer(2,GL_INT,0,vertex);
@@ -885,8 +851,10 @@ void Rectangle::draw_rectangle()
  glDrawArrays(GL_TRIANGLE_FAN,0,4);
 }
 
-void Rectangle::reset_model_matrix()
+void Rectangle::reset_model_setting()
 {
+ glMatrixMode(GL_TEXTURE);
+ glLoadIdentity();
  glMatrixMode(GL_MODELVIEW);
  glLoadIdentity();
 }
@@ -917,8 +885,7 @@ void Rectangle::prepare(const void *buffer)
 {
  this->delete_texture();
  this->create_texture(buffer);
- this->reset_model_matrix();
- this->reset_texture_matrix();
+ this->reset_model_setting();
 }
 
 void Rectangle::draw()
@@ -927,8 +894,7 @@ void Rectangle::draw()
  this->load_data();
  this->set_model_setting();
  this->draw_rectangle();
- this->reset_model_matrix();
- this->reset_texture_matrix();
+ this->reset_model_setting();
 }
 
 Screen::Screen()
@@ -2518,6 +2484,35 @@ void Text::draw_text(const unsigned long int x,const unsigned long int y,const c
 {
  this->set_position(x,y);
  this->draw_text(text);
+}
+
+Timer::Timer()
+{
+ interval=0;
+ start=time(NULL);
+}
+
+Timer::~Timer()
+{
+
+}
+
+void Timer::set_timer(const unsigned long int seconds)
+{
+ interval=seconds;
+ start=time(NULL);
+}
+
+bool Timer::check_timer()
+{
+ bool result;
+ result=false;
+ if (difftime(time(NULL),start)>=interval)
+ {
+  result=true;
+  start=time(NULL);
+ }
+ return result;
 }
 
 Collision::Collision()
