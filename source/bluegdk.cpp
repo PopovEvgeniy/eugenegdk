@@ -825,7 +825,7 @@ void Rectangle::create_texture(const void *buffer)
  glBindTexture(GL_TEXTURE_2D,texture);
  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
- gluBuild2DMipmaps(GL_TEXTURE_2D,3,this->get_total_width(),this->get_total_height(),GL_BGR_EXT,GL_UNSIGNED_BYTE,buffer);
+ gluBuild2DMipmaps(GL_TEXTURE_2D,4,this->get_total_width(),this->get_total_height(),GL_BGRA_EXT,GL_UNSIGNED_BYTE,buffer);
 }
 
 void Rectangle::delete_texture()
@@ -871,7 +871,7 @@ void Rectangle::enable_transparent()
 {
  glEnable(GL_ALPHA_TEST);
  glEnable(GL_BLEND);
- glAlphaFunc(GL_ALWAYS,0);
+ glAlphaFunc(GL_GEQUAL,0.1);
  glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 }
 
@@ -1769,7 +1769,7 @@ void Image::load_tga(const char *name)
  target.read(&head,3);
  target.read(&color_map,5);
  target.read(&image,10);
- if ((head.color_map!=0)||(image.color!=24))
+ if (image.color!=32)
  {
   Halt("Invalid image format");
  }
@@ -1800,7 +1800,7 @@ void Image::load_tga(const char *name)
    if (compressed[position]<128)
    {
     amount=compressed[position]+1;
-    amount*=3;
+    amount*=sizeof(unsigned int);
     memmove(uncompressed+index,compressed+(position+1),amount);
     index+=amount;
     position+=1+amount;
@@ -1809,10 +1809,10 @@ void Image::load_tga(const char *name)
    {
     for (amount=compressed[position]-127;amount>0;--amount)
     {
-     memmove(uncompressed+index,compressed+(position+1),3);
-     index+=3;
+     memmove(uncompressed+index,compressed+(position+1),sizeof(unsigned int));
+     index+=sizeof(unsigned int);
     }
-    position+=4;
+    position+=1+sizeof(unsigned int);
    }
 
   }
@@ -1834,7 +1834,7 @@ unsigned long int Image::get_height() const
 
 size_t Image::get_length() const
 {
- return static_cast<size_t>(width)*static_cast<size_t>(height)*3;
+ return static_cast<size_t>(width)*static_cast<size_t>(height)*sizeof(unsigned int);
 }
 
 unsigned char *Image::get_data()
@@ -1871,7 +1871,7 @@ unsigned char *Picture::create_buffer()
 {
  unsigned char *result;
  result=NULL;
- length=static_cast<size_t>(width)*static_cast<size_t>(height)*3;
+ length=static_cast<size_t>(width)*static_cast<size_t>(height)*sizeof(unsigned int);
  try
  {
   result=new unsigned char[length];
