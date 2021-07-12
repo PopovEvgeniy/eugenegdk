@@ -871,7 +871,7 @@ void Rectangle::enable_transparent()
 {
  glEnable(GL_ALPHA_TEST);
  glEnable(GL_BLEND);
- glAlphaFunc(GL_GEQUAL,0.1);
+ glAlphaFunc(GL_GREATER,0);
  glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 }
 
@@ -892,9 +892,79 @@ void Rectangle::draw()
 {
  this->reset_data();
  this->load_data();
+ this->reset_model_setting();
  this->set_model_setting();
  this->draw_rectangle();
- this->reset_model_setting();
+}
+
+Primitive::Primitive()
+{
+
+}
+
+Primitive::~Primitive()
+{
+
+}
+
+void Primitive::prepare()
+{
+ glDisable(GL_ALPHA_TEST);
+ glDisable(GL_BLEND);
+ glPointSize(1);
+ glLineStipple(1,0xFF);
+ glColor3ub(0,0,0);
+}
+
+void Primitive::set_color(const unsigned char red,const unsigned char green,const unsigned char blue)
+{
+ glColor3ub(red,green,blue);
+}
+
+void Primitive::draw_pixel(const unsigned long int x,const unsigned long int y)
+{
+ glBegin(GL_POINTS);
+ glVertex2i(x,y);
+ glEnd();
+}
+
+void Primitive::draw_line(const unsigned long int x,const unsigned long int y,const unsigned long int x2,const unsigned long int y2)
+{
+ glBegin(GL_LINES);
+ glVertex2i(x,y);
+ glVertex2i(x2,y2);
+ glEnd();
+}
+
+void Primitive::draw_rectangle(const unsigned long int x,const unsigned long int y,const unsigned long int width,const unsigned long int height)
+{
+ glPolygonMode(GL_FRONT,GL_LINE);
+ glMatrixMode(GL_MODELVIEW);
+ glLoadIdentity();
+ glTranslatef(x,y,0);
+ glBegin(GL_QUADS);
+ glVertex2i(0,height);
+ glVertex2i(width,height);
+ glVertex2i(width,0);
+ glVertex2i(0,0);
+ glEnd();
+ glLoadIdentity();
+ glPolygonMode(GL_FRONT,GL_FILL);
+}
+
+void Primitive::draw_filled_rectangle(const unsigned long int x,const unsigned long int y,const unsigned long int width,const unsigned long int height)
+{
+ glPolygonMode(GL_FRONT,GL_FILL);
+ glMatrixMode(GL_MODELVIEW);
+ glLoadIdentity();
+ glTranslatef(x,y,0);
+ glBegin(GL_QUADS);
+ glVertex2i(0,height);
+ glVertex2i(width,height);
+ glVertex2i(width,0);
+ glVertex2i(0,0);
+ glEnd();
+ glLoadIdentity();
 }
 
 Screen::Screen()

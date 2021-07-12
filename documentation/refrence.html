@@ -1,68 +1,91 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    <meta http-equiv="content-type" content="text/html; charset=windows-1251"><title>Programmer reference</title></head><body> <big> </big>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1251">
+    <title>Programmer reference</title>
+  </head>
+  <body> <big> </big>
     <div style="text-align: center;"><big>Blue game development kit: Programmer
         reference</big> </div>
     <big><br>
       <br>
       Table of contents</big>
-    <ul id="mozToc"><!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6--><li><a href="#mozTocId665557">Part 1. Welcome to
-        Blue game development kit</a><ul><li><a href="#mozTocId471990">Chapter 1.
-        Introduction</a></li><li><a href="#mozTocId85003">Chapter 2. A special
-        thanks</a></li><li><a href="#mozTocId810132">Chapter 3. License</a></li><li><a href="#mozTocId336772">Chapter 4. System
-        requirements</a></li><li><a href="#mozTocId928115">Chapter 5. Trouble
-        guide</a></li><li><a href="#mozTocId491993">Chapter 6. Compilers</a></li><li><a href="#mozTocId914689">Chapter 7. Library
-        name-space</a></li></ul></li><li><a href="#mozTocId859712">Part 2. Base things</a><ul><li><a href="#mozTocId312970">Chapter 1. Coordinate
-        system</a></li><li><a href="#mozTocId544184">Chapter 2. A game
-        cycle</a></li></ul></li><li><a href="#mozTocId760374">Part 3. Graphics</a><ul><li><a href="#mozTocId552078">Chapter 1. Base
-        graphics subsystem</a></li><li><a href="#mozTocId289525">Chapter 2. Picture
-        subsystem</a></li><li><a href="#mozTocId501089">Chapter 3. Animation subsystem</a></li><li><a href="#mozTocId455894"> Chapter 4.
-        Background</a></li><li><a href="#mozTocId662651"> Chapter 5. Sprites</a></li><li><a href="#mozTocId367464">Chapter 6. Text</a></li><li><a href="#mozTocId146800">Chapter 7. Tile-set</a></li><li><a href="#mozTocId67980">Chapter 8. Loading
-        images</a></li></ul></li><li><a href="#mozTocId64443">Part 4. Common things</a><ul><li><a href="#mozTocId236677">Chapter 1.
-        Interaction with operation system</a></li><li><a href="#mozTocId688163">Chapter
-        2. Filesystem</a></li><li><a href="#mozTocId853711">Chapter 3. Abnormal
-        program termination</a></li><li><a href="#mozTocId656377">Chapter 4. Timer</a></li><li><a href="#mozTocId638476">Chapter 5. Coordinate
-        system</a></li><li><a href="#mozTocId381935">Chapter 6. Collision</a></li></ul></li><li><a href="#mozTocId590919">
-        Part 5. Binary files</a><ul><li><a href="#mozTocId961921">
-        Chapter 1. Base binary files subsystem</a></li><li><a href="#mozTocId424835">
-        Chapter 2. File reader</a></li><li><a href="#mozTocId511135">
-        Chapter 3. File writer</a></li></ul></li><li><a href="#mozTocId291572">Part 6. Input</a><ul><li><a href="#mozTocId685403">Chapter 1. Keyboard</a></li><li><a href="#mozTocId686993">Chapter 2. Mouse</a></li><li><a href="#mozTocId861609">Chapter 3. Game-pad</a></li></ul></li><li><a href="#mozTocId897139">Part 7. Other
-        important things</a><ul><li><a href="#mozTocId585261">Chapter 1. Memory</a></li><li><a href="#mozTocId903881">Chapter 2. Multimedia</a></li></ul></li><li><a href="#mozTocId309127">Part 8. Internal
-        details of the library subsystems</a><ul><li><a href="#mozTocId383177">Chapter 1. A few
-        words for a curious programmer</a></li><li><a href="#mozTocId318160">Chapter 2. Internal
-        classes</a></li><li><a href="#mozTocId293644">Chapter 3. Base
-        graphics subsystem</a></li><li><a href="#mozTocId472209">Chapter 4. Game-pad</a></li><li><a href="#mozTocId804583">Chapter 5. Input</a></li><li><a href="#mozTocId692266">Chapter 6. Multimedia</a></li></ul></li><li><a href="#mozTocId78453">Version history</a></li></ul>
+    <ul id="mozToc">
+      <!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
+      <li><a href="#mozTocId665557">Part 1. Welcome to Blue game development kit</a>
+        <ul>
+          <li><a href="#mozTocId471990">Chapter 1. Introduction</a></li>
+          <li><a href="#mozTocId85003">Chapter 2. A special thanks</a></li>
+          <li><a href="#mozTocId810132">Chapter 3. License</a></li>
+          <li><a href="#mozTocId336772">Chapter 4. System requirements</a></li>
+          <li><a href="#mozTocId928115">Chapter 5. Trouble guide</a></li>
+          <li><a href="#mozTocId491993">Chapter 6. Compilers</a></li>
+          <li><a href="#mozTocId914689">Chapter 7. The engine name-space</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId859712">Part 2. Base things</a>
+        <ul>
+          <li><a href="#mozTocId312970">Chapter 1. Coordinate system</a></li>
+          <li><a href="#mozTocId544184">Chapter 2. A game cycle</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId760374">Part 3. Graphics</a>
+        <ul>
+          <li><a href="#mozTocId552078">Chapter 1. Base graphics subsystem</a></li>
+          <li><a href="#mozTocId225176">Chapter 2. Graphic primitives</a></li>
+          <li><a href="#mozTocId289525">Chapter 3. Picture subsystem</a></li>
+          <li><a href="#mozTocId501089">Chapter 4. Animation subsystem</a></li>
+          <li><a href="#mozTocId455894"> Chapter 5. Background</a></li>
+          <li><a href="#mozTocId662651"> Chapter 6. Sprites</a></li>
+          <li><a href="#mozTocId367464">Chapter 7. Text</a></li>
+          <li><a href="#mozTocId146800">Chapter 8. Tile-set</a></li>
+          <li><a href="#mozTocId67980">Chapter 9. Loading images</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId64443">Part 4. Common things</a>
+        <ul>
+          <li><a href="#mozTocId236677">Chapter 1. Interaction with operation
+              system</a></li>
+          <li><a href="#mozTocId688163">Chapter 2. Filesystem</a></li>
+          <li><a href="#mozTocId853711">Chapter 3. Abnormal program termination</a></li>
+          <li><a href="#mozTocId656377">Chapter 4. Timer</a></li>
+          <li><a href="#mozTocId638476">Chapter 5. Coordinate system</a></li>
+          <li><a href="#mozTocId381935">Chapter 6. Collision</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId590919"> Part 5. Binary files</a>
+        <ul>
+          <li><a href="#mozTocId961921"> Chapter 1. Base binary files subsystem</a></li>
+          <li><a href="#mozTocId424835"> Chapter 2. File reader</a></li>
+          <li><a href="#mozTocId511135"> Chapter 3. File writer</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId291572">Part 6. Input</a>
+        <ul>
+          <li><a href="#mozTocId685403">Chapter 1. Keyboard</a></li>
+          <li><a href="#mozTocId686993">Chapter 2. Mouse</a></li>
+          <li><a href="#mozTocId861609">Chapter 3. Game-pad</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId897139">Part 7. Other important things</a>
+        <ul>
+          <li><a href="#mozTocId585261">Chapter 1. Memory</a></li>
+          <li><a href="#mozTocId903881">Chapter 2. Multimedia</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId309127">Part 8. Internal details of the engine
+          subsystems</a>
+        <ul>
+          <li><a href="#mozTocId383177">Chapter 1. A few words for a curious
+              programmer</a></li>
+          <li><a href="#mozTocId318160">Chapter 2. Internal classes</a></li>
+          <li><a href="#mozTocId293644">Chapter 3. Base graphics subsystem</a></li>
+          <li><a href="#mozTocId472209">Chapter 4. Game-pad</a></li>
+          <li><a href="#mozTocId804583">Chapter 5. Input</a></li>
+          <li><a href="#mozTocId692266">Chapter 6. Multimedia</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId78453">Version history</a></li>
+    </ul>
     <big> </big>
     <h1><a class="mozTocH1" name="mozTocId665557"></a><big>Part 1. Welcome to
         Blue game development kit</big></h1>
@@ -75,25 +98,25 @@
       Hello from Russia. My name is Popov Evgeniy Alekseyevich. I am the
       individual programmer. I enjoy creating a software. I also like old–school
       video games. Do you want to develop a video games for Microsoft Windows?
-      You need a good multimedia library for do it. I made my own library. I
-      hope that my C++ library will be useful for many programmers.<br>
+      You need a good game engine for do it. I made my own engine. I hope that
+      my C++ game engine will be useful for many programmers.<br>
       <br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Features</span><br>
       <br>
-      Let me show the library features. Let’s go. </big>
+      Let me show the engine features. Let’s go. </big>
     <ul>
       <li><big>Open source code.</big></li>
       <li><big>Easy to use object–orientated design.</big></li>
       <li><big>Very fast.</big></li>
       <li><big>Minimum external dependencies: Only DirectX, OPENGL and standard
           Windows API libraries.</big></li>
-      <li><big>Don’t need to link main program with library binary file. The
-          library is just source code files with all library codes.</big></li>
+      <li><big>Don’t need to link main program with engine binary file. The
+          engine is just source code files with all engine codes.</big></li>
     </ul>
     <big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Installation</span><br>
       <br>
-      How you can install this library? Follow this steps:<br>
+      How you can install this engine? Follow this steps:<br>
       <br>
       Copy these files to you project directory: </big>
     <ul>
@@ -175,11 +198,12 @@
         requirements</big></h2>
     <big><br>
     </big>
-    <p><big> System requirements of you game depend on the library system
+    <p><big> System requirements of you game depend on the engine system
         requirement. You can see minimum system requirement bellow.</big></p>
     <big><br>
     </big>
-    <table style="text-align: left; width: 903px; height: 244px;" border="1" cellpadding="2" cellspacing="2">
+    <table style="text-align: left; width: 903px; height: 244px;" cellspacing="2"
+      cellpadding="2" border="1">
       <tbody>
         <tr>
           <td style="vertical-align: top;"><big>Operation system </big></td>
@@ -238,7 +262,7 @@ C++
     <big><br>
       <span style="text-decoration: underline;">Supported compilers</span><br>
       <br>
-      This library was successfully tested with these compilers: </big>
+      This engine was successfully tested with these compilers: </big>
     <ul>
       <li><a href="https://jmeubank.github.io/tdm-gcc/"><big>TDM-GCC</big></a></li>
       <li><a href="http://mingw-w64.org"><big>MINGW-w64</big></a></li>
@@ -269,7 +293,7 @@ C++
       Go to «Project properties – C/C++ – Precompiled Headers»<br>
       Set «Precomiled Header» option to «Not Using Precompiled Headers»<br>
       Users of modern Visual C++ versions also must uncomment specific code in
-      SWGF.h file.<br>
+      bluegdk.h file.<br>
       <br>
       <span style="text-decoration: underline;">Note for MINGW-w64 and TDM-GCC
         users</span><br>
@@ -280,26 +304,25 @@ C++
       <li><big>kernel32.lib</big></li>
       <li><big>gdi32.lib</big></li>
       <li><big>opengl32.lib</big></li>
-  <li><big>glu32.lib<br>
-</big></li>
-
+      <li><big>glu32.lib<br>
+        </big></li>
       <li><big>ole32.lib</big></li>
       <li><big>strmiids.lib</big></li>
       <li><big>winmm.lib</big></li>
     </ul>
     <big><br>
       See documentation of the compiler for more information about linking. </big>
-    <h2><a class="mozTocH2" name="mozTocId914689"></a><big>Chapter 7. Library
+    <h2><a class="mozTocH2" name="mozTocId914689"></a><big>Chapter 7. The engine
         name-space</big></h2>
     <big><br>
-      All library classes declared in <span style="font-style: italic;">BLUEGDK</span>
+      All the engine classes declared in <span style="font-style: italic;">BLUEGDK</span>
       name-space. </big>
     <h1><a class="mozTocH1" name="mozTocId859712"></a><big>Part 2. Base things</big></h1>
     <big> </big>
     <h2><a class="mozTocH2" name="mozTocId312970"></a><big>Chapter 1. Coordinate
         system</big></h2>
     <big><br>
-      The library uses standard coordinate system. Coordinates start at top-left
+      The engine uses standard coordinate system. Coordinates start at top-left
       corner. Look to this picture for understand it.<br>
       <br>
       <img style="width: 107px; height: 111px;" alt="" src="coordinate_system.png">
@@ -322,8 +345,8 @@ C++
       Base graphics subsystem do rendering game scene.<br>
       <br>
       <span style="text-decoration: underline;">Render performance</span><br>
-      <br>Always use latest
-      video-card drivers. It can increase render performance.<br>
+      <br>
+      Always use latest video-card drivers. It can increase render performance.<br>
       <br>
       <span style="text-decoration: underline;">Fps limitation</span><br>
       <br>
@@ -338,9 +361,11 @@ C++
       the base graphic subsystem. It is derived from Frame class. Let’s look on
       public methods.<br>
       <br>
-<span style="font-style: italic;">void Screen::clear_screen();</span> – Clear the screen. Fill it by black color.<br>
+      <span style="font-style: italic;">void Screen::clear_screen();</span> –
+      Clear the screen. Fill it by black color.<br>
       <span style="font-style: italic;">void Screen::initialize();</span> –
-      Initialize the base graphic subsystem with default surface size.<span style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
+      Initialize the base graphic subsystem with default surface size.<span style="font-style: italic;"></span><span
+        style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
       terminated. This method uses fps limit and do wait between frames.<br>
@@ -354,13 +379,44 @@ C++
       <span style="font-style: italic;">unsigned long int Screen::get_width()
         const;</span> – Return screen width in pixels.<br>
       <span style="font-style: italic;">unsigned long int Screen::get_height()
-        const;</span> – Return screen height in pixels.<span style="font-style: italic;"></span><br>
+        const;</span> – Return screen height in pixels.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId289525"></a><big>Chapter 2. Picture
+    <h2><a class="mozTocH2" name="mozTocId225176"></a><big><span style="font-style: italic;"></span>Chapter
+        2. Graphic primitives</big></h2>
+    <big><br>
+      Graphic primitives subsystem intend for drawing graphic primitives.<br>
+      <span style="font-style: italic;">Primitive</span> class provide simple
+      access to this subsystem. Let’s look to public methods.<br>
+      <br>
+      <span style="font-style: italic;">void Primitive::prepare();</span>&nbsp;
+      – Prepare for drawing.<br>
+      <span style="font-style: italic;">void Primitive::set_color(const unsigned
+        char red, const unsigned char green, const unsigned char blue);</span> –
+      Set the current color.<br>
+      <span style="font-style: italic;">void Primitive::draw_pixel(const
+        unsigned long int x,const unsigned long int y);</span> – Draw a pixel.<br>
+      <span style="font-style: italic;">void Primitive::draw_line(const
+        unsigned long int x1,const unsigned long int y1,const unsigned long int
+        x2,const unsigned long int y2);</span> – Just draw a line.<br>
+      <span style="font-style: italic;">void Primitive::draw_rectangle(const
+        unsigned long int x,const unsigned long int y,const unsigned long int
+        width,const unsigned long int height);</span> – Draw a simple rectangle.<br>
+      <span style="font-style: italic;">void
+        Primitive::draw_filled_rectangle(const unsigned long int x,const
+        unsigned long int y,const unsigned long int width);</span> – Draw a
+      filled rectangle.<br>
+      <br>
+      <span style="text-decoration: underline;">Important notes</span><br>
+      <br>
+      Always call <span style="font-style: italic;">prepare</span> and <span style="font-style: italic;">set_color</span>
+      methods before drawing.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId289525"></a><big>Chapter 3. Picture
         subsystem</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Very important subsystems</span><br>
-      <br>Picture subsystem intend for store current image in memory buffer.<br>
+      <br>
+      Picture subsystem intend for store current image in memory buffer.<br>
     </big><big><br>
       <span style="text-decoration: underline;">Work with advanced graphics</span><br>
       <br>
@@ -370,26 +426,32 @@ C++
       <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">unsigned char *Picture::get_image();</span>
       – Return handle to image buffer.<br>
-<span style="font-style: italic;">void Picture::load_image(Image &amp;buffer);</span> – Load an image from memory buffer. Replace current image if exist.<br>
+      <span style="font-style: italic;">void Picture::load_image(Image
+        &amp;buffer);</span> – Load an image from memory buffer. Replace current
+      image if exist.<br>
       <span style="font-style: italic;">size_t Picture::get_length() const;</span>
       – Return length of image buffer in bytes.<br>
-      <span style="font-style: italic;">unsigned long int Picture::get_image_width() const;</span> – Return image width in pixels.<br>
-      <span style="font-style: italic;">unsigned long int Picture::get_image_height() const;</span> – Return image height in
+      <span style="font-style: italic;">unsigned long int
+        Picture::get_image_width() const;</span> – Return image width in pixels.<br>
+      <span style="font-style: italic;">unsigned long int
+        Picture::get_image_height() const;</span> – Return image height in
       pixels.<span style="font-style: italic;"></span></big><big><br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId501089"></a><big>Chapter 3. Animation subsystem</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId501089"></a><big>Chapter 4. Animation
+        subsystem</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Very important subsystems</span><br>
-      <br>Animation subsystem let you control animation frames.<br>
+      <br>
+      Animation subsystem let you control animation frames.<br>
       <br>
       <span style="text-decoration: underline;">Work with advanced graphics</span><br>
       <br>
-      <span style="font-style: italic;">Frame</span> class provide simple
-      access to animation subsystem.
-      Don’t use it directly. Let’s look to public methods.<br>
+      <span style="font-style: italic;">Frame</span> class provide simple access
+      to animation subsystem. Don’t use it directly. Let’s look to public
+      methods.<br>
       <br>
-      <span style="font-style: italic;">void Frame::set_frames(unsigned long
-        int amount);</span> – Set amounts of frames in scrolling background or
+      <span style="font-style: italic;">void Frame::set_frames(unsigned long int
+        amount);</span> – Set amounts of frames in scrolling background or
       animated sprite.<br>
       <span style="font-style: italic;">unsigned long int Frame::get_frames()
         const;</span> – Return amount of frames in scrolling background or
@@ -397,8 +459,8 @@ C++
       <span style="font-style: italic;">unsigned long int Frame::get_frame()
         const;</span> – Return current frame in scrolling background or animated
       sprite.<span style="font-style: italic;"><br>
-</span> </big>
-    <h2><a class="mozTocH2" name="mozTocId455894"></a><big> Chapter 4.
+      </span> </big>
+    <h2><a class="mozTocH2" name="mozTocId455894"></a><big> Chapter 5.
         Background</big></h2>
     <big> <br>
       <span style="text-decoration: underline;">Level decoration</span><br>
@@ -417,7 +479,8 @@ C++
         bellow.</big></p>
     <big><br>
     </big>
-    <table style="text-align: left; width: 554px; height: 124px;" border="1" cellpadding="2" cellspacing="2">
+    <table style="text-align: left; width: 554px; height: 124px;" cellspacing="2"
+      cellpadding="2" border="1">
       <tbody>
         <tr>
           <td style="vertical-align: top;"><big>Background type </big></td>
@@ -442,9 +505,13 @@ C++
       <span style="text-decoration: underline;">Work with background</span><br>
       <br>
       Just use <span style="font-style: italic;">Background</span> class for
-      work with background. It is derived from <span style="font-style: italic;">Frame</span> and <span style="font-style: italic;">Picture</span> classes. Let’s look to public methods.<br>
-      </big><big style="font-style: italic;"></big><big><br>
-<span style="font-style: italic;">void Background::prepare(const unsigned long screen_width,const unsigned long screen_height);</span>&nbsp; – Prepare for drawing.</big><big><span style="font-style: italic;"></span><br>
+      work with background. It is derived from <span style="font-style: italic;">Frame</span>
+      and <span style="font-style: italic;">Picture</span> classes. Let’s look
+      to public methods.<br>
+    </big><big style="font-style: italic;"></big><big><br>
+      <span style="font-style: italic;">void Background::prepare(const unsigned
+        long screen_width,const unsigned long screen_height);</span>&nbsp; –
+      Prepare for drawing.</big><big><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">void Background::set_target(const
         unsigned long int target);</span> – Set target frame in scrolling
       background.<br style="font-style: italic;">
@@ -464,8 +531,9 @@ C++
       after load background image. Always call <span style="font-style: italic;">set_frames</span>
       method before call <span style="font-style: italic;">set_kind</span>
       method if you will use scrolling background. Also you can use <i>set_setting</i>
-      method instead calling <i>set_kind</i> method. Always call <span style="font-style: italic;">prepare</span> method after load an image. </big>
-    <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 5. Sprites</big></h2>
+      method instead calling <i>set_kind</i> method. Always call <span style="font-style: italic;">prepare</span>
+      method after load an image. </big>
+    <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 6. Sprites</big></h2>
     <big> <br>
       <span style="text-decoration: underline;">Small important thing</span><br>
       <br>
@@ -494,7 +562,8 @@ C++
         bellow.</big></p>
     <big><br>
     </big>
-    <table style="text-align: left; width: 363px; height: 124px;" border="1" cellpadding="2" cellspacing="2">
+    <table style="text-align: left; width: 363px; height: 124px;" cellspacing="2"
+      cellpadding="2" border="1">
       <tbody>
         <tr>
           <td style="vertical-align: top;"><big>Sprite type </big></td>
@@ -518,9 +587,12 @@ C++
       <span style="text-decoration: underline;">Work with sprites</span><br>
       <br>
       Just use <span style="font-style: italic;">Sprites</span> class for work
-      with a sprite. It is derived from <span style="font-style: italic;">Frame</span> and <span style="font-style: italic;">Picture</span> classes. Let’s look to public methods.<br>
+      with a sprite. It is derived from <span style="font-style: italic;">Frame</span>
+      and <span style="font-style: italic;">Picture</span> classes. Let’s look
+      to public methods.<br>
       <br>
-<span style="font-style: italic;">void Sprite::prepare();</span>&nbsp; – Prepare for drawing.<br>
+      <span style="font-style: italic;">void Sprite::prepare();</span>&nbsp; –
+      Prepare for drawing.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image
         &amp;buffer,const SPRITE_TYPE kind,const unsigned long int frames);</span>
       – Load a sprite from memory buffer and set sprite setting.<br>
@@ -573,14 +645,21 @@ C++
       Return the handle to sprite object.<br>
       <span style="font-style: italic;">Collision_Box Sprite::get_box() const;</span>
       – Return collision related information.<br>
-<span style="font-style: italic;">void Sprite::clone(Sprite &amp;target);</span> – Create copy of exist sprite.<br>
+      <span style="font-style: italic;">void Sprite::clone(Sprite &amp;target);</span>
+      – Create copy of exist sprite.<br>
       <span style="font-style: italic;">void Sprite::set_position(const unsigned
         long int x, const unsigned long int y);</span> – Set sprite position.<br>
-<span style="font-style: italic;">void Sprite::set_size(const unsigned long int width, const unsigned long int height);</span> – Change the sprite size.<br>
-<span style="font-style: italic;">void Sprite::set_width(const unsigned long int width);</span> – Change the sprite width.<br>
-<span style="font-style: italic;">void Sprite::set_height(const unsigned long int height);</span> – Change the sprite height.<br>
-<span style="font-style: italic;">void Sprite::horizontal_mirror();</span> – Do horizontal sprite mirror.<br>
-<span style="font-style: italic;">void Sprite::vertical_mirror();</span> – Do vertical sprite mirror.<br>
+      <span style="font-style: italic;">void Sprite::set_size(const unsigned
+        long int width, const unsigned long int height);</span> – Change the
+      sprite size.<br>
+      <span style="font-style: italic;">void Sprite::set_width(const unsigned
+        long int width);</span> – Change the sprite width.<br>
+      <span style="font-style: italic;">void Sprite::set_height(const unsigned
+        long int height);</span> – Change the sprite height.<br>
+      <span style="font-style: italic;">void Sprite::horizontal_mirror();</span>
+      – Do horizontal sprite mirror.<br>
+      <span style="font-style: italic;">void Sprite::vertical_mirror();</span> –
+      Do vertical sprite mirror.<br>
     </big><big> <span style="font-style: italic;">void Sprite::draw_sprite();</span>
       – Draw a sprite.</big><br>
     <big> <span style="font-style: italic;">void Sprite::draw_sprite(const
@@ -599,8 +678,9 @@ C++
       method before call <span style="font-style: italic;">set_kind</span>
       method if you will use animated sprite. Also you can use <span style="font-style: italic;">load_sprite</span>
       method instead calling <span style="font-style: italic;">set_kind</span>
-      method. Always call <span style="font-style: italic;">prepare</span> method after load an image. </big>
-    <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 6. Text</big></h2>
+      method. Always call <span style="font-style: italic;">prepare</span>
+      method after load an image. </big>
+    <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 7. Text</big></h2>
     <big><br>
       <span style="text-decoration: underline;">How draw a text?</span><br>
       <br>
@@ -631,7 +711,7 @@ C++
       <span style="font-style: italic;">void Text::draw_text(const unsigned long
         int x,const unsigned long int y,const char *text);</span> – Draw text at
       specific position. </big>
-    <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 7. Tile-set</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 8. Tile-set</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Some words about complex
         backgrounds</span><br>
@@ -653,7 +733,8 @@ C++
       the tile-set subsystem. It is derived from Picture class. Let’s look on
       public methods.<br>
       <br>
-<span style="font-style: italic;">Tileset::prepare();</span>&nbsp; – Prepare for drawing.<br>
+      <span style="font-style: italic;">Tileset::prepare();</span>&nbsp; –
+      Prepare for drawing.<br>
       <span style="font-style: italic;">unsigned long int
         Tileset::get_tile_width() const;</span> – Return tile width in pixels.<br>
       <span style="font-style: italic;">unsigned long int
@@ -674,12 +755,13 @@ C++
     <big> <span style="font-style: italic;">void Tileset::load_tileset(Image
         &amp;buffer,const unsigned long int row_amount,const unsigned long int
         column_amount);</span> – Load a tile-set.<br>
-<br>
-<span style="text-decoration: underline;">Important notes</span><br>
-<br>
-Always call <span style="font-style: italic;">prepare</span> method after load an image.<br>
- </big>
-    <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 8. Loading
+      <br>
+      <span style="text-decoration: underline;">Important notes</span><br>
+      <br>
+      Always call <span style="font-style: italic;">prepare</span> method after
+      load an image.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 9. Loading
         images</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Load an image from a files</span><br>
@@ -708,10 +790,10 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
       <span style="text-decoration: underline;">Supported format</span><br>
       <br>
     </big>
-    <p><big> All loading images must have correct specification. You can load an images from 32 bit </big><big>Truevision TGA pictures.<br>
-</big></p>
-    <big>
-      <span style="text-decoration: underline;">Recommend software</span><br>
+    <p><big> All loading images must have correct specification. You can load an
+        images from 32 bit </big><big>Truevision TGA pictures.<br>
+      </big></p>
+    <big> <span style="text-decoration: underline;">Recommend software</span><br>
       <br>
       You can use wide range of graphics software for convert you images to
       correct format. I recommend use <a href="https://www.gimp.org">GIMP</a>
@@ -740,7 +822,6 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
       <br>
       This is all that you must know about this class. It is just very simple
       class for few important things.<br>
-      <br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId688163"></a><a id="mozTocId495779" class="mozTocH2"></a><big>Chapter
         2. Filesystem</big></h2>
@@ -782,7 +863,7 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
     <big><br>
       <span style="text-decoration: underline;">Two kinds of coordinate system</span><br>
       <br>
-      This library use two kinds of coordinate system: Picture coordinate system
+      This engine use two kinds of coordinate system: Picture coordinate system
       and screen coordinate system. You can convert values between these
       systems. Use transformation subsystem to do it.<br>
       <br>
@@ -793,7 +874,8 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
       for work with the transformation subsystem. Let’s look to public methods.<br>
       <br>
       <span style="font-style: italic;">void Transformation::initialize(const
-        float screen_width,const float screen_height,const float Picture_width,const float Picture_height);</span> – Initialize the
+        float screen_width,const float screen_height,const float
+        Picture_width,const float Picture_height);</span> – Initialize the
       subsystem.<br>
       <span style="font-style: italic;">float Transformation::get_screen_x(const
         float Picture_x) const;</span> – Convert Picture x-coordinate to screen
@@ -940,7 +1022,8 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
     <p><big> You can see list of scan-codes bellow.</big></p>
     <big><br>
     </big>
-    <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+    <table style="text-align: left; width: 100%;" cellspacing="2" cellpadding="2"
+      border="1">
       <tbody>
         <tr>
           <td style="vertical-align: top;"><big>Key </big></td>
@@ -1228,7 +1311,8 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
         bellow.</big></p>
     <big><br>
     </big>
-    <table style="text-align: left; width: 300px; height: 124px;" border="1" cellpadding="2" cellspacing="2">
+    <table style="text-align: left; width: 300px; height: 124px;" cellspacing="2"
+      cellpadding="2" border="1">
       <tbody>
         <tr>
           <td style="vertical-align: top;"><big>Mouse button code </big></td>
@@ -1254,7 +1338,7 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
       <span style="text-decoration: underline;">Best friend of retro gamer</span><br>
       <br>
       What is good choice for game control device when user play in arcade or
-      old-school style video-game? A game-pad. This library provides simple
+      old-school style video-game? A game-pad. This engine provides simple
       access to a game-pads.<br>
       <br>
       <span style="text-decoration: underline;">Amount of connect game-pads</span><br>
@@ -1265,7 +1349,9 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
       <br>
       <span style="text-decoration: underline;">Ordinary buttons codes</span><br>
       <br>
-      Ordinary buttons codes look as predefined constants. First button is <span style="font-style: italic;">GAMEPAD_BUTTON1</span>. Last button is <span style="font-style: italic;">GAMEPAD_BUTTON32</span>.<br>
+      Ordinary buttons codes look as predefined constants. First button is <span
+        style="font-style: italic;">GAMEPAD_BUTTON1</span>. Last button is <span
+        style="font-style: italic;">GAMEPAD_BUTTON32</span>.<br>
       <br>
       <span style="text-decoration: underline;">D-pad buttons codes</span><br>
       <br>
@@ -1274,7 +1360,8 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
         bellow.</big></p>
     <big><br>
     </big>
-    <table style="text-align: left; width: 613px; height: 304px;" border="1" cellpadding="2" cellspacing="2">
+    <table style="text-align: left; width: 613px; height: 304px;" cellspacing="2"
+      cellpadding="2" border="1">
       <tbody>
         <tr>
           <td style="vertical-align: top;"><big>D-pad button code </big></td>
@@ -1328,7 +1415,8 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
         bellow.</big></p>
     <big><br>
     </big>
-    <table style="text-align: left; width: 365px; height: 94px;" border="1" cellpadding="2" cellspacing="2">
+    <table style="text-align: left; width: 365px; height: 94px;" cellspacing="2"
+      cellpadding="2" border="1">
       <tbody>
         <tr>
           <td style="vertical-align: top;"><big>Identifiers </big></td>
@@ -1352,7 +1440,8 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
         bellow.</big></p>
     <big><br>
     </big>
-    <table style="text-align: left; width: 516px; height: 124px;" border="1" cellpadding="2" cellspacing="2">
+    <table style="text-align: left; width: 516px; height: 124px;" cellspacing="2"
+      cellpadding="2" border="1">
       <tbody>
         <tr>
           <td style="vertical-align: top;"><big>Value </big></td>
@@ -1454,7 +1543,8 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
     <p><big> You can see list of supported formats bellow.</big></p>
     <big><br>
     </big>
-    <table style="text-align: left; width: 315px; height: 214px;" border="1" cellpadding="2" cellspacing="2">
+    <table style="text-align: left; width: 315px; height: 214px;" cellspacing="2"
+      cellpadding="2" border="1">
       <tbody>
         <tr>
           <td style="vertical-align: top;"><big>Format </big></td>
@@ -1507,12 +1597,12 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
       <span style="font-style: italic;">bool Multimedia::check_playing();</span>
       – Return true if the multimedia resource is playing. </big>
     <h1><a class="mozTocH1" name="mozTocId309127"></a><big>Part 8. Internal
-        details of the library subsystems</big></h1>
+        details of the engine subsystems</big></h1>
     <big> </big>
     <h2><a class="mozTocH2" name="mozTocId383177"></a><big>Chapter 1. A few
         words for a curious programmer</big></h2>
     <big><br>
-      The library subsystems have a different internal structure. It hidden from
+      The engine subsystems have a different internal structure. It hidden from
       you and you don’t have access to it. Do you want know about hiding things?
       Just read a next chapter. </big>
     <h2><a class="mozTocH2" name="mozTocId318160"></a><big>Chapter 2. Internal
@@ -1535,17 +1625,18 @@ Always call <span style="font-style: italic;">prepare</span> method after load a
       <span style="font-style: italic;">Render</span> implement OPENGL render.<br>
       <span style="font-style: italic;">Rectangle</span> intend for drawing
       textured rectangle.<br>
-<span style="font-style: italic;">Shape</span> is base class for <span style="font-style: italic;">Rectangle</span> class.<br>
-      <span style="font-style: italic;">COM_Base</span> is base class for
-      <span style="font-style: italic;">Multimedia</span> class. </big>
+      <span style="font-style: italic;">Shape</span> is base class for <span style="font-style: italic;">Rectangle</span>
+      class.<br>
+      <span style="font-style: italic;">COM_Base</span> is base class for <span
+
+        style="font-style: italic;">Multimedia</span> class. </big>
     <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
         graphics subsystem</big></h2>
     <big><span style="text-decoration: underline;"></span><br>
       Base graphics subsystem working over <a href="http://opengl.org">OPENGL</a>.
       OPENGL is very fast because it uses hardware acceleration.<br>
-      <span style="text-decoration: underline;"></span></big>
-    <big></big><br>
-<big><span style="font-style: italic;"></span> </big>
+      <span style="text-decoration: underline;"></span></big> <big></big><br>
+    <big><span style="font-style: italic;"></span> </big>
     <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 4. Game-pad</big></h2>
     <big><br>
       Game-pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
@@ -1565,7 +1656,8 @@ Multimedia
         predefined constants. You can see it bellow.</big></p>
     <big><br>
     </big>
-    <table style="text-align: left; width: 519px; height: 94px;" border="1" cellpadding="2" cellspacing="2">
+    <table style="text-align: left; width: 519px; height: 94px;" cellspacing="2"
+      cellpadding="2" border="1">
       <tbody>
         <tr>
           <td style="vertical-align: top;"><big>Key/button state </big></td>
@@ -1592,22 +1684,24 @@ Multimedia
     <big><br>
       0.1 – Initial version.<br>
       0.1.1 – 0.7.6 – Internal unstable builds.<br>
-0.7.7 </big><big>–</big><big> Small changes.<br>
-</big><big>
-0.7.8 </big><big>–</big><big> Small bug in sprite subsystem was fixed.<br>
-</big><big>
-0.7.9 </big><big>– </big><big>0.8.1 – Small changes.<br>
-0.8.2 – Sprite subsystem was improved.<br>
-0.8.3 – PCX support was removed.<br>
-0.8.4 – Small changes.<br>
-0.8.5 – Fps counter was improved.<br>
-0.8.6 – 0.8.9 – Small changes.<br>
-</big><big>
-0.9 – TGA support was improved.<br>
-0.9.1 – Small bug in sprite subsystem was fixed.<br>
-0.9.2 – Small changes.<br>
-</big>
-
-<big>
+      0.7.7 </big><big>–</big><big> Small changes.<br>
+    </big><big>
+      0.7.8 </big><big>–</big><big> Small bug in sprite subsystem was fixed.<br>
+    </big><big>
+      0.7.9 </big><big>– </big><big>0.8.1 – Small changes.<br>
+      0.8.2 – Sprite subsystem was improved.<br>
+      0.8.3 – PCX support was removed.<br>
+      0.8.4 – Small changes.<br>
+      0.8.5 – Fps counter was improved.<br>
+      0.8.6 – 0.8.9 – Small changes.<br>
+    </big><big>
+      0.9 – TGA support was improved.<br>
+      0.9.1 – Small bug in sprite subsystem was fixed.<br>
+      0.9.2 – Small changes.<br>
+      0.9.3 – New subsystem was added.<br>
+      0.9.4 – 0.9.5 – Graphic primitives subsystem was improved.<br>
+      0.9.6 – 0.9.7 – Small changes.<br>
     </big>
-  </body></html>
+    <big> </big>
+  </body>
+</html>
