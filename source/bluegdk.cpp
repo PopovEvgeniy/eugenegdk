@@ -608,8 +608,12 @@ void Render::set_perfomance_setting()
  glDisable(GL_DITHER);
  glDisable(GL_FOG);
  glDisable(GL_CULL_FACE);
+ glDisable(GL_STENCIL_TEST);
+ glDisable(GL_SCISSOR_TEST);
  glDisable(GL_LIGHTING);
  glDisable(GL_NORMALIZE);
+ glDisable(GL_AUTO_NORMAL);
+ glDisable(GL_COLOR_MATERIAL);
  glDisable(GL_TEXTURE_1D);
  glEnable(GL_TEXTURE_2D);
  glEnableClientState(GL_VERTEX_ARRAY);
@@ -885,7 +889,6 @@ void Rectangle::prepare(const void *buffer)
 {
  this->delete_texture();
  this->create_texture(buffer);
- this->reset_model_setting();
 }
 
 void Rectangle::draw()
@@ -1005,6 +1008,11 @@ bool Screen::sync()
  run=this->update();
  this->wait_timer();
  return run;
+}
+
+Screen* Screen::get_handle()
+{
+ return this;
 }
 
 Keyboard::Keyboard()
@@ -2096,6 +2104,11 @@ void Background::prepare(const unsigned long int screen_width,const unsigned lon
  target.set_position(0,0);
 }
 
+void Background::prepare(Screen *screen)
+{
+ this->prepare(screen->get_width(),screen->get_height());
+}
+
 void Background::set_kind(const BACKGROUND_TYPE kind)
 {
  current_kind=kind;
@@ -2118,6 +2131,32 @@ void Background::step()
 {
  this->increase_frame();
  this->set_kind(current_kind);
+}
+
+void Background::horizontal_mirror()
+{
+ if (target.get_horizontal_mirror()==DISABLE_MIRRORING)
+ {
+  target.set_mirror_status(ENABLE_MIRRORING,target.get_vertical_mirror());
+ }
+ else
+ {
+  target.set_mirror_status(DISABLE_MIRRORING,target.get_vertical_mirror());
+ }
+
+}
+
+void Background::vertical_mirror()
+{
+ if (target.get_vertical_mirror()==DISABLE_MIRRORING)
+ {
+  target.set_mirror_status(target.get_horizontal_mirror(),ENABLE_MIRRORING);
+ }
+ else
+ {
+  target.set_mirror_status(target.get_horizontal_mirror(),DISABLE_MIRRORING);
+ }
+
 }
 
 void Background::draw_background()

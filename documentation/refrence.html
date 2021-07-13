@@ -380,6 +380,8 @@ C++
         const;</span> – Return screen width in pixels.<br>
       <span style="font-style: italic;">unsigned long int Screen::get_height()
         const;</span> – Return screen height in pixels.<br>
+      <span style="font-style: italic;">Screen* Screen::get_handle();</span> –
+      Return the handle to base graphics subsystem object.<br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId225176"></a><big><span style="font-style: italic;"></span>Chapter
         2. Graphic primitives</big></h2>
@@ -395,9 +397,9 @@ C++
       Set the current color.<br>
       <span style="font-style: italic;">void Primitive::draw_pixel(const
         unsigned long int x,const unsigned long int y);</span> – Draw a pixel.<br>
-      <span style="font-style: italic;">void Primitive::draw_line(const
-        unsigned long int x1,const unsigned long int y1,const unsigned long int
-        x2,const unsigned long int y2);</span> – Just draw a line.<br>
+      <span style="font-style: italic;">void Primitive::draw_line(const unsigned
+        long int x1,const unsigned long int y1,const unsigned long int x2,const
+        unsigned long int y2);</span> – Just draw a line.<br>
       <span style="font-style: italic;">void Primitive::draw_rectangle(const
         unsigned long int x,const unsigned long int y,const unsigned long int
         width,const unsigned long int height);</span> – Draw a simple rectangle.<br>
@@ -421,8 +423,8 @@ C++
       <span style="text-decoration: underline;">Work with advanced graphics</span><br>
       <br>
       <span style="font-style: italic;">Picture</span> class provide simple
-      access to base image subsystem. Don’t use it directly. Let’s look to
-      public methods.<br>
+      access to picture subsystem. Don’t use it directly. Let’s look to public
+      methods.<br>
       <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">unsigned char *Picture::get_image();</span>
       – Return handle to image buffer.<br>
@@ -511,7 +513,9 @@ C++
     </big><big style="font-style: italic;"></big><big><br>
       <span style="font-style: italic;">void Background::prepare(const unsigned
         long screen_width,const unsigned long screen_height);</span>&nbsp; –
-      Prepare for drawing.</big><big><span style="font-style: italic;"></span><br>
+      Prepare for drawing.<br>
+    </big><big><span style="font-style: italic;">void Background::prepare(Screen
+        *screen);</span>&nbsp; – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
         unsigned long int target);</span> – Set target frame in scrolling
       background.<br style="font-style: italic;">
@@ -521,9 +525,13 @@ C++
     <big> <span style="font-style: italic;">void Background::set_kind(const
         BACKGROUND_TYPE target);</span> – Set background type.</big><br>
     <big><i>void Background::set_setting(const BACKGROUND_TYPE kind,const
-        unsigned long int frames);</i> – Set background setting.</big><br>
-    <big> <span style="font-style: italic;">void Background::draw_background();</span>
-      – Draw a background.<br>
+        unsigned long int frames);</i> – Set background setting.<br>
+      <span style="font-style: italic;">void Background::horizontal_mirror();</span>&nbsp;
+      – Do horizontal background mirror.<br>
+      <span style="font-style: italic;">void Background::vertical_mirror();</span>
+      – Do vertical background mirror.<br>
+    </big> <big> <span style="font-style: italic;">void
+        Background::draw_background();</span> – Draw a background.<br>
       <br>
       <span style="text-decoration: underline;">Important notes</span><br>
       <br>
@@ -1685,23 +1693,22 @@ Multimedia
       0.1 – Initial version.<br>
       0.1.1 – 0.7.6 – Internal unstable builds.<br>
       0.7.7 </big><big>–</big><big> Small changes.<br>
-    </big><big>
-      0.7.8 </big><big>–</big><big> Small bug in sprite subsystem was fixed.<br>
-    </big><big>
-      0.7.9 </big><big>– </big><big>0.8.1 – Small changes.<br>
+    </big><big> 0.7.8 </big><big>–</big><big> Small bug in sprite subsystem was
+      fixed.<br>
+    </big><big> 0.7.9 </big><big>– </big><big>0.8.1 – Small changes.<br>
       0.8.2 – Sprite subsystem was improved.<br>
       0.8.3 – PCX support was removed.<br>
       0.8.4 – Small changes.<br>
       0.8.5 – Fps counter was improved.<br>
       0.8.6 – 0.8.9 – Small changes.<br>
-    </big><big>
-      0.9 – TGA support was improved.<br>
+    </big><big> 0.9 – TGA support was improved.<br>
       0.9.1 – Small bug in sprite subsystem was fixed.<br>
       0.9.2 – Small changes.<br>
       0.9.3 – New subsystem was added.<br>
       0.9.4 – 0.9.5 – Graphic primitives subsystem was improved.<br>
-      0.9.6 – 0.9.7 – Small changes.<br>
-    </big>
-    <big> </big>
+      0.9.6 – 0.9.9 – Small changes.<br>
+      1.0 – Base graphics subsystem was improved.<br>
+      1.0.1 – 1.0.2 – Background subsystem was improved.<br>
+    </big> <big> </big>
   </body>
 </html>

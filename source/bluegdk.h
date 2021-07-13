@@ -337,6 +337,7 @@ class Screen:public FPS, public Synchronization, public Render
  void initialize();
  bool update();
  bool sync();
+ Screen* get_handle();
 };
 
 class Keyboard
@@ -574,10 +575,13 @@ class Background:public Frame,public Picture
  Background();
  ~Background();
  void prepare(const unsigned long int screen_width,const unsigned long int screen_height);
+ void prepare(Screen *screen);
  void set_kind(const BACKGROUND_TYPE kind);
  void set_setting(const BACKGROUND_TYPE kind,const unsigned long int frames);
  void set_target(const unsigned long int target);
  void step();
+ void horizontal_mirror();
+ void vertical_mirror();
  void draw_background();
 };
 
