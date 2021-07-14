@@ -535,8 +535,8 @@ class Picture
  protected:
  void clear_buffer();
  unsigned char *create_buffer();
- void set_width(const unsigned long int image_width);
- void set_height(const unsigned long int image_height);
+ void set_image_width(const unsigned long int image_width);
+ void set_image_height(const unsigned long int image_height);
  void set_buffer(unsigned char *buffer);
  unsigned char *get_buffer();
  public:
@@ -627,9 +627,9 @@ class Sprite:public Frame,public Picture
  void set_target(const unsigned long int target);
  void step();
  void set_position(const unsigned long int x,const unsigned long int y);
- void set_size(const unsigned long int width,const unsigned long int height);
  void set_width(const unsigned long int width);
  void set_height(const unsigned long int height);
+ void set_size(const unsigned long int width,const unsigned long int height);
  void clone(Sprite &target);
  void horizontal_mirror();
  void vertical_mirror();

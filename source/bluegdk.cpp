@@ -827,6 +827,7 @@ void Rectangle::create_texture(const void *buffer)
  glPixelStorei(GL_UNPACK_ALIGNMENT,1);
  glGenTextures(1,&texture);
  glBindTexture(GL_TEXTURE_2D,texture);
+ glTexEnvi(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,GL_REPLACE);
  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
  gluBuild2DMipmaps(GL_TEXTURE_2D,4,this->get_total_width(),this->get_total_height(),GL_BGRA_EXT,GL_UNSIGNED_BYTE,buffer);
@@ -1974,12 +1975,12 @@ void Picture::clear_buffer()
 
 }
 
-void Picture::set_width(const unsigned long int image_width)
+void Picture::set_image_width(const unsigned long int image_width)
 {
  width=image_width;
 }
 
-void Picture::set_height(const unsigned long int image_height)
+void Picture::set_image_height(const unsigned long int image_height)
 {
  height=image_height;
 }
@@ -2375,26 +2376,34 @@ void Sprite::set_position(const unsigned long int x,const unsigned long int y)
  current_y=y;
 }
 
-void Sprite::set_size(const unsigned long int width,const unsigned long int height)
-{
- sprite_width=width;
- sprite_height=height;
-}
-
 void Sprite::set_width(const unsigned long int width)
 {
- sprite_width=width;
+ if (width>0)
+ {
+  sprite_width=width;
+ }
+
 }
 
 void Sprite::set_height(const unsigned long int height)
 {
- sprite_height=height;
+ if (height>0)
+ {
+  sprite_height=height;
+ }
+
+}
+
+void Sprite::set_size(const unsigned long int width,const unsigned long int height)
+{
+ this->set_width(width);
+ this->set_height(height);
 }
 
 void Sprite::clone(Sprite &target)
 {
- this->set_width(target.get_image_width());
- this->set_height(target.get_image_height());
+ this->set_image_width(target.get_image_width());
+ this->set_image_height(target.get_image_height());
  this->set_frames(target.get_frames());
  this->set_kind(target.get_kind());
  this->set_transparent(target.get_transparent());
