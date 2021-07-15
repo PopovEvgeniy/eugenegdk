@@ -529,14 +529,13 @@ class Picture
 {
  private:
  unsigned char *image;
- unsigned long int width;
- unsigned long int height;
+ unsigned long int image_width;
+ unsigned long int image_height;
  size_t length;
  protected:
+ void set_image_size(const unsigned long int width,const unsigned long int height);
  void clear_buffer();
  unsigned char *create_buffer();
- void set_image_width(const unsigned long int image_width);
- void set_image_height(const unsigned long int image_height);
  void set_buffer(unsigned char *buffer);
  unsigned char *get_buffer();
  public:

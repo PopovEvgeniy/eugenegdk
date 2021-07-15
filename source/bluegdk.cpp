@@ -1930,8 +1930,8 @@ void Image::destroy_image()
 
 Picture::Picture()
 {
- width=0;
- height=0;
+ image_width=0;
+ image_height=0;
  length=0;
  image=NULL;
 }
@@ -1946,11 +1946,30 @@ Picture::~Picture()
 
 }
 
+void Picture::set_image_size(const unsigned long int width,const unsigned long int height)
+{
+ image_width=width;
+ image_height=height;
+}
+
+void Picture::clear_buffer()
+{
+ if (image!=NULL)
+ {
+  delete[] image;
+  image_width=0;
+  image_height=0;
+  length=0;
+  image=NULL;
+ }
+
+}
+
 unsigned char *Picture::create_buffer()
 {
  unsigned char *result;
  result=NULL;
- length=static_cast<size_t>(width)*static_cast<size_t>(height)*sizeof(unsigned int);
+ length=static_cast<size_t>(image_width)*static_cast<size_t>(image_height)*sizeof(unsigned int);
  try
  {
   result=new unsigned char[length];
@@ -1960,29 +1979,6 @@ unsigned char *Picture::create_buffer()
   Halt("Can't allocate memory for image buffer");
  }
  return result;
-}
-
-void Picture::clear_buffer()
-{
- if (image!=NULL)
- {
-  delete[] image;
-  width=0;
-  height=0;
-  length=0;
-  image=NULL;
- }
-
-}
-
-void Picture::set_image_width(const unsigned long int image_width)
-{
- width=image_width;
-}
-
-void Picture::set_image_height(const unsigned long int image_height)
-{
- height=image_height;
 }
 
 void Picture::set_buffer(unsigned char *buffer)
@@ -2008,20 +2004,19 @@ unsigned char *Picture::get_image()
 void Picture::load_image(Image &buffer)
 {
  this->clear_buffer();
- width=buffer.get_width();
- height=buffer.get_height();
+ this->set_image_size(buffer.get_width(),buffer.get_height());
  image=this->create_buffer();
  memmove(image,buffer.get_data(),buffer.get_length());
 }
 
 unsigned long int Picture::get_image_width() const
 {
- return width;
+ return image_width;
 }
 
 unsigned long int Picture::get_image_height() const
 {
- return height;
+ return image_height;
 }
 
 Frame::Frame()
@@ -2402,8 +2397,8 @@ void Sprite::set_size(const unsigned long int width,const unsigned long int heig
 
 void Sprite::clone(Sprite &target)
 {
- this->set_image_width(target.get_image_width());
- this->set_image_height(target.get_image_height());
+ this->clear_buffer();
+ this->set_image_size(target.get_image_width(),target.get_image_height());
  this->set_frames(target.get_frames());
  this->set_kind(target.get_kind());
  this->set_transparent(target.get_transparent());
