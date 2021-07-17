@@ -662,6 +662,127 @@ void Render::refresh()
  this->Swap();
 }
 
+Resizer::Resizer()
+{
+ image=NULL;
+ size_limit=0;
+ source_width=0;
+ source_height=0;
+ target_width=1;
+ target_height=1;
+}
+
+Resizer::~Resizer()
+{
+ if (image!=NULL)
+ {
+  delete[] image;
+  image=NULL;
+ }
+
+}
+
+size_t Resizer::get_source_offset(const unsigned long int x,const unsigned long int y) const
+{
+ return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(source_width);
+}
+
+size_t Resizer::get_target_offset(const unsigned long int x,const unsigned long int y) const
+{
+ return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(target_width);
+}
+
+void Resizer::resize_image(const unsigned int *target)
+{
+ float x_ratio,y_ratio;
+ unsigned long int x,y;
+ size_t index;
+ x_ratio=static_cast<float>(source_width)/static_cast<float>(target_width);
+ y_ratio=static_cast<float>(source_height)/static_cast<float>(target_height);
+ for (x=0;x<target_width;++x)
+ {
+  for (y=0;y<target_height;++y)
+  {
+   index=this->get_source_offset(x_ratio*static_cast<float>(x),y_ratio*static_cast<float>(y));
+   image[this->get_target_offset(x,y)]=target[index];
+  }
+
+ }
+
+}
+
+void Resizer::set_setting(const unsigned long int width,const unsigned long int height,const unsigned long int limit)
+{
+ source_width=width;
+ source_height=height;
+ size_limit=limit;
+}
+
+void Resizer::calculate_size()
+{
+ while (target_width<source_width)
+ {
+  target_width*=2;
+ }
+ while (target_height<source_height)
+ {
+  target_height*=2;
+ }
+
+}
+
+void Resizer::correct_size()
+{
+ if (target_width>size_limit)
+ {
+  target_width=size_limit;
+ }
+ if (target_height>size_limit)
+ {
+  target_height=size_limit;
+ }
+
+}
+
+void Resizer::create_buffer()
+{
+ size_t length;
+ length=static_cast<size_t>(target_width)*static_cast<size_t>(target_height);
+ try
+ {
+  image=new unsigned int[length];
+ }
+ catch(...)
+ {
+  Halt("Can't allocate memory for image buffer");
+ }
+ length*=sizeof(unsigned int);
+}
+
+void Resizer::create_buffer(const unsigned int *target,const unsigned long int width,const unsigned long int height,const unsigned long int limit)
+{
+ this->set_setting(width,height,limit);
+ this->calculate_size();
+ this->correct_size();
+ this->create_buffer();
+ this->resize_image(target);
+}
+
+unsigned long int Resizer::get_width() const
+{
+ return target_width;
+}
+
+unsigned long int Resizer::get_height() const
+{
+ return target_height;
+}
+
+unsigned int *Resizer::get_buffer()
+{
+ return image;
+}
+
 Shape::Shape()
 {
  target_width=0;
@@ -822,15 +943,24 @@ Rectangle::~Rectangle()
 
 }
 
-void Rectangle::create_texture(const void *buffer)
+unsigned long int Rectangle::get_maximum_size() const
 {
+ int maximum_size;
+ glGetIntegerv(GL_MAX_TEXTURE_SIZE,&maximum_size);
+ return maximum_size;
+}
+
+void Rectangle::create_texture(const unsigned int *buffer)
+{
+ Resizer resizer;
+ resizer.create_buffer(buffer,this->get_total_width(),this->get_total_height(),this->get_maximum_size());
  glPixelStorei(GL_UNPACK_ALIGNMENT,1);
  glGenTextures(1,&texture);
  glBindTexture(GL_TEXTURE_2D,texture);
  glTexEnvi(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,GL_REPLACE);
  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
- gluBuild2DMipmaps(GL_TEXTURE_2D,4,this->get_total_width(),this->get_total_height(),GL_BGRA_EXT,GL_UNSIGNED_BYTE,buffer);
+ glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,resizer.get_width(),resizer.get_height(),0,GL_BGRA_EXT,GL_UNSIGNED_BYTE,resizer.get_buffer());
 }
 
 void Rectangle::delete_texture()
@@ -840,6 +970,15 @@ void Rectangle::delete_texture()
   glBindTexture(GL_TEXTURE_2D,0);
   glDeleteTextures(1,&texture);
   texture=0;
+ }
+
+}
+
+void Rectangle::check_texture()
+{
+ if (glGetError()!=GL_NO_ERROR)
+ {
+  Halt("Can't create the target texture");
  }
 
 }
@@ -886,10 +1025,11 @@ void Rectangle::disable_transparent()
  glDisable(GL_BLEND);
 }
 
-void Rectangle::prepare(const void *buffer)
+void Rectangle::prepare(const unsigned int *buffer)
 {
  this->delete_texture();
  this->create_texture(buffer);
+ this->check_texture();
 }
 
 void Rectangle::draw()
@@ -1965,28 +2105,29 @@ void Picture::clear_buffer()
 
 }
 
-unsigned char *Picture::create_buffer()
+unsigned int *Picture::create_buffer()
 {
- unsigned char *result;
+ unsigned int *result;
  result=NULL;
- length=static_cast<size_t>(image_width)*static_cast<size_t>(image_height)*sizeof(unsigned int);
+ length=static_cast<size_t>(image_width)*static_cast<size_t>(image_height);
  try
  {
-  result=new unsigned char[length];
+  result=new unsigned int[length];
  }
  catch(...)
  {
   Halt("Can't allocate memory for image buffer");
  }
+ length*=sizeof(unsigned int);
  return result;
 }
 
-void Picture::set_buffer(unsigned char *buffer)
+void Picture::set_buffer(unsigned int *buffer)
 {
  image=buffer;
 }
 
-unsigned char *Picture::get_buffer()
+unsigned int *Picture::get_buffer()
 {
  return image;
 }
@@ -1996,7 +2137,7 @@ size_t Picture::get_length() const
  return length;
 }
 
-unsigned char *Picture::get_image()
+unsigned int *Picture::get_image()
 {
  return image;
 }

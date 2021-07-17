@@ -44,7 +44,6 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #pragma comment(lib,"user32.lib")
 #pragma comment(lib,"gdi32.lib")
 #pragma comment(lib,"opengl32.lib")
-#pragma comment(lib,"glu32.lib")
 #pragma comment(lib,"ole32.lib")
 #pragma comment(lib,"strmiids.lib")
 #pragma comment(lib,"winmm.lib")
@@ -68,7 +67,6 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #include <dshow.h>
 #include <mmsystem.h>
 #include <GL\gl.h>
-#include <GL\glu.h>
 
 #define GETSCANCODE(argument) ((argument >> 16)&0x7f)
 #define MOUSE 3
@@ -261,6 +259,31 @@ class Render:public WINGL
  ~Render();
 };
 
+class Resizer
+{
+ private:
+ unsigned int *image;
+ unsigned long int size_limit;
+ unsigned long int source_width;
+ unsigned long int source_height;
+ unsigned long int target_width;
+ unsigned long int target_height;
+ size_t get_source_offset(const unsigned long int x,const unsigned long int y) const;
+ size_t get_target_offset(const unsigned long int x,const unsigned long int y) const;
+ void resize_image(const unsigned int *target);
+ void set_setting(const unsigned long int width,const unsigned long int height,const unsigned long int limit);
+ void calculate_size();
+ void correct_size();
+ void create_buffer();
+ public:
+ Resizer();
+ ~Resizer();
+ void create_buffer(const unsigned int *target,const unsigned long int width,const unsigned long int height,const unsigned long int limit);
+ unsigned long int get_width() const;
+ unsigned long int get_height() const;
+ unsigned int *get_buffer();
+};
+
 class Shape
 {
  private:
@@ -300,8 +323,10 @@ class Rectangle:public Shape
 {
  private:
  unsigned int texture;
- void create_texture(const void *buffer);
+ unsigned long int get_maximum_size() const;
+ void create_texture(const unsigned int *buffer);
  void delete_texture();
+ void check_texture();
  void load_data();
  void draw_rectangle();
  void reset_model_setting();
@@ -311,7 +336,7 @@ class Rectangle:public Shape
  ~Rectangle();
  void enable_transparent();
  void disable_transparent();
- void prepare(const void *buffer);
+ void prepare(const unsigned int *buffer);
  void draw();
 };
 
@@ -528,21 +553,21 @@ class Image
 class Picture
 {
  private:
- unsigned char *image;
+ unsigned int *image;
  unsigned long int image_width;
  unsigned long int image_height;
  size_t length;
  protected:
  void set_image_size(const unsigned long int width,const unsigned long int height);
  void clear_buffer();
- unsigned char *create_buffer();
- void set_buffer(unsigned char *buffer);
- unsigned char *get_buffer();
+ unsigned int *create_buffer();
+ void set_buffer(unsigned int *buffer);
+ unsigned int *get_buffer();
  public:
  Picture();
  ~Picture();
  size_t get_length() const;
- unsigned char *get_image();
+ unsigned int *get_image();
  void load_image(Image &buffer);
  unsigned long int get_image_width() const;
  unsigned long int get_image_height() const;

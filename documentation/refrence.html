@@ -304,8 +304,6 @@ C++
       <li><big>kernel32.lib</big></li>
       <li><big>gdi32.lib</big></li>
       <li><big>opengl32.lib</big></li>
-      <li><big>glu32.lib<br>
-        </big></li>
       <li><big>ole32.lib</big></li>
       <li><big>strmiids.lib</big></li>
       <li><big>winmm.lib</big></li>
@@ -365,6 +363,7 @@ C++
       Clear the screen. Fill it by black color.<br>
       <span style="font-style: italic;">void Screen::initialize();</span> –
       Initialize the base graphic subsystem with default surface size.<span style="font-style: italic;"></span><span
+
         style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -426,7 +425,7 @@ C++
       access to picture subsystem. Don’t use it directly. Let’s look to public
       methods.<br>
       <span style="font-style: italic;"></span><br>
-      <span style="font-style: italic;">unsigned char *Picture::get_image();</span>
+      <span style="font-style: italic;">unsigned int *Picture::get_image();</span>
       – Return handle to image buffer.<br>
       <span style="font-style: italic;">void Picture::load_image(Image
         &amp;buffer);</span> – Load an image from memory buffer. Replace current
@@ -1631,8 +1630,10 @@ C++
     <big> <span style="font-style: italic;">WINGL</span> contain Windows
       specific OPENGL initialization code.<br>
       <span style="font-style: italic;">Render</span> implement OPENGL render.<br>
-      <span style="font-style: italic;">Rectangle</span> intend for drawing
-      textured rectangle.<br>
+      <span style="font-style: italic;">Resizer</span> intend for calculate
+      correct texture size.<br>
+      <span style="font-style: italic;">Rectangle</span> intend for resizing
+      input images.<br>
       <span style="font-style: italic;">Shape</span> is base class for <span style="font-style: italic;">Rectangle</span>
       class.<br>
       <span style="font-style: italic;">COM_Base</span> is base class for <span
@@ -1665,7 +1666,6 @@ Multimedia
     <big><br>
     </big>
     <table style="text-align: left; width: 519px; height: 94px;" cellspacing="2"
-
       cellpadding="2" border="1">
       <tbody>
         <tr>
@@ -1712,7 +1712,10 @@ Multimedia
       1.0.1 – 1.0.2 – Background subsystem was improved.<br>
       1.0.3 – Small changes.<br>
       1.0.4 – Small bug in sprite subsystem was fixed.<br>
-      1.0.5 –&nbsp; 1.0.7 – Small changes.<br>
+      1.0.5 – 1.1.4 – Small changes.<br>
+      1.1.5 – 1.1.6 – Small bug was fixed.<br>
+    </big><big>1.1.7 – Unused dependency was removed.<br>
+      1.1.8 – Small changes.<br>
     </big> <big> </big>
   </body>
 </html>
