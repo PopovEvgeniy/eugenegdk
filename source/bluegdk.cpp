@@ -449,12 +449,12 @@ unsigned long int Display::get_color() const
  return display.dmBitsPerPel;
 }
 
-unsigned long int Display::get_width() const
+unsigned int Display::get_width() const
 {
  return display.dmPelsWidth;
 }
 
-unsigned long int Display::get_height() const
+unsigned int Display::get_height() const
 {
  return display.dmPelsHeight;
 }
@@ -682,12 +682,12 @@ Resizer::~Resizer()
 
 }
 
-size_t Resizer::get_source_offset(const unsigned long int x,const unsigned long int y) const
+size_t Resizer::get_source_offset(const unsigned int x,const unsigned int y) const
 {
  return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(source_width);
 }
 
-size_t Resizer::get_target_offset(const unsigned long int x,const unsigned long int y) const
+size_t Resizer::get_target_offset(const unsigned int x,const unsigned int y) const
 {
  return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(target_width);
 }
@@ -695,7 +695,7 @@ size_t Resizer::get_target_offset(const unsigned long int x,const unsigned long 
 void Resizer::resize_image(const unsigned int *target)
 {
  float x_ratio,y_ratio;
- unsigned long int x,y;
+ unsigned int x,y;
  size_t index;
  x_ratio=static_cast<float>(source_width)/static_cast<float>(target_width);
  y_ratio=static_cast<float>(source_height)/static_cast<float>(target_height);
@@ -711,7 +711,7 @@ void Resizer::resize_image(const unsigned int *target)
 
 }
 
-void Resizer::set_setting(const unsigned long int width,const unsigned long int height,const unsigned long int limit)
+void Resizer::set_setting(const unsigned int width,const unsigned int height,const unsigned int limit)
 {
  source_width=width;
  source_height=height;
@@ -759,7 +759,7 @@ void Resizer::create_buffer()
  length*=sizeof(unsigned int);
 }
 
-void Resizer::create_buffer(const unsigned int *target,const unsigned long int width,const unsigned long int height,const unsigned long int limit)
+void Resizer::create_buffer(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit)
 {
  this->set_setting(width,height,limit);
  this->calculate_size();
@@ -768,12 +768,12 @@ void Resizer::create_buffer(const unsigned int *target,const unsigned long int w
  this->resize_image(target);
 }
 
-unsigned long int Resizer::get_width() const
+unsigned int Resizer::get_width() const
 {
  return target_width;
 }
 
-unsigned long int Resizer::get_height() const
+unsigned int Resizer::get_height() const
 {
  return target_height;
 }
@@ -838,39 +838,39 @@ void Shape::reset_data()
  vertex[3].y=0;
 }
 
-unsigned long int Shape::get_total_width() const
+unsigned int Shape::get_total_width() const
 {
  return total_width;
 }
 
-unsigned long int Shape::get_total_height() const
+unsigned int Shape::get_total_height() const
 {
  return total_height;
 }
 
-void Shape::set_total_size(const unsigned long int width,const unsigned long int height)
+void Shape::set_total_size(const unsigned int width,const unsigned int height)
 {
  total_width=width;
  total_height=height;
 }
 
-unsigned long int Shape::get_x() const
+unsigned int Shape::get_x() const
 {
  return current_x;
 }
 
-unsigned long int Shape::get_y() const
+unsigned int Shape::get_y() const
 {
  return current_y;
 }
 
-void Shape::set_size(const unsigned long int width,const unsigned long int height)
+void Shape::set_size(const unsigned int width,const unsigned int height)
 {
  target_width=width;
  target_height=height;
 }
 
-void Shape::set_position(const unsigned long int x,const unsigned long int y)
+void Shape::set_position(const unsigned int x,const unsigned int y)
 {
  current_x=x;
  current_y=y;
@@ -943,7 +943,7 @@ Rectangle::~Rectangle()
 
 }
 
-unsigned long int Rectangle::get_maximum_size() const
+unsigned int Rectangle::get_maximum_size() const
 {
  int maximum_size;
  glGetIntegerv(GL_MAX_TEXTURE_SIZE,&maximum_size);
@@ -1065,14 +1065,14 @@ void Primitive::set_color(const unsigned char red,const unsigned char green,cons
  glColor3ub(red,green,blue);
 }
 
-void Primitive::draw_pixel(const unsigned long int x,const unsigned long int y)
+void Primitive::draw_pixel(const unsigned int x,const unsigned int y)
 {
  glBegin(GL_POINTS);
  glVertex2i(x,y);
  glEnd();
 }
 
-void Primitive::draw_line(const unsigned long int x,const unsigned long int y,const unsigned long int x2,const unsigned long int y2)
+void Primitive::draw_line(const unsigned int x,const unsigned int y,const unsigned int x2,const unsigned int y2)
 {
  glBegin(GL_LINES);
  glVertex2i(x,y);
@@ -1080,7 +1080,7 @@ void Primitive::draw_line(const unsigned long int x,const unsigned long int y,co
  glEnd();
 }
 
-void Primitive::draw_rectangle(const unsigned long int x,const unsigned long int y,const unsigned long int width,const unsigned long int height)
+void Primitive::draw_rectangle(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height)
 {
  glPolygonMode(GL_FRONT,GL_LINE);
  glMatrixMode(GL_MODELVIEW);
@@ -1096,7 +1096,7 @@ void Primitive::draw_rectangle(const unsigned long int x,const unsigned long int
  glPolygonMode(GL_FRONT,GL_FILL);
 }
 
-void Primitive::draw_filled_rectangle(const unsigned long int x,const unsigned long int y,const unsigned long int width,const unsigned long int height)
+void Primitive::draw_filled_rectangle(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height)
 {
  glPolygonMode(GL_FRONT,GL_FILL);
  glMatrixMode(GL_MODELVIEW);
@@ -1752,7 +1752,7 @@ System::~System()
 
 }
 
-unsigned long int System::get_random(const unsigned long int number)
+unsigned int System::get_random(const unsigned int number)
 {
  return rand()%number;
 }
@@ -2041,12 +2041,12 @@ void Image::load_tga(const char *name)
  data=uncompressed;
 }
 
-unsigned long int Image::get_width() const
+unsigned int Image::get_width() const
 {
  return width;
 }
 
-unsigned long int Image::get_height() const
+unsigned int Image::get_height() const
 {
  return height;
 }
@@ -2086,7 +2086,7 @@ Picture::~Picture()
 
 }
 
-void Picture::set_image_size(const unsigned long int width,const unsigned long int height)
+void Picture::set_image_size(const unsigned int width,const unsigned int height)
 {
  image_width=width;
  image_height=height;
@@ -2150,12 +2150,12 @@ void Picture::load_image(Image &buffer)
  memmove(image,buffer.get_data(),buffer.get_length());
 }
 
-unsigned long int Picture::get_image_width() const
+unsigned int Picture::get_image_width() const
 {
  return image_width;
 }
 
-unsigned long int Picture::get_image_height() const
+unsigned int Picture::get_image_height() const
 {
  return image_height;
 }
@@ -2171,7 +2171,7 @@ Frame::~Frame()
 
 }
 
-void Frame::set_frame(const unsigned long int target)
+void Frame::set_frame(const unsigned int target)
 {
  if (target>0)
  {
@@ -2190,17 +2190,17 @@ void Frame::increase_frame()
 
 }
 
-void Frame::set_frames(const unsigned long int amount)
+void Frame::set_frames(const unsigned int amount)
 {
  if (amount>1) frames=amount;
 }
 
-unsigned long int Frame::get_frames() const
+unsigned int Frame::get_frames() const
 {
  return frames;
 }
 
-unsigned long int Frame::get_frame() const
+unsigned int Frame::get_frame() const
 {
  return frame;
 }
@@ -2233,7 +2233,7 @@ void Background::configure_background()
 
 }
 
-void Background::prepare(const unsigned long int screen_width,const unsigned long int screen_height)
+void Background::prepare(const unsigned int screen_width,const unsigned int screen_height)
 {
  target.set_size(screen_width,screen_height);
  target.set_total_size(this->get_image_width(),this->get_image_height());
@@ -2252,13 +2252,13 @@ void Background::set_kind(const BACKGROUND_TYPE kind)
  this->configure_background();
 }
 
-void Background::set_setting(const BACKGROUND_TYPE kind,const unsigned long int frames)
+void Background::set_setting(const BACKGROUND_TYPE kind,const unsigned int frames)
 {
  if (kind!=NORMAL_BACKGROUND) this->set_frames(frames);
  this->set_kind(kind);
 }
 
-void Background::set_target(const unsigned long int target)
+void Background::set_target(const unsigned int target)
 {
  this->set_frame(target);
  this->set_kind(current_kind);
@@ -2380,7 +2380,7 @@ void Sprite::prepare()
  target.prepare(this->get_buffer());
 }
 
-void Sprite::load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned long int frames)
+void Sprite::load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames)
 {
  this->load_image(buffer);
  if (kind!=SINGLE_SPRITE) this->set_frames(frames);
@@ -2397,12 +2397,12 @@ bool Sprite::get_transparent() const
  return transparent;
 }
 
-void Sprite::set_x(const unsigned long int x)
+void Sprite::set_x(const unsigned int x)
 {
  current_x=x;
 }
 
-void Sprite::set_y(const unsigned long int y)
+void Sprite::set_y(const unsigned int y)
 {
  current_y=y;
 }
@@ -2427,42 +2427,42 @@ void Sprite::decrease_y()
  --current_y;
 }
 
-void Sprite::increase_x(const unsigned long int increment)
+void Sprite::increase_x(const unsigned int increment)
 {
  current_x+=increment;
 }
 
-void Sprite::decrease_x(const unsigned long int decrement)
+void Sprite::decrease_x(const unsigned int decrement)
 {
  current_x-=decrement;
 }
 
-void Sprite::increase_y(const unsigned long int increment)
+void Sprite::increase_y(const unsigned int increment)
 {
  current_y+=increment;
 }
 
-void Sprite::decrease_y(const unsigned long int decrement)
+void Sprite::decrease_y(const unsigned int decrement)
 {
  current_y-=decrement;
 }
 
-unsigned long int Sprite::get_x() const
+unsigned int Sprite::get_x() const
 {
  return current_x;
 }
 
-unsigned long int Sprite::get_y() const
+unsigned int Sprite::get_y() const
 {
  return current_y;
 }
 
-unsigned long int Sprite::get_width() const
+unsigned int Sprite::get_width() const
 {
  return sprite_width;
 }
 
-unsigned long int Sprite::get_height() const
+unsigned int Sprite::get_height() const
 {
  return sprite_height;
 }
@@ -2494,7 +2494,7 @@ SPRITE_TYPE Sprite::get_kind() const
  return current_kind;
 }
 
-void Sprite::set_target(const unsigned long int target)
+void Sprite::set_target(const unsigned int target)
 {
  this->set_frame(target);
  this->set_sprite_frame();
@@ -2506,13 +2506,13 @@ void Sprite::step()
  this->set_sprite_frame();
 }
 
-void Sprite::set_position(const unsigned long int x,const unsigned long int y)
+void Sprite::set_position(const unsigned int x,const unsigned int y)
 {
  current_x=x;
  current_y=y;
 }
 
-void Sprite::set_width(const unsigned long int width)
+void Sprite::set_width(const unsigned int width)
 {
  if (width>0)
  {
@@ -2521,7 +2521,7 @@ void Sprite::set_width(const unsigned long int width)
 
 }
 
-void Sprite::set_height(const unsigned long int height)
+void Sprite::set_height(const unsigned int height)
 {
  if (height>0)
  {
@@ -2530,7 +2530,7 @@ void Sprite::set_height(const unsigned long int height)
 
 }
 
-void Sprite::set_size(const unsigned long int width,const unsigned long int height)
+void Sprite::set_size(const unsigned int width,const unsigned int height)
 {
  this->set_width(width);
  this->set_height(height);
@@ -2579,7 +2579,7 @@ void Sprite::draw_sprite()
  this->draw_sprite_image();
 }
 
-void Sprite::draw_sprite(const unsigned long int x,const unsigned long int y)
+void Sprite::draw_sprite(const unsigned int x,const unsigned int y)
 {
  this->set_position(x,y);
  this->draw_sprite();
@@ -2591,7 +2591,7 @@ void Sprite::draw_sprite(const bool transparency)
  this->draw_sprite();
 }
 
-void Sprite::draw_sprite(const bool transparency,const unsigned long int x,const unsigned long int y)
+void Sprite::draw_sprite(const bool transparency,const unsigned int x,const unsigned int y)
 {
  this->set_transparent(transparency);
  this->draw_sprite(x,y);
@@ -2617,27 +2617,27 @@ void Tileset::prepare()
  target.prepare(this->get_buffer());
 }
 
-unsigned long int Tileset::get_tile_width() const
+unsigned int Tileset::get_tile_width() const
 {
  return tile_width;
 }
 
-unsigned long int Tileset::get_tile_height() const
+unsigned int Tileset::get_tile_height() const
 {
  return tile_height;
 }
 
-unsigned long int Tileset::get_rows() const
+unsigned int Tileset::get_rows() const
 {
  return rows;
 }
 
-unsigned long int Tileset::get_columns() const
+unsigned int Tileset::get_columns() const
 {
  return columns;
 }
 
-void Tileset::select_tile(const unsigned long int row,const unsigned long int column)
+void Tileset::select_tile(const unsigned int row,const unsigned int column)
 {
  if ((row<rows)&&(column<columns))
  {
@@ -2646,7 +2646,7 @@ void Tileset::select_tile(const unsigned long int row,const unsigned long int co
 
 }
 
-void Tileset::draw_tile(const unsigned long int x,const unsigned long int y)
+void Tileset::draw_tile(const unsigned int x,const unsigned int y)
 {
  target.set_size(tile_width,tile_height);
  target.set_position(x,y);
@@ -2654,13 +2654,13 @@ void Tileset::draw_tile(const unsigned long int x,const unsigned long int y)
  target.draw();
 }
 
-void Tileset::draw_tile(const unsigned long int row,const unsigned long int column,const unsigned long int x,const unsigned long int y)
+void Tileset::draw_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y)
 {
  this->select_tile(row,column);
  this->draw_tile(x,y);
 }
 
-void Tileset::load_tileset(Image &buffer,const unsigned long int row_amount,const unsigned long int column_amount)
+void Tileset::load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount)
 {
  if ((row_amount>0)&&(column_amount>0))
  {
@@ -2695,7 +2695,7 @@ void Text::restore_position()
  font->set_position(current_x,current_y);
 }
 
-void Text::set_position(const unsigned long int x,const unsigned long int y)
+void Text::set_position(const unsigned int x,const unsigned int y)
 {
  font->set_position(x,y);
  current_x=x;
@@ -2728,13 +2728,13 @@ void Text::draw_text(const char *text)
  this->restore_position();
 }
 
-void Text::draw_character(const unsigned long int x,const unsigned long int y,const char target)
+void Text::draw_character(const unsigned int x,const unsigned int y,const char target)
 {
  this->set_position(x,y);
  this->draw_character(target);
 }
 
-void Text::draw_text(const unsigned long int x,const unsigned long int y,const char *text)
+void Text::draw_text(const unsigned int x,const unsigned int y,const char *text)
 {
  this->set_position(x,y);
  this->draw_text(text);
@@ -2837,7 +2837,7 @@ bool Collision::check_collision(const Collision_Box &first_target,const Collisio
  return this->check_collision();
 }
 
-Collision_Box Collision::generate_box(const unsigned long int x,const unsigned long int y,const unsigned long int width,const unsigned long int height) const
+Collision_Box Collision::generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const
 {
  Collision_Box result;
  result.x=x;

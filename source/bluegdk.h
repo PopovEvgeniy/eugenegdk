@@ -110,10 +110,10 @@ struct TGA_image
 
 struct Collision_Box
 {
- unsigned long int x:32;
- unsigned long int y:32;
- unsigned long int width:32;
- unsigned long int height:32;
+ unsigned int x;
+ unsigned int y;
+ unsigned int width;
+ unsigned int height;
 };
 
 LRESULT CALLBACK Process_Message(HWND window,UINT Message,WPARAM wParam,LPARAM lParam);
@@ -182,8 +182,8 @@ class FPS
 {
  private:
  time_t start;
- unsigned long int current;
- unsigned long int fps;
+ unsigned int current;
+ unsigned int fps;
  protected:
  void update_counter();
  public:
@@ -218,8 +218,8 @@ class Display
  Display();
  ~Display();
  unsigned long int get_color() const;
- unsigned long int get_width() const;
- unsigned long int get_height() const;
+ unsigned int get_width() const;
+ unsigned int get_height() const;
 };
 
 class WINGL:public Display, public Engine
@@ -263,36 +263,36 @@ class Resizer
 {
  private:
  unsigned int *image;
- unsigned long int size_limit;
- unsigned long int source_width;
- unsigned long int source_height;
- unsigned long int target_width;
- unsigned long int target_height;
- size_t get_source_offset(const unsigned long int x,const unsigned long int y) const;
- size_t get_target_offset(const unsigned long int x,const unsigned long int y) const;
+ unsigned int size_limit;
+ unsigned int source_width;
+ unsigned int source_height;
+ unsigned int target_width;
+ unsigned int target_height;
+ size_t get_source_offset(const unsigned int x,const unsigned int y) const;
+ size_t get_target_offset(const unsigned int x,const unsigned int y) const;
  void resize_image(const unsigned int *target);
- void set_setting(const unsigned long int width,const unsigned long int height,const unsigned long int limit);
+ void set_setting(const unsigned int width,const unsigned int height,const unsigned int limit);
  void calculate_size();
  void correct_size();
  void create_buffer();
  public:
  Resizer();
  ~Resizer();
- void create_buffer(const unsigned int *target,const unsigned long int width,const unsigned long int height,const unsigned long int limit);
- unsigned long int get_width() const;
- unsigned long int get_height() const;
+ void create_buffer(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit);
+ unsigned int get_width() const;
+ unsigned int get_height() const;
  unsigned int *get_buffer();
 };
 
 class Shape
 {
  private:
- unsigned long int target_width;
- unsigned long int target_height;
- unsigned long int total_width;
- unsigned long int total_height;
- unsigned long int current_x;
- unsigned long int current_y;
+ unsigned int target_width;
+ unsigned int target_height;
+ unsigned int total_width;
+ unsigned int total_height;
+ unsigned int current_x;
+ unsigned int current_y;
  MIRROR_STATUS horizontal_mirror;
  MIRROR_STATUS vertical_mirror;
  float get_start_offset(const float current,const float total);
@@ -301,16 +301,16 @@ class Shape
  Vertex vertex[4];
  Point point[4];
  void reset_data();
- unsigned long int get_total_width() const;
- unsigned long int get_total_height() const;
- unsigned long int get_x() const;
- unsigned long int get_y() const;
+ unsigned int get_total_width() const;
+ unsigned int get_total_height() const;
+ unsigned int get_x() const;
+ unsigned int get_y() const;
  public:
  Shape();
  ~Shape();
- void set_total_size(const unsigned long int width,const unsigned long int height);
- void set_size(const unsigned long int width,const unsigned long int height);
- void set_position(const unsigned long int x,const unsigned long int y);
+ void set_total_size(const unsigned int width,const unsigned int height);
+ void set_size(const unsigned int width,const unsigned int height);
+ void set_position(const unsigned int x,const unsigned int y);
  void set_horizontal_offset(const float current,const float total);
  void set_vertical_offset(const float current,const float total);
  void set_tile_offset(const float row,const float rows,const float column,const float columns);
@@ -323,7 +323,7 @@ class Rectangle:public Shape
 {
  private:
  unsigned int texture;
- unsigned long int get_maximum_size() const;
+ unsigned int get_maximum_size() const;
  void create_texture(const unsigned int *buffer);
  void delete_texture();
  void check_texture();
@@ -347,10 +347,10 @@ class Primitive
  ~Primitive();
  void prepare();
  void set_color(const unsigned char red,const unsigned char green,const unsigned char blue);
- void draw_pixel(const unsigned long int x,const unsigned long int y);
- void draw_line(const unsigned long int x,const unsigned long int y,const unsigned long int x2,const unsigned long int y2);
- void draw_rectangle(const unsigned long int x,const unsigned long int y,const unsigned long int width,const unsigned long int height);
- void draw_filled_rectangle(const unsigned long int x,const unsigned long int y,const unsigned long int width,const unsigned long int height);
+ void draw_pixel(const unsigned int x,const unsigned int y);
+ void draw_line(const unsigned int x,const unsigned int y,const unsigned int x2,const unsigned int y2);
+ void draw_rectangle(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height);
+ void draw_filled_rectangle(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height);
 };
 
 class Screen:public FPS, public Synchronization, public Render
@@ -477,7 +477,7 @@ class System
  public:
  System();
  ~System();
- unsigned long int get_random(const unsigned long int number);
+ unsigned int get_random(const unsigned int number);
  void quit();
  void run(const char *command);
  char* read_environment(const char *variable);
@@ -534,8 +534,8 @@ class Output_File:public Binary_File
 class Image
 {
  private:
- unsigned long int width;
- unsigned long int height;
+ unsigned int width;
+ unsigned int height;
  unsigned char *data;
  unsigned char *create_buffer(const size_t length);
  void clear_buffer();
@@ -543,8 +543,8 @@ class Image
  Image();
  ~Image();
  void load_tga(const char *name);
- unsigned long int get_width() const;
- unsigned long int get_height() const;
+ unsigned int get_width() const;
+ unsigned int get_height() const;
  size_t get_length() const;
  unsigned char *get_data();
  void destroy_image();
@@ -554,11 +554,11 @@ class Picture
 {
  private:
  unsigned int *image;
- unsigned long int image_width;
- unsigned long int image_height;
+ unsigned int image_width;
+ unsigned int image_height;
  size_t length;
  protected:
- void set_image_size(const unsigned long int width,const unsigned long int height);
+ void set_image_size(const unsigned int width,const unsigned int height);
  void clear_buffer();
  unsigned int *create_buffer();
  void set_buffer(unsigned int *buffer);
@@ -569,24 +569,24 @@ class Picture
  size_t get_length() const;
  unsigned int *get_image();
  void load_image(Image &buffer);
- unsigned long int get_image_width() const;
- unsigned long int get_image_height() const;
+ unsigned int get_image_width() const;
+ unsigned int get_image_height() const;
 };
 
 class Frame
 {
  private:
- unsigned long int frames;
- unsigned long int frame;
+ unsigned int frames;
+ unsigned int frame;
  protected:
- void set_frame(const unsigned long int target);
+ void set_frame(const unsigned int target);
  void increase_frame();
  public:
  Frame();
  ~Frame();
- void set_frames(const unsigned long int amount);
- unsigned long int get_frames() const;
- unsigned long int get_frame() const;
+ void set_frames(const unsigned int amount);
+ unsigned int get_frames() const;
+ unsigned int get_frame() const;
 };
 
 class Background:public Frame,public Picture
@@ -598,11 +598,11 @@ class Background:public Frame,public Picture
  public:
  Background();
  ~Background();
- void prepare(const unsigned long int screen_width,const unsigned long int screen_height);
+ void prepare(const unsigned int screen_width,const unsigned int screen_height);
  void prepare(Screen *screen);
  void set_kind(const BACKGROUND_TYPE kind);
- void set_setting(const BACKGROUND_TYPE kind,const unsigned long int frames);
- void set_target(const unsigned long int target);
+ void set_setting(const BACKGROUND_TYPE kind,const unsigned int frames);
+ void set_target(const unsigned int target);
  void step();
  void horizontal_mirror();
  void vertical_mirror();
@@ -614,10 +614,10 @@ class Sprite:public Frame,public Picture
  private:
  Rectangle target;
  bool transparent;
- unsigned long int current_x;
- unsigned long int current_y;
- unsigned long int sprite_width;
- unsigned long int sprite_height;
+ unsigned int current_x;
+ unsigned int current_y;
+ unsigned int sprite_width;
+ unsigned int sprite_height;
  SPRITE_TYPE current_kind;
  void check_transparent();
  void draw_sprite_image();
@@ -627,81 +627,81 @@ class Sprite:public Frame,public Picture
  Sprite();
  ~Sprite();
  void prepare();
- void load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned long int frames);
+ void load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames);
  void set_transparent(const bool enabled);
  bool get_transparent() const;
- void set_x(const unsigned long int x);
- void set_y(const unsigned long int y);
+ void set_x(const unsigned int x);
+ void set_y(const unsigned int y);
  void increase_x();
  void decrease_x();
  void increase_y();
  void decrease_y();
- void increase_x(const unsigned long int increment);
- void decrease_x(const unsigned long int decrement);
- void increase_y(const unsigned long int increment);
- void decrease_y(const unsigned long int decrement);
- unsigned long int get_x() const;
- unsigned long int get_y() const;
- unsigned long int get_width() const;
- unsigned long int get_height() const;
+ void increase_x(const unsigned int increment);
+ void decrease_x(const unsigned int decrement);
+ void increase_y(const unsigned int increment);
+ void decrease_y(const unsigned int decrement);
+ unsigned int get_x() const;
+ unsigned int get_y() const;
+ unsigned int get_width() const;
+ unsigned int get_height() const;
  Sprite* get_handle();
  Collision_Box get_box() const;
  void set_kind(const SPRITE_TYPE kind);
  SPRITE_TYPE get_kind() const;
- void set_target(const unsigned long int target);
+ void set_target(const unsigned int target);
  void step();
- void set_position(const unsigned long int x,const unsigned long int y);
- void set_width(const unsigned long int width);
- void set_height(const unsigned long int height);
- void set_size(const unsigned long int width,const unsigned long int height);
+ void set_position(const unsigned int x,const unsigned int y);
+ void set_width(const unsigned int width);
+ void set_height(const unsigned int height);
+ void set_size(const unsigned int width,const unsigned int height);
  void clone(Sprite &target);
  void horizontal_mirror();
  void vertical_mirror();
  void draw_sprite();
- void draw_sprite(const unsigned long int x,const unsigned long int y);
+ void draw_sprite(const unsigned int x,const unsigned int y);
  void draw_sprite(const bool transparency);
- void draw_sprite(const bool transparency,const unsigned long int x,const unsigned long int y);
+ void draw_sprite(const bool transparency,const unsigned int x,const unsigned int y);
 };
 
 class Tileset:public Picture
 {
  private:
  Rectangle target;
- unsigned long int tile_width;
- unsigned long int tile_height;
- unsigned long int rows;
- unsigned long int columns;
+ unsigned int tile_width;
+ unsigned int tile_height;
+ unsigned int rows;
+ unsigned int columns;
  public:
  Tileset();
  ~Tileset();
  void prepare();
- unsigned long int get_tile_width() const;
- unsigned long int get_tile_height() const;
- unsigned long int get_rows() const;
- unsigned long int get_columns() const;
- void select_tile(const unsigned long int row,const unsigned long int column);
- void draw_tile(const unsigned long int x,const unsigned long int y);
- void draw_tile(const unsigned long int row,const unsigned long int column,const unsigned long int x,const unsigned long int y);
- void load_tileset(Image &buffer,const unsigned long int row_amount,const unsigned long int column_amount);
+ unsigned int get_tile_width() const;
+ unsigned int get_tile_height() const;
+ unsigned int get_rows() const;
+ unsigned int get_columns() const;
+ void select_tile(const unsigned int row,const unsigned int column);
+ void draw_tile(const unsigned int x,const unsigned int y);
+ void draw_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y);
+ void load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount);
 };
 
 class Text
 {
  private:
- unsigned long int current_x;
- unsigned long int current_y;
+ unsigned int current_x;
+ unsigned int current_y;
  Sprite *font;
  void increase_position();
  void restore_position();
  public:
  Text();
  ~Text();
- void set_position(const unsigned long int x,const unsigned long int y);
+ void set_position(const unsigned int x,const unsigned int y);
  void load_font(Sprite *target);
  void draw_character(const char target);
  void draw_text(const char *text);
- void draw_character(const unsigned long int x,const unsigned long int y,const char target);
- void draw_text(const unsigned long int x,const unsigned long int y,const char *text);
+ void draw_character(const unsigned int x,const unsigned int y,const char target);
+ void draw_text(const unsigned int x,const unsigned int y,const char *text);
 };
 
 class Timer
@@ -731,7 +731,7 @@ class Collision
  bool check_horizontal_collision(const Collision_Box &first_target,const Collision_Box &second_target);
  bool check_vertical_collision(const Collision_Box &first_target,const Collision_Box &second_target);
  bool check_collision(const Collision_Box &first_target,const Collision_Box &second_target);
- Collision_Box generate_box(const unsigned long int x,const unsigned long int y,const unsigned long int width,const unsigned long int height) const;
+ Collision_Box generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const;
 };
 
 }

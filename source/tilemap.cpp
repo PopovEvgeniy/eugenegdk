@@ -8,7 +8,7 @@ int main()
  BLUEGDK::Image image;
  BLUEGDK::Tileset tilemap;
  BLUEGDK::Keyboard keyboard;
- unsigned long int x,y;
+ unsigned int x,y;
  keyboard.initialize();
  screen.initialize();
  image.load_tga("font.tga");

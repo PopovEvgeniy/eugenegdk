@@ -48,8 +48,7 @@
           <li><a href="#mozTocId688163">Chapter 2. Filesystem</a></li>
           <li><a href="#mozTocId853711">Chapter 3. Abnormal program termination</a></li>
           <li><a href="#mozTocId656377">Chapter 4. Timer</a></li>
-          <li><a href="#mozTocId638476">Chapter 5. Coordinate system</a></li>
-          <li><a href="#mozTocId381935">Chapter 6. Collision</a></li>
+          <li><a href="#mozTocId381935">Chapter 5. Collision</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId590919"> Part 5. Binary files</a>
@@ -203,6 +202,7 @@
     <big><br>
     </big>
     <table style="text-align: left; width: 903px; height: 244px;" cellspacing="2"
+
       cellpadding="2" border="1">
       <tbody>
         <tr>
@@ -362,8 +362,7 @@ C++
       <span style="font-style: italic;">void Screen::clear_screen();</span> –
       Clear the screen. Fill it by black color.<br>
       <span style="font-style: italic;">void Screen::initialize();</span> –
-      Initialize the base graphic subsystem with default surface size.<span style="font-style: italic;"></span><span
-
+      Initialize the base graphic subsystem.<span style="font-style: italic;"></span><span
         style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -371,14 +370,14 @@ C++
       <span style="font-style: italic;">bool Screen::update();</span> – Show
       current back-buffer content on screen. Return false if a game is
       terminated. This method don’t use fps limit and need high processor usage.<br>
-      <span style="font-style: italic;">unsigned long int Screen::get_fps()
-        const;</span> – Return current fps value.<br>
+      <span style="font-style: italic;">unsigned int Screen::get_fps() const;</span>
+      – Return current fps value.<br>
       <span style="font-style: italic;">unsigned long int Screen::get_color()
         const;</span> – Return current color depth in bits per pixel.<br>
-      <span style="font-style: italic;">unsigned long int Screen::get_width()
-        const;</span> – Return screen width in pixels.<br>
-      <span style="font-style: italic;">unsigned long int Screen::get_height()
-        const;</span> – Return screen height in pixels.<br>
+      <span style="font-style: italic;">unsigned int Screen::get_width() const;</span>
+      – Return screen width in pixels.<br>
+      <span style="font-style: italic;">unsigned int Screen::get_height() const;</span>
+      – Return screen height in pixels.<br>
       <span style="font-style: italic;">Screen* Screen::get_handle();</span> –
       Return the handle to base graphics subsystem object.<br>
     </big>
@@ -395,17 +394,16 @@ C++
         char red, const unsigned char green, const unsigned char blue);</span> –
       Set the current color.<br>
       <span style="font-style: italic;">void Primitive::draw_pixel(const
-        unsigned long int x,const unsigned long int y);</span> – Draw a pixel.<br>
+        unsigned int x,const unsigned int y);</span> – Draw a pixel.<br>
       <span style="font-style: italic;">void Primitive::draw_line(const unsigned
-        long int x1,const unsigned long int y1,const unsigned long int x2,const
-        unsigned long int y2);</span> – Just draw a line.<br>
+        long int x1,const unsigned int y1,const unsigned int x2,const unsigned
+        int y2);</span> – Just draw a line.<br>
       <span style="font-style: italic;">void Primitive::draw_rectangle(const
-        unsigned long int x,const unsigned long int y,const unsigned long int
-        width,const unsigned long int height);</span> – Draw a simple rectangle.<br>
+        unsigned int x,const unsigned int y,const unsigned int width,const
+        unsigned int height);</span> – Draw a simple rectangle.<br>
       <span style="font-style: italic;">void
-        Primitive::draw_filled_rectangle(const unsigned long int x,const
-        unsigned long int y,const unsigned long int width);</span> – Draw a
-      filled rectangle.<br>
+        Primitive::draw_filled_rectangle(const unsigned int x,const unsigned int
+        y,const unsigned int width);</span> – Draw a filled rectangle.<br>
       <br>
       <span style="text-decoration: underline;">Important notes</span><br>
       <br>
@@ -432,11 +430,10 @@ C++
       image if exist.<br>
       <span style="font-style: italic;">size_t Picture::get_length() const;</span>
       – Return length of image buffer in bytes.<br>
-      <span style="font-style: italic;">unsigned long int
-        Picture::get_image_width() const;</span> – Return image width in pixels.<br>
-      <span style="font-style: italic;">unsigned long int
-        Picture::get_image_height() const;</span> – Return image height in
-      pixels.<span style="font-style: italic;"></span></big><big><br>
+      <span style="font-style: italic;">unsigned int Picture::get_image_width()
+        const;</span> – Return image width in pixels.<br>
+      <span style="font-style: italic;">unsigned int Picture::get_image_height()
+        const;</span> – Return image height in pixels.<span style="font-style: italic;"></span></big><big><br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId501089"></a><big>Chapter 4. Animation
         subsystem</big></h2>
@@ -451,15 +448,13 @@ C++
       to animation subsystem. Don’t use it directly. Let’s look to public
       methods.<br>
       <br>
-      <span style="font-style: italic;">void Frame::set_frames(unsigned long int
-        amount);</span> – Set amounts of frames in scrolling background or
+      <span style="font-style: italic;">void Frame::set_frames(const unsigned
+        int amount);</span> – Set amounts of frames in scrolling background or
       animated sprite.<br>
-      <span style="font-style: italic;">unsigned long int Frame::get_frames()
-        const;</span> – Return amount of frames in scrolling background or
-      animated sprite.<br>
-      <span style="font-style: italic;">unsigned long int Frame::get_frame()
-        const;</span> – Return current frame in scrolling background or animated
-      sprite.<span style="font-style: italic;"><br>
+      <span style="font-style: italic;">unsigned int Frame::get_frames() const;</span>
+      – Return amount of frames in scrolling background or animated sprite.<br>
+      <span style="font-style: italic;">unsigned int Frame::get_frame() const;</span>
+      – Return current frame in scrolling background or animated sprite.<span style="font-style: italic;"><br>
       </span> </big>
     <h2><a class="mozTocH2" name="mozTocId455894"></a><big> Chapter 5.
         Background</big></h2>
@@ -511,20 +506,21 @@ C++
       to public methods.<br>
     </big><big style="font-style: italic;"></big><big><br>
       <span style="font-style: italic;">void Background::prepare(const unsigned
-        long screen_width,const unsigned long screen_height);</span>&nbsp; –
+        int screen_width,const unsigned int screen_height);</span>&nbsp; –
       Prepare for drawing.<br>
     </big><big><span style="font-style: italic;">void Background::prepare(Screen
         *screen);</span>&nbsp; – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
-        unsigned long int target);</span> – Set target frame in scrolling
-      background.<br style="font-style: italic;">
+        unsigned int target);</span> – Set target frame in scrolling background.<br
+
+        style="font-style: italic;">
       <span style="font-style: italic;">void Background::step();</span> –
       Increase number of target frame in scrolling background. Set it to 1 if
       number of target frame more than amount of frames.</big><br>
     <big> <span style="font-style: italic;">void Background::set_kind(const
         BACKGROUND_TYPE target);</span> – Set background type.</big><br>
     <big><i>void Background::set_setting(const BACKGROUND_TYPE kind,const
-        unsigned long int frames);</i> – Set background setting.<br>
+        unsigned int frames);</i> – Set background setting.<br>
       <span style="font-style: italic;">void Background::horizontal_mirror();</span>&nbsp;
       – Do horizontal background mirror.<br>
       <span style="font-style: italic;">void Background::vertical_mirror();</span>
@@ -601,10 +597,10 @@ C++
       <span style="font-style: italic;">void Sprite::prepare();</span>&nbsp; –
       Prepare for drawing.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image
-        &amp;buffer,const SPRITE_TYPE kind,const unsigned long int frames);</span>
-      – Load a sprite from memory buffer and set sprite setting.<br>
+        &amp;buffer,const SPRITE_TYPE kind,const unsigned int frames);</span> –
+      Load a sprite from memory buffer and set sprite setting.<br>
       <span style="font-style: italic;">void Sprite::set_target(const unsigned
-        long int target);</span> – Set target frame in animated sprite.<br>
+        int target);</span> – Set target frame in animated sprite.<br>
       <span style="font-style: italic;">void Sprite::step();</span> – Increase
       number of target frame in strip. Set it to 1 if number of target frame
       more than amount of frames.<br>
@@ -616,10 +612,10 @@ C++
         enabled);</span> – Enable or disable transparent mode.<br>
       <span style="font-style: italic;">bool Sprite::get_transparent() const;</span>
       – Return true if transparent mode is enabled.<br>
-      <span style="font-style: italic;">void Sprite::set_x(const unsigned long
-        int x);</span> – Set x-coordinate of the sprite position.</big><br>
+      <span style="font-style: italic;">void Sprite::set_x(const unsigned int
+        x);</span> – Set x-coordinate of the sprite position.</big><br>
     <big> <span style="font-style: italic;">void Sprite::set_y(const unsigned
-        long int y);</span> – Set y-coordinate of the sprite position.</big><br>
+        int y);</span> – Set y-coordinate of the sprite position.</big><br>
     <big><i>void Sprite::increase_x();</i> – Increase x-coordinate of the
       current sprite position.</big><br>
     <big><i>void Sprite::decrease_x();</i> – Decrease x-coordinate of the
@@ -628,26 +624,26 @@ C++
       current sprite position.</big><br>
     <big><i>void Sprite::decrease_y();</i> – Decrease y-coordinate of the
       current sprite position.</big><br>
-    <big><i>void Sprite::increase_x(const unsigned long int increment);</i> –
+    <big><i>void Sprite::increase_x(const unsigned int increment);</i> –
       Increase x-coordinate of the current sprite position with user-defined
       increment.</big><br>
-    <big><i>void Sprite::decrease_x(const unsigned long int decrement);</i> –
+    <big><i>void Sprite::decrease_x(const unsigned int decrement);</i> –
       Decrease x-coordinate of the current sprite position with user-defined
       decrement.</big><br>
-    <big><i>void Sprite::increase_y(const unsigned long int increment);</i> –
+    <big><i>void Sprite::increase_y(const unsigned int increment);</i> –
       Increase y-coordinate of the current sprite position with user-defined
       increment.</big><br>
-    <big><i>void Sprite::decrease_y(const unsigned long int decrement);</i> –
+    <big><i>void Sprite::decrease_y(const unsigned int decrement);</i> –
       Decrease y-coordinate of the current sprite position with user-defined
       decrement.</big><big><br>
-      <span style="font-style: italic;">unsigned long int Sprite::get_x() const;</span>
+      <span style="font-style: italic;">unsigned int Sprite::get_x() const;</span>
       – Return x-coordinate of the sprite position.<br>
-      <span style="font-style: italic;">unsigned long int Sprite::get_y() const;</span>
+      <span style="font-style: italic;">unsigned int Sprite::get_y() const;</span>
       – Return y-coordinate of the sprite position.<br>
-      <span style="font-style: italic;">unsigned long int Sprite::get_width()
-        const;</span> – Return the width of the sprite.<br>
-      <span style="font-style: italic;">unsigned long int Sprite::get_height()
-        const;</span> – Return the height of the sprite.<br>
+      <span style="font-style: italic;">unsigned int Sprite::get_width() const;</span>
+      – Return the width of the sprite.<br>
+      <span style="font-style: italic;">unsigned int Sprite::get_height() const;</span>
+      – Return the height of the sprite.<br>
       <span style="font-style: italic;">Sprite* Sprite::get_handle();</span> –
       Return the handle to sprite object.<br>
       <span style="font-style: italic;">Collision_Box Sprite::get_box() const;</span>
@@ -655,14 +651,13 @@ C++
       <span style="font-style: italic;">void Sprite::clone(Sprite &amp;target);</span>
       – Create copy of exist sprite.<br>
       <span style="font-style: italic;">void Sprite::set_position(const unsigned
-        long int x, const unsigned long int y);</span> – Set sprite position.<br>
-      <span style="font-style: italic;">void Sprite::set_size(const unsigned
-        long int width, const unsigned long int height);</span> – Change the
-      sprite size.<br>
+        int x, const unsigned int y);</span> – Set sprite position.<br>
+      <span style="font-style: italic;">void Sprite::set_size(const unsigned int
+        width, const unsigned int height);</span> – Change the sprite size.<br>
       <span style="font-style: italic;">void Sprite::set_width(const unsigned
-        long int width);</span> – Change the sprite width.<br>
+        int width);</span> – Change the sprite width.<br>
       <span style="font-style: italic;">void Sprite::set_height(const unsigned
-        long int height);</span> – Change the sprite height.<br>
+        int height);</span> – Change the sprite height.<br>
       <span style="font-style: italic;">void Sprite::horizontal_mirror();</span>
       – Do horizontal sprite mirror.<br>
       <span style="font-style: italic;">void Sprite::vertical_mirror();</span> –
@@ -670,13 +665,13 @@ C++
     </big><big> <span style="font-style: italic;">void Sprite::draw_sprite();</span>
       – Draw a sprite.</big><br>
     <big> <span style="font-style: italic;">void Sprite::draw_sprite(const
-        unsigned long int x, const unsigned long int y);</span> – Set sprite
-      position and draw it.</big><br>
+        unsigned int x, const unsigned int y);</span> – Set sprite position and
+      draw it.</big><br>
     <big><i>void Sprite::draw_sprite(const bool transparency);</i> – Set
       transparent mode and draw a sprite.</big><br>
-    <big><i>void Sprite::draw_sprite(const bool transparency,const unsigned long
-        int x, const unsigned long int y);</i> – Set transparent mode and draw a
-      sprite at target position.</big><br>
+    <big><i>void Sprite::draw_sprite(const bool transparency,const unsigned int
+        x, const unsigned int y);</i> – Set transparent mode and draw a sprite
+      at target position.</big><br>
     <big> <br>
       <span style="text-decoration: underline;">Important notes</span><br>
       <br>
@@ -705,7 +700,7 @@ C++
       interface to text subsystem. Let’s look to public methods.<br>
       <br>
       <span style="font-style: italic;">void Text::set_position(const unsigned
-        long int x,const unsigned long int y);</span> – Set output position.<br>
+        int x,const unsigned int y);</span> – Set output position.<br>
       <span style="font-style: italic;">void Text::load_font(Sprite *font);</span>
       – Load a font.<br>
       <span style="font-style: italic;">void Text::draw_character(const char
@@ -713,11 +708,11 @@ C++
       <span style="font-style: italic;">void Text::draw_text(const char *text);</span>
       – Draw text at current position.<br>
       <span style="font-style: italic;">void Text::draw_character(const unsigned
-        long int x,const unsigned long int y,const char target);</span> – Draw
-      single character at specific position.<br>
-      <span style="font-style: italic;">void Text::draw_text(const unsigned long
-        int x,const unsigned long int y,const char *text);</span> – Draw text at
-      specific position. </big>
+        int x,const unsigned int y,const char target);</span> – Draw single
+      character at specific position.<br>
+      <span style="font-style: italic;">void Text::draw_text(const unsigned int
+        x,const unsigned int y,const char *text);</span> – Draw text at specific
+      position. </big>
     <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 8. Tile-set</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Some words about complex
@@ -742,25 +737,24 @@ C++
       <br>
       <span style="font-style: italic;">Tileset::prepare();</span>&nbsp; –
       Prepare for drawing.<br>
-      <span style="font-style: italic;">unsigned long int
-        Tileset::get_tile_width() const;</span> – Return tile width in pixels.<br>
-      <span style="font-style: italic;">unsigned long int
-        Tileset::get_tile_height() const;</span> – Return tile height in pixels.<br>
-      <span style="font-style: italic;">unsigned long int Tileset::get_rows()
-        const;</span> – Return amount of rows.<br>
-      <span style="font-style: italic;">unsigned long int Tileset::get_columns()
+      <span style="font-style: italic;">unsigned int Tileset::get_tile_width()
+        const;</span> – Return tile width in pixels.<br>
+      <span style="font-style: italic;">unsigned int Tileset::get_tile_height()
+        const;</span> – Return tile height in pixels.<br>
+      <span style="font-style: italic;">unsigned int Tileset::get_rows() const;</span>
+      – Return amount of rows.<br>
+      <span style="font-style: italic;">unsigned int Tileset::get_columns()
         const;</span> – Return amount of columns.<br>
       <span style="font-style: italic;">void Tileset::select_tile(const unsigned
-        long int row,const unsigned long int column);</span> – Select target
-      tile.</big><br>
+        int row,const unsigned int column);</span> – Select target tile.</big><br>
     <big> <span style="font-style: italic;">void Tileset::draw_tile(const
-        unsigned long int x,const unsigned long int y);</span> – Draw selected
+        unsigned int x,const unsigned int y);</span> – Draw selected tile at
+      specific position.</big><br>
+    <big><i>void Tileset::draw_tile(const unsigned int row,const unsigned int
+        column,const unsigned int x,const unsigned int y);</i> – Draw target
       tile at specific position.</big><br>
-    <big><i>void Tileset::draw_tile(const unsigned long int row,const unsigned
-        long int column,const unsigned long int x,const unsigned long int y);</i>
-      – Draw target tile at specific position.</big><br>
     <big> <span style="font-style: italic;">void Tileset::load_tileset(Image
-        &amp;buffer,const unsigned long int row_amount,const unsigned long int
+        &amp;buffer,const unsigned int row_amount,const unsigned int
         column_amount);</span> – Load a tile-set.<br>
       <br>
       <span style="text-decoration: underline;">Important notes</span><br>
@@ -779,10 +773,10 @@ C++
       <br>
       <span style="font-style: italic;">void Image::load_tga(const char *name);</span>
       – Load a Truevision TGA image.<span style="font-style: italic;"></span><br>
-      <span style="font-style: italic;">unsigned long int Image::get_width()
-        const;</span> – Return width of current image.<br>
-      <span style="font-style: italic;">unsigned long int Image::get_height()
-        const;</span> – Return height of current image.<br>
+      <span style="font-style: italic;">unsigned int Image::get_width() const;</span>
+      – Return width of current image.<br>
+      <span style="font-style: italic;">unsigned int Image::get_height() const;</span>
+      – Return height of current image.<br>
       <span style="font-style: italic;">size_t Image::get_length() const;</span>
       – Return length of image buffer in bytes.<br>
       <span style="font-style: italic;">unsigned char *Image::get_data();</span>
@@ -813,9 +807,9 @@ C++
       You may need interaction with operation system. Just use <span style="font-style: italic;">System</span>
       class for do it. Let’s look to public methods.<br>
       <br>
-      <span style="font-style: italic;">unsigned long int
-        System::get_random(const unsigned long int number);</span> – Return a
-      random number from zero to number–1.<br>
+      <span style="font-style: italic;">unsigned int System::get_random(const
+        unsigned int number);</span> – Return a random number from zero to
+      number–1.<br>
       <span style="font-style: italic;">void System::quit();</span> – Exit from
       you program and return user to operation system.<br>
       <span style="font-style: italic;">void System::run(const char *command);</span>
@@ -848,9 +842,9 @@ C++
         program termination</big></h2>
     <big><br>
       You can use Halt function for terminate program. This function declared in
-      <span style="font-style: italic;">SWGF</span> name-space.<br>
+      <span style="font-style: italic;">BLUEGDK</span> name-space.<br>
       <br>
-      <span style="font-style: italic;">void SWGF::Halt(const char *message);</span>
+      <span style="font-style: italic;">void BLUEGDK::Halt(const char *message);</span>
       – Terminate the program. Write error message to log file if logging
       enabled. </big><big> </big>
     <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 4. Timer</big></h2>
@@ -864,39 +858,9 @@ C++
       <span style="font-style: italic;">bool Timer::check_timer();</span> –
       Initialize stop point. Return true and reinitialize start point if
       interval between stop and start points large or equal than specific
-      seconds. </big>
-    <h2><a class="mozTocH2" name="mozTocId638476"></a><big>Chapter 5. Coordinate
-        system</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;">Two kinds of coordinate system</span><br>
-      <br>
-      This engine use two kinds of coordinate system: Picture coordinate system
-      and screen coordinate system. You can convert values between these
-      systems. Use transformation subsystem to do it.<br>
-      <br>
-      <span style="text-decoration: underline;">Work with transformation
-        subsystem</span><br>
-      <br>
-      Just use <span style="font-style: italic;">Transformation</span> class
-      for work with the transformation subsystem. Let’s look to public methods.<br>
-      <br>
-      <span style="font-style: italic;">void Transformation::initialize(const
-        float screen_width,const float screen_height,const float
-        Picture_width,const float Picture_height);</span> – Initialize the
-      subsystem.<br>
-      <span style="font-style: italic;">float Transformation::get_screen_x(const
-        float Picture_x) const;</span> – Convert Picture x-coordinate to screen
-      x-coordinate.<br>
-      <span style="font-style: italic;">float Transformation::get_screen_y(const
-        float Picture_y) const;</span> – Convert Picture y-coordinate to screen
-      y-coordinate.<br>
-      <span style="font-style: italic;">float
-        Transformation::get_Picture_x(const float screen_x) const;</span> –
-      Convert screen x-coordinate to Picture x-coordinate.<br>
-      <span style="font-style: italic;">float
-        Transformation::get_Picture_y(const float screen_y) const;</span> –
-      Convert screen y-coordinate to Picture y-coordinate. </big>
-    <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 6. Collision</big></h2>
+      seconds. </big> <br>
+    <big></big><br>
+    <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 5. Collision</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Very important thing for any
         game</span><br>
@@ -911,10 +875,10 @@ C++
       <br>
       <span style="font-style: italic;">struct Collision_Box</span><br style="font-style: italic;">
       <span style="font-style: italic;">{</span><br style="font-style: italic;">
-      <span style="font-style: italic;">unsigned long int x:32;</span><br style="font-style: italic;">
-      <span style="font-style: italic;">unsigned long int y:32;</span><br style="font-style: italic;">
-      <span style="font-style: italic;">unsigned long int width:32;</span><br style="font-style: italic;">
-      <span style="font-style: italic;">unsigned long int height:32;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">unsigned int x;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">unsigned int y;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">unsigned int width;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">unsigned int height;</span><br style="font-style: italic;">
       <span style="font-style: italic;">};</span><br>
       <br>
       <span style="text-decoration: underline;">Work with collision detector</span><br>
@@ -945,10 +909,9 @@ C++
         &amp;first_target,const Box_Collision &amp;second_target);</i> – Set
       collision target and check collision.</big><br>
     <big> <span style="font-style: italic;">Collision_Box
-        Collision::generate_box(const unsigned long int x,const unsigned long
-        int y,const unsigned long int width,const unsigned long int height)
-        const;</span> – Generate collision related information from the object
-      properties. </big>
+        Collision::generate_box(const unsigned int x,const unsigned int y,const
+        unsigned int width,const unsigned int height) const;</span> – Generate
+      collision related information from the object properties. </big>
     <h1><a class="mozTocH1" name="mozTocId590919"></a><a id="mozTocId81465" class="mozTocH1"></a><big>
         Part 5. Binary files</big></h1>
     <big> </big>
@@ -1715,7 +1678,7 @@ Multimedia
       1.0.5 – 1.1.4 – Small changes.<br>
       1.1.5 – 1.1.6 – Small bug was fixed.<br>
     </big><big>1.1.7 – Unused dependency was removed.<br>
-      1.1.8 – Small changes.<br>
+      1.1.8 –&nbsp; 1.2.2 – Small changes.<br>
     </big> <big> </big>
   </body>
 </html>
