@@ -202,7 +202,6 @@
     <big><br>
     </big>
     <table style="text-align: left; width: 903px; height: 244px;" cellspacing="2"
-
       cellpadding="2" border="1">
       <tbody>
         <tr>
@@ -363,6 +362,7 @@ C++
       Clear the screen. Fill it by black color.<br>
       <span style="font-style: italic;">void Screen::initialize();</span> –
       Initialize the base graphic subsystem.<span style="font-style: italic;"></span><span
+
         style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -512,7 +512,6 @@ C++
         *screen);</span>&nbsp; – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
         unsigned int target);</span> – Set target frame in scrolling background.<br
-
         style="font-style: italic;">
       <span style="font-style: italic;">void Background::step();</span> –
       Increase number of target frame in scrolling background. Set it to 1 if
@@ -852,9 +851,8 @@ C++
       Timer is very useful thing. Just use <span style="font-style: italic;">Timer</span>
       class for work with the timer. Let’s look to public methods.<br>
       <br>
-      <span style="font-style: italic;">void Timer::set_timer(const unsigned
-        long int seconds);</span> – Set timer interval and initialize start
-      point.<br>
+      <span style="font-style: italic;">void Timer::set_timer(const double
+        seconds);</span> – Set timer interval and initialize start point.<br>
       <span style="font-style: italic;">bool Timer::check_timer();</span> –
       Initialize stop point. Return true and reinitialize start point if
       interval between stop and start points large or equal than specific
@@ -1600,7 +1598,6 @@ C++
       <span style="font-style: italic;">Shape</span> is base class for <span style="font-style: italic;">Rectangle</span>
       class.<br>
       <span style="font-style: italic;">COM_Base</span> is base class for <span
-
         style="font-style: italic;">Multimedia</span> class. </big>
     <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
         graphics subsystem</big></h2>
@@ -1678,7 +1675,7 @@ Multimedia
       1.0.5 – 1.1.4 – Small changes.<br>
       1.1.5 – 1.1.6 – Small bug was fixed.<br>
     </big><big>1.1.7 – Unused dependency was removed.<br>
-      1.1.8 –&nbsp; 1.2.2 – Small changes.<br>
+      1.1.8 –&nbsp; 1.2.3 – Small changes.<br>
     </big> <big> </big>
   </body>
 </html>

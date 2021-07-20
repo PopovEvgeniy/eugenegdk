@@ -707,12 +707,12 @@ class Text
 class Timer
 {
  private:
- unsigned long int interval;
+ double interval;
  time_t start;
  public:
  Timer();
  ~Timer();
- void set_timer(const unsigned long int seconds);
+ void set_timer(const double seconds);
  bool check_timer();
 };
 

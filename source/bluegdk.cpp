@@ -2751,7 +2751,7 @@ Timer::~Timer()
 
 }
 
-void Timer::set_timer(const unsigned long int seconds)
+void Timer::set_timer(const double seconds)
 {
  interval=seconds;
  start=time(NULL);
