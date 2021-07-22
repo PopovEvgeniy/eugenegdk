@@ -317,6 +317,16 @@ bool Engine::process_message()
  return run;
 }
 
+unsigned int Engine::get_width()
+{
+ return GetSystemMetrics(SM_CXSCREEN);
+}
+
+unsigned int Engine::get_height()
+{
+ return GetSystemMetrics(SM_CYSCREEN);
+}
+
 FPS::FPS()
 {
  start=time(NULL);
@@ -449,16 +459,6 @@ unsigned long int Display::get_color() const
  return display.dmBitsPerPel;
 }
 
-unsigned int Display::get_width() const
-{
- return display.dmPelsWidth;
-}
-
-unsigned int Display::get_height() const
-{
- return display.dmPelsHeight;
-}
-
 WINGL::WINGL()
 {
  render=NULL;
@@ -580,11 +580,11 @@ void WINGL::set_render()
 void WINGL::disable_vsync()
 {
  wglSwapIntervalEXT=reinterpret_cast<PFNWGLSWAPINTERVALEXTPROC>(wglGetProcAddress("wglSwapIntervalEXT"));
- if (wglSwapIntervalEXT==NULL)
+ if (wglSwapIntervalEXT!=NULL)
  {
-  Halt("Can't load OPENGL extension");
+  wglSwapIntervalEXT(0);
  }
- wglSwapIntervalEXT(0);
+
 }
 
 void WINGL::Swap()
@@ -604,8 +604,8 @@ Render::~Render()
 
 void Render::set_perfomance_setting()
 {
- glDisable(GL_DEPTH_TEST);
  glDisable(GL_DITHER);
+ glDisable(GL_LOGIC_OP);
  glDisable(GL_FOG);
  glDisable(GL_CULL_FACE);
  glDisable(GL_STENCIL_TEST);
@@ -614,7 +614,12 @@ void Render::set_perfomance_setting()
  glDisable(GL_NORMALIZE);
  glDisable(GL_AUTO_NORMAL);
  glDisable(GL_COLOR_MATERIAL);
+ glDisable(GL_TEXTURE_GEN_Q);
+ glDisable(GL_TEXTURE_GEN_R);
+ glDisable(GL_TEXTURE_GEN_S);
+ glDisable(GL_TEXTURE_GEN_T);
  glDisable(GL_TEXTURE_1D);
+ glEnable(GL_DEPTH_TEST);
  glEnable(GL_TEXTURE_2D);
  glEnableClientState(GL_VERTEX_ARRAY);
  glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -622,6 +627,12 @@ void Render::set_perfomance_setting()
  glDisableClientState(GL_EDGE_FLAG_ARRAY);
  glDisableClientState(GL_INDEX_ARRAY);
  glDisableClientState(GL_NORMAL_ARRAY);
+}
+
+void Render::set_common_setting()
+{
+ glDepthFunc(GL_ALWAYS);
+ glDepthMask(GL_TRUE);
 }
 
 void Render::set_perspective()
@@ -638,6 +649,7 @@ void Render::create_render()
 {
  this->set_render();
  this->set_perfomance_setting();
+ this->set_common_setting();
  this->set_perspective();
  this->disable_vsync();
 }

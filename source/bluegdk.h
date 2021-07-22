@@ -176,6 +176,8 @@ class Engine
  public:
  Engine();
  ~Engine();
+ unsigned int get_width();
+ unsigned int get_height();
 };
 
 class FPS
@@ -218,8 +220,6 @@ class Display
  Display();
  ~Display();
  unsigned long int get_color() const;
- unsigned int get_width() const;
- unsigned int get_height() const;
 };
 
 class WINGL:public Display, public Engine
@@ -248,6 +248,7 @@ class Render:public WINGL
 {
  private:
  void set_perfomance_setting();
+ void set_common_setting();
  void set_perspective();
  void create_render();
  protected:

@@ -201,52 +201,43 @@
         requirement. You can see minimum system requirement bellow.</big></p>
     <big><br>
     </big>
-    <table style="text-align: left; width: 903px; height: 244px;" cellspacing="2"
+    <table style="text-align: left; width: 575px; height: 244px;" cellspacing="2"
       cellpadding="2" border="1">
       <tbody>
         <tr>
           <td style="vertical-align: top;"><big>Operation system </big></td>
           <td style="vertical-align: top;"><big>Windows XP or higher </big></td>
-          <td style="vertical-align: top;"><big>Additional notes </big></td>
         </tr>
         <tr>
           <td style="vertical-align: top;"><big>Additional software </big></td>
           <td style="vertical-align: top;"><big>DirectX 8.1 or higher </big></td>
-          <td style="vertical-align: top;"><big>None </big></td>
         </tr>
         <tr>
           <td style="vertical-align: top;"><big>System type </big></td>
           <td style="vertical-align: top;"><big>32 or 64 bits </big></td>
-          <td style="vertical-align: top;"><big>None </big></td>
         </tr>
         <tr>
           <td style="vertical-align: top;"><big>Minimum color depth </big></td>
           <td style="vertical-align: top;"><big>16 bits </big></td>
-          <td style="vertical-align: top;"><big>None </big></td>
         </tr>
         <tr>
           <td style="vertical-align: top;"><big>Sound card </big></td>
           <td style="vertical-align: top;"><big>Any sound card </big></td>
-          <td style="vertical-align: top;"><big>None </big></td>
         </tr>
         <tr>
           <td style="vertical-align: top;"><big>Video-card </big></td>
           <td style="vertical-align: top;"><big>A good video-card with hardware
               acceleration </big></td>
-          <td style="vertical-align: top;"><big>Intel integrated graphics don’t
-              supported </big></td>
         </tr>
         <tr>
           <td colspan="1" rowspan="2" style="vertical-align: top;"><big>Processor
               </big></td>
           <td style="vertical-align: top;"><big>Intel Pentium 4 for 32 bit
               system </big></td>
-          <td style="vertical-align: top;"><big>None </big></td>
         </tr>
         <tr>
           <td style="vertical-align: top;"><big>Intel Core 2 Duo for 64 bit
               system </big></td>
-          <td style="vertical-align: top;"><big>None </big></td>
         </tr>
       </tbody>
     </table>
@@ -362,7 +353,6 @@ C++
       Clear the screen. Fill it by black color.<br>
       <span style="font-style: italic;">void Screen::initialize();</span> –
       Initialize the base graphic subsystem.<span style="font-style: italic;"></span><span
-
         style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -374,9 +364,9 @@ C++
       – Return current fps value.<br>
       <span style="font-style: italic;">unsigned long int Screen::get_color()
         const;</span> – Return current color depth in bits per pixel.<br>
-      <span style="font-style: italic;">unsigned int Screen::get_width() const;</span>
+      <span style="font-style: italic;">unsigned int Screen::get_width();</span>
       – Return screen width in pixels.<br>
-      <span style="font-style: italic;">unsigned int Screen::get_height() const;</span>
+      <span style="font-style: italic;">unsigned int Screen::get_height();</span>
       – Return screen height in pixels.<br>
       <span style="font-style: italic;">Screen* Screen::get_handle();</span> –
       Return the handle to base graphics subsystem object.<br>
@@ -1598,6 +1588,7 @@ C++
       <span style="font-style: italic;">Shape</span> is base class for <span style="font-style: italic;">Rectangle</span>
       class.<br>
       <span style="font-style: italic;">COM_Base</span> is base class for <span
+
         style="font-style: italic;">Multimedia</span> class. </big>
     <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
         graphics subsystem</big></h2>
@@ -1675,7 +1666,9 @@ Multimedia
       1.0.5 – 1.1.4 – Small changes.<br>
       1.1.5 – 1.1.6 – Small bug was fixed.<br>
     </big><big>1.1.7 – Unused dependency was removed.<br>
-      1.1.8 –&nbsp; 1.2.3 – Small changes.<br>
+      1.1.8 –&nbsp; 1.2.5 – Small changes.<br>
+      1.2.6 – Small bug was fixed.<br>
+      1.2.7 – Small changes.<br>
     </big> <big> </big>
   </body>
 </html>
