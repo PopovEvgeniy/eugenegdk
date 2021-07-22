@@ -607,7 +607,6 @@ void Render::set_perfomance_setting()
  glDisable(GL_DITHER);
  glDisable(GL_LOGIC_OP);
  glDisable(GL_FOG);
- glDisable(GL_CULL_FACE);
  glDisable(GL_STENCIL_TEST);
  glDisable(GL_SCISSOR_TEST);
  glDisable(GL_LIGHTING);
@@ -620,6 +619,7 @@ void Render::set_perfomance_setting()
  glDisable(GL_TEXTURE_GEN_T);
  glDisable(GL_TEXTURE_1D);
  glEnable(GL_DEPTH_TEST);
+ glEnable(GL_CULL_FACE);
  glEnable(GL_TEXTURE_2D);
  glEnableClientState(GL_VERTEX_ARRAY);
  glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -633,6 +633,8 @@ void Render::set_common_setting()
 {
  glDepthFunc(GL_ALWAYS);
  glDepthMask(GL_TRUE);
+ glFrontFace(GL_CCW);
+ glCullFace(GL_BACK);
 }
 
 void Render::set_perspective()
