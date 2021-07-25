@@ -458,21 +458,6 @@ class Multimedia:public COM_Base
  void play();
 };
 
-class Memory
-{
- private:
- MEMORYSTATUSEX memory;
- void get_status();
- public:
- Memory();
- ~Memory();
- unsigned long long int get_total_physical();
- unsigned long long int get_free_physical();
- unsigned long long int get_total_virtual();
- unsigned long long int get_free_virtual();
- unsigned long int get_usage();
-};
-
 class System
 {
  public:
