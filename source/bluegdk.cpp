@@ -604,6 +604,9 @@ Render::~Render()
 
 void Render::set_perfomance_setting()
 {
+ glDisable(GL_POINT_SMOOTH);
+ glDisable(GL_LINE_SMOOTH);
+ glDisable(GL_POLYGON_SMOOTH);
  glDisable(GL_DITHER);
  glDisable(GL_LOGIC_OP);
  glDisable(GL_FOG);
