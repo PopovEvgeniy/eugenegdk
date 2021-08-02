@@ -47,8 +47,8 @@
 			<Add library="strmiids" />
 			<Add library="winmm" />
 		</Linker>
-		<Unit filename="bluegdk.cpp" />
-		<Unit filename="bluegdk.h" />
+		<Unit filename="eugenegdk.cpp" />
+		<Unit filename="eugenegdk.h" />
 		<Unit filename="tilemap.cpp" />
 		<Extensions />
 	</Project>

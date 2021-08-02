@@ -1,19 +1,19 @@
-#include "bluegdk.h"
+#include "eugenegdk.h"
 
 int main()
 {
  char perfomance[8];
- BLUEGDK::Timer timer;
- BLUEGDK::Screen screen;
- BLUEGDK::System System;
- BLUEGDK::Keyboard keyboard;
- BLUEGDK::Gamepad gamepad;
- BLUEGDK::Mouse mouse;
- BLUEGDK::Multimedia media;
- BLUEGDK::Image image;
- BLUEGDK::Background space;
- BLUEGDK::Sprite ship,font;
- BLUEGDK::Text text;
+ EUGENEGDK::Timer timer;
+ EUGENEGDK::Screen screen;
+ EUGENEGDK::System System;
+ EUGENEGDK::Keyboard keyboard;
+ EUGENEGDK::Gamepad gamepad;
+ EUGENEGDK::Mouse mouse;
+ EUGENEGDK::Multimedia media;
+ EUGENEGDK::Image image;
+ EUGENEGDK::Background space;
+ EUGENEGDK::Sprite ship,font;
+ EUGENEGDK::Text text;
  System.enable_logging("log.txt");
  keyboard.initialize();
  screen.initialize();

@@ -1,8 +1,8 @@
 /*
-Blue game development kit was create by Popov Evgeniy Alekseyevich
+Eugene game development kit was create by Popov Evgeniy Alekseyevich
 Some code was taken from wglext.h(https://www.khronos.org/registry/OpenGL/api/GL/wglext.h) by The Khronos Group Inc
 
-Blue game development kit license
+Eugene game development kit license
 
 Copyright (C) 2021 Popov Evgeniy Alekseyevich
 
@@ -40,7 +40,7 @@ in all copies or substantial portions of the Materials.
 THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.
 */
 
-#include "bluegdk.h"
+#include "eugenegdk.h"
 
 const size_t KEYBOARD=256;
 const unsigned char KEY_RELEASE=0;
@@ -95,7 +95,7 @@ LRESULT CALLBACK Process_Message(HWND window,UINT Message,WPARAM wParam,LPARAM l
  return DefWindowProc(window,Message,wParam,lParam);
 }
 
-namespace BLUEGDK
+namespace EUGENEGDK
 {
 
 void Halt(const char *message)
@@ -712,16 +712,21 @@ size_t Resizer::get_target_offset(const unsigned int x,const unsigned int y) con
 void Resizer::resize_image(const unsigned int *target)
 {
  float x_ratio,y_ratio;
- unsigned int x,y;
+ unsigned int x,y,steps;
  size_t index;
+ x=0;
+ y=0;
  x_ratio=static_cast<float>(source_width)/static_cast<float>(target_width);
  y_ratio=static_cast<float>(source_height)/static_cast<float>(target_height);
- for (x=0;x<target_width;++x)
+ for (steps=target_width*target_height;steps>0;--steps)
  {
-  for (y=0;y<target_height;++y)
+  index=this->get_source_offset(x_ratio*static_cast<float>(x),y_ratio*static_cast<float>(y));
+  image[this->get_target_offset(x,y)]=target[index];
+  ++x;
+  if (x==target_width)
   {
-   index=this->get_source_offset(x_ratio*static_cast<float>(x),y_ratio*static_cast<float>(y));
-   image[this->get_target_offset(x,y)]=target[index];
+   x=0;
+   ++y;
   }
 
  }
@@ -1358,21 +1363,12 @@ Gamepad::~Gamepad()
 
 bool Gamepad::read_configuration()
 {
- bool result;
- result=false;
- if (joyGetDevCaps(static_cast<size_t>(active),&configuration,sizeof(JOYCAPS))==JOYERR_NOERROR)
- {
-  result=true;
- }
- return result;
+ return joyGetDevCaps(static_cast<size_t>(active),&configuration,sizeof(JOYCAPS))==JOYERR_NOERROR;
 }
 
 bool Gamepad::read_state()
 {
- bool result;
- result=false;
- if (joyGetPosEx(active,&current)==JOYERR_NOERROR) result=true;
- return result;
+ return joyGetPosEx(active,&current)==JOYERR_NOERROR;
 }
 
 void Gamepad::clear_state()
@@ -2512,6 +2508,7 @@ void Sprite::clone(Sprite &target)
  this->set_transparent(target.get_transparent());
  this->set_buffer(this->create_buffer());
  memmove(this->get_image(),target.get_image(),target.get_length());
+ this->set_size(target.get_width(),target.get_height());
 }
 
 void Sprite::horizontal_mirror()

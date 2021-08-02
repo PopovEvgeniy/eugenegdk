@@ -1,8 +1,8 @@
 /*
-Blue game development kit was create by Popov Evgeniy Alekseyevich
+Eugene game development kit was create by Popov Evgeniy Alekseyevich
 Some code was taken from wglext.h(https://www.khronos.org/registry/OpenGL/api/GL/wglext.h) by The Khronos Group Inc
 
-Blue game development kit license
+Eugene game development kit license
 
 Copyright (C) 2021 Popov Evgeniy Alekseyevich
 
@@ -118,7 +118,7 @@ struct Collision_Box
 
 LRESULT CALLBACK Process_Message(HWND window,UINT Message,WPARAM wParam,LPARAM lParam);
 
-namespace BLUEGDK
+namespace EUGENEGDK
 {
 
 struct Vertex

@@ -1,13 +1,13 @@
-#include "bluegdk.h"
+#include "eugenegdk.h"
 
 int main()
 {
- BLUEGDK::Screen screen;
- BLUEGDK::Sprite font;
- BLUEGDK::Text text;
- BLUEGDK::Image image;
- BLUEGDK::Tileset tilemap;
- BLUEGDK::Keyboard keyboard;
+ EUGENEGDK::Screen screen;
+ EUGENEGDK::Sprite font;
+ EUGENEGDK::Text text;
+ EUGENEGDK::Image image;
+ EUGENEGDK::Tileset tilemap;
+ EUGENEGDK::Keyboard keyboard;
  unsigned int x,y;
  keyboard.initialize();
  screen.initialize();

@@ -47,9 +47,9 @@
 			<Add library="strmiids" />
 			<Add library="winmm" />
 		</Linker>
-		<Unit filename="bluegdk.cpp" />
-		<Unit filename="bluegdk.h" />
 		<Unit filename="demo.cpp" />
+		<Unit filename="eugenegdk.cpp" />
+		<Unit filename="eugenegdk.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

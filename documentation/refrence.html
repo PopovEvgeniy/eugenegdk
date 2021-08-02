@@ -4,14 +4,15 @@
     <title>Programmer reference</title>
   </head>
   <body> <big> </big>
-    <div style="text-align: center;"><big>Blue game development kit: Programmer
-        reference</big> </div>
+    <div style="text-align: center;"><big>Eugene game development kit:
+        Programmer reference</big> </div>
     <big><br>
       <br>
       Table of contents</big>
     <ul id="mozToc">
       <!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
-      <li><a href="#mozTocId665557">Part 1. Welcome to Blue game development kit</a>
+      <li><a href="#mozTocId665557">Part 1. Welcome to Eugene game development
+          kit</a>
         <ul>
           <li><a href="#mozTocId471990">Chapter 1. Introduction</a></li>
           <li><a href="#mozTocId85003">Chapter 2. A special thanks</a></li>
@@ -82,7 +83,7 @@
     </ul>
     <big> </big>
     <h1><a class="mozTocH1" name="mozTocId665557"></a><big>Part 1. Welcome to
-        Blue game development kit</big></h1>
+        Eugene game development kit</big></h1>
     <big> </big>
     <h2><a class="mozTocH2" name="mozTocId471990"></a><big>Chapter 1.
         Introduction</big></h2>
@@ -114,8 +115,8 @@
       <br>
       Copy these files to you project directory: </big>
     <ul>
-      <li><big>bluegdk.h</big></li>
-      <li><big>bluegdk.cpp</big></li>
+      <li><big>eugenegdk.h</big></li>
+      <li><big>eugenegdk.cpp</big></li>
     </ul>
     <big><br>
       Add it to you project. Add this directive to you code: #include
@@ -306,7 +307,7 @@ C++
     <h2><a class="mozTocH2" name="mozTocId914689"></a><big>Chapter 7. The engine
         name-space</big></h2>
     <big><br>
-      All the engine classes declared in <span style="font-style: italic;">BLUEGDK</span>
+      All the engine classes declared in <span style="font-style: italic;">EUGENEGDK</span>
       name-space. </big>
     <h1><a class="mozTocH1" name="mozTocId859712"></a><big>Part 2. Base things</big></h1>
     <big> </big>
@@ -356,6 +357,7 @@ C++
       Clear the screen. Fill it by black color.<br>
       <span style="font-style: italic;">void Screen::initialize();</span> –
       Initialize the base graphic subsystem.<span style="font-style: italic;"></span><span
+
         style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -902,9 +904,9 @@ C++
       You can use Halt function for terminate program. This function declared in
       <span style="font-style: italic;">BLUEGDK</span> name-space.<br>
       <br>
-      <span style="font-style: italic;">void BLUEGDK::Halt(const char *message);</span>
-      – Terminate the program. Write error message to log file if logging
-      enabled. </big><big> </big>
+      <span style="font-style: italic;">void EUGENEGDK::Halt(const char
+        *message);</span> – Terminate the program. Write error message to log
+      file if logging enabled. </big><big> </big>
     <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 5. Timer</big></h2>
     <big><br>
       Timer is very useful thing. Just use <span style="font-style: italic;">Timer</span>
@@ -1649,6 +1651,10 @@ Multimedia
       1.2.8 – Render performance was increased.<br>
       1.2.9 – Windows 2000 support was added.<br>
       1.3 – Small changes.<br>
+    </big><big> 1.3.1 – Image resizer was improved.<br>
+    </big><big> 1.3.2 – Game-pad subsystem was improved.<br>
+      1.3.3 – Project name was changed.<br>
+      1.3.4 – Sprite subsystem was improved.<br>
     </big> <big> </big>
   </body>
 </html>
