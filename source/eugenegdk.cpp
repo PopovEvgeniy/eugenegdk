@@ -553,7 +553,6 @@ void WINGL::set_pixel_format(const int format)
  {
   Halt("Invalid pixel format");
  }
- DescribePixelFormat(this->get_context(),format,setting.nSize,&setting);
  if (SetPixelFormat(this->get_context(),format,&setting)==FALSE)
  {
   Halt("Can't set pixel format");
