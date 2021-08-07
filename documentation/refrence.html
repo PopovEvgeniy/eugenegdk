@@ -191,8 +191,7 @@
       USE OR OTHER DEALINGS IN THE MATERIALS. </big>
     <h2><a class="mozTocH2" name="mozTocId336772"></a><big>Chapter 4. System
         requirements</big></h2>
-    <big><br>
-    </big>
+    <big> </big>
     <p><big> System requirements of you game depend on the engine system
         requirement. You can see minimum system requirement bellow.</big></p>
     <big><br>
@@ -357,7 +356,6 @@ C++
       Clear the screen. Fill it by black color.<br>
       <span style="font-style: italic;">void Screen::initialize();</span> –
       Initialize the base graphic subsystem.<span style="font-style: italic;"></span><span
-
         style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -457,11 +455,14 @@ C++
       <span style="text-decoration: underline;">Level decoration</span><br>
       <br>
       Background is a big image. It like decoration in theater stage. Any game
-      has a background. There are two kind of background: normal background and
-      scrolling background. The scrolling background is a big image with few
-      frames. Horizontal orientated scrolling background like horizontal
-      orientated photo ribbon. Vertical orientated scrolling background like
-      vertical orientated photo ribbon.<br>
+      has a background. The background will stretch to screen resolution before
+      rendering game scene.<br>
+      <br>
+      There are two kind of background: normal background and scrolling
+      background. The scrolling background is a big image with few frames.
+      Horizontal orientated scrolling background like horizontal orientated
+      photo ribbon. Vertical orientated scrolling background like vertical
+      orientated photo ribbon.<br>
       <br>
       <span style="text-decoration: underline;">Background types</span><br>
       <br>
@@ -507,7 +508,6 @@ C++
         *screen);</span>&nbsp; – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
         unsigned int target);</span> – Set target frame in scrolling background.<br
-
         style="font-style: italic;">
       <span style="font-style: italic;">void Background::step();</span> –
       Increase number of target frame in scrolling background. Set it to 1 if
@@ -740,8 +740,12 @@ C++
       – Return amount of rows.<br>
       <span style="font-style: italic;">unsigned int Tileset::get_columns()
         const;</span> – Return amount of columns.<br>
-      <span style="font-style: italic;">void Tileset::select_tile(const unsigned
-        int row,const unsigned int column);</span> – Select target tile.</big><br>
+    </big><big><span style="font-style: italic;">void Tileset::set_size(const
+        unsigned int width, const unsigned int height);</span> – Change the tile
+      size.</big><br>
+    <big> <span style="font-style: italic;">void Tileset::select_tile(const
+        unsigned int row,const unsigned int column);</span> – Select target
+      tile.</big><br>
     <big> <span style="font-style: italic;">void Tileset::draw_tile(const
         unsigned int x,const unsigned int y);</span> – Draw selected tile at
       specific position.</big><br>
@@ -1657,7 +1661,8 @@ Multimedia
     </big><big> 1.3.2 – Game-pad subsystem was improved.<br>
       1.3.3 – Project name was changed.<br>
       1.3.4 – Sprite subsystem was improved.<br>
-    </big><big> 1.3.5 – Small changes.</big><br>
+    </big><big> 1.3.5 – Small changes.<br>
+    </big><big> 1.3.6 – Tile-set subsystem was improved.</big><br>
     <big> </big>
   </body>
 </html>

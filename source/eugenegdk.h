@@ -665,6 +665,7 @@ class Tileset:public Picture
  unsigned int get_tile_height() const;
  unsigned int get_rows() const;
  unsigned int get_columns() const;
+ void set_size(const unsigned int width,const unsigned int height);
  void select_tile(const unsigned int row,const unsigned int column);
  void draw_tile(const unsigned int x,const unsigned int y);
  void draw_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y);

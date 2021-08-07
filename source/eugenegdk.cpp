@@ -2600,6 +2600,19 @@ unsigned int Tileset::get_columns() const
  return columns;
 }
 
+void Tileset::set_size(const unsigned int width,const unsigned int height)
+{
+ if (width>0)
+ {
+  tile_width=width;
+ }
+ if (height>0)
+ {
+  tile_height=height;
+ }
+
+}
+
 void Tileset::select_tile(const unsigned int row,const unsigned int column)
 {
  if ((row<rows)&&(column<columns))
