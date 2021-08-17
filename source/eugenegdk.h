@@ -548,6 +548,7 @@ class Picture
  void clear_buffer();
  unsigned int *create_buffer();
  void set_buffer(unsigned int *buffer);
+ void copy_image(const unsigned int *target);
  unsigned int *get_buffer();
  public:
  Picture();

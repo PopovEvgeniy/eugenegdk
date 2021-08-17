@@ -502,13 +502,7 @@ bool WINGL::check_advanced_setting() const
 
 bool WINGL::check_common_setting() const
 {
- bool result;
- result=false;
- if (this->check_base_setting()==true)
- {
-  result=this->check_advanced_setting();
- }
- return result;
+ return this->check_base_setting() && this->check_advanced_setting();
 }
 
 bool WINGL::check_acceleration() const
@@ -2089,6 +2083,17 @@ void Picture::set_buffer(unsigned int *buffer)
  image=buffer;
 }
 
+void Picture::copy_image(const unsigned int *target)
+{
+ size_t index,pixels;
+ pixels=length/sizeof(unsigned int);
+ for (index=0;index<pixels;++index)
+ {
+  image[index]=target[index];
+ }
+
+}
+
 unsigned int *Picture::get_buffer()
 {
  return image;
@@ -2506,7 +2511,7 @@ void Sprite::clone(Sprite &target)
  this->set_kind(target.get_kind());
  this->set_transparent(target.get_transparent());
  this->set_buffer(this->create_buffer());
- memmove(this->get_image(),target.get_image(),target.get_length());
+ this->copy_image(target.get_image());
  this->set_size(target.get_width(),target.get_height());
 }
 
