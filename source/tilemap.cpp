@@ -13,12 +13,10 @@ int main()
  screen.initialize();
  image.load_tga("font.tga");
  font.load_image(image);
- font.prepare();
  text.load_font(font.get_handle());
  text.set_position(0,0);
  image.load_tga("grass.tga");
  tilemap.load_tileset(image,6,3);
- tilemap.prepare();
  while (screen.sync())
  {
   if (keyboard.check_hold(1)==true) break;

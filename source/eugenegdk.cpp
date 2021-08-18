@@ -2350,6 +2350,7 @@ void Sprite::prepare()
 void Sprite::load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames)
 {
  this->load_image(buffer);
+ this->prepare();
  if (kind!=SINGLE_SPRITE) this->set_frames(frames);
  this->set_kind(kind);
 }
@@ -2513,6 +2514,7 @@ void Sprite::clone(Sprite &target)
  this->set_buffer(this->create_buffer());
  this->copy_image(target.get_image());
  this->set_size(target.get_width(),target.get_height());
+ this->prepare();
 }
 
 void Sprite::horizontal_mirror()
@@ -2646,6 +2648,7 @@ void Tileset::load_tileset(Image &buffer,const unsigned int row_amount,const uns
  if ((row_amount>0)&&(column_amount>0))
  {
   this->load_image(buffer);
+  this->prepare();
   rows=row_amount;
   columns=column_amount;
   tile_width=this->get_image_width()/rows;
@@ -2686,6 +2689,7 @@ void Text::set_position(const unsigned int x,const unsigned int y)
 void Text::load_font(Sprite *target)
 {
  font=target;
+ font->prepare();
  font->set_frames(256);
  font->set_kind(HORIZONTAL_STRIP);
 }

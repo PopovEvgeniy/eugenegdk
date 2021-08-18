@@ -22,11 +22,9 @@ int main()
  space.prepare(screen.get_width(),screen.get_height());
  image.load_tga("ship.tga");
  ship.load_sprite(image,HORIZONTAL_STRIP,2);
- ship.prepare();
  ship.set_position(screen.get_width()/2,screen.get_height()/2);
  image.load_tga("font.tga");
  font.load_image(image);
- font.prepare();
  text.load_font(font.get_handle());
  text.set_position(font.get_width(),font.get_width());
  space.set_kind(NORMAL_BACKGROUND);

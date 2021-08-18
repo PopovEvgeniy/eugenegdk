@@ -197,7 +197,6 @@
     <big><br>
     </big>
     <table style="text-align: left; width: 575px; height: 244px;" cellspacing="2"
-
       cellpadding="2" border="1">
       <tbody>
         <tr>
@@ -510,6 +509,7 @@ C++
         *screen);</span>&nbsp; – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
         unsigned int target);</span> – Set target frame in scrolling background.<br
+
         style="font-style: italic;">
       <span style="font-style: italic;">void Background::step();</span> –
       Increase number of target frame in scrolling background. Set it to 1 if
@@ -672,13 +672,13 @@ C++
     <big> <br>
       <span style="text-decoration: underline;">Important notes</span><br>
       <br>
-      Always call <span style="font-style: italic;">set_kind</span> method
-      after load sprite image. Always call <span style="font-style: italic;">set_frames</span>
+    </big><big>Always call <span style="font-style: italic;">prepare</span>
+      method after load an image.</big><big> Always call <span style="font-style: italic;">set_kind</span>
+      method after load sprite image. Always call <span style="font-style: italic;">set_frames</span>
       method before call <span style="font-style: italic;">set_kind</span>
-      method if you will use animated sprite. Also you can use <span style="font-style: italic;">load_sprite</span>
-      method instead calling <span style="font-style: italic;">set_kind</span>
-      method. Always call <span style="font-style: italic;">prepare</span>
-      method after load an image. </big>
+      method if you will use animated sprite. You can do all this step in one
+      action using <span style="font-style: italic;">load_sprite</span> method.
+    </big>
     <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 7. Text</big></h2>
     <big><br>
       <span style="text-decoration: underline;">How draw a text?</span><br>
@@ -731,9 +731,7 @@ C++
       <span style="font-style: italic;">Tileset</span> class provide access to
       the tile-set subsystem. It is derived from Picture class. Let’s look on
       public methods.<br>
-      <br>
-      <span style="font-style: italic;">Tileset::prepare();</span>&nbsp; –
-      Prepare for drawing.<br>
+      <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">unsigned int Tileset::get_tile_width()
         const;</span> – Return tile width in pixels.<br>
       <span style="font-style: italic;">unsigned int Tileset::get_tile_height()
@@ -758,10 +756,6 @@ C++
         &amp;buffer,const unsigned int row_amount,const unsigned int
         column_amount);</span> – Load a tile-set.<br>
       <br>
-      <span style="text-decoration: underline;">Important notes</span><br>
-      <br>
-      Always call <span style="font-style: italic;">prepare</span> method after
-      load an image.<br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 9. Loading
         images</big></h2>
@@ -1667,6 +1661,9 @@ Multimedia
     </big><big> 1.3.6 – Tile-set subsystem was improved.<br>
       1.3.7 – Small changes.<br>
       1.3.8 – Sprite subsystem was improved.<br>
+      1.3.9 – Tile-set subsystem was improved.<br>
+      1.4 – Sprite subsystem was improved.<br>
+      1.4.1 – Text subsystem was improved.<br>
     </big> <big> </big>
   </body>
 </html>

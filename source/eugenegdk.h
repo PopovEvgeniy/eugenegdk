@@ -658,10 +658,10 @@ class Tileset:public Picture
  unsigned int tile_height;
  unsigned int rows;
  unsigned int columns;
+ void prepare();
  public:
  Tileset();
  ~Tileset();
- void prepare();
  unsigned int get_tile_width() const;
  unsigned int get_tile_height() const;
  unsigned int get_rows() const;
