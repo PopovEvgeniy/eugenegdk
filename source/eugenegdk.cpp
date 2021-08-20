@@ -495,7 +495,7 @@ bool WINGL::check_advanced_setting() const
  result=false;
  if (setting.dwFlags&PFD_DOUBLEBUFFER)
  {
-  if ((setting.iPixelType==PFD_TYPE_RGBA)&&(setting.iLayerType==PFD_MAIN_PLANE)) result=true;
+  result=(setting.iPixelType==PFD_TYPE_RGBA)&&(setting.iLayerType==PFD_MAIN_PLANE);
  }
  return result;
 }
