@@ -527,14 +527,10 @@ int WINGL::get_pixel_format()
  for (index=DescribePixelFormat(this->get_context(),1,setting.nSize,&setting);index>0;--index)
  {
   DescribePixelFormat(this->get_context(),index,setting.nSize,&setting);
-  if (this->check_common_setting()==true)
+  if ((this->check_common_setting()==true)&&(this->check_acceleration()==true))
   {
-   if (this->check_acceleration()==true)
-   {
-    result=index;
-    break;
-   }
-
+   result=index;
+   break;
   }
 
  }
