@@ -1930,7 +1930,6 @@ void Image::load_tga(const char *name)
  Input_File target;
  size_t index,position,amount,compressed_length,uncompressed_length;
  unsigned char *compressed;
- unsigned char *uncompressed;
  TGA_head head;
  TGA_map color_map;
  TGA_image image;
@@ -1957,10 +1956,10 @@ void Image::load_tga(const char *name)
  width=image.width;
  height=image.height;
  uncompressed_length=this->get_length();
- uncompressed=this->create_buffer(uncompressed_length);
+ data=this->create_buffer(uncompressed_length);
  if (head.type==2)
  {
-  target.read(uncompressed,uncompressed_length);
+  target.read(data,uncompressed_length);
  }
  if (head.type==10)
  {
@@ -1972,7 +1971,7 @@ void Image::load_tga(const char *name)
    {
     amount=compressed[position]+1;
     amount*=sizeof(unsigned int);
-    memmove(uncompressed+index,compressed+(position+1),amount);
+    memcpy(data+index,compressed+(position+1),amount);
     index+=amount;
     position+=1+amount;
    }
@@ -1980,7 +1979,7 @@ void Image::load_tga(const char *name)
    {
     for (amount=compressed[position]-127;amount>0;--amount)
     {
-     memmove(uncompressed+index,compressed+(position+1),sizeof(unsigned int));
+     memcpy(data+index,compressed+(position+1),sizeof(unsigned int));
      index+=sizeof(unsigned int);
     }
     position+=1+sizeof(unsigned int);
@@ -1990,7 +1989,6 @@ void Image::load_tga(const char *name)
   delete[] compressed;
  }
  target.close();
- data=uncompressed;
 }
 
 unsigned int Image::get_width() const
@@ -2110,7 +2108,7 @@ void Picture::load_image(Image &buffer)
  this->clear_buffer();
  this->set_image_size(buffer.get_width(),buffer.get_height());
  image=this->create_buffer();
- memmove(image,buffer.get_data(),buffer.get_length());
+ memcpy(image,buffer.get_data(),buffer.get_length());
 }
 
 unsigned int Picture::get_image_width() const
