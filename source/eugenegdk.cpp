@@ -1694,6 +1694,56 @@ void Multimedia::play()
  player->Run();
 }
 
+Memory::Memory()
+{
+ memset(&memory,0,sizeof(MEMORYSTATUSEX));
+ memory.dwLength=sizeof(MEMORYSTATUSEX);
+}
+
+Memory::~Memory()
+{
+
+}
+
+void Memory::get_status()
+{
+ if (GlobalMemoryStatusEx(&memory)==FALSE)
+ {
+  Halt("Can't get the memory status");
+ }
+
+}
+
+unsigned long long int Memory::get_total_physical()
+{
+ this->get_status();
+ return memory.ullTotalPhys;
+}
+
+unsigned long long int Memory::get_free_physical()
+{
+ this->get_status();
+ return memory.ullAvailPhys;
+}
+
+unsigned long long int Memory::get_total_virtual()
+{
+ this->get_status();
+ return memory.ullTotalVirtual;
+}
+
+unsigned long long int Memory::get_free_virtual()
+{
+ this->get_status();
+ return memory.ullAvailVirtual;
+}
+
+unsigned long int Memory::get_usage()
+{
+ this->get_status();
+ return memory.dwMemoryLoad;
+}
+
 System::System()
 {
  srand(UINT_MAX);
