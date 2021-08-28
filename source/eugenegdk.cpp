@@ -2391,14 +2391,6 @@ void Sprite::prepare()
  target.prepare(this->get_buffer());
 }
 
-void Sprite::load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames)
-{
- this->load_image(buffer);
- this->prepare();
- if (kind!=SINGLE_SPRITE) this->set_frames(frames);
- this->set_kind(kind);
-}
-
 void Sprite::set_transparent(const bool enabled)
 {
  transparent=enabled;
@@ -2504,6 +2496,22 @@ void Sprite::set_kind(const SPRITE_TYPE kind)
 SPRITE_TYPE Sprite::get_kind() const
 {
  return current_kind;
+}
+
+void Sprite::set_setting(const SPRITE_TYPE kind,const unsigned int frames)
+{
+ if (kind!=SINGLE_SPRITE)
+ {
+  this->set_frames(frames);
+ }
+ this->set_kind(kind);
+}
+
+void Sprite::load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames)
+{
+ this->load_image(buffer);
+ this->prepare();
+ this->set_setting(kind,frames);
 }
 
 void Sprite::set_target(const unsigned int target)
@@ -2734,8 +2742,7 @@ void Text::load_font(Sprite *target)
 {
  font=target;
  font->prepare();
- font->set_frames(256);
- font->set_kind(HORIZONTAL_STRIP);
+ font->set_setting(HORIZONTAL_STRIP,256);
 }
 
 void Text::draw_character(const char target)

@@ -629,7 +629,6 @@ class Sprite:public Frame,public Picture
  Sprite();
  ~Sprite();
  void prepare();
- void load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames);
  void set_transparent(const bool enabled);
  bool get_transparent() const;
  void set_x(const unsigned int x);
@@ -650,6 +649,8 @@ class Sprite:public Frame,public Picture
  Collision_Box get_box() const;
  void set_kind(const SPRITE_TYPE kind);
  SPRITE_TYPE get_kind() const;
+ void set_setting(const SPRITE_TYPE kind,const unsigned int frames);
+ void load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames);
  void set_target(const unsigned int target);
  void step();
  void set_position(const unsigned int x,const unsigned int y);

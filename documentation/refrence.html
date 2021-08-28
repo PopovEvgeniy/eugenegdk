@@ -355,6 +355,7 @@ C++
       Clear the screen. Fill it by black color.<br>
       <span style="font-style: italic;">void Screen::initialize();</span> –
       Initialize the base graphic subsystem.<span style="font-style: italic;"></span><span
+
         style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -602,8 +603,11 @@ C++
         target);</span> – Set sprite type.<br>
       <span style="font-style: italic;">SPRITE_TYPE Sprite::get_kind() const;</span>
       – Get sprite type.<br>
-      <span style="font-style: italic;">void Sprite::set_transparent(const bool
-        enabled);</span> – Enable or disable transparent mode.<br>
+    </big><big><span style="font-style: italic;">void Sprite::set_setting(const
+        SPRITE_TYPE kind,const unsigned int frames);</span> – Set sprite
+      setting.</big><br>
+    <big> <span style="font-style: italic;">void Sprite::set_transparent(const
+        bool enabled);</span> – Enable or disable transparent mode.<br>
       <span style="font-style: italic;">bool Sprite::get_transparent() const;</span>
       – Return true if transparent mode is enabled.<br>
       <span style="font-style: italic;">void Sprite::set_x(const unsigned int
@@ -675,7 +679,8 @@ C++
       method before call <span style="font-style: italic;">set_kind</span>
       method if you will use animated sprite. You can do all this step in one
       action using <span style="font-style: italic;">load_sprite</span> method.
-    </big>
+      You can do it in one step using </big><big><span style="font-style: italic;">set_setting</span>
+      method.</big>
     <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 7. Text</big></h2>
     <big><br>
       <span style="text-decoration: underline;">How draw a text?</span><br>
@@ -1472,26 +1477,23 @@ C++
     <h2><a id="mozTocId944718" class="mozTocH2"></a><big>Chapter 1. Memory</big></h2>
     <big><br>
       RAM is very important resource. Just use <span style="font-style: italic;">Memory</span>
-      class for get total
-      memory size and free memory size. Let’s look to public methods.<br>
+      class for get total memory size and free memory size. Let’s look to public
+      methods.<br>
       <br>
-      <span style="font-style: italic;">
-        unsigned long long int Memory::get_total_physical();</span> – Return
-      total physical memory size in bytes.<br>
-      <span style="font-style: italic;">
-        unsigned long long int Memory::get_free_physical();</span> – Return free
-      physical memory size in bytes.<br>
-      <span style="font-style: italic;">
-        unsigned long long int Memory::get_total_virtual();</span> – Return
-      total <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
+      <span style="font-style: italic;"> unsigned long long int
+        Memory::get_total_physical();</span> – Return total physical memory size
+      in bytes.<br>
+      <span style="font-style: italic;"> unsigned long long int
+        Memory::get_free_physical();</span> – Return free physical memory size
+      in bytes.<br>
+      <span style="font-style: italic;"> unsigned long long int
+        Memory::get_total_virtual();</span> – Return total <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
         memory</a> size in bytes.<br>
-      <span style="font-style: italic;">
-        unsigned long long int Memory::get_free_virtual();</span> – Return free
-      <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual memory</a>
-      size in bytes.<br>
-      <span style="font-style: italic;">
-        unsigned long int Memory::get_usage();</span> – Return percentage of
-      physical memory usage.<br>
+      <span style="font-style: italic;"> unsigned long long int
+        Memory::get_free_virtual();</span> – Return free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
+        memory</a> size in bytes.<br>
+      <span style="font-style: italic;"> unsigned long int Memory::get_usage();</span>
+      – Return percentage of physical memory usage.<br>
     </big>
     <h2><a id="mozTocId180674" class="mozTocH2"></a><big>Chapter 2. Multimedia</big></h2>
     <big><br>
@@ -1691,6 +1693,8 @@ Multimedia
       1.4.1 – Text subsystem was improved.<br>
       1.4.2 –&nbsp; 1.4.5 – Small changes.<br>
       1.4.6 – New subsystem was added. Windows 2000 support was removed.<br>
+    </big><big>1.4.7 – 1.4.8 – Sprite subsystem was improved.<br>
+      1.4.9 – Text subsystem was improved.<br>
     </big> <big> </big>
   </body>
 </html>
