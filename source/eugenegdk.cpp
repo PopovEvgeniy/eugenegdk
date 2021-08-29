@@ -621,6 +621,14 @@ void Render::set_perfomance_setting()
  glDisableClientState(GL_NORMAL_ARRAY);
 }
 
+void Render::set_render_hints()
+{
+ glHint(GL_LINE_SMOOTH_HINT,GL_FASTEST);
+ glHint(GL_POINT_SMOOTH_HINT,GL_FASTEST);
+ glHint(GL_POLYGON_SMOOTH_HINT,GL_NICEST);
+ glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_NICEST);
+}
+
 void Render::set_common_setting()
 {
  glDepthFunc(GL_ALWAYS);
@@ -643,6 +651,7 @@ void Render::create_render()
 {
  this->set_render();
  this->set_perfomance_setting();
+ this->set_render_hints();
  this->set_common_setting();
  this->set_perspective();
  this->disable_vsync();

@@ -248,6 +248,7 @@ class Render:public WINGL
 {
  private:
  void set_perfomance_setting();
+ void set_render_hints();
  void set_common_setting();
  void set_perspective();
  void create_render();
