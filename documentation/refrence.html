@@ -225,11 +225,6 @@
           <td style="vertical-align: top;"><big>Any sound card </big></td>
         </tr>
         <tr>
-          <td style="vertical-align: top;"><big>Video-card </big></td>
-          <td style="vertical-align: top;"><big>A good video-card with hardware
-              acceleration </big></td>
-        </tr>
-        <tr>
           <td colspan="1" rowspan="2" style="vertical-align: top;"><big>Processor
               </big></td>
           <td style="vertical-align: top;"><big>Intel Pentium III 1200 mhz for
@@ -332,8 +327,12 @@ C++
       <span style="text-decoration: underline;">Introduce to base graphics
         subsystem</span><br>
       <br>
-      Base graphics subsystem do rendering game scene.<br>
-      <br>
+      Base graphics subsystem do rendering game scene. This subsystem using <a
+
+        href="http://opengl.org">OPENGL</a> for render. Most modern video-card
+      support hardware accelerated OPENGL. Software emulated OPENGL will
+      activate if </big><big>hardware acceleration not available.</big><br>
+    <big> <br>
       <span style="text-decoration: underline;">Render performance</span><br>
       <br>
       Always use latest video-card drivers. It can increase render performance.<br>
@@ -1596,106 +1595,141 @@ C++
       <span style="font-style: italic;">Shape</span> is base class for <span style="font-style: italic;">Rectangle</span>
       class.<br>
       <span style="font-style: italic;">COM_Base</span> is base class for <span
-
         style="font-style: italic;">Multimedia</span> class. </big>
     <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
         graphics subsystem</big></h2>
     <big><span style="text-decoration: underline;"></span><br>
-      Base graphics subsystem working over <a href="http://opengl.org">OPENGL</a>.
-      OPENGL is very fast because it uses hardware acceleration.<br>
-      <span style="text-decoration: underline;"></span></big> <big></big><br>
-    <big><span style="font-style: italic;"></span> </big>
-    <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 4. Game-pad</big></h2>
-    <big><br>
-      Game-pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
+    </big><big><span style="text-decoration: underline;">Visible object</span></big><br>
+    <big> </big><br>
+    <big> All visible object except graphics primitives is textured rectangles.</big><br>
+    <big> </big><br>
+    <big> <span style="text-decoration: underline;">Images</span></big><br>
+    <big> </big><br>
+    <big> A texture width must be power of two. A texture height also must be
+      power of two. Any image will automatically resize before load.</big><br>
+    <br>
+    <span><big> <span style="text-decoration: underline;">Vertex arrays and
+          texture coordinates arrays</span></big></span><br>
+    <span><big> </big></span><br>
+    <span><big> Any rectangle need four vertexes and four texture coordinates.</big></span><br>
+    <span><big> Single vertex represent by follow structure.</big></span><br>
+    <span><big> </big></span><br>
+    <span><big> <span style="font-style: italic;">struct Vertex</span></big></span><br
+      style="font-style: italic;">
+    <span><big> <span style="font-style: italic;">{</span></big></span><br style="font-style: italic;">
+    <span><big> <span style="font-style: italic;">&nbsp;int x;</span></big></span><br
+      style="font-style: italic;">
+    <span><big> <span style="font-style: italic;">&nbsp;int y;</span></big></span><br
+      style="font-style: italic;">
+    <span><big> <span style="font-style: italic;">};</span></big></span><br>
+    <span><big> </big></span><br>
+    <span><big> </big><big>Single texture coordinate represent by follow
+        structure.</big></span><br>
+    <span><big> </big></span><br>
+    <span><big> <span style="font-style: italic;">struct Point</span></big></span><br
+      style="font-style: italic;">
+    <span><big> <span style="font-style: italic;">{</span></big></span><br style="font-style: italic;">
+    <span><big> <span style="font-style: italic;">&nbsp;float u;</span></big></span><br
+      style="font-style: italic;">
+    <span><big> <span style="font-style: italic;">&nbsp;float v;</span></big></span><br
+      style="font-style: italic;">
+    <span><big> <span style="font-style: italic;">};</span></big></span><br>
+    <span></span><span><big> </big> <br>
+      <big><span style="font-style: italic;"></span> </big>
+      <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 4. Game-pad</big></h2>
+      <big><br>
+        Game-pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
 Multimedia
-        API</a>. </big>
-    <h2><a class="mozTocH2" name="mozTocId804583"></a><big>Chapter 5. Input</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;">Input back-end</span><br>
-      <br>
-      Keyboard and mouse input subsystems is very simple. It works over standard
-      Windows API.<br>
-      <br>
-      <span style="text-decoration: underline;">Internal key state</span><br>
-      <br>
-    </big>
-    <p><big> Internal state of keyboard keys and mouse buttons look as
-        predefined constants. You can see it bellow.</big></p>
-    <big><br>
-    </big>
-    <table style="text-align: left; width: 519px; height: 94px;" cellspacing="2"
-      cellpadding="2" border="1">
-      <tbody>
-        <tr>
-          <td style="vertical-align: top;"><big>Key/button state </big></td>
-          <td style="vertical-align: top;"><big>Description </big></td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;"><big>KEY_PRESSED </big></td>
-          <td style="vertical-align: top;"><big>A key\button is pressed or
-              holding </big></td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;"><big>KEY_RELEASED </big></td>
-          <td style="vertical-align: top;"><big>A key\button is released </big></td>
-        </tr>
-      </tbody>
-    </table>
-    <big> </big>
-    <h2><a class="mozTocH2" name="mozTocId692266"></a><big>Chapter 6. Multimedia</big></h2>
-    <big><br>
-      Multimedia subsystem working over <a href="https://docs.microsoft.com/en-us/windows/desktop/DirectShow/directshow">DirectShow</a>.
-      It available as part of <a href="https://docs.microsoft.com/en-us/windows/desktop/directx-sdk--august-2009-">DirectX</a>.
-      DirectX is pre-installed by default under modern versions of Windows. </big>
-    <h1><a class="mozTocH1" name="mozTocId78453"></a><big>Version history</big></h1>
-    <big><br>
-      0.1 – Initial version.<br>
-      0.1.1 – 0.7.6 – Internal unstable builds.<br>
-      0.7.7 </big><big>–</big><big> Small changes.<br>
-    </big><big> 0.7.8 </big><big>–</big><big> Small bug in sprite subsystem was
-      fixed.<br>
-    </big><big> 0.7.9 </big><big>– </big><big>0.8.1 – Small changes.<br>
-      0.8.2 – Sprite subsystem was improved.<br>
-      0.8.3 – PCX support was removed.<br>
-      0.8.4 – Small changes.<br>
-      0.8.5 – Fps counter was improved.<br>
-      0.8.6 – 0.8.9 – Small changes.<br>
-    </big><big> 0.9 – TGA support was improved.<br>
-      0.9.1 – Small bug in sprite subsystem was fixed.<br>
-      0.9.2 – Small changes.<br>
-      0.9.3 – New subsystem was added.<br>
-      0.9.4 – 0.9.5 – Graphic primitives subsystem was improved.<br>
-      0.9.6 – 0.9.9 – Small changes.<br>
-      1.0 – Base graphics subsystem was improved.<br>
-      1.0.1 – 1.0.2 – Background subsystem was improved.<br>
-      1.0.3 – Small changes.<br>
-      1.0.4 – Small bug in sprite subsystem was fixed.<br>
-      1.0.5 – 1.1.4 – Small changes.<br>
-      1.1.5 – 1.1.6 – Small bug was fixed.<br>
-    </big><big>1.1.7 – Unused dependency was removed.<br>
-      1.1.8 –&nbsp; 1.2.5 – Small changes.<br>
-      1.2.6 – Small bug was fixed.<br>
-      1.2.7 – Small changes.<br>
-      1.2.8 – Render performance was increased.<br>
-      1.2.9 – Windows 2000 support was added.<br>
-      1.3 – Small changes.<br>
-    </big><big> 1.3.1 – Image resizer was improved.<br>
-    </big><big> 1.3.2 – Game-pad subsystem was improved.<br>
-      1.3.3 – Project name was changed.<br>
-      1.3.4 – Sprite subsystem was improved.<br>
-    </big><big> 1.3.5 – Small changes.<br>
-    </big><big> 1.3.6 – Tile-set subsystem was improved.<br>
-      1.3.7 – Small changes.<br>
-      1.3.8 – Sprite subsystem was improved.<br>
-      1.3.9 – Tile-set subsystem was improved.<br>
-      1.4 – Sprite subsystem was improved.<br>
-      1.4.1 – Text subsystem was improved.<br>
-      1.4.2 –&nbsp; 1.4.5 – Small changes.<br>
-      1.4.6 – New subsystem was added. Windows 2000 support was removed.<br>
-    </big><big>1.4.7 – 1.4.8 – Sprite subsystem was improved.<br>
-      1.4.9 – Text subsystem was improved.<br>
-      1.5 – Small changes.<br>
-    </big> <big> </big>
+          API</a>. </big>
+      <h2><a class="mozTocH2" name="mozTocId804583"></a><big>Chapter 5. Input</big></h2>
+      <big><br>
+        <span style="text-decoration: underline;">Input back-end</span><br>
+        <br>
+        Keyboard and mouse input subsystems is very simple. It works over
+        standard Windows API.<br>
+        <br>
+        <span style="text-decoration: underline;">Internal key state</span><br>
+        <br>
+      </big>
+      <p><big> Internal state of keyboard keys and mouse buttons look as
+          predefined constants. You can see it bellow.</big></p>
+      <big><br>
+      </big>
+      <table style="text-align: left; width: 519px; height: 94px;" cellspacing="2"
+        cellpadding="2" border="1">
+        <tbody>
+          <tr>
+            <td style="vertical-align: top;"><big>Key/button state </big></td>
+            <td style="vertical-align: top;"><big>Description </big></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><big>KEY_PRESSED </big></td>
+            <td style="vertical-align: top;"><big>A key\button is pressed or
+                holding </big></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><big>KEY_RELEASED </big></td>
+            <td style="vertical-align: top;"><big>A key\button is released </big></td>
+          </tr>
+        </tbody>
+      </table>
+      <big> </big>
+      <h2><a class="mozTocH2" name="mozTocId692266"></a><big>Chapter 6.
+          Multimedia</big></h2>
+      <big><br>
+        Multimedia subsystem working over <a href="https://docs.microsoft.com/en-us/windows/desktop/DirectShow/directshow">DirectShow</a>.
+        It available as part of <a href="https://docs.microsoft.com/en-us/windows/desktop/directx-sdk--august-2009-">DirectX</a>.
+        DirectX is pre-installed by default under modern versions of Windows. </big>
+      <h1><a class="mozTocH1" name="mozTocId78453"></a><big>Version history</big></h1>
+      <big><br>
+        0.1 – Initial version.<br>
+        0.1.1 – 0.7.6 – Internal unstable builds.<br>
+        0.7.7 </big><big>–</big><big> Small changes.<br>
+      </big><big> 0.7.8 </big><big>–</big><big> Small bug in sprite subsystem
+        was fixed.<br>
+      </big><big> 0.7.9 </big><big>– </big><big>0.8.1 – Small changes.<br>
+        0.8.2 – Sprite subsystem was improved.<br>
+        0.8.3 – PCX support was removed.<br>
+        0.8.4 – Small changes.<br>
+        0.8.5 – Fps counter was improved.<br>
+        0.8.6 – 0.8.9 – Small changes.<br>
+      </big><big> 0.9 – TGA support was improved.<br>
+        0.9.1 – Small bug in sprite subsystem was fixed.<br>
+        0.9.2 – Small changes.<br>
+        0.9.3 – New subsystem was added.<br>
+        0.9.4 – 0.9.5 – Graphic primitives subsystem was improved.<br>
+        0.9.6 – 0.9.9 – Small changes.<br>
+        1.0 – Base graphics subsystem was improved.<br>
+        1.0.1 – 1.0.2 – Background subsystem was improved.<br>
+        1.0.3 – Small changes.<br>
+        1.0.4 – Small bug in sprite subsystem was fixed.<br>
+        1.0.5 – 1.1.4 – Small changes.<br>
+        1.1.5 – 1.1.6 – Small bug was fixed.<br>
+      </big><big>1.1.7 – Unused dependency was removed.<br>
+        1.1.8 –&nbsp; 1.2.5 – Small changes.<br>
+        1.2.6 – Small bug was fixed.<br>
+        1.2.7 – Small changes.<br>
+        1.2.8 – Render performance was increased.<br>
+        1.2.9 – Windows 2000 support was added.<br>
+        1.3 – Small changes.<br>
+      </big><big> 1.3.1 – Image resizer was improved.<br>
+      </big><big> 1.3.2 – Game-pad subsystem was improved.<br>
+        1.3.3 – Project name was changed.<br>
+        1.3.4 – Sprite subsystem was improved.<br>
+      </big><big> 1.3.5 – Small changes.<br>
+      </big><big> 1.3.6 – Tile-set subsystem was improved.<br>
+        1.3.7 – Small changes.<br>
+        1.3.8 – Sprite subsystem was improved.<br>
+        1.3.9 – Tile-set subsystem was improved.<br>
+        1.4 – Sprite subsystem was improved.<br>
+        1.4.1 – Text subsystem was improved.<br>
+        1.4.2 –&nbsp; 1.4.5 – Small changes.<br>
+        1.4.6 – New subsystem was added. Windows 2000 support was removed.<br>
+      </big><big>1.4.7 – 1.4.8 – Sprite subsystem was improved.<br>
+        1.4.9 – Text subsystem was improved.<br>
+        1.5 – Small changes.<br>
+      </big><big> 1.5.1 – Optional software render was added.<br>
+        1.5.2 – </big><big>1.5.3 –</big><big> Small changes.<br>
+      </big></span>
   </body>
 </html>

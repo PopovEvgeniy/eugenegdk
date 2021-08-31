@@ -461,11 +461,16 @@ unsigned long int Display::get_color() const
 
 WINGL::WINGL()
 {
+ memset(&setting,0,sizeof(PIXELFORMATDESCRIPTOR));
  render=NULL;
  wglSwapIntervalEXT=NULL;
- memset(&setting,0,sizeof(PIXELFORMATDESCRIPTOR));
  setting.nSize=sizeof(PIXELFORMATDESCRIPTOR);
  setting.nVersion=1;
+ setting.dwFlags=PFD_DRAW_TO_WINDOW|PFD_SUPPORT_OPENGL|PFD_DOUBLEBUFFER;
+ setting.iPixelType=PFD_TYPE_RGBA;
+ setting.iLayerType=PFD_MAIN_PLANE;
+ setting.cAlphaBits=CHAR_BIT;
+ setting.cDepthBits=16;
 }
 
 WINGL::~WINGL()
@@ -478,63 +483,10 @@ WINGL::~WINGL()
 
 }
 
-bool WINGL::check_base_setting() const
-{
- bool result;
- result=false;
- if (setting.cColorBits==this->get_color())
- {
-  if ((setting.dwFlags&PFD_DRAW_TO_WINDOW)&&(setting.dwFlags&PFD_SUPPORT_OPENGL)) result=true;
- }
- return result;
-}
-
-bool WINGL::check_advanced_setting() const
-{
- bool result;
- result=false;
- if (setting.dwFlags&PFD_DOUBLEBUFFER)
- {
-  result=(setting.iPixelType==PFD_TYPE_RGBA)&&(setting.iLayerType==PFD_MAIN_PLANE);
- }
- return result;
-}
-
-bool WINGL::check_common_setting() const
-{
- return this->check_base_setting() && this->check_advanced_setting();
-}
-
-bool WINGL::check_acceleration() const
-{
- bool result;
- result=false;
- if (!(setting.dwFlags&PFD_GENERIC_FORMAT)&&!(setting.dwFlags&PFD_GENERIC_ACCELERATED))
- {
-  result=true;
- }
- else
- {
-  if ((setting.dwFlags&PFD_GENERIC_FORMAT)&&(setting.dwFlags&PFD_GENERIC_ACCELERATED)) result=true;
- }
- return result;
-}
-
 int WINGL::get_pixel_format()
 {
- int index,result;
- result=0;
- for (index=DescribePixelFormat(this->get_context(),1,setting.nSize,&setting);index>0;--index)
- {
-  DescribePixelFormat(this->get_context(),index,setting.nSize,&setting);
-  if ((this->check_common_setting()==true)&&(this->check_acceleration()==true))
-  {
-   result=index;
-   break;
-  }
-
- }
- return result;
+ setting.cColorBits=this->get_color();
+ return ChoosePixelFormat(this->get_context(),&setting);
 }
 
 void WINGL::set_pixel_format(const int format)
@@ -543,6 +495,7 @@ void WINGL::set_pixel_format(const int format)
  {
   Halt("Invalid pixel format");
  }
+ DescribePixelFormat(this->get_context(),format,setting.nSize,&setting);
  if (SetPixelFormat(this->get_context(),format,&setting)==FALSE)
  {
   Halt("Can't set pixel format");
