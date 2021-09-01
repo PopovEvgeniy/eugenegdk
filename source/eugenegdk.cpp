@@ -167,7 +167,7 @@ void Synchronization::wait_timer()
 
 Engine::Engine()
 {
- window_class.lpszClassName=TEXT("SWGF");
+ window_class.lpszClassName=TEXT("EUGENEGDK");
  window_class.style=CS_HREDRAW|CS_VREDRAW|CS_OWNDC;
  window_class.cbSize=sizeof(WNDCLASSEX);
  window_class.lpfnWndProc=Process_Message;
@@ -279,20 +279,6 @@ void Engine::create_window()
   Halt("Can't create window");
  }
  SetFocus(window);
-}
-
-void Engine::capture_mouse()
-{
- RECT border;
- if (GetClientRect(window,&border)==FALSE)
- {
-  Halt("Can't capture window");
- }
- if (ClipCursor(&border)==FALSE)
- {
-  Halt("Can't capture cursor");
- }
-
 }
 
 bool Engine::process_message()
@@ -620,7 +606,6 @@ void Render::start_render()
 {
  this->create_window();
  this->take_context();
- this->capture_mouse();
  this->create_render();
  this->clear_stage();
 }

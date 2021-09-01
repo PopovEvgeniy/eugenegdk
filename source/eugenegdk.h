@@ -172,7 +172,6 @@ class Engine
  void prepare_engine();
  void take_context();
  void create_window();
- void capture_mouse();
  bool process_message();
  public:
  Engine();
