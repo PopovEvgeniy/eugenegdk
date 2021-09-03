@@ -1281,13 +1281,10 @@ Gamepad::Gamepad()
  max_amount=16;
  memset(&configuration,0,sizeof(JOYCAPS));
  memset(&current,0,sizeof(JOYINFOEX));
- memset(&preversion,0,sizeof(JOYINFOEX));
  current.dwSize=sizeof(JOYINFOEX);
- preversion.dwSize=sizeof(JOYINFOEX);
  current.dwFlags=JOY_RETURNALL;
- preversion.dwFlags=JOY_RETURNALL;
  current.dwPOV=JOY_POVCENTERED;
- preversion.dwPOV=JOY_POVCENTERED;
+ preversion=current;
 }
 
 Gamepad::~Gamepad()
@@ -1309,13 +1306,10 @@ void Gamepad::clear_state()
 {
  memset(&configuration,0,sizeof(JOYCAPS));
  memset(&current,0,sizeof(JOYINFOEX));
- memset(&preversion,0,sizeof(JOYINFOEX));
  current.dwSize=sizeof(JOYINFOEX);
- preversion.dwSize=sizeof(JOYINFOEX);
  current.dwFlags=JOY_RETURNALL;
- preversion.dwFlags=JOY_RETURNALL;
  current.dwPOV=JOY_POVCENTERED;
- preversion.dwPOV=JOY_POVCENTERED;
+ preversion=current;
 }
 
 bool Gamepad::check_button(const GAMEPAD_BUTTONS button,const JOYINFOEX &target)
@@ -2756,10 +2750,7 @@ Collision::Collision()
  first.y=0;
  first.width=0;
  first.height=0;
- second.x=0;
- second.y=0;
- second.width=0;
- second.height=0;
+ second=first;
 }
 
 Collision::~Collision()
