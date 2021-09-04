@@ -1170,11 +1170,8 @@ void Keyboard::initialize()
 
 bool Keyboard::check_hold(const unsigned char code)
 {
- bool result;
- result=false;
- if (Keys[code]==KEY_PRESS) result=true;
  preversion[code]=Keys[code];
- return result;
+ return Keys[code]==KEY_PRESS;
 }
 
 bool Keyboard::check_press(const unsigned char code)
@@ -1255,14 +1252,8 @@ unsigned long int Mouse::get_y()
 
 bool Mouse::check_hold(const MOUSE_BUTTON button)
 {
- bool result;
- result=false;
- if (Buttons[button]==KEY_PRESS)
- {
-  result=true;
- }
  preversion[button]=Buttons[button];
- return result;
+ return Buttons[button]==KEY_PRESS;
 }
 
 bool Mouse::check_press(const MOUSE_BUTTON button)
@@ -1374,7 +1365,7 @@ unsigned long int Gamepad::get_sticks_amount()
 
 void Gamepad::set_active(const unsigned int gamepad)
 {
- if (active<max_amount)
+ if (gamepad<this->get_amount())
  {
   this->clear_state();
   active=gamepad;
@@ -1489,24 +1480,12 @@ bool Gamepad::check_hold(const GAMEPAD_BUTTONS button)
 
 bool Gamepad::check_press(const GAMEPAD_BUTTONS button)
 {
- bool result;
- result=false;
- if (this->check_button(button,current)==true)
- {
-  if (this->check_button(button,preversion)==false) result=true;
- }
- return result;
+ return (this->check_button(button,current)==true) && (this->check_button(button,preversion)==false);
 }
 
 bool Gamepad::check_release(const GAMEPAD_BUTTONS button)
 {
- bool result;
- result=false;
- if (this->check_button(button,current)==false)
- {
-  if (this->check_button(button,preversion)==true) result=true;
- }
- return result;
+ return (this->check_button(button,current)==false) && (this->check_button(button,preversion)==true);
 }
 
 Multimedia::Multimedia()
