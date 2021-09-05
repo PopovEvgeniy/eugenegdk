@@ -2679,7 +2679,7 @@ void Text::draw_text(const char *text)
   this->draw_character(text[index]);
   this->increase_position();
  }
- this->restore_position();
+
 }
 
 void Text::draw_character(const unsigned int x,const unsigned int y,const char target)
