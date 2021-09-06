@@ -1703,7 +1703,7 @@ void System::enable_logging(const char *name)
 
 Filesystem::Filesystem()
 {
- status=false;
+
 }
 
 Filesystem::~Filesystem()
@@ -1711,27 +1711,23 @@ Filesystem::~Filesystem()
 
 }
 
-void Filesystem::file_exist(const char *name)
+bool Filesystem::file_exist(const char *name)
 {
  FILE *target;
- status=false;
+ bool exist;
+ exist=false;
  target=fopen(name,"rb");
  if (target!=NULL)
  {
-  status=true;
+  exist=true;
   fclose(target);
  }
-
+ return exist;
 }
 
-void Filesystem::delete_file(const char *name)
+bool Filesystem::delete_file(const char *name)
 {
- status=(remove(name)==0);
-}
-
-bool Filesystem::get_status() const
-{
- return status;
+ return remove(name)==0;
 }
 
 Binary_File::Binary_File()

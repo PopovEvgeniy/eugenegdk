@@ -353,6 +353,7 @@ C++
       Clear the screen. Fill it by black color.<br>
       <span style="font-style: italic;">void Screen::initialize();</span> –
       Initialize the base graphic subsystem.<span style="font-style: italic;"></span><span
+
         style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -505,7 +506,6 @@ C++
         *screen);</span>&nbsp; – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
         unsigned int target);</span> – Set target frame in scrolling background.<br
-
         style="font-style: italic;">
       <span style="font-style: italic;">void Background::step();</span> –
       Increase number of target frame in scrolling background. Set it to 1 if
@@ -825,13 +825,15 @@ C++
       class provide simple access to this subsystem. Let’s look to public
       methods.<br>
       <br>
-      <span style="font-style: italic;">void Filesystem::file_exist(const char
+      <span style="font-style: italic;">bool Filesystem::file_exist(const char
         *name);</span> – Check the target file for exist.<br>
-      <span style="font-style: italic;">void Filesystem::delete_file(const char
+      <span style="font-style: italic;">bool Filesystem::delete_file(const char
         *name);</span> – Delete the target file.<br>
-      <span style="font-style: italic;">bool Filesystem::get_status() const;</span>
-      – Return false if last file operation was failed.<br>
-    </big>
+      <br>
+      <span style="text-decoration: underline;">Important remark</span><br>
+      <br>
+      All methods return false if operation was failed.<br>
+      <span style="font-style: italic;"></span> </big>
     <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 3. Abnormal
         program termination</big></h2>
     <big><br>
@@ -1734,6 +1736,7 @@ Multimedia
       </big></span><span><big>1.6 – Game-pad support was improved.<br>
       </big></span><span><big> 1.6.1 – Small bug in game-pad subsystem was
         fixed.<br>
-      </big></span><span><big> 1.6.2 – Small changes.</big></span><br>
+      </big></span><span><big> 1.6.2 – Small changes.<br>
+      </big></span><span><big>1.6.3 – Filesystem subsystem was improved.</big></span><br>
   </body>
 </html>
