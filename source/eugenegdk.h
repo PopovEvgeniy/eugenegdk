@@ -214,8 +214,10 @@ class Display
  DEVMODE display;
  void get_video_mode();
  void set_video_mode();
+ void set_setting(const unsigned long int width,const unsigned long int height);
  protected:
  void check_video_mode();
+ void set_resolution(const unsigned long int width,const unsigned long int height);
  public:
  Display();
  ~Display();
@@ -353,11 +355,14 @@ class Primitive
 
 class Screen:public FPS, public Synchronization, public Render
 {
+ private:
+ void screen_setup();
  public:
  Screen();
  ~Screen();
  void clear_screen();
  void initialize();
+ void initialize(const unsigned long int width,const unsigned long int height);
  bool update();
  bool sync();
  Screen* get_handle();

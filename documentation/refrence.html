@@ -334,7 +334,9 @@ C++
     <big> <br>
       <span style="text-decoration: underline;">Render performance</span><br>
       <br>
-      Always use latest video-card drivers. It can increase render performance.<br>
+      Always use latest video-card drivers. It can increase render
+      performance. Also you can try to change screen resolution if you have
+      low render performance.<br>
       <br>
       <span style="text-decoration: underline;">Fps limitation</span><br>
       <br>
@@ -352,9 +354,12 @@ C++
       <span style="font-style: italic;">void Screen::clear_screen();</span> –
       Clear the screen. Fill it by black color.<br>
       <span style="font-style: italic;">void Screen::initialize();</span> –
-      Initialize the base graphic subsystem.<span style="font-style: italic;"></span><span
-
-        style="font-style: italic;"></span><br>
+      Initialize the base graphic subsystem with default screen resolution.<br>
+    </big><big><span style="font-style: italic;">void Screen::initialize(const
+        unsigned long int width,</span></big><big><span style="font-style: italic;">const
+        unsigned long int heigt</span></big><big><span style="font-style: italic;">);</span>
+      – Initialize the base graphic subsystem with custom screen resolution.</big><big><span
+        style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
       terminated. This method uses fps limit and do wait between frames.<br>
@@ -1737,6 +1742,9 @@ Multimedia
       </big></span><span><big> 1.6.1 – Small bug in game-pad subsystem was
         fixed.<br>
       </big></span><span><big> 1.6.2 – Small changes.<br>
-      </big></span><span><big>1.6.3 – Filesystem subsystem was improved.</big></span><br>
+      </big></span><span><big>1.6.3 – Filesystem subsystem was improved.<br>
+      </big></span><span><big>1.6.4 – 1.6.5 – Small changes.<br>
+      </big></span><span><big>1.6.6 – Base graphics subsystem was improved.<br>
+      </big></span><span><big>1.6.7 – Small changes.</big></span><br>
   </body>
 </html>

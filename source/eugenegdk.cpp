@@ -440,6 +440,20 @@ void Display::check_video_mode()
 
 }
 
+void Display::set_setting(const unsigned long int width,const unsigned long int height)
+{
+ if (display.dmBitsPerPel<16) display.dmBitsPerPel=16;
+ display.dmPelsWidth=width;
+ display.dmPelsHeight=height;
+}
+
+void Display::set_resolution(const unsigned long int width,const unsigned long int height)
+{
+ this->get_video_mode();
+ this->set_setting(width,height);
+ this->set_video_mode();
+}
+
 unsigned long int Display::get_color() const
 {
  return display.dmBitsPerPel;
@@ -1079,6 +1093,14 @@ Screen::~Screen()
 
 }
 
+void Screen::screen_setup()
+{
+ this->prepare_engine();
+ this->start_render();
+ this->create_timer();
+ this->set_timer(17);
+}
+
 void Screen::clear_screen()
 {
  this->clear_stage();
@@ -1087,10 +1109,13 @@ void Screen::clear_screen()
 void Screen::initialize()
 {
  this->check_video_mode();
- this->prepare_engine();
- this->start_render();
- this->create_timer();
- this->set_timer(17);
+ this->screen_setup();
+}
+
+void Screen::initialize(const unsigned long int width,const unsigned long int height)
+{
+ this->set_resolution(width,height);
+ this->screen_setup();
 }
 
 bool Screen::update()
