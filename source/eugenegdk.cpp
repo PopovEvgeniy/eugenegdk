@@ -1374,16 +1374,7 @@ unsigned long int Gamepad::get_sticks_amount()
  result=0;
  if (this->read_configuration()==true)
  {
-  switch (configuration.wNumAxes)
-  {
-   case 2:
-   result=1;
-   break;
-   case 4:
-   result=2;
-   break;
-  }
-
+  if (configuration.wNumAxes>1) result=configuration.wNumAxes/2;
  }
  return result;
 }
