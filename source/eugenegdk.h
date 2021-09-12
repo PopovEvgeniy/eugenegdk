@@ -411,7 +411,6 @@ class Gamepad
  JOYINFOEX preversion;
  JOYCAPS configuration;
  unsigned int active;
- unsigned int max_amount;
  bool read_configuration();
  bool read_state();
  void clear_state();

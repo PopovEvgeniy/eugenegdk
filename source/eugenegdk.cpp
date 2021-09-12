@@ -1294,7 +1294,6 @@ bool Mouse::check_release(const MOUSE_BUTTON button)
 Gamepad::Gamepad()
 {
  active=0;
- max_amount=16;
  memset(&configuration,0,sizeof(JOYCAPS));
  memset(&current,0,sizeof(JOYINFOEX));
  current.dwSize=sizeof(JOYINFOEX);
@@ -1391,7 +1390,7 @@ void Gamepad::set_active(const unsigned int gamepad)
 
 unsigned int Gamepad::get_max_amount() const
 {
- return max_amount;
+ return 16;
 }
 
 unsigned int Gamepad::get_active() const
