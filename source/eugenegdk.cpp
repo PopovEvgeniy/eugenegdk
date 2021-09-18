@@ -337,7 +337,7 @@ void FPS::update_counter()
 
 }
 
-unsigned long int FPS::get_fps() const
+unsigned int FPS::get_fps() const
 {
  return fps;
 }
@@ -1112,7 +1112,7 @@ void Screen::initialize()
  this->screen_setup();
 }
 
-void Screen::initialize(const unsigned long int width,const unsigned long int height)
+void Screen::initialize(const unsigned int width,const unsigned int height)
 {
  this->set_resolution(width,height);
  this->screen_setup();

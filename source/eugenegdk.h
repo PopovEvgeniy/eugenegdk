@@ -191,7 +191,7 @@ class FPS
  public:
  FPS();
  ~FPS();
- unsigned long int get_fps() const;
+ unsigned int get_fps() const;
 };
 
 class Unicode_Convertor
@@ -362,7 +362,7 @@ class Screen:public FPS, public Synchronization, public Render
  ~Screen();
  void clear_screen();
  void initialize();
- void initialize(const unsigned long int width,const unsigned long int height);
+ void initialize(const unsigned int width,const unsigned int height);
  bool update();
  bool sync();
  Screen* get_handle();
