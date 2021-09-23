@@ -987,8 +987,8 @@ void Rectangle::enable_transparent()
 {
  glEnable(GL_ALPHA_TEST);
  glEnable(GL_BLEND);
- glAlphaFunc(GL_GREATER,0);
- glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+ glAlphaFunc(GL_GREATER,0.1);
+ glBlendFunc(GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 }
 
 void Rectangle::disable_transparent()
