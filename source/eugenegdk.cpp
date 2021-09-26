@@ -988,7 +988,7 @@ void Rectangle::enable_transparent()
  glEnable(GL_ALPHA_TEST);
  glEnable(GL_BLEND);
  glAlphaFunc(GL_GREATER,0.1);
- glBlendFunc(GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
+ glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 }
 
 void Rectangle::disable_transparent()
@@ -1029,12 +1029,17 @@ void Primitive::prepare()
  glDisable(GL_BLEND);
  glPointSize(1);
  glLineStipple(1,0xFF);
- glColor3ub(0,0,0);
 }
 
 void Primitive::set_color(const unsigned char red,const unsigned char green,const unsigned char blue)
 {
  glColor3ub(red,green,blue);
+}
+
+void Primitive::prepare(const unsigned char red,const unsigned char green,const unsigned char blue)
+{
+ this->prepare();
+ this->set_color(red,green,blue);
 }
 
 void Primitive::draw_pixel(const unsigned int x,const unsigned int y)

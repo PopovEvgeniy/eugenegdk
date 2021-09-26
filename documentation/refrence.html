@@ -384,11 +384,14 @@ C++
       <span style="font-style: italic;">Primitive</span> class provide simple
       access to this subsystem. Let’s look to public methods.<br>
       <br>
-      <span style="font-style: italic;">void Primitive::prepare();</span>&nbsp;
-      – Prepare for drawing.<br>
       <span style="font-style: italic;">void Primitive::set_color(const unsigned
         char red, const unsigned char green, const unsigned char blue);</span> –
       Set the current color.<br>
+      <span style="font-style: italic;">void Primitive::prepare();</span>&nbsp;
+      – Prepare for drawing.<br>
+      <span style="font-style: italic;">void Primitive::prepare(const unsigned
+        char red, const unsigned char green, const unsigned char blue);</span>&nbsp;
+      – Prepare for drawing and set the current color.<br>
       <span style="font-style: italic;">void Primitive::draw_pixel(const
         unsigned int x,const unsigned int y);</span> – Draw a pixel.<br>
       <span style="font-style: italic;">void Primitive::draw_line(const unsigned
@@ -511,6 +514,7 @@ C++
         *screen);</span>&nbsp; – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
         unsigned int target);</span> – Set target frame in scrolling background.<br
+
         style="font-style: italic;">
       <span style="font-style: italic;">void Background::step();</span> –
       Increase number of target frame in scrolling background. Set it to 1 if
@@ -1602,7 +1606,6 @@ C++
       <span style="font-style: italic;">Shape</span> is base class for <span style="font-style: italic;">Rectangle</span>
       class.<br>
       <span style="font-style: italic;">COM_Base</span> is base class for <span
-
         style="font-style: italic;">Multimedia</span> class. </big>
     <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
         graphics subsystem</big></h2>
@@ -1752,6 +1755,8 @@ Multimedia
         1.6.9 –&nbsp;</big></span><span><big> 1.7 –</big></span><span><big>
         Small changes.<br>
         1.7.1 – Small bug in sprite subsystem was fixed.<br>
+        1.7.2 – Graphic primitives subsystem was improved.<br>
+        1.7.3 – 1.7.4 – Small changes.<br>
       </big></span>
   </body>
 </html>

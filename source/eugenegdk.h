@@ -345,8 +345,9 @@ class Primitive
  public:
  Primitive();
  ~Primitive();
- void prepare();
  void set_color(const unsigned char red,const unsigned char green,const unsigned char blue);
+ void prepare();
+ void prepare(const unsigned char red,const unsigned char green,const unsigned char blue);
  void draw_pixel(const unsigned int x,const unsigned int y);
  void draw_line(const unsigned int x,const unsigned int y,const unsigned int x2,const unsigned int y2);
  void draw_rectangle(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height);
