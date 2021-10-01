@@ -500,7 +500,6 @@ class Binary_File
 {
  protected:
  FILE *target;
- void open_file(const char *name,const char *mode);
  public:
  Binary_File();
  ~Binary_File();
@@ -509,6 +508,7 @@ class Binary_File
  long int get_position();
  long int get_length();
  bool check_error();
+ bool is_open() const;
 };
 
 class Input_File:public Binary_File
@@ -538,16 +538,16 @@ class Image
  unsigned int height;
  unsigned char *data;
  unsigned char *create_buffer(const size_t length);
- void clear_buffer();
+ void load_tga(Input_File &target);
  public:
  Image();
  ~Image();
- void load_tga(const char *name);
  unsigned int get_width() const;
  unsigned int get_height() const;
  size_t get_length() const;
  unsigned char *get_data();
  void destroy_image();
+ void load_tga(const char *name);
 };
 
 class Picture
@@ -559,7 +559,6 @@ class Picture
  size_t length;
  protected:
  void set_image_size(const unsigned int width,const unsigned int height);
- void clear_buffer();
  unsigned int *create_buffer();
  void set_buffer(unsigned int *buffer);
  void copy_image(const unsigned int *target);
@@ -569,7 +568,9 @@ class Picture
  ~Picture();
  size_t get_length() const;
  unsigned int *get_image();
+ void destroy_image();
  void load_image(Image &buffer);
+ bool is_storage_empty() const;
  unsigned int get_image_width() const;
  unsigned int get_image_height() const;
 };

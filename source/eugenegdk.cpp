@@ -911,6 +911,7 @@ Rectangle::~Rectangle()
  {
   glBindTexture(GL_TEXTURE_2D,0);
   glDeleteTextures(1,&texture);
+  texture=0;
  }
 
 }
@@ -999,18 +1000,26 @@ void Rectangle::disable_transparent()
 
 void Rectangle::prepare(const unsigned int *buffer)
 {
- this->delete_texture();
- this->create_texture(buffer);
- this->check_texture();
+ if (buffer!=NULL)
+ {
+  this->delete_texture();
+  this->create_texture(buffer);
+  this->check_texture();
+ }
+
 }
 
 void Rectangle::draw()
 {
- this->reset_data();
- this->load_data();
- this->reset_model_setting();
- this->set_model_setting();
- this->draw_rectangle();
+ if (texture!=0)
+ {
+  this->reset_data();
+  this->load_data();
+  this->reset_model_setting();
+  this->set_model_setting();
+  this->draw_rectangle();
+ }
+
 }
 
 Primitive::Primitive()
@@ -1765,16 +1774,6 @@ Binary_File::~Binary_File()
 
 }
 
-void Binary_File::open_file(const char *name,const char *mode)
-{
- target=fopen(name,mode);
- if (target==NULL)
- {
-  Halt("Can't open the binary file");
- }
-
-}
-
 void Binary_File::close()
 {
  if (target!=NULL)
@@ -1809,6 +1808,11 @@ bool Binary_File::check_error()
  return ferror(target)!=0;
 }
 
+bool Binary_File::is_open() const
+{
+ return target!=NULL;
+}
+
 Input_File::Input_File()
 {
 
@@ -1822,7 +1826,7 @@ Input_File::~Input_File()
 void Input_File::open(const char *name)
 {
  this->close();
- this->open_file(name,"rb");
+ target=fopen(name,"rb");
 }
 
 void Input_File::read(void *buffer,const size_t length)
@@ -1843,18 +1847,13 @@ Output_File::~Output_File()
 void Output_File::open(const char *name)
 {
  this->close();
- this->open_file(name,"wb");
+ target=fopen(name,"wb");
 }
 
 void Output_File::create_temp()
 {
  this->close();
  target=tmpfile();
- if (target==NULL)
- {
-  Halt("Can't create a temporary file");
- }
-
 }
 
 void Output_File::write(void *buffer,const size_t length)
@@ -1879,6 +1878,8 @@ Image::~Image()
  if (data!=NULL)
  {
   delete[] data;
+  width=0;
+  height=0;
   data=NULL;
  }
 
@@ -1899,26 +1900,13 @@ unsigned char *Image::create_buffer(const size_t length)
  return result;
 }
 
-void Image::clear_buffer()
+void Image::load_tga(Input_File &target)
 {
- if (data!=NULL)
- {
-  delete[] data;
-  data=NULL;
- }
-
-}
-
-void Image::load_tga(const char *name)
-{
- Input_File target;
  size_t index,position,amount,compressed_length,uncompressed_length;
  unsigned char *compressed;
  TGA_head head;
  TGA_map color_map;
  TGA_image image;
- this->clear_buffer();
- target.open(name);
  compressed_length=static_cast<size_t>(target.get_length()-18);
  target.read(&head,3);
  target.read(&color_map,5);
@@ -1972,7 +1960,7 @@ void Image::load_tga(const char *name)
   }
   delete[] compressed;
  }
- target.close();
+
 }
 
 unsigned int Image::get_width() const
@@ -1997,9 +1985,27 @@ unsigned char *Image::get_data()
 
 void Image::destroy_image()
 {
- width=0;
- height=0;
- this->clear_buffer();
+  if (data!=NULL)
+ {
+  delete[] data;
+  width=0;
+  height=0;
+  data=NULL;
+ }
+
+}
+
+void Image::load_tga(const char *name)
+{
+ Input_File target;
+ this->destroy_image();
+ target.open(name);
+ if (target.is_open()==true)
+ {
+  this->load_tga(target);
+  target.close();
+ }
+
 }
 
 Picture::Picture()
@@ -2015,6 +2021,9 @@ Picture::~Picture()
  if (image!=NULL)
  {
   delete[] image;
+  image_width=0;
+  image_height=0;
+  length=0;
   image=NULL;
  }
 
@@ -2024,19 +2033,6 @@ void Picture::set_image_size(const unsigned int width,const unsigned int height)
 {
  image_width=width;
  image_height=height;
-}
-
-void Picture::clear_buffer()
-{
- if (image!=NULL)
- {
-  delete[] image;
-  image_width=0;
-  image_height=0;
-  length=0;
-  image=NULL;
- }
-
 }
 
 unsigned int *Picture::create_buffer()
@@ -2087,12 +2083,34 @@ unsigned int *Picture::get_image()
  return image;
 }
 
+void Picture::destroy_image()
+{
+ if (image!=NULL)
+ {
+  delete[] image;
+  image_width=0;
+  image_height=0;
+  length=0;
+  image=NULL;
+ }
+
+}
+
 void Picture::load_image(Image &buffer)
 {
- this->clear_buffer();
- this->set_image_size(buffer.get_width(),buffer.get_height());
- image=this->create_buffer();
- memcpy(image,buffer.get_data(),buffer.get_length());
+ if (buffer.get_length()>0)
+ {
+  this->destroy_image();
+  this->set_image_size(buffer.get_width(),buffer.get_height());
+  this->set_buffer(this->create_buffer());
+  memcpy(this->get_buffer(),buffer.get_data(),buffer.get_length());
+ }
+
+}
+
+bool Picture::is_storage_empty() const
+{
+ return length==0;
 }
 
 unsigned int Picture::get_image_width() const
@@ -2284,20 +2302,24 @@ void Sprite::draw_sprite_image()
 
 void Sprite::configure_sprite()
 {
- switch(current_kind)
+ if (this->is_storage_empty()==false)
  {
-  case SINGLE_SPRITE:
-  sprite_width=this->get_image_width();
-  sprite_height=this->get_image_height();
-  break;
-  case HORIZONTAL_STRIP:
-  sprite_width=this->get_image_width()/this->get_frames();
-  sprite_height=this->get_image_height();
-  break;
-  case VERTICAL_STRIP:
-  sprite_width=this->get_image_width();
-  sprite_height=this->get_image_height()/this->get_frames();
-  break;
+  switch (current_kind)
+  {
+   case SINGLE_SPRITE:
+   sprite_width=this->get_image_width();
+   sprite_height=this->get_image_height();
+   break;
+   case HORIZONTAL_STRIP:
+   sprite_width=this->get_image_width()/this->get_frames();
+   sprite_height=this->get_image_height();
+   break;
+   case VERTICAL_STRIP:
+   sprite_width=this->get_image_width();
+   sprite_height=this->get_image_height()/this->get_frames();
+   break;
+  }
+
  }
 
 }
@@ -2443,9 +2465,13 @@ void Sprite::set_setting(const SPRITE_TYPE kind,const unsigned int frames)
 
 void Sprite::load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames)
 {
- this->load_image(buffer);
- this->prepare();
- this->set_setting(kind,frames);
+ if (buffer.get_length()>0)
+ {
+  this->load_image(buffer);
+  this->prepare();
+  this->set_setting(kind,frames);
+ }
+
 }
 
 void Sprite::set_target(const unsigned int target)
@@ -2492,15 +2518,19 @@ void Sprite::set_size(const unsigned int width,const unsigned int height)
 
 void Sprite::clone(Sprite &target)
 {
- this->clear_buffer();
- this->set_image_size(target.get_image_width(),target.get_image_height());
- this->set_frames(target.get_frames());
- this->set_kind(target.get_kind());
- this->set_transparent(target.get_transparent());
- this->set_buffer(this->create_buffer());
- this->copy_image(target.get_image());
- this->set_size(target.get_width(),target.get_height());
- this->prepare();
+ if (target.is_storage_empty()==false)
+ {
+  this->destroy_image();
+  this->set_image_size(target.get_image_width(),target.get_image_height());
+  this->set_frames(target.get_frames());
+  this->set_kind(target.get_kind());
+  this->set_transparent(target.get_transparent());
+  this->set_buffer(this->create_buffer());
+  this->copy_image(target.get_image());
+  this->set_size(target.get_width(),target.get_height());
+  this->prepare();
+ }
+
 }
 
 void Sprite::horizontal_mirror()
@@ -2634,11 +2664,15 @@ void Tileset::load_tileset(Image &buffer,const unsigned int row_amount,const uns
  if ((row_amount>0)&&(column_amount>0))
  {
   this->load_image(buffer);
-  this->prepare();
-  rows=row_amount;
-  columns=column_amount;
-  tile_width=this->get_image_width()/rows;
-  tile_height=this->get_image_height()/columns;
+  if (this->is_storage_empty()==false)
+  {
+   this->prepare();
+   rows=row_amount;
+   columns=column_amount;
+   tile_width=this->get_image_width()/rows;
+   tile_height=this->get_image_height()/columns;
+  }
+
  }
 
 }

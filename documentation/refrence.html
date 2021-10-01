@@ -328,6 +328,7 @@ C++
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
+
         href="http://opengl.org">OPENGL</a> for render. Most modern video-card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -359,6 +360,7 @@ C++
         unsigned int width,</span></big><big><span style="font-style: italic;">const
         unsigned int heigt</span></big><big><span style="font-style: italic;">);</span>
       – Initialize the base graphic subsystem with custom screen resolution.</big><big><span
+
         style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -414,7 +416,7 @@ C++
     <big><br>
       <span style="text-decoration: underline;">Very important subsystems</span><br>
       <br>
-      Picture subsystem intend for store current image in memory buffer.<br>
+      Picture subsystem implement image storage.<br>
     </big><big><br>
       <span style="text-decoration: underline;">Work with advanced graphics</span><br>
       <br>
@@ -423,12 +425,16 @@ C++
       methods.<br>
       <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">unsigned int *Picture::get_image();</span>
-      – Return handle to image buffer.<br>
-      <span style="font-style: italic;">void Picture::load_image(Image
+      – Return handle to image storage.<br>
+    </big><big><span style="font-style: italic;">void Picture::destroy_image();</span>
+      – Destroy image&nbsp; in the storage.</big><br>
+    <big> <span style="font-style: italic;">void Picture::load_image(Image
         &amp;buffer);</span> – Load an image from memory buffer. Replace current
       image if exist.<br>
       <span style="font-style: italic;">size_t Picture::get_length() const;</span>
       – Return length of image buffer in bytes.<br>
+      <span style="font-style: italic;">bool Picture::is_storage_empty() const;</span>
+      – Return true if storage is empty.<br>
       <span style="font-style: italic;">unsigned int Picture::get_image_width()
         const;</span> – Return image width in pixels.<br>
       <span style="font-style: italic;">unsigned int Picture::get_image_height()
@@ -935,6 +941,8 @@ C++
       <i> long int Binary_File::get_length();</i> – Return file length in bytes.<br>
       <i> bool Binary_File::check_error();</i> – Return true if last file
       operation failed.<br>
+      <span style="font-style: italic;">bool Binary_File::is_open() const;</span>
+      – Return true ifthe file was successfuly opened..<br>
       <br>
       <u>Important notice</u><br>
       <br>
@@ -1606,6 +1614,7 @@ C++
       <span style="font-style: italic;">Shape</span> is base class for <span style="font-style: italic;">Rectangle</span>
       class.<br>
       <span style="font-style: italic;">COM_Base</span> is base class for <span
+
         style="font-style: italic;">Multimedia</span> class. </big>
     <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
         graphics subsystem</big></h2>
@@ -1752,11 +1761,22 @@ Multimedia
       </big></span><span><big>1.6.6 – Base graphics subsystem was improved.<br>
       </big></span><span><big>1.6.7 – Small changes.<br>
       </big></span><span><big>1.6.8 – Game-pad support was improved.<br>
-        1.6.9 –&nbsp;</big></span><span><big> 1.7 –</big></span><span><big>
-        Small changes.<br>
+        1.6.9 – </big></span><span><big>1.7 –</big></span><span><big> Small
+        changes.<br>
         1.7.1 – Small bug in sprite subsystem was fixed.<br>
         1.7.2 – Graphic primitives subsystem was improved.<br>
         1.7.3 – 1.7.4 – Small changes.<br>
+        1.7.5 – </big></span><span><big>1.7.6 –</big></span><span><big> Picture
+        subsystem was improved.<br>
+        1.7.7 – 1.7.8 – Sprite subsystem was improved.<br>
+        1.7.9 – 1.8 – Picture subsystem was improved.<br>
+        1.8.1 – Small changes.<br>
+        1.8.2 – Tile-set subsystem was improved.<br>
+        1.8.3 – Small changes.<br>
+        1.8.4 – 1.8.6 – Binary file subsystem was improved.<br>
+        1.8.7 – 1.8.8 – Image loader was improved.<br>
+        1.8.9 – Small changes.<br>
+        1.9 – 1.9.1 – Image loader was improved.<br>
       </big></span>
   </body>
 </html>
