@@ -623,6 +623,7 @@ class Sprite:public Frame,public Picture
  SPRITE_TYPE current_kind;
  void check_transparent();
  void draw_sprite_image();
+ void set_sprite_setting();
  void configure_sprite();
  void set_sprite_frame();
  public:
@@ -675,6 +676,7 @@ class Tileset:public Picture
  unsigned int rows;
  unsigned int columns;
  void prepare();
+ void set_tileset_setting(const unsigned int row_amount,const unsigned int column_amount);
  public:
  Tileset();
  ~Tileset();

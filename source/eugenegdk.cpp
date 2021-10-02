@@ -2098,9 +2098,9 @@ void Picture::destroy_image()
 
 void Picture::load_image(Image &buffer)
 {
+ this->destroy_image();
  if (buffer.get_length()>0)
  {
-  this->destroy_image();
   this->set_image_size(buffer.get_width(),buffer.get_height());
   this->set_buffer(this->create_buffer());
   memcpy(this->get_buffer(),buffer.get_data(),buffer.get_length());
@@ -2300,26 +2300,31 @@ void Sprite::draw_sprite_image()
  target.draw();
 }
 
+void Sprite::set_sprite_setting()
+{
+ switch (current_kind)
+ {
+  case SINGLE_SPRITE:
+  sprite_width=this->get_image_width();
+  sprite_height=this->get_image_height();
+  break;
+  case HORIZONTAL_STRIP:
+  sprite_width=this->get_image_width()/this->get_frames();
+  sprite_height=this->get_image_height();
+  break;
+  case VERTICAL_STRIP:
+  sprite_width=this->get_image_width();
+  sprite_height=this->get_image_height()/this->get_frames();
+  break;
+ }
+
+}
+
 void Sprite::configure_sprite()
 {
  if (this->is_storage_empty()==false)
  {
-  switch (current_kind)
-  {
-   case SINGLE_SPRITE:
-   sprite_width=this->get_image_width();
-   sprite_height=this->get_image_height();
-   break;
-   case HORIZONTAL_STRIP:
-   sprite_width=this->get_image_width()/this->get_frames();
-   sprite_height=this->get_image_height();
-   break;
-   case VERTICAL_STRIP:
-   sprite_width=this->get_image_width();
-   sprite_height=this->get_image_height()/this->get_frames();
-   break;
-  }
-
+  this->set_sprite_setting();
  }
 
 }
@@ -2586,10 +2591,10 @@ void Sprite::draw_sprite(const bool transparency,const unsigned int x,const unsi
 Tileset::Tileset()
 {
  target.set_size(0,0);
- rows=0;
- columns=0;
- tile_width=0;
- tile_height=0;
+ rows=1;
+ columns=1;
+ tile_width=64;
+ tile_height=64;
 }
 
 Tileset::~Tileset()
@@ -2601,6 +2606,22 @@ void Tileset::prepare()
 {
  target.set_total_size(this->get_image_width(),this->get_image_height());
  target.prepare(this->get_buffer());
+}
+
+void Tileset::set_tileset_setting(const unsigned int row_amount,const unsigned int column_amount)
+{
+ if (row_amount>0)
+ {
+  if (column_amount>0)
+  {
+   rows=row_amount;
+   columns=column_amount;
+   tile_width=this->get_image_width()/rows;
+   tile_height=this->get_image_height()/columns;
+  }
+
+ }
+
 }
 
 unsigned int Tileset::get_tile_width() const
@@ -2638,9 +2659,13 @@ void Tileset::set_size(const unsigned int width,const unsigned int height)
 
 void Tileset::select_tile(const unsigned int row,const unsigned int column)
 {
- if ((row<rows)&&(column<columns))
+ if (row<rows)
  {
-  target.set_tile_offset(row,rows,column,columns);
+  if (column<columns)
+  {
+   target.set_tile_offset(row,rows,column,columns);
+  }
+
  }
 
 }
@@ -2661,18 +2686,11 @@ void Tileset::draw_tile(const unsigned int row,const unsigned int column,const u
 
 void Tileset::load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount)
 {
- if ((row_amount>0)&&(column_amount>0))
+ if (buffer.get_length()>0)
  {
   this->load_image(buffer);
-  if (this->is_storage_empty()==false)
-  {
-   this->prepare();
-   rows=row_amount;
-   columns=column_amount;
-   tile_width=this->get_image_width()/rows;
-   tile_height=this->get_image_height()/columns;
-  }
-
+  this->prepare();
+  this->set_tileset_setting(row_amount,column_amount);
  }
 
 }
