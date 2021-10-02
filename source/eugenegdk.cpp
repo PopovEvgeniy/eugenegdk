@@ -2470,9 +2470,9 @@ void Sprite::set_setting(const SPRITE_TYPE kind,const unsigned int frames)
 
 void Sprite::load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames)
 {
- if (buffer.get_length()>0)
+ this->load_image(buffer);
+ if (this->is_storage_empty()==false)
  {
-  this->load_image(buffer);
   this->prepare();
   this->set_setting(kind,frames);
  }
@@ -2686,9 +2686,9 @@ void Tileset::draw_tile(const unsigned int row,const unsigned int column,const u
 
 void Tileset::load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount)
 {
- if (buffer.get_length()>0)
+ this->load_image(buffer);
+ if (this->is_storage_empty()==false)
  {
-  this->load_image(buffer);
   this->prepare();
   this->set_tileset_setting(row_amount,column_amount);
  }
