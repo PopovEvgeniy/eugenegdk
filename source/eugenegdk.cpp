@@ -2221,6 +2221,16 @@ void Background::set_setting(const BACKGROUND_TYPE kind,const unsigned int frame
  this->set_kind(kind);
 }
 
+void Background::load_background(Image &buffer,const BACKGROUND_TYPE kind,const unsigned int frames)
+{
+ this->load_image(buffer);
+ if (this->is_storage_empty()==false)
+ {
+  this->set_setting(kind,frames);
+ }
+
+}
+
 void Background::set_target(const unsigned int target)
 {
  this->set_frame(target);

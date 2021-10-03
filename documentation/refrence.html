@@ -526,6 +526,9 @@ C++
         BACKGROUND_TYPE target);</span> – Set background type.</big><br>
     <big><i>void Background::set_setting(const BACKGROUND_TYPE kind,const
         unsigned int frames);</i> – Set background setting.<br>
+      <span style="font-style: italic;">void Background::load_background(Image
+        &amp;buffer,const BACKGROUND_TYPE kind,const unsigned int frames);</span>
+      – Load background and set background setting.<br>
       <span style="font-style: italic;">void Background::horizontal_mirror();</span>&nbsp;
       – Do horizontal background mirror.<br>
       <span style="font-style: italic;">void Background::vertical_mirror();</span>
@@ -535,12 +538,8 @@ C++
       <br>
       <span style="text-decoration: underline;">Important notes</span><br>
       <br>
-      Always call <span style="font-style: italic;">set_kind</span> method
-      after load background image. Always call <span style="font-style: italic;">set_frames</span>
-      method before call <span style="font-style: italic;">set_kind</span>
-      method if you will use scrolling background. Also you can use <i>set_setting</i>
-      method instead calling <i>set_kind</i> method. Always call <span style="font-style: italic;">prepare</span>
-      method after load an image. </big>
+      Always set background setting and call <span style="font-style: italic;">prepare</span>
+      method after load background image. </big>
     <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 6. Sprites</big></h2>
     <big> <br>
       <span style="text-decoration: underline;">Small important thing</span><br>
@@ -683,14 +682,8 @@ C++
     <big> <br>
       <span style="text-decoration: underline;">Important notes</span><br>
       <br>
-    </big><big>Always call <span style="font-style: italic;">prepare</span>
-      method after load an image.</big><big> Always call <span style="font-style: italic;">set_kind</span>
-      method after load sprite image. Always call <span style="font-style: italic;">set_frames</span>
-      method before call <span style="font-style: italic;">set_kind</span>
-      method if you will use animated sprite. </big><big>Also you can use <i>set_setting</i>
-      method instead calling <i>set_kind</i> method.</big><big> You can do all
-      this step in one action using <span style="font-style: italic;">load_sprite</span>
-      method.</big>
+    </big><big>Always set sprite setting and call <span style="font-style: italic;">prepare</span>
+      method after load sprite image.</big><big></big>
     <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 7. Text</big></h2>
     <big><br>
       <span style="text-decoration: underline;">How draw a text?</span><br>
@@ -939,7 +932,7 @@ C++
       <i> bool Binary_File::check_error();</i> – Return true if last file
       operation failed.<br>
       <span style="font-style: italic;">bool Binary_File::is_open() const;</span>
-      – Return true ifthe file was successfuly opened..<br>
+      – Return true if the file was successfuly opened.<br>
       <br>
       <u>Important notice</u><br>
       <br>
@@ -1420,7 +1413,6 @@ C++
     <big><br>
     </big>
     <table style="text-align: left; width: 516px; height: 124px;" cellspacing="2"
-
       cellpadding="2" border="1">
       <tbody>
         <tr>
@@ -1656,8 +1648,7 @@ C++
       <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 4. Game-pad</big></h2>
       <big><br>
         Game-pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
-Multimedia
-          API</a>. </big>
+Multimedia API</a>. </big>
       <h2><a class="mozTocH2" name="mozTocId804583"></a><big>Chapter 5. Input</big></h2>
       <big><br>
         <span style="text-decoration: underline;">Input back-end</span><br>
@@ -1778,6 +1769,7 @@ Multimedia
         1.9.3 – Small changes.<br>
         1.9.4 – Tile-set subsystem was improved.<br>
         1.9.5 – 1.9.8 – Small changes.<br>
+        1.9.9 – Background subsystem was improved.<br>
       </big></span>
   </body>
 </html>

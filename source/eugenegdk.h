@@ -604,6 +604,7 @@ class Background:public Frame,public Picture
  void prepare(Screen *screen);
  void set_kind(const BACKGROUND_TYPE kind);
  void set_setting(const BACKGROUND_TYPE kind,const unsigned int frames);
+ void load_background(Image &buffer,const BACKGROUND_TYPE kind,const unsigned int frames);
  void set_target(const unsigned int target);
  void step();
  void horizontal_mirror();
