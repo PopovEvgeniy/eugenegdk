@@ -538,6 +538,7 @@ class Image
  unsigned int height;
  unsigned char *data;
  unsigned char *create_buffer(const size_t length);
+ void uncompress_tga_data(const unsigned char *target,const size_t length);
  void load_tga(Input_File &target);
  public:
  Image();

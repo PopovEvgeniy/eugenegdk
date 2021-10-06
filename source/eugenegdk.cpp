@@ -1900,13 +1900,46 @@ unsigned char *Image::create_buffer(const size_t length)
  return result;
 }
 
+void Image::uncompress_tga_data(const unsigned char *target,const size_t length)
+{
+ size_t index,position,amount;
+ index=0;
+ position=0;
+ amount=0;
+ while (index<length)
+ {
+  if (target[position]<128)
+  {
+   amount=target[position]+1;
+   amount*=sizeof(unsigned int);
+   memcpy(data+index,target+(position+1),amount);
+   index+=amount;
+   position+=1+amount;
+  }
+  else
+  {
+   for (amount=target[position]-127;amount>0;--amount)
+   {
+    memcpy(data+index,target+(position+1),sizeof(unsigned int));
+    index+=sizeof(unsigned int);
+   }
+   position+=1+sizeof(unsigned int);
+  }
+
+ }
+
+}
+
 void Image::load_tga(Input_File &target)
 {
- size_t index,position,amount,compressed_length,uncompressed_length;
+ size_t compressed_length,uncompressed_length;
  unsigned char *compressed;
  TGA_head head;
  TGA_map color_map;
  TGA_image image;
+ compressed_length=0;
+ uncompressed_length=0;
+ compressed=NULL;
  compressed_length=static_cast<size_t>(target.get_length()-18);
  target.read(&head,3);
  target.read(&color_map,5);
@@ -1915,50 +1948,25 @@ void Image::load_tga(Input_File &target)
  {
   Halt("Invalid image format");
  }
- if (head.type!=2)
- {
-  if (head.type!=10)
-  {
-   Halt("Invalid image format");
-  }
-
- }
- index=0;
- position=0;
  width=image.width;
  height=image.height;
  uncompressed_length=this->get_length();
  data=this->create_buffer(uncompressed_length);
- if (head.type==2)
+ switch (head.type)
  {
+  case 2:
   target.read(data,uncompressed_length);
- }
- if (head.type==10)
- {
+  break;
+  case 10:
   compressed=this->create_buffer(compressed_length);
   target.read(compressed,compressed_length);
-  while(index<uncompressed_length)
-  {
-   if (compressed[position]<128)
-   {
-    amount=compressed[position]+1;
-    amount*=sizeof(unsigned int);
-    memcpy(data+index,compressed+(position+1),amount);
-    index+=amount;
-    position+=1+amount;
-   }
-   else
-   {
-    for (amount=compressed[position]-127;amount>0;--amount)
-    {
-     memcpy(data+index,compressed+(position+1),sizeof(unsigned int));
-     index+=sizeof(unsigned int);
-    }
-    position+=1+sizeof(unsigned int);
-   }
-
-  }
+  this->uncompress_tga_data(compressed,uncompressed_length);
   delete[] compressed;
+  compressed=NULL;
+  break;
+  default:
+  Halt("Invalid image format");
+  break;
  }
 
 }
