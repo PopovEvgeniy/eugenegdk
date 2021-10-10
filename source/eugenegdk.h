@@ -610,6 +610,7 @@ class Background:public Frame,public Picture
  void step();
  void horizontal_mirror();
  void vertical_mirror();
+ void complex_mirror();
  void draw_background();
 };
 
@@ -663,6 +664,7 @@ class Sprite:public Frame,public Picture
  void clone(Sprite &target);
  void horizontal_mirror();
  void vertical_mirror();
+ void complex_mirror();
  void draw_sprite();
  void draw_sprite(const unsigned int x,const unsigned int y);
  void draw_sprite(const bool transparency);

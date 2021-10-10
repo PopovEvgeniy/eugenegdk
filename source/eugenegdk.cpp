@@ -2277,6 +2277,12 @@ void Background::vertical_mirror()
 
 }
 
+void Background::complex_mirror()
+{
+ this->horizontal_mirror();
+ this->vertical_mirror();
+}
+
 void Background::draw_background()
 {
  target.disable_transparent();
@@ -2580,6 +2586,12 @@ void Sprite::vertical_mirror()
   target.set_mirror_status(target.get_horizontal_mirror(),DISABLE_MIRRORING);
  }
 
+}
+
+void Sprite::complex_mirror()
+{
+ this->horizontal_mirror();
+ this->vertical_mirror();
 }
 
 void Sprite::draw_sprite()
