@@ -2747,6 +2747,25 @@ void Text::restore_position()
  font->set_position(current_x,current_y);
 }
 
+void Text::print_character(const char target)
+{
+ font->set_target(static_cast<unsigned char>(target)+1);
+ font->draw_sprite();
+}
+
+void Text::print_text(const char *text)
+{
+ size_t index,length;
+ length=strlen(text);
+ this->restore_position();
+ for (index=0;index<length;++index)
+ {
+  this->print_character(text[index]);
+  this->increase_position();
+ }
+
+}
+
 void Text::set_position(const unsigned int x,const unsigned int y)
 {
  font->set_position(x,y);
@@ -2756,26 +2775,29 @@ void Text::set_position(const unsigned int x,const unsigned int y)
 
 void Text::load_font(Sprite *target)
 {
- font=target;
- font->prepare();
- font->set_setting(HORIZONTAL_STRIP,256);
+ if (target!=NULL)
+ {
+  font=target;
+  font->prepare();
+  font->set_setting(HORIZONTAL_STRIP,256);
+ }
+
 }
 
 void Text::draw_character(const char target)
 {
- font->set_target(static_cast<unsigned char>(target)+1);
- font->draw_sprite();
+ if (font!=NULL)
+ {
+  this->print_character(target);
+ }
+
 }
 
 void Text::draw_text(const char *text)
 {
- size_t index,length;
- length=strlen(text);
- this->restore_position();
- for (index=0;index<length;++index)
+ if (font!=NULL)
  {
-  this->draw_character(text[index]);
-  this->increase_position();
+  this->print_text(text);
  }
 
 }

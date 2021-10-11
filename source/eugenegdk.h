@@ -703,6 +703,8 @@ class Text
  Sprite *font;
  void increase_position();
  void restore_position();
+ void print_character(const char target);
+ void print_text(const char *text);
  public:
  Text();
  ~Text();
