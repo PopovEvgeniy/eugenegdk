@@ -2214,7 +2214,16 @@ void Background::prepare(const unsigned int screen_width,const unsigned int scre
 
 void Background::prepare(Screen *screen)
 {
- this->prepare(screen->get_width(),screen->get_height());
+ if (screen!=NULL)
+ {
+  this->prepare(screen->get_width(),screen->get_height());
+ }
+
+}
+
+void Background::prepare(Screen &screen)
+{
+ this->prepare(screen.get_handle());
 }
 
 void Background::set_kind(const BACKGROUND_TYPE kind)
@@ -2782,6 +2791,11 @@ void Text::load_font(Sprite *target)
   font->set_setting(HORIZONTAL_STRIP,256);
  }
 
+}
+
+void Text::load_font(Sprite &target)
+{
+ this->load_font(target.get_handle());
 }
 
 void Text::draw_character(const char target)

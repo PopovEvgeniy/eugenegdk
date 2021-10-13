@@ -515,7 +515,9 @@ C++
         int screen_width,const unsigned int screen_height);</span>&nbsp; –
       Prepare for drawing.<br>
     </big><big><span style="font-style: italic;">void Background::prepare(Screen
-        *screen);</span>&nbsp; – Prepare for drawing.<br>
+        *screen);</span> – Prepare for drawing.<br>
+      <span style="font-style: italic;">void Background::prepare(Screen
+        &amp;screen);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
         unsigned int target);</span> – Set target frame in scrolling background.<br
 
@@ -709,6 +711,8 @@ C++
       <span style="font-style: italic;">void Text::set_position(const unsigned
         int x,const unsigned int y);</span> – Set output position.<br>
       <span style="font-style: italic;">void Text::load_font(Sprite *font);</span>
+      – Load a font.<br>
+      <span style="font-style: italic;">void Text::load_font(Sprite &amp;font);</span>
       – Load a font.<br>
       <span style="font-style: italic;">void Text::draw_character(const char
         target);</span> – Draw single character at current position.<br>
@@ -1338,7 +1342,6 @@ C++
     <big><br>
     </big>
     <table style="text-align: left; width: 613px; height: 304px;" cellspacing="2"
-
       cellpadding="2" border="1">
       <tbody>
         <tr>
@@ -1781,7 +1784,9 @@ Multimedia
         loader was improved.<br>
         2.0.4 – Sprite subsystem was improved.<br>
         2.0.5 – Background subsystem was improved.<br>
-        2.0.6 – 2.1.1 – Text drawing subsystem was improved.<br>
+        2.0.6 – 2.1.2 – Text drawing subsystem was improved.<br>
+        2.1.3 – Background subsystem was improved.<br>
+        2.1.4 – Small changes.<br>
       </big></span>
   </body>
 </html>

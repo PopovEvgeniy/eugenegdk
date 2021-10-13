@@ -603,6 +603,7 @@ class Background:public Frame,public Picture
  ~Background();
  void prepare(const unsigned int screen_width,const unsigned int screen_height);
  void prepare(Screen *screen);
+ void prepare(Screen &screen);
  void set_kind(const BACKGROUND_TYPE kind);
  void set_setting(const BACKGROUND_TYPE kind,const unsigned int frames);
  void load_background(Image &buffer,const BACKGROUND_TYPE kind,const unsigned int frames);
@@ -710,6 +711,7 @@ class Text
  ~Text();
  void set_position(const unsigned int x,const unsigned int y);
  void load_font(Sprite *target);
+ void load_font(Sprite &target);
  void draw_character(const char target);
  void draw_text(const char *text);
  void draw_character(const unsigned int x,const unsigned int y,const char target);
