@@ -1900,6 +1900,16 @@ unsigned char *Image::create_buffer(const size_t length)
  return result;
 }
 
+void Image::copy_data(const unsigned char *target,const size_t location,const size_t position,const size_t amount)
+{
+ size_t index;
+ for (index=0;index<amount;++index)
+ {
+  data[location+index]=target[position+index];
+ }
+
+}
+
 void Image::uncompress_tga_data(const unsigned char *target,const size_t length)
 {
  size_t index,position,amount;
@@ -1912,7 +1922,7 @@ void Image::uncompress_tga_data(const unsigned char *target,const size_t length)
   {
    amount=target[position]+1;
    amount*=sizeof(unsigned int);
-   memcpy(data+index,target+(position+1),amount);
+   this->copy_data(target,index,position+1,amount);
    index+=amount;
    position+=1+amount;
   }
@@ -1920,7 +1930,7 @@ void Image::uncompress_tga_data(const unsigned char *target,const size_t length)
   {
    for (amount=target[position]-127;amount>0;--amount)
    {
-    memcpy(data+index,target+(position+1),sizeof(unsigned int));
+    this->copy_data(target,index,position+1,sizeof(unsigned int));
     index+=sizeof(unsigned int);
    }
    position+=1+sizeof(unsigned int);
@@ -2251,13 +2261,13 @@ void Background::load_background(Image &buffer,const BACKGROUND_TYPE kind,const 
 void Background::set_target(const unsigned int target)
 {
  this->set_frame(target);
- this->set_kind(current_kind);
+ this->configure_background();
 }
 
 void Background::step()
 {
  this->increase_frame();
- this->set_kind(current_kind);
+ this->configure_background();
 }
 
 void Background::horizontal_mirror()
@@ -2830,8 +2840,8 @@ void Text::draw_text(const unsigned int x,const unsigned int y,const char *text)
 
 Timer::Timer()
 {
- interval=0;
  start=time(NULL);
+ interval=0;
 }
 
 Timer::~Timer()
