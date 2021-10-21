@@ -1534,71 +1534,115 @@ Multimedia::~Multimedia()
  if (loader!=NULL) loader->Release();
 }
 
+void Multimedia::set_screen_mode()
+{
+ if (video!=NULL)
+ {
+  video->put_FullScreenMode(OATRUE);
+ }
+
+}
+
+void Multimedia::load_content(const wchar_t *target)
+{
+ if (loader!=NULL)
+ {
+  loader->RenderFile(target,NULL);
+ }
+
+}
+
 void Multimedia::open(const wchar_t *target)
 {
- player->StopWhenReady();
- if (loader->RenderFile(target,NULL)!=S_OK)
- {
-  Halt("Can't load a multimedia file");
- }
- video->put_FullScreenMode(OATRUE);
+ this->load_content(target);
+ this->set_screen_mode();
 }
 
 bool Multimedia::is_play()
 {
- bool result;
  long long current,total;
- result=false;
- if (controler->GetPositions(&current,&total)==S_OK)
+ current=0;
+ total=0;
+ if (controler!=NULL)
  {
-  if (current<total) result=true;
+  if (controler->GetPositions(&current,&total)!=S_OK)
+  {
+   current=0;
+   total=0;
+  }
+
  }
- return result;
+ return current<total;
 }
 
 void Multimedia::rewind()
 {
  long long position;
  position=0;
- if (controler->SetPositions(&position,AM_SEEKING_AbsolutePositioning,NULL,AM_SEEKING_NoPositioning)!=S_OK)
+ if (controler!=NULL)
  {
-  Halt("Can't set start position");
+  controler->SetPositions(&position,AM_SEEKING_AbsolutePositioning,NULL,AM_SEEKING_NoPositioning);
+ }
+
+}
+
+void Multimedia::play_content()
+{
+ if (player!=NULL)
+ {
+  player->Run();
  }
 
 }
 
 void Multimedia::create_loader()
 {
- if (CoCreateInstance(CLSID_FilterGraph,NULL,CLSCTX_INPROC_SERVER,IID_IGraphBuilder,reinterpret_cast<void**>(&loader))!=S_OK)
+ if (loader==NULL)
  {
-  Halt("Can't create a multimedia loader");
+  if (CoCreateInstance(CLSID_FilterGraph,NULL,CLSCTX_INPROC_SERVER,IID_IGraphBuilder,reinterpret_cast<void**>(&loader))!=S_OK)
+  {
+   Halt("Can't create a multimedia loader");
+  }
+
  }
 
 }
 
 void Multimedia::create_player()
 {
- if (loader->QueryInterface(IID_IMediaControl,reinterpret_cast<void**>(&player))!=S_OK)
+ if (player==NULL)
  {
-  Halt("Can't create a multimedia player");
+  if (loader->QueryInterface(IID_IMediaControl,reinterpret_cast<void**>(&player))!=S_OK)
+  {
+   Halt("Can't create a multimedia player");
+  }
+
  }
 
 }
 
 void Multimedia::create_controler()
 {
- if (loader->QueryInterface(IID_IMediaSeeking,reinterpret_cast<void**>(&controler))!=S_OK)
+ if (controler==NULL)
  {
-  Halt("Can't create a player controler");
+  if (loader->QueryInterface(IID_IMediaSeeking,reinterpret_cast<void**>(&controler))!=S_OK)
+  {
+   Halt("Can't create a player controler");
+  }
+
  }
 
 }
 
 void Multimedia::create_video_player()
 {
- if (loader->QueryInterface(IID_IVideoWindow,reinterpret_cast<void**>(&video))!=S_OK)
+ if (video==NULL)
  {
-  Halt("Can't create a video player");
+  if (loader->QueryInterface(IID_IVideoWindow,reinterpret_cast<void**>(&video))!=S_OK)
+  {
+   Halt("Can't create a video player");
+  }
+
  }
 
 }
@@ -1611,34 +1655,43 @@ void Multimedia::initialize()
  this->create_video_player();
 }
 
-void Multimedia::load(const char *target)
-{
- Unicode_Convertor convertor;
- this->open(convertor.convert(target));
-}
-
 bool Multimedia::check_playing()
 {
  OAFilterState state;
  bool result;
  result=false;
- if (player->GetState(INFINITE,&state)!=E_FAIL)
+ if (player!=NULL)
  {
-  if (state==State_Running) result=this->is_play();
+  if (player->GetState(INFINITE,&state)!=E_FAIL)
+  {
+   if (state==State_Running) result=this->is_play();
+  }
+
  }
  return result;
 }
 
 void Multimedia::stop()
 {
- player->StopWhenReady();
+ if (player!=NULL)
+ {
+  player->StopWhenReady();
+ }
+
 }
 
 void Multimedia::play()
 {
  this->stop();
  this->rewind();
- player->Run();
+ this->play_content();
+}
+
+void Multimedia::load(const char *target)
+{
+ Unicode_Convertor convertor;
+ this->stop();
+ this->open(convertor.convert(target));
 }
 
 Memory::Memory()

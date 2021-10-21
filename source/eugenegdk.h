@@ -443,9 +443,12 @@ class Multimedia:public COM_Base
  IMediaControl *player;
  IMediaSeeking *controler;
  IVideoWindow *video;
+ void set_screen_mode();
+ void load_content(const wchar_t *target);
  void open(const wchar_t *target);
  bool is_play();
  void rewind();
+ void play_content();
  void create_loader();
  void create_player();
  void create_controler();
@@ -454,10 +457,10 @@ class Multimedia:public COM_Base
  Multimedia();
  ~Multimedia();
  void initialize();
- void load(const char *target);
  bool check_playing();
  void stop();
  void play();
+ void load(const char *target);
 };
 
 class Memory
