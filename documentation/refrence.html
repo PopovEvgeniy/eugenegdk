@@ -199,8 +199,7 @@
     <big> </big>
     <p><big> System requirements of you game depend on the engine system
         requirement. You can see minimum system requirement bellow.</big></p>
-    <big><br>
-    </big>
+    <big> </big>
     <table style="text-align: left; width: 575px; height: 244px;" cellspacing="2"
       cellpadding="2" border="1">
       <tbody>
@@ -353,11 +352,11 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">void Screen::clear_screen();</span> –
       Clear the screen. Fill it by black color.<br>
       <span style="font-style: italic;">void Screen::initialize();</span> –
-      Initialize the base graphic subsystem with default screen resolution.<br>
-    </big><big><span style="font-style: italic;">void Screen::initialize(const
-        unsigned int width,</span></big><big><span style="font-style: italic;">const
-        unsigned int heigt</span></big><big><span style="font-style: italic;">);</span>
-      – Initialize the base graphic subsystem with custom screen resolution.</big><big><span
+      Initialize the base graphic subsystem with default screen resolution. </big><big><span
+        style="font-style: italic;">void Screen::initialize(const unsigned int
+        width,</span></big><big><span style="font-style: italic;">const unsigned
+        int heigt</span></big><big><span style="font-style: italic;">);</span> –
+      Initialize the base graphic subsystem with custom screen resolution.</big><big><span
         style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -374,8 +373,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">unsigned int Screen::get_height();</span>
       – Return screen height in pixels.<br>
       <span style="font-style: italic;">Screen* Screen::get_handle();</span> –
-      Return the handle to base graphics subsystem object.<br>
-    </big>
+      Return the handle to base graphics subsystem object. </big>
     <h2><a class="mozTocH2" name="mozTocId225176"></a><big><span style="font-style: italic;"></span>Chapter
         2. Graphic primitives</big></h2>
     <big><br>
@@ -406,15 +404,13 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="text-decoration: underline;">Important notes</span><br>
       <br>
       Always call <span style="font-style: italic;">prepare</span> and <span style="font-style: italic;">set_color</span>
-      methods before drawing.<br>
-    </big>
+      methods before drawing. </big>
     <h2><a class="mozTocH2" name="mozTocId289525"></a><big>Chapter 3. Picture
         subsystem</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Very important subsystems</span><br>
       <br>
-      Picture subsystem implement image storage.<br>
-    </big><big><br>
+      Picture subsystem implement image storage. </big><big><br>
       <span style="text-decoration: underline;">Work with advanced graphics</span><br>
       <br>
       <span style="font-style: italic;">Picture</span> class provide simple
@@ -422,9 +418,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       methods.<br>
       <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">unsigned int *Picture::get_image();</span>
-      – Return handle to image storage.<br>
-    </big><big><span style="font-style: italic;">void Picture::destroy_image();</span>
-      – Destroy image&nbsp; in the storage.</big><br>
+      – Return handle to image storage. </big><big><span style="font-style: italic;">void
+        Picture::destroy_image();</span> – Destroy image&nbsp; in the storage.</big><br>
     <big> <span style="font-style: italic;">void Picture::load_image(Image
         &amp;buffer);</span> – Load an image from memory buffer. Replace current
       image if exist.<br>
@@ -435,7 +430,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">unsigned int Picture::get_image_width()
         const;</span> – Return image width in pixels.<br>
       <span style="font-style: italic;">unsigned int Picture::get_image_height()
-        const;</span> – Return image height in pixels.<span style="font-style: italic;"></span></big><big><br>
+        const;</span> – Return image height in pixels.<span style="font-style: italic;"></span></big><big>
     </big>
     <h2><a class="mozTocH2" name="mozTocId501089"></a><big>Chapter 4. Animation
         subsystem</big></h2>
@@ -456,7 +451,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">unsigned int Frame::get_frames() const;</span>
       – Return amount of frames in scrolling background or animated sprite.<br>
       <span style="font-style: italic;">unsigned int Frame::get_frame() const;</span>
-      – Return current frame in scrolling background or animated sprite.<span style="font-style: italic;"><br>
+      – Return current frame in scrolling background or animated sprite.<span style="font-style: italic;">
       </span> </big>
     <h2><a class="mozTocH2" name="mozTocId455894"></a><big> Chapter 5.
         Background</big></h2>
@@ -474,12 +469,10 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       orientated photo ribbon.<br>
       <br>
       <span style="text-decoration: underline;">Background types</span><br>
-      <br>
     </big>
     <p><big> Background types codes look as predefined constants. You can see it
         bellow.</big></p>
-    <big><br>
-    </big>
+    <big> </big>
     <table style="text-align: left; width: 554px; height: 124px;" cellspacing="2"
       cellpadding="2" border="1">
       <tbody>
@@ -508,13 +501,11 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       Just use <span style="font-style: italic;">Background</span> class for
       work with background. It is derived from <span style="font-style: italic;">Frame</span>
       and <span style="font-style: italic;">Picture</span> classes. Let’s look
-      to public methods.<br>
-    </big><big style="font-style: italic;"></big><big><br>
+      to public methods. </big><big><br>
       <span style="font-style: italic;">void Background::prepare(const unsigned
         int screen_width,const unsigned int screen_height);</span>&nbsp; –
-      Prepare for drawing.<br>
-    </big><big><span style="font-style: italic;">void Background::prepare(Screen
-        *screen);</span> – Prepare for drawing.<br>
+      Prepare for drawing. </big><big><span style="font-style: italic;">void
+        Background::prepare(Screen *screen);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::prepare(Screen
         &amp;screen);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
@@ -535,9 +526,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">void Background::vertical_mirror();</span>
       – Do vertical background mirror.<br>
       <span style="font-style: italic;">void Backgrround::complex_mirror();</span>
-      – Do both horizontal and vertical background mirror.<br>
-    </big> <big> <span style="font-style: italic;">void
-        Background::draw_background();</span> – Draw a background.<br>
+      – Do both horizontal and vertical background mirror. </big> <big> <span
+        style="font-style: italic;">void Background::draw_background();</span> –
+      Draw a background.<br>
       <br>
       <span style="text-decoration: underline;">Important notes</span><br>
       <br>
@@ -566,12 +557,10 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       Transparent mode is enabled by default.<br>
       <br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Sprite type flags</span><br>
-      <br>
     </big>
     <p><big> Sprite types codes look as predefined constants. You can see it
         bellow.</big></p>
-    <big><br>
-    </big>
+    <big> </big>
     <table style="text-align: left; width: 363px; height: 124px;" cellspacing="2"
       cellpadding="2" border="1">
       <tbody>
@@ -614,10 +603,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">void Sprite::set_kind(const SPRITE_TYPE
         target);</span> – Set sprite type.<br>
       <span style="font-style: italic;">SPRITE_TYPE Sprite::get_kind() const;</span>
-      – Get sprite type.<br>
-    </big><big><span style="font-style: italic;">void Sprite::set_setting(const
-        SPRITE_TYPE kind,const unsigned int frames);</span> – Set sprite
-      setting.</big><br>
+      – Get sprite type. </big><big><span style="font-style: italic;">void
+        Sprite::set_setting(const SPRITE_TYPE kind,const unsigned int frames);</span>
+      – Set sprite setting.</big><br>
     <big> <span style="font-style: italic;">void Sprite::set_transparent(const
         bool enabled);</span> – Enable or disable transparent mode.<br>
       <span style="font-style: italic;">bool Sprite::get_transparent() const;</span>
@@ -673,9 +661,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">void Sprite::vertical_mirror();</span> –
       Do vertical sprite mirror.<br>
       <span style="font-style: italic;">void Sprite::complex_mirror();</span> –
-      Do both horizontal and vertical sprite mirror.<br>
-    </big><big> <span style="font-style: italic;">void Sprite::draw_sprite();</span>
-      – Draw a sprite.</big><br>
+      Do both horizontal and vertical sprite mirror. </big><big> <span style="font-style: italic;">void
+        Sprite::draw_sprite();</span> – Draw a sprite.</big><br>
     <big> <span style="font-style: italic;">void Sprite::draw_sprite(const
         unsigned int x, const unsigned int y);</span> – Set sprite position and
       draw it.</big><br>
@@ -685,10 +672,10 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         x, const unsigned int y);</i> – Set transparent mode and draw a sprite
       at target position.</big><br>
     <big> <br>
-      <span style="text-decoration: underline;">Important notes</span><br>
-      <br>
-    </big><big>Always set sprite setting and call <span style="font-style: italic;">prepare</span>
-      method after load sprite image.</big><big></big>
+      <span style="text-decoration: underline;">Important notes<br>
+        <br>
+      </span> </big><big>Always set sprite setting and call <span style="font-style: italic;">prepare</span>
+      method after load sprite image.</big>
     <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 7. Text</big></h2>
     <big><br>
       <span style="text-decoration: underline;">How draw a text?</span><br>
@@ -751,10 +738,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">unsigned int Tileset::get_rows() const;</span>
       – Return amount of rows.<br>
       <span style="font-style: italic;">unsigned int Tileset::get_columns()
-        const;</span> – Return amount of columns.<br>
-    </big><big><span style="font-style: italic;">void Tileset::set_size(const
-        unsigned int width, const unsigned int height);</span> – Change the tile
-      size.</big><br>
+        const;</span> – Return amount of columns. </big><big><span style="font-style: italic;">void
+        Tileset::set_size(const unsigned int width, const unsigned int height);</span>
+      – Change the tile size.</big><br>
     <big> <span style="font-style: italic;">void Tileset::select_tile(const
         unsigned int row,const unsigned int column);</span> – Select target
       tile.</big><br>
@@ -767,7 +753,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <big> <span style="font-style: italic;">void Tileset::load_tileset(Image
         &amp;buffer,const unsigned int row_amount,const unsigned int
         column_amount);</span> – Load a tile-set.<br>
-      <br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 9. Loading
         images</big></h2>
@@ -796,12 +781,10 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       New image replace current image if current image already exist.<br>
       <br>
       <span style="text-decoration: underline;">Supported format</span><br>
-      <br>
     </big>
     <p><big> All loading images must have correct specification. You can load an
         images from 32 bit </big><big><a href="https://en.wikipedia.org/wiki/Truevision_TGA">Truevision
-          TGA</a> pictures.<br>
-      </big></p>
+          TGA</a> pictures. </big></p>
     <big> <span style="text-decoration: underline;">Recommend software</span><br>
       <br>
       You can use wide range of graphics software for convert you images to
@@ -830,8 +813,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       log file.<span style="font-style: italic;"></span><br>
       <br>
       This is all that you must know about this class. It is just very simple
-      class for few important things.<br>
-    </big>
+      class for few important things. </big>
     <h2><a class="mozTocH2" name="mozTocId688163"></a><big>Chapter 2. Filesystem</big></h2>
     <big><br>
       Filesystem subsystem let you doing some file operation. <span style="font-style: italic;">Filesystem</span>
@@ -996,11 +978,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       is released.<br>
       <br>
       <span style="text-decoration: underline;">List of supported scan-codes</span><br>
-      <br>
     </big>
     <p><big> You can see list of scan-codes bellow.</big></p>
-    <big><br>
-    </big>
+    <big> </big>
     <table style="text-align: left; width: 100%;" cellspacing="2" cellpadding="2"
       border="1">
       <tbody>
@@ -1284,12 +1264,10 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       released.<br>
       <br>
       <span style="text-decoration: underline;">Mouse buttons</span><br>
-      <br>
     </big>
     <p><big> Mouse button codes look as predefined constants. You can see it
         bellow.</big></p>
-    <big><br>
-    </big>
+    <big> </big>
     <table style="text-align: left; width: 300px; height: 124px;" cellspacing="2"
       cellpadding="2" border="1">
       <tbody>
@@ -1333,12 +1311,10 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         style="font-style: italic;">GAMEPAD_BUTTON32</span>.<br>
       <br>
       <span style="text-decoration: underline;">D-pad buttons codes</span><br>
-      <br>
     </big>
     <p><big> D-pad button codes look as predefined constants. You can see it
         bellow.</big></p>
-    <big><br>
-    </big>
+    <big> </big>
     <table style="text-align: left; width: 613px; height: 304px;" cellspacing="2"
       cellpadding="2" border="1">
       <tbody>
@@ -1388,12 +1364,10 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     </table>
     <big><br>
       <span style="text-decoration: underline;">Sticks identifiers</span><br>
-      <br>
     </big>
     <p><big> Sticks identifiers look as predefined constants. You can see it
         bellow.</big></p>
-    <big><br>
-    </big>
+    <big> </big>
     <table style="text-align: left; width: 365px; height: 94px;" cellspacing="2"
       cellpadding="2" border="1">
       <tbody>
@@ -1413,12 +1387,10 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     </table>
     <big><br>
       <span style="text-decoration: underline;">Stick direction</span><br>
-      <br>
     </big>
     <p><big> Stick direction look as predefined constants. You can see it
         bellow.</big></p>
-    <big><br>
-    </big>
+    <big> </big>
     <table style="text-align: left; width: 516px; height: 124px;" cellspacing="2"
       cellpadding="2" border="1">
       <tbody>
@@ -1484,8 +1456,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       x-direction of specific stick.<br>
       <span style="font-style: italic;">GAMEPAD_DIRECTION
         Gamepad::get_stick_y(const GAMEPAD_STICKS stick);</span> – Return
-      y-direction of specific stick.<br>
-    </big>
+      y-direction of specific stick. </big>
     <h1><a id="mozTocId189335" class="mozTocH1"></a><big>Part 8. Other important
         things</big></h1>
     <big></big>
@@ -1508,8 +1479,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         Memory::get_free_virtual();</span> – Return free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
         memory</a> size in bytes.<br>
       <span style="font-style: italic;"> unsigned long int Memory::get_usage();</span>
-      – Return percentage of physical memory usage.<br>
-    </big>
+      – Return percentage of physical memory usage. </big>
     <h2><a id="mozTocId180674" class="mozTocH2"></a><big>Chapter 2. Multimedia</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Improve you game</span><br>
@@ -1519,11 +1489,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       levels. It can use for show game story.<br>
       <br>
       <span style="text-decoration: underline;">Supported formats</span><br>
-      <br>
     </big>
     <p><big> You can see list of supported formats bellow.</big></p>
-    <big><br>
-    </big>
+    <big> </big>
     <table style="text-align: left; width: 315px; height: 214px;" cellspacing="2"
       cellpadding="2" border="1">
       <tbody>
@@ -1598,8 +1566,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       synchronization timer.<br>
       <span style="font-style: italic;">Display</span> implement display
       manager.</big><br>
-    <big> <span style="font-style: italic;">FPS</span> implement fps counter.<br>
-    </big> <big><i>Unicode_Convertor</i> implement system code-page to UTF-16
+    <big> <span style="font-style: italic;">FPS</span> implement fps counter. </big>
+    <big><i>Unicode_Convertor</i> implement system code-page to UTF-16
       convertor.</big><br>
     <big> <span style="font-style: italic;">WINGL</span> contain Windows
       specific OPENGL initialization code.<br>
@@ -1614,8 +1582,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         style="font-style: italic;">Multimedia</span> class. </big>
     <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
         graphics subsystem</big></h2>
-    <big><span style="text-decoration: underline;"></span><br>
-    </big><big><span style="text-decoration: underline;">Visible object</span></big><br>
+    <big><span style="text-decoration: underline;"></span> </big><big><span style="text-decoration: underline;">Visible
+        object</span></big><br>
     <big> </big><br>
     <big> All visible object except graphics primitives is textured rectangles.</big><br>
     <big> </big><br>
@@ -1664,12 +1632,10 @@ Multimedia API</a>. </big>
         standard Windows API.<br>
         <br>
         <span style="text-decoration: underline;">Internal key state</span><br>
-        <br>
       </big>
       <p><big> Internal state of keyboard keys and mouse buttons look as
           predefined constants. You can see it bellow.</big></p>
-      <big><br>
-      </big>
+      <big> </big>
       <table style="text-align: left; width: 519px; height: 94px;" cellspacing="2"
         cellpadding="2" border="1">
         <tbody>
@@ -1699,16 +1665,15 @@ Multimedia API</a>. </big>
       <big><br>
         0.1 – Initial version.<br>
         0.1.1 – 0.7.6 – Internal unstable builds.<br>
-        0.7.7 </big><big>–</big><big> Small changes.<br>
-      </big><big> 0.7.8 </big><big>–</big><big> Small bug in sprite subsystem
-        was fixed.<br>
-      </big><big> 0.7.9 </big><big>– </big><big>0.8.1 – Small changes.<br>
+        0.7.7 </big><big>–</big><big> Small changes.</big><big><br>
+        0.7.8 </big><big>–</big><big> Small bug in sprite subsystem was fixed.</big><big><br>
+        0.7.9 </big><big>– </big><big>0.8.1 – Small changes.<br>
         0.8.2 – Sprite subsystem was improved.<br>
         0.8.3 – PCX support was removed.<br>
         0.8.4 – Small changes.<br>
         0.8.5 – Fps counter was improved.<br>
-        0.8.6 – 0.8.9 – Small changes.<br>
-      </big><big> 0.9 – TGA support was improved.<br>
+        0.8.6 – 0.8.9 – Small changes.</big><big><br>
+        0.9 – TGA support was improved.<br>
         0.9.1 – Small bug in sprite subsystem was fixed.<br>
         0.9.2 – Small changes.<br>
         0.9.3 – New subsystem was added.<br>
@@ -1726,13 +1691,13 @@ Multimedia API</a>. </big>
         1.2.7 – Small changes.<br>
         1.2.8 – Render performance was increased.<br>
         1.2.9 – Windows 2000 support was added.<br>
-        1.3 – Small changes.<br>
-      </big><big> 1.3.1 – Image resizer was improved.<br>
-      </big><big> 1.3.2 – Game-pad subsystem was improved.<br>
+        1.3 – Small changes.</big><big><br>
+        1.3.1 – Image resizer was improved.</big><big><br>
+        1.3.2 – Game-pad subsystem was improved.<br>
         1.3.3 – Project name was changed.<br>
-        1.3.4 – Sprite subsystem was improved.<br>
-      </big><big> 1.3.5 – Small changes.<br>
-      </big><big> 1.3.6 – Tile-set subsystem was improved.<br>
+        1.3.4 – Sprite subsystem was improved.</big><big><br>
+        1.3.5 – Small changes.</big><big><br>
+        1.3.6 – Tile-set subsystem was improved.<br>
         1.3.7 – Small changes.<br>
         1.3.8 – Sprite subsystem was improved.<br>
         1.3.9 – Tile-set subsystem was improved.<br>
@@ -1742,15 +1707,14 @@ Multimedia API</a>. </big>
         1.4.6 – New subsystem was added. Windows 2000 support was removed.<br>
       </big><big>1.4.7 – 1.4.8 – Sprite subsystem was improved.<br>
         1.4.9 – Text subsystem was improved.<br>
-        1.5 – Small changes.<br>
-      </big><big> 1.5.1 – Optional software render was added.<br>
+        1.5 – Small changes. </big><big> 1.5.1 – Optional software render was
+        added.<br>
         1.5.2 – </big><big>1.5.7 –</big><big> Small changes.<br>
       </big></span><span><big>1.5.8 – Keyboard input was improved.<br>
       </big></span><span><big>1.5.9 – Mouse input was improved.<br>
-      </big></span><span><big>1.6 – Game-pad support was improved.<br>
-      </big></span><span><big> 1.6.1 – Small bug in game-pad subsystem was
-        fixed.<br>
-      </big></span><span><big> 1.6.2 – Small changes.<br>
+      </big></span><span><big>1.6 – Game-pad support was improved.</big></span><span><big><br>
+        1.6.1 – Small bug in game-pad subsystem was fixed.</big></span><span><big><br>
+        1.6.2 – Small changes.<br>
       </big></span><span><big>1.6.3 – Filesystem subsystem was improved.<br>
       </big></span><span><big>1.6.4 – 1.6.5 – Small changes.<br>
       </big></span><span><big>1.6.6 – Base graphics subsystem was improved.<br>
@@ -1783,8 +1747,8 @@ Multimedia API</a>. </big>
         2.0.5 – Background subsystem was improved.<br>
         2.0.6 – 2.1.2 – Text drawing subsystem was improved.<br>
         2.1.3 – Background subsystem was improved.<br>
-        2.1.4 –&nbsp; 2.1.8 – Small changes.<br>
-        2.1.9 – 2.2.6 – Multimedia subsystem was improved.<br>
-      </big></span>
+        2.1.4 – 2.1.8 – Small changes.<br>
+        2.1.9 – 2.2.7 – Multimedia subsystem was improved.<br>
+        2.2.8 – 2.2.9 – Small changes.</big></span>
   </body>
 </html>
