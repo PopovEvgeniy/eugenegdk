@@ -137,14 +137,10 @@ Synchronization::~Synchronization()
 
 void Synchronization::create_timer()
 {
+ timer=CreateWaitableTimer(NULL,FALSE,NULL);
  if (timer==NULL)
  {
-  timer=CreateWaitableTimer(NULL,FALSE,NULL);
-  if (timer==NULL)
-  {
-   Halt("Can't create synchronization timer");
-  }
-
+  Halt("Can't create synchronization timer");
  }
 
 }
@@ -153,13 +149,9 @@ void Synchronization::set_timer(const unsigned long int interval)
 {
  LARGE_INTEGER start;
  start.QuadPart=0;
- if (timer!=NULL)
+ if (SetWaitableTimer(timer,&start,interval,NULL,NULL,FALSE)==FALSE)
  {
-  if (SetWaitableTimer(timer,&start,interval,NULL,NULL,FALSE)==FALSE)
-  {
-   Halt("Can't set timer");
-  }
-
+  Halt("Can't set timer");
  }
 
 }
@@ -539,11 +531,7 @@ void WINGL::disable_vsync()
 
 void WINGL::Swap()
 {
- if (render!=NULL)
- {
-  SwapBuffers(this->get_context());
- }
-
+ SwapBuffers(this->get_context());
 }
 
 Render::Render()
@@ -1111,7 +1099,7 @@ void Primitive::draw_filled_rectangle(const unsigned int x,const unsigned int y,
 
 Screen::Screen()
 {
-
+ ready=false;
 }
 
 Screen::~Screen()
@@ -1129,26 +1117,43 @@ void Screen::screen_setup()
 
 void Screen::clear_screen()
 {
- this->clear_stage();
+ if (ready==true)
+ {
+  this->clear_stage();
+ }
+
 }
 
 void Screen::initialize()
 {
- this->check_video_mode();
- this->screen_setup();
+ if (ready==false)
+ {
+  this->check_video_mode();
+  this->screen_setup();
+  ready=true;
+ }
+
 }
 
 void Screen::initialize(const unsigned int width,const unsigned int height)
 {
- this->set_resolution(width,height);
- this->screen_setup();
+ if (ready==false)
+ {
+  this->set_resolution(width,height);
+  this->screen_setup();
+  ready=true;
+ }
+
 }
 
 bool Screen::update()
 {
- this->refresh();
- this->update_counter();
- this->clear_stage();
+ if (ready==true)
+ {
+  this->refresh();
+  this->update_counter();
+  this->clear_stage();
+ }
  return this->process_message();
 }
 

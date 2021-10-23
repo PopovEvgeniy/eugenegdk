@@ -357,6 +357,7 @@ class Primitive
 class Screen:public FPS, public Synchronization, public Render
 {
  private:
+ bool ready;
  void screen_setup();
  public:
  Screen();
