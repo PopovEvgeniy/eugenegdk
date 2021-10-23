@@ -137,10 +137,14 @@ Synchronization::~Synchronization()
 
 void Synchronization::create_timer()
 {
- timer=CreateWaitableTimer(NULL,FALSE,NULL);
  if (timer==NULL)
  {
-  Halt("Can't create synchronization timer");
+  timer=CreateWaitableTimer(NULL,FALSE,NULL);
+  if (timer==NULL)
+  {
+   Halt("Can't create synchronization timer");
+  }
+
  }
 
 }
@@ -149,16 +153,24 @@ void Synchronization::set_timer(const unsigned long int interval)
 {
  LARGE_INTEGER start;
  start.QuadPart=0;
- if (SetWaitableTimer(timer,&start,interval,NULL,NULL,FALSE)==FALSE)
+ if (timer!=NULL)
  {
-  Halt("Can't set timer");
+  if (SetWaitableTimer(timer,&start,interval,NULL,NULL,FALSE)==FALSE)
+  {
+   Halt("Can't set timer");
+  }
+
  }
 
 }
 
 void Synchronization::wait_timer()
 {
- WaitForSingleObjectEx(timer,INFINITE,TRUE);
+ if (timer!=NULL)
+ {
+  WaitForSingleObjectEx(timer,INFINITE,TRUE);
+ }
+
 }
 
 Engine::Engine()
@@ -527,7 +539,11 @@ void WINGL::disable_vsync()
 
 void WINGL::Swap()
 {
- SwapBuffers(this->get_context());
+ if (render!=NULL)
+ {
+  SwapBuffers(this->get_context());
+ }
+
 }
 
 Render::Render()
