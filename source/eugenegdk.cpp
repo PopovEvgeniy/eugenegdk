@@ -488,6 +488,7 @@ WINGL::~WINGL()
  {
   wglMakeCurrent(NULL,NULL);
   wglDeleteContext(render);
+  render=NULL;
  }
 
 }
