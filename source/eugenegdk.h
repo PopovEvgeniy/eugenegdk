@@ -462,6 +462,7 @@ class Multimedia:public COM_Base
  void stop();
  void play();
  void load(const char *target);
+ void initialize(const char *target);
 };
 
 class Memory

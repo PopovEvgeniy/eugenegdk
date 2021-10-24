@@ -131,6 +131,7 @@ Synchronization::~Synchronization()
  {
   CancelWaitableTimer(timer);
   CloseHandle(timer);
+  timer=NULL;
  }
 
 }
@@ -187,14 +188,17 @@ Engine::~Engine()
  if (context!=NULL)
  {
   ReleaseDC(window,context);
+  context=NULL;
  }
  if (window!=NULL)
  {
   CloseWindow(window);
+  window=NULL;
  }
  if (window_class.hbrBackground!=NULL)
  {
   DeleteObject(window_class.hbrBackground);
+  window_class.hbrBackground=NULL;
  }
  UnregisterClass(window_class.lpszClassName,window_class.hInstance);
 }
@@ -349,7 +353,12 @@ Unicode_Convertor::Unicode_Convertor()
 
 Unicode_Convertor::~Unicode_Convertor()
 {
- if (target!=NULL) delete[] target;
+ if (target!=NULL)
+ {
+  delete[] target;
+  target=NULL;
+ }
+
 }
 
 void Unicode_Convertor::get_memory(const size_t length)
@@ -1220,8 +1229,15 @@ bool Keyboard::check_state(const unsigned char code,const unsigned char state)
 
 void Keyboard::initialize()
 {
- this->create_buffer();
- this->clear_buffer();
+ if (preversion==NULL)
+ {
+  this->create_buffer();
+ }
+ if (preversion!=NULL)
+ {
+  this->clear_buffer();
+ }
+
 }
 
 bool Keyboard::check_hold(const unsigned char code)
@@ -1544,11 +1560,28 @@ Multimedia::Multimedia()
 
 Multimedia::~Multimedia()
 {
- if (player!=NULL) player->StopWhenReady();
- if (video!=NULL) video->Release();
- if (controler!=NULL) controler->Release();
- if (player!=NULL) player->Release();
- if (loader!=NULL) loader->Release();
+ if (player!=NULL)
+ {
+  player->StopWhenReady();
+  player->Release();
+  player=NULL;
+ }
+ if (video!=NULL)
+ {
+  video->Release();
+  video=NULL;
+ }
+ if (controler!=NULL)
+ {
+  controler->Release();
+  controler=NULL;
+ }
+ if (loader!=NULL)
+ {
+  loader->Release();
+  loader=NULL;
+ }
+
 }
 
 void Multimedia::set_screen_mode()
@@ -1713,6 +1746,12 @@ void Multimedia::load(const char *target)
  Unicode_Convertor convertor;
  this->stop();
  this->open(convertor.convert(target));
+}
+
+void Multimedia::initialize(const char *target)
+{
+ this->initialize();
+ this->load(target);
 }
 
 Memory::Memory()
