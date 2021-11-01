@@ -398,9 +398,9 @@ class Mouse
  ~Mouse();
  void show();
  void hide();
- void set_position(const unsigned long int x,const unsigned long int y);
- unsigned long int get_x();
- unsigned long int get_y();
+ void set_position(const unsigned int x,const unsigned int y);
+ unsigned int get_x();
+ unsigned int get_y();
  bool check_hold(const MOUSE_BUTTON button);
  bool check_press(const MOUSE_BUTTON button);
  bool check_release(const MOUSE_BUTTON button);

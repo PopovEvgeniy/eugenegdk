@@ -357,6 +357,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         unsigned int width,</span></big><big><span style="font-style: italic;">const
         unsigned int heigt</span></big><big><span style="font-style: italic;">);</span>
       – Initialize the base graphic subsystem with custom screen resolution.</big><big><span
+
         style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -510,6 +511,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         &amp;screen);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
         unsigned int target);</span> – Set target frame in scrolling background.<br
+
         style="font-style: italic;">
       <span style="font-style: italic;">void Background::step();</span> –
       Increase number of target frame in scrolling background. Set it to 1 if
@@ -1248,12 +1250,12 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       cursor.<br>
       <span style="font-style: italic;">void Mouse::hide();</span> – Hide mouse
       cursor.<br>
-      <span style="font-style: italic;">unsigned long int Mouse::get_x();</span>
-      – Return x position of mouse.<br>
-      <span style="font-style: italic;">unsigned long int Mouse::get_y();</span>
-      – Return y position of mouse.<br>
+      <span style="font-style: italic;">unsigned int Mouse::get_x();</span> –
+      Return x position of mouse.<br>
+      <span style="font-style: italic;">unsigned int Mouse::get_y();</span> –
+      Return y position of mouse.<br>
       <span style="font-style: italic;">void Mouse::set_position(const unsigned
-        long int x,const unsigned long int y);</span> – Set position of mouse.<br>
+        int x,const unsigned int y);</span> – Set position of mouse.<br>
       <span style="font-style: italic;">bool Mouse::check_hold(const
         MOUSE_BUTTON button);</span> – Return true if specific mouse button is
       pressed or holding.<br>
@@ -1760,6 +1762,8 @@ Multimedia API</a>. </big>
         2.3.7 – Multimedia subsystem was improved.<br>
         2.3.8 – Keyboard input was improved.<br>
         2.3.9 – Small changes.<br>
+        2.4 – Mouse input was improved.<br>
+        2.4.1 – Small changes.<br>
       </big></span>
   </body>
 </html>

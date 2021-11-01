@@ -1275,7 +1275,8 @@ void Mouse::get_position()
 {
  if (GetCursorPos(&position)==FALSE)
  {
-  Halt("Can't get the mouse cursor position");
+  position.x=0;
+  position.y=0;
  }
 
 }
@@ -1302,22 +1303,23 @@ void Mouse::hide()
  while(ShowCursor(FALSE)>-2) ;
 }
 
-void Mouse::set_position(const unsigned long int x,const unsigned long int y)
+void Mouse::set_position(const unsigned int x,const unsigned int y)
 {
  if (SetCursorPos(x,y)==FALSE)
  {
-  Halt("Can't set the mouse cursor position");
+  position.x=0;
+  position.y=0;
  }
 
 }
 
-unsigned long int Mouse::get_x()
+unsigned int Mouse::get_x()
 {
  this->get_position();
  return position.x;
 }
 
-unsigned long int Mouse::get_y()
+unsigned int Mouse::get_y()
 {
  this->get_position();
  return position.y;
@@ -1770,7 +1772,8 @@ void Memory::get_status()
 {
  if (GlobalMemoryStatusEx(&memory)==FALSE)
  {
-  Halt("Can't get the memory status");
+  memset(&memory,0,sizeof(MEMORYSTATUSEX));
+  memory.dwLength=sizeof(MEMORYSTATUSEX);
  }
 
 }
