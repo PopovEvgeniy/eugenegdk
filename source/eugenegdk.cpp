@@ -159,11 +159,7 @@ void Synchronization::set_timer(const unsigned long int interval)
 
 void Synchronization::wait_timer()
 {
- if (timer!=NULL)
- {
-  WaitForSingleObjectEx(timer,INFINITE,TRUE);
- }
-
+ WaitForSingleObjectEx(timer,INFINITE,TRUE);
 }
 
 Engine::Engine()
@@ -1169,8 +1165,14 @@ bool Screen::update()
 
 bool Screen::sync()
 {
- this->wait_timer();
- return this->update();
+ if (ready==true)
+ {
+  this->wait_timer();
+  this->refresh();
+  this->update_counter();
+  this->clear_stage();
+ }
+ return this->process_message();
 }
 
 Screen* Screen::get_handle()
