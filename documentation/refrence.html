@@ -357,7 +357,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         unsigned int width,</span></big><big><span style="font-style: italic;">const
         unsigned int heigt</span></big><big><span style="font-style: italic;">);</span>
       – Initialize the base graphic subsystem with custom screen resolution.</big><big><span
-
         style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -379,6 +378,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         2. Graphic primitives</big></h2>
     <big><br>
       Graphic primitives subsystem intend for drawing graphic primitives.<br>
+      <br>
       <span style="font-style: italic;">Primitive</span> class provide simple
       access to this subsystem. Let’s look to public methods.<br>
       <br>
@@ -411,16 +411,19 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <big><br>
       <span style="text-decoration: underline;">Very important subsystems</span><br>
       <br>
-      Picture subsystem implement image storage. </big><big><br>
-      <span style="text-decoration: underline;">Work with advanced graphics</span><br>
+      Picture subsystem implement image storage.<br>
+      <br>
+    </big><big> <span style="text-decoration: underline;">Work with advanced
+        graphics</span><br>
       <br>
       <span style="font-style: italic;">Picture</span> class provide simple
       access to picture subsystem. Don’t use it directly. Let’s look to public
       methods.<br>
       <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">unsigned int *Picture::get_image();</span>
-      – Return handle to image storage. </big><big><span style="font-style: italic;">void
-        Picture::destroy_image();</span> – Destroy image&nbsp; in the storage.</big><br>
+      – Return handle to image storage.<br>
+    </big><big><span style="font-style: italic;">void Picture::destroy_image();</span>
+      – Destroy image&nbsp; in the storage.</big><br>
     <big> <span style="font-style: italic;">void Picture::load_image(Image
         &amp;buffer);</span> – Load an image from memory buffer. Replace current
       image if exist.<br>
@@ -442,18 +445,19 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <br>
       <span style="text-decoration: underline;">Work with animation subsystem</span><br>
       <br>
-      <span style="font-style: italic;">Frame</span> class provide simple access
-      to animation subsystem. Don’t use it directly. Let’s look to public
+      <span style="font-style: italic;">Animation</span> class provide simple
+      access to animation subsystem. Don’t use it directly. Let’s look to public
       methods.<br>
       <br>
-      <span style="font-style: italic;">void Frame::set_frames(const unsigned
-        int amount);</span> – Set amounts of frames in scrolling background or
+      <span style="font-style: italic;">void Animation::set_frames(const
+        unsigned int amount);</span> – Set amounts of frames in scrolling
+      background or animated sprite.<br>
+      <span style="font-style: italic;">unsigned int Animation::get_frames()
+        const;</span> – Return amount of frames in scrolling background or
       animated sprite.<br>
-      <span style="font-style: italic;">unsigned int Frame::get_frames() const;</span>
-      – Return amount of frames in scrolling background or animated sprite.<br>
-      <span style="font-style: italic;">unsigned int Frame::get_frame() const;</span>
-      – Return current frame in scrolling background or animated sprite.<span style="font-style: italic;">
-      </span> </big>
+      <span style="font-style: italic;">unsigned int Animation::get_frame()
+        const;</span> – Return current frame in scrolling background or animated
+      sprite.<span style="font-style: italic;"> </span> </big>
     <h2><a class="mozTocH2" name="mozTocId455894"></a><big> Chapter 5.
         Background</big></h2>
     <big> <br>
@@ -500,18 +504,19 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="text-decoration: underline;">Work with background</span><br>
       <br>
       Just use <span style="font-style: italic;">Background</span> class for
-      work with background. It is derived from <span style="font-style: italic;">Frame</span>
+      work with background. It is derived from <span style="font-style: italic;">Animation</span>
       and <span style="font-style: italic;">Picture</span> classes. Let’s look
-      to public methods. </big><big><br>
-      <span style="font-style: italic;">void Background::prepare(const unsigned
-        int screen_width,const unsigned int screen_height);</span>&nbsp; –
-      Prepare for drawing. </big><big><span style="font-style: italic;">void
+      to public methods.<br>
+      <br>
+    </big><big> <span style="font-style: italic;">void
+        Background::prepare(const unsigned int screen_width,const unsigned int
+        screen_height);</span>&nbsp; – Prepare for drawing.<span style="font-style: italic;"><br>
+      </span></big><big><span style="font-style: italic;">void
         Background::prepare(Screen *screen);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::prepare(Screen
         &amp;screen);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
         unsigned int target);</span> – Set target frame in scrolling background.<br
-
         style="font-style: italic;">
       <span style="font-style: italic;">void Background::step();</span> –
       Increase number of target frame in scrolling background. Set it to 1 if
@@ -522,20 +527,28 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         unsigned int frames);</i> – Set background setting.<br>
       <span style="font-style: italic;">void Background::load_background(Image
         &amp;buffer,const BACKGROUND_TYPE kind,const unsigned int frames);</span>
-      – Load background and set background setting.<br>
+      – Load background and set background setting.<span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">void Background::horizontal_mirror();</span>&nbsp;
       – Do horizontal background mirror.<br>
       <span style="font-style: italic;">void Background::vertical_mirror();</span>
       – Do vertical background mirror.<br>
       <span style="font-style: italic;">void Backgrround::complex_mirror();</span>
-      – Do both horizontal and vertical background mirror. </big> <big> <span
-        style="font-style: italic;">void Background::draw_background();</span> –
-      Draw a background.<br>
+      – Do both horizontal and vertical background mirror.</big><big><br>
+      <span style="font-style: italic;">void Background::draw_background();</span>
+      – Draw a background.<br>
+      <span style="font-style: italic;">void Background::destroy_background();</span>
+      – Destroy a background image and a background texture.<br>
       <br>
       <span style="text-decoration: underline;">Important notes</span><br>
       <br>
-      Always set background setting and call <span style="font-style: italic;">prepare</span>
-      method after load background image. </big>
+      Always set background setting after load background image.<br>
+      <br>
+      <span style="text-decoration: underline;">Background texture</span><br>
+      <br>
+      Background don't draw if background texture don't exist. Background
+      texture will automatically create after call <span style="font-style: italic;">prepare</span>
+      <span style="font-style: italic;"></span> method.<br>
+    </big>
     <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 6. Sprites</big></h2>
     <big> <br>
       <span style="text-decoration: underline;">Small important thing</span><br>
@@ -588,7 +601,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="text-decoration: underline;">Work with sprites</span><br>
       <br>
       Just use <span style="font-style: italic;">Sprites</span> class for work
-      with a sprite. It is derived from <span style="font-style: italic;">Frame</span>
+      with a sprite. It is derived from <span style="font-style: italic;">Animation</span>
       and <span style="font-style: italic;">Picture</span> classes. Let’s look
       to public methods.<br>
       <br>
@@ -663,7 +676,11 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">void Sprite::vertical_mirror();</span> –
       Do vertical sprite mirror.<br>
       <span style="font-style: italic;">void Sprite::complex_mirror();</span> –
-      Do both horizontal and vertical sprite mirror. </big><big> <span style="font-style: italic;">void
+      Do both horizontal and vertical sprite mirror.<br>
+      <span style="font-style: italic;">void Sprite::destroy_sprite();</span> –
+      Destroy a sprite image and a sprite texture.<br>
+      <span style="font-style: italic;">
+      </span></big><big><span style="font-style: italic;">void
         Sprite::draw_sprite();</span> – Draw a sprite.</big><br>
     <big> <span style="font-style: italic;">void Sprite::draw_sprite(const
         unsigned int x, const unsigned int y);</span> – Set sprite position and
@@ -676,8 +693,14 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <big> <br>
       <span style="text-decoration: underline;">Important notes<br>
         <br>
-      </span> </big><big>Always set sprite setting and call <span style="font-style: italic;">prepare</span>
-      method after load sprite image.</big>
+      </span> </big><big>Always set sprite setting after load sprite image.<br>
+      <br>
+      <span style="text-decoration: underline;">Sprite texture</span><br>
+      <br>
+      Sprite don't draw if sprite texture don't exist. Sprite texture will
+      automatically create after call <span style="font-style: italic;">prepare</span>
+      or <span style="font-style: italic;">load_sprite</span> method.<br>
+    </big>
     <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 7. Text</big></h2>
     <big><br>
       <span style="text-decoration: underline;">How draw a text?</span><br>
@@ -740,21 +763,30 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">unsigned int Tileset::get_rows() const;</span>
       – Return amount of rows.<br>
       <span style="font-style: italic;">unsigned int Tileset::get_columns()
-        const;</span> – Return amount of columns. </big><big><span style="font-style: italic;">void
+        const;</span> – Return amount of columns.<span style="font-style: italic;"><br>
+      </span></big><big><span style="font-style: italic;">void
         Tileset::set_size(const unsigned int width, const unsigned int height);</span>
       – Change the tile size.</big><br>
     <big> <span style="font-style: italic;">void Tileset::select_tile(const
         unsigned int row,const unsigned int column);</span> – Select target
-      tile.</big><br>
-    <big> <span style="font-style: italic;">void Tileset::draw_tile(const
-        unsigned int x,const unsigned int y);</span> – Draw selected tile at
-      specific position.</big><br>
+      tile.<br>
+      <span style="font-style: italic;">void Tileset::destroy_tileset();</span>
+      – Destroy a tile-set image and a tile-set texture.<br>
+    </big> <big> <span style="font-style: italic;">void
+        Tileset::draw_tile(const unsigned int x,const unsigned int y);</span> –
+      Draw selected tile at specific position.</big><br>
     <big><i>void Tileset::draw_tile(const unsigned int row,const unsigned int
         column,const unsigned int x,const unsigned int y);</i> – Draw target
       tile at specific position.</big><br>
     <big> <span style="font-style: italic;">void Tileset::load_tileset(Image
         &amp;buffer,const unsigned int row_amount,const unsigned int
         column_amount);</span> – Load a tile-set.<br>
+      <br>
+      <span style="text-decoration: underline;">Tile-set texture</span><br>
+      <br>
+      Tile don't draw if tile-set texture don't exist. Tile-set texture will
+      automatically create after call <span style="font-style: italic;">load_tileset</span>
+      method.<br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 9. Loading
         images</big></h2>
@@ -1764,7 +1796,11 @@ Multimedia API</a>. </big>
         2.4 – Mouse input was improved.<br>
         2.4.1 – Small changes.<br>
         2.4.2 – Binary file subsystem was improved.<br>
-        2.4.3 – 2.4.4 – Small changes.<br>
+        2.4.3 – 2.4.7 – Small changes.<br>
+        2.4.8 – Background subsystem was improved.<br>
+        2.4.9 – Sprite subsystem was improved.<br>
+        2.5 – Tile-set subsystem was improved.<br>
+        2.5.1 – Small changes.<br>
       </big></span>
   </body>
 </html>

@@ -737,7 +737,7 @@ void Resizer::create_buffer()
  length*=sizeof(unsigned int);
 }
 
-void Resizer::create_buffer(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit)
+void Resizer::make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit)
 {
  this->set_setting(width,height,limit);
  this->calculate_size();
@@ -932,7 +932,7 @@ unsigned int Rectangle::get_maximum_size() const
 void Rectangle::create_texture(const unsigned int *buffer)
 {
  Resizer resizer;
- resizer.create_buffer(buffer,this->get_total_width(),this->get_total_height(),this->get_maximum_size());
+ resizer.make_texture(buffer,this->get_total_width(),this->get_total_height(),this->get_maximum_size());
  glPixelStorei(GL_UNPACK_ALIGNMENT,1);
  glGenTextures(1,&texture);
  glBindTexture(GL_TEXTURE_2D,texture);
@@ -1026,6 +1026,11 @@ void Rectangle::draw()
   this->draw_rectangle();
  }
 
+}
+
+void Rectangle::destroy_texture()
+{
+ this->delete_texture();
 }
 
 Primitive::Primitive()
@@ -2300,18 +2305,24 @@ unsigned int Picture::get_image_height() const
  return image_height;
 }
 
-Frame::Frame()
+Animation::Animation()
 {
  frame=1;
  frames=1;
 }
 
-Frame::~Frame()
+Animation::~Animation()
 {
 
 }
 
-void Frame::set_frame(const unsigned int target)
+void Animation::reset_animation_setting()
+{
+ frame=1;
+ frames=1;
+}
+
+void Animation::set_frame(const unsigned int target)
 {
  if (target>0)
  {
@@ -2320,7 +2331,7 @@ void Frame::set_frame(const unsigned int target)
 
 }
 
-void Frame::increase_frame()
+void Animation::increase_frame()
 {
  ++frame;
  if (frame>frames)
@@ -2330,17 +2341,17 @@ void Frame::increase_frame()
 
 }
 
-void Frame::set_frames(const unsigned int amount)
+void Animation::set_frames(const unsigned int amount)
 {
  if (amount>1) frames=amount;
 }
 
-unsigned int Frame::get_frames() const
+unsigned int Animation::get_frames() const
 {
  return frames;
 }
 
-unsigned int Frame::get_frame() const
+unsigned int Animation::get_frame() const
 {
  return frame;
 }
@@ -2467,6 +2478,14 @@ void Background::draw_background()
  target.draw();
 }
 
+void Background::destroy_background()
+{
+ target.destroy_texture();
+ this->destroy_image();
+ this->reset_animation_setting();
+ current_kind=NORMAL_BACKGROUND;
+}
+
 Sprite::Sprite()
 {
  transparent=true;
@@ -2480,6 +2499,16 @@ Sprite::Sprite()
 Sprite::~Sprite()
 {
 
+}
+
+void Sprite::reset_sprite_setting()
+{
+ transparent=true;
+ current_x=0;
+ current_y=0;
+ sprite_width=0;
+ sprite_height=0;
+ current_kind=SINGLE_SPRITE;
 }
 
 void Sprite::check_transparent()
@@ -2772,6 +2801,14 @@ void Sprite::complex_mirror()
  this->vertical_mirror();
 }
 
+void Sprite::destroy_sprite()
+{
+ target.destroy_texture();
+ this->destroy_image();
+ this->reset_animation_setting();
+ this->reset_sprite_setting();
+}
+
 void Sprite::draw_sprite()
 {
  this->check_transparent();
@@ -2808,6 +2845,14 @@ Tileset::Tileset()
 Tileset::~Tileset()
 {
 
+}
+
+void Tileset::reset_tileset_setting()
+{
+ rows=1;
+ columns=1;
+ tile_width=64;
+ tile_height=64;
 }
 
 void Tileset::prepare()
@@ -2876,6 +2921,13 @@ void Tileset::select_tile(const unsigned int row,const unsigned int column)
 
  }
 
+}
+
+void Tileset::destroy_tileset()
+{
+ target.destroy_texture();
+ this->destroy_image();
+ this->reset_tileset_setting();
 }
 
 void Tileset::draw_tile(const unsigned int x,const unsigned int y)

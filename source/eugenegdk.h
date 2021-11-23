@@ -278,7 +278,7 @@ class Resizer
  public:
  Resizer();
  ~Resizer();
- void create_buffer(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit);
+ void make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit);
  unsigned int get_width() const;
  unsigned int get_height() const;
  unsigned int *get_buffer();
@@ -338,6 +338,7 @@ class Rectangle:public Shape
  void disable_transparent();
  void prepare(const unsigned int *buffer);
  void draw();
+ void destroy_texture();
 };
 
 class Primitive
@@ -582,23 +583,24 @@ class Picture
  unsigned int get_image_height() const;
 };
 
-class Frame
+class Animation
 {
  private:
  unsigned int frames;
  unsigned int frame;
  protected:
+ void reset_animation_setting();
  void set_frame(const unsigned int target);
  void increase_frame();
  public:
- Frame();
- ~Frame();
+ Animation();
+ ~Animation();
  void set_frames(const unsigned int amount);
  unsigned int get_frames() const;
  unsigned int get_frame() const;
 };
 
-class Background:public Frame,public Picture
+class Background:public Animation,public Picture
 {
  private:
  Rectangle target;
@@ -619,9 +621,10 @@ class Background:public Frame,public Picture
  void vertical_mirror();
  void complex_mirror();
  void draw_background();
+ void destroy_background();
 };
 
-class Sprite:public Frame,public Picture
+class Sprite:public Animation,public Picture
 {
  private:
  Rectangle target;
@@ -631,6 +634,7 @@ class Sprite:public Frame,public Picture
  unsigned int sprite_width;
  unsigned int sprite_height;
  SPRITE_TYPE current_kind;
+ void reset_sprite_setting();
  void check_transparent();
  void draw_sprite_image();
  void set_sprite_setting();
@@ -672,6 +676,7 @@ class Sprite:public Frame,public Picture
  void horizontal_mirror();
  void vertical_mirror();
  void complex_mirror();
+ void destroy_sprite();
  void draw_sprite();
  void draw_sprite(const unsigned int x,const unsigned int y);
  void draw_sprite(const bool transparency);
@@ -686,6 +691,7 @@ class Tileset:public Picture
  unsigned int tile_height;
  unsigned int rows;
  unsigned int columns;
+ void reset_tileset_setting();
  void prepare();
  void set_tileset_setting(const unsigned int row_amount,const unsigned int column_amount);
  public:
@@ -697,6 +703,7 @@ class Tileset:public Picture
  unsigned int get_columns() const;
  void set_size(const unsigned int width,const unsigned int height);
  void select_tile(const unsigned int row,const unsigned int column);
+ void destroy_tileset();
  void draw_tile(const unsigned int x,const unsigned int y);
  void draw_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y);
  void load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount);
