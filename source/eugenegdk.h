@@ -245,6 +245,7 @@ class WINGL:public Display, public Engine
 class Render:public WINGL
 {
  private:
+ unsigned int get_maximum_texture_size() const;
  void set_perfomance_setting();
  void set_render_hints();
  void set_common_setting();
@@ -323,7 +324,6 @@ class Rectangle:public Shape
 {
  private:
  unsigned int texture;
- unsigned int get_maximum_size() const;
  void create_texture(const unsigned int *buffer);
  void delete_texture();
  void check_texture();
@@ -339,6 +339,7 @@ class Rectangle:public Shape
  void prepare(const unsigned int *buffer);
  void draw();
  void destroy_texture();
+ bool is_texture_exist() const;
 };
 
 class Primitive
@@ -701,7 +702,7 @@ class Tileset:public Picture
  unsigned int get_tile_height() const;
  unsigned int get_rows() const;
  unsigned int get_columns() const;
- void set_size(const unsigned int width,const unsigned int height);
+ void set_tile_size(const unsigned int width,const unsigned int height);
  void select_tile(const unsigned int row,const unsigned int column);
  void destroy_tileset();
  void draw_tile(const unsigned int x,const unsigned int y);

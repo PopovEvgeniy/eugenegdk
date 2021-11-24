@@ -42,6 +42,7 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 
 #include "eugenegdk.h"
 
+unsigned int MAXIMUM_TEXTURE_SIZE=0;
 const size_t KEYBOARD=256;
 const unsigned char KEY_RELEASE=0;
 const unsigned char KEY_PRESS=1;
@@ -550,6 +551,13 @@ Render::~Render()
 
 }
 
+unsigned int Render::get_maximum_texture_size() const
+{
+ int maximum_size;
+ glGetIntegerv(GL_MAX_TEXTURE_SIZE,&maximum_size);
+ return maximum_size;
+}
+
 void Render::set_perfomance_setting()
 {
  glDisable(GL_POINT_SMOOTH);
@@ -614,6 +622,7 @@ void Render::create_render()
  this->set_common_setting();
  this->set_perspective();
  this->disable_vsync();
+ MAXIMUM_TEXTURE_SIZE=this->get_maximum_texture_size();
 }
 
 void Render::clear_stage()
@@ -922,17 +931,10 @@ Rectangle::~Rectangle()
 
 }
 
-unsigned int Rectangle::get_maximum_size() const
-{
- int maximum_size;
- glGetIntegerv(GL_MAX_TEXTURE_SIZE,&maximum_size);
- return maximum_size;
-}
-
 void Rectangle::create_texture(const unsigned int *buffer)
 {
  Resizer resizer;
- resizer.make_texture(buffer,this->get_total_width(),this->get_total_height(),this->get_maximum_size());
+ resizer.make_texture(buffer,this->get_total_width(),this->get_total_height(),MAXIMUM_TEXTURE_SIZE);
  glPixelStorei(GL_UNPACK_ALIGNMENT,1);
  glGenTextures(1,&texture);
  glBindTexture(GL_TEXTURE_2D,texture);
@@ -1031,6 +1033,11 @@ void Rectangle::draw()
 void Rectangle::destroy_texture()
 {
  this->delete_texture();
+}
+
+bool Rectangle::is_texture_exist() const
+{
+ return texture!=0;
 }
 
 Primitive::Primitive()
@@ -2730,18 +2737,18 @@ void Sprite::set_position(const unsigned int x,const unsigned int y)
 
 void Sprite::set_width(const unsigned int width)
 {
- if (width>0)
+ if (target.is_texture_exist()==true)
  {
-  sprite_width=width;
+  if (width>0) sprite_width=width;
  }
 
 }
 
 void Sprite::set_height(const unsigned int height)
 {
- if (height>0)
+ if (target.is_texture_exist()==true)
  {
-  sprite_height=height;
+  if (height>0) sprite_height=height;
  }
 
 }
@@ -2838,8 +2845,8 @@ Tileset::Tileset()
  target.set_size(0,0);
  rows=1;
  columns=1;
- tile_width=64;
- tile_height=64;
+ tile_width=1;
+ tile_height=1;
 }
 
 Tileset::~Tileset()
@@ -2851,8 +2858,8 @@ void Tileset::reset_tileset_setting()
 {
  rows=1;
  columns=1;
- tile_width=64;
- tile_height=64;
+ tile_width=1;
+ tile_height=1;
 }
 
 void Tileset::prepare()
@@ -2897,15 +2904,12 @@ unsigned int Tileset::get_columns() const
  return columns;
 }
 
-void Tileset::set_size(const unsigned int width,const unsigned int height)
+void Tileset::set_tile_size(const unsigned int width,const unsigned int height)
 {
- if (width>0)
+ if (target.is_texture_exist()==true)
  {
-  tile_width=width;
- }
- if (height>0)
- {
-  tile_height=height;
+  if (width>0) tile_width=width;
+  if (height>0) tile_height=height;
  }
 
 }

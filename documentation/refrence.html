@@ -618,9 +618,10 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">void Sprite::set_kind(const SPRITE_TYPE
         target);</span> – Set sprite type.<br>
       <span style="font-style: italic;">SPRITE_TYPE Sprite::get_kind() const;</span>
-      – Get sprite type. </big><big><span style="font-style: italic;">void
-        Sprite::set_setting(const SPRITE_TYPE kind,const unsigned int frames);</span>
-      – Set sprite setting.</big><br>
+      – Get sprite type.<br>
+    </big><big><span style="font-style: italic;">void Sprite::set_setting(const
+        SPRITE_TYPE kind,const unsigned int frames);</span> – Set sprite
+      setting.</big><br>
     <big> <span style="font-style: italic;">void Sprite::set_transparent(const
         bool enabled);</span> – Enable or disable transparent mode.<br>
       <span style="font-style: italic;">bool Sprite::get_transparent() const;</span>
@@ -662,7 +663,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">Collision_Box Sprite::get_box() const;</span>
       – Return collision related information.<br>
       <span style="font-style: italic;">void Sprite::clone(Sprite &amp;target);</span>
-      – Create copy of exist sprite.<br>
+      – Create copy of exist sprite if the image storage of exist sprite is not
+      empty.<br>
       <span style="font-style: italic;">void Sprite::set_position(const unsigned
         int x, const unsigned int y);</span> – Set sprite position.<br>
       <span style="font-style: italic;">void Sprite::set_size(const unsigned int
@@ -679,8 +681,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       Do both horizontal and vertical sprite mirror.<br>
       <span style="font-style: italic;">void Sprite::destroy_sprite();</span> –
       Destroy a sprite image and a sprite texture.<br>
-      <span style="font-style: italic;">
-      </span></big><big><span style="font-style: italic;">void
+      <span style="font-style: italic;"> </span></big><big><span style="font-style: italic;">void
         Sprite::draw_sprite();</span> – Draw a sprite.</big><br>
     <big> <span style="font-style: italic;">void Sprite::draw_sprite(const
         unsigned int x, const unsigned int y);</span> – Set sprite position and
@@ -698,8 +699,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="text-decoration: underline;">Sprite texture</span><br>
       <br>
       Sprite don't draw if sprite texture don't exist. Sprite texture will
-      automatically create after call <span style="font-style: italic;">prepare</span>
-      or <span style="font-style: italic;">load_sprite</span> method.<br>
+      automatically create after call <span style="font-style: italic;">prepare</span>,<span
+        style="font-style: italic;">load_sprite</span> or <span style="font-style: italic;">clone</span>
+      method.<br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 7. Text</big></h2>
     <big><br>
@@ -765,8 +767,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">unsigned int Tileset::get_columns()
         const;</span> – Return amount of columns.<span style="font-style: italic;"><br>
       </span></big><big><span style="font-style: italic;">void
-        Tileset::set_size(const unsigned int width, const unsigned int height);</span>
-      – Change the tile size.</big><br>
+        Tileset::set_tile_size(const unsigned int width, const unsigned int
+        height);</span> – Change the tile size.</big><br>
     <big> <span style="font-style: italic;">void Tileset::select_tile(const
         unsigned int row,const unsigned int column);</span> – Select target
       tile.<br>
@@ -1674,6 +1676,7 @@ Multimedia API</a>. </big>
           predefined constants. You can see it bellow.</big></p>
       <big> </big>
       <table style="text-align: left; width: 519px; height: 94px;" cellspacing="2"
+
         cellpadding="2" border="1">
         <tbody>
           <tr>
@@ -1800,7 +1803,10 @@ Multimedia API</a>. </big>
         2.4.8 – Background subsystem was improved.<br>
         2.4.9 – Sprite subsystem was improved.<br>
         2.5 – Tile-set subsystem was improved.<br>
-        2.5.1 – Small changes.<br>
+        2.5.1 – 2.5.2 – Small changes.<br>
+        2.5.3 – Sprite subsystem was improved.<br>
+        2.5.4 – 2.5.6 – Tile-set subsystem was improved.<br>
+        2.5.7 – Small changes.<br>
       </big></span>
   </body>
 </html>
