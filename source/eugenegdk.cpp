@@ -2374,6 +2374,11 @@ Background::~Background()
 
 }
 
+void Background::reset_background_setting()
+{
+ current_kind=NORMAL_BACKGROUND;
+}
+
 void Background::configure_background()
 {
  switch(current_kind)
@@ -2421,7 +2426,14 @@ void Background::set_kind(const BACKGROUND_TYPE kind)
 
 void Background::set_setting(const BACKGROUND_TYPE kind,const unsigned int frames)
 {
- if (kind!=NORMAL_BACKGROUND) this->set_frames(frames);
+ if (kind!=NORMAL_BACKGROUND)
+ {
+  this->set_frames(frames);
+ }
+ else
+ {
+  this->reset_animation_setting();
+ }
  this->set_kind(kind);
 }
 
@@ -2490,7 +2502,7 @@ void Background::destroy_background()
  target.destroy_texture();
  this->destroy_image();
  this->reset_animation_setting();
- current_kind=NORMAL_BACKGROUND;
+ this->reset_background_setting();
 }
 
 Sprite::Sprite()
@@ -2600,54 +2612,128 @@ bool Sprite::get_transparent() const
  return transparent;
 }
 
+void Sprite::set_width(const unsigned int width)
+{
+ if (target.is_texture_exist()==true)
+ {
+  if (width>0) sprite_width=width;
+ }
+
+}
+
+void Sprite::set_height(const unsigned int height)
+{
+ if (target.is_texture_exist()==true)
+ {
+  if (height>0) sprite_height=height;
+ }
+
+}
+
+void Sprite::set_size(const unsigned int width,const unsigned int height)
+{
+ this->set_width(width);
+ this->set_height(height);
+}
+
+void Sprite::set_position(const unsigned int x,const unsigned int y)
+{
+ if (target.is_texture_exist()==true)
+ {
+  current_x=x;
+  current_y=y;
+ }
+
+}
+
 void Sprite::set_x(const unsigned int x)
 {
- current_x=x;
+ if (target.is_texture_exist()==true)
+ {
+  current_x=x;
+ }
+
 }
 
 void Sprite::set_y(const unsigned int y)
 {
- current_y=y;
+ if (target.is_texture_exist()==true)
+ {
+  current_y=y;
+ }
+
 }
 
 void Sprite::increase_x()
 {
- ++current_x;
+ if (target.is_texture_exist()==true)
+ {
+  ++current_x;
+ }
+
 }
 
 void Sprite::decrease_x()
 {
- --current_x;
+ if (target.is_texture_exist()==true)
+ {
+  --current_x;
+ }
+
 }
 
 void Sprite::increase_y()
 {
- ++current_y;
+ if (target.is_texture_exist()==true)
+ {
+  ++current_y;
+ }
+
 }
 
 void Sprite::decrease_y()
 {
- --current_y;
+ if (target.is_texture_exist()==true)
+ {
+  --current_y;
+ }
+
 }
 
 void Sprite::increase_x(const unsigned int increment)
 {
- current_x+=increment;
+ if (target.is_texture_exist()==true)
+ {
+  current_x+=increment;
+ }
+
 }
 
 void Sprite::decrease_x(const unsigned int decrement)
 {
- current_x-=decrement;
+ if (target.is_texture_exist()==true)
+ {
+  current_x-=decrement;
+ }
+
 }
 
 void Sprite::increase_y(const unsigned int increment)
 {
- current_y+=increment;
+ if (target.is_texture_exist()==true)
+ {
+  current_y+=increment;
+ }
+
 }
 
 void Sprite::decrease_y(const unsigned int decrement)
 {
- current_y-=decrement;
+ if (target.is_texture_exist()==true)
+ {
+  current_y-=decrement;
+ }
+
 }
 
 unsigned int Sprite::get_x() const
@@ -2703,6 +2789,10 @@ void Sprite::set_setting(const SPRITE_TYPE kind,const unsigned int frames)
  {
   this->set_frames(frames);
  }
+ else
+ {
+  this->reset_animation_setting();
+ }
  this->set_kind(kind);
 }
 
@@ -2727,36 +2817,6 @@ void Sprite::step()
 {
  this->increase_frame();
  this->set_sprite_frame();
-}
-
-void Sprite::set_position(const unsigned int x,const unsigned int y)
-{
- current_x=x;
- current_y=y;
-}
-
-void Sprite::set_width(const unsigned int width)
-{
- if (target.is_texture_exist()==true)
- {
-  if (width>0) sprite_width=width;
- }
-
-}
-
-void Sprite::set_height(const unsigned int height)
-{
- if (target.is_texture_exist()==true)
- {
-  if (height>0) sprite_height=height;
- }
-
-}
-
-void Sprite::set_size(const unsigned int width,const unsigned int height)
-{
- this->set_width(width);
- this->set_height(height);
 }
 
 void Sprite::clone(Sprite &target)

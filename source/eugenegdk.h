@@ -606,6 +606,7 @@ class Background:public Animation,public Picture
  private:
  Rectangle target;
  BACKGROUND_TYPE current_kind;
+ void reset_background_setting();
  void configure_background();
  public:
  Background();
@@ -647,6 +648,10 @@ class Sprite:public Animation,public Picture
  void prepare();
  void set_transparent(const bool enabled);
  bool get_transparent() const;
+ void set_width(const unsigned int width);
+ void set_height(const unsigned int height);
+ void set_size(const unsigned int width,const unsigned int height);
+ void set_position(const unsigned int x,const unsigned int y);
  void set_x(const unsigned int x);
  void set_y(const unsigned int y);
  void increase_x();
@@ -669,10 +674,6 @@ class Sprite:public Animation,public Picture
  void load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames);
  void set_target(const unsigned int target);
  void step();
- void set_position(const unsigned int x,const unsigned int y);
- void set_width(const unsigned int width);
- void set_height(const unsigned int height);
- void set_size(const unsigned int width,const unsigned int height);
  void clone(Sprite &target);
  void horizontal_mirror();
  void vertical_mirror();

@@ -450,14 +450,14 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       methods.<br>
       <br>
       <span style="font-style: italic;">void Animation::set_frames(const
-        unsigned int amount);</span> – Set amounts of frames in scrolling
+        unsigned int amount);</span> – Set amounts of frames in scrollable
       background or animated sprite.<br>
       <span style="font-style: italic;">unsigned int Animation::get_frames()
-        const;</span> – Return amount of frames in scrolling background or
+        const;</span> – Return amount of frames in scrollable background or
       animated sprite.<br>
       <span style="font-style: italic;">unsigned int Animation::get_frame()
-        const;</span> – Return current frame in scrolling background or animated
-      sprite.<span style="font-style: italic;"> </span> </big>
+        const;</span> – Return current frame in scrollable background or
+      animated sprite.<span style="font-style: italic;"> </span> </big>
     <h2><a class="mozTocH2" name="mozTocId455894"></a><big> Chapter 5.
         Background</big></h2>
     <big> <br>
@@ -611,7 +611,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         &amp;buffer,const SPRITE_TYPE kind,const unsigned int frames);</span> –
       Load a sprite from memory buffer and set sprite setting.<br>
       <span style="font-style: italic;">void Sprite::set_target(const unsigned
-        int target);</span> – Set target frame in animated sprite.<br>
+        int target);</span> – Set target frame in strip.<br>
       <span style="font-style: italic;">void Sprite::step();</span> – Increase
       number of target frame in strip. Set it to 1 if number of target frame
       more than amount of frames.<br>
@@ -869,7 +869,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         program termination</big></h2>
     <big><br>
       You can use Halt function for terminate program. This function declared in
-      <span style="font-style: italic;">BLUEGDK</span> name-space.<br>
+      <span style="font-style: italic;">EGENEGDK</span> name-space.<br>
       <br>
       <span style="font-style: italic;">void EUGENEGDK::Halt(const char
         *message);</span> – Terminate the program. Write error message to log
@@ -1676,7 +1676,6 @@ Multimedia API</a>. </big>
           predefined constants. You can see it bellow.</big></p>
       <big> </big>
       <table style="text-align: left; width: 519px; height: 94px;" cellspacing="2"
-
         cellpadding="2" border="1">
         <tbody>
           <tr>
@@ -1807,6 +1806,8 @@ Multimedia API</a>. </big>
         2.5.3 – Sprite subsystem was improved.<br>
         2.5.4 – 2.5.6 – Tile-set subsystem was improved.<br>
         2.5.7 – Small changes.<br>
+        2.5.8 – Sprite subsystem was improved.<br>
+        2.5.9 – 2.6 – Small changes.<br>
       </big></span>
   </body>
 </html>
