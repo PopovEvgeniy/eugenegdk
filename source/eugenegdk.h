@@ -591,12 +591,12 @@ class Animation
  unsigned int frame;
  protected:
  void reset_animation_setting();
- void set_frame(const unsigned int target);
  void increase_frame();
+ void set_frame(const unsigned int target);
+ void set_frames(const unsigned int amount);
  public:
  Animation();
  ~Animation();
- void set_frames(const unsigned int amount);
  unsigned int get_frames() const;
  unsigned int get_frame() const;
 };
@@ -608,13 +608,13 @@ class Background:public Animation,public Picture
  BACKGROUND_TYPE current_kind;
  void reset_background_setting();
  void configure_background();
+ void set_kind(const BACKGROUND_TYPE kind);
+ void prepare(const unsigned int screen_width,const unsigned int screen_height);
  public:
  Background();
  ~Background();
- void prepare(const unsigned int screen_width,const unsigned int screen_height);
  void prepare(Screen *screen);
  void prepare(Screen &screen);
- void set_kind(const BACKGROUND_TYPE kind);
  void set_setting(const BACKGROUND_TYPE kind,const unsigned int frames);
  void load_background(Image &buffer,const BACKGROUND_TYPE kind,const unsigned int frames);
  void set_target(const unsigned int target);
@@ -642,6 +642,7 @@ class Sprite:public Animation,public Picture
  void set_sprite_setting();
  void configure_sprite();
  void set_sprite_frame();
+ void set_kind(const SPRITE_TYPE kind);
  public:
  Sprite();
  ~Sprite();
@@ -668,7 +669,6 @@ class Sprite:public Animation,public Picture
  unsigned int get_height() const;
  Sprite* get_handle();
  Collision_Box get_box() const;
- void set_kind(const SPRITE_TYPE kind);
  SPRITE_TYPE get_kind() const;
  void set_setting(const SPRITE_TYPE kind,const unsigned int frames);
  void load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames);

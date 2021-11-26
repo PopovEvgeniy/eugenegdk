@@ -18,8 +18,8 @@ int main()
  keyboard.initialize();
  screen.initialize();
  image.load_tga("space.tga");
- space.load_image(image);
- space.prepare(screen.get_width(),screen.get_height());
+ space.load_background(image,NORMAL_BACKGROUND,1);
+ space.prepare(screen);
  image.load_tga("ship.tga");
  ship.load_sprite(image,HORIZONTAL_STRIP,2);
  ship.set_position(screen.get_width()/2,screen.get_height()/2);
@@ -27,7 +27,6 @@ int main()
  font.load_image(image);
  text.load_font(font.get_handle());
  text.set_position(font.get_width(),font.get_width());
- space.set_kind(NORMAL_BACKGROUND);
  mouse.hide();
  timer.set_timer(1);
  media.initialize();

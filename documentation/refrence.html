@@ -124,8 +124,8 @@
       <li><big>eugenegdk.cpp</big></li>
     </ul>
     <big><br>
-      Add it to you project. Add this directive to you code: #include
-      "eugenegdk.h"<br>
+      Add it to you project.<br>
+      Add this directive to you code: #include "eugenegdk.h"<br>
       Yes. This is really all that you need to do.<br>
       <br>
       <span style="text-decoration: underline;">Feedback</span><br>
@@ -357,6 +357,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         unsigned int width,</span></big><big><span style="font-style: italic;">const
         unsigned int heigt</span></big><big><span style="font-style: italic;">);</span>
       – Initialize the base graphic subsystem with custom screen resolution.</big><big><span
+
         style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -448,10 +449,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">Animation</span> class provide simple
       access to animation subsystem. Don’t use it directly. Let’s look to public
       methods.<br>
-      <br>
-      <span style="font-style: italic;">void Animation::set_frames(const
-        unsigned int amount);</span> – Set amounts of frames in scrollable
-      background or animated sprite.<br>
+      <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">unsigned int Animation::get_frames()
         const;</span> – Return amount of frames in scrollable background or
       animated sprite.<br>
@@ -507,24 +505,20 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       work with background. It is derived from <span style="font-style: italic;">Animation</span>
       and <span style="font-style: italic;">Picture</span> classes. Let’s look
       to public methods.<br>
-      <br>
-    </big><big> <span style="font-style: italic;">void
-        Background::prepare(const unsigned int screen_width,const unsigned int
-        screen_height);</span>&nbsp; – Prepare for drawing.<span style="font-style: italic;"><br>
+    </big><big><span style="font-style: italic;"></span><span style="font-style: italic;"><br>
       </span></big><big><span style="font-style: italic;">void
         Background::prepare(Screen *screen);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::prepare(Screen
         &amp;screen);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
-        unsigned int target);</span> – Set target frame in scrolling background.<br
-        style="font-style: italic;">
+        unsigned int target);</span> – Set target frame in scrollable
+      background.<br style="font-style: italic;">
       <span style="font-style: italic;">void Background::step();</span> –
-      Increase number of target frame in scrolling background. Set it to 1 if
+      Increase number of target frame in scrollable background. Set it to 1 if
       number of target frame more than amount of frames.</big><br>
-    <big> <span style="font-style: italic;">void Background::set_kind(const
-        BACKGROUND_TYPE target);</span> – Set background type.</big><br>
     <big><i>void Background::set_setting(const BACKGROUND_TYPE kind,const
-        unsigned int frames);</i> – Set background setting.<br>
+        unsigned int frames);</i> – Set background setting. Last argument will
+      ignored if background not scrollable.<br>
       <span style="font-style: italic;">void Background::load_background(Image
         &amp;buffer,const BACKGROUND_TYPE kind,const unsigned int frames);</span>
       – Load background and set background setting.<span style="font-style: italic;"></span><br>
@@ -607,6 +601,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <br>
       <span style="font-style: italic;">void Sprite::prepare();</span>&nbsp; –
       Prepare for drawing.<br>
+      <span style="font-style: italic;">void Sprite::set_setting(const
+        SPRITE_TYPE kind,const unsigned int frames);</span> – Set sprite
+      setting. Last argument will ignored if sprite not animated.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image
         &amp;buffer,const SPRITE_TYPE kind,const unsigned int frames);</span> –
       Load a sprite from memory buffer and set sprite setting.<br>
@@ -614,14 +611,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         int target);</span> – Set target frame in strip.<br>
       <span style="font-style: italic;">void Sprite::step();</span> – Increase
       number of target frame in strip. Set it to 1 if number of target frame
-      more than amount of frames.<br>
-      <span style="font-style: italic;">void Sprite::set_kind(const SPRITE_TYPE
-        target);</span> – Set sprite type.<br>
+      more than amount of frames.<span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">SPRITE_TYPE Sprite::get_kind() const;</span>
-      – Get sprite type.<br>
-    </big><big><span style="font-style: italic;">void Sprite::set_setting(const
-        SPRITE_TYPE kind,const unsigned int frames);</span> – Set sprite
-      setting.</big><br>
+      – Get sprite type.</big><big></big><br>
     <big> <span style="font-style: italic;">void Sprite::set_transparent(const
         bool enabled);</span> – Enable or disable transparent mode.<br>
       <span style="font-style: italic;">bool Sprite::get_transparent() const;</span>
@@ -1808,6 +1800,9 @@ Multimedia API</a>. </big>
         2.5.7 – Small changes.<br>
         2.5.8 – Sprite subsystem was improved.<br>
         2.5.9 – 2.6 – Small changes.<br>
+        2.6.1 – Animation subsystem was improved.<br>
+        2.6.2 – Background subsystem was improved.<br>
+        2.6.3 – Sprite subsystem was improved.<br>
       </big></span>
   </body>
 </html>

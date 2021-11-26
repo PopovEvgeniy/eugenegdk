@@ -2329,21 +2329,21 @@ void Animation::reset_animation_setting()
  frames=1;
 }
 
-void Animation::set_frame(const unsigned int target)
-{
- if (target>0)
- {
-  if (target<=frames) frame=target;
- }
-
-}
-
 void Animation::increase_frame()
 {
  ++frame;
  if (frame>frames)
  {
   frame=1;
+ }
+
+}
+
+void Animation::set_frame(const unsigned int target)
+{
+ if (target>0)
+ {
+  if (target<=frames) frame=target;
  }
 
 }
@@ -2396,6 +2396,12 @@ void Background::configure_background()
 
 }
 
+void Background::set_kind(const BACKGROUND_TYPE kind)
+{
+ current_kind=kind;
+ this->configure_background();
+}
+
 void Background::prepare(const unsigned int screen_width,const unsigned int screen_height)
 {
  target.set_size(screen_width,screen_height);
@@ -2416,12 +2422,6 @@ void Background::prepare(Screen *screen)
 void Background::prepare(Screen &screen)
 {
  this->prepare(screen.get_handle());
-}
-
-void Background::set_kind(const BACKGROUND_TYPE kind)
-{
- current_kind=kind;
- this->configure_background();
 }
 
 void Background::set_setting(const BACKGROUND_TYPE kind,const unsigned int frames)
@@ -2594,6 +2594,13 @@ void Sprite::set_sprite_frame()
   break;
  }
 
+}
+
+void Sprite::set_kind(const SPRITE_TYPE kind)
+{
+ current_kind=kind;
+ this->configure_sprite();
+ this->set_sprite_frame();
 }
 
 void Sprite::prepare()
@@ -2769,13 +2776,6 @@ Collision_Box Sprite::get_box() const
  target.width=sprite_width;
  target.height=sprite_height;
  return target;
-}
-
-void Sprite::set_kind(const SPRITE_TYPE kind)
-{
- current_kind=kind;
- this->configure_sprite();
- this->set_sprite_frame();
 }
 
 SPRITE_TYPE Sprite::get_kind() const
