@@ -357,7 +357,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         unsigned int width,</span></big><big><span style="font-style: italic;">const
         unsigned int heigt</span></big><big><span style="font-style: italic;">);</span>
       – Initialize the base graphic subsystem with custom screen resolution.</big><big><span
-
         style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -532,6 +531,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       – Draw a background.<br>
       <span style="font-style: italic;">void Background::destroy_background();</span>
       – Destroy a background image and a background texture.<br>
+      <span style="font-style: italic;">BACKGROUND_TYPE Sprite::get_kind()
+        const;</span>&nbsp; – Get background type.<br>
       <br>
       <span style="text-decoration: underline;">Important notes</span><br>
       <br>
@@ -1450,7 +1451,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       Just use <span style="font-style: italic;">Gamepad</span> class for work
       with game-pad. Let’s look on public methods.<br>
       <br>
-      <span style="font-style: italic;">unsigned char Gamepad::get_amount();</span>
+      <span style="font-style: italic;">unsigned int Gamepad::get_amount();</span>
       – Return amount of connected game-pad.<br>
       <span style="font-style: italic;">unsigned int
         Gamepad::get_button_amount();</span> – Return amount of the game-pad
@@ -1717,7 +1718,7 @@ Multimedia API</a>. </big>
         1.0.5 – 1.1.4 – Small changes.<br>
         1.1.5 – 1.1.6 – Small bug was fixed.<br>
       </big><big>1.1.7 – Unused dependency was removed.<br>
-        1.1.8 –&nbsp; 1.2.5 – Small changes.<br>
+        1.1.8 – 1.2.5 – Small changes.<br>
         1.2.6 – Small bug was fixed.<br>
         1.2.7 – Small changes.<br>
         1.2.8 – Render performance was increased.<br>
@@ -1734,7 +1735,7 @@ Multimedia API</a>. </big>
         1.3.9 – Tile-set subsystem was improved.<br>
         1.4 – Sprite subsystem was improved.<br>
         1.4.1 – Text subsystem was improved.<br>
-        1.4.2 –&nbsp; 1.4.5 – Small changes.<br>
+        1.4.2 – 1.4.5 – Small changes.<br>
         1.4.6 – New subsystem was added. Windows 2000 support was removed.<br>
       </big><big>1.4.7 – 1.4.8 – Sprite subsystem was improved.<br>
         1.4.9 – Text subsystem was improved.<br>
@@ -1802,7 +1803,8 @@ Multimedia API</a>. </big>
         2.5.9 – 2.6 – Small changes.<br>
         2.6.1 – Animation subsystem was improved.<br>
         2.6.2 – Background subsystem was improved.<br>
-        2.6.3 – Sprite subsystem was improved.<br>
+        2.6.3 – 2.6.4 – Sprite subsystem was improved.<br>
+        2.6.5 – Background subsystem was improved.<br>
       </big></span>
   </body>
 </html>
