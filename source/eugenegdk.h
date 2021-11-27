@@ -624,6 +624,7 @@ class Background:public Animation,public Picture
  void complex_mirror();
  void draw_background();
  void destroy_background();
+ BACKGROUND_TYPE get_kind() const;
 };
 
 class Sprite:public Animation,public Picture

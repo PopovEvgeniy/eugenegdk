@@ -2505,6 +2505,11 @@ void Background::destroy_background()
  this->reset_background_setting();
 }
 
+BACKGROUND_TYPE Background::get_kind() const
+{
+ return current_kind;
+}
+
 Sprite::Sprite()
 {
  transparent=true;
@@ -2823,12 +2828,11 @@ void Sprite::clone(Sprite &target)
 {
  if (target.is_storage_empty()==false)
  {
-  this->destroy_image();
+  this->destroy_sprite();
   this->set_image_size(target.get_image_width(),target.get_image_height());
-  this->set_frames(target.get_frames());
-  this->set_kind(target.get_kind());
-  this->set_transparent(target.get_transparent());
   this->set_buffer(this->create_buffer());
+  this->set_setting(target.get_kind(),target.get_frames());
+  this->set_transparent(target.get_transparent());
   this->copy_image(target.get_image());
   this->set_size(target.get_width(),target.get_height());
   this->prepare();
