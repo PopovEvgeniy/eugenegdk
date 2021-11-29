@@ -366,6 +366,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       terminated. This method don’t use fps limit and need high processor usage.<br>
       <span style="font-style: italic;">unsigned int Screen::get_fps() const;</span>
       – Return current fps value.<br>
+      <span style="font-style: italic;">bool Screen::is_accelerated() const;</span>&nbsp;
+      – Return true if render is hardware accelerated.<br>
       <span style="font-style: italic;">unsigned long int Screen::get_color()
         const;</span> – Return current color depth in bits per pixel.<br>
       <span style="font-style: italic;">unsigned int Screen::get_width();</span>
@@ -1591,8 +1593,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       Some classes designed for internal use only. Don’t touch them. What doing
       these strange classes?<br>
       <br>
-      <span style="font-style: italic;">Engine</span> create the game windows
-      and do message processing.<br>
+      <span style="font-style: italic;">Engine</span> create the game window and
+      do message processing.<br>
       <span style="font-style: italic;">Synchronization</span> implement the
       synchronization timer.<br>
       <span style="font-style: italic;">Display</span> implement display
@@ -1611,6 +1613,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">Shape</span> is base class for <span style="font-style: italic;">Rectangle</span>
       class.<br>
       <span style="font-style: italic;">COM_Base</span> is base class for <span
+
         style="font-style: italic;">Multimedia</span> class. </big>
     <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
         graphics subsystem</big></h2>
@@ -1805,6 +1808,8 @@ Multimedia API</a>. </big>
         2.6.2 – Background subsystem was improved.<br>
         2.6.3 – 2.6.4 – Sprite subsystem was improved.<br>
         2.6.5 – Background subsystem was improved.<br>
+        2.6.6 – Base graphics subsystem was improved.<br>
+        2.6.7 – Small changes.<br>
       </big></span>
   </body>
 </html>

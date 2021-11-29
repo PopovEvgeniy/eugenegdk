@@ -541,6 +541,21 @@ void WINGL::Swap()
  SwapBuffers(this->get_context());
 }
 
+bool WINGL::is_accelerated() const
+{
+ bool accelerated;
+ accelerated=false;
+ if (!(setting.dwFlags&PFD_GENERIC_FORMAT)&&!(setting.dwFlags&PFD_GENERIC_ACCELERATED))
+ {
+  accelerated=true;
+ }
+ else
+ {
+  if ((setting.dwFlags&PFD_GENERIC_FORMAT)&&(setting.dwFlags&PFD_GENERIC_ACCELERATED)) accelerated=true;
+ }
+ return accelerated;
+}
+
 Render::Render()
 {
 

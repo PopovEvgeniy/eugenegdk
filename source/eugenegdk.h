@@ -240,6 +240,7 @@ class WINGL:public Display, public Engine
  public:
  WINGL();
  ~WINGL();
+ bool is_accelerated() const;
 };
 
 class Render:public WINGL
