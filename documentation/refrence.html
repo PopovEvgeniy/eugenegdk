@@ -364,10 +364,10 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">bool Screen::update();</span> – Show
       current back-buffer content on screen. Return false if a game is
       terminated. This method don’t use fps limit and need high processor usage.<br>
-      <span style="font-style: italic;">unsigned int Screen::get_fps() const;</span>
-      – Return current fps value.<br>
       <span style="font-style: italic;">bool Screen::is_accelerated() const;</span>&nbsp;
       – Return true if render is hardware accelerated.<br>
+      <span style="font-style: italic;">unsigned int Screen::get_fps() const;</span>
+      – Return current fps value.<br>
       <span style="font-style: italic;">unsigned long int Screen::get_color()
         const;</span> – Return current color depth in bits per pixel.<br>
       <span style="font-style: italic;">unsigned int Screen::get_width();</span>
@@ -383,12 +383,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <br>
       <span style="font-style: italic;">Primitive</span> class provide simple
       access to this subsystem. Let’s look to public methods.<br>
-      <br>
-      <span style="font-style: italic;">void Primitive::set_color(const unsigned
-        char red, const unsigned char green, const unsigned char blue);</span> –
-      Set the current color.<br>
-      <span style="font-style: italic;">void Primitive::prepare();</span>&nbsp;
-      – Prepare for drawing.<br>
+      <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">void Primitive::prepare(const unsigned
         char red, const unsigned char green, const unsigned char blue);</span>&nbsp;
       – Prepare for drawing and set the current color.<br>
@@ -1613,7 +1608,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">Shape</span> is base class for <span style="font-style: italic;">Rectangle</span>
       class.<br>
       <span style="font-style: italic;">COM_Base</span> is base class for <span
-
         style="font-style: italic;">Multimedia</span> class. </big>
     <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
         graphics subsystem</big></h2>
@@ -1810,6 +1804,7 @@ Multimedia API</a>. </big>
         2.6.5 – Background subsystem was improved.<br>
         2.6.6 – Base graphics subsystem was improved.<br>
         2.6.7 – Small changes.<br>
+        2.6.8 – Primitive subsystem was improved.<br>
       </big></span>
   </body>
 </html>

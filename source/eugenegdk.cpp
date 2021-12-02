@@ -1065,23 +1065,13 @@ Primitive::~Primitive()
 
 }
 
-void Primitive::prepare()
+void Primitive::prepare(const unsigned char red,const unsigned char green,const unsigned char blue)
 {
  glDisable(GL_ALPHA_TEST);
  glDisable(GL_BLEND);
  glPointSize(1);
  glLineStipple(1,0xFF);
-}
-
-void Primitive::set_color(const unsigned char red,const unsigned char green,const unsigned char blue)
-{
  glColor3ub(red,green,blue);
-}
-
-void Primitive::prepare(const unsigned char red,const unsigned char green,const unsigned char blue)
-{
- this->prepare();
- this->set_color(red,green,blue);
 }
 
 void Primitive::draw_pixel(const unsigned int x,const unsigned int y)
