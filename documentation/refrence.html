@@ -32,14 +32,13 @@
       <li><a href="#mozTocId760374">Part 3. Graphics</a>
         <ul>
           <li><a href="#mozTocId552078">Chapter 1. Base graphics subsystem</a></li>
-          <li><a href="#mozTocId225176">Chapter 2. Graphic primitives</a></li>
-          <li><a href="#mozTocId289525">Chapter 3. Picture subsystem</a></li>
-          <li><a href="#mozTocId501089">Chapter 4. Animation subsystem</a></li>
-          <li><a href="#mozTocId455894">Chapter 5. Background</a></li>
-          <li><a href="#mozTocId662651">Chapter 6. Sprites</a></li>
-          <li><a href="#mozTocId367464">Chapter 7. Text</a></li>
-          <li><a href="#mozTocId146800">Chapter 8. Tile-set</a></li>
-          <li><a href="#mozTocId67980">Chapter 9. Loading images</a></li>
+          <li><a href="#mozTocId289525">Chapter 2. Picture subsystem</a></li>
+          <li><a href="#mozTocId501089">Chapter 3. Animation subsystem</a></li>
+          <li><a href="#mozTocId455894"> Chapter 4. Background</a></li>
+          <li><a href="#mozTocId662651"> Chapter 5. Sprites</a></li>
+          <li><a href="#mozTocId367464">Chapter 6. Text</a></li>
+          <li><a href="#mozTocId146800">Chapter 7. Tile-set</a></li>
+          <li><a href="#mozTocId67980">Chapter 8. Loading images</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId64443">Part 4. Common things</a>
@@ -52,11 +51,11 @@
           <li><a href="#mozTocId381935">Chapter 5. Collision</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId590919">Part 5. Binary files</a>
+      <li><a href="#mozTocId590919"> Part 5. Binary files</a>
         <ul>
-          <li><a href="#mozTocId961921">Chapter 1. Base binary files subsystem</a></li>
-          <li><a href="#mozTocId424835">Chapter 2. File reader</a></li>
-          <li><a href="#mozTocId511135">Chapter 3. File writer</a></li>
+          <li><a href="#mozTocId961921"> Chapter 1. Base binary files subsystem</a></li>
+          <li><a href="#mozTocId424835"> Chapter 2. File reader</a></li>
+          <li><a href="#mozTocId511135"> Chapter 3. File writer</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId291572">Part 6. Input</a>
@@ -66,10 +65,10 @@
           <li><a href="#mozTocId861609">Chapter 3. Game-pad</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId189335">Part 8. Other important things</a>
+      <li><a href="#mozTocId510525">Part 8. Other important things</a>
         <ul>
-          <li><a href="#mozTocId944718">Chapter 1. Memory</a></li>
-          <li><a href="#mozTocId180674">Chapter 2. Multimedia</a></li>
+          <li><a href="#mozTocId806708">Chapter 1. Memory</a></li>
+          <li><a href="#mozTocId87719">Chapter 2. Multimedia</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId309127">Part 9. Internal details of the engine
@@ -256,6 +255,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <li><big>Visual C++ 2015</big></li>
       <li><big>Visual C++ 2017</big></li>
       <li><big>Visual C++ 2019</big></li>
+      <li><big>Visual C++ 2022</big></li>
     </ul>
     <big><span style="text-decoration: underline;"></span> <span style="text-decoration: underline;">Windows
         XP support</span><br>
@@ -376,34 +376,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       – Return screen height in pixels.<br>
       <span style="font-style: italic;">Screen* Screen::get_handle();</span> –
       Return the handle to base graphics subsystem object. </big>
-    <h2><a class="mozTocH2" name="mozTocId225176"></a><big><span style="font-style: italic;"></span>Chapter
-        2. Graphic primitives</big></h2>
-    <big><br>
-      Graphic primitives subsystem intend for drawing graphic primitives.<br>
-      <br>
-      <span style="font-style: italic;">Primitive</span> class provide simple
-      access to this subsystem. Let’s look to public methods.<br>
-      <span style="font-style: italic;"></span><br>
-      <span style="font-style: italic;">void Primitive::prepare(const unsigned
-        char red, const unsigned char green, const unsigned char blue);</span>&nbsp;
-      – Prepare for drawing and set the current color.<br>
-      <span style="font-style: italic;">void Primitive::draw_pixel(const
-        unsigned int x,const unsigned int y);</span> – Draw a pixel.<br>
-      <span style="font-style: italic;">void Primitive::draw_line(const unsigned
-        long int x1,const unsigned int y1,const unsigned int x2,const unsigned
-        int y2);</span> – Just draw a line.<br>
-      <span style="font-style: italic;">void Primitive::draw_rectangle(const
-        unsigned int x,const unsigned int y,const unsigned int width,const
-        unsigned int height);</span> – Draw a simple rectangle.<br>
-      <span style="font-style: italic;">void
-        Primitive::draw_filled_rectangle(const unsigned int x,const unsigned int
-        y,const unsigned int width);</span> – Draw a filled rectangle.<br>
-      <br>
-      <span style="text-decoration: underline;">Important notes</span><br>
-      <br>
-      Always call <span style="font-style: italic;">prepare</span> and <span style="font-style: italic;">set_color</span>
-      methods before drawing. </big>
-    <h2><a class="mozTocH2" name="mozTocId289525"></a><big>Chapter 3. Picture
+    <h2><a class="mozTocH2" name="mozTocId289525"></a><big>Chapter 2. Picture
         subsystem</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Very important subsystems</span><br>
@@ -433,7 +406,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">unsigned int Picture::get_image_height()
         const;</span> – Return image height in pixels.<span style="font-style: italic;"></span></big><big>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId501089"></a><big>Chapter 4. Animation
+    <h2><a class="mozTocH2" name="mozTocId501089"></a><big>Chapter 3. Animation
         subsystem</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Very important subsystems</span><br>
@@ -452,7 +425,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">unsigned int Animation::get_frame()
         const;</span> – Return current frame in scrollable background or
       animated sprite.<span style="font-style: italic;"> </span> </big>
-    <h2><a class="mozTocH2" name="mozTocId455894"></a><big> Chapter 5.
+    <h2><a class="mozTocH2" name="mozTocId455894"></a><big> Chapter 4.
         Background</big></h2>
     <big> <br>
       <span style="text-decoration: underline;">Level decoration</span><br>
@@ -541,7 +514,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       texture will automatically create after call <span style="font-style: italic;">prepare</span>
       <span style="font-style: italic;"></span> method.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 6. Sprites</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 5. Sprites</big></h2>
     <big> <br>
       <span style="text-decoration: underline;">Small important thing</span><br>
       <br>
@@ -693,7 +666,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         style="font-style: italic;">load_sprite</span> or <span style="font-style: italic;">clone</span>
       method.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 7. Text</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 6. Text</big></h2>
     <big><br>
       <span style="text-decoration: underline;">How draw a text?</span><br>
       <br>
@@ -726,7 +699,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">void Text::draw_text(const unsigned int
         x,const unsigned int y,const char *text);</span> – Draw text at specific
       position. </big>
-    <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 8. Tile-set</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 7. Tile-set</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Some words about complex
         backgrounds</span><br>
@@ -780,7 +753,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       automatically create after call <span style="font-style: italic;">load_tileset</span>
       method.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 9. Loading
+    <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 8. Loading
         images</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Load an image from a files</span><br>
@@ -1483,10 +1456,11 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">GAMEPAD_DIRECTION
         Gamepad::get_stick_y(const GAMEPAD_STICKS stick);</span> – Return
       y-direction of specific stick. </big>
-    <h1><a id="mozTocId189335" class="mozTocH1"></a><big>Part 8. Other important
-        things</big></h1>
+    <h1><a class="mozTocH1" name="mozTocId510525"></a><a id="mozTocId189335" class="mozTocH1"></a><big>Part
+        8. Other important things</big></h1>
     <big></big>
-    <h2><a id="mozTocId944718" class="mozTocH2"></a><big>Chapter 1. Memory</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId806708"></a><a id="mozTocId944718" class="mozTocH2"></a><big>Chapter
+        1. Memory</big></h2>
     <big><br>
       RAM is very important resource. Just use <span style="font-style: italic;">Memory</span>
       class for get total memory size and free memory size. Let’s look to public
@@ -1506,7 +1480,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         memory</a> size in bytes.<br>
       <span style="font-style: italic;"> unsigned long int Memory::get_usage();</span>
       – Return percentage of physical memory usage. </big>
-    <h2><a id="mozTocId180674" class="mozTocH2"></a><big>Chapter 2. Multimedia</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId87719"></a><a id="mozTocId180674" class="mozTocH2"></a><big>Chapter
+        2. Multimedia</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Improve you game</span><br>
       <br>
@@ -1614,7 +1589,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <big><span style="text-decoration: underline;"></span> </big><big><span style="text-decoration: underline;">Visible
         object</span></big><br>
     <big> </big><br>
-    <big> All visible object except graphics primitives is textured rectangles.</big><br>
+    <big> Any visible object is textured rectangles.</big><br>
     <big> </big><br>
     <big> <span style="text-decoration: underline;">Images</span></big><br>
     <big> </big><br>
@@ -1805,6 +1780,8 @@ Multimedia API</a>. </big>
         2.6.6 – Base graphics subsystem was improved.<br>
         2.6.7 – Small changes.<br>
         2.6.8 – Primitive subsystem was improved.<br>
+        2.6.9 – Small bug was fixed.<br>
+        2.7 – Primitive subsystem was removed.<br>
       </big></span>
   </body>
 </html>

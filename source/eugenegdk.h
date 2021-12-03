@@ -343,18 +343,6 @@ class Rectangle:public Shape
  bool is_texture_exist() const;
 };
 
-class Primitive
-{
- public:
- Primitive();
- ~Primitive();
- void prepare(const unsigned char red,const unsigned char green,const unsigned char blue);
- void draw_pixel(const unsigned int x,const unsigned int y);
- void draw_line(const unsigned int x,const unsigned int y,const unsigned int x2,const unsigned int y2);
- void draw_rectangle(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height);
- void draw_filled_rectangle(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height);
-};
-
 class Screen:public FPS, public Synchronization, public Render
 {
  private:
