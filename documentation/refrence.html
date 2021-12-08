@@ -31,44 +31,49 @@
       </li>
       <li><a href="#mozTocId760374">Part 3. Graphics</a>
         <ul>
-          <li><a href="#mozTocId552078">Chapter 1. Base graphics subsystem</a></li>
-          <li><a href="#mozTocId289525">Chapter 2. Picture subsystem</a></li>
-          <li><a href="#mozTocId501089">Chapter 3. Animation subsystem</a></li>
-          <li><a href="#mozTocId455894"> Chapter 4. Background</a></li>
-          <li><a href="#mozTocId662651"> Chapter 5. Sprites</a></li>
-          <li><a href="#mozTocId367464">Chapter 6. Text</a></li>
-          <li><a href="#mozTocId146800">Chapter 7. Tile-set</a></li>
-          <li><a href="#mozTocId67980">Chapter 8. Loading images</a></li>
+          <li><a href="#mozTocId182571">Chapter 1. The sub-namespace</a></li>
+          <li><a href="#mozTocId552078">Chapter 2. Base graphics subsystem</a></li>
+          <li><a href="#mozTocId289525">Chapter 3. Picture subsystem</a></li>
+          <li><a href="#mozTocId501089">Chapter 4. Animation subsystem</a></li>
+          <li><a href="#mozTocId455894"> Chapter 5. Background</a></li>
+          <li><a href="#mozTocId662651"> Chapter 6. Sprites</a></li>
+          <li><a href="#mozTocId367464">Chapter 7. Text</a></li>
+          <li><a href="#mozTocId146800">Chapter 8. Tile-set</a></li>
+          <li><a href="#mozTocId67980">Chapter 9. Loading images</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId64443">Part 4. Common things</a>
         <ul>
-          <li><a href="#mozTocId236677">Chapter 1. Interaction with operation
+          <li><a href="#mozTocId597525">Chapter 1. The sub-namespace</a></li>
+          <li><a href="#mozTocId236677">Chapter 2. Interaction with operation
               system</a></li>
-          <li><a href="#mozTocId688163">Chapter 2. Filesystem</a></li>
-          <li><a href="#mozTocId853711">Chapter 3. Abnormal program termination</a></li>
-          <li><a href="#mozTocId656377">Chapter 4. Timer</a></li>
-          <li><a href="#mozTocId381935">Chapter 5. Collision</a></li>
+          <li><a href="#mozTocId688163">Chapter 3. Filesystem</a></li>
+          <li><a href="#mozTocId853711">Chapter 4. Abnormal program termination</a></li>
+          <li><a href="#mozTocId656377">Chapter 5. Timer</a></li>
+          <li><a href="#mozTocId381935">Chapter 6. Collision</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId590919"> Part 5. Binary files</a>
         <ul>
-          <li><a href="#mozTocId961921"> Chapter 1. Base binary files subsystem</a></li>
-          <li><a href="#mozTocId424835"> Chapter 2. File reader</a></li>
-          <li><a href="#mozTocId511135"> Chapter 3. File writer</a></li>
+          <li><a href="#mozTocId200879">Chapter 1. The sub-namespace</a></li>
+          <li><a href="#mozTocId961921"> Chapter 2. Base binary files subsystem</a></li>
+          <li><a href="#mozTocId424835"> Chapter 3. File reader</a></li>
+          <li><a href="#mozTocId511135"> Chapter 4. File writer</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId291572">Part 6. Input</a>
         <ul>
-          <li><a href="#mozTocId685403">Chapter 1. Keyboard</a></li>
-          <li><a href="#mozTocId686993">Chapter 2. Mouse</a></li>
-          <li><a href="#mozTocId861609">Chapter 3. Game-pad</a></li>
+          <li><a href="#mozTocId783369">Chapter 1. The sub-namespace</a></li>
+          <li><a href="#mozTocId685403">Chapter 2. Keyboard</a></li>
+          <li><a href="#mozTocId686993">Chapter 3. Mouse</a></li>
+          <li><a href="#mozTocId861609">Chapter 4. Game-pad</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId510525">Part 8. Other important things</a>
         <ul>
-          <li><a href="#mozTocId806708">Chapter 1. Memory</a></li>
-          <li><a href="#mozTocId87719">Chapter 2. Multimedia</a></li>
+          <li><a href="#mozTocId523298">Chapter 1. The sub-namespace</a></li>
+          <li><a href="#mozTocId806708">Chapter 2. Memory</a></li>
+          <li><a href="#mozTocId87719">Chapter 3. Multimedia</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId309127">Part 9. Internal details of the engine
@@ -297,9 +302,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       See documentation of the compiler for more information about linking. </big>
     <h2><a class="mozTocH2" name="mozTocId914689"></a><big>Chapter 7. The engine
         name-space</big></h2>
-    <big><br>
-      All the engine classes declared in <span style="font-style: italic;">EUGENEGDK</span>
-      name-space. </big>
+    <big><span style="font-style: italic;">EUGENEGDK</span> is main name-space.</big><big>
+      All the engine classes declared in few nested namespaces. </big>
     <h1><a class="mozTocH1" name="mozTocId859712"></a><big>Part 2. Base things</big></h1>
     <big> </big>
     <h2><a class="mozTocH2" name="mozTocId312970"></a><big>Chapter 1. Coordinate
@@ -318,8 +322,12 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <br>
       <img style="width: 357px; height: 316px;" alt="" src="game_cycle.png"> </big>
     <h1><a class="mozTocH1" name="mozTocId760374"></a><big>Part 3. Graphics</big></h1>
+    <h2><a class="mozTocH2" name="mozTocId182571"></a><big>Chapter 1. The
+        sub-namespace</big></h2>
+    <big>All subsystems in this section was declared in <span style="font-style: italic;">Graphics</span>
+      sub-namespace.</big><br>
     <big> </big>
-    <h2><a class="mozTocH2" name="mozTocId552078"></a><big>Chapter 1. Base
+    <h2><a class="mozTocH2" name="mozTocId552078"></a><big>Chapter 2. Base
         graphics subsystem</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Introduce to base graphics
@@ -376,7 +384,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       – Return screen height in pixels.<br>
       <span style="font-style: italic;">Screen* Screen::get_handle();</span> –
       Return the handle to base graphics subsystem object. </big>
-    <h2><a class="mozTocH2" name="mozTocId289525"></a><big>Chapter 2. Picture
+    <h2><a class="mozTocH2" name="mozTocId289525"></a><big>Chapter 3. Picture
         subsystem</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Very important subsystems</span><br>
@@ -406,7 +414,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">unsigned int Picture::get_image_height()
         const;</span> – Return image height in pixels.<span style="font-style: italic;"></span></big><big>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId501089"></a><big>Chapter 3. Animation
+    <h2><a class="mozTocH2" name="mozTocId501089"></a><big>Chapter 4. Animation
         subsystem</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Very important subsystems</span><br>
@@ -425,7 +433,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">unsigned int Animation::get_frame()
         const;</span> – Return current frame in scrollable background or
       animated sprite.<span style="font-style: italic;"> </span> </big>
-    <h2><a class="mozTocH2" name="mozTocId455894"></a><big> Chapter 4.
+    <h2><a class="mozTocH2" name="mozTocId455894"></a><big> Chapter 5.
         Background</big></h2>
     <big> <br>
       <span style="text-decoration: underline;">Level decoration</span><br>
@@ -514,7 +522,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       texture will automatically create after call <span style="font-style: italic;">prepare</span>
       <span style="font-style: italic;"></span> method.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 5. Sprites</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 6. Sprites</big></h2>
     <big> <br>
       <span style="text-decoration: underline;">Small important thing</span><br>
       <br>
@@ -666,7 +674,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         style="font-style: italic;">load_sprite</span> or <span style="font-style: italic;">clone</span>
       method.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 6. Text</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 7. Text</big></h2>
     <big><br>
       <span style="text-decoration: underline;">How draw a text?</span><br>
       <br>
@@ -699,7 +707,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">void Text::draw_text(const unsigned int
         x,const unsigned int y,const char *text);</span> – Draw text at specific
       position. </big>
-    <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 7. Tile-set</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 8. Tile-set</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Some words about complex
         backgrounds</span><br>
@@ -753,10 +761,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       automatically create after call <span style="font-style: italic;">load_tileset</span>
       method.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 8. Loading
+    <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 9. Loading
         images</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;">Load an image from a files</span><br>
+    <big> <span style="text-decoration: underline;">Load an image from a files</span><br>
       <br>
       Use image loader for load an image from a file. <span style="font-style: italic;">Image</span>
       class provide simple access to image loader. It is very simple class with
@@ -790,8 +797,12 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       correct format. I recommend use <a href="https://www.gimp.org">GIMP</a>
       for do it. It is powerful open source and cross-platform image editor. </big>
     <h1><a class="mozTocH1" name="mozTocId64443"></a><big>Part 4. Common things</big></h1>
-    <big></big> <big> </big>
-    <h2><a class="mozTocH2" name="mozTocId236677"></a><big>Chapter 1.
+    <h2><a class="mozTocH2" name="mozTocId597525"></a><big>Chapter 1. The
+        sub-namespace</big></h2>
+    <big>All subsystems in this section was declared in <span style="font-style: italic;">Common</span>
+      sub-namespace.</big><br>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId236677"></a><big>Chapter 2.
         Interaction with operation system</big></h2>
     <big><br>
       You may need interaction with operation system. Just use <span style="font-style: italic;">System</span>
@@ -813,7 +824,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <br>
       This is all that you must know about this class. It is just very simple
       class for few important things. </big>
-    <h2><a class="mozTocH2" name="mozTocId688163"></a><big>Chapter 2. Filesystem</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId688163"></a><big>Chapter 3. Filesystem</big></h2>
     <big><br>
       Filesystem subsystem let you doing some file operation. <span style="font-style: italic;">Filesystem</span>
       class provide simple access to this subsystem. Let’s look to public
@@ -828,7 +839,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <br>
       All methods return false if operation was failed.<br>
       <span style="font-style: italic;"></span> </big>
-    <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 3. Abnormal
+    <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 4. Abnormal
         program termination</big></h2>
     <big><br>
       You can use Halt function for terminate program. This function declared in
@@ -837,7 +848,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">void EUGENEGDK::Halt(const char
         *message);</span> – Terminate the program. Write error message to log
       file if logging enabled. </big><big> </big>
-    <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 4. Timer</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 5. Timer</big></h2>
     <big><br>
       Timer is very useful thing. Just use <span style="font-style: italic;">Timer</span>
       class for work with the timer. Let’s look to public methods.<br>
@@ -849,7 +860,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       interval between stop and start points large or equal than specific
       seconds. </big> <br>
     <big></big><br>
-    <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 5. Collision</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 6. Collision</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Very important thing for any
         game</span><br>
@@ -902,8 +913,12 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         unsigned int width,const unsigned int height) const;</span> – Generate
       collision related information from the object properties. </big>
     <h1><a class="mozTocH1" name="mozTocId590919"></a><big> Part 5. Binary files</big></h1>
-    <big></big> <big> </big>
-    <h2><a class="mozTocH2" name="mozTocId961921"></a><big> Chapter 1. Base
+    <h2><a class="mozTocH2" name="mozTocId200879"></a><big>Chapter 1. The
+        sub-namespace</big></h2>
+    <big>All subsystems in this section was declared in <span style="font-style: italic;">File</span>
+      sub-namespace.</big><br>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId961921"></a><big> Chapter 2. Base
         binary files subsystem</big></h2>
     <big> <br>
       <u> Work with binary files</u><br>
@@ -925,7 +940,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <u>Important notice</u><br>
       <br>
       Target file size limit is 2 gigabytes. </big>
-    <h2><a class="mozTocH2" name="mozTocId424835"></a><big> Chapter 2. File
+    <h2><a class="mozTocH2" name="mozTocId424835"></a><big> Chapter 3. File
         reader</big></h2>
     <big> <br>
       File reader intend for reading data from a binary files. <i>Input_File</i>
@@ -935,7 +950,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <i> void Input_File::open(const char *name);</i> – Open a file for read.<br>
       <i> void Input_File::read(void *buffer,const size_t length);</i> – Read
       data from the file. </big>
-    <h2><a class="mozTocH2" name="mozTocId511135"></a><big> Chapter 3. File
+    <h2><a class="mozTocH2" name="mozTocId511135"></a><big> Chapter 4. File
         writer</big></h2>
     <big> <br>
       File writer intend for write data to binary files. <i>Output_File</i>
@@ -951,8 +966,12 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       to the file.</big><br>
     <big> </big>
     <h1><a class="mozTocH1" name="mozTocId291572"></a><big>Part 6. Input</big></h1>
+    <h2><a class="mozTocH2" name="mozTocId783369"></a><big>Chapter 1. The
+        sub-namespace</big></h2>
+    <big>All subsystems in this section was declared in <span style="font-style: italic;">Input</span>
+      sub-namespace.</big><br>
     <big> </big>
-    <h2><a class="mozTocH2" name="mozTocId685403"></a><big>Chapter 1. Keyboard</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId685403"></a><big>Chapter 2. Keyboard</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Low-level input</span><br>
       <br>
@@ -1230,7 +1249,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       </tbody>
     </table>
     <big> </big>
-    <h2><a class="mozTocH2" name="mozTocId686993"></a><big>Chapter 2. Mouse</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId686993"></a><big>Chapter 3. Mouse</big></h2>
     <big><br>
       <span style="text-decoration: underline;">A few words about mouse</span><br>
       <br>
@@ -1289,7 +1308,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       </tbody>
     </table>
     <big> </big>
-    <h2><a class="mozTocH2" name="mozTocId861609"></a><big>Chapter 3. Game-pad</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId861609"></a><big>Chapter 4. Game-pad</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Best friend of retro gamer</span><br>
       <br>
@@ -1456,11 +1475,13 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">GAMEPAD_DIRECTION
         Gamepad::get_stick_y(const GAMEPAD_STICKS stick);</span> – Return
       y-direction of specific stick. </big>
-    <h1><a class="mozTocH1" name="mozTocId510525"></a><a id="mozTocId189335" class="mozTocH1"></a><big>Part
-        8. Other important things</big></h1>
-    <big></big>
-    <h2><a class="mozTocH2" name="mozTocId806708"></a><a id="mozTocId944718" class="mozTocH2"></a><big>Chapter
-        1. Memory</big></h2>
+    <h1><a class="mozTocH1" name="mozTocId510525"></a><big>Part 8. Other
+        important things</big></h1>
+    <h2><a class="mozTocH2" name="mozTocId523298"></a><big>Chapter 1. The
+        sub-namespace</big></h2>
+    <big>All subsystems in this section was declared in <span style="font-style: italic;">Misc</span>
+      sub-namespace.</big><br>
+    <h2><a class="mozTocH2" name="mozTocId806708"></a><big>Chapter 2. Memory</big></h2>
     <big><br>
       RAM is very important resource. Just use <span style="font-style: italic;">Memory</span>
       class for get total memory size and free memory size. Let’s look to public
@@ -1480,8 +1501,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         memory</a> size in bytes.<br>
       <span style="font-style: italic;"> unsigned long int Memory::get_usage();</span>
       – Return percentage of physical memory usage. </big>
-    <h2><a class="mozTocH2" name="mozTocId87719"></a><a id="mozTocId180674" class="mozTocH2"></a><big>Chapter
-        2. Multimedia</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId87719"></a><big>Chapter 3. Multimedia</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Improve you game</span><br>
       <br>
@@ -1559,31 +1579,45 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       Just read a next chapter. </big>
     <h2><a class="mozTocH2" name="mozTocId318160"></a><big>Chapter 2. Internal
         classes</big></h2>
-    <big><br>
+    <big><span style="text-decoration: underline;">Internal classes</span><br>
+      <br>
       Some classes designed for internal use only. Don’t touch them. What doing
       these strange classes?<br>
+      <br>
+      <span style="text-decoration: underline;">Microsoft Windows specific
+        classes</span><br>
+      <br>
+      All Microsoft Windows specific classes was declared in <span style="font-style: italic;">Internal</span>
+      sub-namespace.<br>
       <br>
       <span style="font-style: italic;">Engine</span> create the game window and
       do message processing.<br>
       <span style="font-style: italic;">Synchronization</span> implement the
       synchronization timer.<br>
       <span style="font-style: italic;">Display</span> implement display
-      manager.</big><br>
-    <big> <span style="font-style: italic;">FPS</span> implement fps counter.<span
-        style="font-style: italic;"><br>
+      manager.<br>
+    </big> <big> <span style="font-style: italic;">WINGL</span> contain
+      Windows specific OPENGL initialization code.<br>
+    </big><big><span style="font-style: italic;">COM_Base</span> is base class
+      for <span style="font-style: italic;">Multimedia</span> class.</big><br>
+    <big><br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Core classes</span><br>
+      <br>
+      All engine classes was declared in <span style="font-style: italic;">Core</span>
+      sub-namespace.<br>
+      <br>
+    </big> <big> <span style="font-style: italic;">FPS</span> implement fps
+      counter.<span style="font-style: italic;"><br>
       </span></big><big><i>Unicode_Convertor</i> implement system code-page to
-      UTF-16 convertor.</big><br>
-    <big> <span style="font-style: italic;">WINGL</span> contain Windows
-      specific OPENGL initialization code.<br>
+      UTF-16 convertor.</big><big><br>
       <span style="font-style: italic;">Render</span> implement OPENGL render.<br>
       <span style="font-style: italic;">Resizer</span> intend for calculate
       correct texture size.<br>
       <span style="font-style: italic;">Rectangle</span> intend for drawing
       textured rectangle.<br>
       <span style="font-style: italic;">Shape</span> is base class for <span style="font-style: italic;">Rectangle</span>
-      class.<br>
-      <span style="font-style: italic;">COM_Base</span> is base class for <span
-        style="font-style: italic;">Multimedia</span> class. </big>
+      class.<span style="font-style: italic;"><br>
+      </span> </big>
     <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
         graphics subsystem</big></h2>
     <big><span style="text-decoration: underline;"></span> </big><big><span style="text-decoration: underline;">Visible
@@ -1623,6 +1657,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       style="font-style: italic;">
     <span><big> <span style="font-style: italic;">};</span></big></span><br>
     <span></span><span><big> </big> <br>
+      <big>All these structures was declared in <span style="font-style: italic;">Core</span>
+        sub-namespace.</big><br>
       <big><span style="font-style: italic;"></span> </big>
       <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 4. Game-pad</big></h2>
       <big><br>
@@ -1782,6 +1818,9 @@ Multimedia API</a>. </big>
         2.6.8 – Primitive subsystem was improved.<br>
         2.6.9 – Small bug was fixed.<br>
         2.7 – Primitive subsystem was removed.<br>
+      </big></span><span><big> 2.7.1 – 2.7.6 – Preview release of next branch.<br>
+        2.7.7 – Public release of next branch.<br>
+        2.7.8 – Small changes.<br>
       </big></span>
   </body>
 </html>

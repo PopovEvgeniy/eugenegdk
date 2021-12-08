@@ -2,12 +2,12 @@
 
 int main()
 {
- EUGENEGDK::Screen screen;
- EUGENEGDK::Sprite font;
- EUGENEGDK::Text text;
- EUGENEGDK::Image image;
- EUGENEGDK::Tileset tilemap;
- EUGENEGDK::Keyboard keyboard;
+ EUGENEGDK::Graphics::Screen screen;
+ EUGENEGDK::Graphics::Sprite font;
+ EUGENEGDK::Graphics::Text text;
+ EUGENEGDK::Graphics::Image image;
+ EUGENEGDK::Graphics::Tileset tilemap;
+ EUGENEGDK::Input::Keyboard keyboard;
  unsigned int x,y;
  keyboard.initialize();
  screen.initialize();
