@@ -42,6 +42,35 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 
 #include "eugenegdk.h"
 
+namespace
+{
+ struct TGA_head
+ {
+  unsigned char id:8;
+  unsigned char color_map:8;
+  unsigned char type:8;
+ };
+
+ struct TGA_map
+ {
+  unsigned short int index:16;
+  unsigned short int length:16;
+  unsigned char map_size:8;
+ };
+
+ struct TGA_image
+ {
+  unsigned short int x:16;
+  unsigned short int y:16;
+  unsigned short int width:16;
+  unsigned short int height:16;
+  unsigned char color:8;
+  unsigned char alpha:3;
+  unsigned char direction:5;
+ };
+
+}
+
 unsigned int MAXIMUM_TEXTURE_SIZE=0;
 const size_t KEYBOARD=256;
 const unsigned char KEY_RELEASE=0;
