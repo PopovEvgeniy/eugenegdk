@@ -69,19 +69,18 @@ namespace
   unsigned char direction:5;
  };
 
+ unsigned int MAXIMUM_TEXTURE_SIZE=0;
+ const size_t KEYBOARD=256;
+ const unsigned char KEY_RELEASE=0;
+ const unsigned char KEY_PRESS=1;
+ const unsigned long int JOYSTICK_UPLEFT=31500;
+ const unsigned long int JOYSTICK_UPRIGHT=4500;
+ const unsigned long int JOYSTICK_DOWNLEFT=22500;
+ const unsigned long int JOYSTICK_DOWNRIGHT=13500;
+
+ unsigned char Keys[KEYBOARD]={KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE};
+ unsigned char Buttons[MOUSE]={KEY_RELEASE,KEY_RELEASE,KEY_RELEASE};
 }
-
-unsigned int MAXIMUM_TEXTURE_SIZE=0;
-const size_t KEYBOARD=256;
-const unsigned char KEY_RELEASE=0;
-const unsigned char KEY_PRESS=1;
-const unsigned long int JOYSTICK_UPLEFT=31500;
-const unsigned long int JOYSTICK_UPRIGHT=4500;
-const unsigned long int JOYSTICK_DOWNLEFT=22500;
-const unsigned long int JOYSTICK_DOWNRIGHT=13500;
-
-unsigned char Keys[KEYBOARD]={KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE};
-unsigned char Buttons[MOUSE]={KEY_RELEASE,KEY_RELEASE,KEY_RELEASE};
 
 LRESULT CALLBACK Process_Message(HWND window,UINT Message,WPARAM wParam,LPARAM lParam)
 {
@@ -124,3098 +123,3065 @@ LRESULT CALLBACK Process_Message(HWND window,UINT Message,WPARAM wParam,LPARAM l
 namespace EUGENEGDK
 {
 
- void Halt(const char *message)
- {
-  puts(message);
-  exit(EXIT_FAILURE);
- }
+void Halt(const char *message)
+{
+ puts(message);
+ exit(EXIT_FAILURE);
+}
 
- namespace Internal
+ COM_Base::COM_Base()
+{
+ HRESULT status;
+ status=CoInitializeEx(NULL,COINIT_APARTMENTTHREADED);
+ if (status!=S_OK)
  {
-  COM_Base::COM_Base()
- {
-  HRESULT status;
-  status=CoInitializeEx(NULL,COINIT_APARTMENTTHREADED);
-  if (status!=S_OK)
+  if (status!=S_FALSE)
   {
-   if (status!=S_FALSE)
-   {
-    Halt("Can't initialize COM");
-   }
-
+   Halt("Can't initialize COM");
   }
 
  }
 
- COM_Base::~COM_Base()
- {
-  CoUninitialize();
- }
+}
 
- Synchronization::Synchronization()
+COM_Base::~COM_Base()
+{
+ CoUninitialize();
+}
+
+Synchronization::Synchronization()
+{
+ timer=NULL;
+}
+
+Synchronization::~Synchronization()
+{
+ if (timer!=NULL)
  {
+  CancelWaitableTimer(timer);
+  CloseHandle(timer);
   timer=NULL;
  }
 
- Synchronization::~Synchronization()
- {
-  if (timer!=NULL)
-  {
-   CancelWaitableTimer(timer);
-   CloseHandle(timer);
-   timer=NULL;
-  }
+}
 
+void Synchronization::create_timer()
+{
+ timer=CreateWaitableTimer(NULL,FALSE,NULL);
+ if (timer==NULL)
+ {
+  Halt("Can't create synchronization timer");
  }
 
- void Synchronization::create_timer()
- {
-  timer=CreateWaitableTimer(NULL,FALSE,NULL);
-  if (timer==NULL)
-  {
-   Halt("Can't create synchronization timer");
-  }
+}
 
+void Synchronization::set_timer(const unsigned long int interval)
+{
+ LARGE_INTEGER start;
+ start.QuadPart=0;
+ if (SetWaitableTimer(timer,&start,interval,NULL,NULL,FALSE)==FALSE)
+ {
+  Halt("Can't set timer");
  }
 
- void Synchronization::set_timer(const unsigned long int interval)
+}
+
+void Synchronization::wait_timer()
+{
+ WaitForSingleObjectEx(timer,INFINITE,TRUE);
+}
+
+Engine::Engine()
+{
+ window_class.lpszClassName=TEXT("EUGENEGDK");
+ window_class.style=CS_OWNDC;
+ window_class.cbSize=sizeof(WNDCLASSEX);
+ window_class.lpfnWndProc=Process_Message;
+ window_class.hInstance=NULL;
+ window_class.hbrBackground=NULL;
+ window_class.hIcon=NULL;
+ window_class.hCursor=NULL;
+ window_class.hIconSm=NULL;
+ window_class.cbClsExtra=0;
+ window_class.cbWndExtra=0;
+ window=NULL;
+ context=NULL;
+}
+
+Engine::~Engine()
+{
+ if (context!=NULL)
  {
-  LARGE_INTEGER start;
-  start.QuadPart=0;
-  if (SetWaitableTimer(timer,&start,interval,NULL,NULL,FALSE)==FALSE)
-  {
-   Halt("Can't set timer");
-  }
-
- }
-
- void Synchronization::wait_timer()
- {
-  WaitForSingleObjectEx(timer,INFINITE,TRUE);
- }
-
- Display::Display()
- {
-  memset(&display,0,sizeof(DEVMODE));
-  display.dmSize=sizeof(DEVMODE);
- }
-
- Display::~Display()
- {
-  ChangeDisplaySettingsEx(NULL,NULL,NULL,0,NULL);
- }
-
- void Display::set_video_mode()
- {
-  if (ChangeDisplaySettingsEx(NULL,&display,NULL,CDS_FULLSCREEN,NULL)!=DISP_CHANGE_SUCCESSFUL)
-  {
-   Halt("Can't change video mode");
-  }
-
- }
-
- void Display::get_video_mode()
- {
-  if (EnumDisplaySettingsEx(NULL,ENUM_CURRENT_SETTINGS,&display,EDS_RAWMODE)==FALSE)
-  {
-   Halt("Can't get display setting");
-  }
-
- }
-
- void Display::check_video_mode()
- {
-  this->get_video_mode();
-  if (display.dmBitsPerPel<16)
-  {
-   display.dmBitsPerPel=16;
-   this->set_video_mode();
-  }
-
- }
-
- void Display::set_setting(const unsigned long int width,const unsigned long int height)
- {
-  if (display.dmBitsPerPel<16) display.dmBitsPerPel=16;
-  display.dmPelsWidth=width;
-  display.dmPelsHeight=height;
- }
-
- void Display::set_resolution(const unsigned long int width,const unsigned long int height)
- {
-  this->get_video_mode();
-  this->set_setting(width,height);
-  this->set_video_mode();
- }
-
- unsigned long int Display::get_color() const
- {
-  return display.dmBitsPerPel;
- }
-
- Engine::Engine()
- {
-  window_class.lpszClassName=TEXT("EUGENEGDK");
-  window_class.style=CS_OWNDC;
-  window_class.cbSize=sizeof(WNDCLASSEX);
-  window_class.lpfnWndProc=Process_Message;
-  window_class.hInstance=NULL;
-  window_class.hbrBackground=NULL;
-  window_class.hIcon=NULL;
-  window_class.hCursor=NULL;
-  window_class.hIconSm=NULL;
-  window_class.cbClsExtra=0;
-  window_class.cbWndExtra=0;
-  window=NULL;
+  ReleaseDC(window,context);
   context=NULL;
  }
-
- Engine::~Engine()
+ if (window!=NULL)
  {
-  if (context!=NULL)
+  CloseWindow(window);
+  window=NULL;
+ }
+ if (window_class.hbrBackground!=NULL)
+ {
+  DeleteObject(window_class.hbrBackground);
+  window_class.hbrBackground=NULL;
+ }
+ UnregisterClass(window_class.lpszClassName,window_class.hInstance);
+}
+
+void Engine::get_instance()
+{
+ if (GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,NULL,&window_class.hInstance)==FALSE)
+ {
+  Halt("Can't get the application instance");
+ }
+
+}
+
+void Engine::set_backgrond_color()
+{
+ window_class.hbrBackground=CreateSolidBrush(RGB(0,0,0));
+ if (window_class.hbrBackground==NULL)
+ {
+  Halt("Can't set background color");
+ }
+
+}
+
+void Engine::load_icon()
+{
+ window_class.hIcon=LoadIcon(NULL,IDI_APPLICATION);
+ if (window_class.hIcon==NULL)
+ {
+  Halt("Can't load the standart program icon");
+ }
+
+}
+
+void Engine::load_cursor()
+{
+ window_class.hCursor=LoadCursor(NULL,IDC_ARROW);
+ if (window_class.hCursor==NULL)
+ {
+  Halt("Can't load the standart cursor");
+ }
+
+}
+
+void Engine::register_window_class()
+{
+ if (!RegisterClassEx(&window_class))
+ {
+  Halt("Can't register window class");
+ }
+
+}
+
+void Engine::take_context()
+{
+ context=GetWindowDC(window);
+ if (context==NULL)
+ {
+  Halt("Can't take window context");
+ }
+
+}
+
+void Engine::create_window()
+{
+ window=CreateWindowEx(WS_EX_APPWINDOW,window_class.lpszClassName,NULL,WS_VISIBLE|WS_POPUP,0,0,GetSystemMetrics(SM_CXSCREEN),GetSystemMetrics(SM_CYSCREEN),NULL,NULL,window_class.hInstance,NULL);
+ if (window==NULL)
+ {
+  Halt("Can't create window");
+ }
+ SetFocus(window);
+}
+
+HDC Engine::get_context()
+{
+ return context;
+}
+
+void Engine::prepare_engine()
+{
+ this->get_instance();
+ this->set_backgrond_color();
+ this->load_icon();
+ this->load_cursor();
+ this->register_window_class();
+ this->create_window();
+ this->take_context();
+}
+
+bool Engine::process_message()
+{
+ bool run;
+ MSG Message;
+ run=true;
+ while(PeekMessage(&Message,window,0,0,PM_NOREMOVE)==TRUE)
+ {
+  if (GetMessage(&Message,window,0,0)==TRUE)
   {
-   ReleaseDC(window,context);
-   context=NULL;
-  }
-  if (window!=NULL)
-  {
-   CloseWindow(window);
-   window=NULL;
-  }
-  if (window_class.hbrBackground!=NULL)
-  {
-   DeleteObject(window_class.hbrBackground);
-   window_class.hbrBackground=NULL;
-  }
-  UnregisterClass(window_class.lpszClassName,window_class.hInstance);
- }
-
- void Engine::get_instance()
- {
-  if (GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,NULL,&window_class.hInstance)==FALSE)
-  {
-   Halt("Can't get the application instance");
-  }
-
- }
-
- void Engine::set_backgrond_color()
- {
-  window_class.hbrBackground=CreateSolidBrush(RGB(0,0,0));
-  if (window_class.hbrBackground==NULL)
-  {
-   Halt("Can't set background color");
-  }
-
- }
-
- void Engine::load_icon()
- {
-  window_class.hIcon=LoadIcon(NULL,IDI_APPLICATION);
-  if (window_class.hIcon==NULL)
-  {
-   Halt("Can't load the standart program icon");
-  }
-
- }
-
- void Engine::load_cursor()
- {
-  window_class.hCursor=LoadCursor(NULL,IDC_ARROW);
-  if (window_class.hCursor==NULL)
-  {
-   Halt("Can't load the standart cursor");
-  }
-
- }
-
- void Engine::register_window_class()
- {
-  if (!RegisterClassEx(&window_class))
-  {
-   Halt("Can't register window class");
-  }
-
- }
-
- HDC Engine::get_context()
- {
-  return context;
- }
-
- void Engine::prepare_engine()
- {
-  this->get_instance();
-  this->set_backgrond_color();
-  this->load_icon();
-  this->load_cursor();
-  this->register_window_class();
- }
-
- void Engine::take_context()
- {
-  context=GetWindowDC(window);
-  if (context==NULL)
-  {
-   Halt("Can't take window context");
-  }
-
- }
-
- void Engine::create_window()
- {
-  window=CreateWindowEx(WS_EX_APPWINDOW,window_class.lpszClassName,NULL,WS_VISIBLE|WS_POPUP,0,0,GetSystemMetrics(SM_CXSCREEN),GetSystemMetrics(SM_CYSCREEN),NULL,NULL,window_class.hInstance,NULL);
-  if (window==NULL)
-  {
-   Halt("Can't create window");
-  }
-  SetFocus(window);
- }
-
- bool Engine::process_message()
- {
-  bool run;
-  MSG Message;
-  run=true;
-  while(PeekMessage(&Message,window,0,0,PM_NOREMOVE)==TRUE)
-  {
-   if (GetMessage(&Message,window,0,0)==TRUE)
-   {
-    TranslateMessage(&Message);
-    DispatchMessage(&Message);
-   }
-   else
-   {
-    run=false;
-    break;
-   }
-
-  }
-  return run;
- }
-
- unsigned int Engine::get_width()
- {
-  return GetSystemMetrics(SM_CXSCREEN);
- }
-
- unsigned int Engine::get_height()
- {
-  return GetSystemMetrics(SM_CYSCREEN);
- }
-
- WINGL::WINGL()
- {
-  memset(&setting,0,sizeof(PIXELFORMATDESCRIPTOR));
-  render=NULL;
-  wglSwapIntervalEXT=NULL;
-  setting.nSize=sizeof(PIXELFORMATDESCRIPTOR);
-  setting.nVersion=1;
-  setting.dwFlags=PFD_DRAW_TO_WINDOW|PFD_SUPPORT_OPENGL|PFD_DOUBLEBUFFER;
-  setting.iPixelType=PFD_TYPE_RGBA;
-  setting.iLayerType=PFD_MAIN_PLANE;
-  setting.cAlphaBits=CHAR_BIT;
-  setting.cDepthBits=16;
- }
-
- WINGL::~WINGL()
- {
-  if (render!=NULL)
-  {
-   wglMakeCurrent(NULL,NULL);
-   wglDeleteContext(render);
-   render=NULL;
-  }
-
- }
-
- int WINGL::get_pixel_format()
- {
-  setting.cColorBits=this->get_color();
-  return ChoosePixelFormat(this->get_context(),&setting);
- }
-
- void WINGL::set_pixel_format(const int format)
- {
-  if (format==0)
-  {
-   Halt("Invalid pixel format");
-  }
-  DescribePixelFormat(this->get_context(),format,setting.nSize,&setting);
-  if (SetPixelFormat(this->get_context(),format,&setting)==FALSE)
-  {
-   Halt("Can't set pixel format");
-  }
-
- }
-
- void WINGL::create_render_context()
- {
-  render=wglCreateContext(this->get_context());
-  if (render==NULL)
-  {
-   Halt("Can't create render context");
-  }
-  wglMakeCurrent(this->get_context(),render);
- }
-
- void WINGL::set_render()
- {
-  this->set_pixel_format(this->get_pixel_format());
-  this->create_render_context();
- }
-
- void WINGL::disable_vsync()
- {
-  wglSwapIntervalEXT=reinterpret_cast<PFNWGLSWAPINTERVALEXTPROC>(wglGetProcAddress("wglSwapIntervalEXT"));
-  if (wglSwapIntervalEXT!=NULL)
-  {
-   wglSwapIntervalEXT(0);
-  }
-
- }
-
- void WINGL::Swap()
- {
-  SwapBuffers(this->get_context());
- }
-
- bool WINGL::is_accelerated() const
- {
-  bool accelerated;
-  accelerated=false;
-  if (!(setting.dwFlags&PFD_GENERIC_FORMAT)&&!(setting.dwFlags&PFD_GENERIC_ACCELERATED))
-  {
-   accelerated=true;
+   TranslateMessage(&Message);
+   DispatchMessage(&Message);
   }
   else
   {
-   if ((setting.dwFlags&PFD_GENERIC_FORMAT)&&(setting.dwFlags&PFD_GENERIC_ACCELERATED)) accelerated=true;
-  }
-  return accelerated;
- }
-
- }
-
- namespace Core
- {
-  Unicode_Convertor::Unicode_Convertor()
-  {
-   target=NULL;
-  }
-
- Unicode_Convertor::~Unicode_Convertor()
- {
-  if (target!=NULL)
-  {
-   delete[] target;
-   target=NULL;
+   run=false;
+   break;
   }
 
  }
+ return run;
+}
 
- void Unicode_Convertor::get_memory(const size_t length)
- {
-  try
-  {
-   target=new wchar_t[length+1];
-  }
-  catch (...)
-  {
-   Halt("Can't allocate memory");
-  }
-
- }
-
- void Unicode_Convertor::clear_buffer(const size_t length)
- {
-  size_t index,stop;
-  stop=length+1;
-  for (index=0;index<stop;++index)
-  {
-   target[index]=0;
-  }
-
- }
-
- void Unicode_Convertor::create_buffer(const size_t length)
- {
-  this->get_memory(length);
-  this->clear_buffer(length);
- }
-
- void Unicode_Convertor::convert_string(const char *source)
- {
-  size_t index,length;
-  length=strlen(source);
-  for (index=0;index<length;++index)
-  {
-   target[index]=btowc(source[index]);
-  }
-
- }
-
- wchar_t *Unicode_Convertor::convert(const char *source)
- {
-  this->create_buffer(strlen(source));
-  this->convert_string(source);
-  return target;
- }
-
- Resizer::Resizer()
- {
-  image=NULL;
-  size_limit=0;
-  source_width=0;
-  source_height=0;
-  target_width=1;
-  target_height=1;
- }
-
- Resizer::~Resizer()
- {
-  if (image!=NULL)
-  {
-   delete[] image;
-   image=NULL;
-  }
-
- }
-
- size_t Resizer::get_source_offset(const unsigned int x,const unsigned int y) const
- {
-  return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(source_width);
- }
-
- size_t Resizer::get_target_offset(const unsigned int x,const unsigned int y) const
- {
-  return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(target_width);
- }
-
- void Resizer::resize_image(const unsigned int *target)
- {
-  float x_ratio,y_ratio;
-  unsigned int x,y,steps;
-  size_t index;
-  x=0;
-  y=0;
-  x_ratio=static_cast<float>(source_width)/static_cast<float>(target_width);
-  y_ratio=static_cast<float>(source_height)/static_cast<float>(target_height);
-  for (steps=target_width*target_height;steps>0;--steps)
-  {
-   index=this->get_source_offset(x_ratio*static_cast<float>(x),y_ratio*static_cast<float>(y));
-   image[this->get_target_offset(x,y)]=target[index];
-   ++x;
-   if (x==target_width)
-   {
-    x=0;
-    ++y;
-   }
-
-  }
-
- }
-
- void Resizer::set_setting(const unsigned int width,const unsigned int height,const unsigned int limit)
- {
-  source_width=width;
-  source_height=height;
-  size_limit=limit;
- }
-
- void Resizer::calculate_size()
- {
-  while (target_width<source_width)
-  {
-   target_width*=2;
-  }
-  while (target_height<source_height)
-  {
-   target_height*=2;
-  }
-
- }
-
- void Resizer::correct_size()
- {
-  if (target_width>size_limit)
-  {
-   target_width=size_limit;
-  }
-  if (target_height>size_limit)
-  {
-   target_height=size_limit;
-  }
-
- }
-
- void Resizer::create_buffer()
- {
-  size_t length;
-  length=static_cast<size_t>(target_width)*static_cast<size_t>(target_height);
-  try
-  {
-   image=new unsigned int[length];
-  }
-  catch(...)
-  {
-   Halt("Can't allocate memory for image buffer");
-  }
-  length*=sizeof(unsigned int);
- }
-
- void Resizer::make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit)
- {
-  this->set_setting(width,height,limit);
-  this->calculate_size();
-  this->correct_size();
-  this->create_buffer();
-  this->resize_image(target);
- }
-
- unsigned int Resizer::get_width() const
- {
-  return target_width;
- }
-
- unsigned int Resizer::get_height() const
- {
-  return target_height;
- }
-
- unsigned int *Resizer::get_buffer()
- {
-  return image;
- }
-
- FPS::FPS()
- {
-  start=time(NULL);
-  current=0;
-  fps=0;
- }
-
- FPS::~FPS()
- {
-
- }
-
- void FPS::update_counter()
- {
-  ++current;
-  if (difftime(time(NULL),start)>=1)
-  {
-   fps=current;
-   current=0;
-   start=time(NULL);
-  }
-
- }
-
- unsigned int FPS::get_fps() const
- {
-  return fps;
- }
-
- Shape::Shape()
- {
-  target_width=0;
-  target_height=0;
-  total_width=0;
-  total_height=0;
-  current_x=0;
-  current_y=0;
-  vertex[0].x=0;
-  vertex[0].y=0;
-  vertex[1].x=0;
-  vertex[1].y=0;
-  vertex[2].x=0;
-  vertex[2].y=0;
-  vertex[3].x=0;
-  vertex[3].y=0;
-  point[0].u=0;
-  point[0].v=1;
-  point[1].u=1;
-  point[1].v=1;
-  point[2].u=1;
-  point[2].v=0;
-  point[3].u=0;
-  point[3].v=0;
-  horizontal_mirror=DISABLE_MIRRORING;
-  vertical_mirror=DISABLE_MIRRORING;
- }
-
- Shape::~Shape()
- {
-
- }
-
- float Shape::get_start_offset(const float current,const float total)
- {
-  return (1.0/total)*(current-1);
- }
-
- float Shape::get_end_offset(const float current,const float total)
- {
-  return (1.0/total)*current;
- }
-
- void Shape::reset_data()
- {
-  vertex[0].x=0;
-  vertex[0].y=target_height;
-  vertex[1].x=target_width;
-  vertex[1].y=target_height;
-  vertex[2].x=target_width;
-  vertex[2].y=0;
-  vertex[3].x=0;
-  vertex[3].y=0;
- }
-
- unsigned int Shape::get_total_width() const
- {
-  return total_width;
- }
-
- unsigned int Shape::get_total_height() const
- {
-  return total_height;
- }
-
- void Shape::set_total_size(const unsigned int width,const unsigned int height)
- {
-  total_width=width;
-  total_height=height;
- }
-
- unsigned int Shape::get_x() const
- {
-  return current_x;
- }
-
- unsigned int Shape::get_y() const
- {
-  return current_y;
- }
-
- void Shape::set_size(const unsigned int width,const unsigned int height)
- {
-  target_width=width;
-  target_height=height;
- }
-
- void Shape::set_position(const unsigned int x,const unsigned int y)
- {
-  current_x=x;
-  current_y=y;
- }
-
- void Shape::set_horizontal_offset(const float current,const float total)
+unsigned int Engine::get_width()
 {
-  point[0].u=this->get_start_offset(current,total);
-  point[0].v=1;
-  point[1].u=this->get_end_offset(current,total);
-  point[1].v=1;
-  point[2].u=this->get_end_offset(current,total);
-  point[2].v=0;
-  point[3].u=this->get_start_offset(current,total);
-  point[3].v=0;
+ return GetSystemMetrics(SM_CXSCREEN);
+}
+
+unsigned int Engine::get_height()
+{
+ return GetSystemMetrics(SM_CYSCREEN);
+}
+
+FPS::FPS()
+{
+ start=time(NULL);
+ current=0;
+ fps=0;
+}
+
+FPS::~FPS()
+{
+
+}
+
+void FPS::update_counter()
+{
+ ++current;
+ if (difftime(time(NULL),start)>=1)
+ {
+  fps=current;
+  current=0;
+  start=time(NULL);
  }
 
- void Shape::set_vertical_offset(const float current,const float total)
+}
+
+unsigned int FPS::get_fps() const
+{
+ return fps;
+}
+
+Unicode_Convertor::Unicode_Convertor()
+{
+ target=NULL;
+}
+
+Unicode_Convertor::~Unicode_Convertor()
+{
+ if (target!=NULL)
  {
-  point[0].u=0;
-  point[0].v=this->get_end_offset(current,total);
-  point[1].u=1;
-  point[1].v=this->get_end_offset(current,total);
-  point[2].u=1;
-  point[2].v=this->get_start_offset(current,total);
-  point[3].u=0;
-  point[3].v=this->get_start_offset(current,total);
+  delete[] target;
+  target=NULL;
  }
 
- void Shape::set_tile_offset(const float row,const float rows,const float column,const float columns)
+}
+
+void Unicode_Convertor::get_memory(const size_t length)
+{
+ try
  {
-  point[0].u=this->get_start_offset(row,rows);
-  point[0].v=this->get_end_offset(column,columns);
-  point[1].u=this->get_end_offset(row,rows);
-  point[1].v=this->get_end_offset(column,columns);
-  point[2].u=this->get_end_offset(row,rows);
-  point[2].v=this->get_start_offset(column,columns);
-  point[3].u=this->get_start_offset(row,rows);
-  point[3].v=this->get_start_offset(column,columns);
+  target=new wchar_t[length+1];
+ }
+ catch (...)
+ {
+  Halt("Can't allocate memory");
  }
 
- void Shape::set_mirror_status(const MIRROR_STATUS horizontal,const MIRROR_STATUS vertical)
+}
+
+void Unicode_Convertor::clear_buffer(const size_t length)
+{
+ size_t index,stop;
+ stop=length+1;
+ for (index=0;index<stop;++index)
  {
-  horizontal_mirror=horizontal;
-  vertical_mirror=vertical;
+  target[index]=0;
  }
 
- MIRROR_STATUS Shape::get_horizontal_mirror() const
+}
+
+void Unicode_Convertor::create_buffer(const size_t length)
+{
+ this->get_memory(length);
+ this->clear_buffer(length);
+}
+
+void Unicode_Convertor::convert_string(const char *source)
+{
+ size_t index,length;
+ length=strlen(source);
+ for (index=0;index<length;++index)
  {
-  return horizontal_mirror;
+  target[index]=btowc(source[index]);
  }
 
- MIRROR_STATUS Shape::get_vertical_mirror() const
+}
+
+wchar_t *Unicode_Convertor::convert(const char *source)
+{
+ this->create_buffer(strlen(source));
+ this->convert_string(source);
+ return target;
+}
+
+Display::Display()
+{
+ memset(&display,0,sizeof(DEVMODE));
+ display.dmSize=sizeof(DEVMODE);
+}
+
+Display::~Display()
+{
+ ChangeDisplaySettingsEx(NULL,NULL,NULL,0,NULL);
+}
+
+void Display::set_video_mode()
+{
+ if (ChangeDisplaySettingsEx(NULL,&display,NULL,CDS_FULLSCREEN,NULL)!=DISP_CHANGE_SUCCESSFUL)
  {
-  return vertical_mirror;
+  Halt("Can't change video mode");
  }
 
- Rectangle::Rectangle()
+}
+
+void Display::get_video_mode()
+{
+ if (EnumDisplaySettingsEx(NULL,ENUM_CURRENT_SETTINGS,&display,EDS_RAWMODE)==FALSE)
  {
+  Halt("Can't get display setting");
+ }
+
+}
+
+void Display::check_video_mode()
+{
+ this->get_video_mode();
+ if (display.dmBitsPerPel<16)
+ {
+  display.dmBitsPerPel=16;
+  this->set_video_mode();
+ }
+
+}
+
+void Display::set_setting(const unsigned long int width,const unsigned long int height)
+{
+ if (display.dmBitsPerPel<16) display.dmBitsPerPel=16;
+ display.dmPelsWidth=width;
+ display.dmPelsHeight=height;
+}
+
+void Display::set_resolution(const unsigned long int width,const unsigned long int height)
+{
+ this->get_video_mode();
+ this->set_setting(width,height);
+ this->set_video_mode();
+}
+
+unsigned long int Display::get_color() const
+{
+ return display.dmBitsPerPel;
+}
+
+WINGL::WINGL()
+{
+ memset(&setting,0,sizeof(PIXELFORMATDESCRIPTOR));
+ render=NULL;
+ wglSwapIntervalEXT=NULL;
+ setting.nSize=sizeof(PIXELFORMATDESCRIPTOR);
+ setting.nVersion=1;
+ setting.dwFlags=PFD_DRAW_TO_WINDOW|PFD_SUPPORT_OPENGL|PFD_DOUBLEBUFFER;
+ setting.iPixelType=PFD_TYPE_RGBA;
+ setting.iLayerType=PFD_MAIN_PLANE;
+ setting.cAlphaBits=CHAR_BIT;
+ setting.cDepthBits=16;
+}
+
+WINGL::~WINGL()
+{
+ if (render!=NULL)
+ {
+  wglMakeCurrent(NULL,NULL);
+  wglDeleteContext(render);
+  render=NULL;
+ }
+
+}
+
+int WINGL::get_pixel_format()
+{
+ setting.cColorBits=this->get_color();
+ return ChoosePixelFormat(this->get_context(),&setting);
+}
+
+void WINGL::set_pixel_format(const int format)
+{
+ if (format==0)
+ {
+  Halt("Invalid pixel format");
+ }
+ DescribePixelFormat(this->get_context(),format,setting.nSize,&setting);
+ if (SetPixelFormat(this->get_context(),format,&setting)==FALSE)
+ {
+  Halt("Can't set pixel format");
+ }
+
+}
+
+void WINGL::create_render_context()
+{
+ render=wglCreateContext(this->get_context());
+ if (render==NULL)
+ {
+  Halt("Can't create render context");
+ }
+ wglMakeCurrent(this->get_context(),render);
+}
+
+void WINGL::set_render()
+{
+ this->set_pixel_format(this->get_pixel_format());
+ this->create_render_context();
+}
+
+void WINGL::disable_vsync()
+{
+ wglSwapIntervalEXT=reinterpret_cast<PFNWGLSWAPINTERVALEXTPROC>(wglGetProcAddress("wglSwapIntervalEXT"));
+ if (wglSwapIntervalEXT!=NULL)
+ {
+  wglSwapIntervalEXT(0);
+ }
+
+}
+
+void WINGL::Swap()
+{
+ SwapBuffers(this->get_context());
+}
+
+bool WINGL::is_accelerated() const
+{
+ bool accelerated;
+ accelerated=false;
+ if (!(setting.dwFlags&PFD_GENERIC_FORMAT)&&!(setting.dwFlags&PFD_GENERIC_ACCELERATED))
+ {
+  accelerated=true;
+ }
+ else
+ {
+  if ((setting.dwFlags&PFD_GENERIC_FORMAT)&&(setting.dwFlags&PFD_GENERIC_ACCELERATED)) accelerated=true;
+ }
+ return accelerated;
+}
+
+Render::Render()
+{
+
+}
+
+Render::~Render()
+{
+
+}
+
+unsigned int Render::get_maximum_texture_size() const
+{
+ int maximum_size;
+ glGetIntegerv(GL_MAX_TEXTURE_SIZE,&maximum_size);
+ return maximum_size;
+}
+
+void Render::set_perfomance_setting()
+{
+ glDisable(GL_POINT_SMOOTH);
+ glDisable(GL_LINE_SMOOTH);
+ glDisable(GL_POLYGON_SMOOTH);
+ glDisable(GL_DITHER);
+ glDisable(GL_LOGIC_OP);
+ glDisable(GL_FOG);
+ glDisable(GL_STENCIL_TEST);
+ glDisable(GL_SCISSOR_TEST);
+ glDisable(GL_LIGHTING);
+ glDisable(GL_NORMALIZE);
+ glDisable(GL_AUTO_NORMAL);
+ glDisable(GL_COLOR_MATERIAL);
+ glDisable(GL_TEXTURE_GEN_Q);
+ glDisable(GL_TEXTURE_GEN_R);
+ glDisable(GL_TEXTURE_GEN_S);
+ glDisable(GL_TEXTURE_GEN_T);
+ glDisable(GL_TEXTURE_1D);
+ glEnable(GL_DEPTH_TEST);
+ glEnable(GL_CULL_FACE);
+ glEnable(GL_TEXTURE_2D);
+ glEnableClientState(GL_VERTEX_ARRAY);
+ glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+ glDisableClientState(GL_COLOR_ARRAY);
+ glDisableClientState(GL_EDGE_FLAG_ARRAY);
+ glDisableClientState(GL_INDEX_ARRAY);
+ glDisableClientState(GL_NORMAL_ARRAY);
+}
+
+void Render::set_render_hints()
+{
+ glHint(GL_LINE_SMOOTH_HINT,GL_FASTEST);
+ glHint(GL_POINT_SMOOTH_HINT,GL_FASTEST);
+ glHint(GL_POLYGON_SMOOTH_HINT,GL_NICEST);
+ glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_NICEST);
+}
+
+void Render::set_common_setting()
+{
+ glDepthFunc(GL_ALWAYS);
+ glDepthMask(GL_TRUE);
+ glFrontFace(GL_CCW);
+ glCullFace(GL_BACK);
+}
+
+void Render::set_perspective(const unsigned int width,const unsigned int height)
+{
+ glMatrixMode(GL_PROJECTION);
+ glLoadIdentity();
+ glOrtho(0,width,height,0,0,1);
+ glMatrixMode(GL_MODELVIEW);
+ glLoadIdentity();
+ glViewport(0,0,width,height);
+}
+
+void Render::create_render(const unsigned int width,const unsigned int height)
+{
+ this->set_perfomance_setting();
+ this->set_render_hints();
+ this->set_common_setting();
+ this->set_perspective(width,height);
+ MAXIMUM_TEXTURE_SIZE=this->get_maximum_texture_size();
+}
+
+void Render::clear_stage()
+{
+ glClearColor(0,0,0,0);
+ glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+}
+
+void Render::start_render(const unsigned int width,const unsigned int height)
+{
+ this->create_render(width,height);
+ this->clear_stage();
+}
+
+Resizer::Resizer()
+{
+ image=NULL;
+ size_limit=0;
+ source_width=0;
+ source_height=0;
+ target_width=1;
+ target_height=1;
+}
+
+Resizer::~Resizer()
+{
+ if (image!=NULL)
+ {
+  delete[] image;
+  image=NULL;
+ }
+
+}
+
+size_t Resizer::get_source_offset(const unsigned int x,const unsigned int y) const
+{
+ return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(source_width);
+}
+
+size_t Resizer::get_target_offset(const unsigned int x,const unsigned int y) const
+{
+ return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(target_width);
+}
+
+void Resizer::resize_image(const unsigned int *target)
+{
+ float x_ratio,y_ratio;
+ unsigned int x,y,steps;
+ size_t index;
+ x=0;
+ y=0;
+ x_ratio=static_cast<float>(source_width)/static_cast<float>(target_width);
+ y_ratio=static_cast<float>(source_height)/static_cast<float>(target_height);
+ for (steps=target_width*target_height;steps>0;--steps)
+ {
+  index=this->get_source_offset(x_ratio*static_cast<float>(x),y_ratio*static_cast<float>(y));
+  image[this->get_target_offset(x,y)]=target[index];
+  ++x;
+  if (x==target_width)
+  {
+   x=0;
+   ++y;
+  }
+
+ }
+
+}
+
+void Resizer::set_setting(const unsigned int width,const unsigned int height,const unsigned int limit)
+{
+ source_width=width;
+ source_height=height;
+ size_limit=limit;
+}
+
+void Resizer::calculate_size()
+{
+ while (target_width<source_width)
+ {
+  target_width*=2;
+ }
+ while (target_height<source_height)
+ {
+  target_height*=2;
+ }
+
+}
+
+void Resizer::correct_size()
+{
+ if (target_width>size_limit)
+ {
+  target_width=size_limit;
+ }
+ if (target_height>size_limit)
+ {
+  target_height=size_limit;
+ }
+
+}
+
+void Resizer::create_buffer()
+{
+ size_t length;
+ length=static_cast<size_t>(target_width)*static_cast<size_t>(target_height);
+ try
+ {
+  image=new unsigned int[length];
+ }
+ catch(...)
+ {
+  Halt("Can't allocate memory for image buffer");
+ }
+ length*=sizeof(unsigned int);
+}
+
+void Resizer::make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit)
+{
+ this->set_setting(width,height,limit);
+ this->calculate_size();
+ this->correct_size();
+ this->create_buffer();
+ this->resize_image(target);
+}
+
+unsigned int Resizer::get_width() const
+{
+ return target_width;
+}
+
+unsigned int Resizer::get_height() const
+{
+ return target_height;
+}
+
+unsigned int *Resizer::get_buffer()
+{
+ return image;
+}
+
+Shape::Shape()
+{
+ target_width=0;
+ target_height=0;
+ total_width=0;
+ total_height=0;
+ current_x=0;
+ current_y=0;
+ vertex[0].x=0;
+ vertex[0].y=0;
+ vertex[1].x=0;
+ vertex[1].y=0;
+ vertex[2].x=0;
+ vertex[2].y=0;
+ vertex[3].x=0;
+ vertex[3].y=0;
+ point[0].u=0;
+ point[0].v=1;
+ point[1].u=1;
+ point[1].v=1;
+ point[2].u=1;
+ point[2].v=0;
+ point[3].u=0;
+ point[3].v=0;
+ horizontal_mirror=DISABLE_MIRRORING;
+ vertical_mirror=DISABLE_MIRRORING;
+}
+
+Shape::~Shape()
+{
+
+}
+
+float Shape::get_start_offset(const float current,const float total)
+{
+ return (1.0/total)*(current-1);
+}
+
+float Shape::get_end_offset(const float current,const float total)
+{
+ return (1.0/total)*current;
+}
+
+void Shape::reset_data()
+{
+ vertex[0].x=0;
+ vertex[0].y=target_height;
+ vertex[1].x=target_width;
+ vertex[1].y=target_height;
+ vertex[2].x=target_width;
+ vertex[2].y=0;
+ vertex[3].x=0;
+ vertex[3].y=0;
+}
+
+unsigned int Shape::get_total_width() const
+{
+ return total_width;
+}
+
+unsigned int Shape::get_total_height() const
+{
+ return total_height;
+}
+
+void Shape::set_total_size(const unsigned int width,const unsigned int height)
+{
+ total_width=width;
+ total_height=height;
+}
+
+unsigned int Shape::get_x() const
+{
+ return current_x;
+}
+
+unsigned int Shape::get_y() const
+{
+ return current_y;
+}
+
+void Shape::set_size(const unsigned int width,const unsigned int height)
+{
+ target_width=width;
+ target_height=height;
+}
+
+void Shape::set_position(const unsigned int x,const unsigned int y)
+{
+ current_x=x;
+ current_y=y;
+}
+
+void Shape::set_horizontal_offset(const float current,const float total)
+{
+ point[0].u=this->get_start_offset(current,total);
+ point[0].v=1;
+ point[1].u=this->get_end_offset(current,total);
+ point[1].v=1;
+ point[2].u=this->get_end_offset(current,total);
+ point[2].v=0;
+ point[3].u=this->get_start_offset(current,total);
+ point[3].v=0;
+}
+
+void Shape::set_vertical_offset(const float current,const float total)
+{
+ point[0].u=0;
+ point[0].v=this->get_end_offset(current,total);
+ point[1].u=1;
+ point[1].v=this->get_end_offset(current,total);
+ point[2].u=1;
+ point[2].v=this->get_start_offset(current,total);
+ point[3].u=0;
+ point[3].v=this->get_start_offset(current,total);
+}
+
+void Shape::set_tile_offset(const float row,const float rows,const float column,const float columns)
+{
+ point[0].u=this->get_start_offset(row,rows);
+ point[0].v=this->get_end_offset(column,columns);
+ point[1].u=this->get_end_offset(row,rows);
+ point[1].v=this->get_end_offset(column,columns);
+ point[2].u=this->get_end_offset(row,rows);
+ point[2].v=this->get_start_offset(column,columns);
+ point[3].u=this->get_start_offset(row,rows);
+ point[3].v=this->get_start_offset(column,columns);
+}
+
+void Shape::set_mirror_status(const MIRROR_STATUS horizontal,const MIRROR_STATUS vertical)
+{
+ horizontal_mirror=horizontal;
+ vertical_mirror=vertical;
+}
+
+MIRROR_STATUS Shape::get_horizontal_mirror() const
+{
+ return horizontal_mirror;
+}
+
+MIRROR_STATUS Shape::get_vertical_mirror() const
+{
+ return vertical_mirror;
+}
+
+Rectangle::Rectangle()
+{
+ texture=0;
+}
+
+Rectangle::~Rectangle()
+{
+ if (texture!=0)
+ {
+  glBindTexture(GL_TEXTURE_2D,0);
+  glDeleteTextures(1,&texture);
   texture=0;
  }
 
- Rectangle::~Rectangle()
- {
-  if (texture!=0)
-  {
-   glBindTexture(GL_TEXTURE_2D,0);
-   glDeleteTextures(1,&texture);
-   texture=0;
-  }
+}
 
+void Rectangle::create_texture(const unsigned int *buffer)
+{
+ Resizer resizer;
+ resizer.make_texture(buffer,this->get_total_width(),this->get_total_height(),MAXIMUM_TEXTURE_SIZE);
+ glPixelStorei(GL_UNPACK_ALIGNMENT,1);
+ glGenTextures(1,&texture);
+ glBindTexture(GL_TEXTURE_2D,texture);
+ glTexEnvi(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,GL_REPLACE);
+ glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+ glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+ glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,resizer.get_width(),resizer.get_height(),0,GL_BGRA_EXT,GL_UNSIGNED_BYTE,resizer.get_buffer());
+}
+
+void Rectangle::delete_texture()
+{
+ if (texture!=0)
+ {
+  glBindTexture(GL_TEXTURE_2D,0);
+  glDeleteTextures(1,&texture);
+  texture=0;
  }
 
- void Rectangle::create_texture(const unsigned int *buffer)
+}
+
+void Rectangle::check_texture()
+{
+ if (glGetError()!=GL_NO_ERROR)
  {
-  Resizer resizer;
-  resizer.make_texture(buffer,this->get_total_width(),this->get_total_height(),MAXIMUM_TEXTURE_SIZE);
-  glPixelStorei(GL_UNPACK_ALIGNMENT,1);
-  glGenTextures(1,&texture);
-  glBindTexture(GL_TEXTURE_2D,texture);
-  glTexEnvi(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,GL_REPLACE);
-  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
-  glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
-  glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,resizer.get_width(),resizer.get_height(),0,GL_BGRA_EXT,GL_UNSIGNED_BYTE,resizer.get_buffer());
+  Halt("Can't create the target texture");
  }
 
- void Rectangle::delete_texture()
- {
-  if (texture!=0)
-  {
-   glBindTexture(GL_TEXTURE_2D,0);
-   glDeleteTextures(1,&texture);
-   texture=0;
-  }
+}
 
- }
+void Rectangle::load_data()
+{
+ glVertexPointer(2,GL_INT,0,vertex);
+ glTexCoordPointer(2,GL_FLOAT,0,point);
+}
 
- void Rectangle::check_texture()
- {
-  if (glGetError()!=GL_NO_ERROR)
-  {
-   Halt("Can't create the target texture");
-  }
+void Rectangle::draw_rectangle()
+{
+ glBindTexture(GL_TEXTURE_2D,texture);
+ glDrawArrays(GL_TRIANGLE_FAN,0,4);
+}
 
- }
+void Rectangle::reset_model_setting()
+{
+ glMatrixMode(GL_TEXTURE);
+ glLoadIdentity();
+ glMatrixMode(GL_MODELVIEW);
+ glLoadIdentity();
+}
 
- void Rectangle::load_data()
- {
-  glVertexPointer(2,GL_INT,0,vertex);
-  glTexCoordPointer(2,GL_FLOAT,0,point);
- }
+void Rectangle::set_model_setting()
+{
+ glMatrixMode(GL_MODELVIEW);
+ glTranslatef(this->get_x(),this->get_y(),0);
+ glMatrixMode(GL_TEXTURE);
+ glScalef(this->get_horizontal_mirror(),this->get_vertical_mirror(),0);
+}
 
- void Rectangle::draw_rectangle()
- {
-  glBindTexture(GL_TEXTURE_2D,texture);
-  glDrawArrays(GL_TRIANGLE_FAN,0,4);
- }
+void Rectangle::enable_transparent()
+{
+ glEnable(GL_ALPHA_TEST);
+ glEnable(GL_BLEND);
+ glAlphaFunc(GL_GREATER,0.1);
+ glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+}
 
- void Rectangle::reset_model_setting()
- {
-  glMatrixMode(GL_TEXTURE);
-  glLoadIdentity();
-  glMatrixMode(GL_MODELVIEW);
-  glLoadIdentity();
- }
+void Rectangle::disable_transparent()
+{
+ glDisable(GL_ALPHA_TEST);
+ glDisable(GL_BLEND);
+}
 
- void Rectangle::set_model_setting()
- {
-  glMatrixMode(GL_MODELVIEW);
-  glTranslatef(this->get_x(),this->get_y(),0);
-  glMatrixMode(GL_TEXTURE);
-  glScalef(this->get_horizontal_mirror(),this->get_vertical_mirror(),0);
- }
-
- void Rectangle::enable_transparent()
- {
-  glEnable(GL_ALPHA_TEST);
-  glEnable(GL_BLEND);
-  glAlphaFunc(GL_GREATER,0.1);
-  glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
- }
-
- void Rectangle::disable_transparent()
- {
-  glDisable(GL_ALPHA_TEST);
-  glDisable(GL_BLEND);
- }
-
- void Rectangle::prepare(const unsigned int *buffer)
- {
-  if (buffer!=NULL)
-  {
-   this->delete_texture();
-   this->create_texture(buffer);
-   this->check_texture();
-  }
-
- }
-
- void Rectangle::draw()
- {
-  if (texture!=0)
-  {
-   this->reset_data();
-   this->load_data();
-   this->reset_model_setting();
-   this->set_model_setting();
-   this->draw_rectangle();
-  }
-
- }
-
- void Rectangle::destroy_texture()
+void Rectangle::prepare(const unsigned int *buffer)
+{
+ if (buffer!=NULL)
  {
   this->delete_texture();
+  this->create_texture(buffer);
+  this->check_texture();
  }
 
- bool Rectangle::is_texture_exist() const
+}
+
+void Rectangle::draw()
+{
+ if (texture!=0)
  {
-  return texture!=0;
+  this->reset_data();
+  this->load_data();
+  this->reset_model_setting();
+  this->set_model_setting();
+  this->draw_rectangle();
  }
 
- Render::Render()
+}
+
+void Rectangle::destroy_texture()
+{
+ this->delete_texture();
+}
+
+bool Rectangle::is_texture_exist() const
+{
+ return texture!=0;
+}
+
+Screen::Screen()
+{
+ ready=false;
+}
+
+Screen::~Screen()
+{
+
+}
+
+void Screen::screen_setup()
+{
+ this->prepare_engine();
+ this->set_render();
+ this->disable_vsync();
+ this->start_render(this->get_width(),this->get_height());
+ this->create_timer();
+ this->set_timer(17);
+}
+
+void Screen::clear_screen()
+{
+ if (ready==true)
  {
-
- }
-
- Render::~Render()
- {
-
- }
-
- unsigned int Render::get_maximum_texture_size() const
- {
-  int maximum_size;
-  glGetIntegerv(GL_MAX_TEXTURE_SIZE,&maximum_size);
-  return maximum_size;
- }
-
- void Render::set_perfomance_setting()
- {
-  glDisable(GL_POINT_SMOOTH);
-  glDisable(GL_LINE_SMOOTH);
-  glDisable(GL_POLYGON_SMOOTH);
-  glDisable(GL_DITHER);
-  glDisable(GL_LOGIC_OP);
-  glDisable(GL_FOG);
-  glDisable(GL_STENCIL_TEST);
-  glDisable(GL_SCISSOR_TEST);
-  glDisable(GL_LIGHTING);
-  glDisable(GL_NORMALIZE);
-  glDisable(GL_AUTO_NORMAL);
-  glDisable(GL_COLOR_MATERIAL);
-  glDisable(GL_TEXTURE_GEN_Q);
-  glDisable(GL_TEXTURE_GEN_R);
-  glDisable(GL_TEXTURE_GEN_S);
-  glDisable(GL_TEXTURE_GEN_T);
-  glDisable(GL_TEXTURE_1D);
-  glEnable(GL_DEPTH_TEST);
-  glEnable(GL_CULL_FACE);
-  glEnable(GL_TEXTURE_2D);
-  glEnableClientState(GL_VERTEX_ARRAY);
-  glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-  glDisableClientState(GL_COLOR_ARRAY);
-  glDisableClientState(GL_EDGE_FLAG_ARRAY);
-  glDisableClientState(GL_INDEX_ARRAY);
-  glDisableClientState(GL_NORMAL_ARRAY);
- }
-
- void Render::set_render_hints()
- {
-  glHint(GL_LINE_SMOOTH_HINT,GL_FASTEST);
-  glHint(GL_POINT_SMOOTH_HINT,GL_FASTEST);
-  glHint(GL_POLYGON_SMOOTH_HINT,GL_NICEST);
-  glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_NICEST);
- }
-
- void Render::set_common_setting()
- {
-  glDepthFunc(GL_ALWAYS);
-  glDepthMask(GL_TRUE);
-  glFrontFace(GL_CCW);
-  glCullFace(GL_BACK);
- }
-
- void Render::set_perspective()
- {
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  glOrtho(0,this->get_width(),this->get_height(),0,0,1);
-  glMatrixMode(GL_MODELVIEW);
-  glLoadIdentity();
-  glViewport(0,0,this->get_width(),this->get_height());
- }
-
- void Render::create_render()
- {
-  this->set_render();
-  this->set_perfomance_setting();
-  this->set_render_hints();
-  this->set_common_setting();
-  this->set_perspective();
-  this->disable_vsync();
-  MAXIMUM_TEXTURE_SIZE=this->get_maximum_texture_size();
- }
-
- void Render::clear_stage()
- {
-  glClearColor(0,0,0,0);
-  glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
- }
-
- void Render::start_render()
- {
-  this->create_window();
-  this->take_context();
-  this->create_render();
   this->clear_stage();
  }
 
- void Render::refresh()
+}
+
+void Screen::initialize()
+{
+ if (ready==false)
+ {
+  this->check_video_mode();
+  this->screen_setup();
+  ready=true;
+ }
+
+}
+
+void Screen::initialize(const unsigned int width,const unsigned int height)
+{
+ if (ready==false)
+ {
+  this->set_resolution(width,height);
+  this->screen_setup();
+  ready=true;
+ }
+
+}
+
+bool Screen::update()
+{
+ if (ready==true)
  {
   this->Swap();
+  this->update_counter();
+  this->clear_stage();
  }
+ return this->process_message();
+}
 
+bool Screen::sync()
+{
+ if (ready==true)
+ {
+  this->wait_timer();
+  this->Swap();
+  this->update_counter();
+  this->clear_stage();
  }
+ return this->process_message();
+}
 
- namespace Input
+Screen* Screen::get_handle()
+{
+ return this;
+}
+
+Keyboard::Keyboard()
+{
+ preversion=NULL;
+}
+
+Keyboard::~Keyboard()
+{
+ if (preversion!=NULL)
  {
-  Keyboard::Keyboard()
- {
+  delete[] preversion;
   preversion=NULL;
  }
 
- Keyboard::~Keyboard()
- {
-  if (preversion!=NULL)
-  {
-   delete[] preversion;
-   preversion=NULL;
-  }
+}
 
+void Keyboard::create_buffer()
+{
+ try
+ {
+  preversion=new unsigned char[KEYBOARD];
+ }
+ catch (...)
+ {
+  Halt("Can't allocate memory for keyboard state buffer");
  }
 
- void Keyboard::create_buffer()
- {
-  try
-  {
-   preversion=new unsigned char[KEYBOARD];
-  }
-  catch (...)
-  {
-   Halt("Can't allocate memory for keyboard state buffer");
-  }
+}
 
+void Keyboard::clear_buffer()
+{
+ size_t index;
+ for (index=0;index<KEYBOARD;++index)
+ {
+  preversion[index]=KEY_RELEASE;
  }
 
- void Keyboard::clear_buffer()
- {
-  size_t index;
-  for (index=0;index<KEYBOARD;++index)
-  {
-   preversion[index]=KEY_RELEASE;
-  }
+}
 
+bool Keyboard::check_state(const unsigned char code,const unsigned char state)
+{
+ bool result;
+ result=false;
+ if (Keys[code]==state)
+ {
+  if (preversion[code]!=state) result=true;
+ }
+ preversion[code]=Keys[code];
+ return result;
+}
+
+void Keyboard::initialize()
+{
+ if (preversion==NULL)
+ {
+  this->create_buffer();
+ }
+ if (preversion!=NULL)
+ {
+  this->clear_buffer();
  }
 
- bool Keyboard::check_state(const unsigned char code,const unsigned char state)
- {
-  bool result;
-  result=false;
-  if (Keys[code]==state)
-  {
-   if (preversion[code]!=state) result=true;
-  }
-  preversion[code]=Keys[code];
-  return result;
- }
+}
 
- void Keyboard::initialize()
- {
-  if (preversion==NULL)
-  {
-   this->create_buffer();
-  }
-  if (preversion!=NULL)
-  {
-   this->clear_buffer();
-  }
+bool Keyboard::check_hold(const unsigned char code)
+{
+ preversion[code]=Keys[code];
+ return Keys[code]==KEY_PRESS;
+}
 
- }
+bool Keyboard::check_press(const unsigned char code)
+{
+ return this->check_state(code,KEY_PRESS);
+}
 
- bool Keyboard::check_hold(const unsigned char code)
- {
-  preversion[code]=Keys[code];
-  return Keys[code]==KEY_PRESS;
- }
+bool Keyboard::check_release(const unsigned char code)
+{
+ return this->check_state(code,KEY_RELEASE);
+}
 
- bool Keyboard::check_press(const unsigned char code)
- {
-  return this->check_state(code,KEY_PRESS);
- }
+Mouse::Mouse()
+{
+ preversion[MOUSE_LEFT]=KEY_RELEASE;
+ preversion[MOUSE_RIGHT]=KEY_RELEASE;
+ preversion[MOUSE_MIDDLE]=KEY_RELEASE;
+ position.x=0;
+ position.y=0;
+}
 
- bool Keyboard::check_release(const unsigned char code)
- {
-  return this->check_state(code,KEY_RELEASE);
- }
+Mouse::~Mouse()
+{
+ while(ShowCursor(TRUE)<1) ;
+}
 
- Mouse::Mouse()
+void Mouse::get_position()
+{
+ if (GetCursorPos(&position)==FALSE)
  {
-  preversion[MOUSE_LEFT]=KEY_RELEASE;
-  preversion[MOUSE_RIGHT]=KEY_RELEASE;
-  preversion[MOUSE_MIDDLE]=KEY_RELEASE;
   position.x=0;
   position.y=0;
  }
 
- Mouse::~Mouse()
+}
+
+bool Mouse::check_state(const MOUSE_BUTTON button,const unsigned char state)
+{
+ bool result;
+ result=false;
+ if (Buttons[button]==state)
  {
-  while(ShowCursor(TRUE)<1) ;
+  if (preversion[button]!=state) result=true;
+ }
+ preversion[button]=Buttons[button];
+ return result;
+}
+
+void Mouse::show()
+{
+ while(ShowCursor(TRUE)<1) ;
+}
+
+void Mouse::hide()
+{
+ while(ShowCursor(FALSE)>-2) ;
+}
+
+void Mouse::set_position(const unsigned int x,const unsigned int y)
+{
+ if (SetCursorPos(x,y)==FALSE)
+ {
+  position.x=0;
+  position.y=0;
  }
 
- void Mouse::get_position()
+}
+
+unsigned int Mouse::get_x()
+{
+ this->get_position();
+ return position.x;
+}
+
+unsigned int Mouse::get_y()
+{
+ this->get_position();
+ return position.y;
+}
+
+bool Mouse::check_hold(const MOUSE_BUTTON button)
+{
+ preversion[button]=Buttons[button];
+ return Buttons[button]==KEY_PRESS;
+}
+
+bool Mouse::check_press(const MOUSE_BUTTON button)
+{
+ return this->check_state(button,KEY_PRESS);
+}
+
+bool Mouse::check_release(const MOUSE_BUTTON button)
+{
+ return this->check_state(button,KEY_RELEASE);
+}
+
+Gamepad::Gamepad()
+{
+ active=0;
+ memset(&configuration,0,sizeof(JOYCAPS));
+ memset(&current,0,sizeof(JOYINFOEX));
+ current.dwSize=sizeof(JOYINFOEX);
+ current.dwFlags=JOY_RETURNALL;
+ current.dwPOV=JOY_POVCENTERED;
+ preversion=current;
+}
+
+Gamepad::~Gamepad()
+{
+
+}
+
+bool Gamepad::read_configuration()
+{
+ return joyGetDevCaps(static_cast<size_t>(active),&configuration,sizeof(JOYCAPS))==JOYERR_NOERROR;
+}
+
+bool Gamepad::read_state()
+{
+ return joyGetPosEx(active,&current)==JOYERR_NOERROR;
+}
+
+void Gamepad::clear_state()
+{
+ memset(&configuration,0,sizeof(JOYCAPS));
+ memset(&current,0,sizeof(JOYINFOEX));
+ current.dwSize=sizeof(JOYINFOEX);
+ current.dwFlags=JOY_RETURNALL;
+ current.dwPOV=JOY_POVCENTERED;
+ preversion=current;
+}
+
+bool Gamepad::check_button(const GAMEPAD_BUTTONS button,const JOYINFOEX &target)
+{
+ bool result;
+ result=false;
+ if (target.dwButtons&button) result=true;
+ return result;
+}
+
+unsigned int Gamepad::get_amount()
+{
+ return joyGetNumDevs();
+}
+
+unsigned int Gamepad::get_button_amount()
+{
+ unsigned int result;
+ result=0;
+ if (this->read_configuration()==true) result=configuration.wNumButtons;
+ return result;
+}
+
+unsigned int Gamepad::get_last_index()
+{
+ unsigned int last_index;
+ last_index=this->get_amount();
+ if (last_index>0) --last_index;
+ return last_index;
+}
+
+bool Gamepad::check_connection()
+{
+ return this->read_state();
+}
+
+void Gamepad::update()
+{
+ preversion=current;
+ if (this->read_state()==false) this->clear_state();
+}
+
+unsigned long int Gamepad::get_sticks_amount()
+{
+ unsigned long int result;
+ result=0;
+ if (this->read_configuration()==true)
  {
-  if (GetCursorPos(&position)==FALSE)
+  if (configuration.wNumAxes>1) result=configuration.wNumAxes/2;
+ }
+ return result;
+}
+
+void Gamepad::set_active(const unsigned int gamepad)
+{
+ if (gamepad<this->get_amount())
+ {
+  this->clear_state();
+  active=gamepad;
+ }
+
+}
+
+unsigned int Gamepad::get_max_amount() const
+{
+ return 16;
+}
+
+unsigned int Gamepad::get_active() const
+{
+ return active;
+}
+
+GAMEPAD_DPAD Gamepad::get_dpad() const
+{
+ GAMEPAD_DPAD result;
+ result=GAMEPAD_NONE;
+ switch (current.dwPOV)
+ {
+  case JOY_POVFORWARD:
+  result=GAMEPAD_UP;
+  break;
+  case JOY_POVBACKWARD:
+  result=GAMEPAD_DOWN;
+  break;
+  case JOY_POVLEFT:
+  result=GAMEPAD_LEFT;
+  break;
+  case JOY_POVRIGHT:
+  result=GAMEPAD_RIGHT;
+  break;
+  case JOYSTICK_UPLEFT:
+  result=GAMEPAD_UPLEFT;
+  break;
+  case JOYSTICK_UPRIGHT:
+  result=GAMEPAD_UPRIGHT;
+  break;
+  case JOYSTICK_DOWNLEFT:
+  result=GAMEPAD_DOWNLEFT;
+  break;
+  case JOYSTICK_DOWNRIGHT:
+  result=GAMEPAD_DOWNRIGHT;
+  break;
+ }
+ return result;
+}
+
+GAMEPAD_DIRECTION Gamepad::get_stick_x(const GAMEPAD_STICKS stick)
+{
+ GAMEPAD_DIRECTION result;
+ unsigned long int control;
+ result=GAMEPAD_NEUTRAL_DIRECTION;
+ if (stick==GAMEPAD_LEFT_STICK)
+ {
+  if (this->get_sticks_amount()>0)
   {
-   position.x=0;
-   position.y=0;
+   control=(configuration.wXmax-configuration.wXmin)/2;
+   if (current.dwXpos<control) result=GAMEPAD_NEGATIVE_DIRECTION;
+   if (current.dwXpos>control) result=GAMEPAD_POSITIVE_DIRECTION;
   }
 
  }
-
- bool Mouse::check_state(const MOUSE_BUTTON button,const unsigned char state)
+ if (stick==GAMEPAD_RIGHT_STICK)
  {
-  bool result;
-  result=false;
-  if (Buttons[button]==state)
+  if (this->get_sticks_amount()>1)
   {
-   if (preversion[button]!=state) result=true;
-  }
-  preversion[button]=Buttons[button];
-  return result;
- }
-
- void Mouse::show()
- {
-  while(ShowCursor(TRUE)<1) ;
- }
-
- void Mouse::hide()
- {
-  while(ShowCursor(FALSE)>-2) ;
- }
-
- void Mouse::set_position(const unsigned int x,const unsigned int y)
- {
-  if (SetCursorPos(x,y)==FALSE)
-  {
-   position.x=0;
-   position.y=0;
+   control=(configuration.wZmax-configuration.wZmin)/2;
+   if (current.dwZpos<control) result=GAMEPAD_NEGATIVE_DIRECTION;
+   if (current.dwZpos>control) result=GAMEPAD_POSITIVE_DIRECTION;
   }
 
  }
+ return result;
+}
 
- unsigned int Mouse::get_x()
+GAMEPAD_DIRECTION Gamepad::get_stick_y(const GAMEPAD_STICKS stick)
+{
+ GAMEPAD_DIRECTION result;
+ unsigned long int control;
+ result=GAMEPAD_NEUTRAL_DIRECTION;
+ if (stick==GAMEPAD_LEFT_STICK)
  {
-  this->get_position();
-  return position.x;
- }
-
- unsigned int Mouse::get_y()
- {
-  this->get_position();
-  return position.y;
- }
-
- bool Mouse::check_hold(const MOUSE_BUTTON button)
- {
-  preversion[button]=Buttons[button];
-  return Buttons[button]==KEY_PRESS;
- }
-
- bool Mouse::check_press(const MOUSE_BUTTON button)
- {
-  return this->check_state(button,KEY_PRESS);
- }
-
- bool Mouse::check_release(const MOUSE_BUTTON button)
- {
-  return this->check_state(button,KEY_RELEASE);
- }
-
- Gamepad::Gamepad()
- {
-  active=0;
-  memset(&configuration,0,sizeof(JOYCAPS));
-  memset(&current,0,sizeof(JOYINFOEX));
-  current.dwSize=sizeof(JOYINFOEX);
-  current.dwFlags=JOY_RETURNALL;
-  current.dwPOV=JOY_POVCENTERED;
-  preversion=current;
- }
-
- Gamepad::~Gamepad()
- {
-
- }
-
- bool Gamepad::read_configuration()
- {
-  return joyGetDevCaps(static_cast<size_t>(active),&configuration,sizeof(JOYCAPS))==JOYERR_NOERROR;
- }
-
- bool Gamepad::read_state()
- {
-  return joyGetPosEx(active,&current)==JOYERR_NOERROR;
- }
-
- void Gamepad::clear_state()
- {
-  memset(&configuration,0,sizeof(JOYCAPS));
-  memset(&current,0,sizeof(JOYINFOEX));
-  current.dwSize=sizeof(JOYINFOEX);
-  current.dwFlags=JOY_RETURNALL;
-  current.dwPOV=JOY_POVCENTERED;
-  preversion=current;
- }
-
- bool Gamepad::check_button(const GAMEPAD_BUTTONS button,const JOYINFOEX &target)
- {
-  bool result;
-  result=false;
-  if (target.dwButtons&button) result=true;
-  return result;
- }
-
- unsigned int Gamepad::get_amount()
- {
-  return joyGetNumDevs();
- }
-
- unsigned int Gamepad::get_button_amount()
- {
-  unsigned int result;
-  result=0;
-  if (this->read_configuration()==true) result=configuration.wNumButtons;
-  return result;
- }
-
- unsigned int Gamepad::get_last_index()
- {
-  unsigned int last_index;
-  last_index=this->get_amount();
-  if (last_index>0) --last_index;
-  return last_index;
- }
-
- bool Gamepad::check_connection()
- {
-  return this->read_state();
- }
-
- void Gamepad::update()
- {
-  preversion=current;
-  if (this->read_state()==false) this->clear_state();
- }
-
- unsigned long int Gamepad::get_sticks_amount()
- {
-  unsigned long int result;
-  result=0;
-  if (this->read_configuration()==true)
+  if (this->get_sticks_amount()>0)
   {
-   if (configuration.wNumAxes>1) result=configuration.wNumAxes/2;
-  }
-  return result;
- }
-
- void Gamepad::set_active(const unsigned int gamepad)
- {
-  if (gamepad<this->get_amount())
-  {
-   this->clear_state();
-   active=gamepad;
+   control=(configuration.wYmax-configuration.wYmin)/2;
+   if (current.dwYpos<control) result=GAMEPAD_NEGATIVE_DIRECTION;
+   if (current.dwYpos>control) result=GAMEPAD_POSITIVE_DIRECTION;
   }
 
  }
-
- unsigned int Gamepad::get_max_amount() const
+ if (stick==GAMEPAD_RIGHT_STICK)
  {
-  return 16;
- }
-
- unsigned int Gamepad::get_active() const
- {
-  return active;
- }
-
- GAMEPAD_DPAD Gamepad::get_dpad() const
- {
-  GAMEPAD_DPAD result;
-  result=GAMEPAD_NONE;
-  switch (current.dwPOV)
+  if (this->get_sticks_amount()>1)
   {
-   case JOY_POVFORWARD:
-   result=GAMEPAD_UP;
-   break;
-   case JOY_POVBACKWARD:
-   result=GAMEPAD_DOWN;
-   break;
-   case JOY_POVLEFT:
-   result=GAMEPAD_LEFT;
-   break;
-   case JOY_POVRIGHT:
-   result=GAMEPAD_RIGHT;
-   break;
-   case JOYSTICK_UPLEFT:
-   result=GAMEPAD_UPLEFT;
-   break;
-   case JOYSTICK_UPRIGHT:
-   result=GAMEPAD_UPRIGHT;
-   break;
-   case JOYSTICK_DOWNLEFT:
-   result=GAMEPAD_DOWNLEFT;
-   break;
-   case JOYSTICK_DOWNRIGHT:
-   result=GAMEPAD_DOWNRIGHT;
-   break;
+   control=(configuration.wRmax-configuration.wRmin)/2;
+   if (current.dwRpos<control) result=GAMEPAD_NEGATIVE_DIRECTION;
+   if (current.dwRpos>control) result=GAMEPAD_POSITIVE_DIRECTION;
   }
-  return result;
- }
-
- GAMEPAD_DIRECTION Gamepad::get_stick_x(const GAMEPAD_STICKS stick)
- {
-  GAMEPAD_DIRECTION result;
-  unsigned long int control;
-  result=GAMEPAD_NEUTRAL_DIRECTION;
-  if (stick==GAMEPAD_LEFT_STICK)
-  {
-   if (this->get_sticks_amount()>0)
-   {
-    control=(configuration.wXmax-configuration.wXmin)/2;
-    if (current.dwXpos<control) result=GAMEPAD_NEGATIVE_DIRECTION;
-    if (current.dwXpos>control) result=GAMEPAD_POSITIVE_DIRECTION;
-   }
-
-  }
-  if (stick==GAMEPAD_RIGHT_STICK)
-  {
-   if (this->get_sticks_amount()>1)
-   {
-    control=(configuration.wZmax-configuration.wZmin)/2;
-    if (current.dwZpos<control) result=GAMEPAD_NEGATIVE_DIRECTION;
-    if (current.dwZpos>control) result=GAMEPAD_POSITIVE_DIRECTION;
-   }
-
-  }
-  return result;
- }
-
- GAMEPAD_DIRECTION Gamepad::get_stick_y(const GAMEPAD_STICKS stick)
- {
-  GAMEPAD_DIRECTION result;
-  unsigned long int control;
-  result=GAMEPAD_NEUTRAL_DIRECTION;
-  if (stick==GAMEPAD_LEFT_STICK)
-  {
-   if (this->get_sticks_amount()>0)
-   {
-    control=(configuration.wYmax-configuration.wYmin)/2;
-    if (current.dwYpos<control) result=GAMEPAD_NEGATIVE_DIRECTION;
-    if (current.dwYpos>control) result=GAMEPAD_POSITIVE_DIRECTION;
-   }
-
-  }
-  if (stick==GAMEPAD_RIGHT_STICK)
-  {
-   if (this->get_sticks_amount()>1)
-   {
-    control=(configuration.wRmax-configuration.wRmin)/2;
-    if (current.dwRpos<control) result=GAMEPAD_NEGATIVE_DIRECTION;
-    if (current.dwRpos>control) result=GAMEPAD_POSITIVE_DIRECTION;
-   }
-
-  }
-  return result;
- }
-
- bool Gamepad::check_hold(const GAMEPAD_BUTTONS button)
- {
-  return this->check_button(button,current);
- }
-
- bool Gamepad::check_press(const GAMEPAD_BUTTONS button)
- {
-  return (this->check_button(button,current)==true) && (this->check_button(button,preversion)==false);
- }
-
- bool Gamepad::check_release(const GAMEPAD_BUTTONS button)
- {
-  return (this->check_button(button,current)==false) && (this->check_button(button,preversion)==true);
- }
 
  }
+ return result;
+}
 
- namespace Misc
+bool Gamepad::check_hold(const GAMEPAD_BUTTONS button)
+{
+ return this->check_button(button,current);
+}
+
+bool Gamepad::check_press(const GAMEPAD_BUTTONS button)
+{
+ return (this->check_button(button,current)==true) && (this->check_button(button,preversion)==false);
+}
+
+bool Gamepad::check_release(const GAMEPAD_BUTTONS button)
+{
+ return (this->check_button(button,current)==false) && (this->check_button(button,preversion)==true);
+}
+
+Multimedia::Multimedia()
+{
+ loader=NULL;
+ player=NULL;
+ controler=NULL;
+ video=NULL;
+}
+
+Multimedia::~Multimedia()
+{
+ if (player!=NULL)
  {
-  Multimedia::Multimedia()
- {
-  loader=NULL;
+  player->StopWhenReady();
+  player->Release();
   player=NULL;
-  controler=NULL;
+ }
+ if (video!=NULL)
+ {
+  video->Release();
   video=NULL;
  }
-
- Multimedia::~Multimedia()
+ if (controler!=NULL)
  {
-  if (player!=NULL)
+  controler->Release();
+  controler=NULL;
+ }
+ if (loader!=NULL)
+ {
+  loader->Release();
+  loader=NULL;
+ }
+
+}
+
+void Multimedia::set_screen_mode()
+{
+ if (video!=NULL)
+ {
+  video->put_FullScreenMode(OATRUE);
+ }
+
+}
+
+void Multimedia::load_content(const wchar_t *target)
+{
+ if (loader!=NULL)
+ {
+  loader->RenderFile(target,NULL);
+ }
+
+}
+
+void Multimedia::open(const wchar_t *target)
+{
+ this->load_content(target);
+ this->set_screen_mode();
+}
+
+bool Multimedia::is_play()
+{
+ long long current,total;
+ current=0;
+ total=0;
+ if (controler!=NULL)
+ {
+  if (controler->GetPositions(&current,&total)!=S_OK)
   {
-   player->StopWhenReady();
-   player->Release();
-   player=NULL;
+   current=0;
+   total=0;
   }
-  if (video!=NULL)
+
+ }
+ return current<total;
+}
+
+void Multimedia::rewind()
+{
+ long long position;
+ position=0;
+ if (controler!=NULL)
+ {
+  controler->SetPositions(&position,AM_SEEKING_AbsolutePositioning,NULL,AM_SEEKING_NoPositioning);
+ }
+
+}
+
+void Multimedia::play_content()
+{
+ if (player!=NULL)
+ {
+  player->Run();
+ }
+
+}
+
+void Multimedia::create_loader()
+{
+ if (loader==NULL)
+ {
+  if (CoCreateInstance(CLSID_FilterGraph,NULL,CLSCTX_INPROC_SERVER,IID_IGraphBuilder,reinterpret_cast<void**>(&loader))!=S_OK)
   {
-   video->Release();
-   video=NULL;
-  }
-  if (controler!=NULL)
-  {
-   controler->Release();
-   controler=NULL;
-  }
-  if (loader!=NULL)
-  {
-   loader->Release();
    loader=NULL;
+   Halt("Can't create a multimedia loader");
   }
 
  }
 
- void Multimedia::set_screen_mode()
+}
+
+void Multimedia::create_player()
+{
+ if (player==NULL)
  {
-  if (video!=NULL)
+  if (loader->QueryInterface(IID_IMediaControl,reinterpret_cast<void**>(&player))!=S_OK)
   {
-   video->put_FullScreenMode(OATRUE);
+   player=NULL;
+   Halt("Can't create a multimedia player");
   }
 
  }
 
- void Multimedia::load_content(const wchar_t *target)
+}
+
+void Multimedia::create_controler()
+{
+ if (controler==NULL)
  {
-  if (loader!=NULL)
+  if (loader->QueryInterface(IID_IMediaSeeking,reinterpret_cast<void**>(&controler))!=S_OK)
   {
-   loader->RenderFile(target,NULL);
+   controler=NULL;
+   Halt("Can't create a player controler");
   }
 
  }
 
- void Multimedia::open(const wchar_t *target)
- {
-  this->load_content(target);
-  this->set_screen_mode();
- }
+}
 
- bool Multimedia::is_play()
+void Multimedia::create_video_player()
+{
+ if (video==NULL)
  {
-  long long current,total;
-  current=0;
-  total=0;
-  if (controler!=NULL)
+  if (loader->QueryInterface(IID_IVideoWindow,reinterpret_cast<void**>(&video))!=S_OK)
   {
-   if (controler->GetPositions(&current,&total)!=S_OK)
-   {
-    current=0;
-    total=0;
-   }
-
+   video=NULL;
+   Halt("Can't create a video player");
   }
-  return current<total;
+
  }
 
- void Multimedia::rewind()
+}
+
+void Multimedia::initialize()
+{
+ this->create_loader();
+ this->create_player();
+ this->create_controler();
+ this->create_video_player();
+}
+
+bool Multimedia::check_playing()
+{
+ OAFilterState state;
+ bool result;
+ result=false;
+ if (player!=NULL)
  {
-  long long position;
-  position=0;
-  if (controler!=NULL)
+  if (player->GetState(INFINITE,&state)!=E_FAIL)
   {
-   controler->SetPositions(&position,AM_SEEKING_AbsolutePositioning,NULL,AM_SEEKING_NoPositioning);
+   if (state==State_Running) result=this->is_play();
   }
 
  }
+ return result;
+}
 
- void Multimedia::play_content()
+void Multimedia::stop()
+{
+ if (player!=NULL)
  {
-  if (player!=NULL)
-  {
-   player->Run();
-  }
-
+  player->StopWhenReady();
  }
 
- void Multimedia::create_loader()
- {
-  if (loader==NULL)
-  {
-   if (CoCreateInstance(CLSID_FilterGraph,NULL,CLSCTX_INPROC_SERVER,IID_IGraphBuilder,reinterpret_cast<void**>(&loader))!=S_OK)
-   {
-    loader=NULL;
-    Halt("Can't create a multimedia loader");
-   }
+}
 
-  }
+void Multimedia::play()
+{
+ this->stop();
+ this->rewind();
+ this->play_content();
+}
 
- }
+void Multimedia::load(const char *target)
+{
+ Unicode_Convertor convertor;
+ this->stop();
+ this->open(convertor.convert(target));
+}
 
- void Multimedia::create_player()
- {
-  if (player==NULL)
-  {
-   if (loader->QueryInterface(IID_IMediaControl,reinterpret_cast<void**>(&player))!=S_OK)
-   {
-    player=NULL;
-    Halt("Can't create a multimedia player");
-   }
+void Multimedia::initialize(const char *target)
+{
+ this->initialize();
+ this->load(target);
+}
 
-  }
+Memory::Memory()
+{
+ memset(&memory,0,sizeof(MEMORYSTATUSEX));
+ memory.dwLength=sizeof(MEMORYSTATUSEX);
+}
 
- }
+Memory::~Memory()
+{
 
- void Multimedia::create_controler()
- {
-  if (controler==NULL)
-  {
-   if (loader->QueryInterface(IID_IMediaSeeking,reinterpret_cast<void**>(&controler))!=S_OK)
-   {
-    controler=NULL;
-    Halt("Can't create a player controler");
-   }
+}
 
-  }
-
- }
-
- void Multimedia::create_video_player()
- {
-  if (video==NULL)
-  {
-   if (loader->QueryInterface(IID_IVideoWindow,reinterpret_cast<void**>(&video))!=S_OK)
-   {
-    video=NULL;
-    Halt("Can't create a video player");
-   }
-
-  }
-
- }
-
- void Multimedia::initialize()
- {
-  this->create_loader();
-  this->create_player();
-  this->create_controler();
-  this->create_video_player();
- }
-
- bool Multimedia::check_playing()
- {
-  OAFilterState state;
-  bool result;
-  result=false;
-  if (player!=NULL)
-  {
-   if (player->GetState(INFINITE,&state)!=E_FAIL)
-   {
-    if (state==State_Running) result=this->is_play();
-   }
-
-  }
-  return result;
- }
-
- void Multimedia::stop()
- {
-  if (player!=NULL)
-  {
-   player->StopWhenReady();
-  }
-
- }
-
- void Multimedia::play()
- {
-  this->stop();
-  this->rewind();
-  this->play_content();
- }
-
- void Multimedia::load(const char *target)
- {
-  Core::Unicode_Convertor convertor;
-  this->stop();
-  this->open(convertor.convert(target));
- }
-
- void Multimedia::initialize(const char *target)
- {
-  this->initialize();
-  this->load(target);
- }
-
- Memory::Memory()
+void Memory::get_status()
+{
+ if (GlobalMemoryStatusEx(&memory)==FALSE)
  {
   memset(&memory,0,sizeof(MEMORYSTATUSEX));
   memory.dwLength=sizeof(MEMORYSTATUSEX);
  }
 
- Memory::~Memory()
- {
+}
 
+unsigned long long int Memory::get_total_physical()
+{
+ this->get_status();
+ return memory.ullTotalPhys;
+}
+
+unsigned long long int Memory::get_free_physical()
+{
+ this->get_status();
+ return memory.ullAvailPhys;
+}
+
+unsigned long long int Memory::get_total_virtual()
+{
+ this->get_status();
+ return memory.ullTotalVirtual;
+}
+
+unsigned long long int Memory::get_free_virtual()
+{
+ this->get_status();
+ return memory.ullAvailVirtual;
+}
+
+unsigned long int Memory::get_usage()
+{
+ this->get_status();
+ return memory.dwMemoryLoad;
+}
+
+System::System()
+{
+ srand(UINT_MAX);
+}
+
+System::~System()
+{
+
+}
+
+unsigned int System::get_random(const unsigned int number)
+{
+ return rand()%number;
+}
+
+void System::quit()
+{
+ exit(EXIT_SUCCESS);
+}
+
+void System::run(const char *command)
+{
+ system(command);
+}
+
+char* System::read_environment(const char *variable)
+{
+ return getenv(variable);
+}
+
+void System::enable_logging(const char *name)
+{
+ if (freopen(name,"wt",stdout)==NULL)
+ {
+  Halt("Can't create log file");
  }
 
- void Memory::get_status()
- {
-  if (GlobalMemoryStatusEx(&memory)==FALSE)
-  {
-   memset(&memory,0,sizeof(MEMORYSTATUSEX));
-   memory.dwLength=sizeof(MEMORYSTATUSEX);
-  }
+}
 
+Filesystem::Filesystem()
+{
+
+}
+
+Filesystem::~Filesystem()
+{
+
+}
+
+bool Filesystem::file_exist(const char *name)
+{
+ FILE *target;
+ bool exist;
+ exist=false;
+ target=fopen(name,"rb");
+ if (target!=NULL)
+ {
+  exist=true;
+  fclose(target);
  }
+ return exist;
+}
 
- unsigned long long int Memory::get_total_physical()
- {
-  this->get_status();
-  return memory.ullTotalPhys;
- }
+bool Filesystem::delete_file(const char *name)
+{
+ return remove(name)==0;
+}
 
- unsigned long long int Memory::get_free_physical()
- {
-  this->get_status();
-  return memory.ullAvailPhys;
- }
+Binary_File::Binary_File()
+{
+ target=NULL;
+}
 
- unsigned long long int Memory::get_total_virtual()
+Binary_File::~Binary_File()
+{
+ if (target!=NULL)
  {
-  this->get_status();
-  return memory.ullTotalVirtual;
- }
-
- unsigned long long int Memory::get_free_virtual()
- {
-  this->get_status();
-  return memory.ullAvailVirtual;
- }
-
- unsigned long int Memory::get_usage()
- {
-  this->get_status();
-  return memory.dwMemoryLoad;
- }
-
- }
-
- namespace File
- {
-  Binary_File::Binary_File()
- {
+  fclose(target);
   target=NULL;
  }
 
- Binary_File::~Binary_File()
+}
+
+void Binary_File::close()
+{
+ if (target!=NULL)
  {
-  if (target!=NULL)
+  fclose(target);
+  target=NULL;
+ }
+
+}
+
+void Binary_File::set_position(const long int offset)
+{
+ if (target!=NULL)
+ {
+  fseek(target,offset,SEEK_SET);
+ }
+
+}
+
+long int Binary_File::get_position()
+{
+ long int position;
+ position=0;
+ if (target!=NULL)
+ {
+  position=ftell(target);
+ }
+ return position;
+}
+
+long int Binary_File::get_length()
+{
+ long int length;
+ length=0;
+ if (target!=NULL)
+ {
+  fseek(target,0,SEEK_END);
+  length=ftell(target);
+  rewind(target);
+ }
+ return length;
+}
+
+bool Binary_File::check_error()
+{
+ int error;
+ error=-1;
+ if (target!=NULL)
+ {
+  error=ferror(target);
+ }
+ return error!=0;
+}
+
+bool Binary_File::is_open() const
+{
+ return target!=NULL;
+}
+
+Input_File::Input_File()
+{
+
+}
+
+Input_File::~Input_File()
+{
+
+}
+
+void Input_File::open(const char *name)
+{
+ this->close();
+ target=fopen(name,"rb");
+}
+
+void Input_File::read(void *buffer,const size_t length)
+{
+ if (target!=NULL)
+ {
+  if (buffer!=NULL)
   {
-   fclose(target);
-   target=NULL;
+   fread(buffer,sizeof(char),length,target);
   }
 
  }
 
- void Binary_File::close()
+}
+
+Output_File::Output_File()
+{
+
+}
+
+Output_File::~Output_File()
+{
+
+}
+
+void Output_File::open(const char *name)
+{
+ this->close();
+ target=fopen(name,"wb");
+}
+
+void Output_File::create_temp()
+{
+ this->close();
+ target=tmpfile();
+}
+
+void Output_File::write(void *buffer,const size_t length)
+{
+ if (target!=NULL)
  {
-  if (target!=NULL)
+  if (buffer!=NULL)
   {
-   fclose(target);
-   target=NULL;
+   fwrite(buffer,sizeof(char),length,target);
   }
 
  }
 
- void Binary_File::set_position(const long int offset)
- {
-  if (target!=NULL)
-  {
-   fseek(target,offset,SEEK_SET);
-  }
+}
 
+void Output_File::flush()
+{
+ if (target!=NULL)
+ {
+  fflush(target);
  }
 
- long int Binary_File::get_position()
+}
+
+Image::Image()
+{
+ width=0;
+ height=0;
+ data=NULL;
+}
+
+Image::~Image()
+{
+ if (data!=NULL)
  {
-  long int position;
-  position=0;
-  if (target!=NULL)
-  {
-   position=ftell(target);
-  }
-  return position;
- }
-
- long int Binary_File::get_length()
- {
-  long int length;
-  length=0;
-  if (target!=NULL)
-  {
-   fseek(target,0,SEEK_END);
-   length=ftell(target);
-   rewind(target);
-  }
-  return length;
- }
-
- bool Binary_File::check_error()
- {
-  int error;
-  error=-1;
-  if (target!=NULL)
-  {
-   error=ferror(target);
-  }
-  return error!=0;
- }
-
- bool Binary_File::is_open() const
- {
-  return target!=NULL;
- }
-
- Input_File::Input_File()
- {
-
- }
-
- Input_File::~Input_File()
- {
-
- }
-
- void Input_File::open(const char *name)
- {
-  this->close();
-  target=fopen(name,"rb");
- }
-
- void Input_File::read(void *buffer,const size_t length)
- {
-  if (target!=NULL)
-  {
-   if (buffer!=NULL)
-   {
-    fread(buffer,sizeof(char),length,target);
-   }
-
-  }
-
- }
-
- Output_File::Output_File()
- {
-
- }
-
- Output_File::~Output_File()
- {
-
- }
-
- void Output_File::open(const char *name)
- {
-  this->close();
-  target=fopen(name,"wb");
- }
-
- void Output_File::create_temp()
- {
-  this->close();
-  target=tmpfile();
- }
-
- void Output_File::write(void *buffer,const size_t length)
- {
-  if (target!=NULL)
-  {
-   if (buffer!=NULL)
-   {
-    fwrite(buffer,sizeof(char),length,target);
-   }
-
-  }
-
- }
-
- void Output_File::flush()
- {
-  if (target!=NULL)
-  {
-   fflush(target);
-  }
-
- }
-
- }
-
- namespace Graphics
- {
-  Screen::Screen()
- {
-  ready=false;
- }
-
- Screen::~Screen()
- {
-
- }
-
- void Screen::screen_setup()
- {
-  this->prepare_engine();
-  this->start_render();
-  this->create_timer();
-  this->set_timer(17);
- }
-
- void Screen::clear_screen()
- {
-  if (ready==true)
-  {
-   this->clear_stage();
-  }
-
- }
-
- void Screen::initialize()
- {
-  if (ready==false)
-  {
-   this->check_video_mode();
-   this->screen_setup();
-   ready=true;
-  }
-
- }
-
- void Screen::initialize(const unsigned int width,const unsigned int height)
- {
-  if (ready==false)
-  {
-   this->set_resolution(width,height);
-   this->screen_setup();
-   ready=true;
-  }
-
- }
-
- bool Screen::update()
- {
-  if (ready==true)
-  {
-   this->refresh();
-   this->update_counter();
-   this->clear_stage();
-  }
-  return this->process_message();
- }
-
- bool Screen::sync()
- {
-  if (ready==true)
-  {
-   this->wait_timer();
-   this->refresh();
-   this->update_counter();
-   this->clear_stage();
-  }
-  return this->process_message();
- }
-
- Screen* Screen::get_handle()
- {
-  return this;
- }
-
-  Image::Image()
- {
+  delete[] data;
   width=0;
   height=0;
   data=NULL;
  }
 
- Image::~Image()
- {
-  if (data!=NULL)
-  {
-   delete[] data;
-   width=0;
-   height=0;
-   data=NULL;
-  }
+}
 
+unsigned char *Image::create_buffer(const size_t length)
+{
+ unsigned char *result;
+ result=NULL;
+ try
+ {
+  result=new unsigned char[length];
+ }
+ catch (...)
+ {
+  Halt("Can't allocate memory for image buffer");
+ }
+ return result;
+}
+
+void Image::copy_data(const unsigned char *target,const size_t location,const size_t position,const size_t amount)
+{
+ size_t index;
+ for (index=0;index<amount;++index)
+ {
+  data[location+index]=target[position+index];
  }
 
- unsigned char *Image::create_buffer(const size_t length)
- {
-  unsigned char *result;
-  result=NULL;
-  try
-  {
-   result=new unsigned char[length];
-  }
-  catch (...)
-  {
-   Halt("Can't allocate memory for image buffer");
-  }
-  return result;
- }
+}
 
- void Image::copy_data(const unsigned char *target,const size_t location,const size_t position,const size_t amount)
+void Image::uncompress_tga_data(const unsigned char *target,const size_t length)
+{
+ size_t index,position,amount;
+ index=0;
+ position=0;
+ amount=0;
+ while (index<length)
  {
-  size_t index;
-  for (index=0;index<amount;++index)
+  if (target[position]<128)
   {
-   data[location+index]=target[position+index];
+   amount=target[position]+1;
+   amount*=sizeof(unsigned int);
+   this->copy_data(target,index,position+1,amount);
+   index+=amount;
+   position+=1+amount;
   }
-
- }
-
- void Image::uncompress_tga_data(const unsigned char *target,const size_t length)
- {
-  size_t index,position,amount;
-  index=0;
-  position=0;
-  amount=0;
-  while (index<length)
+  else
   {
-   if (target[position]<128)
+   for (amount=target[position]-127;amount>0;--amount)
    {
-    amount=target[position]+1;
-    amount*=sizeof(unsigned int);
-    this->copy_data(target,index,position+1,amount);
-    index+=amount;
-    position+=1+amount;
+    this->copy_data(target,index,position+1,sizeof(unsigned int));
+    index+=sizeof(unsigned int);
    }
-   else
-   {
-    for (amount=target[position]-127;amount>0;--amount)
-    {
-     this->copy_data(target,index,position+1,sizeof(unsigned int));
-     index+=sizeof(unsigned int);
-    }
-    position+=1+sizeof(unsigned int);
-   }
-
+   position+=1+sizeof(unsigned int);
   }
 
  }
 
- void Image::load_tga(File::Input_File &target)
+}
+
+void Image::load_tga(Input_File &target)
+{
+ size_t compressed_length,uncompressed_length;
+ unsigned char *compressed;
+ TGA_head head;
+ TGA_map color_map;
+ TGA_image image;
+ compressed_length=0;
+ uncompressed_length=0;
+ compressed=NULL;
+ compressed_length=static_cast<size_t>(target.get_length()-18);
+ target.read(&head,3);
+ target.read(&color_map,5);
+ target.read(&image,10);
+ if (image.color!=32)
  {
-  size_t compressed_length,uncompressed_length;
-  unsigned char *compressed;
-  TGA_head head;
-  TGA_map color_map;
-  TGA_image image;
-  compressed_length=0;
-  uncompressed_length=0;
+  Halt("Invalid image format");
+ }
+ width=image.width;
+ height=image.height;
+ uncompressed_length=this->get_length();
+ data=this->create_buffer(uncompressed_length);
+ switch (head.type)
+ {
+  case 2:
+  target.read(data,uncompressed_length);
+  break;
+  case 10:
+  compressed=this->create_buffer(compressed_length);
+  target.read(compressed,compressed_length);
+  this->uncompress_tga_data(compressed,uncompressed_length);
+  delete[] compressed;
   compressed=NULL;
-  compressed_length=static_cast<size_t>(target.get_length()-18);
-  target.read(&head,3);
-  target.read(&color_map,5);
-  target.read(&image,10);
-  if (image.color!=32)
-  {
-   Halt("Invalid image format");
-  }
-  width=image.width;
-  height=image.height;
-  uncompressed_length=this->get_length();
-  data=this->create_buffer(uncompressed_length);
-  switch (head.type)
-  {
-   case 2:
-   target.read(data,uncompressed_length);
-   break;
-   case 10:
-   compressed=this->create_buffer(compressed_length);
-   target.read(compressed,compressed_length);
-   this->uncompress_tga_data(compressed,uncompressed_length);
-   delete[] compressed;
-   compressed=NULL;
-   break;
-   default:
-   Halt("Invalid image format");
-   break;
-  }
-
+  break;
+  default:
+  Halt("Invalid image format");
+  break;
  }
 
- unsigned int Image::get_width() const
+}
+
+unsigned int Image::get_width() const
+{
+ return width;
+}
+
+unsigned int Image::get_height() const
+{
+ return height;
+}
+
+size_t Image::get_length() const
+{
+ return static_cast<size_t>(width)*static_cast<size_t>(height)*sizeof(unsigned int);
+}
+
+unsigned char *Image::get_data()
+{
+ return data;
+}
+
+void Image::destroy_image()
+{
+  if (data!=NULL)
  {
-  return width;
+  delete[] data;
+  width=0;
+  height=0;
+  data=NULL;
  }
 
- unsigned int Image::get_height() const
+}
+
+void Image::load_tga(const char *name)
+{
+ Input_File target;
+ this->destroy_image();
+ target.open(name);
+ if (target.is_open()==true)
  {
-  return height;
+  this->load_tga(target);
+  target.close();
  }
 
- size_t Image::get_length() const
+}
+
+Picture::Picture()
+{
+ image_width=0;
+ image_height=0;
+ length=0;
+ image=NULL;
+}
+
+Picture::~Picture()
+{
+ if (image!=NULL)
  {
-  return static_cast<size_t>(width)*static_cast<size_t>(height)*sizeof(unsigned int);
- }
-
- unsigned char *Image::get_data()
- {
-  return data;
- }
-
- void Image::destroy_image()
- {
-   if (data!=NULL)
-  {
-   delete[] data;
-   width=0;
-   height=0;
-   data=NULL;
-  }
-
- }
-
- void Image::load_tga(const char *name)
- {
-  File::Input_File target;
-  this->destroy_image();
-  target.open(name);
-  if (target.is_open()==true)
-  {
-   this->load_tga(target);
-   target.close();
-  }
-
- }
-
- Picture::Picture()
- {
+  delete[] image;
   image_width=0;
   image_height=0;
   length=0;
   image=NULL;
  }
 
- Picture::~Picture()
- {
-  if (image!=NULL)
-  {
-   delete[] image;
-   image_width=0;
-   image_height=0;
-   length=0;
-   image=NULL;
-  }
-
- }
-
- void Picture::set_image_size(const unsigned int width,const unsigned int height)
- {
-  image_width=width;
-  image_height=height;
- }
-
- unsigned int *Picture::create_buffer()
- {
-  unsigned int *result;
-  result=NULL;
-  length=static_cast<size_t>(image_width)*static_cast<size_t>(image_height);
-  try
-  {
-   result=new unsigned int[length];
-  }
-  catch(...)
-  {
-   Halt("Can't allocate memory for image buffer");
-  }
-  length*=sizeof(unsigned int);
-  return result;
- }
-
- void Picture::set_buffer(unsigned int *buffer)
- {
-  image=buffer;
- }
-
- void Picture::copy_image(const unsigned int *target)
- {
-  size_t index,pixels;
-  pixels=length/sizeof(unsigned int);
-  for (index=0;index<pixels;++index)
-  {
-   image[index]=target[index];
-  }
-
- }
-
- unsigned int *Picture::get_buffer()
- {
-  return image;
- }
-
- size_t Picture::get_length() const
- {
-  return length;
- }
-
- unsigned int *Picture::get_image()
- {
-  return image;
- }
-
- void Picture::destroy_image()
- {
-  if (image!=NULL)
-  {
-   delete[] image;
-   image_width=0;
-   image_height=0;
-   length=0;
-   image=NULL;
-  }
-
- }
-
- void Picture::load_image(Image &buffer)
- {
-  this->destroy_image();
-  if (buffer.get_length()>0)
-  {
-   this->set_image_size(buffer.get_width(),buffer.get_height());
-   this->set_buffer(this->create_buffer());
-   memcpy(this->get_buffer(),buffer.get_data(),buffer.get_length());
-  }
-
- }
-
- bool Picture::is_storage_empty() const
- {
-  return length==0;
- }
-
- unsigned int Picture::get_image_width() const
- {
-  return image_width;
- }
-
- unsigned int Picture::get_image_height() const
- {
-  return image_height;
- }
-
- Animation::Animation()
- {
-  frame=1;
-  frames=1;
- }
-
- Animation::~Animation()
- {
-
- }
-
- void Animation::reset_animation_setting()
- {
-  frame=1;
-  frames=1;
- }
-
- void Animation::increase_frame()
- {
-  ++frame;
-  if (frame>frames)
-  {
-   frame=1;
-  }
-
- }
-
- void Animation::set_frame(const unsigned int target)
- {
-  if (target>0)
-  {
-   if (target<=frames) frame=target;
-  }
-
- }
-
- void Animation::set_frames(const unsigned int amount)
- {
-  if (amount>1) frames=amount;
- }
-
- unsigned int Animation::get_frames() const
- {
-  return frames;
- }
-
- unsigned int Animation::get_frame() const
- {
-  return frame;
- }
-
- Background::Background()
- {
-  target.set_size(0,0);
-  current_kind=NORMAL_BACKGROUND;
- }
-
- Background::~Background()
- {
-
- }
-
- void Background::reset_background_setting()
- {
-  current_kind=NORMAL_BACKGROUND;
- }
-
- void Background::configure_background()
- {
-  switch(current_kind)
-  {
-   case NORMAL_BACKGROUND:
-   target.set_horizontal_offset(1,1);
-   break;
-   case HORIZONTAL_BACKGROUND:
-   target.set_horizontal_offset(this->get_frame(),this->get_frames());
-   break;
-   case VERTICAL_BACKGROUND:
-   target.set_vertical_offset(this->get_frame(),this->get_frames());
-   break;
-  }
-
- }
-
- void Background::set_kind(const BACKGROUND_TYPE kind)
- {
-  current_kind=kind;
-  this->configure_background();
- }
-
- void Background::prepare(const unsigned int screen_width,const unsigned int screen_height)
- {
-  target.set_size(screen_width,screen_height);
-  target.set_total_size(this->get_image_width(),this->get_image_height());
-  target.prepare(this->get_buffer());
-  target.set_position(0,0);
- }
-
- void Background::prepare(Screen *screen)
- {
-  if (screen!=NULL)
-  {
-   this->prepare(screen->get_width(),screen->get_height());
-  }
-
- }
-
- void Background::prepare(Screen &screen)
- {
-  this->prepare(screen.get_handle());
- }
-
- void Background::set_setting(const BACKGROUND_TYPE kind,const unsigned int frames)
- {
-  if (kind!=NORMAL_BACKGROUND)
-  {
-   this->set_frames(frames);
-  }
-  else
-  {
-   this->reset_animation_setting();
-  }
-  this->set_kind(kind);
- }
-
- void Background::load_background(Image &buffer,const BACKGROUND_TYPE kind,const unsigned int frames)
- {
-  this->load_image(buffer);
-  if (this->is_storage_empty()==false)
-  {
-   this->set_setting(kind,frames);
-  }
-
- }
-
- void Background::set_target(const unsigned int target)
- {
-  this->set_frame(target);
-  this->configure_background();
- }
-
- void Background::step()
- {
-  this->increase_frame();
-  this->configure_background();
- }
-
- void Background::horizontal_mirror()
- {
-  if (target.get_horizontal_mirror()==DISABLE_MIRRORING)
-  {
-   target.set_mirror_status(ENABLE_MIRRORING,target.get_vertical_mirror());
-  }
-  else
-  {
-   target.set_mirror_status(DISABLE_MIRRORING,target.get_vertical_mirror());
-  }
-
- }
-
- void Background::vertical_mirror()
- {
-  if (target.get_vertical_mirror()==DISABLE_MIRRORING)
-  {
-   target.set_mirror_status(target.get_horizontal_mirror(),ENABLE_MIRRORING);
-  }
-  else
-  {
-   target.set_mirror_status(target.get_horizontal_mirror(),DISABLE_MIRRORING);
-  }
-
- }
-
- void Background::complex_mirror()
- {
-  this->horizontal_mirror();
-  this->vertical_mirror();
- }
-
- void Background::draw_background()
- {
-  target.disable_transparent();
-  target.draw();
- }
-
- void Background::destroy_background()
- {
-  target.destroy_texture();
-  this->destroy_image();
-  this->reset_animation_setting();
-  this->reset_background_setting();
- }
-
- BACKGROUND_TYPE Background::get_kind() const
- {
-  return current_kind;
- }
-
- Sprite::Sprite()
- {
-  transparent=true;
-  current_x=0;
-  current_y=0;
-  sprite_width=0;
-  sprite_height=0;
-  current_kind=SINGLE_SPRITE;
- }
-
- Sprite::~Sprite()
- {
-
- }
-
- void Sprite::reset_sprite_setting()
- {
-  transparent=true;
-  current_x=0;
-  current_y=0;
-  sprite_width=0;
-  sprite_height=0;
-  current_kind=SINGLE_SPRITE;
- }
-
- void Sprite::check_transparent()
- {
-  if (transparent==true)
-  {
-   target.enable_transparent();
-  }
-  else
-  {
-   target.disable_transparent();
-  }
-
- }
-
- void Sprite::draw_sprite_image()
- {
-  target.set_size(sprite_width,sprite_height);
-  target.set_position(current_x,current_y);
-  target.draw();
- }
-
- void Sprite::set_sprite_setting()
- {
-  switch (current_kind)
-  {
-   case SINGLE_SPRITE:
-   sprite_width=this->get_image_width();
-   sprite_height=this->get_image_height();
-   break;
-   case HORIZONTAL_STRIP:
-   sprite_width=this->get_image_width()/this->get_frames();
-   sprite_height=this->get_image_height();
-   break;
-   case VERTICAL_STRIP:
-   sprite_width=this->get_image_width();
-   sprite_height=this->get_image_height()/this->get_frames();
-   break;
-  }
-
- }
-
- void Sprite::configure_sprite()
- {
-  if (this->is_storage_empty()==false)
-  {
-   this->set_sprite_setting();
-  }
-
- }
-
- void Sprite::set_sprite_frame()
- {
-  switch(current_kind)
-  {
-   case SINGLE_SPRITE:
-   target.set_horizontal_offset(1,1);
-   break;
-   case HORIZONTAL_STRIP:
-   target.set_horizontal_offset(this->get_frame(),this->get_frames());
-   break;
-   case VERTICAL_STRIP:
-   target.set_vertical_offset(this->get_frame(),this->get_frames());
-   break;
-  }
-
- }
-
- void Sprite::set_kind(const SPRITE_TYPE kind)
- {
-  current_kind=kind;
-  this->configure_sprite();
-  this->set_sprite_frame();
- }
-
- void Sprite::prepare()
- {
-  target.set_total_size(this->get_image_width(),this->get_image_height());
-  target.prepare(this->get_buffer());
- }
-
- void Sprite::set_transparent(const bool enabled)
- {
-  transparent=enabled;
- }
-
- bool Sprite::get_transparent() const
- {
-  return transparent;
- }
-
- void Sprite::set_width(const unsigned int width)
- {
-  if (target.is_texture_exist()==true)
-  {
-   if (width>0) sprite_width=width;
-  }
-
- }
-
- void Sprite::set_height(const unsigned int height)
- {
-  if (target.is_texture_exist()==true)
-  {
-   if (height>0) sprite_height=height;
-  }
-
- }
-
- void Sprite::set_size(const unsigned int width,const unsigned int height)
- {
-  this->set_width(width);
-  this->set_height(height);
- }
-
- void Sprite::set_position(const unsigned int x,const unsigned int y)
- {
-  if (target.is_texture_exist()==true)
-  {
-   current_x=x;
-   current_y=y;
-  }
-
- }
-
- void Sprite::set_x(const unsigned int x)
- {
-  if (target.is_texture_exist()==true)
-  {
-   current_x=x;
-  }
-
- }
-
- void Sprite::set_y(const unsigned int y)
- {
-  if (target.is_texture_exist()==true)
-  {
-   current_y=y;
-  }
-
- }
-
- void Sprite::increase_x()
- {
-  if (target.is_texture_exist()==true)
-  {
-   ++current_x;
-  }
-
- }
-
- void Sprite::decrease_x()
- {
-  if (target.is_texture_exist()==true)
-  {
-   --current_x;
-  }
-
- }
-
- void Sprite::increase_y()
- {
-  if (target.is_texture_exist()==true)
-  {
-   ++current_y;
-  }
-
- }
-
- void Sprite::decrease_y()
- {
-  if (target.is_texture_exist()==true)
-  {
-   --current_y;
-  }
-
- }
-
- void Sprite::increase_x(const unsigned int increment)
- {
-  if (target.is_texture_exist()==true)
-  {
-   current_x+=increment;
-  }
-
- }
-
- void Sprite::decrease_x(const unsigned int decrement)
- {
-  if (target.is_texture_exist()==true)
-  {
-   current_x-=decrement;
-  }
-
- }
-
- void Sprite::increase_y(const unsigned int increment)
- {
-  if (target.is_texture_exist()==true)
-  {
-   current_y+=increment;
-  }
-
- }
-
- void Sprite::decrease_y(const unsigned int decrement)
- {
-  if (target.is_texture_exist()==true)
-  {
-   current_y-=decrement;
-  }
-
- }
-
- unsigned int Sprite::get_x() const
- {
-  return current_x;
- }
-
- unsigned int Sprite::get_y() const
- {
-  return current_y;
- }
-
- unsigned int Sprite::get_width() const
- {
-  return sprite_width;
- }
-
- unsigned int Sprite::get_height() const
- {
-  return sprite_height;
- }
-
- Sprite* Sprite::get_handle()
- {
-  return this;
- }
-
- Collision_Box Sprite::get_box() const
- {
-  Collision_Box target;
-  target.x=current_x;
-  target.y=current_y;
-  target.width=sprite_width;
-  target.height=sprite_height;
-  return target;
- }
-
- SPRITE_TYPE Sprite::get_kind() const
- {
-  return current_kind;
- }
-
- void Sprite::set_setting(const SPRITE_TYPE kind,const unsigned int frames)
- {
-  if (kind!=SINGLE_SPRITE)
-  {
-   this->set_frames(frames);
-  }
-  else
-  {
-   this->reset_animation_setting();
-  }
-  this->set_kind(kind);
- }
-
- void Sprite::load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames)
- {
-  this->load_image(buffer);
-  if (this->is_storage_empty()==false)
-  {
-   this->prepare();
-   this->set_setting(kind,frames);
-  }
-
- }
-
- void Sprite::set_target(const unsigned int target)
- {
-  this->set_frame(target);
-  this->set_sprite_frame();
- }
-
- void Sprite::step()
- {
-  this->increase_frame();
-  this->set_sprite_frame();
- }
-
- void Sprite::clone(Sprite &target)
- {
-  if (target.is_storage_empty()==false)
-  {
-   this->destroy_sprite();
-   this->set_image_size(target.get_image_width(),target.get_image_height());
-   this->set_buffer(this->create_buffer());
-   this->set_setting(target.get_kind(),target.get_frames());
-   this->set_transparent(target.get_transparent());
-   this->copy_image(target.get_image());
-   this->set_size(target.get_width(),target.get_height());
-   this->prepare();
-  }
-
- }
-
- void Sprite::horizontal_mirror()
- {
-  if (target.get_horizontal_mirror()==DISABLE_MIRRORING)
-  {
-   target.set_mirror_status(ENABLE_MIRRORING,target.get_vertical_mirror());
-  }
-  else
-  {
-   target.set_mirror_status(DISABLE_MIRRORING,target.get_vertical_mirror());
-  }
-
- }
-
- void Sprite::vertical_mirror()
- {
-  if (target.get_vertical_mirror()==DISABLE_MIRRORING)
-  {
-   target.set_mirror_status(target.get_horizontal_mirror(),ENABLE_MIRRORING);
-  }
-  else
-  {
-   target.set_mirror_status(target.get_horizontal_mirror(),DISABLE_MIRRORING);
-  }
-
- }
-
- void Sprite::complex_mirror()
- {
-  this->horizontal_mirror();
-  this->vertical_mirror();
- }
-
- void Sprite::destroy_sprite()
- {
-  target.destroy_texture();
-  this->destroy_image();
-  this->reset_animation_setting();
-  this->reset_sprite_setting();
- }
-
- void Sprite::draw_sprite()
- {
-  this->check_transparent();
-  this->draw_sprite_image();
- }
-
- void Sprite::draw_sprite(const unsigned int x,const unsigned int y)
- {
-  this->set_position(x,y);
-  this->draw_sprite();
- }
-
- void Sprite::draw_sprite(const bool transparency)
- {
-  this->set_transparent(transparency);
-  this->draw_sprite();
- }
-
- void Sprite::draw_sprite(const bool transparency,const unsigned int x,const unsigned int y)
- {
-  this->set_transparent(transparency);
-  this->draw_sprite(x,y);
 }
 
- Tileset::Tileset()
- {
-  target.set_size(0,0);
-  rows=1;
-  columns=1;
-  tile_width=1;
-  tile_height=1;
- }
-
- Tileset::~Tileset()
- {
-
- }
-
- void Tileset::reset_tileset_setting()
- {
-  rows=1;
-  columns=1;
-  tile_width=1;
-  tile_height=1;
+void Picture::set_image_size(const unsigned int width,const unsigned int height)
+{
+ image_width=width;
+ image_height=height;
 }
 
- void Tileset::prepare()
+unsigned int *Picture::create_buffer()
+{
+ unsigned int *result;
+ result=NULL;
+ length=static_cast<size_t>(image_width)*static_cast<size_t>(image_height);
+ try
  {
-  target.set_total_size(this->get_image_width(),this->get_image_height());
-  target.prepare(this->get_buffer());
+  result=new unsigned int[length];
+ }
+ catch(...)
+ {
+  Halt("Can't allocate memory for image buffer");
+ }
+ length*=sizeof(unsigned int);
+ return result;
+}
+
+void Picture::set_buffer(unsigned int *buffer)
+{
+ image=buffer;
+}
+
+void Picture::copy_image(const unsigned int *target)
+{
+ size_t index,pixels;
+ pixels=length/sizeof(unsigned int);
+ for (index=0;index<pixels;++index)
+ {
+  image[index]=target[index];
  }
 
- void Tileset::set_tileset_setting(const unsigned int row_amount,const unsigned int column_amount)
+}
+
+unsigned int *Picture::get_buffer()
+{
+ return image;
+}
+
+size_t Picture::get_length() const
+{
+ return length;
+}
+
+unsigned int *Picture::get_image()
+{
+ return image;
+}
+
+void Picture::destroy_image()
+{
+ if (image!=NULL)
  {
-  if (row_amount>0)
-  {
-   if (column_amount>0)
-   {
-    rows=row_amount;
-    columns=column_amount;
-    tile_width=this->get_image_width()/rows;
-    tile_height=this->get_image_height()/columns;
-   }
-
-  }
-
+  delete[] image;
+  image_width=0;
+  image_height=0;
+  length=0;
+  image=NULL;
  }
 
- unsigned int Tileset::get_tile_width() const
+}
+
+void Picture::load_image(Image &buffer)
+{
+ this->destroy_image();
+ if (buffer.get_length()>0)
  {
-  return tile_width;
+  this->set_image_size(buffer.get_width(),buffer.get_height());
+  this->set_buffer(this->create_buffer());
+  memcpy(this->get_buffer(),buffer.get_data(),buffer.get_length());
  }
 
- unsigned int Tileset::get_tile_height() const
+}
+
+bool Picture::is_storage_empty() const
+{
+ return length==0;
+}
+
+unsigned int Picture::get_image_width() const
+{
+ return image_width;
+}
+
+unsigned int Picture::get_image_height() const
+{
+ return image_height;
+}
+
+Animation::Animation()
+{
+ frame=1;
+ frames=1;
+}
+
+Animation::~Animation()
+{
+
+}
+
+void Animation::reset_animation_setting()
+{
+ frame=1;
+ frames=1;
+}
+
+void Animation::increase_frame()
+{
+ ++frame;
+ if (frame>frames)
  {
-  return tile_height;
+  frame=1;
  }
 
- unsigned int Tileset::get_rows() const
+}
+
+void Animation::set_frame(const unsigned int target)
+{
+ if (target>0)
  {
-  return rows;
+  if (target<=frames) frame=target;
  }
 
- unsigned int Tileset::get_columns() const
+}
+
+void Animation::set_frames(const unsigned int amount)
+{
+ if (amount>1) frames=amount;
+}
+
+unsigned int Animation::get_frames() const
+{
+ return frames;
+}
+
+unsigned int Animation::get_frame() const
+{
+ return frame;
+}
+
+Background::Background()
+{
+ target.set_size(0,0);
+ current_kind=NORMAL_BACKGROUND;
+}
+
+Background::~Background()
+{
+
+}
+
+void Background::reset_background_setting()
+{
+ current_kind=NORMAL_BACKGROUND;
+}
+
+void Background::configure_background()
+{
+ switch(current_kind)
  {
-  return columns;
+  case NORMAL_BACKGROUND:
+  target.set_horizontal_offset(1,1);
+  break;
+  case HORIZONTAL_BACKGROUND:
+  target.set_horizontal_offset(this->get_frame(),this->get_frames());
+  break;
+  case VERTICAL_BACKGROUND:
+  target.set_vertical_offset(this->get_frame(),this->get_frames());
+  break;
  }
 
- void Tileset::set_tile_size(const unsigned int width,const unsigned int height)
- {
-  if (target.is_texture_exist()==true)
-  {
-   if (width>0) tile_width=width;
-   if (height>0) tile_height=height;
-  }
+}
 
+void Background::set_kind(const BACKGROUND_TYPE kind)
+{
+ current_kind=kind;
+ this->configure_background();
+}
+
+void Background::prepare(const unsigned int screen_width,const unsigned int screen_height)
+{
+ target.set_size(screen_width,screen_height);
+ target.set_total_size(this->get_image_width(),this->get_image_height());
+ target.prepare(this->get_buffer());
+ target.set_position(0,0);
+}
+
+void Background::prepare(Screen *screen)
+{
+ if (screen!=NULL)
+ {
+  this->prepare(screen->get_width(),screen->get_height());
  }
 
- void Tileset::select_tile(const unsigned int row,const unsigned int column)
+}
+
+void Background::prepare(Screen &screen)
+{
+ this->prepare(screen.get_handle());
+}
+
+void Background::set_setting(const BACKGROUND_TYPE kind,const unsigned int frames)
+{
+ if (kind!=NORMAL_BACKGROUND)
  {
-  if (row<rows)
-  {
-   if (column<columns)
-   {
-    target.set_tile_offset(row,rows,column,columns);
-   }
+  this->set_frames(frames);
+ }
+ else
+ {
+  this->reset_animation_setting();
+ }
+ this->set_kind(kind);
+}
 
-  }
-
+void Background::load_background(Image &buffer,const BACKGROUND_TYPE kind,const unsigned int frames)
+{
+ this->load_image(buffer);
+ if (this->is_storage_empty()==false)
+ {
+  this->set_setting(kind,frames);
  }
 
- void Tileset::destroy_tileset()
+}
+
+void Background::set_target(const unsigned int target)
+{
+ this->set_frame(target);
+ this->configure_background();
+}
+
+void Background::step()
+{
+ this->increase_frame();
+ this->configure_background();
+}
+
+void Background::horizontal_mirror()
+{
+ if (target.get_horizontal_mirror()==DISABLE_MIRRORING)
  {
-  target.destroy_texture();
-  this->destroy_image();
-  this->reset_tileset_setting();
+  target.set_mirror_status(ENABLE_MIRRORING,target.get_vertical_mirror());
+ }
+ else
+ {
+  target.set_mirror_status(DISABLE_MIRRORING,target.get_vertical_mirror());
  }
 
- void Tileset::draw_tile(const unsigned int x,const unsigned int y)
+}
+
+void Background::vertical_mirror()
+{
+ if (target.get_vertical_mirror()==DISABLE_MIRRORING)
  {
-  target.set_size(tile_width,tile_height);
-  target.set_position(x,y);
+  target.set_mirror_status(target.get_horizontal_mirror(),ENABLE_MIRRORING);
+ }
+ else
+ {
+  target.set_mirror_status(target.get_horizontal_mirror(),DISABLE_MIRRORING);
+ }
+
+}
+
+void Background::complex_mirror()
+{
+ this->horizontal_mirror();
+ this->vertical_mirror();
+}
+
+void Background::draw_background()
+{
+ target.disable_transparent();
+ target.draw();
+}
+
+void Background::destroy_background()
+{
+ target.destroy_texture();
+ this->destroy_image();
+ this->reset_animation_setting();
+ this->reset_background_setting();
+}
+
+BACKGROUND_TYPE Background::get_kind() const
+{
+ return current_kind;
+}
+
+Sprite::Sprite()
+{
+ transparent=true;
+ current_x=0;
+ current_y=0;
+ sprite_width=0;
+ sprite_height=0;
+ current_kind=SINGLE_SPRITE;
+}
+
+Sprite::~Sprite()
+{
+
+}
+
+void Sprite::reset_sprite_setting()
+{
+ transparent=true;
+ current_x=0;
+ current_y=0;
+ sprite_width=0;
+ sprite_height=0;
+ current_kind=SINGLE_SPRITE;
+}
+
+void Sprite::check_transparent()
+{
+ if (transparent==true)
+ {
+  target.enable_transparent();
+ }
+ else
+ {
   target.disable_transparent();
-  target.draw();
  }
 
- void Tileset::draw_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y)
+}
+
+void Sprite::draw_sprite_image()
+{
+ target.set_size(sprite_width,sprite_height);
+ target.set_position(current_x,current_y);
+ target.draw();
+}
+
+void Sprite::set_sprite_setting()
+{
+ switch (current_kind)
  {
-  this->select_tile(row,column);
-  this->draw_tile(x,y);
+  case SINGLE_SPRITE:
+  sprite_width=this->get_image_width();
+  sprite_height=this->get_image_height();
+  break;
+  case HORIZONTAL_STRIP:
+  sprite_width=this->get_image_width()/this->get_frames();
+  sprite_height=this->get_image_height();
+  break;
+  case VERTICAL_STRIP:
+  sprite_width=this->get_image_width();
+  sprite_height=this->get_image_height()/this->get_frames();
+  break;
  }
 
- void Tileset::load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount)
- {
-  this->load_image(buffer);
-  if (this->is_storage_empty()==false)
-  {
-   this->prepare();
-   this->set_tileset_setting(row_amount,column_amount);
-  }
+}
 
+void Sprite::configure_sprite()
+{
+ if (this->is_storage_empty()==false)
+ {
+  this->set_sprite_setting();
  }
 
- Text::Text()
+}
+
+void Sprite::set_sprite_frame()
+{
+ switch(current_kind)
  {
-  current_x=0;
-  current_y=0;
-  font=NULL;
+  case SINGLE_SPRITE:
+  target.set_horizontal_offset(1,1);
+  break;
+  case HORIZONTAL_STRIP:
+  target.set_horizontal_offset(this->get_frame(),this->get_frames());
+  break;
+  case VERTICAL_STRIP:
+  target.set_vertical_offset(this->get_frame(),this->get_frames());
+  break;
  }
 
- Text::~Text()
- {
+}
 
+void Sprite::set_kind(const SPRITE_TYPE kind)
+{
+ current_kind=kind;
+ this->configure_sprite();
+ this->set_sprite_frame();
+}
+
+void Sprite::prepare()
+{
+ target.set_total_size(this->get_image_width(),this->get_image_height());
+ target.prepare(this->get_buffer());
+}
+
+void Sprite::set_transparent(const bool enabled)
+{
+ transparent=enabled;
+}
+
+bool Sprite::get_transparent() const
+{
+ return transparent;
+}
+
+void Sprite::set_width(const unsigned int width)
+{
+ if (target.is_texture_exist()==true)
+ {
+  if (width>0) sprite_width=width;
  }
 
- void Text::increase_position()
+}
+
+void Sprite::set_height(const unsigned int height)
+{
+ if (target.is_texture_exist()==true)
  {
-  font->increase_x(font->get_width());
+  if (height>0) sprite_height=height;
  }
 
- void Text::restore_position()
- {
-  font->set_position(current_x,current_y);
- }
+}
 
- void Text::print_character(const char target)
- {
-  font->set_target(static_cast<unsigned char>(target)+1);
-  font->draw_sprite();
- }
+void Sprite::set_size(const unsigned int width,const unsigned int height)
+{
+ this->set_width(width);
+ this->set_height(height);
+}
 
- void Text::print_text(const char *text)
+void Sprite::set_position(const unsigned int x,const unsigned int y)
+{
+ if (target.is_texture_exist()==true)
  {
-  size_t index,length;
-  length=strlen(text);
-  this->restore_position();
-  for (index=0;index<length;++index)
-  {
-   this->print_character(text[index]);
-   this->increase_position();
-  }
-
- }
-
- void Text::set_position(const unsigned int x,const unsigned int y)
- {
-  font->set_position(x,y);
   current_x=x;
   current_y=y;
  }
 
- void Text::load_font(Sprite *target)
+}
+
+void Sprite::set_x(const unsigned int x)
+{
+ if (target.is_texture_exist()==true)
  {
-  if (target!=NULL)
+  current_x=x;
+ }
+
+}
+
+void Sprite::set_y(const unsigned int y)
+{
+ if (target.is_texture_exist()==true)
+ {
+  current_y=y;
+ }
+
+}
+
+void Sprite::increase_x()
+{
+ if (target.is_texture_exist()==true)
+ {
+  ++current_x;
+ }
+
+}
+
+void Sprite::decrease_x()
+{
+ if (target.is_texture_exist()==true)
+ {
+  --current_x;
+ }
+
+}
+
+void Sprite::increase_y()
+{
+ if (target.is_texture_exist()==true)
+ {
+  ++current_y;
+ }
+
+}
+
+void Sprite::decrease_y()
+{
+ if (target.is_texture_exist()==true)
+ {
+  --current_y;
+ }
+
+}
+
+void Sprite::increase_x(const unsigned int increment)
+{
+ if (target.is_texture_exist()==true)
+ {
+  current_x+=increment;
+ }
+
+}
+
+void Sprite::decrease_x(const unsigned int decrement)
+{
+ if (target.is_texture_exist()==true)
+ {
+  current_x-=decrement;
+ }
+
+}
+
+void Sprite::increase_y(const unsigned int increment)
+{
+ if (target.is_texture_exist()==true)
+ {
+  current_y+=increment;
+ }
+
+}
+
+void Sprite::decrease_y(const unsigned int decrement)
+{
+ if (target.is_texture_exist()==true)
+ {
+  current_y-=decrement;
+ }
+
+}
+
+unsigned int Sprite::get_x() const
+{
+ return current_x;
+}
+
+unsigned int Sprite::get_y() const
+{
+ return current_y;
+}
+
+unsigned int Sprite::get_width() const
+{
+ return sprite_width;
+}
+
+unsigned int Sprite::get_height() const
+{
+ return sprite_height;
+}
+
+Sprite* Sprite::get_handle()
+{
+ return this;
+}
+
+Collision_Box Sprite::get_box() const
+{
+ Collision_Box target;
+ target.x=current_x;
+ target.y=current_y;
+ target.width=sprite_width;
+ target.height=sprite_height;
+ return target;
+}
+
+SPRITE_TYPE Sprite::get_kind() const
+{
+ return current_kind;
+}
+
+void Sprite::set_setting(const SPRITE_TYPE kind,const unsigned int frames)
+{
+ if (kind!=SINGLE_SPRITE)
+ {
+  this->set_frames(frames);
+ }
+ else
+ {
+  this->reset_animation_setting();
+ }
+ this->set_kind(kind);
+}
+
+void Sprite::load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames)
+{
+ this->load_image(buffer);
+ if (this->is_storage_empty()==false)
+ {
+  this->prepare();
+  this->set_setting(kind,frames);
+ }
+
+}
+
+void Sprite::set_target(const unsigned int target)
+{
+ this->set_frame(target);
+ this->set_sprite_frame();
+}
+
+void Sprite::step()
+{
+ this->increase_frame();
+ this->set_sprite_frame();
+}
+
+void Sprite::clone(Sprite &target)
+{
+ if (target.is_storage_empty()==false)
+ {
+  this->destroy_sprite();
+  this->set_image_size(target.get_image_width(),target.get_image_height());
+  this->set_buffer(this->create_buffer());
+  this->set_setting(target.get_kind(),target.get_frames());
+  this->set_transparent(target.get_transparent());
+  this->copy_image(target.get_image());
+  this->set_size(target.get_width(),target.get_height());
+  this->prepare();
+ }
+
+}
+
+void Sprite::horizontal_mirror()
+{
+ if (target.get_horizontal_mirror()==DISABLE_MIRRORING)
+ {
+  target.set_mirror_status(ENABLE_MIRRORING,target.get_vertical_mirror());
+ }
+ else
+ {
+  target.set_mirror_status(DISABLE_MIRRORING,target.get_vertical_mirror());
+ }
+
+}
+
+void Sprite::vertical_mirror()
+{
+ if (target.get_vertical_mirror()==DISABLE_MIRRORING)
+ {
+  target.set_mirror_status(target.get_horizontal_mirror(),ENABLE_MIRRORING);
+ }
+ else
+ {
+  target.set_mirror_status(target.get_horizontal_mirror(),DISABLE_MIRRORING);
+ }
+
+}
+
+void Sprite::complex_mirror()
+{
+ this->horizontal_mirror();
+ this->vertical_mirror();
+}
+
+void Sprite::destroy_sprite()
+{
+ target.destroy_texture();
+ this->destroy_image();
+ this->reset_animation_setting();
+ this->reset_sprite_setting();
+}
+
+void Sprite::draw_sprite()
+{
+ this->check_transparent();
+ this->draw_sprite_image();
+}
+
+void Sprite::draw_sprite(const unsigned int x,const unsigned int y)
+{
+ this->set_position(x,y);
+ this->draw_sprite();
+}
+
+void Sprite::draw_sprite(const bool transparency)
+{
+ this->set_transparent(transparency);
+ this->draw_sprite();
+}
+
+void Sprite::draw_sprite(const bool transparency,const unsigned int x,const unsigned int y)
+{
+ this->set_transparent(transparency);
+ this->draw_sprite(x,y);
+}
+
+Tileset::Tileset()
+{
+ target.set_size(0,0);
+ rows=1;
+ columns=1;
+ tile_width=1;
+ tile_height=1;
+}
+
+Tileset::~Tileset()
+{
+
+}
+
+void Tileset::reset_tileset_setting()
+{
+ rows=1;
+ columns=1;
+ tile_width=1;
+ tile_height=1;
+}
+
+void Tileset::prepare()
+{
+ target.set_total_size(this->get_image_width(),this->get_image_height());
+ target.prepare(this->get_buffer());
+}
+
+void Tileset::set_tileset_setting(const unsigned int row_amount,const unsigned int column_amount)
+{
+ if (row_amount>0)
+ {
+  if (column_amount>0)
   {
-   font=target;
-   font->prepare();
-   font->set_setting(HORIZONTAL_STRIP,256);
+   rows=row_amount;
+   columns=column_amount;
+   tile_width=this->get_image_width()/rows;
+   tile_height=this->get_image_height()/columns;
   }
 
  }
 
- void Text::load_font(Sprite &target)
+}
+
+unsigned int Tileset::get_tile_width() const
+{
+ return tile_width;
+}
+
+unsigned int Tileset::get_tile_height() const
+{
+ return tile_height;
+}
+
+unsigned int Tileset::get_rows() const
+{
+ return rows;
+}
+
+unsigned int Tileset::get_columns() const
+{
+ return columns;
+}
+
+void Tileset::set_tile_size(const unsigned int width,const unsigned int height)
+{
+ if (target.is_texture_exist()==true)
  {
-  this->load_font(target.get_handle());
+  if (width>0) tile_width=width;
+  if (height>0) tile_height=height;
  }
 
- void Text::draw_character(const char target)
+}
+
+void Tileset::select_tile(const unsigned int row,const unsigned int column)
+{
+ if (row<rows)
  {
-  if (font!=NULL)
+  if (column<columns)
   {
-   this->print_character(target);
+   target.set_tile_offset(row,rows,column,columns);
   }
 
  }
 
- void Text::draw_text(const char *text)
- {
-  if (font!=NULL)
-  {
-   this->print_text(text);
-  }
+}
 
+void Tileset::destroy_tileset()
+{
+ target.destroy_texture();
+ this->destroy_image();
+ this->reset_tileset_setting();
+}
+
+void Tileset::draw_tile(const unsigned int x,const unsigned int y)
+{
+ target.set_size(tile_width,tile_height);
+ target.set_position(x,y);
+ target.disable_transparent();
+ target.draw();
+}
+
+void Tileset::draw_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y)
+{
+ this->select_tile(row,column);
+ this->draw_tile(x,y);
+}
+
+void Tileset::load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount)
+{
+ this->load_image(buffer);
+ if (this->is_storage_empty()==false)
+ {
+  this->prepare();
+  this->set_tileset_setting(row_amount,column_amount);
  }
 
- void Text::draw_character(const unsigned int x,const unsigned int y,const char target)
+}
+
+Text::Text()
+{
+ current_x=0;
+ current_y=0;
+ font=NULL;
+}
+
+Text::~Text()
+{
+
+}
+
+void Text::increase_position()
+{
+ font->increase_x(font->get_width());
+}
+
+void Text::restore_position()
+{
+ font->set_position(current_x,current_y);
+}
+
+void Text::print_character(const char target)
+{
+ font->set_target(static_cast<unsigned char>(target)+1);
+ font->draw_sprite();
+}
+
+void Text::print_text(const char *text)
+{
+ size_t index,length;
+ length=strlen(text);
+ this->restore_position();
+ for (index=0;index<length;++index)
  {
-  this->set_position(x,y);
-  this->draw_character(target);
+  this->print_character(text[index]);
+  this->increase_position();
  }
 
- void Text::draw_text(const unsigned int x,const unsigned int y,const char *text)
+}
+
+void Text::set_position(const unsigned int x,const unsigned int y)
+{
+ font->set_position(x,y);
+ current_x=x;
+ current_y=y;
+}
+
+void Text::load_font(Sprite *target)
+{
+ if (target!=NULL)
  {
-  this->set_position(x,y);
-  this->draw_text(text);
+  font=target;
+  font->prepare();
+  font->set_setting(HORIZONTAL_STRIP,256);
  }
 
+}
+
+void Text::load_font(Sprite &target)
+{
+ this->load_font(target.get_handle());
+}
+
+void Text::draw_character(const char target)
+{
+ if (font!=NULL)
+ {
+  this->print_character(target);
  }
 
- namespace Common
+}
+
+void Text::draw_text(const char *text)
+{
+ if (font!=NULL)
  {
-  System::System()
- {
-  srand(UINT_MAX);
+  this->print_text(text);
  }
 
- System::~System()
+}
+
+void Text::draw_character(const unsigned int x,const unsigned int y,const char target)
+{
+ this->set_position(x,y);
+ this->draw_character(target);
+}
+
+void Text::draw_text(const unsigned int x,const unsigned int y,const char *text)
+{
+ this->set_position(x,y);
+ this->draw_text(text);
+}
+
+Timer::Timer()
+{
+ start=time(NULL);
+ interval=0;
+}
+
+Timer::~Timer()
+{
+
+}
+
+void Timer::set_timer(const double seconds)
+{
+ interval=seconds;
+ start=time(NULL);
+}
+
+bool Timer::check_timer()
+{
+ bool result;
+ result=false;
+ if (difftime(time(NULL),start)>=interval)
  {
-
- }
-
- unsigned int System::get_random(const unsigned int number)
- {
-  return rand()%number;
- }
-
- void System::quit()
- {
-  exit(EXIT_SUCCESS);
- }
-
- void System::run(const char *command)
- {
-  system(command);
- }
-
- char* System::read_environment(const char *variable)
- {
-  return getenv(variable);
- }
-
- void System::enable_logging(const char *name)
- {
-  if (freopen(name,"wt",stdout)==NULL)
-  {
-   Halt("Can't create log file");
-  }
-
- }
-
- Filesystem::Filesystem()
- {
-
- }
-
- Filesystem::~Filesystem()
- {
-
- }
-
- bool Filesystem::file_exist(const char *name)
- {
-  FILE *target;
-  bool exist;
-  exist=false;
-  target=fopen(name,"rb");
-  if (target!=NULL)
-  {
-   exist=true;
-   fclose(target);
-  }
-  return exist;
- }
-
- bool Filesystem::delete_file(const char *name)
- {
-  return remove(name)==0;
- }
-
- Timer::Timer()
- {
+  result=true;
   start=time(NULL);
-  interval=0;
  }
+ return result;
+}
 
- Timer::~Timer()
+Collision::Collision()
+{
+ first.x=0;
+ first.y=0;
+ first.width=0;
+ first.height=0;
+ second=first;
+}
+
+Collision::~Collision()
+{
+
+}
+
+void Collision::set_target(const Collision_Box &first_target,const Collision_Box &second_target)
+{
+ first=first_target;
+ second=second_target;
+}
+
+bool Collision::check_horizontal_collision() const
+{
+ bool result;
+ result=false;
+ if ((first.x+first.width)>=second.x)
  {
-
+  if (first.x<=(second.x+second.width)) result=true;
  }
+ return result;
+}
 
- void Timer::set_timer(const double seconds)
+bool Collision::check_vertical_collision() const
+{
+ bool result;
+ result=false;
+ if ((first.y+first.height)>=second.y)
  {
-  interval=seconds;
-  start=time(NULL);
+  if (first.y<=(second.y+second.height)) result=true;
  }
+ return result;
+}
 
- bool Timer::check_timer()
- {
-  bool result;
-  result=false;
-  if (difftime(time(NULL),start)>=interval)
-  {
-   result=true;
-   start=time(NULL);
-  }
-  return result;
- }
+bool Collision::check_collision() const
+{
+ return this->check_horizontal_collision() || this->check_vertical_collision();
+}
 
- Collision::Collision()
- {
-  first.x=0;
-  first.y=0;
-  first.width=0;
-  first.height=0;
-  second=first;
- }
+bool Collision::check_horizontal_collision(const Collision_Box &first_target,const Collision_Box &second_target)
+{
+ this->set_target(first_target,second_target);
+ return this->check_horizontal_collision();
+}
 
- Collision::~Collision()
- {
+bool Collision::check_vertical_collision(const Collision_Box &first_target,const Collision_Box &second_target)
+{
+ this->set_target(first_target,second_target);
+ return this->check_vertical_collision();
+}
 
- }
+bool Collision::check_collision(const Collision_Box &first_target,const Collision_Box &second_target)
+{
+ this->set_target(first_target,second_target);
+ return this->check_collision();
+}
 
- void Collision::set_target(const Collision_Box &first_target,const Collision_Box &second_target)
- {
-  first=first_target;
-  second=second_target;
- }
-
- bool Collision::check_horizontal_collision() const
- {
-  bool result;
-  result=false;
-  if ((first.x+first.width)>=second.x)
-  {
-   if (first.x<=(second.x+second.width)) result=true;
-  }
-  return result;
- }
-
- bool Collision::check_vertical_collision() const
- {
-  bool result;
-  result=false;
-  if ((first.y+first.height)>=second.y)
-  {
-   if (first.y<=(second.y+second.height)) result=true;
-  }
-  return result;
- }
-
- bool Collision::check_collision() const
- {
-  return this->check_horizontal_collision() || this->check_vertical_collision();
- }
-
- bool Collision::check_horizontal_collision(const Collision_Box &first_target,const Collision_Box &second_target)
- {
-  this->set_target(first_target,second_target);
-  return this->check_horizontal_collision();
- }
-
- bool Collision::check_vertical_collision(const Collision_Box &first_target,const Collision_Box &second_target)
- {
-  this->set_target(first_target,second_target);
-  return this->check_vertical_collision();
- }
-
- bool Collision::check_collision(const Collision_Box &first_target,const Collision_Box &second_target)
- {
-  this->set_target(first_target,second_target);
-  return this->check_collision();
- }
-
- Collision_Box Collision::generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const
- {
-  Collision_Box result;
-  result.x=x;
-  result.y=y;
-  result.width=width;
-  result.height=height;
-  return result;
- }
-
- }
+Collision_Box Collision::generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const
+{
+ Collision_Box result;
+ result.x=x;
+ result.y=y;
+ result.width=width;
+ result.height=height;
+ return result;
+}
 
 }
