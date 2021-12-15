@@ -2,18 +2,18 @@
 
 int main()
 {
- EUGENEGDK::Screen screen;
- EUGENEGDK::Sprite font;
- EUGENEGDK::Text text;
- EUGENEGDK::Image image;
- EUGENEGDK::Tileset tilemap;
- EUGENEGDK::Keyboard keyboard;
+ EUGENEGDK::Graphics::Screen screen;
+ EUGENEGDK::Graphics::Sprite font;
+ EUGENEGDK::Graphics::Text text;
+ EUGENEGDK::Graphics::Image image;
+ EUGENEGDK::Graphics::Tileset tilemap;
+ EUGENEGDK::Input::Keyboard keyboard;
  unsigned int x,y;
  keyboard.initialize();
  screen.initialize();
  image.load_tga("font.tga");
  font.load_image(image);
- text.load_font(font.get_handle());
+ text.load_font(font);
  text.set_position(0,0);
  image.load_tga("grass.tga");
  tilemap.load_tileset(image,6,3);

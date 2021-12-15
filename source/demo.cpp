@@ -3,17 +3,17 @@
 int main()
 {
  char perfomance[8];
- EUGENEGDK::Timer timer;
- EUGENEGDK::Screen screen;
- EUGENEGDK::System System;
- EUGENEGDK::Keyboard keyboard;
- EUGENEGDK::Gamepad gamepad;
- EUGENEGDK::Mouse mouse;
- EUGENEGDK::Multimedia media;
- EUGENEGDK::Image image;
- EUGENEGDK::Background space;
- EUGENEGDK::Sprite ship,font;
- EUGENEGDK::Text text;
+ EUGENEGDK::Common::Timer timer;
+ EUGENEGDK::Common::System System;
+ EUGENEGDK::Input::Keyboard keyboard;
+ EUGENEGDK::Input::Gamepad gamepad;
+ EUGENEGDK::Input::Mouse mouse;
+ EUGENEGDK::Misc::Multimedia media;
+ EUGENEGDK::Graphics::Screen screen;
+ EUGENEGDK::Graphics::Image image;
+ EUGENEGDK::Graphics::Background space;
+ EUGENEGDK::Graphics::Sprite ship,font;
+ EUGENEGDK::Graphics::Text text;
  System.enable_logging("log.txt");
  keyboard.initialize();
  screen.initialize();
@@ -25,7 +25,7 @@ int main()
  ship.set_position(screen.get_width()/2,screen.get_height()/2);
  image.load_tga("font.tga");
  font.load_image(image);
- text.load_font(font.get_handle());
+ text.load_font(font);
  text.set_position(font.get_width(),font.get_width());
  mouse.hide();
  timer.set_timer(1);
