@@ -373,6 +373,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">bool Screen::update();</span> – Show
       current back-buffer content on screen. Return false if a game is
       terminated. This method don’t use fps limit and need high processor usage.<br>
+      <span style="font-style: italic;">bool Screen::is_ready() const;</span>&nbsp;
+      – Return true if the subsystem is already initialized.<br>
       <span style="font-style: italic;">bool Screen::is_accelerated() const;</span>&nbsp;
       – Return true if render is hardware accelerated.<br>
       <span style="font-style: italic;">unsigned int Screen::get_fps() const;</span>
@@ -1411,7 +1413,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         bellow.</big></p>
     <big> </big>
     <table style="text-align: left; width: 516px; height: 124px;" cellspacing="2"
-
       cellpadding="2" border="1">
       <tbody>
         <tr>
@@ -1832,6 +1833,7 @@ Multimedia API</a>. </big>
         2.8.6 – Merge old branch and new branch.<br>
         2.8.7 – Small bug was fixed.<br>
         2.8.8 – 2.9.9 – Small changes.<br>
+        3.0 – Base graphics subsystem was improved.<br>
       </big></span>
   </body>
 </html>

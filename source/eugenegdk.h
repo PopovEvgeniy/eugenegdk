@@ -504,6 +504,7 @@ namespace EUGENEGDK
    void initialize(const unsigned int width,const unsigned int height);
    bool update();
    bool sync();
+   bool is_ready() const;
    bool is_accelerated() const;
    unsigned long int get_color() const;
    unsigned int get_fps() const;

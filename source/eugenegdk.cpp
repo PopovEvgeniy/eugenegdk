@@ -478,7 +478,7 @@ namespace EUGENEGDK
    this->set_pixel_format(this->get_pixel_format(target,color));
    this->create_render_context();
    this->disable_vsync();
- }
+  }
 
   void WINGL::Swap()
   {
@@ -1957,6 +1957,11 @@ namespace EUGENEGDK
    return Internal::Engine::process_message();
   }
 
+  bool Screen::is_ready() const
+  {
+   return ready;
+  }
+
   bool Screen::is_accelerated() const
   {
    return Internal::WINGL::is_render_accelerated();
@@ -2852,7 +2857,7 @@ namespace EUGENEGDK
   {
    this->set_transparent(transparency);
    this->draw_sprite(x,y);
- }
+  }
 
   Tileset::Tileset()
   {
