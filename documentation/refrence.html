@@ -81,11 +81,12 @@
         <ul>
           <li><a href="#mozTocId383177">Chapter 1. A few words for a curious
               programmer</a></li>
-          <li><a href="#mozTocId318160">Chapter 2. Internal classes</a></li>
-          <li><a href="#mozTocId293644">Chapter 3. Base graphics subsystem</a></li>
-          <li><a href="#mozTocId472209">Chapter 4. Game-pad</a></li>
-          <li><a href="#mozTocId804583">Chapter 5. Input</a></li>
-          <li><a href="#mozTocId692266">Chapter 6. Multimedia</a></li>
+          <li><a href="#mozTocId747716">Chapter 2. Custom date types</a></li>
+          <li><a href="#mozTocId318160">Chapter 3. Internal classes</a></li>
+          <li><a href="#mozTocId293644">Chapter 4. Base graphics subsystem</a></li>
+          <li><a href="#mozTocId472209">Chapter 5. Game-pad</a></li>
+          <li><a href="#mozTocId804583">Chapter 6. Input</a></li>
+          <li><a href="#mozTocId692266">Chapter 7. Multimedia</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId78453">Version history</a></li>
@@ -365,7 +366,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         unsigned int width,</span></big><big><span style="font-style: italic;">const
         unsigned int heigt</span></big><big><span style="font-style: italic;">);</span>
       – Initialize the base graphic subsystem with custom screen resolution.</big><big><span
-
         style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -392,8 +392,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <br>
       Picture subsystem implement image storage.<br>
       <br>
-    </big><big> <span style="text-decoration: underline;">Work with advanced
-        graphics</span><br>
+    </big><big> <span style="text-decoration: underline;">Work with picture
+        subsysten</span><br>
       <br>
       <span style="font-style: italic;">Picture</span> class provide simple
       access to picture subsystem. Don’t use it directly. Let’s look to public
@@ -1411,6 +1411,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         bellow.</big></p>
     <big> </big>
     <table style="text-align: left; width: 516px; height: 124px;" cellspacing="2"
+
       cellpadding="2" border="1">
       <tbody>
         <tr>
@@ -1571,14 +1572,18 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       – Return true if the multimedia resource is playing.</big><br>
     <h1><a class="mozTocH1" name="mozTocId309127"></a><big>Part 9. Internal
         details of the engine subsystems</big></h1>
-    <big> </big>
+    <big></big> <big> </big>
     <h2><a class="mozTocH2" name="mozTocId383177"></a><big>Chapter 1. A few
         words for a curious programmer</big></h2>
-    <big><br>
-      The engine subsystems have a different internal structure. It hidden from
-      you and you don’t have access to it. Do you want know about hiding things?
-      Just read a next chapter. </big>
-    <h2><a class="mozTocH2" name="mozTocId318160"></a><big>Chapter 2. Internal
+    <big> The engine subsystems have a different internal structure. It hidden
+      from you and you don’t have access to it. Do you want know about hiding
+      things? Just read a next chapter.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId747716"></a><big>Chapter 2. Custom
+        date types</big></h2>
+    <big>Almost all custom data types declared in global namespace.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId318160"></a><big>Chapter 3. Internal
         classes</big></h2>
     <big><span style="text-decoration: underline;">Internal classes</span><br>
       <br>
@@ -1604,7 +1609,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Core classes</span><br>
       <br>
-      All engine classes was declared in <span style="font-style: italic;">Core</span>
+      All engine core classes was declared in <span style="font-style: italic;">Core</span>
       sub-namespace.<br>
       <br>
     </big> <big> <span style="font-style: italic;">FPS</span> implement fps
@@ -1619,7 +1624,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">Shape</span> is base class for <span style="font-style: italic;">Rectangle</span>
       class.<span style="font-style: italic;"><br>
       </span> </big>
-    <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
+    <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 4. Base
         graphics subsystem</big></h2>
     <big><span style="text-decoration: underline;"></span> </big><big><span style="text-decoration: underline;">Visible
         object</span></big><br>
@@ -1661,11 +1666,11 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <big>All these structures was declared in <span style="font-style: italic;">Core</span>
         sub-namespace.</big><br>
       <big><span style="font-style: italic;"></span> </big>
-      <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 4. Game-pad</big></h2>
+      <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 5. Game-pad</big></h2>
       <big><br>
         Game-pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
 Multimedia API</a>. </big>
-      <h2><a class="mozTocH2" name="mozTocId804583"></a><big>Chapter 5. Input</big></h2>
+      <h2><a class="mozTocH2" name="mozTocId804583"></a><big>Chapter 6. Input</big></h2>
       <big><br>
         <span style="text-decoration: underline;">Input back-end</span><br>
         <br>
@@ -1696,7 +1701,7 @@ Multimedia API</a>. </big>
         </tbody>
       </table>
       <big> </big>
-      <h2><a class="mozTocH2" name="mozTocId692266"></a><big>Chapter 6.
+      <h2><a class="mozTocH2" name="mozTocId692266"></a><big>Chapter 7.
           Multimedia</big></h2>
       <big><br>
         Multimedia subsystem working over <a href="https://docs.microsoft.com/en-us/windows/desktop/DirectShow/directshow">DirectShow</a>.
@@ -1826,7 +1831,7 @@ Multimedia API</a>. </big>
         2.8.1 – 2.8.5 – Small changes.<br>
         2.8.6 – Merge old branch and new branch.<br>
         2.8.7 – Small bug was fixed.<br>
-        2.8.8 – 2.9.7 – Small changes.<br>
+        2.8.8 – 2.9.9 – Small changes.<br>
       </big></span>
   </body>
 </html>
