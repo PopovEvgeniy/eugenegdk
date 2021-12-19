@@ -132,26 +132,6 @@ namespace EUGENEGDK
    return DefWindowProc(window,Message,wParam,lParam);
   }
 
-  COM_Base::COM_Base()
- {
-  HRESULT status;
-  status=CoInitializeEx(NULL,COINIT_APARTMENTTHREADED);
-  if (status!=S_OK)
-  {
-   if (status!=S_FALSE)
-   {
-    EUGENEGDK::Halt("Can't initialize COM");
-   }
-
-  }
-
- }
-
-  COM_Base::~COM_Base()
-  {
-   CoUninitialize();
-  }
-
   Synchronization::Synchronization()
   {
    timer=NULL;
@@ -505,10 +485,10 @@ namespace EUGENEGDK
  namespace Core
  {
 
-   Unicode_Convertor::Unicode_Convertor()
-   {
-    target=NULL;
-   }
+  Unicode_Convertor::Unicode_Convertor()
+  {
+   target=NULL;
+  }
 
   Unicode_Convertor::~Unicode_Convertor()
   {
@@ -1315,7 +1295,7 @@ namespace EUGENEGDK
    result=0;
    if (this->read_configuration()==true) result=configuration.wNumButtons;
    return result;
- }
+  }
 
   unsigned int Gamepad::get_last_index()
   {
@@ -1508,6 +1488,19 @@ namespace EUGENEGDK
     loader->Release();
     loader=NULL;
    }
+   CoUninitialize();
+  }
+
+  void Multimedia::com_setup()
+  {
+   if (CoInitializeEx(NULL,COINIT_APARTMENTTHREADED)!=S_OK)
+   {
+    if (CoInitializeEx(NULL,COINIT_APARTMENTTHREADED)!=S_FALSE)
+    {
+     EUGENEGDK::Halt("Can't initialize COM");
+    }
+
+   }
 
   }
 
@@ -1630,6 +1623,7 @@ namespace EUGENEGDK
 
   void Multimedia::initialize()
   {
+   this->com_setup();
    this->create_loader();
    this->create_player();
    this->create_controler();

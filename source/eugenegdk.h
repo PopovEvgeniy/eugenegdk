@@ -102,13 +102,6 @@ namespace EUGENEGDK
 
   LRESULT CALLBACK Process_Message(HWND window,UINT Message,WPARAM wParam,LPARAM lParam);
 
-  class COM_Base
-  {
-   public:
-   COM_Base();
-   ~COM_Base();
-  };
-
   class Synchronization
   {
    private:
@@ -404,13 +397,14 @@ namespace EUGENEGDK
  namespace Misc
  {
 
-  class Multimedia:public Internal::COM_Base
+  class Multimedia
   {
    private:
    IGraphBuilder *loader;
    IMediaControl *player;
    IMediaSeeking *controler;
    IVideoWindow *video;
+   void com_setup();
    void set_screen_mode();
    void load_content(const wchar_t *target);
    void open(const wchar_t *target);
