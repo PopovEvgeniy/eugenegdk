@@ -556,7 +556,7 @@ namespace EUGENEGDK
    length=strlen(source);
    for (index=0;index<length;++index)
    {
-    target[index]=btowc(source[index]);
+    target[index]=std::btowc(source[index]);
    }
 
   }
@@ -1169,6 +1169,11 @@ namespace EUGENEGDK
   bool Keyboard::check_release(const unsigned char code)
   {
    return this->check_state(code,KEY_RELEASE);
+  }
+
+  bool Keyboard::is_ready() const
+  {
+   return preversion!=NULL;
   }
 
   Mouse::Mouse()
