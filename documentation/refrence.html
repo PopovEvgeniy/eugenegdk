@@ -838,9 +838,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">char* System::read_environment(const
         char *variable);</span> – Return value of specific system environment
       variable.<br>
-      <span style="font-style: italic;">void System::enable_logging(const char
-        *name);</span> – Enable error logging. Error messages will redirect to a
-      log file.<span style="font-style: italic;"></span><br>
+      <span style="font-style: italic;">bool System::enable_logging(const char
+        *name);</span> – Enable </big><big>redirecting </big><big>error
+      messages to a log file. Return false if the operation failed.<span style="font-style: italic;"></span><br>
       <br>
       This is all that you must know about this class. It is just very simple
       class for few important things. </big>
@@ -1701,7 +1701,6 @@ Multimedia API</a>. </big>
           predefined constants. You can see it bellow.</big></p>
       <big> </big>
       <table style="text-align: left; width: 519px; height: 94px;" cellspacing="2"
-
         cellpadding="2" border="1">
         <tbody>
           <tr>
@@ -1855,6 +1854,7 @@ Multimedia API</a>. </big>
         3.0.1 – Small changes.<br>
         3.0.2 – Keyboard subsystem was improved.<br>
         3.0.3 – 3.0.5 – Small changes.<br>
+        3.0.6 – Operation system interaction subsystem was improved.<br>
       </big></span>
   </body>
 </html>

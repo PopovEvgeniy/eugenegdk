@@ -718,7 +718,7 @@ namespace EUGENEGDK
    void quit();
    void run(const char *command);
    char* read_environment(const char *variable);
-   void enable_logging(const char *name);
+   bool enable_logging(const char *name);
   };
 
   class Filesystem

@@ -1458,12 +1458,12 @@ namespace EUGENEGDK
  {
 
    Multimedia::Multimedia()
-  {
-   loader=NULL;
-   player=NULL;
-   controler=NULL;
-   video=NULL;
-  }
+   {
+    loader=NULL;
+    player=NULL;
+    controler=NULL;
+    video=NULL;
+   }
 
    Multimedia::~Multimedia()
    {
@@ -1884,9 +1884,9 @@ namespace EUGENEGDK
  {
 
   Screen::Screen()
- {
-  ready=false;
- }
+  {
+   ready=false;
+  }
 
   Screen::~Screen()
   {
@@ -3106,13 +3106,9 @@ namespace EUGENEGDK
    return getenv(variable);
   }
 
-  void System::enable_logging(const char *name)
+  bool System::enable_logging(const char *name)
   {
-   if (freopen(name,"wt",stdout)==NULL)
-   {
-    EUGENEGDK::Halt("Can't create log file");
-   }
-
+   return freopen(name,"wt",stdout)!=NULL;
   }
 
   Filesystem::Filesystem()
