@@ -44,21 +44,22 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 
 namespace
 {
- struct TGA_head
+
+ typedef struct
  {
   unsigned char id:8;
   unsigned char color_map:8;
   unsigned char type:8;
- };
+ } TGA_head;
 
- struct TGA_map
+ typedef struct
  {
   unsigned short int index:16;
   unsigned short int length:16;
   unsigned char map_size:8;
- };
+ } TGA_map;
 
- struct TGA_image
+ typedef struct
  {
   unsigned short int x:16;
   unsigned short int y:16;
@@ -67,7 +68,7 @@ namespace
   unsigned char color:8;
   unsigned char alpha:3;
   unsigned char direction:5;
- };
+ } TGA_image;
 
  unsigned int MAXIMUM_TEXTURE_SIZE=0;
  const size_t KEYBOARD=256;
@@ -647,7 +648,7 @@ namespace EUGENEGDK
    {
     EUGENEGDK::Halt("Can't allocate memory for image buffer");
    }
-   length*=sizeof(unsigned int);
+
   }
 
   void Resizer::make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit)
@@ -719,14 +720,14 @@ namespace EUGENEGDK
    vertex[2].y=0;
    vertex[3].x=0;
    vertex[3].y=0;
-   point[0].u=0;
-   point[0].v=1;
-   point[1].u=1;
-   point[1].v=1;
-   point[2].u=1;
-   point[2].v=0;
-   point[3].u=0;
-   point[3].v=0;
+   point[0].u=0.0;
+   point[0].v=1.0;
+   point[1].u=1.0;
+   point[1].v=1.0;
+   point[2].u=1.0;
+   point[2].v=0.0;
+   point[3].u=0.0;
+   point[3].v=0.0;
    horizontal_mirror=DISABLE_MIRRORING;
    vertical_mirror=DISABLE_MIRRORING;
   }
@@ -799,24 +800,24 @@ namespace EUGENEGDK
   void Shape::set_horizontal_offset(const float current,const float total)
   {
    point[0].u=this->get_start_offset(current,total);
-   point[0].v=1;
+   point[0].v=1.0;
    point[1].u=this->get_end_offset(current,total);
-   point[1].v=1;
+   point[1].v=1.0;
    point[2].u=this->get_end_offset(current,total);
-   point[2].v=0;
+   point[2].v=0.0;
    point[3].u=this->get_start_offset(current,total);
-   point[3].v=0;
+   point[3].v=0.0;
   }
 
   void Shape::set_vertical_offset(const float current,const float total)
   {
-   point[0].u=0;
+   point[0].u=0.0;
    point[0].v=this->get_end_offset(current,total);
-   point[1].u=1;
+   point[1].u=1.0;
    point[1].v=this->get_end_offset(current,total);
-   point[2].u=1;
+   point[2].u=1.0;
    point[2].v=this->get_start_offset(current,total);
-   point[3].u=0;
+   point[3].u=0.0;
    point[3].v=this->get_start_offset(current,total);
   }
 
@@ -2072,8 +2073,6 @@ namespace EUGENEGDK
    TGA_head head;
    TGA_map color_map;
    TGA_image image;
-   compressed_length=0;
-   uncompressed_length=0;
    compressed=NULL;
    compressed_length=static_cast<size_t>(target.get_length()-18);
    target.read(&head,3);

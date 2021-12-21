@@ -890,16 +890,16 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="text-decoration: underline;">Collision detail</span><br>
       <br>
       Collision detector using bounding box collision method for detect
-      collision. Collision related information represent by special structure.
-      Let me introduce it.<br>
+      collision. Collision related information represent by special custom data
+      type. Let me introduce it.<br>
       <br>
-      <span style="font-style: italic;">struct Collision_Box</span><br style="font-style: italic;">
+      <span style="font-style: italic;">typedef struct</span><br style="font-style: italic;">
       <span style="font-style: italic;">{</span><br style="font-style: italic;">
-      <span style="font-style: italic;">unsigned int x;</span><br style="font-style: italic;">
-      <span style="font-style: italic;">unsigned int y;</span><br style="font-style: italic;">
-      <span style="font-style: italic;">unsigned int width;</span><br style="font-style: italic;">
-      <span style="font-style: italic;">unsigned int height;</span><br style="font-style: italic;">
-      <span style="font-style: italic;">};</span><br>
+      &nbsp; <span style="font-style: italic;">unsigned int x;</span><br style="font-style: italic;">
+      &nbsp; <span style="font-style: italic;">unsigned int y;</span><br style="font-style: italic;">
+      &nbsp; <span style="font-style: italic;">unsigned int width;</span><br style="font-style: italic;">
+      &nbsp; <span style="font-style: italic;">unsigned int height;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">} Collision_Box;</span><br>
       <br>
       <span style="text-decoration: underline;">Work with collision detector</span><br>
       <br>
@@ -1658,9 +1658,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
           texture coordinates arrays</span></big></span><br>
     <span><big> </big></span><br>
     <span><big> Any rectangle need four vertexes and four texture coordinates.</big></span><br>
-    <span><big> Single vertex represent by follow structure.</big></span><br>
+    <span><big> Single vertex represent by follow custom data type.</big></span><br>
     <span><big> </big></span><br>
-    <span><big> <span style="font-style: italic;">struct Vertex</span></big></span><br
+    <span><big> <span style="font-style: italic;">typedef struct Vertex</span></big></span><br
       style="font-style: italic;">
     <span><big> <span style="font-style: italic;">{</span></big></span><br style="font-style: italic;">
     <span><big> <span style="font-style: italic;">&nbsp;int x;</span></big></span><br
@@ -1669,19 +1669,19 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       style="font-style: italic;">
     <span><big> <span style="font-style: italic;">};</span></big></span><br>
     <span><big> </big></span><br>
-    <span><big> </big><big>Single texture coordinate represent by follow
-        structure.</big></span><br>
+    <span><big> </big><big>Single texture coordinate represent by follow custom
+        data type.</big></span><br>
     <span><big> </big></span><br>
-    <span><big> <span style="font-style: italic;">struct Point</span></big></span><br
+    <span><big> <span style="font-style: italic;">typedef struct</span></big></span><br
       style="font-style: italic;">
     <span><big> <span style="font-style: italic;">{</span></big></span><br style="font-style: italic;">
     <span><big> <span style="font-style: italic;">&nbsp;float u;</span></big></span><br
       style="font-style: italic;">
     <span><big> <span style="font-style: italic;">&nbsp;float v;</span></big></span><br
       style="font-style: italic;">
-    <span><big> <span style="font-style: italic;">};</span></big></span><br>
+    <span><big> <span style="font-style: italic;">} Point;</span></big></span><br>
     <span></span><span><big> </big> <br>
-      <big>All these structures was declared in <span style="font-style: italic;">Core</span>
+      <big>All these custom types declared in <span style="font-style: italic;">Core</span>
         sub-namespace.</big><br>
       <big><span style="font-style: italic;"></span> </big>
       <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 5. Game-pad</big></h2>
@@ -1855,6 +1855,7 @@ Multimedia API</a>. </big>
         3.0.2 – Keyboard subsystem was improved.<br>
         3.0.3 – 3.0.5 – Small changes.<br>
         3.0.6 – Operation system interaction subsystem was improved.<br>
+        3.0.7 – 3.0.9 – Small changes.<br>
       </big></span>
   </body>
 </html>
