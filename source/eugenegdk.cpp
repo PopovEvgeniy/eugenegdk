@@ -1160,9 +1160,9 @@ namespace EUGENEGDK
 
   Mouse::Mouse()
   {
-   preversion[MOUSE_LEFT]=KEY_RELEASE;
-   preversion[MOUSE_RIGHT]=KEY_RELEASE;
-   preversion[MOUSE_MIDDLE]=KEY_RELEASE;
+   preversion[EUGENEGDK::MOUSE_LEFT]=KEY_RELEASE;
+   preversion[EUGENEGDK::MOUSE_RIGHT]=KEY_RELEASE;
+   preversion[EUGENEGDK::MOUSE_MIDDLE]=KEY_RELEASE;
    position.x=0;
    position.y=0;
   }
@@ -1383,7 +1383,7 @@ namespace EUGENEGDK
    return result;
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const GAMEPAD_STICKS stick)
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick)
   {
    EUGENEGDK::GAMEPAD_DIRECTION result;
    unsigned long int control;
@@ -1411,7 +1411,7 @@ namespace EUGENEGDK
    return result;
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const GAMEPAD_STICKS stick)
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick)
   {
    EUGENEGDK::GAMEPAD_DIRECTION result;
    unsigned long int control;
