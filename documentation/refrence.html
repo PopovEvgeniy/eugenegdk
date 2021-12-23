@@ -658,7 +658,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       – Return the height of the sprite.<br>
       <span style="font-style: italic;">Sprite* Sprite::get_handle();</span> –
       Return the handle to sprite object.<br>
-      <span style="font-style: italic;">Collision_Box Sprite::get_box() const;</span>
+      <span style="font-style: italic;">EUGENEGDK::BOX Sprite::get_box() const;</span>
       – Return collision related information.<br>
       <span style="font-style: italic;">void Sprite::clone(Sprite &amp;target);</span>
       – Create copy of exist sprite if the image storage of exist sprite is not
@@ -906,7 +906,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       &nbsp; <span style="font-style: italic;">unsigned int y;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;">unsigned int width;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;">unsigned int height;</span><br style="font-style: italic;">
-      <span style="font-style: italic;">} Collision_Box;</span><br>
+      <span style="font-style: italic;">} BOX;</span><br>
       <br>
       <span style="text-decoration: underline;">Work with collision detector</span><br>
       <br>
@@ -915,9 +915,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       Let’s look to public methods.<br>
       <br>
       <span style="font-style: italic;">void Collision::set_target(const
-        EUGENEGDK::Box_Collision &amp;first_target,const
-        EUGENEGDK::Box_Collision &amp;second_target);</span> – Set targets for
-      collision detector.<br>
+        EUGENEGDK::BOX &amp;first_target,const EUGENEGDK::BOX
+        &amp;second_target);</span> – Set targets for collision detector.<br>
       <span style="font-style: italic;">bool
         Collision::check_horizontal_collision() const;</span> – Return true if
       horizontal collision between two object is accepted.<br>
@@ -927,18 +926,16 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <big> <span style="font-style: italic;">bool Collision::check_collision()
         const;</span> – Return true if horizontal or vertical collision between
       two objects is accepted.</big><br>
-    <big><i>bool Collision::check_horizontal_collision(const
-        EUGENEGDK::Box_Collision &amp;first_target,const
-        EUGENEGDK::Box_Collision &amp;second_target);</i> – Set collision target
-      and check horizontal collision.</big><br>
-    <big><i>bool Collision::check_vertical_collision(const
-        EUGENEGDK::Box_Collision &amp;first_target,const
-        EUGENEGDK::Box_Collision &amp;second_target);</i> – Set collision target
-      and check vertical collision.</big><br>
-    <big><i>bool Collision::check_collision(const EUGENEGDK::Box_Collision
-        &amp;first_target,const EUGENEGDK::Box_Collision &amp;second_target);</i>
-      – Set collision target and check collision.</big><br>
-    <big> <span style="font-style: italic;">EUGENEGDK::Collision_Box
+    <big><i>bool Collision::check_horizontal_collision(const EUGENEGDK::BOX
+        &amp;first_target,const EUGENEGDK::BOX &amp;second_target);</i> – Set
+      collision target and check horizontal collision.</big><br>
+    <big><i>bool Collision::check_vertical_collision(const EUGENEGDK::BOX
+        &amp;first_target,const EUGENEGDK::BOX &amp;second_target);</i> – Set
+      collision target and check vertical collision.</big><br>
+    <big><i>bool Collision::check_collision(const EUGENEGDK::BOX
+        &amp;first_target,const EUGENEGDK::BOX &amp;second_target);</i> – Set
+      collision target and check collision.</big><br>
+    <big> <span style="font-style: italic;">EUGENEGDK::BOX
         Collision::generate_box(const unsigned int x,const unsigned int y,const
         unsigned int width,const unsigned int height) const;</span> – Generate
       collision related information from the object properties. </big>
@@ -1865,7 +1862,7 @@ Multimedia API</a>. </big>
         3.0.3 – 3.0.5 – Small changes.<br>
         3.0.6 – Operation system interaction subsystem improved.<br>
         3.0.7 – 3.1.1 – Small changes.<br>
-        3.2 – A few changes in the engine API.<br>
+        3.2 – 3.2.1 – A few changes in the engine API.<br>
       </big></span>
   </body>
 </html>

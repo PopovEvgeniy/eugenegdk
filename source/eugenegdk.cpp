@@ -107,22 +107,22 @@ namespace EUGENEGDK
     PostQuitMessage(0);
     break;
     case WM_LBUTTONDOWN:
-    Buttons[MOUSE_LEFT]=KEY_PRESS;
+    Buttons[EUGENEGDK::MOUSE_LEFT]=KEY_PRESS;
     break;
     case WM_LBUTTONUP:
-    Buttons[MOUSE_LEFT]=KEY_RELEASE;
+    Buttons[EUGENEGDK::MOUSE_LEFT]=KEY_RELEASE;
     break;
     case WM_RBUTTONDOWN:
-    Buttons[MOUSE_RIGHT]=KEY_PRESS;
+    Buttons[EUGENEGDK::MOUSE_RIGHT]=KEY_PRESS;
     break;
     case WM_RBUTTONUP:
-    Buttons[MOUSE_RIGHT]=KEY_RELEASE;
+    Buttons[EUGENEGDK::MOUSE_RIGHT]=KEY_RELEASE;
     break;
     case WM_MBUTTONDOWN:
-    Buttons[MOUSE_MIDDLE]=KEY_PRESS;
+    Buttons[EUGENEGDK::MOUSE_MIDDLE]=KEY_PRESS;
     break;
     case WM_MBUTTONUP:
-    Buttons[MOUSE_MIDDLE]=KEY_RELEASE;
+    Buttons[EUGENEGDK::MOUSE_MIDDLE]=KEY_RELEASE;
     break;
     case WM_KEYDOWN:
     Keys[GETSCANCODE(lParam)]=KEY_PRESS;
@@ -729,8 +729,8 @@ namespace EUGENEGDK
    point[2].v=0.0;
    point[3].u=0.0;
    point[3].v=0.0;
-   horizontal_mirror=DISABLE_MIRRORING;
-   vertical_mirror=DISABLE_MIRRORING;
+   horizontal_mirror=EUGENEGDK::DISABLE_MIRRORING;
+   vertical_mirror=EUGENEGDK::DISABLE_MIRRORING;
   }
 
   Shape::~Shape()
@@ -2459,7 +2459,7 @@ namespace EUGENEGDK
    this->reset_background_setting();
   }
 
-  BACKGROUND_TYPE Background::get_kind() const
+  EUGENEGDK::BACKGROUND_TYPE Background::get_kind() const
   {
    return current_kind;
   }
@@ -2727,9 +2727,9 @@ namespace EUGENEGDK
    return this;
   }
 
-  EUGENEGDK::Collision_Box Sprite::get_box() const
+  EUGENEGDK::BOX Sprite::get_box() const
   {
-   EUGENEGDK::Collision_Box target;
+   EUGENEGDK::BOX target;
    target.x=current_x;
    target.y=current_y;
    target.width=sprite_width;
@@ -3183,7 +3183,7 @@ namespace EUGENEGDK
 
   }
 
-  void Collision::set_target(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target)
+  void Collision::set_target(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target)
   {
    first=first_target;
    second=second_target;
@@ -3216,27 +3216,27 @@ namespace EUGENEGDK
    return this->check_horizontal_collision() || this->check_vertical_collision();
   }
 
-  bool Collision::check_horizontal_collision(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target)
+  bool Collision::check_horizontal_collision(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target)
   {
    this->set_target(first_target,second_target);
    return this->check_horizontal_collision();
   }
 
-  bool Collision::check_vertical_collision(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target)
+  bool Collision::check_vertical_collision(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target)
   {
    this->set_target(first_target,second_target);
    return this->check_vertical_collision();
   }
 
-  bool Collision::check_collision(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target)
+  bool Collision::check_collision(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target)
   {
    this->set_target(first_target,second_target);
    return this->check_collision();
   }
 
-  EUGENEGDK::Collision_Box Collision::generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const
+  EUGENEGDK::BOX Collision::generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const
   {
-   EUGENEGDK::Collision_Box result;
+   EUGENEGDK::BOX result;
    result.x=x;
    result.y=y;
    result.width=width;

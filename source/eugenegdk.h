@@ -175,7 +175,7 @@ typedef enum
   unsigned int y;
   unsigned int width;
   unsigned int height;
- } Collision_Box;
+ } BOX;
 
  void Halt(const char *message);
 
@@ -676,7 +676,7 @@ typedef enum
    void complex_mirror();
    void draw_background();
    void destroy_background();
-   BACKGROUND_TYPE get_kind() const;
+   EUGENEGDK::BACKGROUND_TYPE get_kind() const;
   };
 
   class Sprite:public Animation,public Picture
@@ -721,7 +721,7 @@ typedef enum
    unsigned int get_width() const;
    unsigned int get_height() const;
    Sprite* get_handle();
-   EUGENEGDK::Collision_Box get_box() const;
+   EUGENEGDK::BOX get_box() const;
    EUGENEGDK::SPRITE_TYPE get_kind() const;
    void set_setting(const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
    void load_sprite(Image &buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
@@ -827,19 +827,19 @@ typedef enum
   class Collision
   {
    private:
-   EUGENEGDK::Collision_Box first;
-   EUGENEGDK::Collision_Box second;
+   EUGENEGDK::BOX first;
+   EUGENEGDK::BOX second;
    public:
    Collision();
    ~Collision();
-   void set_target(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target);
+   void set_target(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target);
    bool check_horizontal_collision() const;
    bool check_vertical_collision() const;
    bool check_collision() const;
-   bool check_horizontal_collision(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target);
-   bool check_vertical_collision(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target);
-   bool check_collision(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target);
-   EUGENEGDK::Collision_Box generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const;
+   bool check_horizontal_collision(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target);
+   bool check_vertical_collision(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target);
+   bool check_collision(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target);
+   EUGENEGDK::BOX generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const;
   };
 
  }
