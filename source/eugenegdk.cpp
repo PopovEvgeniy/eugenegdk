@@ -72,6 +72,7 @@ namespace
 
  unsigned int MAXIMUM_TEXTURE_SIZE=0;
  const size_t KEYBOARD=256;
+ const size_t MOUSE=3;
  const unsigned char KEY_RELEASE=0;
  const unsigned char KEY_PRESS=1;
  const unsigned long int JOYSTICK_UPLEFT=31500;
@@ -833,18 +834,18 @@ namespace EUGENEGDK
    point[3].v=this->get_start_offset(column,columns);
   }
 
-  void Shape::set_mirror_status(const MIRROR_STATUS horizontal,const MIRROR_STATUS vertical)
+  void Shape::set_mirror_status(const EUGENEGDK::MIRROR_STATUS horizontal,const EUGENEGDK::MIRROR_STATUS vertical)
   {
    horizontal_mirror=horizontal;
    vertical_mirror=vertical;
   }
 
-  MIRROR_STATUS Shape::get_horizontal_mirror() const
+  EUGENEGDK::MIRROR_STATUS Shape::get_horizontal_mirror() const
   {
    return horizontal_mirror;
   }
 
-  MIRROR_STATUS Shape::get_vertical_mirror() const
+  EUGENEGDK::MIRROR_STATUS Shape::get_vertical_mirror() const
   {
    return vertical_mirror;
   }
@@ -1181,7 +1182,7 @@ namespace EUGENEGDK
 
   }
 
-  bool Mouse::check_state(const MOUSE_BUTTON button,const unsigned char state)
+  bool Mouse::check_state(const EUGENEGDK::MOUSE_BUTTON button,const unsigned char state)
   {
    bool result;
    result=false;
@@ -1225,18 +1226,18 @@ namespace EUGENEGDK
    return position.y;
   }
 
-  bool Mouse::check_hold(const MOUSE_BUTTON button)
+  bool Mouse::check_hold(const EUGENEGDK::MOUSE_BUTTON button)
   {
    preversion[button]=Buttons[button];
    return Buttons[button]==KEY_PRESS;
   }
 
-  bool Mouse::check_press(const MOUSE_BUTTON button)
+  bool Mouse::check_press(const EUGENEGDK::MOUSE_BUTTON button)
   {
    return this->check_state(button,KEY_PRESS);
   }
 
-  bool Mouse::check_release(const MOUSE_BUTTON button)
+  bool Mouse::check_release(const EUGENEGDK::MOUSE_BUTTON button)
   {
    return this->check_state(button,KEY_RELEASE);
   }
@@ -1277,7 +1278,7 @@ namespace EUGENEGDK
    preversion=current;
   }
 
-  bool Gamepad::check_button(const GAMEPAD_BUTTONS button,const JOYINFOEX &target)
+  bool Gamepad::check_button(const EUGENEGDK::GAMEPAD_BUTTONS button,const JOYINFOEX &target)
   {
    bool result;
    result=false;
@@ -1348,46 +1349,46 @@ namespace EUGENEGDK
    return active;
   }
 
-  GAMEPAD_DPAD Gamepad::get_dpad() const
+  EUGENEGDK::GAMEPAD_DPAD Gamepad::get_dpad() const
   {
-   GAMEPAD_DPAD result;
-   result=GAMEPAD_NONE;
+   EUGENEGDK::GAMEPAD_DPAD result;
+   result=EUGENEGDK::GAMEPAD_NONE;
    switch (current.dwPOV)
    {
     case JOY_POVFORWARD:
-    result=GAMEPAD_UP;
+    result=EUGENEGDK::GAMEPAD_UP;
     break;
     case JOY_POVBACKWARD:
-    result=GAMEPAD_DOWN;
+    result=EUGENEGDK::GAMEPAD_DOWN;
     break;
     case JOY_POVLEFT:
-    result=GAMEPAD_LEFT;
+    result=EUGENEGDK::GAMEPAD_LEFT;
     break;
     case JOY_POVRIGHT:
     result=GAMEPAD_RIGHT;
     break;
     case JOYSTICK_UPLEFT:
-    result=GAMEPAD_UPLEFT;
+    result=EUGENEGDK::GAMEPAD_UPLEFT;
     break;
     case JOYSTICK_UPRIGHT:
-    result=GAMEPAD_UPRIGHT;
+    result=EUGENEGDK::GAMEPAD_UPRIGHT;
     break;
     case JOYSTICK_DOWNLEFT:
-    result=GAMEPAD_DOWNLEFT;
+    result=EUGENEGDK::GAMEPAD_DOWNLEFT;
     break;
     case JOYSTICK_DOWNRIGHT:
-    result=GAMEPAD_DOWNRIGHT;
+    result=EUGENEGDK::GAMEPAD_DOWNRIGHT;
     break;
    }
    return result;
   }
 
-  GAMEPAD_DIRECTION Gamepad::get_stick_x(const GAMEPAD_STICKS stick)
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const GAMEPAD_STICKS stick)
   {
-   GAMEPAD_DIRECTION result;
+   EUGENEGDK::GAMEPAD_DIRECTION result;
    unsigned long int control;
-   result=GAMEPAD_NEUTRAL_DIRECTION;
-   if (stick==GAMEPAD_LEFT_STICK)
+   result=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
+   if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
     if (this->get_sticks_amount()>0)
     {
@@ -1397,7 +1398,7 @@ namespace EUGENEGDK
     }
 
    }
-   if (stick==GAMEPAD_RIGHT_STICK)
+   if (stick==EUGENEGDK::GAMEPAD_RIGHT_STICK)
    {
     if (this->get_sticks_amount()>1)
     {
@@ -1410,12 +1411,12 @@ namespace EUGENEGDK
    return result;
   }
 
-  GAMEPAD_DIRECTION Gamepad::get_stick_y(const GAMEPAD_STICKS stick)
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const GAMEPAD_STICKS stick)
   {
-   GAMEPAD_DIRECTION result;
+   EUGENEGDK::GAMEPAD_DIRECTION result;
    unsigned long int control;
-   result=GAMEPAD_NEUTRAL_DIRECTION;
-   if (stick==GAMEPAD_LEFT_STICK)
+   result=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
+   if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
     if (this->get_sticks_amount()>0)
     {
@@ -1425,7 +1426,7 @@ namespace EUGENEGDK
     }
 
    }
-   if (stick==GAMEPAD_RIGHT_STICK)
+   if (stick==EUGENEGDK::GAMEPAD_RIGHT_STICK)
    {
     if (this->get_sticks_amount()>1)
     {
@@ -1438,17 +1439,17 @@ namespace EUGENEGDK
    return result;
   }
 
-  bool Gamepad::check_hold(const GAMEPAD_BUTTONS button)
+  bool Gamepad::check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button)
   {
    return this->check_button(button,current);
   }
 
-  bool Gamepad::check_press(const GAMEPAD_BUTTONS button)
+  bool Gamepad::check_press(const EUGENEGDK::GAMEPAD_BUTTONS button)
   {
    return (this->check_button(button,current)==true) && (this->check_button(button,preversion)==false);
   }
 
-  bool Gamepad::check_release(const GAMEPAD_BUTTONS button)
+  bool Gamepad::check_release(const EUGENEGDK::GAMEPAD_BUTTONS button)
   {
    return (this->check_button(button,current)==false) && (this->check_button(button,preversion)==true);
   }
@@ -2319,7 +2320,7 @@ namespace EUGENEGDK
   Background::Background()
   {
    target.set_size(0,0);
-   current_kind=NORMAL_BACKGROUND;
+   current_kind=EUGENEGDK::NORMAL_BACKGROUND;
   }
 
   Background::~Background()
@@ -2329,27 +2330,27 @@ namespace EUGENEGDK
 
   void Background::reset_background_setting()
   {
-   current_kind=NORMAL_BACKGROUND;
+   current_kind=EUGENEGDK::NORMAL_BACKGROUND;
   }
 
   void Background::configure_background()
   {
    switch(current_kind)
    {
-    case NORMAL_BACKGROUND:
+    case EUGENEGDK::NORMAL_BACKGROUND:
     target.set_horizontal_offset(1,1);
     break;
-    case HORIZONTAL_BACKGROUND:
+    case EUGENEGDK::HORIZONTAL_BACKGROUND:
     target.set_horizontal_offset(this->get_frame(),this->get_frames());
     break;
-    case VERTICAL_BACKGROUND:
+    case EUGENEGDK::VERTICAL_BACKGROUND:
     target.set_vertical_offset(this->get_frame(),this->get_frames());
     break;
    }
 
   }
 
-  void Background::set_kind(const BACKGROUND_TYPE kind)
+  void Background::set_kind(const EUGENEGDK::BACKGROUND_TYPE kind)
   {
    current_kind=kind;
    this->configure_background();
@@ -2377,9 +2378,9 @@ namespace EUGENEGDK
    this->prepare(screen.get_handle());
   }
 
-  void Background::set_setting(const BACKGROUND_TYPE kind,const unsigned int frames)
+  void Background::set_setting(const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
   {
-   if (kind!=NORMAL_BACKGROUND)
+   if (kind!=EUGENEGDK::NORMAL_BACKGROUND)
    {
     this->set_frames(frames);
    }
@@ -2390,7 +2391,7 @@ namespace EUGENEGDK
    this->set_kind(kind);
   }
 
-  void Background::load_background(Image &buffer,const BACKGROUND_TYPE kind,const unsigned int frames)
+  void Background::load_background(Image &buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
   {
    this->load_image(buffer);
    if (this->is_storage_empty()==false)
@@ -2414,26 +2415,26 @@ namespace EUGENEGDK
 
   void Background::horizontal_mirror()
   {
-   if (target.get_horizontal_mirror()==DISABLE_MIRRORING)
+   if (target.get_horizontal_mirror()==EUGENEGDK::DISABLE_MIRRORING)
    {
-    target.set_mirror_status(ENABLE_MIRRORING,target.get_vertical_mirror());
+    target.set_mirror_status(EUGENEGDK::ENABLE_MIRRORING,target.get_vertical_mirror());
    }
    else
    {
-    target.set_mirror_status(DISABLE_MIRRORING,target.get_vertical_mirror());
+    target.set_mirror_status(EUGENEGDK::DISABLE_MIRRORING,target.get_vertical_mirror());
    }
 
   }
 
   void Background::vertical_mirror()
   {
-  if (target.get_vertical_mirror()==DISABLE_MIRRORING)
+  if (target.get_vertical_mirror()==EUGENEGDK::DISABLE_MIRRORING)
    {
-    target.set_mirror_status(target.get_horizontal_mirror(),ENABLE_MIRRORING);
+    target.set_mirror_status(target.get_horizontal_mirror(),EUGENEGDK::ENABLE_MIRRORING);
    }
    else
    {
-    target.set_mirror_status(target.get_horizontal_mirror(),DISABLE_MIRRORING);
+    target.set_mirror_status(target.get_horizontal_mirror(),EUGENEGDK::DISABLE_MIRRORING);
    }
 
   }
@@ -2470,7 +2471,7 @@ namespace EUGENEGDK
    current_y=0;
    sprite_width=0;
    sprite_height=0;
-   current_kind=SINGLE_SPRITE;
+   current_kind=EUGENEGDK::SINGLE_SPRITE;
   }
 
   Sprite::~Sprite()
@@ -2485,7 +2486,7 @@ namespace EUGENEGDK
    current_y=0;
    sprite_width=0;
    sprite_height=0;
-   current_kind=SINGLE_SPRITE;
+   current_kind=EUGENEGDK::SINGLE_SPRITE;
   }
 
   void Sprite::check_transparent()
@@ -2512,15 +2513,15 @@ namespace EUGENEGDK
   {
    switch (current_kind)
    {
-    case SINGLE_SPRITE:
+    case EUGENEGDK::SINGLE_SPRITE:
     sprite_width=this->get_image_width();
     sprite_height=this->get_image_height();
     break;
-    case HORIZONTAL_STRIP:
+    case EUGENEGDK::HORIZONTAL_STRIP:
     sprite_width=this->get_image_width()/this->get_frames();
     sprite_height=this->get_image_height();
     break;
-    case VERTICAL_STRIP:
+    case EUGENEGDK::VERTICAL_STRIP:
     sprite_width=this->get_image_width();
     sprite_height=this->get_image_height()/this->get_frames();
     break;
@@ -2541,20 +2542,20 @@ namespace EUGENEGDK
   {
    switch(current_kind)
    {
-    case SINGLE_SPRITE:
+    case EUGENEGDK::SINGLE_SPRITE:
     target.set_horizontal_offset(1,1);
     break;
-    case HORIZONTAL_STRIP:
+    case EUGENEGDK::HORIZONTAL_STRIP:
     target.set_horizontal_offset(this->get_frame(),this->get_frames());
     break;
-    case VERTICAL_STRIP:
+    case EUGENEGDK::VERTICAL_STRIP:
     target.set_vertical_offset(this->get_frame(),this->get_frames());
     break;
    }
 
   }
 
-  void Sprite::set_kind(const SPRITE_TYPE kind)
+  void Sprite::set_kind(const EUGENEGDK::SPRITE_TYPE kind)
   {
    current_kind=kind;
    this->configure_sprite();
@@ -2726,9 +2727,9 @@ namespace EUGENEGDK
    return this;
   }
 
-  Collision_Box Sprite::get_box() const
+  EUGENEGDK::Collision_Box Sprite::get_box() const
   {
-   Collision_Box target;
+   EUGENEGDK::Collision_Box target;
    target.x=current_x;
    target.y=current_y;
    target.width=sprite_width;
@@ -2736,14 +2737,14 @@ namespace EUGENEGDK
    return target;
   }
 
-  SPRITE_TYPE Sprite::get_kind() const
+  EUGENEGDK::SPRITE_TYPE Sprite::get_kind() const
   {
    return current_kind;
   }
 
-  void Sprite::set_setting(const SPRITE_TYPE kind,const unsigned int frames)
+  void Sprite::set_setting(const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames)
   {
-   if (kind!=SINGLE_SPRITE)
+   if (kind!=EUGENEGDK::SINGLE_SPRITE)
    {
     this->set_frames(frames);
    }
@@ -2754,7 +2755,7 @@ namespace EUGENEGDK
    this->set_kind(kind);
   }
 
-  void Sprite::load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames)
+  void Sprite::load_sprite(Image &buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames)
   {
    this->load_image(buffer);
    if (this->is_storage_empty()==false)
@@ -2795,26 +2796,26 @@ namespace EUGENEGDK
 
   void Sprite::horizontal_mirror()
   {
-   if (target.get_horizontal_mirror()==DISABLE_MIRRORING)
+   if (target.get_horizontal_mirror()==EUGENEGDK::DISABLE_MIRRORING)
    {
-    target.set_mirror_status(ENABLE_MIRRORING,target.get_vertical_mirror());
+    target.set_mirror_status(EUGENEGDK::ENABLE_MIRRORING,target.get_vertical_mirror());
    }
    else
    {
-    target.set_mirror_status(DISABLE_MIRRORING,target.get_vertical_mirror());
+    target.set_mirror_status(EUGENEGDK::DISABLE_MIRRORING,target.get_vertical_mirror());
    }
 
   }
 
   void Sprite::vertical_mirror()
   {
-   if (target.get_vertical_mirror()==DISABLE_MIRRORING)
+   if (target.get_vertical_mirror()==EUGENEGDK::DISABLE_MIRRORING)
    {
-    target.set_mirror_status(target.get_horizontal_mirror(),ENABLE_MIRRORING);
+    target.set_mirror_status(target.get_horizontal_mirror(),EUGENEGDK::ENABLE_MIRRORING);
    }
    else
    {
-    target.set_mirror_status(target.get_horizontal_mirror(),DISABLE_MIRRORING);
+    target.set_mirror_status(target.get_horizontal_mirror(),EUGENEGDK::DISABLE_MIRRORING);
    }
 
   }
@@ -3182,7 +3183,7 @@ namespace EUGENEGDK
 
   }
 
-  void Collision::set_target(const Collision_Box &first_target,const Collision_Box &second_target)
+  void Collision::set_target(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target)
   {
    first=first_target;
    second=second_target;
@@ -3215,27 +3216,27 @@ namespace EUGENEGDK
    return this->check_horizontal_collision() || this->check_vertical_collision();
   }
 
-  bool Collision::check_horizontal_collision(const Collision_Box &first_target,const Collision_Box &second_target)
+  bool Collision::check_horizontal_collision(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target)
   {
    this->set_target(first_target,second_target);
    return this->check_horizontal_collision();
   }
 
-  bool Collision::check_vertical_collision(const Collision_Box &first_target,const Collision_Box &second_target)
+  bool Collision::check_vertical_collision(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target)
   {
    this->set_target(first_target,second_target);
    return this->check_vertical_collision();
   }
 
-  bool Collision::check_collision(const Collision_Box &first_target,const Collision_Box &second_target)
+  bool Collision::check_collision(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target)
   {
    this->set_target(first_target,second_target);
    return this->check_collision();
   }
 
-  Collision_Box Collision::generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const
+  EUGENEGDK::Collision_Box Collision::generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const
   {
-   Collision_Box result;
+   EUGENEGDK::Collision_Box result;
    result.x=x;
    result.y=y;
    result.width=width;

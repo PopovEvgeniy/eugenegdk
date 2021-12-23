@@ -73,34 +73,39 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #include <GL\gl.h>
 
 #define GETSCANCODE(argument) ((argument >> 16)&0x7f)
-#define MOUSE 3
 
-typedef enum
-{
- DISABLE_MIRRORING=1,
- ENABLE_MIRRORING=-1
-} MIRROR_STATUS;
+extern BOOL WINAPI wglSwapIntervalEXT (int interval); // This code was taken from wglext.h by The Khronos Group Inc
+typedef BOOL (WINAPI * PFNWGLSWAPINTERVALEXTPROC) (int interval); // This code was taken from wglext.h by The Khronos Group Inc
 
-typedef enum
+namespace EUGENEGDK
 {
- NORMAL_BACKGROUND=0,
- HORIZONTAL_BACKGROUND=1,
- VERTICAL_BACKGROUND=2
-} BACKGROUND_TYPE;
 
-typedef enum
-{
- SINGLE_SPRITE=0,
- HORIZONTAL_STRIP=1,
- VERTICAL_STRIP=2
-} SPRITE_TYPE;
+ typedef enum
+ {
+  DISABLE_MIRRORING=1,
+  ENABLE_MIRRORING=-1
+ } MIRROR_STATUS;
 
-typedef enum
-{
- MOUSE_LEFT=0,
- MOUSE_RIGHT=1,
- MOUSE_MIDDLE=2
-} MOUSE_BUTTON;
+ typedef enum
+ {
+  NORMAL_BACKGROUND=0,
+  HORIZONTAL_BACKGROUND=1,
+  VERTICAL_BACKGROUND=2
+ } BACKGROUND_TYPE;
+
+ typedef enum
+ {
+  SINGLE_SPRITE=0,
+  HORIZONTAL_STRIP=1,
+  VERTICAL_STRIP=2
+ } SPRITE_TYPE;
+
+ typedef enum
+ {
+  MOUSE_LEFT=0,
+  MOUSE_RIGHT=1,
+  MOUSE_MIDDLE=2
+ } MOUSE_BUTTON;
 
 typedef enum
 {
@@ -109,74 +114,68 @@ typedef enum
  GAMEPAD_POSITIVE_DIRECTION=1
 } GAMEPAD_DIRECTION;
 
-typedef enum
-{
- GAMEPAD_LEFT_STICK=0,
- GAMEPAD_RIGHT_STICK=1
-} GAMEPAD_STICKS;
+ typedef enum
+ {
+  GAMEPAD_LEFT_STICK=0,
+  GAMEPAD_RIGHT_STICK=1
+ } GAMEPAD_STICKS;
 
-typedef enum
-{
- GAMEPAD_NONE=0,
- GAMEPAD_UP=1,
- GAMEPAD_DOWN=2,
- GAMEPAD_LEFT=3,
- GAMEPAD_RIGHT=4,
- GAMEPAD_UPLEFT=5,
- GAMEPAD_UPRIGHT=6,
- GAMEPAD_DOWNLEFT=7,
- GAMEPAD_DOWNRIGHT=8
-} GAMEPAD_DPAD;
+ typedef enum
+ {
+  GAMEPAD_NONE=0,
+  GAMEPAD_UP=1,
+  GAMEPAD_DOWN=2,
+  GAMEPAD_LEFT=3,
+  GAMEPAD_RIGHT=4,
+  GAMEPAD_UPLEFT=5,
+  GAMEPAD_UPRIGHT=6,
+  GAMEPAD_DOWNLEFT=7,
+  GAMEPAD_DOWNRIGHT=8
+ } GAMEPAD_DPAD;
 
-typedef enum
-{
- GAMEPAD_BUTTON1=JOY_BUTTON1,
- GAMEPAD_BUTTON2=JOY_BUTTON2,
- GAMEPAD_BUTTON3=JOY_BUTTON3,
- GAMEPAD_BUTTON4=JOY_BUTTON4,
- GAMEPAD_BUTTON5=JOY_BUTTON5,
- GAMEPAD_BUTTON6=JOY_BUTTON6,
- GAMEPAD_BUTTON7=JOY_BUTTON7,
- GAMEPAD_BUTTON8=JOY_BUTTON8,
- GAMEPAD_BUTTON9=JOY_BUTTON9,
- GAMEPAD_BUTTON10=JOY_BUTTON10,
- GAMEPAD_BUTTON11=JOY_BUTTON11,
- GAMEPAD_BUTTON12=JOY_BUTTON12,
- GAMEPAD_BUTTON113=JOY_BUTTON13,
- GAMEPAD_BUTTON14=JOY_BUTTON14,
- GAMEPAD_BUTTON15=JOY_BUTTON15,
- GAMEPAD_BUTTON16=JOY_BUTTON16,
- GAMEPAD_BUTTON17=JOY_BUTTON17,
- GAMEPAD_BUTTON18=JOY_BUTTON18,
- GAMEPAD_BUTTON19=JOY_BUTTON19,
- GAMEPAD_BUTTON20=JOY_BUTTON20,
- GAMEPAD_BUTTON21=JOY_BUTTON21,
- GAMEPAD_BUTTON22=JOY_BUTTON22,
- GAMEPAD_BUTTON23=JOY_BUTTON23,
- GAMEPAD_BUTTON24=JOY_BUTTON24,
- GAMEPAD_BUTTON25=JOY_BUTTON25,
- GAMEPAD_BUTTON26=JOY_BUTTON26,
- GAMEPAD_BUTTON27=JOY_BUTTON27,
- GAMEPAD_BUTTON28=JOY_BUTTON28,
- GAMEPAD_BUTTON29=JOY_BUTTON29,
- GAMEPAD_BUTTON30=JOY_BUTTON30,
- GAMEPAD_BUTTON31=JOY_BUTTON31,
- GAMEPAD_BUTTON32=JOY_BUTTON32
-} GAMEPAD_BUTTONS;
+ typedef enum
+ {
+  GAMEPAD_BUTTON1=JOY_BUTTON1,
+  GAMEPAD_BUTTON2=JOY_BUTTON2,
+  GAMEPAD_BUTTON3=JOY_BUTTON3,
+  GAMEPAD_BUTTON4=JOY_BUTTON4,
+  GAMEPAD_BUTTON5=JOY_BUTTON5,
+  GAMEPAD_BUTTON6=JOY_BUTTON6,
+  GAMEPAD_BUTTON7=JOY_BUTTON7,
+  GAMEPAD_BUTTON8=JOY_BUTTON8,
+  GAMEPAD_BUTTON9=JOY_BUTTON9,
+  GAMEPAD_BUTTON10=JOY_BUTTON10,
+  GAMEPAD_BUTTON11=JOY_BUTTON11,
+  GAMEPAD_BUTTON12=JOY_BUTTON12,
+  GAMEPAD_BUTTON113=JOY_BUTTON13,
+  GAMEPAD_BUTTON14=JOY_BUTTON14,
+  GAMEPAD_BUTTON15=JOY_BUTTON15,
+  GAMEPAD_BUTTON16=JOY_BUTTON16,
+  GAMEPAD_BUTTON17=JOY_BUTTON17,
+  GAMEPAD_BUTTON18=JOY_BUTTON18,
+  GAMEPAD_BUTTON19=JOY_BUTTON19,
+  GAMEPAD_BUTTON20=JOY_BUTTON20,
+  GAMEPAD_BUTTON21=JOY_BUTTON21,
+  GAMEPAD_BUTTON22=JOY_BUTTON22,
+  GAMEPAD_BUTTON23=JOY_BUTTON23,
+  GAMEPAD_BUTTON24=JOY_BUTTON24,
+  GAMEPAD_BUTTON25=JOY_BUTTON25,
+  GAMEPAD_BUTTON26=JOY_BUTTON26,
+  GAMEPAD_BUTTON27=JOY_BUTTON27,
+  GAMEPAD_BUTTON28=JOY_BUTTON28,
+  GAMEPAD_BUTTON29=JOY_BUTTON29,
+  GAMEPAD_BUTTON30=JOY_BUTTON30,
+  GAMEPAD_BUTTON31=JOY_BUTTON31,
+  GAMEPAD_BUTTON32=JOY_BUTTON32
+ } GAMEPAD_BUTTONS;
 
-extern BOOL WINAPI wglSwapIntervalEXT (int interval); // This code was taken from wglext.h by The Khronos Group Inc
-typedef BOOL (WINAPI * PFNWGLSWAPINTERVALEXTPROC) (int interval); // This code was taken from wglext.h by The Khronos Group Inc
-
-typedef struct
-{
- unsigned int x;
- unsigned int y;
- unsigned int width;
- unsigned int height;
-} Collision_Box;
-
-namespace EUGENEGDK
-{
+ typedef struct
+ {
+  unsigned int x;
+  unsigned int y;
+  unsigned int width;
+  unsigned int height;
+ } Collision_Box;
 
  void Halt(const char *message);
 
@@ -337,8 +336,8 @@ namespace EUGENEGDK
    unsigned int total_height;
    unsigned int current_x;
    unsigned int current_y;
-   MIRROR_STATUS horizontal_mirror;
-   MIRROR_STATUS vertical_mirror;
+   EUGENEGDK::MIRROR_STATUS horizontal_mirror;
+   EUGENEGDK::MIRROR_STATUS vertical_mirror;
    float get_start_offset(const float current,const float total);
    float get_end_offset(const float current,const float total);
    protected:
@@ -358,9 +357,9 @@ namespace EUGENEGDK
    void set_horizontal_offset(const float current,const float total);
    void set_vertical_offset(const float current,const float total);
    void set_tile_offset(const float row,const float rows,const float column,const float columns);
-   void set_mirror_status(const MIRROR_STATUS horizontal,const MIRROR_STATUS vertical);
-   MIRROR_STATUS get_horizontal_mirror() const;
-   MIRROR_STATUS get_vertical_mirror() const;
+   void set_mirror_status(const EUGENEGDK::MIRROR_STATUS horizontal,const EUGENEGDK::MIRROR_STATUS vertical);
+   EUGENEGDK::MIRROR_STATUS get_horizontal_mirror() const;
+   EUGENEGDK::MIRROR_STATUS get_vertical_mirror() const;
   };
 
   class Rectangle:public Shape
@@ -427,10 +426,10 @@ namespace EUGENEGDK
   class Mouse
   {
    private:
-   unsigned char preversion[MOUSE];
+   unsigned char preversion[3];
    POINT position;
    void get_position();
-   bool check_state(const MOUSE_BUTTON button,const unsigned char state);
+   bool check_state(const EUGENEGDK::MOUSE_BUTTON button,const unsigned char state);
    public:
    Mouse();
    ~Mouse();
@@ -439,9 +438,9 @@ namespace EUGENEGDK
    void set_position(const unsigned int x,const unsigned int y);
    unsigned int get_x();
    unsigned int get_y();
-   bool check_hold(const MOUSE_BUTTON button);
-   bool check_press(const MOUSE_BUTTON button);
-   bool check_release(const MOUSE_BUTTON button);
+   bool check_hold(const EUGENEGDK::MOUSE_BUTTON button);
+   bool check_press(const EUGENEGDK::MOUSE_BUTTON button);
+   bool check_release(const EUGENEGDK::MOUSE_BUTTON button);
   };
 
   class Gamepad
@@ -454,7 +453,7 @@ namespace EUGENEGDK
    bool read_configuration();
    bool read_state();
    void clear_state();
-   bool check_button(const GAMEPAD_BUTTONS button,const JOYINFOEX &target);
+   bool check_button(const EUGENEGDK::GAMEPAD_BUTTONS button,const JOYINFOEX &target);
    public:
    Gamepad();
    ~Gamepad();
@@ -467,12 +466,12 @@ namespace EUGENEGDK
    void set_active(const unsigned int gamepad);
    unsigned int get_max_amount() const;
    unsigned int get_active() const;
-   GAMEPAD_DPAD get_dpad() const;
-   GAMEPAD_DIRECTION get_stick_x(const GAMEPAD_STICKS stick);
-   GAMEPAD_DIRECTION get_stick_y(const GAMEPAD_STICKS stick);
-   bool check_hold(const GAMEPAD_BUTTONS button);
-   bool check_press(const GAMEPAD_BUTTONS button);
-   bool check_release(const GAMEPAD_BUTTONS button);
+   EUGENEGDK::GAMEPAD_DPAD get_dpad() const;
+   EUGENEGDK::GAMEPAD_DIRECTION get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick);
+   EUGENEGDK::GAMEPAD_DIRECTION get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick);
+   bool check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button);
+   bool check_press(const EUGENEGDK::GAMEPAD_BUTTONS button);
+   bool check_release(const EUGENEGDK::GAMEPAD_BUTTONS button);
   };
 
  }
@@ -658,18 +657,18 @@ namespace EUGENEGDK
   {
    private:
    Core::Rectangle target;
-   BACKGROUND_TYPE current_kind;
+   EUGENEGDK::BACKGROUND_TYPE current_kind;
    void reset_background_setting();
    void configure_background();
-   void set_kind(const BACKGROUND_TYPE kind);
+   void set_kind(const EUGENEGDK::BACKGROUND_TYPE kind);
    void prepare(const unsigned int screen_width,const unsigned int screen_height);
    public:
    Background();
    ~Background();
    void prepare(Screen *screen);
    void prepare(Screen &screen);
-   void set_setting(const BACKGROUND_TYPE kind,const unsigned int frames);
-   void load_background(Image &buffer,const BACKGROUND_TYPE kind,const unsigned int frames);
+   void set_setting(const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
+   void load_background(Image &buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
    void set_target(const unsigned int target);
    void step();
    void horizontal_mirror();
@@ -689,14 +688,14 @@ namespace EUGENEGDK
    unsigned int current_y;
    unsigned int sprite_width;
    unsigned int sprite_height;
-   SPRITE_TYPE current_kind;
+   EUGENEGDK::SPRITE_TYPE current_kind;
    void reset_sprite_setting();
    void check_transparent();
    void draw_sprite_image();
    void set_sprite_setting();
    void configure_sprite();
    void set_sprite_frame();
-   void set_kind(const SPRITE_TYPE kind);
+   void set_kind(const EUGENEGDK::SPRITE_TYPE kind);
    public:
    Sprite();
    ~Sprite();
@@ -722,10 +721,10 @@ namespace EUGENEGDK
    unsigned int get_width() const;
    unsigned int get_height() const;
    Sprite* get_handle();
-   Collision_Box get_box() const;
-   SPRITE_TYPE get_kind() const;
-   void set_setting(const SPRITE_TYPE kind,const unsigned int frames);
-   void load_sprite(Image &buffer,const SPRITE_TYPE kind,const unsigned int frames);
+   EUGENEGDK::Collision_Box get_box() const;
+   EUGENEGDK::SPRITE_TYPE get_kind() const;
+   void set_setting(const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
+   void load_sprite(Image &buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
    void set_target(const unsigned int target);
    void step();
    void clone(Sprite &target);
@@ -828,19 +827,19 @@ namespace EUGENEGDK
   class Collision
   {
    private:
-   Collision_Box first;
-   Collision_Box second;
+   EUGENEGDK::Collision_Box first;
+   EUGENEGDK::Collision_Box second;
    public:
    Collision();
    ~Collision();
-   void set_target(const Collision_Box &first_target,const Collision_Box &second_target);
+   void set_target(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target);
    bool check_horizontal_collision() const;
    bool check_vertical_collision() const;
    bool check_collision() const;
-   bool check_horizontal_collision(const Collision_Box &first_target,const Collision_Box &second_target);
-   bool check_vertical_collision(const Collision_Box &first_target,const Collision_Box &second_target);
-   bool check_collision(const Collision_Box &first_target,const Collision_Box &second_target);
-   Collision_Box generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const;
+   bool check_horizontal_collision(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target);
+   bool check_vertical_collision(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target);
+   bool check_collision(const EUGENEGDK::Collision_Box &first_target,const EUGENEGDK::Collision_Box &second_target);
+   EUGENEGDK::Collision_Box generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const;
   };
 
  }

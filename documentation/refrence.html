@@ -21,6 +21,7 @@
           <li><a href="#mozTocId928115">Chapter 5. Trouble guide</a></li>
           <li><a href="#mozTocId491993">Chapter 6. Compilers</a></li>
           <li><a href="#mozTocId914689">Chapter 7. The engine name-space</a></li>
+          <li><a href="#mozTocId417277">Chapter 8. Custom date types</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId859712">Part 2. Base things</a>
@@ -81,12 +82,11 @@
         <ul>
           <li><a href="#mozTocId383177">Chapter 1. A few words for a curious
               programmer</a></li>
-          <li><a href="#mozTocId747716">Chapter 2. Custom date types</a></li>
-          <li><a href="#mozTocId318160">Chapter 3. Internal classes</a></li>
-          <li><a href="#mozTocId293644">Chapter 4. Base graphics subsystem</a></li>
-          <li><a href="#mozTocId472209">Chapter 5. Game-pad</a></li>
-          <li><a href="#mozTocId804583">Chapter 6. Input</a></li>
-          <li><a href="#mozTocId692266">Chapter 7. Multimedia</a></li>
+          <li><a href="#mozTocId318160">Chapter 2. Internal classes</a></li>
+          <li><a href="#mozTocId293644">Chapter 3. Base graphics subsystem</a></li>
+          <li><a href="#mozTocId472209">Chapter 4. Game-pad</a></li>
+          <li><a href="#mozTocId804583">Chapter 5. Input</a></li>
+          <li><a href="#mozTocId692266">Chapter 6. Multimedia</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId78453">Version history</a></li>
@@ -321,7 +321,13 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <h2><a class="mozTocH2" name="mozTocId914689"></a><big>Chapter 7. The engine
         name-space</big></h2>
     <big><span style="font-style: italic;">EUGENEGDK</span> is main name-space.</big><big>
-      All the engine classes declared in few nested namespaces. </big>
+      All the engine classes declared in few nested namespaces.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId417277"></a><big>Chapter 8. Custom
+        date types</big></h2>
+    <big>Almost all custom data types declared in <span style="font-style: italic;">EUGENEGDK</span>
+      namespace.<br>
+    </big>
     <h1><a class="mozTocH1" name="mozTocId859712"></a><big>Part 2. Base things</big></h1>
     <big> </big>
     <h2><a class="mozTocH2" name="mozTocId312970"></a><big>Chapter 1. Coordinate
@@ -342,7 +348,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <h1><a class="mozTocH1" name="mozTocId760374"></a><big>Part 3. Graphics</big></h1>
     <h2><a class="mozTocH2" name="mozTocId182571"></a><big>Chapter 1. The
         sub-namespace</big></h2>
-    <big>All subsystems in this section was declared in <span style="font-style: italic;">Graphics</span>
+    <big>All subsystems in this section declared in <span style="font-style: italic;">Graphics</span>
       sub-namespace.</big><br>
     <big> </big>
     <h2><a class="mozTocH2" name="mozTocId552078"></a><big>Chapter 2. Base
@@ -412,7 +418,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       Picture subsystem implement image storage.<br>
       <br>
     </big><big> <span style="text-decoration: underline;">Work with picture
-        subsysten</span><br>
+        subsystem</span><br>
       <br>
       <span style="font-style: italic;">Picture</span> class provide simple
       access to picture subsystem. Don’t use it directly. Let’s look to public
@@ -424,7 +430,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       – Destroy image&nbsp; in the storage.</big><br>
     <big> <span style="font-style: italic;">void Picture::load_image(Image
         &amp;buffer);</span> – Load an image from memory buffer. Replace current
-      image if exist.<br>
+      image if it already exist.<br>
       <span style="font-style: italic;">size_t Picture::get_length() const;</span>
       – Return length of image buffer in bytes.<br>
       <span style="font-style: italic;">bool Picture::is_storage_empty() const;</span>
@@ -513,12 +519,12 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">void Background::step();</span> –
       Increase number of target frame in scrollable background. Set it to 1 if
       number of target frame more than amount of frames.</big><br>
-    <big><i>void Background::set_setting(const BACKGROUND_TYPE kind,const
-        unsigned int frames);</i> – Set background setting. Last argument will
-      ignored if background not scrollable.<br>
+    <big><i>void Background::set_setting(const EUGENEGDK::BACKGROUND_TYPE
+        kind,const unsigned int frames);</i> – Set background setting. Last
+      argument will ignored if background not scrollable.<br>
       <span style="font-style: italic;">void Background::load_background(Image
-        &amp;buffer,const BACKGROUND_TYPE kind,const unsigned int frames);</span>
-      – Load background and set background setting.<span style="font-style: italic;"></span><br>
+        &amp;buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
+        frames);</span> – Load background and set background setting.<span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">void Background::horizontal_mirror();</span>&nbsp;
       – Do horizontal background mirror.<br>
       <span style="font-style: italic;">void Background::vertical_mirror();</span>
@@ -529,8 +535,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       – Draw a background.<br>
       <span style="font-style: italic;">void Background::destroy_background();</span>
       – Destroy a background image and a background texture.<br>
-      <span style="font-style: italic;">BACKGROUND_TYPE Sprite::get_kind()
-        const;</span>&nbsp; – Get background type.<br>
+      <span style="font-style: italic;">EUGENEGDK::BACKGROUND_TYPE
+        Sprite::get_kind() const;</span>&nbsp; – Get background type.<br>
       <br>
       <span style="text-decoration: underline;">Important notes</span><br>
       <br>
@@ -601,18 +607,19 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">void Sprite::prepare();</span>&nbsp; –
       Prepare for drawing.<br>
       <span style="font-style: italic;">void Sprite::set_setting(const
-        SPRITE_TYPE kind,const unsigned int frames);</span> – Set sprite
-      setting. Last argument will ignored if sprite not animated.<br>
+        EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);</span> – Set
+      sprite setting. Last argument will ignored if sprite not animated.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image
-        &amp;buffer,const SPRITE_TYPE kind,const unsigned int frames);</span> –
-      Load a sprite from memory buffer and set sprite setting.<br>
+        &amp;buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int
+        frames);</span> – Load a sprite from memory buffer and set sprite
+      setting.<br>
       <span style="font-style: italic;">void Sprite::set_target(const unsigned
         int target);</span> – Set target frame in strip.<br>
       <span style="font-style: italic;">void Sprite::step();</span> – Increase
       number of target frame in strip. Set it to 1 if number of target frame
       more than amount of frames.<span style="font-style: italic;"></span><br>
-      <span style="font-style: italic;">SPRITE_TYPE Sprite::get_kind() const;</span>
-      – Get sprite type.</big><big></big><br>
+      <span style="font-style: italic;">EUGENEGDK::SPRITE_TYPE
+        Sprite::get_kind() const;</span> – Get sprite type.</big><br>
     <big> <span style="font-style: italic;">void Sprite::set_transparent(const
         bool enabled);</span> – Enable or disable transparent mode.<br>
       <span style="font-style: italic;">bool Sprite::get_transparent() const;</span>
@@ -783,7 +790,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     </big>
     <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 9. Loading
         images</big></h2>
-    <big> <span style="text-decoration: underline;">Load an image from a files</span><br>
+    <big> <span style="text-decoration: underline;">Load a image from a files</span><br>
       <br>
       Use image loader for load an image from a file. <span style="font-style: italic;">Image</span>
       class provide simple access to image loader. It is very simple class with
@@ -819,7 +826,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <h1><a class="mozTocH1" name="mozTocId64443"></a><big>Part 4. Common things</big></h1>
     <h2><a class="mozTocH2" name="mozTocId597525"></a><big>Chapter 1. The
         sub-namespace</big></h2>
-    <big>All subsystems in this section was declared in <span style="font-style: italic;">Common</span>
+    <big>All subsystems in this section declared in <span style="font-style: italic;">Common</span>
       sub-namespace.</big><br>
     <big> </big>
     <h2><a class="mozTocH2" name="mozTocId236677"></a><big>Chapter 2.
@@ -908,8 +915,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       Let’s look to public methods.<br>
       <br>
       <span style="font-style: italic;">void Collision::set_target(const
-        Box_Collision &amp;first_target,const Box_Collision &amp;second_target);</span>
-      – Set targets for collision detector.<br>
+        EUGENEGDK::Box_Collision &amp;first_target,const
+        EUGENEGDK::Box_Collision &amp;second_target);</span> – Set targets for
+      collision detector.<br>
       <span style="font-style: italic;">bool
         Collision::check_horizontal_collision() const;</span> – Return true if
       horizontal collision between two object is accepted.<br>
@@ -919,23 +927,25 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <big> <span style="font-style: italic;">bool Collision::check_collision()
         const;</span> – Return true if horizontal or vertical collision between
       two objects is accepted.</big><br>
-    <big><i>bool Collision::check_horizontal_collision(const Box_Collision
-        &amp;first_target,const Box_Collision &amp;second_target);</i> – Set
-      collision target and check horizontal collision.</big><br>
-    <big><i>bool Collision::check_vertical_collision(const Box_Collision
-        &amp;first_target,const Box_Collision &amp;second_target);</i> – Set
-      collision target and check vertical collision.</big><br>
-    <big><i>bool Collision::check_collision(const Box_Collision
-        &amp;first_target,const Box_Collision &amp;second_target);</i> – Set
-      collision target and check collision.</big><br>
-    <big> <span style="font-style: italic;">Collision_Box
+    <big><i>bool Collision::check_horizontal_collision(const
+        EUGENEGDK::Box_Collision &amp;first_target,const
+        EUGENEGDK::Box_Collision &amp;second_target);</i> – Set collision target
+      and check horizontal collision.</big><br>
+    <big><i>bool Collision::check_vertical_collision(const
+        EUGENEGDK::Box_Collision &amp;first_target,const
+        EUGENEGDK::Box_Collision &amp;second_target);</i> – Set collision target
+      and check vertical collision.</big><br>
+    <big><i>bool Collision::check_collision(const EUGENEGDK::Box_Collision
+        &amp;first_target,const EUGENEGDK::Box_Collision &amp;second_target);</i>
+      – Set collision target and check collision.</big><br>
+    <big> <span style="font-style: italic;">EUGENEGDK::Collision_Box
         Collision::generate_box(const unsigned int x,const unsigned int y,const
         unsigned int width,const unsigned int height) const;</span> – Generate
       collision related information from the object properties. </big>
     <h1><a class="mozTocH1" name="mozTocId590919"></a><big> Part 5. Binary files</big></h1>
     <h2><a class="mozTocH2" name="mozTocId200879"></a><big>Chapter 1. The
         sub-namespace</big></h2>
-    <big>All subsystems in this section was declared in <span style="font-style: italic;">File</span>
+    <big>All subsystems in this section declared in <span style="font-style: italic;">File</span>
       sub-namespace.</big><br>
     <big> </big>
     <h2><a class="mozTocH2" name="mozTocId961921"></a><big> Chapter 2. Base
@@ -955,7 +965,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <i> bool Binary_File::check_error();</i> – Return true if last file
       operation failed.<br>
       <span style="font-style: italic;">bool Binary_File::is_open() const;</span>
-      – Return true if the file was successfuly opened.<br>
+      – Return true if the file was successfully open.<br>
       <br>
       <u>Important notice</u><br>
       <br>
@@ -988,7 +998,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <h1><a class="mozTocH1" name="mozTocId291572"></a><big>Part 6. Input</big></h1>
     <h2><a class="mozTocH2" name="mozTocId783369"></a><big>Chapter 1. The
         sub-namespace</big></h2>
-    <big>All subsystems in this section was declared in <span style="font-style: italic;">Input</span>
+    <big>All subsystems in this section declared in <span style="font-style: italic;">Input</span>
       sub-namespace.</big><br>
     <big> </big>
     <h2><a class="mozTocH2" name="mozTocId685403"></a><big>Chapter 2. Keyboard</big></h2>
@@ -1294,14 +1304,14 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">void Mouse::set_position(const unsigned
         int x,const unsigned int y);</span> – Set position of mouse.<br>
       <span style="font-style: italic;">bool Mouse::check_hold(const
-        MOUSE_BUTTON button);</span> – Return true if specific mouse button is
-      pressed or holding.<br>
+        EUGENEGDK::MOUSE_BUTTON button);</span> – Return true if specific mouse
+      button is pressed or holding.<br>
       <span style="font-style: italic;">bool Mouse::check_press(const
-        MOUSE_BUTTON button);</span> – Return true if specific mouse button is
-      pressed.<br>
+        EUGENEGDK::MOUSE_BUTTON button);</span> – Return true if specific mouse
+      button is pressed.<br>
       <span style="font-style: italic;">bool Mouse::check_release(const
-        MOUSE_BUTTON button);</span> – Return true if specific mouse button is
-      released.<br>
+        EUGENEGDK::MOUSE_BUTTON button);</span> – Return true if specific mouse
+      button is released.<br>
       <br>
       <span style="text-decoration: underline;">Mouse buttons</span><br>
     </big>
@@ -1479,29 +1489,32 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       – Return index of last connected game-pad.<br>
       <span style="font-style: italic;">unsigned int Gamepad::get_max_amount()
         const;</span> – Return maximum amount of connected game-pad.<br>
-      <span style="font-style: italic;">GAMEPAD_DPAD Gamepad::get_dpad() const;</span>
-      – Return code of current pressed or holding D-pad button.<br>
+      <span style="font-style: italic;">EUGENEGDK::GAMEPAD_DPAD
+        Gamepad::get_dpad() const;</span> – Return code of current pressed or
+      holding D-pad button.<br>
       <span style="font-style: italic;">bool Gamepad::check_hold(const
-        GAMEPAD_BUTTONS button);</span> – Return true if the button is pressed
-      or holding.<br>
+        EUGENEGDK::GAMEPAD_BUTTONS button);</span> – Return true if the button
+      is pressed or holding.<br>
       <span style="font-style: italic;">bool Gamepad::check_press(const
-        GAMEPAD_BUTTONS button);</span> – Return true if the button is pressed.<br>
+        EUGENEGDK::GAMEPAD_BUTTONS button);</span> – Return true if the button
+      is pressed.<br>
       <span style="font-style: italic;">bool Gamepad::check_released(const
-        GAMEPAD_BUTTONS button);</span> – Return true if the button is released.<br>
+        EUGENEGDK::GAMEPAD_BUTTONS button);</span> – Return true if the button
+      is released.<br>
       <span style="font-style: italic;">unsigned long int
         Gamepad::get_sticks_amount();</span> – Return amount of the game-pad
       sticks.<br>
-      <span style="font-style: italic;">GAMEPAD_DIRECTION
-        Gamepad::get_stick_x(const GAMEPAD_STICKS stick);</span> – Return
-      x-direction of specific stick.<br>
-      <span style="font-style: italic;">GAMEPAD_DIRECTION
-        Gamepad::get_stick_y(const GAMEPAD_STICKS stick);</span> – Return
-      y-direction of specific stick. </big>
+      <span style="font-style: italic;">EUGENEGDK::GAMEPAD_DIRECTION
+        Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick);</span> –
+      Return x-direction of specific stick.<br>
+      <span style="font-style: italic;">EUGENEGDK::GAMEPAD_DIRECTION
+        Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick);</span> –
+      Return y-direction of specific stick. </big>
     <h1><a class="mozTocH1" name="mozTocId510525"></a><big>Part 8. Other
         important things</big></h1>
     <h2><a class="mozTocH2" name="mozTocId523298"></a><big>Chapter 1. The
         sub-namespace</big></h2>
-    <big>All subsystems in this section was declared in <span style="font-style: italic;">Misc</span>
+    <big>All subsystems in this section declared in <span style="font-style: italic;">Misc</span>
       sub-namespace.</big><br>
     <h2><a class="mozTocH2" name="mozTocId806708"></a><big>Chapter 2. Memory</big></h2>
     <big><br>
@@ -1571,7 +1584,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Additional formats</span><br>
       <br>
-      You can use additional format if you install a third-party codecs.<br>
+      You can use additional format if you install third-party codecs.<br>
       <br>
       <span style="text-decoration: underline;">Working with multimedia</span><br>
       <br>
@@ -1595,15 +1608,11 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <big></big> <big> </big>
     <h2><a class="mozTocH2" name="mozTocId383177"></a><big>Chapter 1. A few
         words for a curious programmer</big></h2>
-    <big> The engine subsystems have a different internal structure. It hidden
-      from you and you don’t have access to it. Do you want know about hiding
-      things? Just read a next chapter.<br>
-    </big>
-    <h2><a class="mozTocH2" name="mozTocId747716"></a><big>Chapter 2. Custom
-        date types</big></h2>
-    <big>Almost all custom data types declared in global namespace.<br>
-    </big>
-    <h2><a class="mozTocH2" name="mozTocId318160"></a><big>Chapter 3. Internal
+    <big> The engine subsystems have a different internal structure. It has
+      hidden from you, and you don’t have access to it. Do you want to know
+      about hiding things? Just read a next chapter.</big><br>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId318160"></a><big>Chapter 2. Internal
         classes</big></h2>
     <big><span style="text-decoration: underline;">Internal classes</span><br>
       <br>
@@ -1613,12 +1622,12 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="text-decoration: underline;">Microsoft Windows specific
         classes</span><br>
       <br>
-      All Microsoft Windows specific classes was declared in <span style="font-style: italic;">Internal</span>
+      All Microsoft Windows specific classes declared in <span style="font-style: italic;">Internal</span>
       sub-namespace.<br>
       <br>
-      <span style="font-style: italic;">Engine</span> create the game window and
-      do message processing.<br>
-      <span style="font-style: italic;">Synchronization</span> implement the
+      <span style="font-style: italic;">Engine</span> creates the game window
+      and do message processing.<br>
+      <span style="font-style: italic;">Synchronization</span> implements the
       synchronization timer.<br>
       <span style="font-style: italic;">Display</span> implement display
       manager.<br>
@@ -1627,7 +1636,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Core classes</span><br>
       <br>
-      All engine core classes was declared in <span style="font-style: italic;">Core</span>
+      All engine core classes declared in <span style="font-style: italic;">Core</span>
       sub-namespace.<br>
       <br>
     </big> <big> <span style="font-style: italic;">FPS</span> implement fps
@@ -1642,7 +1651,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">Shape</span> is base class for <span style="font-style: italic;">Rectangle</span>
       class.<span style="font-style: italic;"><br>
       </span> </big>
-    <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 4. Base
+    <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
         graphics subsystem</big></h2>
     <big><span style="text-decoration: underline;"></span> </big><big><span style="text-decoration: underline;">Visible
         object</span></big><br>
@@ -1684,11 +1693,11 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <big>All these custom types declared in <span style="font-style: italic;">Core</span>
         sub-namespace.</big><br>
       <big><span style="font-style: italic;"></span> </big>
-      <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 5. Game-pad</big></h2>
+      <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 4. Game-pad</big></h2>
       <big><br>
         Game-pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
 Multimedia API</a>. </big>
-      <h2><a class="mozTocH2" name="mozTocId804583"></a><big>Chapter 6. Input</big></h2>
+      <h2><a class="mozTocH2" name="mozTocId804583"></a><big>Chapter 5. Input</big></h2>
       <big><br>
         <span style="text-decoration: underline;">Input back-end</span><br>
         <br>
@@ -1719,143 +1728,144 @@ Multimedia API</a>. </big>
         </tbody>
       </table>
       <big> </big>
-      <h2><a class="mozTocH2" name="mozTocId692266"></a><big>Chapter 7.
+      <h2><a class="mozTocH2" name="mozTocId692266"></a><big>Chapter 6.
           Multimedia</big></h2>
       <big><br>
         Multimedia subsystem working over <a href="https://docs.microsoft.com/en-us/windows/desktop/DirectShow/directshow">DirectShow</a>.
-        It available as part of <a href="https://docs.microsoft.com/en-us/windows/desktop/directx-sdk--august-2009-">DirectX</a>.
+        It is available as part of <a href="https://docs.microsoft.com/en-us/windows/desktop/directx-sdk--august-2009-">DirectX</a>.
         DirectX is pre-installed by default under modern versions of Windows. </big>
       <h1><a class="mozTocH1" name="mozTocId78453"></a><big>Version history</big></h1>
       <big><br>
         0.1 – Initial version.<br>
         0.1.1 – 0.7.6 – Internal unstable builds.<br>
         0.7.7 </big><big>–</big><big> Small changes.</big><big><br>
-        0.7.8 </big><big>–</big><big> Small bug in sprite subsystem was fixed.</big><big><br>
+        0.7.8 </big><big>–</big><big> Small bug in sprite subsystem fixed.</big><big><br>
         0.7.9 </big><big>– </big><big>0.8.1 – Small changes.<br>
-        0.8.2 – Sprite subsystem was improved.<br>
-        0.8.3 – PCX support was removed.<br>
+        0.8.2 – Sprite subsystem improved.<br>
+        0.8.3 – PCX support removed.<br>
         0.8.4 – Small changes.<br>
-        0.8.5 – Fps counter was improved.<br>
+        0.8.5 – Fps counter improved.<br>
         0.8.6 – 0.8.9 – Small changes.</big><big><br>
-        0.9 – TGA support was improved.<br>
-        0.9.1 – Small bug in sprite subsystem was fixed.<br>
+        0.9 – TGA support improved.<br>
+        0.9.1 – Small bug in sprite subsystem fixed.<br>
         0.9.2 – Small changes.<br>
-        0.9.3 – New subsystem was added.<br>
-        0.9.4 – 0.9.5 – Graphic primitives subsystem was improved.<br>
+        0.9.3 – New subsystem added.<br>
+        0.9.4 – 0.9.5 – Graphic primitives subsystem improved.<br>
         0.9.6 – 0.9.9 – Small changes.<br>
-        1.0 – Base graphics subsystem was improved.<br>
-        1.0.1 – 1.0.2 – Background subsystem was improved.<br>
+        1.0 – Base graphics subsystem improved.<br>
+        1.0.1 – 1.0.2 – Background subsystem improved.<br>
         1.0.3 – Small changes.<br>
-        1.0.4 – Small bug in sprite subsystem was fixed.<br>
+        1.0.4 – Small bug in sprite subsystem fixed.<br>
         1.0.5 – 1.1.4 – Small changes.<br>
-        1.1.5 – 1.1.6 – Small bug was fixed.<br>
-      </big><big>1.1.7 – Unused dependency was removed.<br>
+        1.1.5 – 1.1.6 – Small bug fixed.<br>
+      </big><big>1.1.7 – Unused dependency removed.<br>
         1.1.8 – 1.2.5 – Small changes.<br>
-        1.2.6 – Small bug was fixed.<br>
+        1.2.6 – Small bug fixed.<br>
         1.2.7 – Small changes.<br>
-        1.2.8 – Render performance was increased.<br>
-        1.2.9 – Windows 2000 support was added.<br>
+        1.2.8 – Render performance increased.<br>
+        1.2.9 – Windows 2000 support added.<br>
         1.3 – Small changes.</big><big><br>
-        1.3.1 – Image resizer was improved.</big><big><br>
-        1.3.2 – Game-pad subsystem was improved.<br>
-        1.3.3 – Project name was changed.<br>
-        1.3.4 – Sprite subsystem was improved.</big><big><br>
+        1.3.1 – Image resizer improved.</big><big><br>
+        1.3.2 – Game-pad subsystem improved.<br>
+        1.3.3 – Project name changed.<br>
+        1.3.4 – Sprite subsystem improved.</big><big><br>
         1.3.5 – Small changes.</big><big><br>
-        1.3.6 – Tile-set subsystem was improved.<br>
+        1.3.6 – Tile-set subsystem improved.<br>
         1.3.7 – Small changes.<br>
-        1.3.8 – Sprite subsystem was improved.<br>
-        1.3.9 – Tile-set subsystem was improved.<br>
-        1.4 – Sprite subsystem was improved.<br>
-        1.4.1 – Text subsystem was improved.<br>
+        1.3.8 – Sprite subsystem improved.<br>
+        1.3.9 – Tile-set subsystem improved.<br>
+        1.4 – Sprite subsystem improved.<br>
+        1.4.1 – Text subsystem improved.<br>
         1.4.2 – 1.4.5 – Small changes.<br>
-        1.4.6 – New subsystem was added. Windows 2000 support was removed.<br>
-      </big><big>1.4.7 – 1.4.8 – Sprite subsystem was improved.<br>
-        1.4.9 – Text subsystem was improved.<br>
-        1.5 – Small changes. </big><big> 1.5.1 – Optional software render was
+        1.4.6 – New subsystem added. Windows 2000 support removed.<br>
+      </big><big>1.4.7 – 1.4.8 – Sprite subsystem improved.<br>
+        1.4.9 – Text subsystem improved.<br>
+        1.5 – Small changes. </big><big> 1.5.1 – Optional software render
         added.<br>
         1.5.2 – </big><big>1.5.7 –</big><big> Small changes.<br>
-      </big></span><span><big>1.5.8 – Keyboard input was improved.<br>
-      </big></span><span><big>1.5.9 – Mouse input was improved.<br>
-      </big></span><span><big>1.6 – Game-pad support was improved.</big></span><span><big><br>
-        1.6.1 – Small bug in game-pad subsystem was fixed.</big></span><span><big><br>
+      </big></span><span><big>1.5.8 – Keyboard input improved.<br>
+      </big></span><span><big>1.5.9 – Mouse input improved.<br>
+      </big></span><span><big>1.6 – Game-pad support improved.</big></span><span><big><br>
+        1.6.1 – Small bug in game-pad subsystem fixed.</big></span><span><big><br>
         1.6.2 – Small changes.<br>
-      </big></span><span><big>1.6.3 – Filesystem subsystem was improved.<br>
+      </big></span><span><big>1.6.3 – Filesystem subsystem improved.<br>
       </big></span><span><big>1.6.4 – 1.6.5 – Small changes.<br>
-      </big></span><span><big>1.6.6 – Base graphics subsystem was improved.<br>
+      </big></span><span><big>1.6.6 – Base graphics subsystem improved.<br>
       </big></span><span><big>1.6.7 – Small changes.<br>
-      </big></span><span><big>1.6.8 – Game-pad support was improved.<br>
+      </big></span><span><big>1.6.8 – Game-pad support improved.<br>
         1.6.9 – </big></span><span><big>1.7 –</big></span><span><big> Small
         changes.<br>
-        1.7.1 – Small bug in sprite subsystem was fixed.<br>
-        1.7.2 – Graphic primitives subsystem was improved.<br>
+        1.7.1 – Small bug in sprite subsystem fixed.<br>
+        1.7.2 – Graphic primitives subsystem improved.<br>
         1.7.3 – 1.7.4 – Small changes.<br>
         1.7.5 – </big></span><span><big>1.7.6 –</big></span><span><big> Picture
-        subsystem was improved.<br>
-        1.7.7 – 1.7.8 – Sprite subsystem was improved.<br>
-        1.7.9 – 1.8 – Picture subsystem was improved.<br>
+        subsystem improved.<br>
+        1.7.7 – 1.7.8 – Sprite subsystem improved.<br>
+        1.7.9 – 1.8 – Picture subsystem improved.<br>
         1.8.1 – Small changes.<br>
-        1.8.2 – Tile-set subsystem was improved.<br>
+        1.8.2 – Tile-set subsystem improved.<br>
         1.8.3 – Small changes.<br>
-        1.8.4 – 1.8.6 – Binary file subsystem was improved.<br>
-        1.8.7 – 1.8.8 – Image loader was improved.<br>
+        1.8.4 – 1.8.6 – Binary file subsystem improved.<br>
+        1.8.7 – 1.8.8 – Image loader improved.<br>
         1.8.9 – Small changes.<br>
-        1.9 – 1.9.1 – Image loader was improved.<br>
-        1.9.2 – Picture subsystem was improved.<br>
+        1.9 – 1.9.1 – Image loader improved.<br>
+        1.9.2 – Picture subsystem improved.<br>
         1.9.3 – Small changes.<br>
-        1.9.4 – Tile-set subsystem was improved.<br>
+        1.9.4 – Tile-set subsystem improved.<br>
         1.9.5 – 1.9.8 – Small changes.<br>
-        1.9.9 – Background subsystem was improved.<br>
+        1.9.9 – Background subsystem improved.<br>
         2.0 – </big></span><span><big>2.0.3 –</big></span><span><big> Image
-        loader was improved.<br>
-        2.0.4 – Sprite subsystem was improved.<br>
-        2.0.5 – Background subsystem was improved.<br>
-        2.0.6 – 2.1.2 – Text drawing subsystem was improved.<br>
-        2.1.3 – Background subsystem was improved.<br>
+        loader improved.<br>
+        2.0.4 – Sprite subsystem improved.<br>
+        2.0.5 – Background subsystem improved.<br>
+        2.0.6 – 2.1.2 – Text drawing subsystem improved.<br>
+        2.1.3 – Background subsystem improved.<br>
         2.1.4 – 2.1.8 – Small changes.<br>
-        2.1.9 – 2.2.7 – Multimedia subsystem was improved.<br>
+        2.1.9 – 2.2.7 – Multimedia subsystem improved.<br>
         2.2.8 – 2.3.1 – Small changes.<br>
-        2.3.2 – 2.3.3 – Base graphics subsystem was improved.<br>
-        2.3.4 – Synchronization timer was improved.<br>
+        2.3.2 – 2.3.3 – Base graphics subsystem improved.<br>
+        2.3.4 – Synchronization timer improved.<br>
         2.3.5 – 2.3.6 – Small changes.<br>
-        2.3.7 – Multimedia subsystem was improved.<br>
-        2.3.8 – Keyboard input was improved.<br>
+        2.3.7 – Multimedia subsystem improved.<br>
+        2.3.8 – Keyboard input improved.<br>
         2.3.9 – Small changes.<br>
-        2.4 – Mouse input was improved.<br>
+        2.4 – Mouse input improved.<br>
         2.4.1 – Small changes.<br>
-        2.4.2 – Binary file subsystem was improved.<br>
+        2.4.2 – Binary file subsystem improved.<br>
         2.4.3 – 2.4.7 – Small changes.<br>
-        2.4.8 – Background subsystem was improved.<br>
-        2.4.9 – Sprite subsystem was improved.<br>
-        2.5 – Tile-set subsystem was improved.<br>
+        2.4.8 – Background subsystem improved.<br>
+        2.4.9 – Sprite subsystem improved.<br>
+        2.5 – Tile-set subsystem improved.<br>
         2.5.1 – 2.5.2 – Small changes.<br>
-        2.5.3 – Sprite subsystem was improved.<br>
-        2.5.4 – 2.5.6 – Tile-set subsystem was improved.<br>
+        2.5.3 – Sprite subsystem improved.<br>
+        2.5.4 – 2.5.6 – Tile-set subsystem improved.<br>
         2.5.7 – Small changes.<br>
-        2.5.8 – Sprite subsystem was improved.<br>
+        2.5.8 – Sprite subsystem improved.<br>
         2.5.9 – 2.6 – Small changes.<br>
-        2.6.1 – Animation subsystem was improved.<br>
-        2.6.2 – Background subsystem was improved.<br>
-        2.6.3 – 2.6.4 – Sprite subsystem was improved.<br>
-        2.6.5 – Background subsystem was improved.<br>
-        2.6.6 – Base graphics subsystem was improved.<br>
+        2.6.1 – Animation subsystem improved.<br>
+        2.6.2 – Background subsystem improved.<br>
+        2.6.3 – 2.6.4 – Sprite subsystem improved.<br>
+        2.6.5 – Background subsystem improved.<br>
+        2.6.6 – Base graphics subsystem improved.<br>
         2.6.7 – Small changes.<br>
-        2.6.8 – Primitive subsystem was improved.<br>
-        2.6.9 – Small bug was fixed.<br>
-        2.7 – Primitive subsystem was removed.<br>
+        2.6.8 – Primitive subsystem improved.<br>
+        2.6.9 – Small bug fixed.<br>
+        2.7 – Primitive subsystem removed.<br>
       </big></span><span><big> 2.7.1 – 2.7.6 – Preview release of next branch.<br>
         2.7.7 – Public release of next branch.<br>
         2.7.8 – 2.7.9 – Small changes.<br>
         2.8 – Go back to old stable branch.<br>
         2.8.1 – 2.8.5 – Small changes.<br>
         2.8.6 – Merge old branch and new branch.<br>
-        2.8.7 – Small bug was fixed.<br>
+        2.8.7 – Small bug fixed.<br>
         2.8.8 – 2.9.9 – Small changes.<br>
-        3.0 – Base graphics subsystem was improved.<br>
+        3.0 – Base graphics subsystem improved.<br>
         3.0.1 – Small changes.<br>
-        3.0.2 – Keyboard subsystem was improved.<br>
+        3.0.2 – Keyboard subsystem improved.<br>
         3.0.3 – 3.0.5 – Small changes.<br>
-        3.0.6 – Operation system interaction subsystem was improved.<br>
-        3.0.7 – 3.1 – Small changes.<br>
+        3.0.6 – Operation system interaction subsystem improved.<br>
+        3.0.7 – 3.1.1 – Small changes.<br>
+        3.2 – A few changes in the engine API.<br>
       </big></span>
   </body>
 </html>
