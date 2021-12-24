@@ -127,10 +127,10 @@ namespace EUGENEGDK
     Buttons[EUGENEGDK::MOUSE_MIDDLE]=KEY_RELEASE;
     break;
     case WM_KEYDOWN:
-    Keys[GETSCANCODE(lParam)]=KEY_PRESS;
+    Keys[LOBYTE(HIWORD(lParam))]=KEY_PRESS;
     break;
     case WM_KEYUP:
-    Keys[GETSCANCODE(lParam)]=KEY_RELEASE;
+    Keys[LOBYTE(HIWORD(lParam))]=KEY_RELEASE;
     break;
    }
    return DefWindowProc(window,Message,wParam,lParam);
