@@ -796,11 +796,19 @@ typedef enum
    public:
    System();
    ~System();
-   unsigned int get_random(const unsigned int number);
    void quit();
    void run(const char *command);
    char* read_environment(const char *variable);
    bool enable_logging(const char *name);
+  };
+
+  class Random
+  {
+   public:
+   Random();
+   ~Random();
+   void set_seed(const unsigned int seed);
+   unsigned int get_random(const unsigned int number);
   };
 
   class Filesystem

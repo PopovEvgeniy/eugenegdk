@@ -3078,17 +3078,12 @@ namespace EUGENEGDK
 
   System::System()
   {
-   srand(UINT_MAX);
+
   }
 
   System::~System()
   {
 
-  }
-
-  unsigned int System::get_random(const unsigned int number)
-  {
-   return rand()%number;
   }
 
   void System::quit()
@@ -3109,6 +3104,26 @@ namespace EUGENEGDK
   bool System::enable_logging(const char *name)
   {
    return freopen(name,"wt",stdout)!=NULL;
+  }
+
+  Random::Random()
+  {
+   srand(UINT_MAX);
+  }
+
+  Random::~Random()
+  {
+
+  }
+
+  void Random::set_seed(const unsigned int seed)
+  {
+   srand(seed);
+  }
+
+  unsigned int Random::get_random(const unsigned int number)
+  {
+   return rand()%(number+1);
   }
 
   Filesystem::Filesystem()
