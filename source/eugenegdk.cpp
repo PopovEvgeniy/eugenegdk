@@ -2091,29 +2091,37 @@ namespace EUGENEGDK
    target.read(&head,3);
    target.read(&color_map,5);
    target.read(&image,10);
-   if (image.color!=IMAGE_COLOR)
-   {
-    EUGENEGDK::Halt("Invalid image format");
-   }
    width=image.width;
    height=image.height;
    uncompressed_length=this->get_length();
-   data=this->create_buffer(uncompressed_length);
-   switch (head.type)
+   if (image.color==IMAGE_COLOR)
    {
-    case 2:
-    target.read(data,uncompressed_length);
-    break;
-    case 10:
-    compressed=this->create_buffer(compressed_length);
-    target.read(compressed,compressed_length);
-    this->uncompress_tga_data(compressed,uncompressed_length);
-    delete[] compressed;
-    compressed=NULL;
-    break;
-    default:
-    EUGENEGDK::Halt("Invalid image format");
-    break;
+    data=this->create_buffer(uncompressed_length);
+    switch (head.type)
+    {
+     case 2:
+     target.read(data,uncompressed_length);
+     break;
+     case 10:
+     compressed=this->create_buffer(compressed_length);
+     target.read(compressed,compressed_length);
+     this->uncompress_tga_data(compressed,uncompressed_length);
+     delete[] compressed;
+     compressed=NULL;
+     break;
+     default:
+     width=0;
+     height=0;
+     delete[] data;
+     data=NULL;
+     break;
+    }
+
+   }
+   else
+   {
+    width=0;
+    height=0;
    }
 
   }
