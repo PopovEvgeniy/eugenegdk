@@ -1473,7 +1473,7 @@ namespace EUGENEGDK
    {
     if (player!=NULL)
    {
-    player->StopWhenReady();
+    player->Stop();
     player->Release();
     player=NULL;
    }
@@ -1654,7 +1654,7 @@ namespace EUGENEGDK
   {
    if (player!=NULL)
    {
-    player->StopWhenReady();
+    player->Stop();
    }
 
   }
@@ -1681,8 +1681,15 @@ namespace EUGENEGDK
 
   Memory::Memory()
   {
-   memset(&memory,0,sizeof(MEMORYSTATUSEX));
    memory.dwLength=sizeof(MEMORYSTATUSEX);
+   memory.dwMemoryLoad=0;
+   memory.ullAvailExtendedVirtual=0;
+   memory.ullAvailPageFile=0;
+   memory.ullAvailPhys=0;
+   memory.ullAvailVirtual=0;
+   memory.ullTotalPageFile=0;
+   memory.ullTotalPhys=0;
+   memory.ullTotalVirtual=0;
   }
 
   Memory::~Memory()
@@ -1694,8 +1701,15 @@ namespace EUGENEGDK
   {
    if (GlobalMemoryStatusEx(&memory)==FALSE)
    {
-    memset(&memory,0,sizeof(MEMORYSTATUSEX));
     memory.dwLength=sizeof(MEMORYSTATUSEX);
+    memory.dwMemoryLoad=0;
+    memory.ullAvailExtendedVirtual=0;
+    memory.ullAvailPageFile=0;
+    memory.ullAvailPhys=0;
+    memory.ullAvailVirtual=0;
+    memory.ullTotalPageFile=0;
+    memory.ullTotalPhys=0;
+    memory.ullTotalVirtual=0;
    }
 
   }
