@@ -428,10 +428,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">unsigned int *Picture::get_image();</span>
       – Return handle to image storage.<br>
     </big><big><span style="font-style: italic;">void Picture::destroy_image();</span>
-      – Destroy image&nbsp; in the storage.</big><br>
-    <big> <span style="font-style: italic;">void Picture::load_image(Image
-        &amp;buffer);</span> – Load an image from memory buffer. Replace current
-      image if it already exist.<br>
+      – Destroy image&nbsp; in the storage.</big><big><br>
       <span style="font-style: italic;">size_t Picture::get_length() const;</span>
       – Return length of image buffer in bytes.<br>
       <span style="font-style: italic;">bool Picture::is_storage_empty() const;</span>
@@ -524,8 +521,15 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         kind,const unsigned int frames);</i> – Set background setting. Last
       argument will ignored if background not scrollable.<br>
       <span style="font-style: italic;">void Background::load_background(Image
+        *buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
+        frames);</span> – Load background and set background setting.<br>
+      <span style="font-style: italic;">void Background::load_background(Image
+        *buffer);</span> – Load normal background.<br>
+      <span style="font-style: italic;">void Background::load_background(Image
         &amp;buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
-        frames);</span> – Load background and set background setting.<span style="font-style: italic;"></span><br>
+        frames);</span> – Load background and set it setting.<br>
+      <span style="font-style: italic;">void Background::load_background(Image
+        &amp;buffer);</span> – Load normal background.<br>
       <span style="font-style: italic;">void Background::horizontal_mirror();</span>&nbsp;
       – Do horizontal background mirror.<br>
       <span style="font-style: italic;">void Background::vertical_mirror();</span>
@@ -538,11 +542,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       – Destroy a background image and a background texture.<br>
       <span style="font-style: italic;">EUGENEGDK::BACKGROUND_TYPE
         Sprite::get_kind() const;</span>&nbsp; – Get background type.<br>
-      <br>
-      <span style="text-decoration: underline;">Important notes</span><br>
-      <br>
-      Always set background setting after load background image.<br>
-      <br>
+      <span style="text-decoration: underline;"></span><br>
       <span style="text-decoration: underline;">Background texture</span><br>
       <br>
       Background don't draw if background texture don't exist. Background
@@ -604,16 +604,20 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       with a sprite. It is derived from <span style="font-style: italic;">Animation</span>
       and <span style="font-style: italic;">Picture</span> classes. Let’s look
       to public methods.<br>
-      <br>
-      <span style="font-style: italic;">void Sprite::prepare();</span>&nbsp; –
-      Prepare for drawing.<br>
+      <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">void Sprite::set_setting(const
         EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);</span> – Set
       sprite setting. Last argument will ignored if sprite not animated.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image
+        *buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);</span>
+      – Load a sprite and set it setting.<br>
+      <span style="font-style: italic;">void Sprite::load_sprite(Image *buffer);</span>
+      – Load normal sprite.<br>
+      <span style="font-style: italic;">void Sprite::load_sprite(Image
         &amp;buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int
-        frames);</span> – Load a sprite from memory buffer and set sprite
-      setting.<br>
+        frames);</span> – Load a sprite and set it setting.<br>
+      <span style="font-style: italic;">void Sprite::load_sprite(Image
+        &amp;buffer);</span> – Load normal sprite.<br>
       <span style="font-style: italic;">void Sprite::set_target(const unsigned
         int target);</span> – Set target frame in strip.<br>
       <span style="font-style: italic;">void Sprite::step();</span> – Increase
@@ -661,6 +665,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       Return the handle to sprite object.<br>
       <span style="font-style: italic;">EUGENEGDK::BOX Sprite::get_box() const;</span>
       – Return collision related information.<br>
+      <span style="font-style: italic;">void Sprite::clone(Sprite *target);</span>
+      – Create copy of exist sprite if the image storage of exist sprite is not
+      empty.<br>
       <span style="font-style: italic;">void Sprite::clone(Sprite &amp;target);</span>
       – Create copy of exist sprite if the image storage of exist sprite is not
       empty.<br>
@@ -690,17 +697,11 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <big><i>void Sprite::draw_sprite(const bool transparency,const unsigned int
         x, const unsigned int y);</i> – Set transparent mode and draw a sprite
       at target position.</big><br>
-    <big> <br>
-      <span style="text-decoration: underline;">Important notes<br>
-        <br>
-      </span> </big><big>Always set sprite setting after load sprite image.<br>
-      <br>
+    <big><br>
       <span style="text-decoration: underline;">Sprite texture</span><br>
       <br>
       Sprite don't draw if sprite texture don't exist. Sprite texture will
-      automatically create after call <span style="font-style: italic;">prepare</span>,<span
-        style="font-style: italic;">load_sprite</span> or <span style="font-style: italic;">clone</span>
-      method.<br>
+      automatically when load or clone sprite.<br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 7. Text</big></h2>
     <big><br>
@@ -780,6 +781,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         column,const unsigned int x,const unsigned int y);</i> – Draw target
       tile at specific position.</big><br>
     <big> <span style="font-style: italic;">void Tileset::load_tileset(Image
+        *buffer,const unsigned int row_amount,const unsigned int column_amount);</span>
+      – Load a tile-set.<br>
+      <span style="font-style: italic;">void Tileset::load_tileset(Image
         &amp;buffer,const unsigned int row_amount,const unsigned int
         column_amount);</span> – Load a tile-set.<br>
       <br>
@@ -807,6 +811,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       – Return length of image buffer in bytes.<br>
       <span style="font-style: italic;">unsigned char *Image::get_data();</span>
       – Return handle to image buffer.<br>
+      <span style="font-style: italic;">Image* Image::get_handle();</span> –
+      Return the handle to image loader.<br>
       <span style="font-style: italic;">void Image::destroy_image();</span> –
       Destroy current image and free image buffer.<br>
       <br>
@@ -1881,6 +1887,15 @@ Multimedia API</a>. </big>
         3.3.5 – Keyboard input improved.<br>
         3.3.6 – Image loader improved.<br>
         3.3.7 – 3.3.8 – Small changes.<br>
+        3.3.9 – 3.4 – Sprite subsystem improved.<br>
+        3.4.1 – Background subsystem improved.<br>
+        3.4.2 – Image storage improved.<br>
+        3.4.3 – Sprite subsystem improved.<br>
+        3.4.4 – Image loader improved.<br>
+        3.4.5 – Image storage improved.<br>
+        3.4.6 – Tile-set subsystem improved.<br>
+        3.4.7 – Background subsystem improved.<br>
+        3.4.8 – Sprite subsystem improved.<br>
       </big></span>
   </body>
 </html>

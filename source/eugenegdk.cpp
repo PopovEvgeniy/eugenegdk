@@ -2160,6 +2160,11 @@ namespace EUGENEGDK
    return data;
   }
 
+  Image* Image::get_handle()
+  {
+   return this;
+  }
+
   void Image::destroy_image()
   {
     if (data!=NULL)
@@ -2250,6 +2255,23 @@ namespace EUGENEGDK
    return image;
   }
 
+  void Picture::load_image(Image *buffer)
+  {
+   this->destroy_image();
+   if (buffer->get_length()>0)
+   {
+    this->set_image_size(buffer->get_width(),buffer->get_height());
+    this->set_buffer(this->create_buffer());
+    memcpy(this->get_buffer(),buffer->get_data(),buffer->get_length());
+   }
+
+  }
+
+  void Picture::load_image(Image &buffer)
+  {
+   this->load_image(buffer.get_handle());
+  }
+
   size_t Picture::get_length() const
   {
    return length;
@@ -2269,18 +2291,6 @@ namespace EUGENEGDK
     image_height=0;
     length=0;
     image=NULL;
-   }
-
-  }
-
-  void Picture::load_image(Image &buffer)
-  {
-   this->destroy_image();
-   if (buffer.get_length()>0)
-   {
-    this->set_image_size(buffer.get_width(),buffer.get_height());
-    this->set_buffer(this->create_buffer());
-    memcpy(this->get_buffer(),buffer.get_data(),buffer.get_length());
    }
 
   }
@@ -2425,7 +2435,7 @@ namespace EUGENEGDK
    this->set_kind(kind);
   }
 
-  void Background::load_background(Image &buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
+  void Background::load_background(Image *buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
   {
    this->load_image(buffer);
    if (this->is_storage_empty()==false)
@@ -2433,6 +2443,21 @@ namespace EUGENEGDK
     this->set_setting(kind,frames);
    }
 
+  }
+
+  void Background::load_background(Image *buffer)
+  {
+   this->load_background(buffer,EUGENEGDK::NORMAL_BACKGROUND,1);
+  }
+
+  void Background::load_background(Image &buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
+  {
+   this->load_background(buffer.get_handle(),kind,frames);
+  }
+
+  void Background::load_background(Image &buffer)
+  {
+   this->load_background(buffer.get_handle(),EUGENEGDK::NORMAL_BACKGROUND,1);
   }
 
   void Background::set_target(const unsigned int target)
@@ -2789,7 +2814,7 @@ namespace EUGENEGDK
    this->set_kind(kind);
   }
 
-  void Sprite::load_sprite(Image &buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames)
+  void Sprite::load_sprite(Image *buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames)
   {
    this->load_image(buffer);
    if (this->is_storage_empty()==false)
@@ -2798,6 +2823,21 @@ namespace EUGENEGDK
     this->set_setting(kind,frames);
    }
 
+  }
+
+  void Sprite::load_sprite(Image *buffer)
+  {
+   this->load_sprite(buffer,EUGENEGDK::SINGLE_SPRITE,1);
+  }
+
+  void Sprite::load_sprite(Image &buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames)
+  {
+   this->load_sprite(buffer.get_handle(),kind,frames);
+  }
+
+  void Sprite::load_sprite(Image &buffer)
+  {
+   this->load_sprite(buffer.get_handle(),EUGENEGDK::SINGLE_SPRITE,1);
   }
 
   void Sprite::set_target(const unsigned int target)
@@ -2812,20 +2852,25 @@ namespace EUGENEGDK
    this->set_sprite_frame();
   }
 
-  void Sprite::clone(Sprite &target)
+  void Sprite::clone(Sprite *target)
   {
-   if (target.is_storage_empty()==false)
+   if (target->is_storage_empty()==false)
    {
     this->destroy_sprite();
-    this->set_image_size(target.get_image_width(),target.get_image_height());
+    this->set_image_size(target->get_image_width(),target->get_image_height());
     this->set_buffer(this->create_buffer());
-    this->set_setting(target.get_kind(),target.get_frames());
-    this->set_transparent(target.get_transparent());
-    this->copy_image(target.get_image());
-    this->set_size(target.get_width(),target.get_height());
+    this->set_setting(target->get_kind(),target->get_frames());
+    this->set_transparent(target->get_transparent());
+    this->copy_image(target->get_image());
+    this->set_size(target->get_width(),target->get_height());
     this->prepare();
    }
 
+  }
+
+  void Sprite::clone(Sprite &target)
+  {
+   this->clone(target.get_handle());
   }
 
   void Sprite::horizontal_mirror()
@@ -3000,7 +3045,7 @@ namespace EUGENEGDK
    this->draw_tile(x,y);
   }
 
-  void Tileset::load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount)
+  void Tileset::load_tileset(Image *buffer,const unsigned int row_amount,const unsigned int column_amount)
   {
    this->load_image(buffer);
    if (this->is_storage_empty()==false)
@@ -3009,6 +3054,11 @@ namespace EUGENEGDK
     this->set_tileset_setting(row_amount,column_amount);
    }
 
+  }
+
+  void Tileset::load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount)
+  {
+   this->load_tileset(buffer.get_handle(),row_amount,column_amount);
   }
 
   Text::Text()
@@ -3064,7 +3114,6 @@ namespace EUGENEGDK
    if (target!=NULL)
    {
     font=target;
-    font->prepare();
     font->set_setting(HORIZONTAL_STRIP,256);
    }
 

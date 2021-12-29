@@ -605,6 +605,7 @@ typedef enum
    unsigned int get_height() const;
    size_t get_length() const;
    unsigned char *get_data();
+   Image* get_handle();
    void destroy_image();
    void load_tga(const char *name);
   };
@@ -622,13 +623,14 @@ typedef enum
    void set_buffer(unsigned int *buffer);
    void copy_image(const unsigned int *target);
    unsigned int *get_buffer();
+   void load_image(Image *buffer);
+   void load_image(Image &buffer);
    public:
    Picture();
    ~Picture();
    size_t get_length() const;
    unsigned int *get_image();
    void destroy_image();
-   void load_image(Image &buffer);
    bool is_storage_empty() const;
    unsigned int get_image_width() const;
    unsigned int get_image_height() const;
@@ -666,7 +668,10 @@ typedef enum
    void prepare(Screen *screen);
    void prepare(Screen &screen);
    void set_setting(const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
+   void load_background(Image *buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
+   void load_background(Image *buffer);
    void load_background(Image &buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
+   void load_background(Image &buffer);
    void set_target(const unsigned int target);
    void step();
    void horizontal_mirror();
@@ -694,10 +699,10 @@ typedef enum
    void configure_sprite();
    void set_sprite_frame();
    void set_kind(const EUGENEGDK::SPRITE_TYPE kind);
+   void prepare();
    public:
    Sprite();
    ~Sprite();
-   void prepare();
    void set_transparent(const bool enabled);
    bool get_transparent() const;
    void set_width(const unsigned int width);
@@ -722,9 +727,13 @@ typedef enum
    EUGENEGDK::BOX get_box() const;
    EUGENEGDK::SPRITE_TYPE get_kind() const;
    void set_setting(const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
+   void load_sprite(Image *buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
+   void load_sprite(Image *buffer);
    void load_sprite(Image &buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
+   void load_sprite(Image &buffer);
    void set_target(const unsigned int target);
    void step();
+   void clone(Sprite *target);
    void clone(Sprite &target);
    void horizontal_mirror();
    void vertical_mirror();
@@ -759,6 +768,7 @@ typedef enum
    void destroy_tileset();
    void draw_tile(const unsigned int x,const unsigned int y);
    void draw_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y);
+   void load_tileset(Image *buffer,const unsigned int row_amount,const unsigned int column_amount);
    void load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount);
   };
 

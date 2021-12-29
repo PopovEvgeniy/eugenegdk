@@ -12,7 +12,7 @@ int main()
  keyboard.initialize();
  screen.initialize();
  image.load_tga("font.tga");
- font.load_image(image);
+ font.load_sprite(image,EUGENEGDK::HORIZONTAL_STRIP,256);
  text.load_font(font);
  text.set_position(0,0);
  image.load_tga("grass.tga");

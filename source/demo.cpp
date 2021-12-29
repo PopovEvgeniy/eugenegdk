@@ -24,7 +24,7 @@ int main()
  ship.load_sprite(image,EUGENEGDK::HORIZONTAL_STRIP,2);
  ship.set_position(screen.get_width()/2,screen.get_height()/2);
  image.load_tga("font.tga");
- font.load_image(image);
+ font.load_sprite(image,EUGENEGDK::HORIZONTAL_STRIP,256);
  text.load_font(font);
  text.set_position(font.get_width(),font.get_width());
  mouse.hide();
