@@ -2937,6 +2937,18 @@ namespace EUGENEGDK
    this->draw_sprite(x,y);
   }
 
+  void Sprite::draw_sprite(const unsigned int target)
+  {
+   this->set_target(target);
+   this->draw_sprite();
+  }
+
+  void Sprite::draw_sprite(const unsigned int target,const unsigned int x,const unsigned int y)
+  {
+   this->set_target(target);
+   this->draw_sprite(x,y);
+  }
+
   Tileset::Tileset()
   {
    target.set_size(0,0);

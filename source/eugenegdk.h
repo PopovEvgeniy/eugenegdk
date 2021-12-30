@@ -743,6 +743,8 @@ typedef enum
    void draw_sprite(const unsigned int x,const unsigned int y);
    void draw_sprite(const bool transparency);
    void draw_sprite(const bool transparency,const unsigned int x,const unsigned int y);
+   void draw_sprite(const unsigned int target);
+   void draw_sprite(const unsigned int target,const unsigned int x,const unsigned int y);
   };
 
   class Tileset:public Picture

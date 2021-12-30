@@ -359,6 +359,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
+
         href="http://opengl.org">OPENGL</a> for render. Most modern video-card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -696,8 +697,13 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       transparent mode and draw a sprite.</big><br>
     <big><i>void Sprite::draw_sprite(const bool transparency,const unsigned int
         x, const unsigned int y);</i> – Set transparent mode and draw a sprite
-      at target position.</big><br>
-    <big><br>
+      at target position.<br>
+      <span style="font-style: italic;">void Sprite::draw_sprite(const unsigned
+        int target);</span> – Set target frame in strip and draw a sprite.<br>
+      <span style="font-style: italic;">void Sprite::draw_sprite(const unsigned
+        int target,const unsigned int x, const unsigned int y);</span> – Set
+      target frame in strip and draw a sprite at target position.<br>
+    </big> <big><br>
       <span style="text-decoration: underline;">Sprite texture</span><br>
       <br>
       Sprite don't draw if sprite texture don't exist. Sprite texture will
@@ -1895,7 +1901,7 @@ Multimedia API</a>. </big>
         3.4.5 – Image storage improved.<br>
         3.4.6 – Tile-set subsystem improved.<br>
         3.4.7 – Background subsystem improved.<br>
-        3.4.8 – Sprite subsystem improved.<br>
+        3.4.8 – 3.4.9 – Sprite subsystem improved.<br>
       </big></span>
   </body>
 </html>
