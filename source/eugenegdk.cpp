@@ -788,6 +788,16 @@ namespace EUGENEGDK
    return current_y;
   }
 
+  EUGENEGDK::MIRROR_STATUS Shape::get_horizontal_mirror() const
+  {
+   return horizontal_mirror;
+  }
+
+  EUGENEGDK::MIRROR_STATUS Shape::get_vertical_mirror() const
+  {
+   return vertical_mirror;
+  }
+
   void Shape::set_size(const unsigned int width,const unsigned int height)
   {
    target_width=width;
@@ -836,20 +846,30 @@ namespace EUGENEGDK
    point[3].v=this->get_start_offset(column,columns);
   }
 
-  void Shape::set_mirror_status(const EUGENEGDK::MIRROR_STATUS horizontal,const EUGENEGDK::MIRROR_STATUS vertical)
+  void Shape::invert_horizontal_mirror()
   {
-   horizontal_mirror=horizontal;
-   vertical_mirror=vertical;
+   if (horizontal_mirror==EUGENEGDK::DISABLE_MIRRORING)
+   {
+    horizontal_mirror=EUGENEGDK::ENABLE_MIRRORING;
+   }
+   else
+   {
+    horizontal_mirror=EUGENEGDK::DISABLE_MIRRORING;
+   }
+
   }
 
-  EUGENEGDK::MIRROR_STATUS Shape::get_horizontal_mirror() const
+  void Shape::invert_vertical_mirror()
   {
-   return horizontal_mirror;
-  }
+   if (vertical_mirror==EUGENEGDK::DISABLE_MIRRORING)
+   {
+    vertical_mirror=EUGENEGDK::ENABLE_MIRRORING;
+   }
+   else
+   {
+    vertical_mirror=EUGENEGDK::DISABLE_MIRRORING;
+   }
 
-  EUGENEGDK::MIRROR_STATUS Shape::get_vertical_mirror() const
-  {
-   return vertical_mirror;
   }
 
   Rectangle::Rectangle()
@@ -2474,34 +2494,18 @@ namespace EUGENEGDK
 
   void Background::horizontal_mirror()
   {
-   if (target.get_horizontal_mirror()==EUGENEGDK::DISABLE_MIRRORING)
-   {
-    target.set_mirror_status(EUGENEGDK::ENABLE_MIRRORING,target.get_vertical_mirror());
-   }
-   else
-   {
-    target.set_mirror_status(EUGENEGDK::DISABLE_MIRRORING,target.get_vertical_mirror());
-   }
-
+   target.invert_horizontal_mirror();
   }
 
   void Background::vertical_mirror()
   {
-  if (target.get_vertical_mirror()==EUGENEGDK::DISABLE_MIRRORING)
-   {
-    target.set_mirror_status(target.get_horizontal_mirror(),EUGENEGDK::ENABLE_MIRRORING);
-   }
-   else
-   {
-    target.set_mirror_status(target.get_horizontal_mirror(),EUGENEGDK::DISABLE_MIRRORING);
-   }
-
+   target.invert_vertical_mirror();
   }
 
   void Background::complex_mirror()
   {
-   this->horizontal_mirror();
-   this->vertical_mirror();
+   target.invert_horizontal_mirror();
+   target.invert_vertical_mirror();
   }
 
   void Background::draw_background()
@@ -2875,34 +2879,18 @@ namespace EUGENEGDK
 
   void Sprite::horizontal_mirror()
   {
-   if (target.get_horizontal_mirror()==EUGENEGDK::DISABLE_MIRRORING)
-   {
-    target.set_mirror_status(EUGENEGDK::ENABLE_MIRRORING,target.get_vertical_mirror());
-   }
-   else
-   {
-    target.set_mirror_status(EUGENEGDK::DISABLE_MIRRORING,target.get_vertical_mirror());
-   }
-
+   target.invert_horizontal_mirror();
   }
 
   void Sprite::vertical_mirror()
   {
-   if (target.get_vertical_mirror()==EUGENEGDK::DISABLE_MIRRORING)
-   {
-    target.set_mirror_status(target.get_horizontal_mirror(),EUGENEGDK::ENABLE_MIRRORING);
-   }
-   else
-   {
-    target.set_mirror_status(target.get_horizontal_mirror(),EUGENEGDK::DISABLE_MIRRORING);
-   }
-
+   target.invert_vertical_mirror();
   }
 
   void Sprite::complex_mirror()
   {
-   this->horizontal_mirror();
-   this->vertical_mirror();
+   target.invert_horizontal_mirror();
+   target.invert_vertical_mirror();
   }
 
   void Sprite::destroy_sprite()

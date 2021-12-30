@@ -346,6 +346,8 @@ typedef enum
    unsigned int get_total_height() const;
    unsigned int get_x() const;
    unsigned int get_y() const;
+   EUGENEGDK::MIRROR_STATUS get_horizontal_mirror() const;
+   EUGENEGDK::MIRROR_STATUS get_vertical_mirror() const;
    public:
    Shape();
    ~Shape();
@@ -355,9 +357,8 @@ typedef enum
    void set_horizontal_offset(const float current,const float total);
    void set_vertical_offset(const float current,const float total);
    void set_tile_offset(const float row,const float rows,const float column,const float columns);
-   void set_mirror_status(const EUGENEGDK::MIRROR_STATUS horizontal,const EUGENEGDK::MIRROR_STATUS vertical);
-   EUGENEGDK::MIRROR_STATUS get_horizontal_mirror() const;
-   EUGENEGDK::MIRROR_STATUS get_vertical_mirror() const;
+   void invert_horizontal_mirror();
+   void invert_vertical_mirror();
   };
 
   class Rectangle:public Shape
