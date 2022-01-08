@@ -4,7 +4,7 @@ Some code was taken from wglext.h(https://www.khronos.org/registry/OpenGL/api/GL
 
 Eugene game development kit license
 
-Copyright (C) 2021 Popov Evgeniy Alekseyevich
+Copyright (C) 2021 - 2022 Popov Evgeniy Alekseyevich
 
 This software is provided 'as-is', without any express or implied
 warranty.  In no event will the authors be held liable for any damages
@@ -2792,12 +2792,12 @@ namespace EUGENEGDK
 
   EUGENEGDK::BOX Sprite::get_box() const
   {
-   EUGENEGDK::BOX target;
-   target.x=current_x;
-   target.y=current_y;
-   target.width=sprite_width;
-   target.height=sprite_height;
-   return target;
+   EUGENEGDK::BOX collision;
+   collision.x=current_x;
+   collision.y=current_y;
+   collision.width=sprite_width;
+   collision.height=sprite_height;
+   return collision;
   }
 
   EUGENEGDK::SPRITE_TYPE Sprite::get_kind() const
@@ -2981,6 +2981,16 @@ namespace EUGENEGDK
 
   }
 
+  EUGENEGDK::BOX Tileset::get_box(const unsigned int x,const unsigned int y) const
+  {
+   EUGENEGDK::BOX collision;
+   collision.x=x;
+   collision.y=y;
+   collision.width=tile_width;
+   collision.height=tile_height;
+   return collision;
+  }
+
   unsigned int Tileset::get_tile_width() const
   {
    return tile_width;
@@ -3043,6 +3053,18 @@ namespace EUGENEGDK
   {
    this->select_tile(row,column);
    this->draw_tile(x,y);
+  }
+
+  EUGENEGDK::BOX Tileset::put_tile(const unsigned int x,const unsigned int y)
+  {
+   this->draw_tile(x,y);
+   return this->get_box(x,y);
+  }
+
+  EUGENEGDK::BOX Tileset::put_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y)
+  {
+   this->draw_tile(row,column,x,y);
+   return this->get_box(x,y);
   }
 
   void Tileset::load_tileset(Image *buffer,const unsigned int row_amount,const unsigned int column_amount)
@@ -3334,12 +3356,12 @@ namespace EUGENEGDK
 
   EUGENEGDK::BOX Collision::generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const
   {
-   EUGENEGDK::BOX result;
-   result.x=x;
-   result.y=y;
-   result.width=width;
-   result.height=height;
-   return result;
+   EUGENEGDK::BOX collision;
+   collision.x=x;
+   collision.y=y;
+   collision.width=width;
+   collision.height=height;
+   return collision;
   }
 
  }

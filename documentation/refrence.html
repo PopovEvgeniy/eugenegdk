@@ -161,7 +161,7 @@
       <span style="text-decoration: underline;">Eugene game development kit
         license</span><br>
       <br>
-      Copyright (C) 2021 Popov Evgeniy Alekseyevich<br>
+      Copyright (C) 2021 - 2022 Popov Evgeniy Alekseyevich<br>
       <br>
       This software is provided 'as-is', without any express or implied<br>
       warranty. In no event will the authors be held liable for any damages<br>
@@ -180,7 +180,7 @@
       <br>
       <span style="text-decoration: underline;">Third-party license</span><br>
       <br>
-      Copyright (c) 2007-2010 The Khronos Group Inc.<br>
+      Copyright (c) 2007 - 2010 The Khronos Group Inc.<br>
       <br>
       Permission is hereby granted, free of charge, to any person obtaining a<br>
       copy of this software and/or associated documentation files (the<br>
@@ -784,10 +784,18 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       Draw selected tile at specific position.</big><br>
     <big><i>void Tileset::draw_tile(const unsigned int row,const unsigned int
         column,const unsigned int x,const unsigned int y);</i> – Draw target
-      tile at specific position.</big><br>
-    <big> <span style="font-style: italic;">void Tileset::load_tileset(Image
-        *buffer,const unsigned int row_amount,const unsigned int column_amount);</span>
-      – Load a tile-set.<br>
+      tile at specific position.<br>
+      <span style="font-style: italic;">EUGENEGDK::BOX&nbsp;
+        Tileset::put_tile(const unsigned int x,const unsigned int y);</span> –
+      Draw selected tile at specific position and return collision related
+      information.<br>
+      <span style="font-style: italic;">EUGENEGDK::BOX Tileset::put_tile(const
+        unsigned int row,const unsigned int column,const unsigned int x,const
+        unsigned int y);</span> – Draw target tile at specific position and
+      return collision related information.<br>
+    </big> <big> <span style="font-style: italic;">void
+        Tileset::load_tileset(Image *buffer,const unsigned int row_amount,const
+        unsigned int column_amount);</span> – Load a tile-set.<br>
       <span style="font-style: italic;">void Tileset::load_tileset(Image
         &amp;buffer,const unsigned int row_amount,const unsigned int
         column_amount);</span> – Load a tile-set.<br>
@@ -1902,6 +1910,8 @@ Multimedia API</a>. </big>
         3.4.7 – Background subsystem improved.<br>
         3.4.8 – 3.4.9 – Sprite subsystem improved.<br>
         3.5 – 3.5.4 – Small changes.<br>
+        3.5.5 – Tile-set subsystem improved.<br>
+        3.5.6 – Small changes.<br>
       </big></span>
   </body>
 </html>

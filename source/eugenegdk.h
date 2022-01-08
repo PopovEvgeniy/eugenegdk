@@ -4,7 +4,7 @@ Some code was taken from wglext.h(https://www.khronos.org/registry/OpenGL/api/GL
 
 Eugene game development kit license
 
-Copyright (C) 2021 Popov Evgeniy Alekseyevich
+Copyright (C) 2021 - 2022 Popov Evgeniy Alekseyevich
 
 This software is provided 'as-is', without any express or implied
 warranty.  In no event will the authors be held liable for any damages
@@ -758,6 +758,7 @@ typedef enum
    void reset_tileset_setting();
    void prepare();
    void set_tileset_setting(const unsigned int row_amount,const unsigned int column_amount);
+   EUGENEGDK::BOX get_box(const unsigned int x,const unsigned int y) const;
    public:
    Tileset();
    ~Tileset();
@@ -770,6 +771,8 @@ typedef enum
    void destroy_tileset();
    void draw_tile(const unsigned int x,const unsigned int y);
    void draw_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y);
+   EUGENEGDK::BOX put_tile(const unsigned int x,const unsigned int y);
+   EUGENEGDK::BOX put_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y);
    void load_tileset(Image *buffer,const unsigned int row_amount,const unsigned int column_amount);
    void load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount);
   };
