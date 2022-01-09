@@ -731,8 +731,8 @@ namespace EUGENEGDK
    point[2].v=0.0;
    point[3].u=0.0;
    point[3].v=0.0;
-   horizontal_mirror=EUGENEGDK::DISABLE_MIRRORING;
-   vertical_mirror=EUGENEGDK::DISABLE_MIRRORING;
+   horizontal_mirror=1.0;
+   vertical_mirror=1.0;
   }
 
   Shape::~Shape()
@@ -788,12 +788,12 @@ namespace EUGENEGDK
    return current_y;
   }
 
-  EUGENEGDK::MIRROR_STATUS Shape::get_horizontal_mirror() const
+  float Shape::get_horizontal_mirror() const
   {
    return horizontal_mirror;
   }
 
-  EUGENEGDK::MIRROR_STATUS Shape::get_vertical_mirror() const
+  float Shape::get_vertical_mirror() const
   {
    return vertical_mirror;
   }
@@ -848,28 +848,12 @@ namespace EUGENEGDK
 
   void Shape::invert_horizontal_mirror()
   {
-   if (horizontal_mirror==EUGENEGDK::DISABLE_MIRRORING)
-   {
-    horizontal_mirror=EUGENEGDK::ENABLE_MIRRORING;
-   }
-   else
-   {
-    horizontal_mirror=EUGENEGDK::DISABLE_MIRRORING;
-   }
-
+   horizontal_mirror*=-1.0;
   }
 
   void Shape::invert_vertical_mirror()
   {
-   if (vertical_mirror==EUGENEGDK::DISABLE_MIRRORING)
-   {
-    vertical_mirror=EUGENEGDK::ENABLE_MIRRORING;
-   }
-   else
-   {
-    vertical_mirror=EUGENEGDK::DISABLE_MIRRORING;
-   }
-
+   vertical_mirror*=-1.0;
   }
 
   Rectangle::Rectangle()
@@ -2957,7 +2941,7 @@ namespace EUGENEGDK
    columns=1;
    tile_width=1;
    tile_height=1;
- }
+  }
 
   void Tileset::prepare()
   {
@@ -2984,10 +2968,20 @@ namespace EUGENEGDK
   EUGENEGDK::BOX Tileset::get_box(const unsigned int x,const unsigned int y) const
   {
    EUGENEGDK::BOX collision;
-   collision.x=x;
-   collision.y=y;
-   collision.width=tile_width;
-   collision.height=tile_height;
+   if (target.is_texture_exist()==true)
+   {
+    collision.x=x;
+    collision.y=y;
+    collision.width=tile_width;
+    collision.height=tile_height;
+   }
+   else
+   {
+    collision.x=0;
+    collision.y=0;
+    collision.width=0;
+    collision.height=0;
+   }
    return collision;
   }
 

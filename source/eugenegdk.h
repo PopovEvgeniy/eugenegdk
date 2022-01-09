@@ -72,16 +72,8 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #include <mmsystem.h>
 #include <GL\gl.h>
 
-typedef BOOL (WINAPI * PFNWGLSWAPINTERVALEXTPROC) (int interval); // This code was taken from wglext.h by The Khronos Group Inc
-
 namespace EUGENEGDK
 {
-
- typedef enum
- {
-  DISABLE_MIRRORING=1,
-  ENABLE_MIRRORING=-1
- } MIRROR_STATUS;
 
  typedef enum
  {
@@ -178,6 +170,8 @@ typedef enum
 
  namespace Internal
  {
+
+  typedef BOOL (WINAPI * PFNWGLSWAPINTERVALEXTPROC) (int interval); // This code was taken from wglext.h by The Khronos Group Inc
 
   LRESULT CALLBACK Process_Message(HWND window,UINT Message,WPARAM wParam,LPARAM lParam);
 
@@ -333,8 +327,8 @@ typedef enum
    unsigned int total_height;
    unsigned int current_x;
    unsigned int current_y;
-   EUGENEGDK::MIRROR_STATUS horizontal_mirror;
-   EUGENEGDK::MIRROR_STATUS vertical_mirror;
+   float horizontal_mirror;
+   float vertical_mirror;
    float get_start_offset(const float current,const float total);
    float get_end_offset(const float current,const float total);
    protected:
@@ -345,8 +339,8 @@ typedef enum
    unsigned int get_total_height() const;
    unsigned int get_x() const;
    unsigned int get_y() const;
-   EUGENEGDK::MIRROR_STATUS get_horizontal_mirror() const;
-   EUGENEGDK::MIRROR_STATUS get_vertical_mirror() const;
+   float get_horizontal_mirror() const;
+   float get_vertical_mirror() const;
    public:
    Shape();
    ~Shape();
