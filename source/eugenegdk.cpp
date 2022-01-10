@@ -237,6 +237,16 @@ namespace EUGENEGDK
    return display.dmBitsPerPel;
   }
 
+  unsigned long int Display::get_display_width() const
+  {
+   return display.dmPelsWidth;
+  }
+
+  unsigned long int Display::get_display_height() const
+  {
+   return display.dmPelsHeight;
+  }
+
   Engine::Engine()
   {
    window_class.lpszClassName=TEXT("EUGENEGDK");
@@ -378,16 +388,6 @@ namespace EUGENEGDK
 
    }
    return run;
-  }
-
-  unsigned int Engine::get_screen_width()
-  {
-   return GetSystemMetrics(SM_CXSCREEN);
-  }
-
-  unsigned int Engine::get_screen_height()
-  {
-   return GetSystemMetrics(SM_CYSCREEN);
   }
 
   WINGL::WINGL()
@@ -1929,7 +1929,7 @@ namespace EUGENEGDK
   {
    Internal::Engine::prepare_engine();
    Internal::WINGL::set_render(Internal::Engine::get_context(),Internal::Display::get_depth());
-   Core::Render::start_render(Internal::Engine::get_screen_width(),Internal::Engine::get_screen_height());
+   Core::Render::start_render(Internal::Display::get_display_width(),Internal::Display::get_display_height());
    Internal::Synchronization::create_timer();
    Internal::Synchronization::set_timer(17);
   }
@@ -2008,14 +2008,14 @@ namespace EUGENEGDK
    return Core::FPS::get_fps_amount();
   }
 
-  unsigned int Screen::get_width()
+  unsigned int Screen::get_width() const
   {
-   return Internal::Engine::get_screen_width();
+   return Internal::Display::get_display_width();
   }
 
-  unsigned int Screen::get_height()
+  unsigned int Screen::get_height() const
   {
-   return Internal::Engine::get_screen_height();
+   return Internal::Display::get_display_height();
   }
 
   Screen* Screen::get_handle()

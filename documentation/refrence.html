@@ -359,7 +359,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video-card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -391,6 +390,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         unsigned int width,</span></big><big><span style="font-style: italic;">const
         unsigned int heigt</span></big><big><span style="font-style: italic;">);</span>
       – Initialize the base graphic subsystem with custom screen resolution.</big><big><span
+
         style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -406,9 +406,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       – Return current fps value.<br>
       <span style="font-style: italic;">unsigned long int Screen::get_color()
         const;</span> – Return current color depth in bits per pixel.<br>
-      <span style="font-style: italic;">unsigned int Screen::get_width();</span>
+      <span style="font-style: italic;">unsigned int Screen::get_width() const;</span>
       – Return screen width in pixels.<br>
-      <span style="font-style: italic;">unsigned int Screen::get_height();</span>
+      <span style="font-style: italic;">unsigned int Screen::get_height() const;</span>
       – Return screen height in pixels.<br>
       <span style="font-style: italic;">Screen* Screen::get_handle();</span> –
       Return the handle to base graphics subsystem object. </big>
@@ -1912,7 +1912,7 @@ Multimedia API</a>. </big>
         3.4.8 – 3.4.9 – Sprite subsystem improved.<br>
         3.5 – 3.5.4 – Small changes.<br>
         3.5.5 – Tile-set subsystem improved.<br>
-        3.5.6 – 3.6 – Small changes.<br>
+        3.5.6 – 3.6.3 – Small changes.<br>
       </big></span>
   </body>
 </html>

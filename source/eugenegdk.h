@@ -199,6 +199,8 @@ typedef enum
    void check_video_mode();
    void set_resolution(const unsigned long int width,const unsigned long int height);
    unsigned long int get_depth() const;
+   unsigned long int get_display_width() const;
+   unsigned long int get_display_height() const;
    public:
    Display();
    ~Display();
@@ -221,8 +223,6 @@ typedef enum
    HDC get_context();
    void prepare_engine();
    bool process_message();
-   unsigned int get_screen_width();
-   unsigned int get_screen_height();
    public:
    Engine();
    ~Engine();
@@ -577,8 +577,8 @@ typedef enum
    bool is_accelerated() const;
    unsigned long int get_color() const;
    unsigned int get_fps() const;
-   unsigned int get_width();
-   unsigned int get_height();
+   unsigned int get_width() const;
+   unsigned int get_height() const;
    Screen* get_handle();
   };
 
