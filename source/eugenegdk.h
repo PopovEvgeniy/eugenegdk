@@ -496,6 +496,7 @@ typedef enum
    bool check_playing();
    void stop();
    void play();
+   void play_loop();
    void load(const char *target);
    void initialize(const char *target);
   };

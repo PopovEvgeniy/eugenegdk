@@ -390,7 +390,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         unsigned int width,</span></big><big><span style="font-style: italic;">const
         unsigned int heigt</span></big><big><span style="font-style: italic;">);</span>
       – Initialize the base graphic subsystem with custom screen resolution.</big><big><span
-
         style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -1628,6 +1627,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         *target);</span> – Load a multimedia file.<br>
       <span style="font-style: italic;">void Multimedia::play();</span> – Play a
       content of the target file.<br>
+      <span style="font-style: italic;">void Multimedia::play_loop();</span> –
+      Checking play status and restart play if need.<br>
       <span style="font-style: italic;">void Multimedia::stop();</span> – Stop
       playing a content of the target file.<br>
       <span style="font-style: italic;">bool Multimedia::check_playing();</span>
@@ -1912,7 +1913,8 @@ Multimedia API</a>. </big>
         3.4.8 – 3.4.9 – Sprite subsystem improved.<br>
         3.5 – 3.5.4 – Small changes.<br>
         3.5.5 – Tile-set subsystem improved.<br>
-        3.5.6 – 3.6.3 – Small changes.<br>
+        3.5.6 – 3.6.4 – Small changes.<br>
+        3.6.5 – Multimedia subsystem improved.<br>
       </big></span>
   </body>
 </html>

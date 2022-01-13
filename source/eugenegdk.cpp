@@ -1670,6 +1670,15 @@ namespace EUGENEGDK
    this->play_content();
   }
 
+  void Multimedia::play_loop()
+  {
+   if (this->check_playing()==false)
+   {
+    this->play();
+   }
+
+  }
+
   void Multimedia::load(const char *target)
   {
    Core::Unicode_Convertor convertor;

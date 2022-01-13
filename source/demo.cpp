@@ -35,7 +35,7 @@ int main()
  while(screen.sync())
  {
   gamepad.update();
-  if (media.check_playing()==false) media.play();
+  media.play_loop();
   if (mouse.check_press(EUGENEGDK::MOUSE_LEFT)==true) break;
   if (keyboard.check_hold(57)==true) break;
   if (keyboard.check_hold(72)==true) ship.decrease_y(2);
