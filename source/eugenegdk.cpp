@@ -1048,7 +1048,7 @@ namespace EUGENEGDK
  {
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  glOrtho(0,width,height,0,0,1);
+  glOrtho(0.0,width,height,0.0,0.0,1.0);
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
   glViewport(0,0,width,height);
@@ -1065,7 +1065,7 @@ namespace EUGENEGDK
 
   void Render::clear_stage()
   {
-   glClearColor(0,0,0,0);
+   glClearColor(0.0,0.0,0.0,0.0);
    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
   }
 
@@ -2376,7 +2376,7 @@ namespace EUGENEGDK
 
   Background::Background()
   {
-   target.set_size(0,0);
+   rectangle.set_size(0,0);
    current_kind=EUGENEGDK::NORMAL_BACKGROUND;
   }
 
@@ -2395,13 +2395,13 @@ namespace EUGENEGDK
    switch(current_kind)
    {
     case EUGENEGDK::NORMAL_BACKGROUND:
-    target.set_horizontal_offset(1,1);
+    rectangle.set_horizontal_offset(1,1);
     break;
     case EUGENEGDK::HORIZONTAL_BACKGROUND:
-    target.set_horizontal_offset(this->get_frame(),this->get_frames());
+    rectangle.set_horizontal_offset(this->get_frame(),this->get_frames());
     break;
     case EUGENEGDK::VERTICAL_BACKGROUND:
-    target.set_vertical_offset(this->get_frame(),this->get_frames());
+    rectangle.set_vertical_offset(this->get_frame(),this->get_frames());
     break;
    }
 
@@ -2415,10 +2415,10 @@ namespace EUGENEGDK
 
   void Background::prepare(const unsigned int screen_width,const unsigned int screen_height)
   {
-   target.set_size(screen_width,screen_height);
-   target.set_total_size(this->get_image_width(),this->get_image_height());
-   target.prepare(this->get_buffer());
-   target.set_position(0,0);
+   rectangle.set_size(screen_width,screen_height);
+   rectangle.set_total_size(this->get_image_width(),this->get_image_height());
+   rectangle.prepare(this->get_buffer());
+   rectangle.set_position(0,0);
   }
 
   void Background::prepare(Screen *screen)
@@ -2487,29 +2487,29 @@ namespace EUGENEGDK
 
   void Background::horizontal_mirror()
   {
-   target.invert_horizontal_mirror();
+   rectangle.invert_horizontal_mirror();
   }
 
   void Background::vertical_mirror()
   {
-   target.invert_vertical_mirror();
+   rectangle.invert_vertical_mirror();
   }
 
   void Background::complex_mirror()
   {
-   target.invert_horizontal_mirror();
-   target.invert_vertical_mirror();
+   rectangle.invert_horizontal_mirror();
+   rectangle.invert_vertical_mirror();
   }
 
   void Background::draw_background()
   {
-   target.disable_transparent();
-   target.draw();
+   rectangle.disable_transparent();
+   rectangle.draw();
   }
 
   void Background::destroy_background()
   {
-   target.destroy_texture();
+   rectangle.destroy_texture();
    this->destroy_image();
    this->reset_animation_setting();
    this->reset_background_setting();
@@ -2549,20 +2549,20 @@ namespace EUGENEGDK
   {
    if (transparent==true)
    {
-    target.enable_transparent();
+    rectangle.enable_transparent();
    }
    else
    {
-    target.disable_transparent();
+    rectangle.disable_transparent();
    }
 
   }
 
   void Sprite::draw_sprite_image()
   {
-   target.set_size(sprite_width,sprite_height);
-   target.set_position(current_x,current_y);
-   target.draw();
+   rectangle.set_size(sprite_width,sprite_height);
+   rectangle.set_position(current_x,current_y);
+   rectangle.draw();
   }
 
   void Sprite::set_sprite_setting()
@@ -2599,13 +2599,13 @@ namespace EUGENEGDK
    switch(current_kind)
    {
     case EUGENEGDK::SINGLE_SPRITE:
-    target.set_horizontal_offset(1,1);
+    rectangle.set_horizontal_offset(1,1);
     break;
     case EUGENEGDK::HORIZONTAL_STRIP:
-    target.set_horizontal_offset(this->get_frame(),this->get_frames());
+    rectangle.set_horizontal_offset(this->get_frame(),this->get_frames());
     break;
     case EUGENEGDK::VERTICAL_STRIP:
-    target.set_vertical_offset(this->get_frame(),this->get_frames());
+    rectangle.set_vertical_offset(this->get_frame(),this->get_frames());
     break;
    }
 
@@ -2620,8 +2620,8 @@ namespace EUGENEGDK
 
   void Sprite::prepare()
   {
-   target.set_total_size(this->get_image_width(),this->get_image_height());
-   target.prepare(this->get_buffer());
+   rectangle.set_total_size(this->get_image_width(),this->get_image_height());
+   rectangle.prepare(this->get_buffer());
   }
 
   void Sprite::set_transparent(const bool enabled)
@@ -2636,7 +2636,7 @@ namespace EUGENEGDK
 
   void Sprite::set_width(const unsigned int width)
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     if (width>0) sprite_width=width;
    }
@@ -2645,7 +2645,7 @@ namespace EUGENEGDK
 
   void Sprite::set_height(const unsigned int height)
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     if (height>0) sprite_height=height;
    }
@@ -2660,7 +2660,7 @@ namespace EUGENEGDK
 
   void Sprite::set_position(const unsigned int x,const unsigned int y)
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     current_x=x;
     current_y=y;
@@ -2670,7 +2670,7 @@ namespace EUGENEGDK
 
   void Sprite::set_x(const unsigned int x)
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     current_x=x;
    }
@@ -2679,7 +2679,7 @@ namespace EUGENEGDK
 
   void Sprite::set_y(const unsigned int y)
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     current_y=y;
    }
@@ -2688,7 +2688,7 @@ namespace EUGENEGDK
 
   void Sprite::increase_x()
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     ++current_x;
    }
@@ -2697,7 +2697,7 @@ namespace EUGENEGDK
 
   void Sprite::decrease_x()
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     --current_x;
    }
@@ -2706,7 +2706,7 @@ namespace EUGENEGDK
 
   void Sprite::increase_y()
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     ++current_y;
    }
@@ -2715,7 +2715,7 @@ namespace EUGENEGDK
 
   void Sprite::decrease_y()
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     --current_y;
    }
@@ -2724,7 +2724,7 @@ namespace EUGENEGDK
 
   void Sprite::increase_x(const unsigned int increment)
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     current_x+=increment;
    }
@@ -2733,7 +2733,7 @@ namespace EUGENEGDK
 
   void Sprite::decrease_x(const unsigned int decrement)
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     current_x-=decrement;
    }
@@ -2742,7 +2742,7 @@ namespace EUGENEGDK
 
   void Sprite::increase_y(const unsigned int increment)
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     current_y+=increment;
    }
@@ -2751,7 +2751,7 @@ namespace EUGENEGDK
 
   void Sprite::decrease_y(const unsigned int decrement)
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     current_y-=decrement;
    }
@@ -2872,23 +2872,23 @@ namespace EUGENEGDK
 
   void Sprite::horizontal_mirror()
   {
-   target.invert_horizontal_mirror();
+   rectangle.invert_horizontal_mirror();
   }
 
   void Sprite::vertical_mirror()
   {
-   target.invert_vertical_mirror();
+   rectangle.invert_vertical_mirror();
   }
 
   void Sprite::complex_mirror()
   {
-   target.invert_horizontal_mirror();
-   target.invert_vertical_mirror();
+   rectangle.invert_horizontal_mirror();
+   rectangle.invert_vertical_mirror();
   }
 
   void Sprite::destroy_sprite()
   {
-   target.destroy_texture();
+   rectangle.destroy_texture();
    this->destroy_image();
    this->reset_animation_setting();
    this->reset_sprite_setting();
@@ -2932,7 +2932,7 @@ namespace EUGENEGDK
 
   Tileset::Tileset()
   {
-   target.set_size(0,0);
+   rectangle.set_size(0,0);
    rows=1;
    columns=1;
    tile_width=1;
@@ -2954,8 +2954,8 @@ namespace EUGENEGDK
 
   void Tileset::prepare()
   {
-   target.set_total_size(this->get_image_width(),this->get_image_height());
-   target.prepare(this->get_buffer());
+   rectangle.set_total_size(this->get_image_width(),this->get_image_height());
+   rectangle.prepare(this->get_buffer());
   }
 
   void Tileset::set_tileset_setting(const unsigned int row_amount,const unsigned int column_amount)
@@ -2977,7 +2977,7 @@ namespace EUGENEGDK
   EUGENEGDK::BOX Tileset::get_box(const unsigned int x,const unsigned int y) const
   {
    EUGENEGDK::BOX collision;
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     collision.x=x;
     collision.y=y;
@@ -3016,7 +3016,7 @@ namespace EUGENEGDK
 
   void Tileset::set_tile_size(const unsigned int width,const unsigned int height)
   {
-   if (target.is_texture_exist()==true)
+   if (rectangle.is_texture_exist()==true)
    {
     if (width>0) tile_width=width;
     if (height>0) tile_height=height;
@@ -3030,8 +3030,8 @@ namespace EUGENEGDK
    {
     if (column<columns)
     {
-     target.set_tile_offset(row,rows,column,columns);
-   }
+     rectangle.set_tile_offset(row,rows,column,columns);
+    }
 
    }
 
@@ -3039,17 +3039,17 @@ namespace EUGENEGDK
 
   void Tileset::destroy_tileset()
   {
-   target.destroy_texture();
+   rectangle.destroy_texture();
    this->destroy_image();
    this->reset_tileset_setting();
   }
 
   void Tileset::draw_tile(const unsigned int x,const unsigned int y)
   {
-   target.set_size(tile_width,tile_height);
-   target.set_position(x,y);
-   target.disable_transparent();
-   target.draw();
+   rectangle.set_size(tile_width,tile_height);
+   rectangle.set_position(x,y);
+   rectangle.disable_transparent();
+   rectangle.draw();
   }
 
   void Tileset::draw_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y)

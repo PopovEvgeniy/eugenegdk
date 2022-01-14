@@ -651,7 +651,7 @@ typedef enum
   class Background:public Animation,public Picture
   {
    private:
-   Core::Rectangle target;
+   Core::Rectangle rectangle;
    EUGENEGDK::BACKGROUND_TYPE current_kind;
    void reset_background_setting();
    void configure_background();
@@ -680,7 +680,7 @@ typedef enum
   class Sprite:public Animation,public Picture
   {
    private:
-   Core::Rectangle target;
+   Core::Rectangle rectangle;
    bool transparent;
    unsigned int current_x;
    unsigned int current_y;
@@ -745,7 +745,7 @@ typedef enum
   class Tileset:public Picture
   {
    private:
-   Core::Rectangle target;
+   Core::Rectangle rectangle;
    unsigned int tile_width;
    unsigned int tile_height;
    unsigned int rows;
