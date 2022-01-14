@@ -2395,7 +2395,7 @@ namespace EUGENEGDK
    switch(current_kind)
    {
     case EUGENEGDK::NORMAL_BACKGROUND:
-    rectangle.set_horizontal_offset(1,1);
+    rectangle.set_horizontal_offset(1.0,1.0);
     break;
     case EUGENEGDK::HORIZONTAL_BACKGROUND:
     rectangle.set_horizontal_offset(this->get_frame(),this->get_frames());
@@ -2599,7 +2599,7 @@ namespace EUGENEGDK
    switch(current_kind)
    {
     case EUGENEGDK::SINGLE_SPRITE:
-    rectangle.set_horizontal_offset(1,1);
+    rectangle.set_horizontal_offset(1.0,1.0);
     break;
     case EUGENEGDK::HORIZONTAL_STRIP:
     rectangle.set_horizontal_offset(this->get_frame(),this->get_frames());
