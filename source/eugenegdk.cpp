@@ -1127,18 +1127,18 @@ namespace EUGENEGDK
 
   bool Keyboard::check_state(const unsigned char code,const unsigned char state)
   {
-   bool result;
-   result=false;
+   bool accept;
+   accept=false;
    if (Keys[code]==state)
    {
     if (preversion[code]!=state)
     {
-     result=true;
+     accept=true;
     }
 
    }
    preversion[code]=Keys[code];
-   return result;
+   return accept;
   }
 
   void Keyboard::initialize()
@@ -1205,18 +1205,18 @@ namespace EUGENEGDK
 
   bool Mouse::check_state(const EUGENEGDK::MOUSE_BUTTON button,const unsigned char state)
   {
-   bool result;
-   result=false;
+   bool accept;
+   accept=false;
    if (Buttons[button]==state)
    {
     if (preversion[button]!=state)
     {
-     result=true;
+     accept=true;
     }
 
    }
    preversion[button]=Buttons[button];
-   return result;
+   return accept;
   }
 
   void Mouse::show()
@@ -1313,13 +1313,13 @@ namespace EUGENEGDK
 
   bool Gamepad::check_button(const EUGENEGDK::GAMEPAD_BUTTONS button,const JOYINFOEX &target)
   {
-   bool result;
-   result=false;
+   bool press;
+   press=false;
    if (target.dwButtons&button)
    {
-    result=true;
+    press=true;
    }
-   return result;
+   return press;
  }
 
   unsigned int Gamepad::get_amount()
@@ -1329,13 +1329,13 @@ namespace EUGENEGDK
 
   unsigned int Gamepad::get_button_amount()
   {
-   unsigned int result;
-   result=0;
+   unsigned int button_amount;
+   button_amount=0;
    if (this->read_configuration()==true)
    {
-    result=configuration.wNumButtons;
+    button_amount=configuration.wNumButtons;
    }
-   return result;
+   return button_amount;
   }
 
   unsigned int Gamepad::get_last_index()
@@ -1366,17 +1366,17 @@ namespace EUGENEGDK
 
   unsigned long int Gamepad::get_sticks_amount()
   {
-   unsigned long int result;
-   result=0;
+   unsigned long int sticks_amount;
+   sticks_amount=0;
    if (this->read_configuration()==true)
    {
     if (configuration.wNumAxes>1)
     {
-     result=configuration.wNumAxes/2;
+     sticks_amount=configuration.wNumAxes/2;
     }
 
    }
-   return result;
+   return sticks_amount;
   }
 
   void Gamepad::set_active(const unsigned int gamepad)
@@ -1401,43 +1401,45 @@ namespace EUGENEGDK
 
   EUGENEGDK::GAMEPAD_DPAD Gamepad::get_dpad() const
   {
-   EUGENEGDK::GAMEPAD_DPAD result;
-   result=EUGENEGDK::GAMEPAD_NONE;
+   EUGENEGDK::GAMEPAD_DPAD dpad;
    switch (current.dwPOV)
    {
     case JOY_POVFORWARD:
-    result=EUGENEGDK::GAMEPAD_UP;
+    dpad=EUGENEGDK::GAMEPAD_UP;
     break;
     case JOY_POVBACKWARD:
-    result=EUGENEGDK::GAMEPAD_DOWN;
+    dpad=EUGENEGDK::GAMEPAD_DOWN;
     break;
     case JOY_POVLEFT:
-    result=EUGENEGDK::GAMEPAD_LEFT;
+    dpad=EUGENEGDK::GAMEPAD_LEFT;
     break;
     case JOY_POVRIGHT:
-    result=GAMEPAD_RIGHT;
+    dpad=GAMEPAD_RIGHT;
     break;
     case JOYSTICK_UPLEFT:
-    result=EUGENEGDK::GAMEPAD_UPLEFT;
+    dpad=EUGENEGDK::GAMEPAD_UPLEFT;
     break;
     case JOYSTICK_UPRIGHT:
-    result=EUGENEGDK::GAMEPAD_UPRIGHT;
+    dpad=EUGENEGDK::GAMEPAD_UPRIGHT;
     break;
     case JOYSTICK_DOWNLEFT:
-    result=EUGENEGDK::GAMEPAD_DOWNLEFT;
+    dpad=EUGENEGDK::GAMEPAD_DOWNLEFT;
     break;
     case JOYSTICK_DOWNRIGHT:
-    result=EUGENEGDK::GAMEPAD_DOWNRIGHT;
+    dpad=EUGENEGDK::GAMEPAD_DOWNRIGHT;
+    break;
+    default:
+    dpad=EUGENEGDK::GAMEPAD_NONE;
     break;
    }
-   return result;
+   return dpad;
   }
 
   EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick)
   {
-   EUGENEGDK::GAMEPAD_DIRECTION result;
+   EUGENEGDK::GAMEPAD_DIRECTION directional;
    unsigned long int control;
-   result=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
+   directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
     if (this->get_sticks_amount()>0)
@@ -1445,11 +1447,11 @@ namespace EUGENEGDK
      control=(configuration.wXmax-configuration.wXmin)/2;
      if (current.dwXpos<control)
      {
-      result=GAMEPAD_NEGATIVE_DIRECTION;
+      directional=GAMEPAD_NEGATIVE_DIRECTION;
      }
      if (current.dwXpos>control)
      {
-      result=GAMEPAD_POSITIVE_DIRECTION;
+      directional=GAMEPAD_POSITIVE_DIRECTION;
      }
 
     }
@@ -1462,24 +1464,24 @@ namespace EUGENEGDK
      control=(configuration.wZmax-configuration.wZmin)/2;
      if (current.dwZpos<control)
      {
-      result=GAMEPAD_NEGATIVE_DIRECTION;
+      directional=GAMEPAD_NEGATIVE_DIRECTION;
      }
      if (current.dwZpos>control)
      {
-      result=GAMEPAD_POSITIVE_DIRECTION;
+      directional=GAMEPAD_POSITIVE_DIRECTION;
      }
 
     }
 
    }
-   return result;
+   return directional;
   }
 
   EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick)
   {
-   EUGENEGDK::GAMEPAD_DIRECTION result;
+   EUGENEGDK::GAMEPAD_DIRECTION directional;
    unsigned long int control;
-   result=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
+   directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
     if (this->get_sticks_amount()>0)
@@ -1487,11 +1489,11 @@ namespace EUGENEGDK
      control=(configuration.wYmax-configuration.wYmin)/2;
      if (current.dwYpos<control)
      {
-      result=GAMEPAD_NEGATIVE_DIRECTION;
+      directional=GAMEPAD_NEGATIVE_DIRECTION;
      }
      if (current.dwYpos>control)
      {
-      result=GAMEPAD_POSITIVE_DIRECTION;
+      directional=GAMEPAD_POSITIVE_DIRECTION;
      }
 
     }
@@ -1504,17 +1506,17 @@ namespace EUGENEGDK
      control=(configuration.wRmax-configuration.wRmin)/2;
      if (current.dwRpos<control)
      {
-      result=GAMEPAD_NEGATIVE_DIRECTION;
+      directional=GAMEPAD_NEGATIVE_DIRECTION;
      }
      if (current.dwRpos>control)
      {
-      result=GAMEPAD_POSITIVE_DIRECTION;
+      directional=GAMEPAD_POSITIVE_DIRECTION;
      }
 
     }
 
    }
-   return result;
+   return directional;
   }
 
   bool Gamepad::check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button)
@@ -1713,21 +1715,21 @@ namespace EUGENEGDK
   bool Multimedia::check_playing()
   {
    OAFilterState state;
-   bool result;
-   result=false;
+   bool playing;
+   playing=false;
    if (player!=NULL)
    {
     if (player->GetState(INFINITE,&state)!=E_FAIL)
     {
      if (state==State_Running)
      {
-      result=this->is_play();
+      playing=this->is_play();
      }
 
     }
 
    }
-   return result;
+   return playing;
   }
 
   void Multimedia::stop()
@@ -2129,17 +2131,17 @@ namespace EUGENEGDK
 
   unsigned char *Image::create_buffer(const size_t length)
   {
-   unsigned char *result;
-   result=NULL;
+   unsigned char *buffer;
+   buffer=NULL;
    try
    {
-    result=new unsigned char[length];
+    buffer=new unsigned char[length];
    }
    catch (...)
    {
     EUGENEGDK::Halt("Can't allocate memory for image buffer");
    }
-   return result;
+   return buffer;
   }
 
   void Image::copy_data(const unsigned char *target,const size_t location,const size_t position,const size_t amount)
@@ -2308,19 +2310,19 @@ namespace EUGENEGDK
 
   unsigned int *Picture::create_buffer()
   {
-   unsigned int *result;
-   result=NULL;
+   unsigned int *buffer;
+   buffer=NULL;
    length=static_cast<size_t>(image_width)*static_cast<size_t>(image_height);
    try
    {
-    result=new unsigned int[length];
+    buffer=new unsigned int[length];
    }
    catch(...)
    {
     EUGENEGDK::Halt("Can't allocate memory for image buffer");
    }
    length*=sizeof(unsigned int);
-   return result;
+   return buffer;
   }
 
   void Picture::set_buffer(unsigned int *buffer)
@@ -3381,14 +3383,14 @@ namespace EUGENEGDK
 
   bool Timer::check_timer()
   {
-   bool result;
-   result=false;
+   bool check;
+   check=false;
    if (difftime(time(NULL),start)>=interval)
    {
-    result=true;
+    check=true;
     start=time(NULL);
    }
-   return result;
+   return check;
   }
 
   Collision::Collision()
@@ -3413,32 +3415,32 @@ namespace EUGENEGDK
 
   bool Collision::check_horizontal_collision() const
   {
-   bool result;
-   result=false;
+   bool collision;
+   collision=false;
    if ((first.x+first.width)>=second.x)
    {
     if (first.x<=(second.x+second.width))
     {
-     result=true;
+     collision=true;
     }
 
    }
-   return result;
+   return collision;
   }
 
   bool Collision::check_vertical_collision() const
   {
-   bool result;
-   result=false;
+   bool collision;
+   collision=false;
    if ((first.y+first.height)>=second.y)
    {
     if (first.y<=(second.y+second.height))
     {
-     result=true;
+     collision=true;
     }
 
    }
-   return result;
+   return collision;
   }
 
   bool Collision::check_collision() const
