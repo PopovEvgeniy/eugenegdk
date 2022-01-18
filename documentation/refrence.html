@@ -508,7 +508,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       to public methods.<br>
     </big><big><span style="font-style: italic;"></span><span style="font-style: italic;"><br>
       </span></big><big><span style="font-style: italic;">void
-        Background::prepare(Screen *screen);</span> – Prepare for drawing.<br>
+        Background::prepare(const Screen *screen);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::prepare(Screen
         &amp;screen);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
@@ -1018,8 +1018,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <i> void Output_File::open(const char *name);</i> – Open a file for write.<br>
       <i> void Output_File::create_temp();</i> – Create a temporary file. This
       file will be deleted when it closed.</big><br>
-    <big> <i> void Output_File::write(void *buffer,const size_t length);</i> –
-      Write data to the file.</big><br>
+    <big> <i> void Output_File::write(const void *buffer,const size_t length);</i>
+      – Write data to the file.</big><br>
     <big><i>void Output_File::flush();</i> – Force writing internal buffer data
       to the file.</big><br>
     <big> </big>
@@ -1447,7 +1447,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         bellow.</big></p>
     <big> </big>
     <table style="text-align: left; width: 365px; height: 94px;" cellspacing="2"
-
       cellpadding="2" border="1">
       <tbody>
         <tr>
@@ -1917,6 +1916,12 @@ Multimedia API</a>. </big>
         3.5.6 – 3.6.4 – Small changes.<br>
         3.6.5 – Multimedia subsystem improved.<br>
         3.6.6 – 3.6.8 – Small changes.<br>
+        3.6.9 – Sprite subsystem improved.<br>
+        3.7 – Background subsystem improved.<br>
+        3.7.1 – Small changes.<br>
+        3.7.2 – Binary file subsystem improved.<br>
+        3.7.3 – Background subsystem improved.<br>
+        3.7.4 – Small changes.<br>
       </big></span>
   </body>
 </html>

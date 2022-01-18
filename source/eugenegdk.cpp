@@ -220,7 +220,10 @@ namespace EUGENEGDK
 
   void Display::set_setting(const unsigned long int width,const unsigned long int height)
   {
-   if (display.dmBitsPerPel<16) display.dmBitsPerPel=16;
+   if (display.dmBitsPerPel<16)
+   {
+    display.dmBitsPerPel=16;
+   }
    display.dmPelsWidth=width;
    display.dmPelsHeight=height;
   }
@@ -479,7 +482,11 @@ namespace EUGENEGDK
    }
    else
    {
-    if ((setting.dwFlags&PFD_GENERIC_FORMAT)&&(setting.dwFlags&PFD_GENERIC_ACCELERATED)) accelerated=true;
+    if ((setting.dwFlags&PFD_GENERIC_FORMAT)&&(setting.dwFlags&PFD_GENERIC_ACCELERATED))
+    {
+     accelerated=true;
+    }
+
    }
    return accelerated;
   }
@@ -1124,7 +1131,11 @@ namespace EUGENEGDK
    result=false;
    if (Keys[code]==state)
    {
-    if (preversion[code]!=state) result=true;
+    if (preversion[code]!=state)
+    {
+     result=true;
+    }
+
    }
    preversion[code]=Keys[code];
    return result;
@@ -1175,7 +1186,11 @@ namespace EUGENEGDK
 
   Mouse::~Mouse()
   {
-   while(ShowCursor(TRUE)<1) ;
+   while (ShowCursor(TRUE)<1)
+   {
+    ;
+   }
+
   }
 
   void Mouse::get_position()
@@ -1194,7 +1209,11 @@ namespace EUGENEGDK
    result=false;
    if (Buttons[button]==state)
    {
-    if (preversion[button]!=state) result=true;
+    if (preversion[button]!=state)
+    {
+     result=true;
+    }
+
    }
    preversion[button]=Buttons[button];
    return result;
@@ -1202,12 +1221,20 @@ namespace EUGENEGDK
 
   void Mouse::show()
   {
-   while(ShowCursor(TRUE)<1) ;
+   while(ShowCursor(TRUE)<1)
+   {
+    ;
+   }
+
   }
 
   void Mouse::hide()
   {
-   while(ShowCursor(FALSE)>-2) ;
+   while(ShowCursor(FALSE)>-2)
+   {
+    ;
+   }
+
   }
 
   void Mouse::set_position(const unsigned int x,const unsigned int y)
@@ -1288,7 +1315,10 @@ namespace EUGENEGDK
   {
    bool result;
    result=false;
-   if (target.dwButtons&button) result=true;
+   if (target.dwButtons&button)
+   {
+    result=true;
+   }
    return result;
  }
 
@@ -1301,7 +1331,10 @@ namespace EUGENEGDK
   {
    unsigned int result;
    result=0;
-   if (this->read_configuration()==true) result=configuration.wNumButtons;
+   if (this->read_configuration()==true)
+   {
+    result=configuration.wNumButtons;
+   }
    return result;
   }
 
@@ -1309,7 +1342,10 @@ namespace EUGENEGDK
   {
    unsigned int last_index;
    last_index=this->get_amount();
-   if (last_index>0) --last_index;
+   if (last_index>0)
+   {
+    --last_index;
+   }
    return last_index;
   }
 
@@ -1321,7 +1357,11 @@ namespace EUGENEGDK
   void Gamepad::update()
   {
    preversion=current;
-   if (this->read_state()==false) this->clear_state();
+   if (this->read_state()==false)
+   {
+    this->clear_state();
+   }
+
   }
 
   unsigned long int Gamepad::get_sticks_amount()
@@ -1330,7 +1370,11 @@ namespace EUGENEGDK
    result=0;
    if (this->read_configuration()==true)
    {
-    if (configuration.wNumAxes>1) result=configuration.wNumAxes/2;
+    if (configuration.wNumAxes>1)
+    {
+     result=configuration.wNumAxes/2;
+    }
+
    }
    return result;
   }
@@ -1399,8 +1443,15 @@ namespace EUGENEGDK
     if (this->get_sticks_amount()>0)
     {
      control=(configuration.wXmax-configuration.wXmin)/2;
-     if (current.dwXpos<control) result=GAMEPAD_NEGATIVE_DIRECTION;
-     if (current.dwXpos>control) result=GAMEPAD_POSITIVE_DIRECTION;
+     if (current.dwXpos<control)
+     {
+      result=GAMEPAD_NEGATIVE_DIRECTION;
+     }
+     if (current.dwXpos>control)
+     {
+      result=GAMEPAD_POSITIVE_DIRECTION;
+     }
+
     }
 
    }
@@ -1409,8 +1460,15 @@ namespace EUGENEGDK
     if (this->get_sticks_amount()>1)
     {
      control=(configuration.wZmax-configuration.wZmin)/2;
-     if (current.dwZpos<control) result=GAMEPAD_NEGATIVE_DIRECTION;
-     if (current.dwZpos>control) result=GAMEPAD_POSITIVE_DIRECTION;
+     if (current.dwZpos<control)
+     {
+      result=GAMEPAD_NEGATIVE_DIRECTION;
+     }
+     if (current.dwZpos>control)
+     {
+      result=GAMEPAD_POSITIVE_DIRECTION;
+     }
+
     }
 
    }
@@ -1427,8 +1485,15 @@ namespace EUGENEGDK
     if (this->get_sticks_amount()>0)
     {
      control=(configuration.wYmax-configuration.wYmin)/2;
-     if (current.dwYpos<control) result=GAMEPAD_NEGATIVE_DIRECTION;
-     if (current.dwYpos>control) result=GAMEPAD_POSITIVE_DIRECTION;
+     if (current.dwYpos<control)
+     {
+      result=GAMEPAD_NEGATIVE_DIRECTION;
+     }
+     if (current.dwYpos>control)
+     {
+      result=GAMEPAD_POSITIVE_DIRECTION;
+     }
+
     }
 
    }
@@ -1437,8 +1502,15 @@ namespace EUGENEGDK
     if (this->get_sticks_amount()>1)
     {
      control=(configuration.wRmax-configuration.wRmin)/2;
-     if (current.dwRpos<control) result=GAMEPAD_NEGATIVE_DIRECTION;
-     if (current.dwRpos>control) result=GAMEPAD_POSITIVE_DIRECTION;
+     if (current.dwRpos<control)
+     {
+      result=GAMEPAD_NEGATIVE_DIRECTION;
+     }
+     if (current.dwRpos>control)
+     {
+      result=GAMEPAD_POSITIVE_DIRECTION;
+     }
+
     }
 
    }
@@ -1647,7 +1719,11 @@ namespace EUGENEGDK
    {
     if (player->GetState(INFINITE,&state)!=E_FAIL)
     {
-     if (state==State_Running) result=this->is_play();
+     if (state==State_Running)
+     {
+      result=this->is_play();
+     }
+
     }
 
    }
@@ -1897,7 +1973,7 @@ namespace EUGENEGDK
    target=tmpfile();
   }
 
-  void Output_File::write(void *buffer,const size_t length)
+  void Output_File::write(const void *buffer,const size_t length)
   {
    if (target!=NULL)
    {
@@ -2275,7 +2351,7 @@ namespace EUGENEGDK
    {
     this->set_image_size(buffer->get_width(),buffer->get_height());
     this->set_buffer(this->create_buffer());
-    memcpy(this->get_buffer(),buffer->get_data(),buffer->get_length());
+    memmove(this->get_buffer(),buffer->get_data(),buffer->get_length());
    }
 
   }
@@ -2354,14 +2430,22 @@ namespace EUGENEGDK
   {
    if (target>0)
    {
-    if (target<=frames) frame=target;
+    if (target<=frames)
+    {
+     frame=target;
+    }
+
    }
 
   }
 
   void Animation::set_frames(const unsigned int amount)
   {
-   if (amount>1) frames=amount;
+   if (amount>1)
+   {
+    frames=amount;
+   }
+
   }
 
   unsigned int Animation::get_frames() const
@@ -2394,14 +2478,14 @@ namespace EUGENEGDK
   {
    switch(current_kind)
    {
-    case EUGENEGDK::NORMAL_BACKGROUND:
-    rectangle.set_horizontal_offset(1.0,1.0);
-    break;
     case EUGENEGDK::HORIZONTAL_BACKGROUND:
     rectangle.set_horizontal_offset(this->get_frame(),this->get_frames());
     break;
     case EUGENEGDK::VERTICAL_BACKGROUND:
     rectangle.set_vertical_offset(this->get_frame(),this->get_frames());
+    break;
+    default:
+    rectangle.set_horizontal_offset(1.0,1.0);
     break;
    }
 
@@ -2421,7 +2505,7 @@ namespace EUGENEGDK
    rectangle.set_position(0,0);
   }
 
-  void Background::prepare(Screen *screen)
+  void Background::prepare(const Screen *screen)
   {
    if (screen!=NULL)
    {
@@ -2569,10 +2653,6 @@ namespace EUGENEGDK
   {
    switch (current_kind)
    {
-    case EUGENEGDK::SINGLE_SPRITE:
-    sprite_width=this->get_image_width();
-    sprite_height=this->get_image_height();
-    break;
     case EUGENEGDK::HORIZONTAL_STRIP:
     sprite_width=this->get_image_width()/this->get_frames();
     sprite_height=this->get_image_height();
@@ -2580,6 +2660,10 @@ namespace EUGENEGDK
     case EUGENEGDK::VERTICAL_STRIP:
     sprite_width=this->get_image_width();
     sprite_height=this->get_image_height()/this->get_frames();
+    break;
+    default:
+    sprite_width=this->get_image_width();
+    sprite_height=this->get_image_height();
     break;
    }
 
@@ -2598,14 +2682,14 @@ namespace EUGENEGDK
   {
    switch(current_kind)
    {
-    case EUGENEGDK::SINGLE_SPRITE:
-    rectangle.set_horizontal_offset(1.0,1.0);
-    break;
     case EUGENEGDK::HORIZONTAL_STRIP:
     rectangle.set_horizontal_offset(this->get_frame(),this->get_frames());
     break;
     case EUGENEGDK::VERTICAL_STRIP:
     rectangle.set_vertical_offset(this->get_frame(),this->get_frames());
+    break;
+    default:
+    rectangle.set_horizontal_offset(1.0,1.0);
     break;
    }
 
@@ -2638,7 +2722,11 @@ namespace EUGENEGDK
   {
    if (rectangle.is_texture_exist()==true)
    {
-    if (width>0) sprite_width=width;
+    if (width>0)
+    {
+     sprite_width=width;
+    }
+
    }
 
   }
@@ -2647,7 +2735,11 @@ namespace EUGENEGDK
   {
    if (rectangle.is_texture_exist()==true)
    {
-    if (height>0) sprite_height=height;
+    if (height>0)
+    {
+     sprite_height=height;
+    }
+
    }
 
   }
@@ -3018,8 +3110,15 @@ namespace EUGENEGDK
   {
    if (rectangle.is_texture_exist()==true)
    {
-    if (width>0) tile_width=width;
-    if (height>0) tile_height=height;
+    if (width>0)
+    {
+     tile_width=width;
+    }
+    if (height>0)
+    {
+     tile_height=height;
+    }
+
    }
 
   }
@@ -3318,7 +3417,11 @@ namespace EUGENEGDK
    result=false;
    if ((first.x+first.width)>=second.x)
    {
-    if (first.x<=(second.x+second.width)) result=true;
+    if (first.x<=(second.x+second.width))
+    {
+     result=true;
+    }
+
    }
    return result;
   }
@@ -3329,7 +3432,11 @@ namespace EUGENEGDK
    result=false;
    if ((first.y+first.height)>=second.y)
    {
-    if (first.y<=(second.y+second.height)) result=true;
+    if (first.y<=(second.y+second.height))
+    {
+     result=true;
+    }
+
    }
    return result;
   }

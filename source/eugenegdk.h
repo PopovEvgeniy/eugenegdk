@@ -552,7 +552,7 @@ typedef enum
    ~Output_File();
    void open(const char *name);
    void create_temp();
-   void write(void *buffer,const size_t length);
+   void write(const void *buffer,const size_t length);
    void flush();
   };
 
@@ -660,7 +660,7 @@ typedef enum
    public:
    Background();
    ~Background();
-   void prepare(Screen *screen);
+   void prepare(const Screen *screen);
    void prepare(Screen &screen);
    void set_setting(const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
    void load_background(Image *buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
