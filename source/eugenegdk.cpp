@@ -3317,7 +3317,7 @@ namespace EUGENEGDK
 
   Random::Random()
   {
-   srand(UINT_MAX);
+   srand(clock()/CLOCKS_PER_SEC);
   }
 
   Random::~Random()
