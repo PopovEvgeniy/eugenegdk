@@ -749,7 +749,7 @@ namespace EUGENEGDK
 
   float Shape::get_start_offset(const float current,const float total)
   {
-   return (1.0/total)*(current-1);
+   return (1.0/total)*(current-1.0);
   }
 
   float Shape::get_end_offset(const float current,const float total)
@@ -935,9 +935,9 @@ namespace EUGENEGDK
   void Rectangle::set_model_setting()
   {
    glMatrixMode(GL_MODELVIEW);
-   glTranslatef(this->get_x(),this->get_y(),0);
+   glTranslatef(static_cast<float>(this->get_x()),static_cast<float>(this->get_y()),0.0);
    glMatrixMode(GL_TEXTURE);
-   glScalef(this->get_horizontal_mirror(),this->get_vertical_mirror(),0);
+   glScalef(this->get_horizontal_mirror(),this->get_vertical_mirror(),0.0);
   }
 
   void Rectangle::enable_transparent()
@@ -1055,7 +1055,7 @@ namespace EUGENEGDK
  {
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  glOrtho(0.0,width,height,0.0,0.0,1.0);
+  glOrtho(0.0,static_cast<float>(width),static_cast<float>(height),0.0,0.0,1.0);
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
   glViewport(0,0,width,height);
@@ -2481,10 +2481,10 @@ namespace EUGENEGDK
    switch(current_kind)
    {
     case EUGENEGDK::HORIZONTAL_BACKGROUND:
-    rectangle.set_horizontal_offset(this->get_frame(),this->get_frames());
+    rectangle.set_horizontal_offset(static_cast<float>(this->get_frame()),static_cast<float>(this->get_frames()));
     break;
     case EUGENEGDK::VERTICAL_BACKGROUND:
-    rectangle.set_vertical_offset(this->get_frame(),this->get_frames());
+    rectangle.set_vertical_offset(static_cast<float>(this->get_frame()),static_cast<float>(this->get_frames()));
     break;
     default:
     rectangle.set_horizontal_offset(1.0,1.0);
@@ -2685,10 +2685,10 @@ namespace EUGENEGDK
    switch(current_kind)
    {
     case EUGENEGDK::HORIZONTAL_STRIP:
-    rectangle.set_horizontal_offset(this->get_frame(),this->get_frames());
+    rectangle.set_horizontal_offset(static_cast<float>(this->get_frame()),static_cast<float>(this->get_frames()));
     break;
     case EUGENEGDK::VERTICAL_STRIP:
-    rectangle.set_vertical_offset(this->get_frame(),this->get_frames());
+    rectangle.set_vertical_offset(static_cast<float>(this->get_frame()),static_cast<float>(this->get_frames()));
     break;
     default:
     rectangle.set_horizontal_offset(1.0,1.0);
@@ -3131,7 +3131,7 @@ namespace EUGENEGDK
    {
     if (column<columns)
     {
-     rectangle.set_tile_offset(row,rows,column,columns);
+     rectangle.set_tile_offset(static_cast<float>(row),static_cast<float>(rows),static_cast<float>(column),static_cast<float>(columns));
     }
 
    }
