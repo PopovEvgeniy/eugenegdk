@@ -328,7 +328,7 @@ namespace EUGENEGDK
 
   void Engine::register_window_class()
   {
-   if (!RegisterClassEx(&window_class))
+   if (RegisterClassEx(&window_class)==0)
    {
     EUGENEGDK::Halt("Can't register window class");
    }
