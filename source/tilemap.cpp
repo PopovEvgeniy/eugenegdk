@@ -19,13 +19,15 @@ int main()
  tilemap.load_tileset(image,6,3);
  while (screen.sync())
  {
-  if (keyboard.check_hold(1)==true) break;
+  if (keyboard.check_hold(1)==true)
+  {
+   break;
+  }
   for (x=0;x<screen.get_width();x+=tilemap.get_tile_width())
  {
   for (y=0;y<screen.get_height();y+=tilemap.get_tile_height())
   {
-   tilemap.select_tile(1,2);
-   tilemap.draw_tile(x,y);
+   tilemap.draw_tile(1,2,x,y);
   }
 
  }
