@@ -446,7 +446,7 @@ typedef enum
    bool read_configuration();
    bool read_state();
    void clear_state();
-   bool check_button(const EUGENEGDK::GAMEPAD_BUTTONS button,const JOYINFOEX &target);
+   bool check_button(const unsigned int button,const JOYINFOEX &target);
    public:
    Gamepad();
    ~Gamepad();

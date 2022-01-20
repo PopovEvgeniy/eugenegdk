@@ -596,21 +596,14 @@ namespace EUGENEGDK
 
   void Resizer::resize_image(const unsigned int *target)
   {
-   float x_ratio,y_ratio,input_x,input_y;
-   unsigned int x,y,steps;
-   size_t index;
+   unsigned int x,y,steps,x_ratio,y_ratio;
    x=0;
    y=0;
-   input_x=0.0;
-   input_y=0.0;
-   x_ratio=static_cast<float>(source_width)/static_cast<float>(target_width);
-   y_ratio=static_cast<float>(source_height)/static_cast<float>(target_height);
+   x_ratio=(source_width*65536)/target_width;
+   y_ratio=(source_height*65536)/target_height;
    for (steps=target_width*target_height;steps>0;--steps)
    {
-    input_x=static_cast<float>(x)*x_ratio;
-    input_y=static_cast<float>(y)*y_ratio;
-    index=this->get_source_offset(static_cast<unsigned int>(input_x),static_cast<unsigned int>(input_y));
-    image[this->get_target_offset(x,y)]=target[index];
+    image[this->get_target_offset(x,y)]=target[this->get_source_offset((x*x_ratio)/65536,(y*y_ratio)/65536)];
     ++x;
     if (x==target_width)
     {
@@ -1320,7 +1313,7 @@ namespace EUGENEGDK
    preversion=current;
   }
 
-  bool Gamepad::check_button(const EUGENEGDK::GAMEPAD_BUTTONS button,const JOYINFOEX &target)
+  bool Gamepad::check_button(const unsigned int button,const JOYINFOEX &target)
   {
    return (target.dwButtons&button)!=0;
   }
