@@ -419,6 +419,11 @@ namespace EUGENEGDK
 
   }
 
+  bool WINGL::check_flag(const unsigned long int flag)
+  {
+   return (setting.dwFlags&flag)!=0;
+  }
+
   int WINGL::get_pixel_format(HDC target,const unsigned int color)
   {
    device=target;
@@ -472,17 +477,17 @@ namespace EUGENEGDK
    SwapBuffers(device);
   }
 
-  bool WINGL::is_render_accelerated() const
+  bool WINGL::is_render_accelerated()
   {
    bool accelerated;
    accelerated=false;
-   if (!(setting.dwFlags&PFD_GENERIC_FORMAT)&&!(setting.dwFlags&PFD_GENERIC_ACCELERATED))
+   if ((this->check_flag(PFD_GENERIC_FORMAT)==false)&&(this->check_flag(PFD_GENERIC_ACCELERATED)==false))
    {
     accelerated=true;
    }
    else
    {
-    if ((setting.dwFlags&PFD_GENERIC_FORMAT)&&(setting.dwFlags&PFD_GENERIC_ACCELERATED))
+    if ((this->check_flag(PFD_GENERIC_FORMAT)==true)&&(this->check_flag(PFD_GENERIC_ACCELERATED)==true))
     {
      accelerated=true;
     }
@@ -591,16 +596,20 @@ namespace EUGENEGDK
 
   void Resizer::resize_image(const unsigned int *target)
   {
-   float x_ratio,y_ratio;
+   float x_ratio,y_ratio,input_x,input_y;
    unsigned int x,y,steps;
    size_t index;
    x=0;
    y=0;
+   input_x=0.0;
+   input_y=0.0;
    x_ratio=static_cast<float>(source_width)/static_cast<float>(target_width);
    y_ratio=static_cast<float>(source_height)/static_cast<float>(target_height);
    for (steps=target_width*target_height;steps>0;--steps)
    {
-    index=this->get_source_offset(x_ratio*static_cast<float>(x),y_ratio*static_cast<float>(y));
+    input_x=static_cast<float>(x)*x_ratio;
+    input_y=static_cast<float>(y)*y_ratio;
+    index=this->get_source_offset(static_cast<unsigned int>(input_x),static_cast<unsigned int>(input_y));
     image[this->get_target_offset(x,y)]=target[index];
     ++x;
     if (x==target_width)
@@ -1313,14 +1322,8 @@ namespace EUGENEGDK
 
   bool Gamepad::check_button(const EUGENEGDK::GAMEPAD_BUTTONS button,const JOYINFOEX &target)
   {
-   bool press;
-   press=false;
-   if (target.dwButtons&button)
-   {
-    press=true;
-   }
-   return press;
- }
+   return (target.dwButtons&button)!=0;
+  }
 
   unsigned int Gamepad::get_amount()
   {
@@ -2080,7 +2083,7 @@ namespace EUGENEGDK
    return ready;
   }
 
-  bool Screen::is_accelerated() const
+  bool Screen::is_accelerated()
   {
    return Internal::WINGL::is_render_accelerated();
   }

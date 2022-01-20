@@ -235,6 +235,7 @@ typedef enum
    HGLRC render;
    PIXELFORMATDESCRIPTOR setting;
    PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT;
+   bool check_flag(const unsigned long int flag);
    int get_pixel_format(HDC target,const unsigned int color);
    void set_pixel_format(const int format);
    void create_render_context();
@@ -242,7 +243,7 @@ typedef enum
    protected:
    void set_render(HDC target,const unsigned int color);
    void Swap();
-   bool is_render_accelerated() const;
+   bool is_render_accelerated();
    public:
    WINGL();
    ~WINGL();
@@ -575,7 +576,7 @@ typedef enum
    bool update();
    bool sync();
    bool is_ready() const;
-   bool is_accelerated() const;
+   bool is_accelerated();
    unsigned long int get_color() const;
    unsigned int get_fps() const;
    unsigned int get_width() const;
