@@ -1113,15 +1113,14 @@ namespace EUGENEGDK
   {
    bool accept;
    accept=false;
-   if (Keys[code]==state)
+   if (preversion!=NULL)
    {
-    if (preversion[code]!=state)
+    if ((Keys[code]==state)&&(preversion[code]!=state))
     {
      accept=true;
     }
-
+    preversion[code]=Keys[code];
    }
-   preversion[code]=Keys[code];
    return accept;
   }
 
@@ -1137,8 +1136,18 @@ namespace EUGENEGDK
 
   bool Keyboard::check_hold(const unsigned char code)
   {
-   preversion[code]=Keys[code];
-   return Keys[code]==KEY_PRESS;
+   bool hold;
+   hold=false;
+   if (preversion!=NULL)
+   {
+    if (Keys[code]==KEY_PRESS)
+    {
+     hold=true;
+     preversion[code]=Keys[code];
+    }
+
+   }
+   return hold;
   }
 
   bool Keyboard::check_press(const unsigned char code)
