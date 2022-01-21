@@ -335,11 +335,9 @@ typedef enum
    protected:
    Vertex vertex[4];
    Point point[4];
-   void reset_data();
+   void set_data();
    unsigned int get_total_width() const;
    unsigned int get_total_height() const;
-   unsigned int get_x() const;
-   unsigned int get_y() const;
    float get_horizontal_mirror() const;
    float get_vertical_mirror() const;
    public:
@@ -364,7 +362,6 @@ typedef enum
    void check_texture();
    void load_data();
    void draw_rectangle();
-   void reset_model_setting();
    void set_model_setting();
    public:
    Rectangle();

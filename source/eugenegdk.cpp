@@ -759,16 +759,16 @@ namespace EUGENEGDK
    return (1.0/total)*current;
   }
 
-  void Shape::reset_data()
+  void Shape::set_data()
   {
-   vertex[0].x=0;
-   vertex[0].y=target_height;
-   vertex[1].x=target_width;
-   vertex[1].y=target_height;
-   vertex[2].x=target_width;
-   vertex[2].y=0;
-   vertex[3].x=0;
-   vertex[3].y=0;
+   vertex[0].x=current_x;
+   vertex[0].y=current_y+target_height;
+   vertex[1].x=current_x+target_width;
+   vertex[1].y=current_y+target_height;
+   vertex[2].x=current_x+target_width;
+   vertex[2].y=current_y;
+   vertex[3].x=current_x;
+   vertex[3].y=current_y;
   }
 
   unsigned int Shape::get_total_width() const
@@ -785,16 +785,6 @@ namespace EUGENEGDK
   {
    total_width=width;
    total_height=height;
-  }
-
-  unsigned int Shape::get_x() const
-  {
-   return current_x;
-  }
-
-  unsigned int Shape::get_y() const
-  {
-   return current_y;
   }
 
   float Shape::get_horizontal_mirror() const
@@ -926,19 +916,12 @@ namespace EUGENEGDK
    glDrawArrays(GL_TRIANGLE_FAN,0,RECTANGLE_VERTEXES);
   }
 
-  void Rectangle::reset_model_setting()
-  {
-   glMatrixMode(GL_TEXTURE);
-   glLoadIdentity();
-   glMatrixMode(GL_MODELVIEW);
-   glLoadIdentity();
-  }
-
   void Rectangle::set_model_setting()
   {
    glMatrixMode(GL_MODELVIEW);
-   glTranslatef(static_cast<float>(this->get_x()),static_cast<float>(this->get_y()),0.0);
+   glLoadIdentity();
    glMatrixMode(GL_TEXTURE);
+   glLoadIdentity();
    glScalef(this->get_horizontal_mirror(),this->get_vertical_mirror(),0.0);
   }
 
@@ -971,9 +954,8 @@ namespace EUGENEGDK
  {
   if (texture!=0)
   {
-   this->reset_data();
+   this->set_data();
    this->load_data();
-   this->reset_model_setting();
    this->set_model_setting();
    this->draw_rectangle();
   }
@@ -1148,9 +1130,6 @@ namespace EUGENEGDK
    if (preversion==NULL)
    {
     this->create_buffer();
-   }
-   if (preversion!=NULL)
-   {
     this->clear_buffer();
    }
 
@@ -1188,10 +1167,6 @@ namespace EUGENEGDK
 
   Mouse::~Mouse()
   {
-   while (ShowCursor(TRUE)<1)
-   {
-    ;
-   }
 
   }
 
@@ -1232,7 +1207,7 @@ namespace EUGENEGDK
 
   void Mouse::hide()
   {
-   while(ShowCursor(FALSE)>-2)
+   while(ShowCursor(FALSE)>-1)
    {
     ;
    }
