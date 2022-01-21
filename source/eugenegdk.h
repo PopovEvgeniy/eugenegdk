@@ -236,12 +236,12 @@ typedef enum
    PIXELFORMATDESCRIPTOR setting;
    PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT;
    bool check_flag(const unsigned long int flag);
-   int get_pixel_format(HDC target,const unsigned int color);
+   int get_pixel_format(HDC target,const unsigned long int color);
    void set_pixel_format(const int format);
    void create_render_context();
    void disable_vsync();
    protected:
-   void set_render(HDC target,const unsigned int color);
+   void set_render(HDC target,const unsigned long int color);
    void Swap();
    bool is_render_accelerated();
    public:

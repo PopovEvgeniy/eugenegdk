@@ -424,7 +424,7 @@ namespace EUGENEGDK
    return (setting.dwFlags&flag)!=0;
   }
 
-  int WINGL::get_pixel_format(HDC target,const unsigned int color)
+  int WINGL::get_pixel_format(HDC target,const unsigned long int color)
   {
    device=target;
    setting.cColorBits=color;
@@ -465,7 +465,7 @@ namespace EUGENEGDK
 
   }
 
-  void WINGL::set_render(HDC target,const unsigned int color)
+  void WINGL::set_render(HDC target,const unsigned long int color)
   {
    this->set_pixel_format(this->get_pixel_format(target,color));
    this->create_render_context();
