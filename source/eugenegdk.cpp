@@ -487,11 +487,7 @@ namespace EUGENEGDK
    }
    else
    {
-    if ((this->check_flag(PFD_GENERIC_FORMAT)==true)&&(this->check_flag(PFD_GENERIC_ACCELERATED)==true))
-    {
-     accelerated=true;
-    }
-
+    accelerated=(this->check_flag(PFD_GENERIC_FORMAT)==true)&&(this->check_flag(PFD_GENERIC_ACCELERATED)==true);
    }
    return accelerated;
   }
@@ -3387,23 +3383,13 @@ namespace EUGENEGDK
 
   }
 
-  void Collision::set_target(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target)
-  {
-   first=first_target;
-   second=second_target;
-  }
-
   bool Collision::check_horizontal_collision() const
   {
    bool collision;
    collision=false;
    if ((first.x+first.width)>=second.x)
    {
-    if (first.x<=(second.x+second.width))
-    {
-     collision=true;
-    }
-
+    collision=first.x<=(second.x+second.width);
    }
    return collision;
   }
@@ -3414,30 +3400,20 @@ namespace EUGENEGDK
    collision=false;
    if ((first.y+first.height)>=second.y)
    {
-    if (first.y<=(second.y+second.height))
-    {
-     collision=true;
-    }
-
+    collision=first.y<=(second.y+second.height);
    }
    return collision;
   }
 
+  void Collision::set_target(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target)
+  {
+   first=first_target;
+   second=second_target;
+  }
+
   bool Collision::check_collision() const
   {
-   return this->check_horizontal_collision() || this->check_vertical_collision();
-  }
-
-  bool Collision::check_horizontal_collision(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target)
-  {
-   this->set_target(first_target,second_target);
-   return this->check_horizontal_collision();
-  }
-
-  bool Collision::check_vertical_collision(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target)
-  {
-   this->set_target(first_target,second_target);
-   return this->check_vertical_collision();
+   return this->check_horizontal_collision() && this->check_vertical_collision();
   }
 
   bool Collision::check_collision(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target)
