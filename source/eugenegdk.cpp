@@ -405,7 +405,6 @@ namespace EUGENEGDK
    setting.iPixelType=PFD_TYPE_RGBA;
    setting.iLayerType=PFD_MAIN_PLANE;
    setting.cAlphaBits=CHAR_BIT;
-   setting.cDepthBits=16;
   }
 
   WINGL::~WINGL()
