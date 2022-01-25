@@ -1003,7 +1003,7 @@ namespace EUGENEGDK
    glDisable(GL_TEXTURE_GEN_S);
    glDisable(GL_TEXTURE_GEN_T);
    glDisable(GL_TEXTURE_1D);
-   glEnable(GL_DEPTH_TEST);
+   glDisable(GL_DEPTH_TEST);
    glEnable(GL_CULL_FACE);
    glEnable(GL_TEXTURE_2D);
    glEnableClientState(GL_VERTEX_ARRAY);
@@ -1024,7 +1024,6 @@ namespace EUGENEGDK
 
   void Render::set_common_setting()
   {
-   glDepthFunc(GL_ALWAYS);
    glDepthMask(GL_TRUE);
    glFrontFace(GL_CCW);
    glCullFace(GL_BACK);
