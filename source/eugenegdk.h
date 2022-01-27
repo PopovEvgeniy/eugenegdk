@@ -266,9 +266,67 @@ typedef enum
   float v;
  } Point;
 
+ template <class DATA_TYPE>
+ class Buffer
+ {
+  private:
+  DATA_TYPE *buffer;
+  size_t length;
+  public:
+
+  Buffer()
+  {
+   buffer=NULL;
+   length=0;
+  }
+
+  ~Buffer()
+  {
+   if (buffer!=NULL)
+   {
+    delete[] buffer;
+    buffer=NULL;
+    length=0;
+   }
+
+  }
+
+  void set_length(const size_t amount)
+  {
+   length=amount;
+  }
+
+  void destroy_buffer()
+  {
+   if (buffer!=NULL)
+   {
+    delete[] buffer;
+    buffer=NULL;
+    length=0;
+   }
+
+  }
+
+  DATA_TYPE *create_buffer(const char *message)
+  {
+   try
+   {
+    buffer=new DATA_TYPE[length];
+   }
+   catch (...)
+   {
+    puts(message);
+    exit(EXIT_FAILURE);
+   }
+   return buffer;
+  }
+
+ };
+
   class Unicode_Convertor
   {
    private:
+   Buffer<wchar_t> buffer;
    wchar_t *target;
    void get_memory(const size_t length);
    void clear_buffer(const size_t length);
@@ -283,6 +341,7 @@ typedef enum
   class Resizer
   {
    private:
+   Buffer<unsigned int> buffer;
    unsigned int *image;
    unsigned int size_limit;
    unsigned int source_width;
@@ -295,7 +354,7 @@ typedef enum
    void set_setting(const unsigned int width,const unsigned int height,const unsigned int limit);
    void calculate_size();
    void correct_size();
-   void create_buffer();
+   void create_texture();
    public:
    Resizer();
    ~Resizer();
@@ -399,8 +458,8 @@ typedef enum
   class Keyboard
   {
    private:
+   Core::Buffer<unsigned char> buffer;
    unsigned char *preversion;
-   void create_buffer();
    void clear_buffer();
    bool check_state(const unsigned char code,const unsigned char state);
    public:
@@ -584,10 +643,10 @@ typedef enum
    class Image
   {
    private:
+   Core::Buffer<unsigned char> uncompressed_buffer;
    unsigned int width;
    unsigned int height;
    unsigned char *data;
-   unsigned char *create_buffer(const size_t length);
    void copy_data(const unsigned char *target,const size_t location,const size_t position,const size_t amount);
    void uncompress_tga_data(const unsigned char *target,const size_t length);
    void load_tga(File::Input_File &target);
@@ -606,18 +665,19 @@ typedef enum
   class Picture
   {
    private:
+   Core::Buffer<unsigned int> buffer;
    unsigned int *image;
    unsigned int image_width;
    unsigned int image_height;
    size_t length;
    protected:
    void set_image_size(const unsigned int width,const unsigned int height);
-   unsigned int *create_buffer();
-   void set_buffer(unsigned int *buffer);
+   unsigned int *create_storage();
+   void set_buffer(unsigned int *storage);
    void copy_image(const unsigned int *target);
    unsigned int *get_buffer();
-   void load_image(Image *buffer);
-   void load_image(Image &buffer);
+   void load_image(Image *storage);
+   void load_image(Image &storage);
    public:
    Picture();
    ~Picture();
@@ -661,10 +721,10 @@ typedef enum
    void prepare(const Screen *screen);
    void prepare(Screen &screen);
    void set_setting(const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
-   void load_background(Image *buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
-   void load_background(Image *buffer);
-   void load_background(Image &buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
-   void load_background(Image &buffer);
+   void load_background(Image *storage,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
+   void load_background(Image *storage);
+   void load_background(Image &storage,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
+   void load_background(Image &storage);
    void set_target(const unsigned int target);
    void step();
    void horizontal_mirror();
@@ -720,10 +780,10 @@ typedef enum
    EUGENEGDK::BOX get_box() const;
    EUGENEGDK::SPRITE_TYPE get_kind() const;
    void set_setting(const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
-   void load_sprite(Image *buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
-   void load_sprite(Image *buffer);
-   void load_sprite(Image &buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
-   void load_sprite(Image &buffer);
+   void load_sprite(Image *storage,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
+   void load_sprite(Image *storage);
+   void load_sprite(Image &storage,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
+   void load_sprite(Image &storage);
    void set_target(const unsigned int target);
    void step();
    void clone(Sprite *target);
@@ -766,8 +826,8 @@ typedef enum
    void draw_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y);
    EUGENEGDK::BOX put_tile(const unsigned int x,const unsigned int y);
    EUGENEGDK::BOX put_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y);
-   void load_tileset(Image *buffer,const unsigned int row_amount,const unsigned int column_amount);
-   void load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount);
+   void load_tileset(Image *storage,const unsigned int row_amount,const unsigned int column_amount);
+   void load_tileset(Image &storage,const unsigned int row_amount,const unsigned int column_amount);
   };
 
   class Text
