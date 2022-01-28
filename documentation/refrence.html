@@ -359,6 +359,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
+
         href="http://opengl.org">OPENGL</a> for render. Most modern video-card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -521,10 +522,10 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         kind,const unsigned int frames);</i> – Set background setting. Last
       argument will ignored if background not scrollable.<br>
       <span style="font-style: italic;">void Background::load_background(Image
-        *storage,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
+        *buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
         frames);</span> – Load background and set background setting.<br>
       <span style="font-style: italic;">void Background::load_background(Image
-        *storage);</span> – Load normal background.<br>
+        *buffer);</span> – Load normal background.<br>
       <span style="font-style: italic;">void Background::load_background(Image
         &amp;buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
         frames);</span> – Load background and set it setting.<br>
@@ -609,10 +610,10 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);</span> – Set
       sprite setting. Last argument will ignored if sprite not animated.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image
-        *storage,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);</span>
+        *buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);</span>
       – Load a sprite and set it setting.<br>
-      <span style="font-style: italic;">void Sprite::load_sprite(Image
-        *storage);</span> – Load normal sprite.<br>
+      <span style="font-style: italic;">void Sprite::load_sprite(Image *buffer);</span>
+      – Load normal sprite.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image
         &amp;buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int
         frames);</span> – Load a sprite and set it setting.<br>
@@ -794,7 +795,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         unsigned int y);</span> – Draw target tile at specific position and
       return collision related information.<br>
     </big> <big> <span style="font-style: italic;">void
-        Tileset::load_tileset(Image *storage,const unsigned int row_amount,const
+        Tileset::load_tileset(Image *buffer,const unsigned int row_amount,const
         unsigned int column_amount);</span> – Load a tile-set.<br>
       <span style="font-style: italic;">void Tileset::load_tileset(Image
         &amp;buffer,const unsigned int row_amount,const unsigned int
@@ -994,7 +995,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       class. Let’s look on public methods.<br>
       <br>
       <i> void Input_File::open(const char *name);</i> – Open a file for read.<br>
-      <i> void Input_File::read(void *storage,const size_t length);</i> – Read
+      <i> void Input_File::read(void *buffer,const size_t length);</i> – Read
       data from the file. </big>
     <h2><a class="mozTocH2" name="mozTocId511135"></a><big> Chapter 4. File
         writer</big></h2>
@@ -1006,7 +1007,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <i> void Output_File::open(const char *name);</i> – Open a file for write.<br>
       <i> void Output_File::create_temp();</i> – Create a temporary file. This
       file will be deleted when it closed.</big><br>
-    <big> <i> void Output_File::write(const void *storage,const size_t length);</i>
+    <big> <i> void Output_File::write(const void *buffer,const size_t length);</i>
       – Write data to the file.</big><br>
     <big><i>void Output_File::flush();</i> – Force writing internal buffer data
       to the file.</big><br>
@@ -1458,7 +1459,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         bellow.</big></p>
     <big> </big>
     <table style="text-align: left; width: 516px; height: 124px;" cellspacing="2"
-
       cellpadding="2" border="1">
       <tbody>
         <tr>
@@ -1932,7 +1932,11 @@ Multimedia API</a>. </big>
         4.1 – Keyboard input improved.<br>
         4.1.1 – Small bug in image loader improved.<br>
         4.1.2 – Keyboard input improved.<br>
-        4.1.3 – 4.1.5 – Small changes.<br>
+        4.1.3 – 4.2.1 – Small changes.<br>
+        4.2.2 – Image resizer improved.<br>
+        4.2.3 – Image storage improved.<br>
+        4.2.4 – Image loader improved.<br>
+        4.2.5 – Small changes.<br>
       </big></span>
   </body>
 </html>

@@ -498,44 +498,18 @@ namespace EUGENEGDK
 
   Unicode_Convertor::Unicode_Convertor()
   {
-   buffer.set_length(0);
-   target=NULL;
+   target.set_length(0);
   }
 
   Unicode_Convertor::~Unicode_Convertor()
   {
-   buffer.destroy_buffer();
-   target=NULL;
-  }
-
-  void Unicode_Convertor::get_memory(const size_t length)
-  {
-   buffer.set_length(length+1);
-   target=buffer.create_buffer("Can't allocate memory for string buffer");
-  }
-
-  void Unicode_Convertor::clear_buffer(const size_t length)
-  {
-   size_t index,stop;
-   stop=length+1;
-   for (index=0;index<stop;++index)
-   {
-    target[index]=0;
-   }
-
-  }
-
-  void Unicode_Convertor::create_buffer(const size_t length)
-  {
-   this->get_memory(length);
-   this->clear_buffer(length);
+   target.destroy_buffer();
   }
 
   void Unicode_Convertor::convert_string(const char *source)
   {
-   size_t index,length;
-   length=strlen(source);
-   for (index=0;index<length;++index)
+   size_t index;
+   for (index=0;index<target.get_length();++index)
    {
     target[index]=std::btowc(source[index]);
    }
@@ -544,15 +518,16 @@ namespace EUGENEGDK
 
   wchar_t *Unicode_Convertor::convert(const char *source)
   {
-   this->create_buffer(strlen(source));
+   target.set_length(strlen(source)+1);
+   target.create_buffer("Can't allocate memory for string buffer");
+   target.fill_buffer(0);
    this->convert_string(source);
-   return target;
+   return target.get_buffer();
   }
 
   Resizer::Resizer()
   {
-   buffer.set_length(0);
-   image=NULL;
+   image.set_length(0);
    size_limit=0;
    source_width=0;
    source_height=0;
@@ -562,8 +537,7 @@ namespace EUGENEGDK
 
   Resizer::~Resizer()
   {
-   buffer.destroy_buffer();
-   image=NULL;
+   image.destroy_buffer();
   }
 
   size_t Resizer::get_source_offset(const unsigned int x,const unsigned int y) const
@@ -634,8 +608,8 @@ namespace EUGENEGDK
   {
    size_t length;
    length=static_cast<size_t>(target_width)*static_cast<size_t>(target_height);
-   buffer.set_length(length);
-   image=buffer.create_buffer("Can't allocate memory for texture buffer");
+   image.set_length(length);
+   image.create_buffer("Can't allocate memory for texture buffer");
   }
 
   void Resizer::make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit)
@@ -659,7 +633,7 @@ namespace EUGENEGDK
 
   unsigned int *Resizer::get_buffer()
   {
-   return image;
+   return image.get_buffer();
   }
 
   FPS::FPS()
@@ -1047,31 +1021,19 @@ namespace EUGENEGDK
 
   Keyboard::Keyboard()
   {
-   buffer.set_length(0);
-   preversion=NULL;
+   preversion.set_length(KEYBOARD);
   }
 
   Keyboard::~Keyboard()
   {
-   buffer.destroy_buffer();
-   preversion=NULL;
-  }
-
-  void Keyboard::clear_buffer()
-  {
-   size_t index;
-   for (index=0;index<KEYBOARD;++index)
-   {
-    preversion[index]=KEY_RELEASE;
-   }
-
+   preversion.destroy_buffer();
   }
 
   bool Keyboard::check_state(const unsigned char code,const unsigned char state)
   {
    bool accept;
    accept=false;
-   if (preversion!=NULL)
+   if (preversion.get_buffer()!=NULL)
    {
     if ((Keys[code]==state)&&(preversion[code]!=state))
     {
@@ -1084,11 +1046,10 @@ namespace EUGENEGDK
 
   void Keyboard::initialize()
   {
-   if (preversion==NULL)
+   if (preversion.get_buffer()==NULL)
    {
-    buffer.set_length(KEYBOARD);
-    preversion=buffer.create_buffer("Can't allocate memory for keyboard state buffer");
-    this->clear_buffer();
+    preversion.create_buffer("Can't allocate memory for keyboard state buffer");
+    preversion.fill_buffer(KEY_RELEASE);
    }
 
   }
@@ -1097,7 +1058,7 @@ namespace EUGENEGDK
   {
    bool hold;
    hold=false;
-   if (preversion!=NULL)
+   if (preversion.get_buffer()!=NULL)
    {
     if (Keys[code]==KEY_PRESS)
     {
@@ -1121,7 +1082,7 @@ namespace EUGENEGDK
 
   bool Keyboard::is_ready() const
   {
-   return preversion!=NULL;
+   return preversion.get_length()>0;
   }
 
   Mouse::Mouse()
@@ -2051,18 +2012,16 @@ namespace EUGENEGDK
 
   Image::Image()
   {
-   uncompressed_buffer.set_length(0);
+   data.set_length(0);
    width=0;
    height=0;
-   data=NULL;
   }
 
   Image::~Image()
   {
-   uncompressed_buffer.destroy_buffer();
+   data.destroy_buffer();
    width=0;
    height=0;
-   data=NULL;
   }
 
   void Image::copy_data(const unsigned char *target,const size_t location,const size_t position,const size_t amount)
@@ -2075,13 +2034,13 @@ namespace EUGENEGDK
 
   }
 
-  void Image::uncompress_tga_data(const unsigned char *target,const size_t length)
+  void Image::uncompress_tga_data(const unsigned char *target)
   {
    size_t index,position,amount;
    index=0;
    position=0;
    amount=0;
-   while (index<length)
+   while (index<data.get_length())
    {
     if (target[position]<128)
     {
@@ -2109,40 +2068,36 @@ namespace EUGENEGDK
   {
    Core::Buffer<unsigned char> compressed_buffer;
    size_t compressed_length,uncompressed_length;
-   unsigned char *compressed;
    TGA_head head;
    TGA_map color_map;
    TGA_image image;
-   compressed=NULL;
    compressed_length=static_cast<size_t>(target.get_length()-18);
    target.read(&head,3);
    target.read(&color_map,5);
    target.read(&image,10);
    width=image.width;
    height=image.height;
-   uncompressed_length=this->get_length();
+   uncompressed_length=static_cast<size_t>(width)*static_cast<size_t>(height)*sizeof(unsigned int);
    if (image.color==IMAGE_COLOR)
    {
-    uncompressed_buffer.set_length(uncompressed_length);
-    data=uncompressed_buffer.create_buffer("Can't allocate memory for uncompressed image buffer");
+    data.set_length(uncompressed_length);
+    data.create_buffer("Can't allocate memory for uncompressed image buffer");
     switch (head.type)
     {
      case 2:
-     target.read(data,uncompressed_length);
+     target.read(data.get_buffer(),data.get_length());
      break;
      case 10:
      compressed_buffer.set_length(compressed_length);
-     compressed=compressed_buffer.create_buffer("Can't allocate memory for compressed image buffer");
-     target.read(compressed,compressed_length);
-     this->uncompress_tga_data(compressed,uncompressed_length);
+     compressed_buffer.create_buffer("Can't allocate memory for compressed image buffer");
+     target.read(compressed_buffer.get_buffer(),compressed_buffer.get_length());
+     this->uncompress_tga_data(compressed_buffer.get_buffer());
      compressed_buffer.destroy_buffer();
-     compressed=NULL;
      break;
      default:
      width=0;
      height=0;
-     uncompressed_buffer.destroy_buffer();
-     data=NULL;
+     data.destroy_buffer();
      break;
     }
 
@@ -2167,12 +2122,12 @@ namespace EUGENEGDK
 
   size_t Image::get_length() const
   {
-   return static_cast<size_t>(width)*static_cast<size_t>(height)*sizeof(unsigned int);
+   return data.get_length();
   }
 
   unsigned char *Image::get_data()
   {
-   return data;
+   return data.get_buffer();
   }
 
   Image* Image::get_handle()
@@ -2182,10 +2137,9 @@ namespace EUGENEGDK
 
   void Image::destroy_image()
   {
-   uncompressed_buffer.destroy_buffer();
+   data.destroy_buffer();
    width=0;
    height=0;
-   data=NULL;
   }
 
   void Image::load_tga(const char *name)
@@ -2203,20 +2157,18 @@ namespace EUGENEGDK
 
   Picture::Picture()
   {
-   buffer.set_length(0);
+   image.set_length(0);
    image_width=0;
    image_height=0;
    length=0;
-   image=NULL;
   }
 
   Picture::~Picture()
   {
-   buffer.destroy_buffer();
+   image.destroy_buffer();
    image_width=0;
    image_height=0;
    length=0;
-   image=NULL;
   }
 
   void Picture::set_image_size(const unsigned int width,const unsigned int height)
@@ -2225,53 +2177,39 @@ namespace EUGENEGDK
    image_height=height;
   }
 
-  unsigned int *Picture::create_storage()
+  void Picture::create_storage()
   {
-   unsigned int *data;
-   data=NULL;
    length=static_cast<size_t>(image_width)*static_cast<size_t>(image_height);
-   buffer.set_length(length);
-   data=buffer.create_buffer("Can't allocate memory for image storage");
+   image.set_length(length);
+   image.create_buffer("Can't allocate memory for image storage");
    length*=sizeof(unsigned int);
-   return data;
-  }
-
-  void Picture::set_buffer(unsigned int *storage)
-  {
-   image=storage;
   }
 
   void Picture::copy_image(const unsigned int *target)
   {
-   size_t index,pixels;
-   pixels=length/sizeof(unsigned int);
-   for (index=0;index<pixels;++index)
+   size_t index;
+   for (index=0;index<image.get_length();++index)
    {
     image[index]=target[index];
    }
 
   }
 
-  unsigned int *Picture::get_buffer()
-  {
-   return image;
-  }
-
-  void Picture::load_image(Image *storage)
+  void Picture::load_image(Image *buffer)
   {
    this->destroy_image();
-   if (storage->get_length()>0)
+   if (buffer->get_length()>0)
    {
-    this->set_image_size(storage->get_width(),storage->get_height());
-    this->set_buffer(this->create_storage());
-    memmove(this->get_buffer(),storage->get_data(),storage->get_length());
+    this->set_image_size(buffer->get_width(),buffer->get_height());
+    this->create_storage();
+    memmove(image.get_buffer(),buffer->get_data(),buffer->get_length());
    }
 
   }
 
-  void Picture::load_image(Image &storage)
+  void Picture::load_image(Image &buffer)
   {
-   this->load_image(storage.get_handle());
+   this->load_image(buffer.get_handle());
   }
 
   size_t Picture::get_length() const
@@ -2281,16 +2219,15 @@ namespace EUGENEGDK
 
   unsigned int *Picture::get_image()
   {
-   return image;
+   return image.get_buffer();
   }
 
   void Picture::destroy_image()
   {
-   buffer.destroy_buffer();
+   image.destroy_buffer();
    image_width=0;
    image_height=0;
    length=0;
-   image=NULL;
   }
 
   bool Picture::is_storage_empty() const
@@ -2410,7 +2347,7 @@ namespace EUGENEGDK
   {
    rectangle.set_size(screen_width,screen_height);
    rectangle.set_total_size(this->get_image_width(),this->get_image_height());
-   rectangle.prepare(this->get_buffer());
+   rectangle.prepare(this->get_image());
    rectangle.set_position(0,0);
   }
 
@@ -2441,9 +2378,9 @@ namespace EUGENEGDK
    this->set_kind(kind);
   }
 
-  void Background::load_background(Image *storage,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
+  void Background::load_background(Image *buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
   {
-   this->load_image(storage);
+   this->load_image(buffer);
    if (this->is_storage_empty()==false)
    {
     this->set_setting(kind,frames);
@@ -2451,19 +2388,19 @@ namespace EUGENEGDK
 
   }
 
-  void Background::load_background(Image *storage)
+  void Background::load_background(Image *buffer)
   {
-   this->load_background(storage,EUGENEGDK::NORMAL_BACKGROUND,1);
+   this->load_background(buffer,EUGENEGDK::NORMAL_BACKGROUND,1);
   }
 
-  void Background::load_background(Image &storage,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
+  void Background::load_background(Image &buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
   {
-   this->load_background(storage.get_handle(),kind,frames);
+   this->load_background(buffer.get_handle(),kind,frames);
   }
 
-  void Background::load_background(Image &storage)
+  void Background::load_background(Image &buffer)
   {
-   this->load_background(storage.get_handle(),EUGENEGDK::NORMAL_BACKGROUND,1);
+   this->load_background(buffer.get_handle(),EUGENEGDK::NORMAL_BACKGROUND,1);
   }
 
   void Background::set_target(const unsigned int target)
@@ -2614,7 +2551,7 @@ namespace EUGENEGDK
   void Sprite::prepare()
   {
    rectangle.set_total_size(this->get_image_width(),this->get_image_height());
-   rectangle.prepare(this->get_buffer());
+   rectangle.prepare(this->get_image());
   }
 
   void Sprite::set_transparent(const bool enabled)
@@ -2812,9 +2749,9 @@ namespace EUGENEGDK
    this->set_kind(kind);
   }
 
-  void Sprite::load_sprite(Image *storage,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames)
+  void Sprite::load_sprite(Image *buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames)
   {
-   this->load_image(storage);
+   this->load_image(buffer);
    if (this->is_storage_empty()==false)
    {
     this->prepare();
@@ -2823,19 +2760,19 @@ namespace EUGENEGDK
 
   }
 
-  void Sprite::load_sprite(Image *storage)
+  void Sprite::load_sprite(Image *buffer)
   {
-   this->load_sprite(storage,EUGENEGDK::SINGLE_SPRITE,1);
+   this->load_sprite(buffer,EUGENEGDK::SINGLE_SPRITE,1);
   }
 
-  void Sprite::load_sprite(Image &storage,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames)
+  void Sprite::load_sprite(Image &buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames)
   {
-   this->load_sprite(storage.get_handle(),kind,frames);
+   this->load_sprite(buffer.get_handle(),kind,frames);
   }
 
-  void Sprite::load_sprite(Image &storage)
+  void Sprite::load_sprite(Image &buffer)
   {
-   this->load_sprite(storage.get_handle(),EUGENEGDK::SINGLE_SPRITE,1);
+   this->load_sprite(buffer.get_handle(),EUGENEGDK::SINGLE_SPRITE,1);
   }
 
   void Sprite::set_target(const unsigned int target)
@@ -2856,7 +2793,7 @@ namespace EUGENEGDK
    {
     this->destroy_sprite();
     this->set_image_size(target->get_image_width(),target->get_image_height());
-    this->set_buffer(this->create_storage());
+    this->create_storage();
     this->set_setting(target->get_kind(),target->get_frames());
     this->set_transparent(target->get_transparent());
     this->copy_image(target->get_image());
@@ -2956,7 +2893,7 @@ namespace EUGENEGDK
   void Tileset::prepare()
   {
    rectangle.set_total_size(this->get_image_width(),this->get_image_height());
-   rectangle.prepare(this->get_buffer());
+   rectangle.prepare(this->get_image());
   }
 
   void Tileset::set_tileset_setting(const unsigned int row_amount,const unsigned int column_amount)
@@ -3078,9 +3015,9 @@ namespace EUGENEGDK
    return this->get_box(x,y);
   }
 
-  void Tileset::load_tileset(Image *storage,const unsigned int row_amount,const unsigned int column_amount)
+  void Tileset::load_tileset(Image *buffer,const unsigned int row_amount,const unsigned int column_amount)
   {
-   this->load_image(storage);
+   this->load_image(buffer);
    if (this->is_storage_empty()==false)
    {
     this->prepare();
@@ -3089,9 +3026,9 @@ namespace EUGENEGDK
 
   }
 
-  void Tileset::load_tileset(Image &storage,const unsigned int row_amount,const unsigned int column_amount)
+  void Tileset::load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount)
   {
-   this->load_tileset(storage.get_handle(),row_amount,column_amount);
+   this->load_tileset(buffer.get_handle(),row_amount,column_amount);
   }
 
   Text::Text()
