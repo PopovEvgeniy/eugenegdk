@@ -685,7 +685,6 @@ typedef enum
    Core::Buffer<unsigned int> image;
    unsigned int image_width;
    unsigned int image_height;
-   size_t length;
    protected:
    void set_image_size(const unsigned int width,const unsigned int height);
    void create_storage();
@@ -695,7 +694,6 @@ typedef enum
    public:
    Picture();
    ~Picture();
-   size_t get_length() const;
    unsigned int *get_image();
    void destroy_image();
    bool is_storage_empty() const;

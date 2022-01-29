@@ -2160,7 +2160,6 @@ namespace EUGENEGDK
    image.set_length(0);
    image_width=0;
    image_height=0;
-   length=0;
   }
 
   Picture::~Picture()
@@ -2168,7 +2167,6 @@ namespace EUGENEGDK
    image.destroy_buffer();
    image_width=0;
    image_height=0;
-   length=0;
   }
 
   void Picture::set_image_size(const unsigned int width,const unsigned int height)
@@ -2179,10 +2177,10 @@ namespace EUGENEGDK
 
   void Picture::create_storage()
   {
+   size_t length;
    length=static_cast<size_t>(image_width)*static_cast<size_t>(image_height);
    image.set_length(length);
    image.create_buffer("Can't allocate memory for image storage");
-   length*=sizeof(unsigned int);
   }
 
   void Picture::copy_image(const unsigned int *target)
@@ -2212,11 +2210,6 @@ namespace EUGENEGDK
    this->load_image(buffer.get_handle());
   }
 
-  size_t Picture::get_length() const
-  {
-   return length;
-  }
-
   unsigned int *Picture::get_image()
   {
    return image.get_buffer();
@@ -2227,12 +2220,11 @@ namespace EUGENEGDK
    image.destroy_buffer();
    image_width=0;
    image_height=0;
-   length=0;
   }
 
   bool Picture::is_storage_empty() const
   {
-   return length==0;
+   return image.get_length()==0;
   }
 
   unsigned int Picture::get_image_width() const
