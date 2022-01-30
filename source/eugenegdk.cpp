@@ -418,7 +418,7 @@ namespace EUGENEGDK
 
   }
 
-  bool WINGL::check_flag(const unsigned long int flag)
+  bool WINGL::check_flag(const unsigned long int flag) const
   {
    return (setting.dwFlags&flag)!=0;
   }
@@ -476,7 +476,7 @@ namespace EUGENEGDK
    SwapBuffers(device);
   }
 
-  bool WINGL::is_render_accelerated()
+  bool WINGL::is_render_accelerated() const
   {
    bool accelerated;
    accelerated=false;
@@ -1035,9 +1035,9 @@ namespace EUGENEGDK
    accept=false;
    if (preversion.get_buffer()!=NULL)
    {
-    if ((Keys[code]==state)&&(preversion[code]!=state))
+    if (Keys[code]==state)
     {
-     accept=true;
+     accept=preversion[code]!=state;
     }
     preversion[code]=Keys[code];
    }
@@ -1060,12 +1060,8 @@ namespace EUGENEGDK
    hold=false;
    if (preversion.get_buffer()!=NULL)
    {
-    if (Keys[code]==KEY_PRESS)
-    {
-     hold=true;
-     preversion[code]=Keys[code];
-    }
-
+    hold=Keys[code]==KEY_PRESS;
+    preversion[code]=Keys[code];
    }
    return hold;
   }
@@ -1115,11 +1111,7 @@ namespace EUGENEGDK
    accept=false;
    if (Buttons[button]==state)
    {
-    if (preversion[button]!=state)
-    {
-     accept=true;
-    }
-
+    accept=preversion[button]!=state;
    }
    preversion[button]=Buttons[button];
    return accept;
@@ -1980,7 +1972,7 @@ namespace EUGENEGDK
    return ready;
   }
 
-  bool Screen::is_accelerated()
+  bool Screen::is_accelerated() const
   {
    return Internal::WINGL::is_render_accelerated();
   }
