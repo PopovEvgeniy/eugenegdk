@@ -1490,31 +1490,23 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       – Return amount of connected game-pad.<br>
       <span style="font-style: italic;">unsigned int
         Gamepad::get_button_amount();</span> – Return amount of the game-pad
-      buttons.<br>
-      <span style="font-style: italic;">bool Gamepad::check_connection();</span>
-      – Return true if active game-pad is connected.<br>
+      buttons.<span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">void Gamepad::update();</span> – Update
       internal game-pad state. Always call it before call another methods.<br>
       <span style="font-style: italic;">void Gamepad::set_active(const unsigned
-        int gamepad);</span> – Set current active game-pad.<br>
-      <span style="font-style: italic;">unsigned int Gamepad::get_active()
-        const;</span> – Return index of current active game-pad.<br>
-      <span style="font-style: italic;">unsigned int Gamepad::get_last_index();</span>
-      – Return index of last connected game-pad.<br>
-      <span style="font-style: italic;">unsigned int Gamepad::get_max_amount()
-        const;</span> – Return maximum amount of connected game-pad.<br>
+        int gamepad);</span> – Set current active game-pad.<span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">EUGENEGDK::GAMEPAD_DPAD
         Gamepad::get_dpad() const;</span> – Return code of current pressed or
       holding D-pad button.<br>
       <span style="font-style: italic;">bool Gamepad::check_hold(const
-        EUGENEGDK::GAMEPAD_BUTTONS button);</span> – Return true if the button
-      is press or holding.<br>
+        EUGENEGDK::GAMEPAD_BUTTONS button) const;</span> – Return true if the
+      button is press or holding.<br>
       <span style="font-style: italic;">bool Gamepad::check_press(const
-        EUGENEGDK::GAMEPAD_BUTTONS button);</span> – Return true if the button
-      was press.<br>
+        EUGENEGDK::GAMEPAD_BUTTONS button) const;</span> – Return true if the
+      button was press.<br>
       <span style="font-style: italic;">bool Gamepad::check_released(const
-        EUGENEGDK::GAMEPAD_BUTTONS button);</span> – Return true if the button
-      was release.<br>
+        EUGENEGDK::GAMEPAD_BUTTONS button) const;</span> – Return true if the
+      button was release.<br>
       <span style="font-style: italic;">unsigned long int
         Gamepad::get_sticks_amount();</span> – Return amount of the game-pad
       sticks.<br>
@@ -1938,6 +1930,7 @@ Multimedia API</a>. </big>
         4.2.7 – Mouse input improved.<br>
         4.2.8 – Keyboard input improved.<br>
         4.2.9 – Small changes.<br>
+        4.3 – 4.3.3 – Game-pad subsystem improved.<br>
       </big></span>
   </body>
 </html>

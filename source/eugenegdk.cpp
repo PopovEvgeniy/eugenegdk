@@ -1209,9 +1209,14 @@ namespace EUGENEGDK
    preversion=current;
   }
 
-  bool Gamepad::check_button(const unsigned int button,const JOYINFOEX &target)
+  bool Gamepad::check_current_state(const unsigned int button) const
   {
-   return (target.dwButtons&button)!=0;
+   return (current.dwButtons&button)!=0;
+  }
+
+  bool Gamepad::check_preversion_state(const unsigned int button) const
+  {
+   return (preversion.dwButtons&button)!=0;
   }
 
   unsigned int Gamepad::get_amount()
@@ -1228,22 +1233,6 @@ namespace EUGENEGDK
     button_amount=configuration.wNumButtons;
    }
    return button_amount;
-  }
-
-  unsigned int Gamepad::get_last_index()
-  {
-   unsigned int last_index;
-   last_index=this->get_amount();
-   if (last_index>0)
-   {
-    --last_index;
-   }
-   return last_index;
-  }
-
-  bool Gamepad::check_connection()
-  {
-   return this->read_state();
   }
 
   void Gamepad::update()
@@ -1279,16 +1268,6 @@ namespace EUGENEGDK
     active=gamepad;
    }
 
-  }
-
-  unsigned int Gamepad::get_max_amount() const
-  {
-   return 16;
-  }
-
-  unsigned int Gamepad::get_active() const
-  {
-   return active;
   }
 
   EUGENEGDK::GAMEPAD_DPAD Gamepad::get_dpad() const
@@ -1411,19 +1390,19 @@ namespace EUGENEGDK
    return directional;
   }
 
-  bool Gamepad::check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button)
+  bool Gamepad::check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button) const
   {
-   return this->check_button(button,current);
+   return this->check_current_state(button);
   }
 
-  bool Gamepad::check_press(const EUGENEGDK::GAMEPAD_BUTTONS button)
+  bool Gamepad::check_press(const EUGENEGDK::GAMEPAD_BUTTONS button) const
   {
-   return (this->check_button(button,current)==true) && (this->check_button(button,preversion)==false);
+   return (this->check_current_state(button)==true) && (this->check_preversion_state(button)==false);
   }
 
-  bool Gamepad::check_release(const EUGENEGDK::GAMEPAD_BUTTONS button)
+  bool Gamepad::check_release(const EUGENEGDK::GAMEPAD_BUTTONS button) const
   {
-   return (this->check_button(button,current)==false) && (this->check_button(button,preversion)==true);
+   return (this->check_current_state(button)==false) && (this->check_preversion_state(button)==true);
   }
 
  }

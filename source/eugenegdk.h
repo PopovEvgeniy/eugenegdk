@@ -520,25 +520,22 @@ typedef enum
    bool read_configuration();
    bool read_state();
    void clear_state();
-   bool check_button(const unsigned int button,const JOYINFOEX &target);
+   bool check_current_state(const unsigned int button) const;
+   bool check_preversion_state(const unsigned int button) const;
    public:
    Gamepad();
    ~Gamepad();
    unsigned int get_amount();
    unsigned int get_button_amount();
-   unsigned int get_last_index();
-   bool check_connection();
    void update();
    unsigned long int get_sticks_amount();
    void set_active(const unsigned int gamepad);
-   unsigned int get_max_amount() const;
-   unsigned int get_active() const;
    EUGENEGDK::GAMEPAD_DPAD get_dpad() const;
    EUGENEGDK::GAMEPAD_DIRECTION get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick);
    EUGENEGDK::GAMEPAD_DIRECTION get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick);
-   bool check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button);
-   bool check_press(const EUGENEGDK::GAMEPAD_BUTTONS button);
-   bool check_release(const EUGENEGDK::GAMEPAD_BUTTONS button);
+   bool check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button) const;
+   bool check_press(const EUGENEGDK::GAMEPAD_BUTTONS button) const;
+   bool check_release(const EUGENEGDK::GAMEPAD_BUTTONS button) const;
   };
 
  }
