@@ -2189,8 +2189,7 @@ namespace EUGENEGDK
   void Picture::destroy_image()
   {
    image.destroy_buffer();
-   image_width=0;
-   image_height=0;
+   this->set_image_size(0,0);
   }
 
   bool Picture::is_storage_empty() const
@@ -3092,34 +3091,43 @@ namespace EUGENEGDK
  namespace Common
  {
 
-  System::System()
+  Tools::Tools()
   {
 
   }
 
-  System::~System()
+  Tools::~Tools()
   {
 
   }
 
-  void System::quit()
+  void Tools::quit()
   {
    exit(EXIT_SUCCESS);
   }
 
-  void System::run(const char *command)
-  {
-   system(command);
-  }
-
-  char* System::read_environment(const char *variable)
-  {
-   return getenv(variable);
-  }
-
-  bool System::enable_logging(const char *name)
+  bool Tools::enable_logging(const char *name)
   {
    return freopen(name,"wt",stdout)!=NULL;
+  }
+
+  bool Tools::delete_file(const char *name)
+  {
+   return remove(name)==0;
+  }
+
+  bool Tools::file_exist(const char *name)
+  {
+   FILE *target;
+   bool exist;
+   exist=false;
+   target=fopen(name,"rb");
+   if (target!=NULL)
+   {
+    exist=true;
+    fclose(target);
+   }
+   return exist;
   }
 
   Random::Random()
@@ -3140,35 +3148,6 @@ namespace EUGENEGDK
   unsigned int Random::get_random(const unsigned int number)
   {
    return rand()%(number+1);
-  }
-
-  Filesystem::Filesystem()
-  {
-
-  }
-
-  Filesystem::~Filesystem()
-  {
-
-  }
-
-  bool Filesystem::file_exist(const char *name)
-  {
-   FILE *target;
-   bool exist;
-   exist=false;
-   target=fopen(name,"rb");
-   if (target!=NULL)
-   {
-    exist=true;
-    fclose(target);
-   }
-   return exist;
-  }
-
-  bool Filesystem::delete_file(const char *name)
-  {
-   return remove(name)==0;
   }
 
   Timer::Timer()
@@ -3253,14 +3232,13 @@ namespace EUGENEGDK
    return this->check_collision();
   }
 
-  EUGENEGDK::BOX Collision::generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const
+  EUGENEGDK::BOX Collision::generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height)
   {
-   EUGENEGDK::BOX collision;
-   collision.x=x;
-   collision.y=y;
-   collision.width=width;
-   collision.height=height;
-   return collision;
+   first.x=x;
+   first.y=y;
+   first.width=width;
+   first.height=height;
+   return first;
   }
 
  }

@@ -49,10 +49,9 @@
           <li><a href="#mozTocId236677">Chapter 2. Interaction with operation
               system</a></li>
           <li><a href="#mozTocId154445">Chapter 3. Random</a></li>
-          <li><a href="#mozTocId688163">Chapter 4. Filesystem</a></li>
-          <li><a href="#mozTocId853711">Chapter 5. Abnormal program termination</a></li>
-          <li><a href="#mozTocId656377">Chapter 6. Timer</a></li>
-          <li><a href="#mozTocId381935">Chapter 7. Collision</a></li>
+          <li><a href="#mozTocId853711">Chapter 4. Abnormal program termination</a></li>
+          <li><a href="#mozTocId656377">Chapter 5. Timer</a></li>
+          <li><a href="#mozTocId381935">Chapter 6. Collision</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId590919"> Part 5. Binary files</a>
@@ -852,19 +851,18 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <h2><a class="mozTocH2" name="mozTocId236677"></a><big>Chapter 2.
         Interaction with operation system</big></h2>
     <big><br>
-      You may need interaction with operation system. Just use <span style="font-style: italic;">System</span>
+      You may need interaction with operation system. Just use <span style="font-style: italic;">Tools</span>
       class for do it. Let’s look to public methods.<br>
       <span style="font-style: italic;"></span><br>
-      <span style="font-style: italic;">void System::quit();</span> – Exit from
-      you program and return user to operation system.<br>
-      <span style="font-style: italic;">void System::run(const char *command);</span>
-      – Execute shell command or external program.<br>
-      <span style="font-style: italic;">char* System::read_environment(const
-        char *variable);</span> – Return value of specific system environment
-      variable.<br>
-      <span style="font-style: italic;">bool System::enable_logging(const char
+      <span style="font-style: italic;">void Tools::quit();</span> – Exit from
+      you program and return user to operation system.<span style="font-style: italic;"></span><br>
+      <span style="font-style: italic;">bool Tools::enable_logging(const char
         *name);</span> – Enable </big><big>redirecting </big><big>error
-      messages to a log file. Return false if the operation failed.<span style="font-style: italic;"></span><br>
+      messages to a log file. Return false if the operation failed.<br>
+      <span style="font-style: italic;">bool Tools::delete_file(const char
+        *name);</span> – Delete the target file.<br>
+      <span style="font-style: italic;">bool Tools::file_exist(const char
+        *name);</span> – Check the target file for exist.<br>
       <br>
       This is all that you must know about this class. It is just very simple
       class for few important things.<br>
@@ -878,24 +876,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         seed);</span> – Set random generator seed.<br>
       <span style="font-style: italic;">unsigned int Random::get_random(const
         unsigned int number);</span> – Return a random value between zero and
-      number.<br>
-    </big>
-    <h2><a class="mozTocH2" name="mozTocId688163"></a><big>Chapter 4. Filesystem</big></h2>
-    <big><br>
-      Filesystem subsystem let you doing some file operation. <span style="font-style: italic;">Filesystem</span>
-      class provide simple access to this subsystem. Let’s look to public
-      methods.<br>
-      <br>
-      <span style="font-style: italic;">bool Filesystem::file_exist(const char
-        *name);</span> – Check the target file for exist.<br>
-      <span style="font-style: italic;">bool Filesystem::delete_file(const char
-        *name);</span> – Delete the target file.<br>
-      <br>
-      <span style="text-decoration: underline;">Important remark</span><br>
-      <br>
-      All methods return false if operation failed.<br>
-      <span style="font-style: italic;"></span> </big>
-    <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 5. Abnormal
+      number.</big><big></big><br>
+    <big> <span style="font-style: italic;"></span> </big>
+    <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 4. Abnormal
         program termination</big></h2>
     <big><br>
       You can use Halt function for terminate program. This function declared in
@@ -904,7 +887,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">void EUGENEGDK::Halt(const char
         *message);</span> – Terminate the program. Write error message to log
       file if logging enabled. </big><big> </big>
-    <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 6. Timer</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 5. Timer</big></h2>
     <big><br>
       Timer is very useful thing. Just use <span style="font-style: italic;">Timer</span>
       class for work with the timer. Let’s look to public methods.<br>
@@ -914,9 +897,8 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">bool Timer::check_timer();</span> –
       Initialize stop point. Return true and reinitialize start point if
       interval between stop and start points large or equal than specific
-      seconds. </big> <br>
-    <big></big><br>
-    <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 7. Collision</big></h2>
+      seconds.</big><br>
+    <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 6. Collision</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Very important thing for any
         game</span><br>
@@ -942,19 +924,13 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <span style="font-style: italic;">Collision</span> class provide easy
       access to collision detector. It is very simple class with few methods.
       Let’s look to public methods.<br>
-      <br>
-      <span style="font-style: italic;">void Collision::set_target(const
-        EUGENEGDK::BOX &amp;first_target,const EUGENEGDK::BOX
-        &amp;second_target);</span> – Set targets for collision detector.<span style="font-style: italic;"></span></big><br>
-    <big> <span style="font-style: italic;">bool Collision::check_collision()
-        const;</span> – Return true if collision between two objects is
-      accepted.</big><big><i></i></big><br>
+      <span style="font-style: italic;"></span></big><br>
     <big><i>bool Collision::check_collision(const EUGENEGDK::BOX
-        &amp;first_target,const EUGENEGDK::BOX &amp;second_target);</i> – Set
-      collision target and check collision between two objects.</big><br>
+        &amp;first_target,const EUGENEGDK::BOX &amp;second_target);</i> – Check
+      collision between two objects.</big><br>
     <big> <span style="font-style: italic;">EUGENEGDK::BOX
         Collision::generate_box(const unsigned int x,const unsigned int y,const
-        unsigned int width,const unsigned int height) const;</span> – Generate
+        unsigned int width,const unsigned int height);</span> – Generate
       collision related information from the object properties. </big>
     <h1><a class="mozTocH1" name="mozTocId590919"></a><big> Part 5. Binary files</big></h1>
     <h2><a class="mozTocH2" name="mozTocId200879"></a><big>Chapter 1. The
@@ -1931,6 +1907,10 @@ Multimedia API</a>. </big>
         4.2.8 – Keyboard input improved.<br>
         4.2.9 – Small changes.<br>
         4.3 – 4.3.3 – Game-pad subsystem improved.<br>
+        4.3.4 – Collision detection subsystem improved.<br>
+        4.3.5 – Small changes.<br>
+        4.3.6 – 4.3.8 – System interaction subsystem improved.<br>
+        4.3.9 – Collision detection subsystem improved.<br>
       </big></span>
   </body>
 </html>

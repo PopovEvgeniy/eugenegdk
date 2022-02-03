@@ -866,15 +866,15 @@ typedef enum
  namespace Common
  {
 
-  class System
+  class Tools
   {
    public:
-   System();
-   ~System();
+   Tools();
+   ~Tools();
    void quit();
-   void run(const char *command);
-   char* read_environment(const char *variable);
    bool enable_logging(const char *name);
+   bool delete_file(const char *name);
+   bool file_exist(const char *name);
   };
 
   class Random
@@ -884,15 +884,6 @@ typedef enum
    ~Random();
    void set_seed(const unsigned int seed);
    unsigned int get_random(const unsigned int number);
-  };
-
-  class Filesystem
-  {
-   public:
-   Filesystem();
-   ~Filesystem();
-   bool file_exist(const char *name);
-   bool delete_file(const char *name);
   };
 
   class Timer
@@ -914,13 +905,13 @@ typedef enum
    EUGENEGDK::BOX second;
    bool check_horizontal_collision() const;
    bool check_vertical_collision() const;
+   void set_target(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target);
+   bool check_collision() const;
    public:
    Collision();
    ~Collision();
-   void set_target(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target);
-   bool check_collision() const;
    bool check_collision(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target);
-   EUGENEGDK::BOX generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const;
+   EUGENEGDK::BOX generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height);
   };
 
  }

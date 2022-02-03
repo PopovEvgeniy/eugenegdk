@@ -4,7 +4,7 @@ int main()
 {
  char perfomance[8];
  EUGENEGDK::Common::Timer timer;
- EUGENEGDK::Common::System tools;
+ EUGENEGDK::Common::Tools tools;
  EUGENEGDK::Input::Keyboard keyboard;
  EUGENEGDK::Input::Gamepad gamepad;
  EUGENEGDK::Input::Mouse mouse;
