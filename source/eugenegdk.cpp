@@ -3232,13 +3232,14 @@ namespace EUGENEGDK
    return this->check_collision();
   }
 
-  EUGENEGDK::BOX Collision::generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height)
+  EUGENEGDK::BOX Collision::generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const
   {
-   first.x=x;
-   first.y=y;
-   first.width=width;
-   first.height=height;
-   return first;
+   EUGENEGDK::BOX collision;
+   collision.x=x;
+   collision.y=y;
+   collision.width=width;
+   collision.height=height;
+   return collision;
   }
 
  }

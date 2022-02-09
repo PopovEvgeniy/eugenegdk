@@ -905,13 +905,13 @@ typedef enum
    EUGENEGDK::BOX second;
    bool check_horizontal_collision() const;
    bool check_vertical_collision() const;
-   void set_target(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target);
-   bool check_collision() const;
    public:
    Collision();
    ~Collision();
+   void set_target(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target);
+   bool check_collision() const;
    bool check_collision(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target);
-   EUGENEGDK::BOX generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height);
+   EUGENEGDK::BOX generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const;
   };
 
  }
