@@ -873,6 +873,13 @@ typedef enum
    ~Tools();
    void quit();
    bool enable_logging(const char *name);
+  };
+
+  class Filesystem
+  {
+   public:
+   Filesystem();
+   ~Filesystem();
    bool delete_file(const char *name);
    bool file_exist(const char *name);
   };

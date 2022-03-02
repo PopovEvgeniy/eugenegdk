@@ -3111,12 +3111,22 @@ namespace EUGENEGDK
    return freopen(name,"wt",stdout)!=NULL;
   }
 
-  bool Tools::delete_file(const char *name)
+  Filesystem::Filesystem()
+  {
+
+  }
+
+  Filesystem::~Filesystem()
+  {
+
+  }
+
+  bool Filesystem::delete_file(const char *name)
   {
    return remove(name)==0;
   }
 
-  bool Tools::file_exist(const char *name)
+  bool Filesystem::file_exist(const char *name)
   {
    FILE *target;
    bool exist;
