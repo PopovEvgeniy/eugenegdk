@@ -186,12 +186,12 @@ namespace EUGENEGDK
 
   Display::~Display()
   {
-   ChangeDisplaySettingsEx(NULL,NULL,NULL,0,NULL);
+   ChangeDisplaySettings(NULL,0);
   }
 
   void Display::set_video_mode()
   {
-   if (ChangeDisplaySettingsEx(NULL,&display,NULL,CDS_FULLSCREEN,NULL)!=DISP_CHANGE_SUCCESSFUL)
+   if (ChangeDisplaySettings(&display,CDS_FULLSCREEN)!=DISP_CHANGE_SUCCESSFUL)
    {
     EUGENEGDK::Halt("Can't change video mode");
    }
@@ -200,7 +200,7 @@ namespace EUGENEGDK
 
   void Display::get_video_mode()
   {
-   if (EnumDisplaySettingsEx(NULL,ENUM_CURRENT_SETTINGS,&display,EDS_RAWMODE)==FALSE)
+   if (EnumDisplaySettings(NULL,ENUM_CURRENT_SETTINGS,&display)==FALSE)
    {
     EUGENEGDK::Halt("Can't get display setting");
    }
@@ -289,7 +289,8 @@ namespace EUGENEGDK
 
   void Engine::get_instance()
   {
-   if (GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,NULL,&window_class.hInstance)==FALSE)
+   window_class.hInstance=GetModuleHandle(NULL);
+   if (window_class.hInstance==NULL)
    {
     EUGENEGDK::Halt("Can't get the application instance");
    }
@@ -1461,7 +1462,7 @@ namespace EUGENEGDK
   {
    if (video!=NULL)
    {
-    video->put_FullScreenMode(OATRUE);
+    video->put_FullScreenMode(-1);
    }
 
   }
