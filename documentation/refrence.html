@@ -266,8 +266,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       <li><big>Visual C++ 2017</big></li>
       <li><big>Visual C++ 2019</big></li>
       <li><big>Visual C++ 2022</big></li>
-      <li><big>C++ Builder 2009<br>
-        </big></li>
       <li><big>C++ Builder 2010</big></li>
       <li><big>C++ Builder XE</big></li>
       <li><big>C++ Builder XE2</big></li>
@@ -289,9 +287,17 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
     <big><span style="text-decoration: underline;"></span> <span style="text-decoration: underline;">Windows
         XP support</span><br>
       <br>
-      &nbsp;You need Visual C++ 2008, MINGW-w64 or TDM-GCC for Windows XP
-      support.<br>
+      &nbsp;You need one of these compilers for Windows XP support:<br>
       <br>
+    </big>
+    <ul>
+      <li><big>TDM-GCC</big></li>
+      <li><big>MINGW-w64</big></li>
+      <li><big>Open Watcom 1.9</big></li>
+      <li><big>Open Watcom V2 Fork</big></li>
+      <li><big>Visual C++ 2008</big></li>
+    </ul>
+    <big> <br>
       <span style="text-decoration: underline;">Compiler optimization</span><br>
       <br>
       Disable all compiler optimization. It needs for correct work. See
@@ -364,7 +370,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video-card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -396,6 +401,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         unsigned int width,</span></big><big><span style="font-style: italic;">const
         unsigned int heigt</span></big><big><span style="font-style: italic;">);</span>
       – Initialize the base graphic subsystem with custom screen resolution.</big><big><span
+
         style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -482,6 +488,7 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         bellow.</big></p>
     <big> </big>
     <table style="text-align: left; width: 554px; height: 124px;" cellspacing="2"
+
       cellpadding="2" border="1">
       <tbody>
         <tr>
@@ -1942,6 +1949,7 @@ Multimedia API</a>. </big>
         4.4.1.1 – Documentation updated.<br>
         4.4.2 – Small changes.<br>
         4.4.3 – 4.4.4 – New supported compiler added.<br>
+        4.4.4.1 – Documentation updated.<br>
       </big></span>
   </body>
 </html>
