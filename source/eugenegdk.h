@@ -325,6 +325,8 @@ typedef enum
    }
    catch (...)
    {
+    buffer=NULL;
+    length=0;
     puts(message);
     exit(EXIT_FAILURE);
    }
