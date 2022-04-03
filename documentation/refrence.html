@@ -53,6 +53,7 @@
           <li><a href="#mozTocId853711">Chapter 5. Abnormal program termination</a></li>
           <li><a href="#mozTocId656377">Chapter 6. Timer</a></li>
           <li><a href="#mozTocId381935">Chapter 7. Collision</a></li>
+          <li><a href="#mozTocId493277">Chapter 8. Resource manager</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId590919"> Part 5. Binary files</a>
@@ -370,7 +371,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video-card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -402,7 +402,6 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         unsigned int width,</span></big><big><span style="font-style: italic;">const
         unsigned int heigt</span></big><big><span style="font-style: italic;">);</span>
       – Initialize the base graphic subsystem with custom screen resolution.</big><big><span
-
         style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -951,10 +950,9 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
       access to collision detector. It is very simple class with few methods.
       Let’s look to public methods.<br>
       <span style="font-style: italic;"></span></big><br>
-    <big style="font-style: italic;"></big><big><span style="font-style: italic;">void
-        Collision::set_target(const EUGENEGDK::BOX &amp;first_target,const
-        EUGENEGDK::BOX &amp;second_target);</span> – Set targets for collision
-      detector.<br>
+    <big><span style="font-style: italic;">void Collision::set_target(const
+        EUGENEGDK::BOX &amp;first_target,const EUGENEGDK::BOX
+        &amp;second_target);</span> – Set targets for collision detector.<br>
       <span style="font-style: italic;">bool Collision::check_collision() const;</span>
       – Return true if collision between two objects is accepted.<br>
       <span style="font-style: italic;">bool Collision::check_collision(const
@@ -965,6 +963,31 @@ C++ Redistributable Packages</a> if you game don’t run. </big>
         Collision::generate_box(const unsigned int x,const unsigned int y,const
         unsigned int width,const unsigned int height) const;</span> – Generate
       collision related information from the object properties.<br>
+      <br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId493277"></a><big>Chapter 8. Resource
+        manager</big></h2>
+    <big><br>
+      Resource is instance of user-defined class or structure. Resource
+      manager is storage for resources. It implemented as few template
+      functions. All these function declared in&nbsp; <span style="font-style: italic;">Resource</span>
+      sub-namespace.<br>
+      <br>
+      <span style="font-style: italic;">create_resource</span> function create
+      single resource or terminate the program if&nbsp; operation failed. It
+      takes resource handle as argument.<br>
+      <br>
+      <span style="font-style: italic;">create_resource_array</span> function
+      create resource array or terminate the program if operation failed. It
+      takes resource handle and amount of resources as arguments.<br>
+      <br>
+      <span style="font-style: italic;">delete_resource</span> function delete
+      resource if it already exists. This function takes resource handle as
+      argument.<br>
+      <br>
+      <span style="font-style: italic;">delete_resource_array</span> function
+      delete resource array if it already exists. This function takes resource
+      handle and amount of resources as arguments.<br>
     </big>
     <h1><a class="mozTocH1" name="mozTocId590919"></a><big> Part 5. Binary files</big></h1>
     <h2><a class="mozTocH2" name="mozTocId200879"></a><big>Chapter 1. The
@@ -1951,6 +1974,7 @@ Multimedia API</a>. </big>
         4.4.3 – 4.4.4 – New supported compiler added.<br>
         4.4.4.1 – Documentation updated.<br>
         4.4.5 – Small changes.<br>
+        4.4.6 – New subsystem added.<br>
       </big></span>
   </body>
 </html>

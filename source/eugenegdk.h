@@ -925,6 +925,65 @@ typedef enum
 
  }
 
+ namespace Resource
+ {
+
+  template <class RESOURCE>
+  void create_resource(RESOURCE *target)
+  {
+   try
+   {
+    target=new RESOURCE;
+   }
+   catch (...)
+   {
+    target=NULL;
+    puts("Can't create a resource");
+    exit(EXIT_FAILURE);
+   }
+
+  }
+
+  template <class RESOURCE>
+  void create_resource_array(RESOURCE *target,const size_t amount)
+  {
+   try
+   {
+    target=new RESOURCE[amount];
+   }
+   catch (...)
+   {
+    target=NULL;
+    puts("Can't create resource array");
+    exit(EXIT_FAILURE);
+   }
+
+  }
+
+  template <class RESOURCE>
+  void delete_resource(RESOURCE *target)
+  {
+   if (target!=NULL)
+   {
+    delete target;
+    target=NULL;
+   }
+
+  }
+
+  template <class RESOURCE>
+  void delete_resource_array(RESOURCE *target)
+  {
+   if (target!=NULL)
+   {
+    delete[] target;
+    target=NULL;
+   }
+
+  }
+
+ }
+
 }
 
 #endif
