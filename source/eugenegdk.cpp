@@ -877,16 +877,12 @@ namespace EUGENEGDK
 
   void Rectangle::enable_transparent()
   {
-   glEnable(GL_ALPHA_TEST);
-   glEnable(GL_BLEND);
    glAlphaFunc(GL_GREATER,0.1);
-   glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
   }
 
   void Rectangle::disable_transparent()
   {
-   glDisable(GL_ALPHA_TEST);
-   glDisable(GL_BLEND);
+   glAlphaFunc(GL_LEQUAL,1.0);
   }
 
   void Rectangle::prepare(const unsigned int *buffer)
@@ -959,8 +955,10 @@ namespace EUGENEGDK
    glDisable(GL_TEXTURE_GEN_T);
    glDisable(GL_TEXTURE_1D);
    glDisable(GL_DEPTH_TEST);
-   glEnable(GL_CULL_FACE);
+   glDisable(GL_CULL_FACE);
    glEnable(GL_TEXTURE_2D);
+   glEnable(GL_ALPHA_TEST);
+   glEnable(GL_BLEND);
    glEnableClientState(GL_VERTEX_ARRAY);
    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
    glDisableClientState(GL_COLOR_ARRAY);
@@ -980,8 +978,7 @@ namespace EUGENEGDK
   void Render::set_common_setting()
   {
    glDepthMask(GL_TRUE);
-   glFrontFace(GL_CCW);
-   glCullFace(GL_BACK);
+   glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
   }
 
  void Render::set_perspective(const unsigned int width,const unsigned int height)
