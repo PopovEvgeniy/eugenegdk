@@ -8,7 +8,7 @@ int main()
  EUGENEGDK::Input::Keyboard keyboard;
  EUGENEGDK::Input::Gamepad gamepad;
  EUGENEGDK::Input::Mouse mouse;
- EUGENEGDK::Misc::Multimedia media;
+ EUGENEGDK::Common::Multimedia media;
  EUGENEGDK::Graphics::Screen screen;
  EUGENEGDK::Graphics::Image image;
  EUGENEGDK::Graphics::Background space;
