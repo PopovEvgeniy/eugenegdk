@@ -43,20 +43,21 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #ifndef EUGENEGDK_H
 #define EUGENEGDK_H
 
-#pragma comment(lib,"kernel32.lib")
-#pragma comment(lib,"user32.lib")
-#pragma comment(lib,"gdi32.lib")
-#pragma comment(lib,"opengl32.lib")
-#pragma comment(lib,"ole32.lib")
-#pragma comment(lib,"strmiids.lib")
-#pragma comment(lib,"winmm.lib")
+#if defined _MSC_VER && _MSC_VER>=1910
+  #pragma warning(disable : 4995)
+  #define _CRT_SECURE_NO_WARNINGS
+  #define _CRT_NONSTDC_NO_WARNINGS
+#endif
 
-//Uncomment follow lines if you will compile the code under Visual C++ 2017 or higher
-/*
-#pragma warning(disable : 4995)
-#define _CRT_SECURE_NO_WARNINGS
-#define _CRT_NONSTDC_NO_WARNINGS
-*/
+#if !defined __GNUC__
+ #pragma comment(lib,"kernel32.lib")
+ #pragma comment(lib,"user32.lib")
+ #pragma comment(lib,"gdi32.lib")
+ #pragma comment(lib,"opengl32.lib")
+ #pragma comment(lib,"ole32.lib")
+ #pragma comment(lib,"strmiids.lib")
+ #pragma comment(lib,"winmm.lib")
+#endif
 
 #include <stddef.h>
 #include <stdio.h>
