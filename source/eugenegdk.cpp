@@ -829,8 +829,8 @@ namespace EUGENEGDK
    glGenTextures(1,&texture);
    glBindTexture(GL_TEXTURE_2D,texture);
    glTexEnvi(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,GL_REPLACE);
-   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
-   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
    glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,resizer.get_width(),resizer.get_height(),0,GL_BGRA_EXT,GL_UNSIGNED_BYTE,resizer.get_buffer());
   }
 
@@ -877,12 +877,14 @@ namespace EUGENEGDK
 
   void Rectangle::enable_transparent()
   {
-   glAlphaFunc(GL_GREATER,0.1);
+   glEnable(GL_ALPHA_TEST);
+   glEnable(GL_BLEND);
   }
 
   void Rectangle::disable_transparent()
   {
-   glAlphaFunc(GL_LEQUAL,1.0);
+   glDisable(GL_ALPHA_TEST);
+   glDisable(GL_BLEND);
   }
 
   void Rectangle::prepare(const unsigned int *buffer)
@@ -955,8 +957,8 @@ namespace EUGENEGDK
    glDisable(GL_TEXTURE_GEN_T);
    glDisable(GL_TEXTURE_1D);
    glDisable(GL_DEPTH_TEST);
-   glDisable(GL_CULL_FACE);
    glEnable(GL_TEXTURE_2D);
+   glEnable(GL_CULL_FACE);
    glEnable(GL_ALPHA_TEST);
    glEnable(GL_BLEND);
    glEnableClientState(GL_VERTEX_ARRAY);
@@ -972,13 +974,16 @@ namespace EUGENEGDK
    glHint(GL_LINE_SMOOTH_HINT,GL_DONT_CARE);
    glHint(GL_POINT_SMOOTH_HINT,GL_DONT_CARE);
    glHint(GL_POLYGON_SMOOTH_HINT,GL_DONT_CARE);
-   glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_NICEST);
+   glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_FASTEST);
   }
 
   void Render::set_common_setting()
   {
    glDepthMask(GL_TRUE);
+   glFrontFace(GL_CCW);
+   glCullFace(GL_BACK);
    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+   glAlphaFunc(GL_GREATER,0.1);
   }
 
  void Render::set_perspective(const unsigned int width,const unsigned int height)
