@@ -1388,6 +1388,26 @@ namespace EUGENEGDK
    return directional;
   }
 
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_x()
+  {
+   return this->get_stick_x(EUGENEGDK::GAMEPAD_LEFT_STICK);
+  }
+
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_y()
+  {
+   return this->get_stick_y(EUGENEGDK::GAMEPAD_LEFT_STICK);
+  }
+
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_x()
+  {
+   return this->get_stick_x(EUGENEGDK::GAMEPAD_RIGHT_STICK);
+  }
+
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_y()
+  {
+   return this->get_stick_y(EUGENEGDK::GAMEPAD_RIGHT_STICK);
+  }
+
   bool Gamepad::check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button) const
   {
    return this->check_current_state(button);

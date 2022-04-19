@@ -536,6 +536,10 @@ typedef enum
    EUGENEGDK::GAMEPAD_DPAD get_dpad() const;
    EUGENEGDK::GAMEPAD_DIRECTION get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick);
    EUGENEGDK::GAMEPAD_DIRECTION get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick);
+   EUGENEGDK::GAMEPAD_DIRECTION get_left_stick_x();
+   EUGENEGDK::GAMEPAD_DIRECTION get_left_stick_y();
+   EUGENEGDK::GAMEPAD_DIRECTION get_right_stick_x();
+   EUGENEGDK::GAMEPAD_DIRECTION get_right_stick_y();
    bool check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button) const;
    bool check_press(const EUGENEGDK::GAMEPAD_BUTTONS button) const;
    bool check_release(const EUGENEGDK::GAMEPAD_BUTTONS button) const;
