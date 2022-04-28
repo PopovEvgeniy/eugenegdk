@@ -381,7 +381,6 @@ namespace EUGENEGDK
    {
     if (GetMessage(&Message,window,0,0)==TRUE)
     {
-     TranslateMessage(&Message);
      DispatchMessage(&Message);
     }
     else
@@ -829,8 +828,8 @@ namespace EUGENEGDK
    glGenTextures(1,&texture);
    glBindTexture(GL_TEXTURE_2D,texture);
    glTexEnvi(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,GL_REPLACE);
-   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
-   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
    glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,resizer.get_width(),resizer.get_height(),0,GL_BGRA_EXT,GL_UNSIGNED_BYTE,resizer.get_buffer());
   }
 
@@ -868,8 +867,6 @@ namespace EUGENEGDK
 
   void Rectangle::set_model_setting()
   {
-   glMatrixMode(GL_MODELVIEW);
-   glLoadIdentity();
    glMatrixMode(GL_TEXTURE);
    glLoadIdentity();
    glScalef(this->get_horizontal_mirror(),this->get_vertical_mirror(),0.0);
@@ -974,7 +971,7 @@ namespace EUGENEGDK
    glHint(GL_LINE_SMOOTH_HINT,GL_DONT_CARE);
    glHint(GL_POINT_SMOOTH_HINT,GL_DONT_CARE);
    glHint(GL_POLYGON_SMOOTH_HINT,GL_DONT_CARE);
-   glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_FASTEST);
+   glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_NICEST);
   }
 
   void Render::set_common_setting()
@@ -984,6 +981,7 @@ namespace EUGENEGDK
    glCullFace(GL_BACK);
    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
    glAlphaFunc(GL_GREATER,0.1);
+   glClearColor(0.0,0.0,0.0,0.0);
   }
 
  void Render::set_perspective(const unsigned int width,const unsigned int height)
@@ -1007,7 +1005,6 @@ namespace EUGENEGDK
 
   void Render::clear_stage()
   {
-   glClearColor(0.0,0.0,0.0,0.0);
    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
   }
 
@@ -1660,10 +1657,10 @@ namespace EUGENEGDK
   {
    if (ready==true)
    {
-    Internal::Synchronization::wait_timer();
     Internal::WINGL::Swap();
     Core::FPS::update_counter();
     Core::Render::clear_stage();
+    Internal::Synchronization::wait_timer();
    }
    return Internal::Engine::process_message();
   }
@@ -2813,7 +2810,7 @@ namespace EUGENEGDK
  namespace Common
  {
 
-  Multimedia::Multimedia()
+   Multimedia::Multimedia()
    {
     loader=NULL;
     player=NULL;
