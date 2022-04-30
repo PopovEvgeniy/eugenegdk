@@ -372,7 +372,6 @@ typedef enum
    unsigned int target_width;
    unsigned int target_height;
    size_t get_source_offset(const unsigned int x,const unsigned int y) const;
-   size_t get_target_offset(const unsigned int x,const unsigned int y) const;
    void resize_image(const unsigned int *target);
    void set_setting(const unsigned int width,const unsigned int height,const unsigned int limit);
    void calculate_size();

@@ -545,21 +545,17 @@ namespace EUGENEGDK
    return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(source_width);
   }
 
-  size_t Resizer::get_target_offset(const unsigned int x,const unsigned int y) const
-  {
-   return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(target_width);
-  }
-
   void Resizer::resize_image(const unsigned int *target)
   {
-   unsigned int x,y,steps,x_ratio,y_ratio;
+   size_t index;
+   unsigned int x,y,x_ratio,y_ratio;
    x=0;
    y=0;
    x_ratio=(source_width*65536)/target_width;
    y_ratio=(source_height*65536)/target_height;
-   for (steps=target_width*target_height;steps>0;--steps)
+   for (index=0;index<image.get_length();++index)
    {
-    image[this->get_target_offset(x,y)]=target[this->get_source_offset((x*x_ratio)/65536,(y*y_ratio)/65536)];
+    image[index]=target[this->get_source_offset((x*x_ratio)/65536,(y*y_ratio)/65536)];
     ++x;
     if (x==target_width)
     {
