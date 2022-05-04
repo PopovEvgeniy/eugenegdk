@@ -1487,7 +1487,7 @@ namespace EUGENEGDK
   bool Binary_File::check_error()
   {
    int error;
-   error=-1;
+   error=0;
    if (target!=NULL)
    {
     error=ferror(target);
