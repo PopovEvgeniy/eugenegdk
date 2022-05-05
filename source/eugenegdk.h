@@ -617,7 +617,6 @@ typedef enum
    Core::Buffer<unsigned char> data;
    unsigned int width;
    unsigned int height;
-   void copy_data(const unsigned char *target,const size_t location,const size_t position,const size_t amount);
    void uncompress_tga_data(const unsigned char *target);
    void load_tga(File::Input_File &target);
    public:

@@ -1710,16 +1710,6 @@ namespace EUGENEGDK
    height=0;
   }
 
-  void Image::copy_data(const unsigned char *target,const size_t location,const size_t position,const size_t amount)
-  {
-   size_t index;
-   for (index=0;index<amount;++index)
-   {
-    data[location+index]=target[position+index];
-   }
-
-  }
-
   void Image::uncompress_tga_data(const unsigned char *target)
   {
    size_t index,position,amount;
@@ -1732,7 +1722,7 @@ namespace EUGENEGDK
     {
      amount=target[position]+1;
      amount*=sizeof(unsigned int);
-     this->copy_data(target,index,position+1,amount);
+     memcpy(data.get_buffer()+index,target+(position+1),amount);
      index+=amount;
      position+=1+amount;
     }
@@ -1740,7 +1730,7 @@ namespace EUGENEGDK
     {
      for (amount=target[position]-127;amount>0;--amount)
      {
-      this->copy_data(target,index,position+1,sizeof(unsigned int));
+      memcpy(data.get_buffer()+index,target+(position+1),sizeof(unsigned int));
       index+=sizeof(unsigned int);
      }
      position+=1+sizeof(unsigned int);
