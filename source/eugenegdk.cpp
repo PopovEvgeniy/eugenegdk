@@ -1876,7 +1876,7 @@ namespace EUGENEGDK
    {
     this->set_image_size(buffer->get_width(),buffer->get_height());
     this->create_storage();
-    memmove(image.get_buffer(),buffer->get_data(),buffer->get_length());
+    memcpy(image.get_buffer(),buffer->get_data(),buffer->get_length());
    }
 
   }
