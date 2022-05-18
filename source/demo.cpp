@@ -4,7 +4,6 @@ int main()
 {
  char perfomance[8];
  EUGENEGDK::Common::Timer timer;
- EUGENEGDK::Common::Tools tools;
  EUGENEGDK::Input::Keyboard keyboard;
  EUGENEGDK::Input::Gamepad gamepad;
  EUGENEGDK::Input::Mouse mouse;
@@ -14,7 +13,7 @@ int main()
  EUGENEGDK::Graphics::Background space;
  EUGENEGDK::Graphics::Sprite ship,font;
  EUGENEGDK::Graphics::Text text;
- tools.enable_logging("log.txt");
+ EUGENEGDK::Tools::enable_logging("log.txt");
  keyboard.initialize();
  screen.initialize();
  image.load_tga("space.tga");

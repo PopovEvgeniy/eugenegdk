@@ -3027,55 +3027,6 @@ namespace EUGENEGDK
    this->load(target);
   }
 
-  Tools::Tools()
-  {
-
-  }
-
-  Tools::~Tools()
-  {
-
-  }
-
-  void Tools::quit()
-  {
-   exit(EXIT_SUCCESS);
-  }
-
-  bool Tools::enable_logging(const char *name)
-  {
-   return freopen(name,"wt",stdout)!=NULL;
-  }
-
-  Filesystem::Filesystem()
-  {
-
-  }
-
-  Filesystem::~Filesystem()
-  {
-
-  }
-
-  bool Filesystem::delete_file(const char *name)
-  {
-   return remove(name)==0;
-  }
-
-  bool Filesystem::file_exist(const char *name)
-  {
-   FILE *target;
-   bool exist;
-   exist=false;
-   target=fopen(name,"rb");
-   if (target!=NULL)
-   {
-    exist=true;
-    fclose(target);
-   }
-   return exist;
-  }
-
   Random::Random()
   {
    srand(clock()/CLOCKS_PER_SEC);
@@ -3186,6 +3137,45 @@ namespace EUGENEGDK
    collision.width=width;
    collision.height=height;
    return collision;
+  }
+
+ }
+
+ namespace Filesystem
+ {
+
+  bool delete_file(const char *name)
+  {
+   return remove(name)==0;
+  }
+
+  bool file_exist(const char *name)
+  {
+   FILE *target;
+   bool exist;
+   exist=false;
+   target=fopen(name,"rb");
+   if (target!=NULL)
+   {
+    exist=true;
+    fclose(target);
+   }
+   return exist;
+  }
+
+ }
+
+ namespace Tools
+ {
+
+  void quit()
+  {
+   exit(EXIT_SUCCESS);
+  }
+
+  bool enable_logging(const char *name)
+  {
+   return freopen(name,"wt",stdout)!=NULL;
   }
 
  }

@@ -36,8 +36,8 @@
           <li><a href="#mozTocId552078">Chapter 2. Base graphics subsystem</a></li>
           <li><a href="#mozTocId289525">Chapter 3. Picture subsystem</a></li>
           <li><a href="#mozTocId501089">Chapter 4. Animation subsystem</a></li>
-          <li><a href="#mozTocId455894">Chapter 5. Background</a></li>
-          <li><a href="#mozTocId662651">Chapter 6. Sprites</a></li>
+          <li><a href="#mozTocId455894"> Chapter 5. Background</a></li>
+          <li><a href="#mozTocId662651"> Chapter 6. Sprites</a></li>
           <li><a href="#mozTocId367464">Chapter 7. Text</a></li>
           <li><a href="#mozTocId146800">Chapter 8. Tile-set</a></li>
           <li><a href="#mozTocId67980">Chapter 9. Loading images</a></li>
@@ -47,25 +47,29 @@
         <ul>
           <li><a href="#mozTocId597525">Chapter 1. The sub-namespace</a></li>
           <li><a href="#mozTocId23432">Chapter 2. Multimedia</a></li>
-          <li><a href="#mozTocId236677">Chapter 3. Interaction with operation
-              system</a></li>
-          <li><a href="#mozTocId631983">Chapter 4. Filesystem</a></li>
           <li><a href="#mozTocId154445">Chapter 5. Random</a></li>
           <li><a href="#mozTocId853711">Chapter 6. Abnormal program termination</a></li>
           <li><a href="#mozTocId656377">Chapter 7. Timer</a></li>
           <li><a href="#mozTocId381935">Chapter 8. Collision</a></li>
-          <li><a href="#mozTocId493277">Chapter 9. Resource manager</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId590919">Part 5. Binary files</a>
+      <li><a href="#mozTocId209024">Part 5. Misc</a>
+        <ul>
+          <li><a href="#mozTocId820088">Chapter 1. Filesystem</a></li>
+          <li><a href="#mozTocId59386">Chapter 2. Interaction with operation
+              system</a></li>
+          <li><a href="#mozTocId573582">Chapter 3. Resource manager</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId590919"> Part 6. Binary files</a>
         <ul>
           <li><a href="#mozTocId200879">Chapter 1. The sub-namespace</a></li>
-          <li><a href="#mozTocId961921">Chapter 2. Base binary files subsystem</a></li>
-          <li><a href="#mozTocId424835">Chapter 3. File reader</a></li>
-          <li><a href="#mozTocId511135">Chapter 4. File writer</a></li>
+          <li><a href="#mozTocId961921"> Chapter 2. Base binary files subsystem</a></li>
+          <li><a href="#mozTocId424835"> Chapter 3. File reader</a></li>
+          <li><a href="#mozTocId511135"> Chapter 4. File writer</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId291572">Part 6. Input</a>
+      <li><a href="#mozTocId291572">Part 7. Input</a>
         <ul>
           <li><a href="#mozTocId783369">Chapter 1. The sub-namespace</a></li>
           <li><a href="#mozTocId685403">Chapter 2. Keyboard</a></li>
@@ -73,7 +77,7 @@
           <li><a href="#mozTocId861609">Chapter 4. Game-pad</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId309127">Part 7. Internal details of the engine
+      <li><a href="#mozTocId309127">Part 8. Internal details of the engine
           subsystems</a>
         <ul>
           <li><a href="#mozTocId383177">Chapter 1. A few words for a curious
@@ -373,7 +377,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video-card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -946,43 +949,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">void Multimedia::stop();</span> – Stop
       playing a content of the target file.<br>
       <span style="font-style: italic;">bool Multimedia::check_playing();</span>
-      – Return true if the multimedia resource is playing.<br>
-    </big> <big> </big>
-    <h2><a class="mozTocH2" name="mozTocId236677"></a><big>Chapter 3.
-        Interaction with operation system</big></h2>
-    <big><br>
-      You may need interaction with operation system. Just use <span style="font-style: italic;">Tools</span>
-      class for do it. Let’s look to public methods.<br>
-      <span style="font-style: italic;"></span><br>
-      <span style="font-style: italic;">void Tools::quit();</span> – Exit from
-      you program and return user to operation system.<span style="font-style: italic;"></span><br>
-      <span style="font-style: italic;">bool Tools::enable_logging(const char
-        *name);</span> – Enable </big><big>redirecting </big><big>error
-      messages to a log file. Return false if the operation failed.<span style="font-style: italic;"></span><br>
-      <br>
-      This is all that you must know about this class. It is just very simple
-      class for few important things.<br>
-      <br>
-    </big>
-    <h2><a class="mozTocH2" name="mozTocId631983"></a><big>Chapter 4. Filesystem</big></h2>
-    <big><br>
-      Filesystem subsystem let you doing some file operation. <span style="font-style: italic;">Filesystem</span>
-      class provide simple access to this subsystem. Let’s look to public
-      methods.<br>
-      <br>
-      <span style="font-style: italic;">bool Filesystem::file_exist(const char
-        *name);</span> – Check the target file for exist.<br>
-      <span style="font-style: italic;">bool Filesystem::delete_file(const char
-        *name);</span> – Delete the target file.<br>
-      <br>
-      <span style="text-decoration: underline;">Important remark</span><br>
-      <br>
-      All methods return false if operation failed.<br>
-      <br>
-    </big>
-    <h2><a class="mozTocH2" name="mozTocId154445"></a><big>Chapter 5. Random</big></h2>
-    <big><br>
-      <span style="font-style: italic;">Random</span> class provide simple
+      – Return true if the multimedia resource is playing.</big><br>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId154445"></a><big>Chapter 3. Random</big></h2>
+    <big> <span style="font-style: italic;">Random</span> class provide simple
       access to random number generator. Let’s look to public methods.<br>
       <br>
       <span style="font-style: italic;">void Random::set_seed(const unsigned int
@@ -991,18 +961,16 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         unsigned int number);</span> – Return a random value between zero and
       number.</big><big></big><br>
     <big> <span style="font-style: italic;"></span> </big>
-    <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 6. Abnormal
+    <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 4. Abnormal
         program termination</big></h2>
-    <big><br>
-      You can use Halt function for terminate program. This function declared in
-      <span style="font-style: italic;">EGENEGDK</span> name-space.<br>
+    <big> You can use Halt function for terminate program. This function
+      declared in <span style="font-style: italic;">EGENEGDK</span> name-space.<br>
       <br>
       <span style="font-style: italic;">void EUGENEGDK::Halt(const char
         *message);</span> – Terminate the program. Write error message to log
       file if logging enabled. </big><big> </big>
-    <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 7. Timer</big></h2>
-    <big><br>
-      Timer is very useful thing. Just use <span style="font-style: italic;">Timer</span>
+    <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 5. Timer</big></h2>
+    <big> Timer is very useful thing. Just use <span style="font-style: italic;">Timer</span>
       class for work with the timer. Let’s look to public methods.<br>
       <br>
       <span style="font-style: italic;">void Timer::set_timer(const double
@@ -1010,7 +978,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">bool Timer::check_timer();</span> –
       Return true and reinitialize start point if interval between stop and
       start points large or equal than specific seconds.</big><br>
-    <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 8. Collision</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 6. Collision</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Very important thing for any
         game</span><br>
@@ -1049,22 +1017,48 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">EUGENEGDK::BOX
         Collision::generate_box(const unsigned int x,const unsigned int y,const
         unsigned int width,const unsigned int height) const;</span> – Generate
-      collision related information from the object properties.<br>
-      <br>
+      collision related information from the object properties.</big><big><br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId493277"></a><big>Chapter 9. Resource
-        manager</big></h2>
-    <big><br>
-      Resource is instance of user-defined class or structure. Resource manager
-      is storage for resources. It implemented as few template functions. All
-      these function declared in&nbsp; <span style="font-style: italic;">Resource</span>
+    <h1><a class="mozTocH1" name="mozTocId209024"></a><big>Part 5. Misc</big></h1>
+    <h2><a class="mozTocH2" name="mozTocId820088"></a><big>Chapter 1. Filesystem</big></h2>
+    <big> Filesystem subsystem implement as two simple function. All these
+      function declared in <span style="font-style: italic;">Filesystem</span>
       sub-namespace.<br>
       <br>
-      <span style="font-style: italic;">create_resource</span> function create
+      <span style="font-style: italic;">file_exist</span> function check the
+      target file for exist.<br>
+      <br>
+      <span style="font-style: italic;">delete_file</span> function delete the
+      target file.<br>
+      <br>
+      All function takes target file name as argument and return false if the
+      operation failed.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId59386"></a><big>Chapter 2. Interaction
+        with operation system</big></h2>
+    <big>Operation system</big><big> interaction module implement as two simple
+      function</big><big>. All these function declared in <span style="font-style: italic;">Tools</span>
+      sub-namespace.<br>
+      <br>
+      <span style="font-style: italic;">quit</span> function exit from you
+      program and return user to operation system. It don't takes arguments.<br>
+      <br>
+      <span style="font-style: italic;">enable_logging</span> function enable
+      redirecting error messages to a log file. It takes target file name as
+      argument and return false if the operation failed.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId573582"></a><big>Chapter 3. Resource
+        manager</big></h2>
+    <big>Resource is instance of user-defined class or structure. Resource
+      manager is storage for resources. It implemented as few template
+      functions. All these function declared in&nbsp; <span style="font-style: italic;">Resource</span>
+      sub-namespace.<br>
+      <br>
+      <span style="font-style: italic;">create_resource function</span> create
       single resource or terminate the program if&nbsp; operation failed. It
       takes resource handle as argument.<br>
-      <br>
-      <span style="font-style: italic;">create_resource_array</span> function
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">create_resource_array function</span>
       create resource array or terminate the program if operation failed. It
       takes resource handle and amount of resources as arguments.<br>
       <br>
@@ -1074,9 +1068,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;">delete_resource_array</span> function
       delete resource array if it already exists. This function takes resource
-      handle and amount of resources as arguments.<br>
+      array handle as argument.<br>
     </big>
-    <h1><a class="mozTocH1" name="mozTocId590919"></a><big> Part 5. Binary files</big></h1>
+    <h1><a class="mozTocH1" name="mozTocId590919"></a><big> Part 6. Binary files</big></h1>
     <h2><a class="mozTocH2" name="mozTocId200879"></a><big>Chapter 1. The
         sub-namespace</big></h2>
     <big>All subsystems in this section declared in <span style="font-style: italic;">File</span>
@@ -1129,7 +1123,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big><i>void Output_File::flush();</i> – Force writing internal buffer data
       to the file.</big><br>
     <big> </big>
-    <h1><a class="mozTocH1" name="mozTocId291572"></a><big>Part 6. Input</big></h1>
+    <h1><a class="mozTocH1" name="mozTocId291572"></a><big>Part 7. Input</big></h1>
     <h2><a class="mozTocH2" name="mozTocId783369"></a><big>Chapter 1. The
         sub-namespace</big></h2>
     <big>All subsystems in this section declared in <span style="font-style: italic;">Input</span>
@@ -1647,7 +1641,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         Gamepad::get_right_stick_y();</span> – Return y-direction of right
       stick.<br>
     </big>
-    <h1><a class="mozTocH1" name="mozTocId309127"></a><big>Part 7. Internal
+    <h1><a class="mozTocH1" name="mozTocId309127"></a><big>Part 8. Internal
         details of the engine subsystems</big></h1>
     <big></big> <big> </big>
     <h2><a class="mozTocH2" name="mozTocId383177"></a><big>Chapter 1. A few
@@ -1990,6 +1984,7 @@ Multimedia API</a>. </big>
         4.6.4 – Small changes.<br>
         4.6.5 – Small bug in binary file subsystem fixed.<br>
         4.6.6 – 4.6.8 – Small changes.<br>
+        4.6.9 – 4.7 – Changes in the engine API.<br>
       </big></span>
   </body>
 </html>

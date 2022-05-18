@@ -851,24 +851,6 @@ typedef enum
    void initialize(const char *target);
   };
 
-  class Tools
-  {
-   public:
-   Tools();
-   ~Tools();
-   void quit();
-   bool enable_logging(const char *name);
-  };
-
-  class Filesystem
-  {
-   public:
-   Filesystem();
-   ~Filesystem();
-   bool delete_file(const char *name);
-   bool file_exist(const char *name);
-  };
-
   class Random
   {
    public:
@@ -906,6 +888,18 @@ typedef enum
    EUGENEGDK::BOX generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const;
   };
 
+ }
+
+ namespace Filesystem
+ {
+  bool delete_file(const char *name);
+  bool file_exist(const char *name);
+ }
+
+ namespace Tools
+ {
+  void quit();
+  bool enable_logging(const char *name);
  }
 
  namespace Resource
