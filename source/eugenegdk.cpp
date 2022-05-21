@@ -175,7 +175,11 @@ namespace EUGENEGDK
 
   void Synchronization::wait_timer()
   {
-   WaitForSingleObjectEx(timer,INFINITE,TRUE);
+   if (timer!=NULL)
+   {
+    WaitForSingleObjectEx(timer,INFINITE,TRUE);
+   }
+
   }
 
   Display::Display()
@@ -964,9 +968,9 @@ namespace EUGENEGDK
 
   void Render::set_render_hints()
   {
-   glHint(GL_LINE_SMOOTH_HINT,GL_DONT_CARE);
-   glHint(GL_POINT_SMOOTH_HINT,GL_DONT_CARE);
-   glHint(GL_POLYGON_SMOOTH_HINT,GL_DONT_CARE);
+   glHint(GL_LINE_SMOOTH_HINT,GL_FASTEST);
+   glHint(GL_POINT_SMOOTH_HINT,GL_FASTEST);
+   glHint(GL_POLYGON_SMOOTH_HINT,GL_FASTEST);
    glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_NICEST);
   }
 
@@ -1651,14 +1655,8 @@ namespace EUGENEGDK
 
   bool Screen::sync()
   {
-   if (ready==true)
-   {
-    Internal::WINGL::Swap();
-    Core::FPS::update_counter();
-    Core::Render::clear_stage();
-    Internal::Synchronization::wait_timer();
-   }
-   return Internal::Engine::process_message();
+   Internal::Synchronization::wait_timer();
+   return this->update();
   }
 
   bool Screen::is_ready() const
