@@ -851,15 +851,6 @@ typedef enum
    void initialize(const char *target);
   };
 
-  class Random
-  {
-   public:
-   Random();
-   ~Random();
-   void set_seed(const unsigned int seed);
-   unsigned int get_random(const unsigned int number);
-  };
-
   class Timer
   {
    private:
@@ -900,6 +891,8 @@ typedef enum
  {
   void quit();
   bool enable_logging(const char *name);
+  void randomize();
+  unsigned int get_random(const unsigned int number);
  }
 
  namespace Resource

@@ -36,8 +36,8 @@
           <li><a href="#mozTocId552078">Chapter 2. Base graphics subsystem</a></li>
           <li><a href="#mozTocId289525">Chapter 3. Picture subsystem</a></li>
           <li><a href="#mozTocId501089">Chapter 4. Animation subsystem</a></li>
-          <li><a href="#mozTocId455894">Chapter 5. Background</a></li>
-          <li><a href="#mozTocId662651">Chapter 6. Sprites</a></li>
+          <li><a href="#mozTocId455894"> Chapter 5. Background</a></li>
+          <li><a href="#mozTocId662651"> Chapter 6. Sprites</a></li>
           <li><a href="#mozTocId367464">Chapter 7. Text</a></li>
           <li><a href="#mozTocId146800">Chapter 8. Tile-set</a></li>
           <li><a href="#mozTocId67980">Chapter 9. Loading images</a></li>
@@ -47,10 +47,9 @@
         <ul>
           <li><a href="#mozTocId597525">Chapter 1. The sub-namespace</a></li>
           <li><a href="#mozTocId23432">Chapter 2. Multimedia</a></li>
-          <li><a href="#mozTocId154445">Chapter 3. Random</a></li>
-          <li><a href="#mozTocId853711">Chapter 4. Abnormal program termination</a></li>
-          <li><a href="#mozTocId656377">Chapter 5. Timer</a></li>
-          <li><a href="#mozTocId381935">Chapter 6. Collision</a></li>
+          <li><a href="#mozTocId853711">Chapter 3. Abnormal program termination</a></li>
+          <li><a href="#mozTocId656377">Chapter 4. Timer</a></li>
+          <li><a href="#mozTocId381935">Chapter 5. Collision</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId209024">Part 5. Misc</a>
@@ -61,12 +60,12 @@
           <li><a href="#mozTocId573582">Chapter 3. Resource manager</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId590919">Part 6. Binary files</a>
+      <li><a href="#mozTocId590919"> Part 6. Binary files</a>
         <ul>
           <li><a href="#mozTocId200879">Chapter 1. The sub-namespace</a></li>
-          <li><a href="#mozTocId961921">Chapter 2. Base binary files subsystem</a></li>
-          <li><a href="#mozTocId424835">Chapter 3. File reader</a></li>
-          <li><a href="#mozTocId511135">Chapter 4. File writer</a></li>
+          <li><a href="#mozTocId961921"> Chapter 2. Base binary files subsystem</a></li>
+          <li><a href="#mozTocId424835"> Chapter 3. File reader</a></li>
+          <li><a href="#mozTocId511135"> Chapter 4. File writer</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId291572">Part 7. Input</a>
@@ -950,18 +949,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       playing a content of the target file.<br>
       <span style="font-style: italic;">bool Multimedia::check_playing();</span>
       – Return true if the multimedia resource is playing.</big><br>
-    <big> </big>
-    <h2><a class="mozTocH2" name="mozTocId154445"></a><big>Chapter 3. Random</big></h2>
-    <big> <span style="font-style: italic;">Random</span> class provide simple
-      access to random number generator. Let’s look to public methods.<br>
-      <br>
-      <span style="font-style: italic;">void Random::set_seed(const unsigned int
-        seed);</span> – Set random generator seed.<br>
-      <span style="font-style: italic;">unsigned int Random::get_random(const
-        unsigned int number);</span> – Return a random value between zero and
-      number.</big><big></big><br>
-    <big> <span style="font-style: italic;"></span> </big>
-    <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 4. Abnormal
+    <big> </big> <big> <span style="font-style: italic;"></span> </big>
+    <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 3. Abnormal
         program termination</big></h2>
     <big> You can use Halt function for terminate program. This function
       declared in <span style="font-style: italic;">EGENEGDK</span> name-space.<br>
@@ -969,7 +958,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">void EUGENEGDK::Halt(const char
         *message);</span> – Terminate the program. Write error message to log
       file if logging enabled. </big><big> </big>
-    <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 5. Timer</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 4. Timer</big></h2>
     <big> Timer is very useful thing. Just use <span style="font-style: italic;">Timer</span>
       class for work with the timer. Let’s look to public methods.<br>
       <br>
@@ -978,7 +967,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">bool Timer::check_timer();</span> –
       Return true and reinitialize start point if interval between stop and
       start points large or equal than specific seconds.</big><br>
-    <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 6. Collision</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 5. Collision</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Very important thing for any
         game</span><br>
@@ -1046,6 +1035,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">enable_logging</span> function enable
       redirecting error messages to a log file. It takes target file name as
       argument and return false if the operation failed.<br>
+      <br>
+      <span style="font-style: italic;">randomize</span> function initialize
+      random number generator. It don't takes arguments.<br>
+      <br>
+      <span style="font-style: italic;">get_random</span> function return a
+      random value between zero and maximum. It takes the maximum as argument.<br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId573582"></a><big>Chapter 3. Resource
         manager</big></h2>
@@ -1987,6 +1982,7 @@ Multimedia API</a>. </big>
         4.6.9 – 4.7 – Changes in the engine API.<br>
         4.7.0.1 – Documentation updated.<br>
         4.7.1 – 4.7.2 – Small changes.<br>
+        4.7.3 – Changes in the engine API.<br>
       </big></span>
   </body>
 </html>

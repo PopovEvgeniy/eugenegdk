@@ -3025,26 +3025,6 @@ namespace EUGENEGDK
    this->load(target);
   }
 
-  Random::Random()
-  {
-   srand(clock()/CLOCKS_PER_SEC);
-  }
-
-  Random::~Random()
-  {
-
-  }
-
-  void Random::set_seed(const unsigned int seed)
-  {
-   srand(seed);
-  }
-
-  unsigned int Random::get_random(const unsigned int number)
-  {
-   return rand()%(number+1);
-  }
-
   Timer::Timer()
   {
    start=time(NULL);
@@ -3174,6 +3154,16 @@ namespace EUGENEGDK
   bool enable_logging(const char *name)
   {
    return freopen(name,"wt",stdout)!=NULL;
+  }
+
+  void randomize()
+  {
+   srand(clock()/CLOCKS_PER_SEC);
+  }
+
+  unsigned int get_random(const unsigned int number)
+  {
+   return rand()%(number+1);
   }
 
  }
