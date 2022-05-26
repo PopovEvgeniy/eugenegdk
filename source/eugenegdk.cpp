@@ -408,7 +408,6 @@ namespace EUGENEGDK
    setting.dwFlags=PFD_DRAW_TO_WINDOW|PFD_SUPPORT_OPENGL|PFD_DOUBLEBUFFER;
    setting.iPixelType=PFD_TYPE_RGBA;
    setting.iLayerType=PFD_MAIN_PLANE;
-   setting.cAlphaBits=CHAR_BIT;
   }
 
   WINGL::~WINGL()
