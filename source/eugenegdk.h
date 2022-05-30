@@ -43,10 +43,8 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #ifndef EUGENEGDK_H
 #define EUGENEGDK_H
 
-#if defined _MSC_VER && _MSC_VER>=1910
-  #pragma warning(disable : 4995)
-  #define _CRT_SECURE_NO_WARNINGS
-  #define _CRT_NONSTDC_NO_WARNINGS
+#if defined _MSC_VER && _MSC_VER>=1500  
+  #pragma warning(disable : 4996)
 #endif
 
 #if !defined __GNUC__

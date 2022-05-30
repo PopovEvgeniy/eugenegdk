@@ -132,6 +132,9 @@ namespace EUGENEGDK
     case WM_KEYUP:
     Keys[LOBYTE(HIWORD(lParam))]=KEY_RELEASE;
     break;
+    default:
+    ;
+    break;
    }
    return DefWindowProc(window,Message,wParam,lParam);
   }
@@ -1272,6 +1275,7 @@ namespace EUGENEGDK
   EUGENEGDK::GAMEPAD_DPAD Gamepad::get_dpad() const
   {
    EUGENEGDK::GAMEPAD_DPAD dpad;
+   dpad=EUGENEGDK::GAMEPAD_NONE;
    switch (current.dwPOV)
    {
     case JOY_POVFORWARD:
@@ -1299,7 +1303,7 @@ namespace EUGENEGDK
     dpad=EUGENEGDK::GAMEPAD_DOWNRIGHT;
     break;
     default:
-    dpad=EUGENEGDK::GAMEPAD_NONE;
+    ;
     break;
    }
    return dpad;
@@ -1971,6 +1975,7 @@ namespace EUGENEGDK
   Background::Background()
   {
    rectangle.set_size(0,0);
+   rectangle.set_position(0,0);
    current_kind=EUGENEGDK::NORMAL_BACKGROUND;
   }
 
@@ -2012,7 +2017,6 @@ namespace EUGENEGDK
    rectangle.set_size(screen_width,screen_height);
    rectangle.set_total_size(this->get_image_width(),this->get_image_height());
    rectangle.prepare(this->get_image());
-   rectangle.set_position(0,0);
   }
 
   void Background::prepare(const Screen *screen)
@@ -2436,7 +2440,7 @@ namespace EUGENEGDK
 
   void Sprite::load_sprite(Image &buffer)
   {
-   this->load_sprite(buffer.get_handle(),EUGENEGDK::SINGLE_SPRITE,1);
+   this->load_sprite(buffer.get_handle());
   }
 
   void Sprite::set_target(const unsigned int target)
