@@ -43,7 +43,7 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #ifndef EUGENEGDK_H
 #define EUGENEGDK_H
 
-#if defined _MSC_VER && _MSC_VER>=1500  
+#if defined _MSC_VER && _MSC_VER>=1500
   #pragma warning(disable : 4996)
 #endif
 
@@ -261,8 +261,8 @@ typedef enum
 
   typedef struct
  {
-  float u;
-  float v;
+  double u;
+  double v;
  } Point;
 
  template <class DATA_TYPE>
@@ -407,27 +407,27 @@ typedef enum
    unsigned int total_height;
    unsigned int current_x;
    unsigned int current_y;
-   float horizontal_mirror;
-   float vertical_mirror;
-   float get_start_offset(const float current,const float total);
-   float get_end_offset(const float current,const float total);
+   double horizontal_mirror;
+   double vertical_mirror;
+   double get_start_offset(const double current,const double total);
+   double get_end_offset(const double current,const double total);
    protected:
    Vertex vertex[4];
    Point point[4];
    void set_data();
    unsigned int get_total_width() const;
    unsigned int get_total_height() const;
-   float get_horizontal_mirror() const;
-   float get_vertical_mirror() const;
+   double get_horizontal_mirror() const;
+   double get_vertical_mirror() const;
    public:
    Shape();
    ~Shape();
    void set_total_size(const unsigned int width,const unsigned int height);
    void set_size(const unsigned int width,const unsigned int height);
    void set_position(const unsigned int x,const unsigned int y);
-   void set_horizontal_offset(const float current,const float total);
-   void set_vertical_offset(const float current,const float total);
-   void set_tile_offset(const float row,const float rows,const float column,const float columns);
+   void set_horizontal_offset(const double current,const double total);
+   void set_vertical_offset(const double current,const double total);
+   void set_tile_offset(const double row,const double rows,const double column,const double columns);
    void invert_horizontal_mirror();
    void invert_vertical_mirror();
   };

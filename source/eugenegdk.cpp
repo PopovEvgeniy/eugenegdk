@@ -700,12 +700,12 @@ namespace EUGENEGDK
 
   }
 
-  float Shape::get_start_offset(const float current,const float total)
+  double Shape::get_start_offset(const double current,const double total)
   {
    return (1.0/total)*(current-1.0);
   }
 
-  float Shape::get_end_offset(const float current,const float total)
+  double Shape::get_end_offset(const double current,const double total)
   {
    return (1.0/total)*current;
   }
@@ -738,12 +738,12 @@ namespace EUGENEGDK
    total_height=height;
   }
 
-  float Shape::get_horizontal_mirror() const
+  double Shape::get_horizontal_mirror() const
   {
    return horizontal_mirror;
   }
 
-  float Shape::get_vertical_mirror() const
+  double Shape::get_vertical_mirror() const
   {
    return vertical_mirror;
   }
@@ -760,7 +760,7 @@ namespace EUGENEGDK
    current_y=y;
   }
 
-  void Shape::set_horizontal_offset(const float current,const float total)
+  void Shape::set_horizontal_offset(const double current,const double total)
   {
    point[0].u=this->get_start_offset(current,total);
    point[0].v=1.0;
@@ -772,7 +772,7 @@ namespace EUGENEGDK
    point[3].v=0.0;
   }
 
-  void Shape::set_vertical_offset(const float current,const float total)
+  void Shape::set_vertical_offset(const double current,const double total)
   {
    point[0].u=0.0;
    point[0].v=this->get_end_offset(current,total);
@@ -784,7 +784,7 @@ namespace EUGENEGDK
    point[3].v=this->get_start_offset(current,total);
   }
 
-  void Shape::set_tile_offset(const float row,const float rows,const float column,const float columns)
+  void Shape::set_tile_offset(const double row,const double rows,const double column,const double columns)
   {
    point[0].u=this->get_start_offset(row,rows);
    point[0].v=this->get_end_offset(column,columns);
@@ -858,7 +858,7 @@ namespace EUGENEGDK
   void Rectangle::load_data()
   {
    glVertexPointer(2,GL_INT,0,vertex);
-   glTexCoordPointer(2,GL_FLOAT,0,point);
+   glTexCoordPointer(2,GL_DOUBLE,0,point);
   }
 
   void Rectangle::draw_rectangle()
@@ -871,7 +871,7 @@ namespace EUGENEGDK
   {
    glMatrixMode(GL_TEXTURE);
    glLoadIdentity();
-   glScalef(this->get_horizontal_mirror(),this->get_vertical_mirror(),0.0);
+   glScaled(this->get_horizontal_mirror(),this->get_vertical_mirror(),0.0);
   }
 
   void Rectangle::enable_transparent()
@@ -990,7 +990,7 @@ namespace EUGENEGDK
  {
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  glOrtho(0.0,static_cast<float>(width),static_cast<float>(height),0.0,0.0,1.0);
+  glOrtho(0.0,static_cast<double>(width),static_cast<double>(height),0.0,0.0,1.0);
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
   glViewport(0,0,width,height);
@@ -1994,10 +1994,10 @@ namespace EUGENEGDK
    switch(current_kind)
    {
     case EUGENEGDK::HORIZONTAL_BACKGROUND:
-    rectangle.set_horizontal_offset(static_cast<float>(this->get_frame()),static_cast<float>(this->get_frames()));
+    rectangle.set_horizontal_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
     break;
     case EUGENEGDK::VERTICAL_BACKGROUND:
-    rectangle.set_vertical_offset(static_cast<float>(this->get_frame()),static_cast<float>(this->get_frames()));
+    rectangle.set_vertical_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
     break;
     default:
     rectangle.set_horizontal_offset(1.0,1.0);
@@ -2197,10 +2197,10 @@ namespace EUGENEGDK
    switch(current_kind)
    {
     case EUGENEGDK::HORIZONTAL_STRIP:
-    rectangle.set_horizontal_offset(static_cast<float>(this->get_frame()),static_cast<float>(this->get_frames()));
+    rectangle.set_horizontal_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
     break;
     case EUGENEGDK::VERTICAL_STRIP:
-    rectangle.set_vertical_offset(static_cast<float>(this->get_frame()),static_cast<float>(this->get_frames()));
+    rectangle.set_vertical_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
     break;
     default:
     rectangle.set_horizontal_offset(1.0,1.0);
@@ -2643,7 +2643,7 @@ namespace EUGENEGDK
    {
     if (column<columns)
     {
-     rectangle.set_tile_offset(static_cast<float>(row),static_cast<float>(rows),static_cast<float>(column),static_cast<float>(columns));
+     rectangle.set_tile_offset(static_cast<double>(row),static_cast<double>(rows),static_cast<double>(column),static_cast<double>(columns));
     }
 
    }
