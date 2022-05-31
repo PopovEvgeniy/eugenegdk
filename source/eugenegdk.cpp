@@ -1058,14 +1058,11 @@ namespace EUGENEGDK
 
   bool Keyboard::check_hold(const unsigned char code)
   {
-   bool hold;
-   hold=false;
    if (preversion.get_buffer()!=NULL)
    {
-    hold=Keys[code]==KEY_PRESS;
     preversion[code]=Keys[code];
    }
-   return hold;
+   return Keys[code]==KEY_PRESS;
   }
 
   bool Keyboard::check_press(const unsigned char code)
