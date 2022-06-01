@@ -191,12 +191,11 @@ typedef enum
   {
    private:
    DEVMODE display;
-   void get_video_mode();
-   void set_video_mode();
-   void set_setting(const unsigned long int width,const unsigned long int height);
    protected:
-   void check_video_mode();
-   void set_resolution(const unsigned long int width,const unsigned long int height);
+   void set_video_mode();
+   void get_video_mode();
+   void correct_depth();
+   void set_setting(const unsigned long int width,const unsigned long int height);
    unsigned long int get_depth() const;
    unsigned long int get_display_width() const;
    unsigned long int get_display_height() const;
@@ -591,6 +590,8 @@ typedef enum
  {
    private:
    bool ready;
+   void check_video_mode();
+   void set_resolution(const unsigned long int width,const unsigned long int height);
    void screen_setup();
    public:
    Screen();

@@ -214,32 +214,19 @@ namespace EUGENEGDK
 
   }
 
-  void Display::check_video_mode()
+  void Display::correct_depth()
   {
-   this->get_video_mode();
    if (display.dmBitsPerPel<16)
    {
     display.dmBitsPerPel=16;
-    this->set_video_mode();
    }
 
   }
 
   void Display::set_setting(const unsigned long int width,const unsigned long int height)
   {
-   if (display.dmBitsPerPel<16)
-   {
-    display.dmBitsPerPel=16;
-   }
    display.dmPelsWidth=width;
    display.dmPelsHeight=height;
-  }
-
-  void Display::set_resolution(const unsigned long int width,const unsigned long int height)
-  {
-   this->get_video_mode();
-   this->set_setting(width,height);
-   this->set_video_mode();
   }
 
   unsigned long int Display::get_depth() const
@@ -1602,6 +1589,21 @@ namespace EUGENEGDK
 
   }
 
+  void Screen::check_video_mode()
+  {
+   Internal::Display::get_video_mode();
+   Internal::Display::correct_depth();
+   Internal::Display::set_video_mode();
+  }
+
+  void Screen::set_resolution(const unsigned long int width,const unsigned long int height)
+  {
+   Internal::Display::get_video_mode();
+   Internal::Display::correct_depth();
+   Internal::Display::set_setting(width,height);
+   Internal::Display::set_video_mode();
+  }
+
   void Screen::screen_setup()
   {
    Internal::Engine::prepare_engine();
@@ -1624,7 +1626,7 @@ namespace EUGENEGDK
   {
    if (ready==false)
    {
-    Internal::Display::check_video_mode();
+    this->check_video_mode();
     this->screen_setup();
     ready=true;
    }
@@ -1635,7 +1637,7 @@ namespace EUGENEGDK
   {
    if (ready==false)
    {
-    Internal::Display::set_resolution(width,height);
+    this->set_resolution(width,height);
     this->screen_setup();
     ready=true;
    }
