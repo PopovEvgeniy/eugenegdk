@@ -193,12 +193,12 @@ namespace EUGENEGDK
 
   Display::~Display()
   {
-   ChangeDisplaySettings(NULL,0);
+   ChangeDisplaySettingsEx(NULL,NULL,NULL,0,NULL);
   }
 
   void Display::set_video_mode()
   {
-   if (ChangeDisplaySettings(&display,CDS_FULLSCREEN)!=DISP_CHANGE_SUCCESSFUL)
+   if (ChangeDisplaySettingsEx(NULL,&display,NULL,CDS_FULLSCREEN,NULL)!=DISP_CHANGE_SUCCESSFUL)
    {
     EUGENEGDK::Halt("Can't change video mode");
    }
