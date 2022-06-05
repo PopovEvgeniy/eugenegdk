@@ -264,6 +264,9 @@ typedef enum
   double v;
  } Point;
 
+ double get_start_offset(const double current,const double total);
+ double get_end_offset(const double current,const double total);
+
  template <class DATA_TYPE>
  class Buffer
  {
@@ -408,8 +411,6 @@ typedef enum
    unsigned int current_y;
    double horizontal_mirror;
    double vertical_mirror;
-   double get_start_offset(const double current,const double total);
-   double get_end_offset(const double current,const double total);
    protected:
    Vertex vertex[4];
    Point point[4];
@@ -519,8 +520,8 @@ typedef enum
    bool read_configuration();
    bool read_state();
    void clear_state();
-   bool check_current_state(const unsigned int button) const;
-   bool check_preversion_state(const unsigned int button) const;
+   bool check_current_state(const unsigned long int button) const;
+   bool check_preversion_state(const unsigned long int button) const;
    public:
    Gamepad();
    ~Gamepad();

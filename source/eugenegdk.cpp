@@ -489,6 +489,16 @@ namespace EUGENEGDK
  namespace Core
  {
 
+  double get_start_offset(const double current,const double total)
+  {
+   return (1.0/total)*(current-1.0);
+  }
+
+  double get_end_offset(const double current,const double total)
+  {
+   return (1.0/total)*current;
+  }
+
   Unicode_Convertor::Unicode_Convertor()
   {
    target.set_length(0);
@@ -687,16 +697,6 @@ namespace EUGENEGDK
 
   }
 
-  double Shape::get_start_offset(const double current,const double total)
-  {
-   return (1.0/total)*(current-1.0);
-  }
-
-  double Shape::get_end_offset(const double current,const double total)
-  {
-   return (1.0/total)*current;
-  }
-
   void Shape::set_data()
   {
    vertex[0].x=current_x;
@@ -749,38 +749,38 @@ namespace EUGENEGDK
 
   void Shape::set_horizontal_offset(const double current,const double total)
   {
-   point[0].u=this->get_start_offset(current,total);
+   point[0].u=Core::get_start_offset(current,total);
    point[0].v=1.0;
-   point[1].u=this->get_end_offset(current,total);
+   point[1].u=Core::get_end_offset(current,total);
    point[1].v=1.0;
-   point[2].u=this->get_end_offset(current,total);
+   point[2].u=Core::get_end_offset(current,total);
    point[2].v=0.0;
-   point[3].u=this->get_start_offset(current,total);
+   point[3].u=Core::get_start_offset(current,total);
    point[3].v=0.0;
   }
 
   void Shape::set_vertical_offset(const double current,const double total)
   {
    point[0].u=0.0;
-   point[0].v=this->get_end_offset(current,total);
+   point[0].v=Core::get_end_offset(current,total);
    point[1].u=1.0;
-   point[1].v=this->get_end_offset(current,total);
+   point[1].v=Core::get_end_offset(current,total);
    point[2].u=1.0;
-   point[2].v=this->get_start_offset(current,total);
+   point[2].v=Core::get_start_offset(current,total);
    point[3].u=0.0;
-   point[3].v=this->get_start_offset(current,total);
+   point[3].v=Core::get_start_offset(current,total);
   }
 
   void Shape::set_tile_offset(const double row,const double rows,const double column,const double columns)
   {
-   point[0].u=this->get_start_offset(row,rows);
-   point[0].v=this->get_end_offset(column,columns);
-   point[1].u=this->get_end_offset(row,rows);
-   point[1].v=this->get_end_offset(column,columns);
-   point[2].u=this->get_end_offset(row,rows);
-   point[2].v=this->get_start_offset(column,columns);
-   point[3].u=this->get_start_offset(row,rows);
-   point[3].v=this->get_start_offset(column,columns);
+   point[0].u=Core::get_start_offset(row,rows);
+   point[0].v=Core::get_end_offset(column,columns);
+   point[1].u=Core::get_end_offset(row,rows);
+   point[1].v=Core::get_end_offset(column,columns);
+   point[2].u=Core::get_end_offset(row,rows);
+   point[2].v=Core::get_start_offset(column,columns);
+   point[3].u=Core::get_start_offset(row,rows);
+   point[3].v=Core::get_start_offset(column,columns);
   }
 
   void Shape::invert_horizontal_mirror()
@@ -1195,12 +1195,12 @@ namespace EUGENEGDK
    preversion=current;
   }
 
-  bool Gamepad::check_current_state(const unsigned int button) const
+  bool Gamepad::check_current_state(const unsigned long int button) const
   {
    return (current.dwButtons&button)!=0;
   }
 
-  bool Gamepad::check_preversion_state(const unsigned int button) const
+  bool Gamepad::check_preversion_state(const unsigned long int button) const
   {
    return (preversion.dwButtons&button)!=0;
   }
