@@ -472,14 +472,10 @@ namespace EUGENEGDK
   bool WINGL::is_render_accelerated() const
   {
    bool accelerated;
-   accelerated=false;
-   if ((this->check_flag(PFD_GENERIC_FORMAT)==false)&&(this->check_flag(PFD_GENERIC_ACCELERATED)==false))
+   accelerated=(this->check_flag(PFD_GENERIC_FORMAT)==false) && (this->check_flag(PFD_GENERIC_ACCELERATED)==false);
+   if (accelerated==false)
    {
-    accelerated=true;
-   }
-   else
-   {
-    accelerated=(this->check_flag(PFD_GENERIC_FORMAT)==true)&&(this->check_flag(PFD_GENERIC_ACCELERATED)==true);
+    accelerated=(this->check_flag(PFD_GENERIC_FORMAT)==true) && (this->check_flag(PFD_GENERIC_ACCELERATED)==true);
    }
    return accelerated;
   }
@@ -1024,10 +1020,7 @@ namespace EUGENEGDK
    accept=false;
    if (preversion.get_buffer()!=NULL)
    {
-    if (Keys[code]==state)
-    {
-     accept=preversion[code]!=state;
-    }
+    accept=(Keys[code]==state) && (preversion[code]!=state);
     preversion[code]=Keys[code];
    }
    return accept;
@@ -1094,11 +1087,7 @@ namespace EUGENEGDK
   bool Mouse::check_state(const EUGENEGDK::MOUSE_BUTTON button,const unsigned char state)
   {
    bool accept;
-   accept=false;
-   if (Buttons[button]==state)
-   {
-    accept=preversion[button]!=state;
-   }
+   accept=(Buttons[button]==state) && (preversion[button]!=state);
    preversion[button]=Buttons[button];
    return accept;
   }
