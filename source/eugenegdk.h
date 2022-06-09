@@ -241,7 +241,7 @@ typedef enum
    protected:
    void set_render(HDC target,const unsigned long int color);
    void Swap();
-   bool is_render_accelerated() const;
+   bool is_software_render() const;
    public:
    WINGL();
    ~WINGL();

@@ -469,15 +469,9 @@ namespace EUGENEGDK
    SwapBuffers(device);
   }
 
-  bool WINGL::is_render_accelerated() const
+  bool WINGL::is_software_render() const
   {
-   bool accelerated;
-   accelerated=(this->check_flag(PFD_GENERIC_FORMAT)==false) && (this->check_flag(PFD_GENERIC_ACCELERATED)==false);
-   if (accelerated==false)
-   {
-    accelerated=(this->check_flag(PFD_GENERIC_FORMAT)==true) && (this->check_flag(PFD_GENERIC_ACCELERATED)==true);
-   }
-   return accelerated;
+   return (this->check_flag(PFD_GENERIC_FORMAT)==true) && (this->check_flag(PFD_GENERIC_ACCELERATED)==false);
   }
 
  }
@@ -965,7 +959,7 @@ namespace EUGENEGDK
    glFrontFace(GL_CCW);
    glCullFace(GL_BACK);
    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-   glAlphaFunc(GL_GREATER,0.1);
+   glAlphaFunc(GL_GREATER,0.1f);
    glClearColor(0.0,0.0,0.0,0.0);
   }
 
@@ -1657,7 +1651,7 @@ namespace EUGENEGDK
 
   bool Screen::is_accelerated() const
   {
-   return Internal::WINGL::is_render_accelerated();
+   return Internal::WINGL::is_software_render()==false;
   }
 
   unsigned long int Screen::get_color() const
