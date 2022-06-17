@@ -207,7 +207,7 @@ namespace EUGENEGDK
 
   void Display::get_video_mode()
   {
-   if (EnumDisplaySettings(NULL,ENUM_CURRENT_SETTINGS,&display)==FALSE)
+   if (EnumDisplaySettingsEx(NULL,ENUM_CURRENT_SETTINGS,&display,EDS_RAWMODE)==FALSE)
    {
     EUGENEGDK::Halt("Can't get display setting");
    }
@@ -2830,7 +2830,7 @@ namespace EUGENEGDK
   {
    if (video!=NULL)
    {
-    video->put_FullScreenMode(-1);
+    video->put_FullScreenMode(OATRUE);
    }
 
   }

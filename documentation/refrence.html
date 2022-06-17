@@ -20,8 +20,9 @@
           <li><a href="#mozTocId336772">Chapter 4. System requirements</a></li>
           <li><a href="#mozTocId928115">Chapter 5. Trouble guide</a></li>
           <li><a href="#mozTocId491993">Chapter 6. Compilers</a></li>
-          <li><a href="#mozTocId914689">Chapter 7. The engine name-space</a></li>
-          <li><a href="#mozTocId417277">Chapter 8. Custom date types</a></li>
+          <li><a href="#mozTocId56069">Chapter 7. Platform specific notes</a></li>
+          <li><a href="#mozTocId914689">Chapter 8. The engine name-space</a></li>
+          <li><a href="#mozTocId417277">Chapter 9. Custom date types</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId859712">Part 2. Base things</a>
@@ -54,7 +55,7 @@
       </li>
       <li><a href="#mozTocId209024">Part 5. Misc</a>
         <ul>
-          <li><a href="#mozTocId820088">Chapter 1. Filesystem</a></li>
+          <li><a href="#mozTocId608755">Chapter 1. Filesystem</a></li>
           <li><a href="#mozTocId59386">Chapter 2. Interaction with operation
               system</a></li>
           <li><a href="#mozTocId573582">Chapter 3. Resource manager</a></li>
@@ -230,7 +231,7 @@
         <tr>
           <td colspan="1" rowspan="2" style="vertical-align: top;"><big>Processor
               </big></td>
-          <td style="vertical-align: top;"><big>Intel Pentium III 600 mhz for 32
+          <td style="vertical-align: top;"><big>Intel Pentium Pro 200 mhz for 32
               bit system </big></td>
         </tr>
         <tr>
@@ -281,27 +282,19 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <li><big>C++ Builder 10.4 Sydney</big></li>
       <li><big>C++ Builder 11 Alexandria</big></li>
     </ul>
-    <big><br>
-      <span style="text-decoration: underline;">Windows 2000 support</span><br>
+    <h2><a class="mozTocH2" name="mozTocId56069"></a><big>Chapter 7. Platform
+        specific notes</big></h2>
+    <big>
+      <span style="text-decoration: underline;">Old processor support</span><br>
       <br>
-      &nbsp;You need Open Watcom 1.9 or Open Watcom V2 Fork for Windows 2000
+      You need Open Watcom 1.9 or Open Watcom V2 Fork for old processors
       support.<br>
       <br>
-    </big>
-    <ul>
-    </ul>
-    <big><span style="text-decoration: underline;"></span> <span style="text-decoration: underline;">Windows
-        XP support</span><br>
+      <span style="text-decoration: underline;">Old version of Windows support</span><br>
       <br>
-      &nbsp;You need one of these compilers for Windows XP support:<br>
-      <br>
-    </big>
-    <ul>
-      <li><big>TDM-GCC</big></li>
-      <li><big>MINGW-w64</big></li>
-      <li><big>Visual C++ 2008</big></li>
-    </ul>
-    <big> <br>
+      You need Open Watcom 1.9 or Open Watcom V2 Fork for Windows 2000 support.<br>
+      You need TDM-GCC or Visual C++ 2008 for Windows XP support.<br>
+    </big><big><br>
       <span style="text-decoration: underline;">Compiler optimization</span><br>
       <br>
       Disable all compiler optimization. It needs for correct work. See
@@ -336,12 +329,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </ul>
     <big><br>
       See documentation of the compiler for more information about linking. </big>
-    <h2><a class="mozTocH2" name="mozTocId914689"></a><big>Chapter 7. The engine
+    <h2><a class="mozTocH2" name="mozTocId914689"></a><big>Chapter 8. The engine
         name-space</big></h2>
     <big><span style="font-style: italic;">EUGENEGDK</span> is main name-space.</big><big>
       All the engine classes declared in few nested namespaces.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId417277"></a><big>Chapter 8. Custom
+    <h2><a class="mozTocH2" name="mozTocId417277"></a><big>Chapter 9. Custom
         date types</big></h2>
     <big>Almost all custom data types declared in <span style="font-style: italic;">EUGENEGDK</span>
       namespace.<br>
@@ -376,7 +369,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video-card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -408,7 +400,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         unsigned int width,</span></big><big><span style="font-style: italic;">const
         unsigned int heigt</span></big><big><span style="font-style: italic;">);</span>
       – Initialize the base graphic subsystem with custom screen resolution.</big><big><span
-
         style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Screen::sync();</span> – Show
       current back-buffer content on screen. Return false if a game is
@@ -1011,9 +1002,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       collision related information from the object properties.</big><big><br>
     </big>
     <h1><a class="mozTocH1" name="mozTocId209024"></a><big>Part 5. Misc</big></h1>
-    <h2><a class="mozTocH2" name="mozTocId820088"></a><big>Chapter 1. Filesystem</big></h2>
-    <big> Filesystem subsystem implement as two simple function. All these
-      function declared in <span style="font-style: italic;">Filesystem</span>
+    <h2><a class="mozTocH2" name="mozTocId608755"></a><big>Chapter 1. Filesystem</big></h2>
+    <big><br>
+      Filesystem subsystem implement as two simple function. All these function
+      declared in <span style="font-style: italic;">Filesystem</span>
       sub-namespace.<br>
       <br>
       <span style="font-style: italic;">file_exist</span> function check the
@@ -1023,8 +1015,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       target file.<br>
       <br>
       All function takes target file name as argument and return false if the
-      operation failed.<br>
-    </big>
+      operation failed.</big><br>
+    <big> </big>
     <h2><a class="mozTocH2" name="mozTocId59386"></a><big>Chapter 2. Interaction
         with operation system</big></h2>
     <big>Operation system</big><big> interaction module implement as two simple
@@ -1042,7 +1034,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       random number generator. It don't takes arguments.<br>
       <br>
       <span style="font-style: italic;">get_random</span> function return a
-      random value between zero and maximum. It takes the maximum as argument.<br>
+      random value between zero and maximum. It takes the maximum as argument.<span
+        style="font-style: italic;"></span><br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId573582"></a><big>Chapter 3. Resource
         manager</big></h2>
@@ -1748,7 +1741,6 @@ Multimedia API</a>. </big>
           predefined constants. You can see it bellow.</big></p>
       <big> </big>
       <table style="text-align: left; width: 519px; height: 94px;" cellspacing="2"
-
         cellpadding="2" border="1">
         <tbody>
           <tr>
@@ -1996,7 +1988,7 @@ Multimedia API</a>. </big>
         4.9.3 – 4.9.4 – Small changes.<br>
         4.9.5 – Keyboard input improved.<br>
         4.9.6 – Mouse input improved.<br>
-        4.9.7 – 5.0.2 – Small changes.<br>
+        4.9.7 – 5.0.8 – Small changes.<br>
       </big></span>
   </body>
 </html>

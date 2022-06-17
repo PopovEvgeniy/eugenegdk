@@ -47,6 +47,11 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
   #pragma warning(disable : 4996)
 #endif
 
+#if defined __WATCOMC__
+  #define WINVER 0x0500
+  #define OATRUE -1
+#endif
+
 #if !defined __GNUC__
  #pragma comment(lib,"kernel32.lib")
  #pragma comment(lib,"user32.lib")
