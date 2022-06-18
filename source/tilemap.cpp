@@ -3,7 +3,6 @@
 int main()
 {
  EUGENEGDK::Graphics::Screen screen;
- EUGENEGDK::Graphics::Sprite font;
  EUGENEGDK::Graphics::Text text;
  EUGENEGDK::Graphics::Image image;
  EUGENEGDK::Graphics::Tileset tilemap;
@@ -12,9 +11,8 @@ int main()
  keyboard.initialize();
  screen.initialize();
  image.load_tga("font.tga");
- font.load_sprite(image,EUGENEGDK::HORIZONTAL_STRIP,256);
- text.load_font(font);
- text.set_position(0,0);
+ text.load_font(image);
+ text.set_position(text.get_font_width(),text.get_font_height());
  image.load_tga("grass.tga");
  tilemap.load_tileset(image,6,3);
  while (screen.sync())

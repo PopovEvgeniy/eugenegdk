@@ -1855,11 +1855,15 @@ namespace EUGENEGDK
   void Picture::load_image(Image *buffer)
   {
    this->destroy_image();
-   if (buffer->get_length()>0)
+   if (buffer!=NULL)
    {
-    this->set_image_size(buffer->get_width(),buffer->get_height());
-    this->create_storage();
-    memcpy(image.get_buffer(),buffer->get_data(),buffer->get_length());
+    if (buffer->get_length()>0)
+    {
+     this->set_image_size(buffer->get_width(),buffer->get_height());
+     this->create_storage();
+     memcpy(image.get_buffer(),buffer->get_data(),buffer->get_length());
+    }
+
    }
 
   }
@@ -2685,79 +2689,105 @@ namespace EUGENEGDK
   {
    current_x=0;
    current_y=0;
-   font=NULL;
+   text_x=0;
+   text_y=0;
+   font_width=0;
+   font_height=0;
+   amount=16;
+   rectangle.set_size(0,0);
   }
 
   Text::~Text()
   {
+   rectangle.destroy_texture();
+  }
 
+  double Text::get_row(const unsigned int target) const
+  {
+   return static_cast<double>(target%amount)+1.0;
+  }
+
+  double Text::get_column(const unsigned int target) const
+  {
+   return static_cast<double>(target/amount)+1.0;
   }
 
   void Text::increase_position()
   {
-   font->increase_x(font->get_width());
+   text_x+=font_width;
   }
 
   void Text::restore_position()
   {
-   font->set_position(current_x,current_y);
+   text_x=current_x;
+   text_y=current_y;
   }
 
-  void Text::print_character(const char target)
+  void Text::print_character(const unsigned int target)
   {
-   font->set_target(static_cast<unsigned char>(target)+1);
-   font->draw_sprite();
+   rectangle.set_size(font_width,font_height);
+   rectangle.set_position(text_x,text_y);
+   rectangle.set_tile_offset(this->get_row(target),static_cast<double>(amount),this->get_column(target),static_cast<double>(amount));
+   rectangle.enable_transparent();
+   rectangle.draw();
   }
 
-  void Text::print_text(const char *text)
+  unsigned int Text::get_font_width() const
+  {
+   return font_width;
+  }
+
+  unsigned int Text::get_font_height() const
+  {
+   return font_height;
+  }
+
+  void Text::set_position(const unsigned int x,const unsigned int y)
+  {
+   current_x=x;
+   current_y=y;
+   text_x=current_x;
+   text_y=current_y;
+  }
+
+  void Text::set_size(const unsigned int width,const unsigned int height)
+  {
+   font_width=width;
+   font_height=height;
+  }
+
+  void Text::load_font(Image *font)
+  {
+   this->load_image(font);
+   if (this->is_storage_empty()==false)
+   {
+    rectangle.set_total_size(this->get_image_width(),this->get_image_height());
+    rectangle.prepare(this->get_image());
+    font_width=this->get_image_width()/amount;
+    font_height=this->get_image_height()/amount;
+   }
+
+  }
+
+  void Text::load_font(Image &font)
+  {
+   this->load_font(font.get_handle());
+  }
+
+  void Text::draw_character(const char target)
+  {
+   this->print_character(static_cast<unsigned char>(target));
+  }
+
+  void Text::draw_text(const char *text)
   {
    size_t index,length;
    length=strlen(text);
    this->restore_position();
    for (index=0;index<length;++index)
    {
-    this->print_character(text[index]);
+    this->draw_character(text[index]);
     this->increase_position();
-   }
-
-  }
-
-  void Text::set_position(const unsigned int x,const unsigned int y)
-  {
-   font->set_position(x,y);
-   current_x=x;
-   current_y=y;
-  }
-
-  void Text::load_font(Sprite *target)
-  {
-   if (target!=NULL)
-   {
-    font=target;
-    font->set_setting(HORIZONTAL_STRIP,256);
-   }
-
-  }
-
-  void Text::load_font(Sprite &target)
-  {
-   this->load_font(target.get_handle());
-  }
-
-  void Text::draw_character(const char target)
-  {
-   if (font!=NULL)
-   {
-    this->print_character(target);
-   }
-
-  }
-
-  void Text::draw_text(const char *text)
-  {
-   if (font!=NULL)
-   {
-    this->print_text(text);
    }
 
   }

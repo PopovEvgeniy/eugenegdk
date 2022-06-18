@@ -39,9 +39,9 @@
           <li><a href="#mozTocId501089">Chapter 4. Animation subsystem</a></li>
           <li><a href="#mozTocId455894"> Chapter 5. Background</a></li>
           <li><a href="#mozTocId662651"> Chapter 6. Sprites</a></li>
-          <li><a href="#mozTocId367464">Chapter 7. Text</a></li>
-          <li><a href="#mozTocId146800">Chapter 8. Tile-set</a></li>
-          <li><a href="#mozTocId67980">Chapter 9. Loading images</a></li>
+          <li><a href="#mozTocId146800">Chapter 7. Tile-set</a></li>
+          <li><a href="#mozTocId67980">Chapter 8. Loading images</a></li>
+          <li><a href="#mozTocId369262">Chapter 9. Text</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId64443">Part 4. Common things</a>
@@ -284,8 +284,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </ul>
     <h2><a class="mozTocH2" name="mozTocId56069"></a><big>Chapter 7. Platform
         specific notes</big></h2>
-    <big>
-      <span style="text-decoration: underline;">Old processor support</span><br>
+    <big> <span style="text-decoration: underline;">Old processor support</span><br>
       <br>
       You need Open Watcom 1.9 or Open Watcom V2 Fork for old processors
       support.<br>
@@ -714,42 +713,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="text-decoration: underline;">Sprite texture</span><br>
       <br>
       Sprite don't draw if sprite texture don't exist. Sprite texture will
-      automatically when load or clone sprite.<br>
-    </big>
-    <h2><a class="mozTocH2" name="mozTocId367464"></a><big>Chapter 7. Text</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;">How draw a text?</span><br>
-      <br>
-      Just use text subsystem for draw a text. This subsystem need a font for
-      text drawing. You must load a font before start draw the text. The font is
-      just horizontal strip with 256 frames.<br>
-      <br style="text-decoration: underline;">
-      <span style="text-decoration: underline;">Valid characters</span><br>
-      <br>
-      Characters from 8-bit code-pages are supported. Unicode don’t supported.<br>
-      <br style="text-decoration: underline;">
-      <span style="text-decoration: underline;">Work with text</span><br>
-      <br>
-      <span style="font-style: italic;">Text</span> class provide simple
-      interface to text subsystem. Let’s look to public methods.<br>
-      <br>
-      <span style="font-style: italic;">void Text::set_position(const unsigned
-        int x,const unsigned int y);</span> – Set output position.<br>
-      <span style="font-style: italic;">void Text::load_font(Sprite *font);</span>
-      – Load a font.<br>
-      <span style="font-style: italic;">void Text::load_font(Sprite &amp;font);</span>
-      – Load a font.<br>
-      <span style="font-style: italic;">void Text::draw_character(const char
-        target);</span> – Draw single character at current position.<br>
-      <span style="font-style: italic;">void Text::draw_text(const char *text);</span>
-      – Draw text at current position.<br>
-      <span style="font-style: italic;">void Text::draw_character(const unsigned
-        int x,const unsigned int y,const char target);</span> – Draw single
-      character at specific position.<br>
-      <span style="font-style: italic;">void Text::draw_text(const unsigned int
-        x,const unsigned int y,const char *text);</span> – Draw text at specific
-      position. </big>
-    <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 8. Tile-set</big></h2>
+      automatically when load or clone sprite.</big><big> </big>
+    <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 7. Tile-set</big></h2>
     <big><br>
       <span style="text-decoration: underline;">Some words about complex
         backgrounds</span><br>
@@ -762,14 +727,13 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="text-decoration: underline;">Rows and columns</span><br>
       <br>
-      First row index is 0. Last row index is row amount-1. First column index
-      is 0. Last column index is column amount-1.<br>
+      First row index is 1. First column index is 1.<br>
       <br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Work with tile-set subsystem</span><br>
       <br>
       <span style="font-style: italic;">Tileset</span> class provide access to
-      the tile-set subsystem. It is derived from Picture class. Let’s look on
-      public methods.<br>
+      the tile-set subsystem. It is derived from <span style="font-style: italic;">Picture</span>
+      class. Let’s look on public methods.<br>
       <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">unsigned int Tileset::get_tile_width()
         const;</span> – Return tile width in pixels.<br>
@@ -814,7 +778,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       automatically create after call <span style="font-style: italic;">load_tileset</span>
       method.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 9. Loading
+    <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 8. Loading
         images</big></h2>
     <big> <span style="text-decoration: underline;">Load a image from a files</span><br>
       <br>
@@ -852,6 +816,48 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       You can use wide range of graphics software for convert you images to
       correct format. I recommend use <a href="https://www.gimp.org">GIMP</a>
       for do it. It is powerful open source and cross-platform image editor.<br>
+      <br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId369262"></a><big>Chapter 9. Text</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">How draw a text?</span><br>
+      <br>
+      Just use text subsystem for draw a text. This subsystem need a font for
+      text drawing. You must load a font before start draw the text. The font
+      is just tile-set with 16 rows and 16 columns.<br>
+      <br>
+      <span style="text-decoration: underline;">Valid characters</span><br>
+      <br>
+      Characters from 8-bit code-pages are supported. Unicode don’t supported.<br>
+      <br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Work with text</span><br>
+      <br>
+      <span style="font-style: italic;">Text</span> class provide simple
+      interface to text subsystem. It is derived from <span style="font-style: italic;">Picture</span>
+      class. Let’s look to public methods.<br>
+      <br>
+      <span style="font-style: italic;">unsigned int Text::get_font_width()
+        const;</span> – Get current font width in pixels.<br>
+      <span style="font-style: italic;">unsigned int Text::get_font_height()
+        const;</span> – Get current font height in pixels.<br style="font-style: italic;">
+      <span style="font-style: italic;">void Text::set_position(const unsigned
+        int x,const unsigned int y);</span> – Set output position.<br>
+      <span style="font-style: italic;">void Text::set_size(const unsigned int
+        width,const unsigned int height);</span> – Change the font size.<br>
+      <span style="font-style: italic;">void Text::load_font(Image *font); –
+        Load a font.</span><br>
+      <span style="font-style: italic;">void Text::load_font(Image &amp;font); –
+        Load a font.</span><br>
+      <span style="font-style: italic;">void Text::draw_character(const char
+        target); – Draw single character at current position.</span><br>
+      <span style="font-style: italic;">void Text::draw_text(const char *text);
+        – Draw text at current position.</span><br>
+      <span style="font-style: italic;">void Text::draw_character(const unsigned
+        int x,const unsigned int y,const char target);</span> – Draw single
+      character at specific position.<br>
+      <span style="font-style: italic;">void Text::draw_text(const unsigned int
+        x,const unsigned int y,const char *text);</span> – Draw text at specific
+      position.<br>
     </big>
     <h1><a class="mozTocH1" name="mozTocId64443"></a><big>Part 4. Common things</big></h1>
     <h2><a class="mozTocH2" name="mozTocId597525"></a><big>Chapter 1. The
@@ -1149,8 +1155,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </big>
     <p><big> You can see list of scan-codes bellow.</big></p>
     <big> </big>
-    <table style="text-align: left; width: 100%;" cellspacing="2" cellpadding="2"
-      border="1">
+    <table style="text-align: left; width: 683px; height: 874px;" cellspacing="2"
+      cellpadding="2" border="1">
       <tbody>
         <tr>
           <td style="vertical-align: top;"><big>Key </big></td>
@@ -1989,6 +1995,10 @@ Multimedia API</a>. </big>
         4.9.5 – Keyboard input improved.<br>
         4.9.6 – Mouse input improved.<br>
         4.9.7 – 5.0.8 – Small changes.<br>
+        5.0.9 – 5.2 – Experimental branch.<br>
+        5.2.1 – Small changes.<br>
+        5.2.2 – Text drawing subsystem improved.<br>
+        5.2.3 – 5.2.4 – Small changes.<br>
       </big></span>
   </body>
 </html>

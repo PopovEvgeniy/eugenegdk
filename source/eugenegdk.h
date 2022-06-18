@@ -799,22 +799,31 @@ typedef enum
    void load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount);
   };
 
-  class Text
+  class Text:public Picture
   {
    private:
+   unsigned int amount;
+   unsigned int text_x;
+   unsigned int text_y;
+   unsigned int font_width;
+   unsigned int font_height;
    unsigned int current_x;
    unsigned int current_y;
-   Sprite *font;
+   Core::Rectangle rectangle;
+   double get_row(const unsigned int target) const;
+   double get_column(const unsigned int target) const;
    void increase_position();
    void restore_position();
-   void print_character(const char target);
-   void print_text(const char *text);
+   void print_character(const unsigned int target);
    public:
    Text();
    ~Text();
+   unsigned int get_font_width() const;
+   unsigned int get_font_height() const;
    void set_position(const unsigned int x,const unsigned int y);
-   void load_font(Sprite *target);
-   void load_font(Sprite &target);
+   void set_size(const unsigned int width,const unsigned int height);
+   void load_font(Image *font);
+   void load_font(Image &font);
    void draw_character(const char target);
    void draw_text(const char *text);
    void draw_character(const unsigned int x,const unsigned int y,const char target);

@@ -11,7 +11,7 @@ int main()
  EUGENEGDK::Graphics::Screen screen;
  EUGENEGDK::Graphics::Image image;
  EUGENEGDK::Graphics::Background space;
- EUGENEGDK::Graphics::Sprite ship,font;
+ EUGENEGDK::Graphics::Sprite ship;
  EUGENEGDK::Graphics::Text text;
  EUGENEGDK::Tools::enable_logging("log.txt");
  keyboard.initialize();
@@ -23,9 +23,8 @@ int main()
  ship.load_sprite(image,EUGENEGDK::HORIZONTAL_STRIP,2);
  ship.set_position(screen.get_width()/2,screen.get_height()/2);
  image.load_tga("font.tga");
- font.load_sprite(image,EUGENEGDK::HORIZONTAL_STRIP,256);
- text.load_font(font);
- text.set_position(font.get_width(),font.get_width());
+ text.load_font(image);
+ text.set_position(text.get_font_width(),text.get_font_height());
  mouse.hide();
  timer.set_timer(1);
  media.initialize();
