@@ -3171,6 +3171,11 @@ namespace EUGENEGDK
    return rand()%(number+1);
   }
 
+  unsigned int get_texture_size()
+  {
+   return MAXIMUM_TEXTURE_SIZE;
+  }
+
  }
 
 }

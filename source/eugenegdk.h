@@ -905,6 +905,7 @@ typedef enum
   bool enable_logging(const char *name);
   void randomize();
   unsigned int get_random(const unsigned int number);
+  unsigned int get_texture_size();
  }
 
  namespace Resource
