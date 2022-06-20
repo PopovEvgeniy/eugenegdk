@@ -810,8 +810,6 @@ typedef enum
    unsigned int current_x;
    unsigned int current_y;
    Core::Rectangle rectangle;
-   double get_row(const unsigned int target) const;
-   double get_column(const unsigned int target) const;
    void increase_position();
    void restore_position();
    void print_character(const unsigned int target);

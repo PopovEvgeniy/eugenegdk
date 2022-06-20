@@ -2702,16 +2702,6 @@ namespace EUGENEGDK
    rectangle.destroy_texture();
   }
 
-  double Text::get_row(const unsigned int target) const
-  {
-   return static_cast<double>(target%amount)+1.0;
-  }
-
-  double Text::get_column(const unsigned int target) const
-  {
-   return static_cast<double>(target/amount)+1.0;
-  }
-
   void Text::increase_position()
   {
    text_x+=font_width;
@@ -2727,7 +2717,7 @@ namespace EUGENEGDK
   {
    rectangle.set_size(font_width,font_height);
    rectangle.set_position(text_x,text_y);
-   rectangle.set_tile_offset(this->get_row(target),static_cast<double>(amount),this->get_column(target),static_cast<double>(amount));
+   rectangle.set_tile_offset(static_cast<double>(target%amount)+1.0,static_cast<double>(amount),static_cast<double>(target/amount)+1.0,static_cast<double>(amount));
    rectangle.enable_transparent();
    rectangle.draw();
   }
