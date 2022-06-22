@@ -37,11 +37,12 @@
           <li><a href="#mozTocId552078">Chapter 2. Base graphics subsystem</a></li>
           <li><a href="#mozTocId289525">Chapter 3. Picture subsystem</a></li>
           <li><a href="#mozTocId501089">Chapter 4. Animation subsystem</a></li>
-          <li><a href="#mozTocId455894"> Chapter 5. Background</a></li>
-          <li><a href="#mozTocId662651"> Chapter 6. Sprites</a></li>
-          <li><a href="#mozTocId146800">Chapter 7. Tile-set</a></li>
-          <li><a href="#mozTocId67980">Chapter 8. Loading images</a></li>
-          <li><a href="#mozTocId369262">Chapter 9. Text</a></li>
+          <li><a href="#mozTocId738557">Chapter 5. Background</a></li>
+          <li><a href="#mozTocId309905">Chapter 6. Base sprite subsystem</a></li>
+          <li><a href="#mozTocId662651"> Chapter 7. Ordinary sprites</a></li>
+          <li><a href="#mozTocId146800">Chapter 8. Sprite sheet</a></li>
+          <li><a href="#mozTocId752257">Chapter 9. Text</a></li>
+          <li><a href="#mozTocId67980">Chapter 10. Loading images</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId64443">Part 4. Common things</a>
@@ -463,9 +464,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       animated sprite.<br>
       <span style="font-style: italic;">unsigned int Animation::get_frame()
         const;</span> – Return current frame in scrollable background or
-      animated sprite.<span style="font-style: italic;"> </span> </big>
-    <h2><a class="mozTocH2" name="mozTocId455894"></a><big> Chapter 5.
-        Background</big></h2>
+      animated sprite.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId738557"></a><big>Chapter 5. Background</big></h2>
     <big> <br>
       <span style="text-decoration: underline;">Level decoration</span><br>
       <br>
@@ -510,73 +511,148 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="text-decoration: underline;">Work with background</span><br>
       <br>
       Just use <span style="font-style: italic;">Background</span> class for
-      work with background. It is derived from <span style="font-style: italic;">Animation</span>
-      and <span style="font-style: italic;">Picture</span> classes. Let’s look
-      to public methods.<br>
-    </big><big><span style="font-style: italic;"></span><span style="font-style: italic;"><br>
-      </span></big><big><span style="font-style: italic;">void
-        Background::prepare(const Screen *screen);</span> – Prepare for drawing.<br>
+      work with background. Let’s look to public methods.<br>
+    </big><big><span style="font-style: italic;"></span><span style="font-style: italic;"></span></big><big><br>
+      <span style="font-style: italic;">void Background::prepare(const Screen
+        *screen);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::prepare(Screen
         &amp;screen);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
         unsigned int target);</span> – Set target frame in scrollable
-      background.<br style="font-style: italic;">
+      background.<br>
       <span style="font-style: italic;">void Background::step();</span> –
       Increase number of target frame in scrollable background. Set it to 1 if
-      number of target frame more than amount of frames.</big><br>
-    <big><i>void Background::set_setting(const EUGENEGDK::BACKGROUND_TYPE
-        kind,const unsigned int frames);</i> – Set background setting. Last
-      argument will ignored if background not scrollable.<br>
+      number of target frame more than amount of frames.<br>
       <span style="font-style: italic;">void Background::load_background(Image
-        *buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
-        frames);</span> – Load background and set background setting.<br>
+        *background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
+        frames);</span> – Load background. Last argument will ignored if
+      background not scrollable.<br>
       <span style="font-style: italic;">void Background::load_background(Image
-        *buffer);</span> – Load normal background.<br>
+        &amp;background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
+        frames);</span> – Load background. Last argument will ignored if
+      background not scrollable.<br>
       <span style="font-style: italic;">void Background::load_background(Image
-        &amp;buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
-        frames);</span> – Load background and set it setting.<br>
+        *background);</span> – Load normal background.<br>
       <span style="font-style: italic;">void Background::load_background(Image
-        &amp;buffer);</span> – Load normal background.<br>
+        &amp;background);</span> – Load normal background.<br>
       <span style="font-style: italic;">void Background::horizontal_mirror();</span>&nbsp;
       – Do horizontal background mirror.<br>
       <span style="font-style: italic;">void Background::vertical_mirror();</span>
       – Do vertical background mirror.<br>
       <span style="font-style: italic;">void Backgrround::complex_mirror();</span>
-      – Do both horizontal and vertical background mirror.</big><big><br>
+      – Do both horizontal and vertical background mirror.<br>
       <span style="font-style: italic;">void Background::draw_background();</span>
       – Draw a background.<br>
       <span style="font-style: italic;">void Background::destroy_background();</span>
-      – Destroy a background image and a background texture.<br>
-      <span style="font-style: italic;">EUGENEGDK::BACKGROUND_TYPE
-        Sprite::get_kind() const;</span>&nbsp; – Get background type.<br>
-      <span style="text-decoration: underline;"></span><br>
+      – Destroy a background.<br>
+      <span style="font-style: italic;">unsigned int Background::get_frame()
+        const;</span> – Return current frame in scrollable background.<br>
+      <span style="font-style: italic;">unsigned int Background::get_frames()
+        const;</span> – Return amount of frames in scrollable background.<br>
+      <br>
       <span style="text-decoration: underline;">Background texture</span><br>
       <br>
       Background don't draw if background texture don't exist. Background
-      texture will automatically create after call <span style="font-style: italic;">prepare</span>
-      <span style="font-style: italic;"></span> method.<br>
-    </big>
-    <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 6. Sprites</big></h2>
-    <big> <br>
-      <span style="text-decoration: underline;">Small important thing</span><br>
+      texture will automatically create after call <span style="font-style: italic;">load_background</span>
+      <span style="font-style: italic;"></span> method.</big><br>
+    <h2><a class="mozTocH2" name="mozTocId309905"></a><big>Chapter 6. Base
+        sprite subsystem</big></h2>
+    <big><br>
+    </big><big><span style="text-decoration: underline;">Small important thing</span><br>
       <br>
       A sprite is a transparent image. It is useful for many things: enemies,
       bonuses, etc…<br>
       <br>
-      <span style="text-decoration: underline;">Sprite types</span><br>
-      <br>
-      There are two kinds of sprites: normal sprites and strip.<br>
-      The strip is animated sprite. Do you remember analog camera? Strip look
-      like photo ribbon. Horizontal strip look like the horizontal orientated
-      photo ribbon. Vertical strip look like the vertical orientated photo
-      ribbon.<br>
-      <br>
-      <span style="text-decoration: underline;">Some words about sprite
+    </big><big><span style="text-decoration: underline;">Some words about sprite
         transparency</span><br>
       <br>
       Some pixel will be ignored. Ignored pixels have a transparent color. How
       to determinate it? The transparent color is color of first pixel.
       Transparent mode is enabled by default.<br>
+      <br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Work with base sprite subsystem</span><br
+        style="text-decoration: underline;">
+      <br>
+      <span style="font-style: italic;">Billboard</span> class provide simple
+      access to base sprite subsystem. Don’t use it directly. Let’s look to
+      public methods.<br>
+    </big><big><br>
+    </big><big> <span style="font-style: italic;">void
+        Billboard::set_transparent(const bool enabled);</span> – Enable or
+      disable transparent mode.<br>
+      <span style="font-style: italic;">bool Billboard::get_transparent() const;</span>
+      – Return true if transparent mode is enabled.<br>
+    </big><big><span style="font-style: italic;">void
+        Billboard::set_position(const unsigned int x, const unsigned int y);</span>
+      – Set sprite position.<br>
+      <span style="font-style: italic;">void Billboard::set_size(const unsigned
+        int width, const unsigned int height);</span> – Change the sprite size.</big><br>
+    <big> <span style="font-style: italic;">void Billboard::set_x(const
+        unsigned int x);</span> – Set x-coordinate of the sprite position.</big><br>
+    <big> <span style="font-style: italic;">void Billboard::set_y(const
+        unsigned int y);</span> – Set y-coordinate of the sprite position.</big><big><br>
+      <span style="font-style: italic;">void Billboard::set_width(const unsigned
+        int width);</span> – Change the sprite width.<br>
+      <span style="font-style: italic;">void Billboard::set_height(const
+        unsigned int height);</span> – Change the sprite height.</big><br>
+    <big><i>void Billboard::increase_x();</i> – Increase x-coordinate of the
+      current sprite position.</big><br>
+    <big><i>void Billboard::decrease_x();</i> – Decrease x-coordinate of the
+      current sprite position.</big><br>
+    <big><i>void Billboard::increase_y();</i> – Increase y-coordinate of the
+      current sprite position.</big><br>
+    <big><i>void Billboard::decrease_y();</i> – Decrease y-coordinate of the
+      current sprite position.</big><br>
+    <big><i>void Billboard::increase_x(const unsigned int increment);</i> –
+      Increase x-coordinate of the current sprite position with user-defined
+      increment.</big><br>
+    <big><i>void Billboard::decrease_x(const unsigned int decrement);</i> –
+      Decrease x-coordinate of the current sprite position with user-defined
+      decrement.</big><br>
+    <big><i>void Billboard::increase_y(const unsigned int increment);</i> –
+      Increase y-coordinate of the current sprite position with user-defined
+      increment.</big><br>
+    <big><i>void Billboard::decrease_y(const unsigned int decrement);</i> –
+      Decrease y-coordinate of the current sprite position with user-defined
+      decrement.</big><big><br>
+      <span style="font-style: italic;">unsigned int Billboard::get_x() const;</span>
+      – Return x-coordinate of the sprite position.<br>
+      <span style="font-style: italic;">unsigned int Billboard::get_y() const;</span>
+      – Return y-coordinate of the sprite position.<br>
+      <span style="font-style: italic;">unsigned int Billboard::get_width()
+        const;</span> – Return the width of the sprite.<br>
+      <span style="font-style: italic;">unsigned int Billboard::get_height()
+        const;</span> – Return the height of the sprite.<br>
+    </big><big><span style="font-style: italic;">EUGENEGDK::BOX
+        Billboard::get_box() const;</span> – Return collision related
+      information.</big><br>
+    <big><span style="font-style: italic;">void Billboard::horizontal_mirror();</span>
+      – Do horizontal sprite mirror.<br>
+      <span style="font-style: italic;">void Billboard::vertical_mirror();</span>
+      – Do vertical sprite mirror.<br>
+      <span style="font-style: italic;">void Billboard::complex_mirror();</span>
+      – Do both horizontal and vertical sprite mirror.<br>
+    </big><big><span style="font-style: italic;">void Billboard::draw_sprite();</span>
+      – Draw a sprite.</big><br>
+    <big> <span style="font-style: italic;">void Billboard::draw_sprite(const
+        unsigned int x, const unsigned int y);</span> – Set sprite position and
+      draw it.</big><br>
+    <big><i>void Billboard::draw_sprite(const bool transparency);</i> – Set
+      transparent mode and draw a sprite.</big><br>
+    <big><i>void Billboard::draw_sprite(const bool transparency,const unsigned
+        int x, const unsigned int y);</i> – Set transparent mode and draw a
+      sprite at target position.</big><big><span style="font-style: italic;"></span></big><br>
+    <big> </big>
+    <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 7. Ordinary
+        sprites</big></h2>
+    <big> <br>
+      <span style="text-decoration: underline;">Sprite types</span><br>
+      <br>
+      There are two kinds of ordinary sprites: normal sprites and strip. The
+      strip is animated sprite. Do you remember analog camera? <br>
+      Strip look like photo ribbon. Horizontal strip look like the horizontal
+      orientated photo ribbon.<br>
+      Vertical strip look like the vertical orientated photo ribbon.<br>
       <br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Sprite type flags</span><br>
     </big>
@@ -608,9 +684,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="text-decoration: underline;">Work with sprites</span><br>
       <br>
       Just use <span style="font-style: italic;">Sprites</span> class for work
-      with a sprite. It is derived from <span style="font-style: italic;">Animation</span>
-      and <span style="font-style: italic;">Picture</span> classes. Let’s look
-      to public methods.<br>
+      with a sprite. It is derived from threee&nbsp;<span style="font-style: italic;"></span>classes:
+      </big><big><span style="font-style: italic;">Billboard</span>,<span style="font-style: italic;">
+        Animation</span> and <span style="font-style: italic;">Picture</span></big><big>.
+      Let’s look to public methods.<br>
       <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">void Sprite::set_setting(const
         EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);</span> – Set
@@ -631,154 +708,125 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       number of target frame in strip. Set it to 1 if number of target frame
       more than amount of frames.<span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">EUGENEGDK::SPRITE_TYPE
-        Sprite::get_kind() const;</span> – Get sprite type.</big><br>
-    <big> <span style="font-style: italic;">void Sprite::set_transparent(const
-        bool enabled);</span> – Enable or disable transparent mode.<br>
-      <span style="font-style: italic;">bool Sprite::get_transparent() const;</span>
-      – Return true if transparent mode is enabled.<br>
-      <span style="font-style: italic;">void Sprite::set_x(const unsigned int
-        x);</span> – Set x-coordinate of the sprite position.</big><br>
-    <big> <span style="font-style: italic;">void Sprite::set_y(const unsigned
-        int y);</span> – Set y-coordinate of the sprite position.</big><br>
-    <big><i>void Sprite::increase_x();</i> – Increase x-coordinate of the
-      current sprite position.</big><br>
-    <big><i>void Sprite::decrease_x();</i> – Decrease x-coordinate of the
-      current sprite position.</big><br>
-    <big><i>void Sprite::increase_y();</i> – Increase y-coordinate of the
-      current sprite position.</big><br>
-    <big><i>void Sprite::decrease_y();</i> – Decrease y-coordinate of the
-      current sprite position.</big><br>
-    <big><i>void Sprite::increase_x(const unsigned int increment);</i> –
-      Increase x-coordinate of the current sprite position with user-defined
-      increment.</big><br>
-    <big><i>void Sprite::decrease_x(const unsigned int decrement);</i> –
-      Decrease x-coordinate of the current sprite position with user-defined
-      decrement.</big><br>
-    <big><i>void Sprite::increase_y(const unsigned int increment);</i> –
-      Increase y-coordinate of the current sprite position with user-defined
-      increment.</big><br>
-    <big><i>void Sprite::decrease_y(const unsigned int decrement);</i> –
-      Decrease y-coordinate of the current sprite position with user-defined
-      decrement.</big><big><br>
-      <span style="font-style: italic;">unsigned int Sprite::get_x() const;</span>
-      – Return x-coordinate of the sprite position.<br>
-      <span style="font-style: italic;">unsigned int Sprite::get_y() const;</span>
-      – Return y-coordinate of the sprite position.<br>
-      <span style="font-style: italic;">unsigned int Sprite::get_width() const;</span>
-      – Return the width of the sprite.<br>
-      <span style="font-style: italic;">unsigned int Sprite::get_height() const;</span>
-      – Return the height of the sprite.<br>
+        Sprite::get_kind() const;</span> – Get sprite type.</big><big><br>
       <span style="font-style: italic;">Sprite* Sprite::get_handle();</span> –
       Return the handle to sprite object.<br>
-      <span style="font-style: italic;">EUGENEGDK::BOX Sprite::get_box() const;</span>
-      – Return collision related information.<br>
       <span style="font-style: italic;">void Sprite::clone(Sprite *target);</span>
       – Create copy of exist sprite if the image storage of exist sprite is not
       empty.<br>
       <span style="font-style: italic;">void Sprite::clone(Sprite &amp;target);</span>
       – Create copy of exist sprite if the image storage of exist sprite is not
       empty.<br>
-      <span style="font-style: italic;">void Sprite::set_position(const unsigned
-        int x, const unsigned int y);</span> – Set sprite position.<br>
-      <span style="font-style: italic;">void Sprite::set_size(const unsigned int
-        width, const unsigned int height);</span> – Change the sprite size.<br>
-      <span style="font-style: italic;">void Sprite::set_width(const unsigned
-        int width);</span> – Change the sprite width.<br>
-      <span style="font-style: italic;">void Sprite::set_height(const unsigned
-        int height);</span> – Change the sprite height.<br>
-      <span style="font-style: italic;">void Sprite::horizontal_mirror();</span>
-      – Do horizontal sprite mirror.<br>
-      <span style="font-style: italic;">void Sprite::vertical_mirror();</span> –
-      Do vertical sprite mirror.<br>
-      <span style="font-style: italic;">void Sprite::complex_mirror();</span> –
-      Do both horizontal and vertical sprite mirror.<br>
       <span style="font-style: italic;">void Sprite::destroy_sprite();</span> –
-      Destroy a sprite image and a sprite texture.<br>
-      <span style="font-style: italic;"> </span></big><big><span style="font-style: italic;">void
-        Sprite::draw_sprite();</span> – Draw a sprite.</big><br>
-    <big> <span style="font-style: italic;">void Sprite::draw_sprite(const
-        unsigned int x, const unsigned int y);</span> – Set sprite position and
-      draw it.</big><br>
-    <big><i>void Sprite::draw_sprite(const bool transparency);</i> – Set
-      transparent mode and draw a sprite.</big><br>
-    <big><i>void Sprite::draw_sprite(const bool transparency,const unsigned int
-        x, const unsigned int y);</i> – Set transparent mode and draw a sprite
-      at target position.<br>
-      <span style="font-style: italic;">void Sprite::draw_sprite(const unsigned
-        int target);</span> – Set target frame in strip and draw a sprite.<br>
-      <span style="font-style: italic;">void Sprite::draw_sprite(const unsigned
-        int target,const unsigned int x, const unsigned int y);</span> – Set
-      target frame in strip and draw a sprite at target position.<br>
+      Destroy a sprite image and a sprite texture.<span style="font-style: italic;"></span></big><big><span
+
+        style="font-style: italic;"></span><br>
     </big> <big><br>
       <span style="text-decoration: underline;">Sprite texture</span><br>
       <br>
       Sprite don't draw if sprite texture don't exist. Sprite texture will
       automatically create when load or clone sprite.</big><big> </big>
-    <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 7. Tile-set</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 8. Sprite
+        sheet</big></h2>
     <big><br>
-      <span style="text-decoration: underline;">Some words about complex
-        backgrounds</span><br>
+      <span style="text-decoration: underline;">Some words about sprite sheet</span><br>
       <br>
-      Tile-set is very useful thing for constructing complex background. Tile is
-      a small non-transparent image. Each tile have fixed size. Tile-set is
-      matrix of tiles. Look to this picture for understand it.<br>
+      Sprite sheet is special kind of animated sprites. Each frame have fixed
+      size. Sprite sheet is matrix of frames. Look to this picture for
+      understand it.<br>
       <br>
-      <img style="width: 380px; height: 249px;" alt="" src="tileset.png"><br>
+      <img style="width: 380px; height: 249px;" alt="" src="sheet.png"><br>
       <br>
-      <span style="text-decoration: underline;">Rows and columns</span><br>
+      <span style="text-decoration: underline;">Matrix access to frame</span><br>
       <br>
       First row index is 1. First column index is 1.<br>
-      <br style="text-decoration: underline;">
-      <span style="text-decoration: underline;">Work with tile-set subsystem</span><br>
       <br>
-      <span style="font-style: italic;">Tileset</span> class provide access to
-      the tile-set subsystem. It is derived from <span style="font-style: italic;">Picture</span>
-      class. Let’s look on public methods.<br>
-      <span style="font-style: italic;"></span><br>
-      <span style="font-style: italic;">unsigned int Tileset::get_tile_width()
-        const;</span> – Return tile width in pixels.<br>
-      <span style="font-style: italic;">unsigned int Tileset::get_tile_height()
-        const;</span> – Return tile height in pixels.<br>
-      <span style="font-style: italic;">unsigned int Tileset::get_rows() const;</span>
+    </big><big><span style="text-decoration: underline;">Simple access to frame</span><br>
+      <br>
+      First frame index is 1. Last frame index is multiplication rows by
+      columns.<span style="font-family: Tahoma,Verdana,'Lucida Sans Unicode',sans-serif;"></span></big><span
+      class="Apple-style-span" style="border-collapse: separate; color: rgb(0, 0, 0); font-family: Arial; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-size: medium;"><span
+        class="Apple-style-span" style="font-family: Tahoma,Verdana,'Lucida Sans Unicode',sans-serif; font-size: 13px;"><span
+          class="Apple-converted-space"></span></span></span><br>
+    <big> <br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Work with sprite sheet subsystem</span><br>
+      <br>
+      <span style="font-style: italic;">Sheet</span> class provide access to the
+      sprite sheet subsystem. </big><big>It is derived from threee&nbsp;<span style="font-style: italic;"></span>classes:
+      </big><big><span style="font-style: italic;">Billboard</span>,<span style="font-style: italic;">
+        Animation</span> and <span style="font-style: italic;">Picture</span></big><big>.</big><big>
+      Let’s look on public methods.<br>
+      <span style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
+      <span style="font-style: italic;">unsigned int Sheet::get_rows() const;</span>
       – Return amount of rows.<br>
-      <span style="font-style: italic;">unsigned int Tileset::get_columns()
-        const;</span> – Return amount of columns.<span style="font-style: italic;"><br>
-      </span></big><big><span style="font-style: italic;">void
-        Tileset::set_tile_size(const unsigned int width, const unsigned int
-        height);</span> – Change the tile size.</big><br>
-    <big> <span style="font-style: italic;">void Tileset::select_tile(const
-        unsigned int row,const unsigned int column);</span> – Select target
-      tile.<br>
-      <span style="font-style: italic;">void Tileset::destroy_tileset();</span>
-      – Destroy a tile-set image and a tile-set texture.<br>
+      <span style="font-style: italic;">unsigned int Sheet::get_columns() const;</span>
+      – Return amount of columns.<span style="font-style: italic;"></span></big><big><span
+        style="font-style: italic;"></span></big><br>
+    <big> <span style="font-style: italic;">void Tileset::select(const unsigned
+        int row,const unsigned int column);</span> – Select target tile via row
+      and column.<br>
+    </big><big><span style="font-style: italic;">void Tileset::select(const
+        unsigned int target);</span> – Select target tile via frame number.<br>
+    </big><big><span style="font-style: italic;">void Sheet::step();</span> –
+      Increase number of target frame. Set it to 1 if number of target frame
+      more than amount of frames.</big><br>
+    <big> <span style="font-style: italic;">void Sheet::destroy_sheet();</span>
+      – Destroy a sprite sheet image and a sprite sheet texture.</big><big><span
+        style="font-style: italic;"></span></big><big><br>
     </big> <big> <span style="font-style: italic;">void
-        Tileset::draw_tile(const unsigned int x,const unsigned int y);</span> –
-      Draw selected tile at specific position.</big><br>
-    <big><i>void Tileset::draw_tile(const unsigned int row,const unsigned int
-        column,const unsigned int x,const unsigned int y);</i> – Draw target
-      tile at specific position.<br>
-      <span style="font-style: italic;">EUGENEGDK::BOX&nbsp;
-        Tileset::put_tile(const unsigned int x,const unsigned int y);</span> –
-      Draw selected tile at specific position and return collision related
-      information.<br>
-      <span style="font-style: italic;">EUGENEGDK::BOX Tileset::put_tile(const
-        unsigned int row,const unsigned int column,const unsigned int x,const
-        unsigned int y);</span> – Draw target tile at specific position and
-      return collision related information.<br>
-    </big> <big> <span style="font-style: italic;">void
-        Tileset::load_tileset(Image *buffer,const unsigned int row_amount,const
-        unsigned int column_amount);</span> – Load a tile-set.<br>
-      <span style="font-style: italic;">void Tileset::load_tileset(Image
-        &amp;buffer,const unsigned int row_amount,const unsigned int
-        column_amount);</span> – Load a tile-set.<br>
+        Sheet::load_tileset(Image *sheet,const unsigned int row_amount,const
+        unsigned int column_amount);</span> – Load a sprite sheet.<br>
+      <span style="font-style: italic;">void Sheet::load_tileset(Image
+        &amp;sheet,const unsigned int row_amount,const unsigned int
+        column_amount);</span> – Load a sprite sheet.<br>
       <br>
-      <span style="text-decoration: underline;">Tile-set texture</span><br>
+      <span style="text-decoration: underline;">Sprite sheet texture</span><br>
       <br>
-      Tile don't draw if tile-set texture don't exist. Tile-set texture will
-      automatically create after call <span style="font-style: italic;">load_tileset</span>
+      Sprite don't draw if sprite sheet texture don't exist. Sprite sheet
+      texture will automatically create after call <span style="font-style: italic;">load_sheet</span>
       method.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 8. Loading
+    <h2><a class="mozTocH2" name="mozTocId752257"></a><big>Chapter 9. Text</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">How draw a text?</span><br>
+      <br>
+      Just use text subsystem for draw a text. This subsystem need a font for
+      text drawing. You must load a font before start draw the text. The font is
+      just sprite sheet with 16 rows and 16 columns.<br>
+      <br>
+      <span style="text-decoration: underline;">Valid characters</span><br>
+      <br>
+      Characters from 8-bit code-pages are supported. Unicode don’t supported.<br>
+      <br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Work with text</span><br>
+      <br>
+      <span style="font-style: italic;">Text</span> class provide simple
+      interface to text subsystem. Let’s look to public methods.<br>
+      <br>
+      <span style="font-style: italic;">unsigned int Text::get_font_width()
+        const;</span> – Get current font width in pixels.<br>
+      <span style="font-style: italic;">unsigned int Text::get_font_height()
+        const;</span> – Get current font height in pixels.<br style="font-style: italic;">
+      <span style="font-style: italic;">void Text::set_position(const unsigned
+        int x,const unsigned int y);</span> – Set output position.<br>
+      <span style="font-style: italic;">void Text::set_size(const unsigned int
+        width,const unsigned int height);</span> – Change the font size.<br>
+      <span style="font-style: italic;">void Text::load_font(Image *font); –
+        Load a font.</span><br>
+      <span style="font-style: italic;">void Text::load_font(Image &amp;font); –
+        Load a font.</span><br>
+      <span style="font-style: italic;">void Text::draw_character(const char
+        target); – Draw single character at current position.</span><br>
+      <span style="font-style: italic;">void Text::draw_text(const char *text);
+        – Draw text at current position.</span><br>
+      <span style="font-style: italic;">void Text::draw_character(const unsigned
+        int x,const unsigned int y,const char target);</span> – Draw single
+      character at specific position.<br>
+      <span style="font-style: italic;">void Text::draw_text(const unsigned int
+        x,const unsigned int y,const char *text);</span> – Draw text at specific
+      position.</big><big><br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 10. Loading
         images</big></h2>
     <big> <span style="text-decoration: underline;">Load a image from a files</span><br>
       <br>
@@ -815,50 +863,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       You can use wide range of graphics software for convert you images to
       correct format. I recommend use <a href="https://www.gimp.org">GIMP</a>
-      for do it. It is powerful open source and cross-platform image editor.<br>
-      <br>
-    </big>
-    <h2><a class="mozTocH2" name="mozTocId369262"></a><big>Chapter 9. Text</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;">How draw a text?</span><br>
-      <br>
-      Just use text subsystem for draw a text. This subsystem need a font for
-      text drawing. You must load a font before start draw the text. The font is
-      just tile-set with 16 rows and 16 columns.<br>
-      <br>
-      <span style="text-decoration: underline;">Valid characters</span><br>
-      <br>
-      Characters from 8-bit code-pages are supported. Unicode don’t supported.<br>
-      <br style="text-decoration: underline;">
-      <span style="text-decoration: underline;">Work with text</span><br>
-      <br>
-      <span style="font-style: italic;">Text</span> class provide simple
-      interface to text subsystem. It is derived from <span style="font-style: italic;">Picture</span>
-      class. Let’s look to public methods.<br>
-      <br>
-      <span style="font-style: italic;">unsigned int Text::get_font_width()
-        const;</span> – Get current font width in pixels.<br>
-      <span style="font-style: italic;">unsigned int Text::get_font_height()
-        const;</span> – Get current font height in pixels.<br style="font-style: italic;">
-      <span style="font-style: italic;">void Text::set_position(const unsigned
-        int x,const unsigned int y);</span> – Set output position.<br>
-      <span style="font-style: italic;">void Text::set_size(const unsigned int
-        width,const unsigned int height);</span> – Change the font size.<br>
-      <span style="font-style: italic;">void Text::load_font(Image *font); –
-        Load a font.</span><br>
-      <span style="font-style: italic;">void Text::load_font(Image &amp;font); –
-        Load a font.</span><br>
-      <span style="font-style: italic;">void Text::draw_character(const char
-        target); – Draw single character at current position.</span><br>
-      <span style="font-style: italic;">void Text::draw_text(const char *text);
-        – Draw text at current position.</span><br>
-      <span style="font-style: italic;">void Text::draw_character(const unsigned
-        int x,const unsigned int y,const char target);</span> – Draw single
-      character at specific position.<br>
-      <span style="font-style: italic;">void Text::draw_text(const unsigned int
-        x,const unsigned int y,const char *text);</span> – Draw text at specific
-      position.<br>
-    </big>
+      for do it. It is powerful open source and cross-platform image editor.</big><br>
+    <big> </big>
     <h1><a class="mozTocH1" name="mozTocId64443"></a><big>Part 4. Common things</big></h1>
     <h2><a class="mozTocH2" name="mozTocId597525"></a><big>Chapter 1. The
         sub-namespace</big></h2>
@@ -2002,6 +2008,18 @@ Multimedia API</a>. </big>
         5.2.2 – Text drawing subsystem improved.<br>
         5.2.3 – 5.2.5 – Small changes.<br>
         5.2.6 – Changes in the engine API.<br>
+        5.2.7 – New subsystem added.<br>
+        5.2.8 – 5.2.9 – Sprite subsystem improved.<br>
+        5.3 – Base sprite subsystem improved.<br>
+        5.3.1 – 5.3.4 – Small changes.<br>
+        5.3.5 – New subsystem added.<br>
+        5.3.6 – Small changes.<br>
+        5.3.7 – Tile-set subsystem removed.<br>
+        5.3.8 – Small changes.<br>
+        5.3.9 – Sprite sheet subsystem improved.<br>
+        5.4 – 5.4.1 – Small changes.<br>
+        5.4.2 – 5.4.5 – Text drawing subsystem improved.<br>
+        5.4.6 – 5.5.2 – Background subsystem improved.<br>
       </big></span>
   </body>
 </html>

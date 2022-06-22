@@ -1958,159 +1958,270 @@ namespace EUGENEGDK
    return frame;
   }
 
-  Background::Background()
+  Billboard::Billboard()
   {
-   rectangle.set_size(0,0);
-   rectangle.set_position(0,0);
-   current_kind=EUGENEGDK::NORMAL_BACKGROUND;
+   billboard.set_size(0,0);
+   transparent=true;
+   current_x=0;
+   current_y=0;
+   sprite_width=0;
+   sprite_height=0;
   }
 
-  Background::~Background()
+  Billboard::~Billboard()
   {
-
+   billboard.destroy_texture();
   }
 
-  void Background::reset_background_setting()
+  void Billboard::check_transparent()
   {
-   current_kind=EUGENEGDK::NORMAL_BACKGROUND;
-  }
-
-  void Background::configure_background()
-  {
-   switch(current_kind)
+   if (transparent==true)
    {
-    case EUGENEGDK::HORIZONTAL_BACKGROUND:
-    rectangle.set_horizontal_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
-    break;
-    case EUGENEGDK::VERTICAL_BACKGROUND:
-    rectangle.set_vertical_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
-    break;
-    default:
-    rectangle.set_horizontal_offset(1.0,1.0);
-    break;
-   }
-
-  }
-
-  void Background::set_kind(const EUGENEGDK::BACKGROUND_TYPE kind)
-  {
-   current_kind=kind;
-   this->configure_background();
-  }
-
-  void Background::prepare(const unsigned int screen_width,const unsigned int screen_height)
-  {
-   rectangle.set_size(screen_width,screen_height);
-   rectangle.set_total_size(this->get_image_width(),this->get_image_height());
-   rectangle.prepare(this->get_image());
-  }
-
-  void Background::prepare(const Screen *screen)
-  {
-   if (screen!=NULL)
-   {
-    this->prepare(screen->get_width(),screen->get_height());
-   }
-
-  }
-
-  void Background::prepare(Screen &screen)
-  {
-   this->prepare(screen.get_handle());
-  }
-
-  void Background::set_setting(const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
-  {
-   if (kind!=EUGENEGDK::NORMAL_BACKGROUND)
-   {
-    this->set_frames(frames);
+    billboard.enable_transparent();
    }
    else
    {
-    this->reset_animation_setting();
-   }
-   this->set_kind(kind);
-  }
-
-  void Background::load_background(Image *buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
-  {
-   this->load_image(buffer);
-   if (this->is_storage_empty()==false)
-   {
-    this->set_setting(kind,frames);
+    billboard.disable_transparent();
    }
 
   }
 
-  void Background::load_background(Image *buffer)
+  void Billboard::draw_sprite_image()
   {
-   this->load_background(buffer,EUGENEGDK::NORMAL_BACKGROUND,1);
+   billboard.set_size(sprite_width,sprite_height);
+   billboard.set_position(current_x,current_y);
+   billboard.draw();
   }
 
-  void Background::load_background(Image &buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
-  {
-   this->load_background(buffer.get_handle(),kind,frames);
-  }
-
-  void Background::load_background(Image &buffer)
-  {
-   this->load_background(buffer.get_handle(),EUGENEGDK::NORMAL_BACKGROUND,1);
-  }
-
-  void Background::set_target(const unsigned int target)
-  {
-   this->set_frame(target);
-   this->configure_background();
-  }
-
-  void Background::step()
-  {
-   this->increase_frame();
-   this->configure_background();
-  }
-
-  void Background::horizontal_mirror()
-  {
-   rectangle.invert_horizontal_mirror();
-  }
-
-  void Background::vertical_mirror()
-  {
-   rectangle.invert_vertical_mirror();
-  }
-
-  void Background::complex_mirror()
-  {
-   rectangle.invert_horizontal_mirror();
-   rectangle.invert_vertical_mirror();
-  }
-
-  void Background::draw_background()
-  {
-   rectangle.disable_transparent();
-   rectangle.draw();
-  }
-
-  void Background::destroy_background()
-  {
-   rectangle.destroy_texture();
-   this->destroy_image();
-   this->reset_animation_setting();
-   this->reset_background_setting();
-  }
-
-  EUGENEGDK::BACKGROUND_TYPE Background::get_kind() const
-  {
-   return current_kind;
-  }
-
-  Sprite::Sprite()
+  void Billboard::reset_billboard_setting()
   {
    transparent=true;
    current_x=0;
    current_y=0;
    sprite_width=0;
    sprite_height=0;
+  }
+
+  void Billboard::prepare(const unsigned int width,const unsigned int height,const unsigned int *picture)
+  {
+   billboard.set_total_size(width,height);
+   billboard.prepare(picture);
+  }
+
+  void Billboard::set_transparent(const bool enabled)
+  {
+   transparent=enabled;
+  }
+
+  bool Billboard::get_transparent() const
+  {
+   return transparent;
+  }
+
+  void Billboard::set_width(const unsigned int width)
+  {
+   if (billboard.is_texture_exist()==true)
+   {
+    if (width>0)
+    {
+     sprite_width=width;
+    }
+
+   }
+
+  }
+
+  void Billboard::set_height(const unsigned int height)
+  {
+   if (billboard.is_texture_exist()==true)
+   {
+    if (height>0)
+    {
+     sprite_height=height;
+    }
+
+   }
+
+  }
+
+  void Billboard::set_size(const unsigned int width,const unsigned int height)
+  {
+   this->set_width(width);
+   this->set_height(height);
+  }
+
+  void Billboard::set_position(const unsigned int x,const unsigned int y)
+  {
+   if (billboard.is_texture_exist()==true)
+   {
+    current_x=x;
+    current_y=y;
+   }
+
+  }
+
+  void Billboard::set_x(const unsigned int x)
+  {
+   if (billboard.is_texture_exist()==true)
+   {
+    current_x=x;
+   }
+
+  }
+
+  void Billboard::set_y(const unsigned int y)
+  {
+   if (billboard.is_texture_exist()==true)
+   {
+    current_y=y;
+   }
+
+  }
+
+  void Billboard::increase_x()
+  {
+   if (billboard.is_texture_exist()==true)
+   {
+    ++current_x;
+   }
+
+  }
+
+  void Billboard::decrease_x()
+  {
+   if (billboard.is_texture_exist()==true)
+   {
+    --current_x;
+   }
+
+  }
+
+  void Billboard::increase_y()
+  {
+   if (billboard.is_texture_exist()==true)
+   {
+    ++current_y;
+   }
+
+  }
+
+  void Billboard::decrease_y()
+  {
+   if (billboard.is_texture_exist()==true)
+   {
+    --current_y;
+   }
+
+  }
+
+  void Billboard::increase_x(const unsigned int increment)
+  {
+   if (billboard.is_texture_exist()==true)
+   {
+    current_x+=increment;
+   }
+
+  }
+
+  void Billboard::decrease_x(const unsigned int decrement)
+  {
+   if (billboard.is_texture_exist()==true)
+   {
+    current_x-=decrement;
+   }
+
+  }
+
+  void Billboard::increase_y(const unsigned int increment)
+  {
+   if (billboard.is_texture_exist()==true)
+   {
+    current_y+=increment;
+   }
+
+  }
+
+  void Billboard::decrease_y(const unsigned int decrement)
+  {
+   if (billboard.is_texture_exist()==true)
+   {
+    current_y-=decrement;
+   }
+
+  }
+
+  unsigned int Billboard::get_x() const
+  {
+   return current_x;
+  }
+
+  unsigned int Billboard::get_y() const
+  {
+   return current_y;
+  }
+
+  unsigned int Billboard::get_width() const
+  {
+   return sprite_width;
+  }
+
+  unsigned int Billboard::get_height() const
+  {
+   return sprite_height;
+  }
+
+  EUGENEGDK::BOX Billboard::get_box() const
+  {
+   EUGENEGDK::BOX collision;
+   collision.x=current_x;
+   collision.y=current_y;
+   collision.width=sprite_width;
+   collision.height=sprite_height;
+   return collision;
+  }
+
+  void Billboard::horizontal_mirror()
+  {
+   billboard.invert_horizontal_mirror();
+  }
+
+  void Billboard::vertical_mirror()
+  {
+   billboard.invert_vertical_mirror();
+  }
+
+  void Billboard::complex_mirror()
+  {
+   billboard.invert_horizontal_mirror();
+   billboard.invert_vertical_mirror();
+  }
+
+  void Billboard::draw_sprite()
+  {
+   this->check_transparent();
+   this->draw_sprite_image();
+  }
+
+  void Billboard::draw_sprite(const unsigned int x,const unsigned int y)
+  {
+   this->set_position(x,y);
+   this->draw_sprite();
+  }
+
+  void Billboard::draw_sprite(const bool transparency)
+  {
+   this->set_transparent(transparency);
+   this->draw_sprite();
+  }
+
+  void Billboard::draw_sprite(const bool transparency,const unsigned int x,const unsigned int y)
+  {
+   this->set_transparent(transparency);
+   this->draw_sprite(x,y);
+  }
+
+  Sprite::Sprite()
+  {
    current_kind=EUGENEGDK::SINGLE_SPRITE;
   }
 
@@ -2121,32 +2232,7 @@ namespace EUGENEGDK
 
   void Sprite::reset_sprite_setting()
   {
-   transparent=true;
-   current_x=0;
-   current_y=0;
-   sprite_width=0;
-   sprite_height=0;
    current_kind=EUGENEGDK::SINGLE_SPRITE;
-  }
-
-  void Sprite::check_transparent()
-  {
-   if (transparent==true)
-   {
-    rectangle.enable_transparent();
-   }
-   else
-   {
-    rectangle.disable_transparent();
-   }
-
-  }
-
-  void Sprite::draw_sprite_image()
-  {
-   rectangle.set_size(sprite_width,sprite_height);
-   rectangle.set_position(current_x,current_y);
-   rectangle.draw();
   }
 
   void Sprite::set_sprite_setting()
@@ -2154,16 +2240,13 @@ namespace EUGENEGDK
    switch (current_kind)
    {
     case EUGENEGDK::HORIZONTAL_STRIP:
-    sprite_width=this->get_image_width()/this->get_frames();
-    sprite_height=this->get_image_height();
+    this->set_size(this->get_image_width()/this->get_frames(),this->get_image_height());
     break;
     case EUGENEGDK::VERTICAL_STRIP:
-    sprite_width=this->get_image_width();
-    sprite_height=this->get_image_height()/this->get_frames();
+    this->set_size(this->get_image_width(),this->get_image_height()/this->get_frames());
     break;
     default:
-    sprite_width=this->get_image_width();
-    sprite_height=this->get_image_height();
+    this->set_size(this->get_image_width(),this->get_image_height());
     break;
    }
 
@@ -2183,13 +2266,13 @@ namespace EUGENEGDK
    switch(current_kind)
    {
     case EUGENEGDK::HORIZONTAL_STRIP:
-    rectangle.set_horizontal_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
+    billboard.set_horizontal_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
     break;
     case EUGENEGDK::VERTICAL_STRIP:
-    rectangle.set_vertical_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
+    billboard.set_vertical_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
     break;
     default:
-    rectangle.set_horizontal_offset(1.0,1.0);
+    billboard.set_horizontal_offset(1.0,1.0);
     break;
    }
 
@@ -2202,187 +2285,9 @@ namespace EUGENEGDK
    this->set_sprite_frame();
   }
 
-  void Sprite::prepare()
-  {
-   rectangle.set_total_size(this->get_image_width(),this->get_image_height());
-   rectangle.prepare(this->get_image());
-  }
-
-  void Sprite::set_transparent(const bool enabled)
-  {
-   transparent=enabled;
-  }
-
-  bool Sprite::get_transparent() const
-  {
-   return transparent;
-  }
-
-  void Sprite::set_width(const unsigned int width)
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    if (width>0)
-    {
-     sprite_width=width;
-    }
-
-   }
-
-  }
-
-  void Sprite::set_height(const unsigned int height)
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    if (height>0)
-    {
-     sprite_height=height;
-    }
-
-   }
-
-  }
-
-  void Sprite::set_size(const unsigned int width,const unsigned int height)
-  {
-   this->set_width(width);
-   this->set_height(height);
-  }
-
-  void Sprite::set_position(const unsigned int x,const unsigned int y)
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    current_x=x;
-    current_y=y;
-   }
-
-  }
-
-  void Sprite::set_x(const unsigned int x)
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    current_x=x;
-   }
-
-  }
-
-  void Sprite::set_y(const unsigned int y)
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    current_y=y;
-   }
-
-  }
-
-  void Sprite::increase_x()
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    ++current_x;
-   }
-
-  }
-
-  void Sprite::decrease_x()
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    --current_x;
-   }
-
-  }
-
-  void Sprite::increase_y()
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    ++current_y;
-   }
-
-  }
-
-  void Sprite::decrease_y()
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    --current_y;
-   }
-
-  }
-
-  void Sprite::increase_x(const unsigned int increment)
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    current_x+=increment;
-   }
-
-  }
-
-  void Sprite::decrease_x(const unsigned int decrement)
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    current_x-=decrement;
-   }
-
-  }
-
-  void Sprite::increase_y(const unsigned int increment)
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    current_y+=increment;
-   }
-
-  }
-
-  void Sprite::decrease_y(const unsigned int decrement)
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    current_y-=decrement;
-   }
-
-  }
-
-  unsigned int Sprite::get_x() const
-  {
-   return current_x;
-  }
-
-  unsigned int Sprite::get_y() const
-  {
-   return current_y;
-  }
-
-  unsigned int Sprite::get_width() const
-  {
-   return sprite_width;
-  }
-
-  unsigned int Sprite::get_height() const
-  {
-   return sprite_height;
-  }
-
   Sprite* Sprite::get_handle()
   {
    return this;
-  }
-
-  EUGENEGDK::BOX Sprite::get_box() const
-  {
-   EUGENEGDK::BOX collision;
-   collision.x=current_x;
-   collision.y=current_y;
-   collision.width=sprite_width;
-   collision.height=sprite_height;
-   return collision;
   }
 
   EUGENEGDK::SPRITE_TYPE Sprite::get_kind() const
@@ -2408,7 +2313,7 @@ namespace EUGENEGDK
    this->load_image(buffer);
    if (this->is_storage_empty()==false)
    {
-    this->prepare();
+    this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
     this->set_setting(kind,frames);
    }
 
@@ -2452,7 +2357,7 @@ namespace EUGENEGDK
     this->set_transparent(target->get_transparent());
     this->copy_image(target->get_image());
     this->set_size(target->get_width(),target->get_height());
-    this->prepare();
+    this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
    }
 
   }
@@ -2462,301 +2367,258 @@ namespace EUGENEGDK
    this->clone(target.get_handle());
   }
 
-  void Sprite::horizontal_mirror()
-  {
-   rectangle.invert_horizontal_mirror();
-  }
-
-  void Sprite::vertical_mirror()
-  {
-   rectangle.invert_vertical_mirror();
-  }
-
-  void Sprite::complex_mirror()
-  {
-   rectangle.invert_horizontal_mirror();
-   rectangle.invert_vertical_mirror();
-  }
-
   void Sprite::destroy_sprite()
   {
-   rectangle.destroy_texture();
+   billboard.destroy_texture();
    this->destroy_image();
+   this->reset_billboard_setting();
    this->reset_animation_setting();
    this->reset_sprite_setting();
   }
 
-  void Sprite::draw_sprite()
+  Sheet::Sheet()
   {
-   this->check_transparent();
-   this->draw_sprite_image();
- }
-
-  void Sprite::draw_sprite(const unsigned int x,const unsigned int y)
-  {
-   this->set_position(x,y);
-   this->draw_sprite();
+   rows=0;
+   columns=0;
   }
 
-  void Sprite::draw_sprite(const bool transparency)
-  {
-   this->set_transparent(transparency);
-   this->draw_sprite();
-  }
-
-  void Sprite::draw_sprite(const bool transparency,const unsigned int x,const unsigned int y)
-  {
-   this->set_transparent(transparency);
-   this->draw_sprite(x,y);
-  }
-
-  void Sprite::draw_sprite(const unsigned int target)
-  {
-   this->set_target(target);
-   this->draw_sprite();
-  }
-
-  void Sprite::draw_sprite(const unsigned int target,const unsigned int x,const unsigned int y)
-  {
-   this->set_target(target);
-   this->draw_sprite(x,y);
-  }
-
-  Tileset::Tileset()
-  {
-   rectangle.set_size(0,0);
-   rows=1;
-   columns=1;
-   tile_width=1;
-   tile_height=1;
-  }
-
-  Tileset::~Tileset()
+  Sheet::~Sheet()
   {
 
   }
 
-  void Tileset::reset_tileset_setting()
+  void Sheet::reset_sheet_setting()
   {
-   rows=1;
-   columns=1;
-   tile_width=1;
-   tile_height=1;
+   rows=0;
+   columns=0;
   }
 
-  void Tileset::prepare()
+  unsigned int Sheet::get_rows() const
   {
-   rectangle.set_total_size(this->get_image_width(),this->get_image_height());
-   rectangle.prepare(this->get_image());
+   return rows;
   }
 
-  void Tileset::set_tileset_setting(const unsigned int row_amount,const unsigned int column_amount)
+  unsigned int Sheet::get_columns() const
+  {
+   return columns;
+  }
+
+  void Sheet::destroy_sheet()
+  {
+   this->destroy_image();
+   this->reset_animation_setting();
+   this->reset_billboard_setting();
+   this->reset_sheet_setting();
+  }
+
+  void Sheet::load_sheet(Image *sheet,const unsigned int row_amount,const unsigned int column_amount)
   {
    if (row_amount>0)
    {
     if (column_amount>0)
     {
-     rows=row_amount;
-     columns=column_amount;
-     tile_width=this->get_image_width()/rows;
-     tile_height=this->get_image_height()/columns;
+     this->load_image(sheet);
+     if (this->is_storage_empty()==false)
+     {
+      rows=row_amount;
+      columns=column_amount;
+      this->set_frames(rows*columns);
+      this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
+      this->set_size(this->get_image_width()/rows,this->get_image_height()/columns);
+     }
+
     }
 
    }
 
   }
 
-  EUGENEGDK::BOX Tileset::get_box(const unsigned int x,const unsigned int y) const
+  void Sheet::load_sheet(Image &sheet,const unsigned int row_amount,const unsigned int column_amount)
   {
-   EUGENEGDK::BOX collision;
-   if (rectangle.is_texture_exist()==true)
+   this->load_sheet(sheet.get_handle(),row_amount,column_amount);
+  }
+
+  void Sheet::select(const unsigned int row,const unsigned int column)
+  {
+   if (row>0)
    {
-    collision.x=x;
-    collision.y=y;
-    collision.width=tile_width;
-    collision.height=tile_height;
-   }
-   else
-   {
-    collision.x=0;
-    collision.y=0;
-    collision.width=0;
-    collision.height=0;
-   }
-   return collision;
-  }
-
-  unsigned int Tileset::get_tile_width() const
-  {
-   return tile_width;
-  }
-
-  unsigned int Tileset::get_tile_height() const
-  {
-   return tile_height;
-  }
-
-  unsigned int Tileset::get_rows() const
-  {
-   return rows;
-  }
-
-  unsigned int Tileset::get_columns() const
-  {
-   return columns;
-  }
-
-  void Tileset::set_tile_size(const unsigned int width,const unsigned int height)
-  {
-   if (rectangle.is_texture_exist()==true)
-   {
-    if (width>0)
+    if (column>0)
     {
-     tile_width=width;
-    }
-    if (height>0)
-    {
-     tile_height=height;
+     billboard.set_tile_offset(static_cast<double>(row),static_cast<double>(rows),static_cast<double>(column),static_cast<double>(columns));
     }
 
    }
 
   }
 
-  void Tileset::select_tile(const unsigned int row,const unsigned int column)
+  void Sheet::select(const unsigned int target)
   {
-   if (row<rows)
+   if (rows>0)
    {
-    if (column<columns)
+    if (columns>0)
     {
-     rectangle.set_tile_offset(static_cast<double>(row),static_cast<double>(rows),static_cast<double>(column),static_cast<double>(columns));
+     this->set_frame(target);
+     this->select((this->get_frame()%rows)+1,(this->get_frame()/columns)+1);
     }
 
    }
 
   }
 
-  void Tileset::destroy_tileset()
+  void Sheet::step()
   {
-   rectangle.destroy_texture();
-   this->destroy_image();
-   this->reset_tileset_setting();
+   this->increase_frame();
+   this->select(this->get_frame());
   }
 
-  void Tileset::draw_tile(const unsigned int x,const unsigned int y)
+  Background::Background()
   {
-   rectangle.set_size(tile_width,tile_height);
-   rectangle.set_position(x,y);
-   rectangle.disable_transparent();
-   rectangle.draw();
+   stage.set_position(0,0);
   }
 
-  void Tileset::draw_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y)
+  Background::~Background()
   {
-   this->select_tile(row,column);
-   this->draw_tile(x,y);
+   stage.destroy_sprite();
   }
 
-  EUGENEGDK::BOX Tileset::put_tile(const unsigned int x,const unsigned int y)
+  void Background::prepare(const Screen *screen)
   {
-   this->draw_tile(x,y);
-   return this->get_box(x,y);
-  }
-
-  EUGENEGDK::BOX Tileset::put_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y)
-  {
-   this->draw_tile(row,column,x,y);
-   return this->get_box(x,y);
-  }
-
-  void Tileset::load_tileset(Image *buffer,const unsigned int row_amount,const unsigned int column_amount)
-  {
-   this->load_image(buffer);
-   if (this->is_storage_empty()==false)
+   if (screen!=NULL)
    {
-    this->prepare();
-    this->set_tileset_setting(row_amount,column_amount);
+    stage.set_size(screen->get_width(),screen->get_height());
    }
 
   }
 
-  void Tileset::load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount)
+  void Background::prepare(Screen &screen)
   {
-   this->load_tileset(buffer.get_handle(),row_amount,column_amount);
+   this->prepare(screen.get_handle());
+  }
+
+  void Background::load_background(Image *background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
+  {
+   switch (kind)
+   {
+    case EUGENEGDK::HORIZONTAL_BACKGROUND:
+    stage.load_sprite(background,EUGENEGDK::HORIZONTAL_STRIP,frames);
+    break;
+    case EUGENEGDK::VERTICAL_BACKGROUND:
+    stage.load_sprite(background,EUGENEGDK::VERTICAL_STRIP,frames);
+    break;
+    default:
+    stage.load_sprite(background);
+    break;
+   }
+
+  }
+
+  void Background::load_background(Image *background)
+  {
+   this->load_background(background,EUGENEGDK::NORMAL_BACKGROUND,1);
+  }
+
+  void Background::load_background(Image &background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
+  {
+   this->load_background(background.get_handle(),kind,frames);
+  }
+
+  void Background::load_background(Image &background)
+  {
+   this->load_background(background.get_handle(),EUGENEGDK::NORMAL_BACKGROUND,1);
+  }
+
+  void Background::set_target(const unsigned int target)
+  {
+   stage.set_target(target);
+  }
+
+  void Background::step()
+  {
+   stage.step();
+  }
+
+  void Background::horizontal_mirror()
+  {
+   stage.horizontal_mirror();
+  }
+
+  void Background::vertical_mirror()
+  {
+   stage.vertical_mirror();
+  }
+
+  void Background::complex_mirror()
+  {
+   stage.complex_mirror();
+  }
+
+  void Background::draw_background()
+  {
+   stage.draw_sprite(false);
+  }
+
+  void Background::destroy_background()
+  {
+   stage.destroy_sprite();
+  }
+
+  unsigned int Background::get_frame() const
+  {
+   return stage.get_frame();
+  }
+
+  unsigned int Background::get_frames() const
+  {
+   return stage.get_frames();
   }
 
   Text::Text()
   {
+   text.set_size(0,0);
    current_x=0;
    current_y=0;
-   text_x=0;
-   text_y=0;
-   font_width=0;
-   font_height=0;
-   amount=16;
-   rectangle.set_size(0,0);
   }
 
   Text::~Text()
   {
-   rectangle.destroy_texture();
+   text.destroy_sheet();
   }
 
   void Text::increase_position()
   {
-   text_x+=font_width;
+   text.increase_x(text.get_width());
   }
 
   void Text::restore_position()
   {
-   text_x=current_x;
-   text_y=current_y;
-  }
-
-  void Text::print_character(const unsigned int target)
-  {
-   rectangle.set_size(font_width,font_height);
-   rectangle.set_position(text_x,text_y);
-   rectangle.set_tile_offset(static_cast<double>(target%amount)+1.0,static_cast<double>(amount),static_cast<double>(target/amount)+1.0,static_cast<double>(amount));
-   rectangle.enable_transparent();
-   rectangle.draw();
+   text.set_position(current_x,current_y);
   }
 
   unsigned int Text::get_font_width() const
   {
-   return font_width;
+   return text.get_width();
   }
 
   unsigned int Text::get_font_height() const
   {
-   return font_height;
+   return text.get_height();
   }
 
   void Text::set_position(const unsigned int x,const unsigned int y)
   {
    current_x=x;
    current_y=y;
-   text_x=current_x;
-   text_y=current_y;
+   text.set_position(current_x,current_y);
   }
 
   void Text::set_size(const unsigned int width,const unsigned int height)
   {
-   font_width=width;
-   font_height=height;
+   text.set_size(width,height);
   }
 
   void Text::load_font(Image *font)
   {
-   this->load_image(font);
-   if (this->is_storage_empty()==false)
-   {
-    rectangle.set_total_size(this->get_image_width(),this->get_image_height());
-    rectangle.prepare(this->get_image());
-    font_width=this->get_image_width()/amount;
-    font_height=this->get_image_height()/amount;
-   }
-
+   text.load_sheet(font,16,16);
   }
 
   void Text::load_font(Image &font)
@@ -2766,7 +2628,8 @@ namespace EUGENEGDK
 
   void Text::draw_character(const char target)
   {
-   this->print_character(static_cast<unsigned char>(target));
+   text.select(static_cast<unsigned char>(target));
+   text.draw_sprite(true);
   }
 
   void Text::draw_text(const char *text)

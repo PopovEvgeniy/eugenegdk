@@ -675,56 +675,23 @@ typedef enum
    unsigned int get_frame() const;
   };
 
-  class Background:public Animation,public Picture
+  class Billboard
   {
    private:
-   Core::Rectangle rectangle;
-   EUGENEGDK::BACKGROUND_TYPE current_kind;
-   void reset_background_setting();
-   void configure_background();
-   void set_kind(const EUGENEGDK::BACKGROUND_TYPE kind);
-   void prepare(const unsigned int screen_width,const unsigned int screen_height);
-   public:
-   Background();
-   ~Background();
-   void prepare(const Screen *screen);
-   void prepare(Screen &screen);
-   void set_setting(const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
-   void load_background(Image *buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
-   void load_background(Image *buffer);
-   void load_background(Image &buffer,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
-   void load_background(Image &buffer);
-   void set_target(const unsigned int target);
-   void step();
-   void horizontal_mirror();
-   void vertical_mirror();
-   void complex_mirror();
-   void draw_background();
-   void destroy_background();
-   EUGENEGDK::BACKGROUND_TYPE get_kind() const;
-  };
-
-  class Sprite:public Animation,public Picture
-  {
-   private:
-   Core::Rectangle rectangle;
    bool transparent;
    unsigned int current_x;
    unsigned int current_y;
    unsigned int sprite_width;
    unsigned int sprite_height;
-   EUGENEGDK::SPRITE_TYPE current_kind;
-   void reset_sprite_setting();
    void check_transparent();
    void draw_sprite_image();
-   void set_sprite_setting();
-   void configure_sprite();
-   void set_sprite_frame();
-   void set_kind(const EUGENEGDK::SPRITE_TYPE kind);
-   void prepare();
+   protected:
+   Core::Rectangle billboard;
+   void reset_billboard_setting();
+   void prepare(const unsigned int width,const unsigned int height,const unsigned int *picture);
    public:
-   Sprite();
-   ~Sprite();
+   Billboard();
+   ~Billboard();
    void set_transparent(const bool enabled);
    bool get_transparent() const;
    void set_width(const unsigned int width);
@@ -745,8 +712,29 @@ typedef enum
    unsigned int get_y() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
-   Sprite* get_handle();
    EUGENEGDK::BOX get_box() const;
+   void horizontal_mirror();
+   void vertical_mirror();
+   void complex_mirror();
+   void draw_sprite();
+   void draw_sprite(const unsigned int x,const unsigned int y);
+   void draw_sprite(const bool transparency);
+   void draw_sprite(const bool transparency,const unsigned int x,const unsigned int y);
+  };
+
+  class Sprite:public Billboard,public Animation,public Picture
+  {
+   private:
+   EUGENEGDK::SPRITE_TYPE current_kind;
+   void reset_sprite_setting();
+   void set_sprite_setting();
+   void configure_sprite();
+   void set_sprite_frame();
+   void set_kind(const EUGENEGDK::SPRITE_TYPE kind);
+   public:
+   Sprite();
+   ~Sprite();
+   Sprite* get_handle();
    EUGENEGDK::SPRITE_TYPE get_kind() const;
    void set_setting(const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
    void load_sprite(Image *buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
@@ -757,62 +745,60 @@ typedef enum
    void step();
    void clone(Sprite *target);
    void clone(Sprite &target);
+   void destroy_sprite();
+  };
+
+  class Sheet:public Billboard,public Animation,public Picture
+  {
+   private:
+   unsigned int rows;
+   unsigned int columns;
+   void reset_sheet_setting();
+   public:
+   Sheet();
+   ~Sheet();
+   unsigned int get_rows() const;
+   unsigned int get_columns() const;
+   void destroy_sheet();
+   void load_sheet(Image *sheet,const unsigned int row_amount,const unsigned int column_amount);
+   void load_sheet(Image &sheet,const unsigned int row_amount,const unsigned int column_amount);
+   void select(const unsigned int row,const unsigned int column);
+   void select(const unsigned int target);
+   void step();
+  };
+
+  class Background
+  {
+   private:
+   Graphics::Sprite stage;
+   public:
+   Background();
+   ~Background();
+   void prepare(const Screen *screen);
+   void prepare(Screen &screen);
+   void load_background(Image *background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
+   void load_background(Image *background);
+   void load_background(Image &background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
+   void load_background(Image &background);
+   void set_target(const unsigned int target);
+   void step();
    void horizontal_mirror();
    void vertical_mirror();
    void complex_mirror();
-   void destroy_sprite();
-   void draw_sprite();
-   void draw_sprite(const unsigned int x,const unsigned int y);
-   void draw_sprite(const bool transparency);
-   void draw_sprite(const bool transparency,const unsigned int x,const unsigned int y);
-   void draw_sprite(const unsigned int target);
-   void draw_sprite(const unsigned int target,const unsigned int x,const unsigned int y);
+   void draw_background();
+   void destroy_background();
+   unsigned int get_frame() const;
+   unsigned int get_frames() const;
   };
 
-  class Tileset:public Picture
+  class Text
   {
    private:
-   Core::Rectangle rectangle;
-   unsigned int tile_width;
-   unsigned int tile_height;
-   unsigned int rows;
-   unsigned int columns;
-   void reset_tileset_setting();
-   void prepare();
-   void set_tileset_setting(const unsigned int row_amount,const unsigned int column_amount);
-   EUGENEGDK::BOX get_box(const unsigned int x,const unsigned int y) const;
-   public:
-   Tileset();
-   ~Tileset();
-   unsigned int get_tile_width() const;
-   unsigned int get_tile_height() const;
-   unsigned int get_rows() const;
-   unsigned int get_columns() const;
-   void set_tile_size(const unsigned int width,const unsigned int height);
-   void select_tile(const unsigned int row,const unsigned int column);
-   void destroy_tileset();
-   void draw_tile(const unsigned int x,const unsigned int y);
-   void draw_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y);
-   EUGENEGDK::BOX put_tile(const unsigned int x,const unsigned int y);
-   EUGENEGDK::BOX put_tile(const unsigned int row,const unsigned int column,const unsigned int x,const unsigned int y);
-   void load_tileset(Image *buffer,const unsigned int row_amount,const unsigned int column_amount);
-   void load_tileset(Image &buffer,const unsigned int row_amount,const unsigned int column_amount);
-  };
-
-  class Text:public Picture
-  {
-   private:
-   unsigned int amount;
-   unsigned int text_x;
-   unsigned int text_y;
-   unsigned int font_width;
-   unsigned int font_height;
+   Graphics::Sheet text;
    unsigned int current_x;
    unsigned int current_y;
-   Core::Rectangle rectangle;
    void increase_position();
    void restore_position();
-   void print_character(const unsigned int target);
    public:
    Text();
    ~Text();
