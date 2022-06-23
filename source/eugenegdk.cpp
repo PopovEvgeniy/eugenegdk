@@ -2524,7 +2524,7 @@ namespace EUGENEGDK
 
   void Background::load_background(Image &background)
   {
-   this->load_background(background.get_handle(),EUGENEGDK::NORMAL_BACKGROUND,1);
+   this->load_background(background.get_handle());
   }
 
   void Background::set_target(const unsigned int target)

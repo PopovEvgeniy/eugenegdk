@@ -544,7 +544,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">void Background::draw_background();</span>
       – Draw a background.<br>
       <span style="font-style: italic;">void Background::destroy_background();</span>
-      – Destroy a background.<br>
+      – Destroy a background image and a background texture.<br>
       <span style="font-style: italic;">unsigned int Background::get_frame()
         const;</span> – Return current frame in scrollable background.<br>
       <span style="font-style: italic;">unsigned int Background::get_frames()
@@ -719,7 +719,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       empty.<br>
       <span style="font-style: italic;">void Sprite::destroy_sprite();</span> –
       Destroy a sprite image and a sprite texture.<span style="font-style: italic;"></span></big><big><span
-
         style="font-style: italic;"></span><br>
     </big> <big><br>
       <span style="text-decoration: underline;">Sprite texture</span><br>
@@ -744,12 +743,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </big><big><span style="text-decoration: underline;">Simple access to frame</span><br>
       <br>
       First frame index is 1. Last frame index is multiplication rows by
-      columns.<span style="font-family: Tahoma,Verdana,'Lucida Sans Unicode',sans-serif;"></span></big><span
-      class="Apple-style-span" style="border-collapse: separate; color: rgb(0, 0, 0); font-family: Arial; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; font-size: medium;"><span
-        class="Apple-style-span" style="font-family: Tahoma,Verdana,'Lucida Sans Unicode',sans-serif; font-size: 13px;"><span
-          class="Apple-converted-space"></span></span></span><br>
-    <big> <br style="text-decoration: underline;">
-      <span style="text-decoration: underline;">Work with sprite sheet subsystem</span><br>
+      columns.<br>
+      <br style="text-decoration: underline;">
+    </big><big> <span style="text-decoration: underline;">Work with sprite
+        sheet subsystem</span><br>
       <br>
       <span style="font-style: italic;">Sheet</span> class provide access to the
       sprite sheet subsystem. </big><big>It is derived from threee&nbsp;<span style="font-style: italic;"></span>classes:
@@ -1755,6 +1752,7 @@ Multimedia API</a>. </big>
           predefined constants. You can see it bellow.</big></p>
       <big> </big>
       <table style="text-align: left; width: 519px; height: 94px;" cellspacing="2"
+
         cellpadding="2" border="1">
         <tbody>
           <tr>
@@ -2020,6 +2018,7 @@ Multimedia API</a>. </big>
         5.4 – 5.4.1 – Small changes.<br>
         5.4.2 – 5.4.5 – Text drawing subsystem improved.<br>
         5.4.6 – 5.5.2 – Background subsystem improved.<br>
+        5.5.3 – Small changes.<br>
       </big></span>
   </body>
 </html>
