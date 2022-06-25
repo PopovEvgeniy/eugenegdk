@@ -3,16 +3,10 @@ Quick help
 Controls for keyboard and mouse
 
 Arrow keys - Move
-Home - Do horizontal mirror the ship
-End - Do vertical mirror the ship
 Space - Exit from demo
 Left mouse button - Exit from demo
 
 Controls for gamepad
 
 D-pad or left stick - Move
-Left trigger - Turn on a gamepad vibration
-Right trigger - Turn off a gamepad vibration
-A - Do horizontal mirror the ship
-B - Do vertical mirror the ship
 X - Exit from demo

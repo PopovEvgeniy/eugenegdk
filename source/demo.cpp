@@ -58,22 +58,6 @@ int main()
   {
    ship.increase_x(2);
   }
-  if (keyboard.check_press(71)==true)
-  {
-   ship.horizontal_mirror();
-  }
-  if (keyboard.check_press(79)==true)
-  {
-   ship.vertical_mirror();
-  }
-  if (gamepad.check_press(EUGENEGDK::GAMEPAD_BUTTON4)==true)
-  {
-   ship.horizontal_mirror();
-  }
-  if (gamepad.check_press(EUGENEGDK::GAMEPAD_BUTTON3)==true)
-  {
-   ship.vertical_mirror();
-  }
   if (gamepad.check_hold(EUGENEGDK::GAMEPAD_BUTTON2)==true)
   {
    break;

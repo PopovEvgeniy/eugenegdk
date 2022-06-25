@@ -414,16 +414,12 @@ typedef enum
    unsigned int total_height;
    unsigned int current_x;
    unsigned int current_y;
-   double horizontal_mirror;
-   double vertical_mirror;
    protected:
    Vertex vertex[4];
    Point point[4];
    void set_data();
    unsigned int get_total_width() const;
    unsigned int get_total_height() const;
-   double get_horizontal_mirror() const;
-   double get_vertical_mirror() const;
    public:
    Shape();
    ~Shape();
@@ -433,8 +429,6 @@ typedef enum
    void set_horizontal_offset(const double current,const double total);
    void set_vertical_offset(const double current,const double total);
    void set_tile_offset(const double row,const double rows,const double column,const double columns);
-   void invert_horizontal_mirror();
-   void invert_vertical_mirror();
   };
 
   class Rectangle:public Shape
@@ -446,7 +440,6 @@ typedef enum
    void check_texture();
    void load_data();
    void draw_rectangle();
-   void set_model_setting();
    public:
    Rectangle();
    ~Rectangle();
@@ -465,6 +458,7 @@ typedef enum
    void set_perfomance_setting();
    void set_render_hints();
    void set_common_setting();
+   void set_matrix_setting();
    void set_perspective(const unsigned int width,const unsigned int height);
    void create_render(const unsigned int width,const unsigned int height);
    protected:
@@ -713,9 +707,6 @@ typedef enum
    unsigned int get_width() const;
    unsigned int get_height() const;
    EUGENEGDK::BOX get_box() const;
-   void horizontal_mirror();
-   void vertical_mirror();
-   void complex_mirror();
    void draw_sprite();
    void draw_sprite(const unsigned int x,const unsigned int y);
    void draw_sprite(const bool transparency);
@@ -754,6 +745,8 @@ typedef enum
    unsigned int rows;
    unsigned int columns;
    void reset_sheet_setting();
+   unsigned int get_row() const;
+   unsigned int get_column() const;
    public:
    Sheet();
    ~Sheet();
@@ -782,9 +775,6 @@ typedef enum
    void load_background(Image &background);
    void set_target(const unsigned int target);
    void step();
-   void horizontal_mirror();
-   void vertical_mirror();
-   void complex_mirror();
    void draw_background();
    void destroy_background();
    unsigned int get_frame() const;

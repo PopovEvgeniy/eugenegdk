@@ -678,8 +678,6 @@ namespace EUGENEGDK
    point[2].v=0.0;
    point[3].u=0.0;
    point[3].v=0.0;
-   horizontal_mirror=1.0;
-   vertical_mirror=1.0;
   }
 
   Shape::~Shape()
@@ -713,16 +711,6 @@ namespace EUGENEGDK
   {
    total_width=width;
    total_height=height;
-  }
-
-  double Shape::get_horizontal_mirror() const
-  {
-   return horizontal_mirror;
-  }
-
-  double Shape::get_vertical_mirror() const
-  {
-   return vertical_mirror;
   }
 
   void Shape::set_size(const unsigned int width,const unsigned int height)
@@ -771,16 +759,6 @@ namespace EUGENEGDK
    point[2].v=Core::get_start_offset(column,columns);
    point[3].u=Core::get_start_offset(row,rows);
    point[3].v=Core::get_start_offset(column,columns);
-  }
-
-  void Shape::invert_horizontal_mirror()
-  {
-   horizontal_mirror*=-1.0;
-  }
-
-  void Shape::invert_vertical_mirror()
-  {
-   vertical_mirror*=-1.0;
   }
 
   Rectangle::Rectangle()
@@ -844,13 +822,6 @@ namespace EUGENEGDK
    glDrawArrays(GL_TRIANGLE_FAN,0,RECTANGLE_VERTEXES);
   }
 
-  void Rectangle::set_model_setting()
-  {
-   glMatrixMode(GL_TEXTURE);
-   glLoadIdentity();
-   glScaled(this->get_horizontal_mirror(),this->get_vertical_mirror(),0.0);
-  }
-
   void Rectangle::enable_transparent()
   {
    glEnable(GL_ALPHA_TEST);
@@ -880,7 +851,6 @@ namespace EUGENEGDK
   {
    this->set_data();
    this->load_data();
-   this->set_model_setting();
    this->draw_rectangle();
   }
 
@@ -963,13 +933,19 @@ namespace EUGENEGDK
    glClearColor(0.0,0.0,0.0,0.0);
   }
 
+ void Render::set_matrix_setting()
+ {
+  glMatrixMode(GL_MODELVIEW);
+  glLoadIdentity();
+  glMatrixMode(GL_TEXTURE);
+  glLoadIdentity();
+ }
+
  void Render::set_perspective(const unsigned int width,const unsigned int height)
  {
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   glOrtho(0.0,static_cast<double>(width),static_cast<double>(height),0.0,0.0,1.0);
-  glMatrixMode(GL_MODELVIEW);
-  glLoadIdentity();
   glViewport(0,0,width,height);
  }
 
@@ -979,6 +955,7 @@ namespace EUGENEGDK
    this->set_render_hints();
    this->set_common_setting();
    this->set_perspective(width,height);
+   this->set_matrix_setting();
    MAXIMUM_TEXTURE_SIZE=this->get_maximum_texture_size();
   }
 
@@ -2180,22 +2157,6 @@ namespace EUGENEGDK
    return collision;
   }
 
-  void Billboard::horizontal_mirror()
-  {
-   billboard.invert_horizontal_mirror();
-  }
-
-  void Billboard::vertical_mirror()
-  {
-   billboard.invert_vertical_mirror();
-  }
-
-  void Billboard::complex_mirror()
-  {
-   billboard.invert_horizontal_mirror();
-   billboard.invert_vertical_mirror();
-  }
-
   void Billboard::draw_sprite()
   {
    this->check_transparent();
@@ -2393,6 +2354,16 @@ namespace EUGENEGDK
    columns=0;
   }
 
+  unsigned int Sheet::get_row() const
+  {
+   return (this->get_frame()%rows)+1;
+  }
+
+  unsigned int Sheet::get_column() const
+  {
+   return (this->get_frame()/columns)+1;
+  }
+
   unsigned int Sheet::get_rows() const
   {
    return rows;
@@ -2453,22 +2424,14 @@ namespace EUGENEGDK
 
   void Sheet::select(const unsigned int target)
   {
-   if (rows>0)
-   {
-    if (columns>0)
-    {
-     this->set_frame(target);
-     this->select((this->get_frame()%rows)+1,(this->get_frame()/columns)+1);
-    }
-
-   }
-
+   this->set_frame(target);
+   this->select(this->get_row(),this->get_column());
   }
 
   void Sheet::step()
   {
    this->increase_frame();
-   this->select(this->get_frame());
+   this->select(this->get_row(),this->get_column());
   }
 
   Background::Background()
@@ -2535,21 +2498,6 @@ namespace EUGENEGDK
   void Background::step()
   {
    stage.step();
-  }
-
-  void Background::horizontal_mirror()
-  {
-   stage.horizontal_mirror();
-  }
-
-  void Background::vertical_mirror()
-  {
-   stage.vertical_mirror();
-  }
-
-  void Background::complex_mirror()
-  {
-   stage.complex_mirror();
   }
 
   void Background::draw_background()
