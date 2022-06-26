@@ -1878,7 +1878,7 @@ namespace EUGENEGDK
 
   Animation::Animation()
   {
-   frame=1;
+   frame=0;
    frames=1;
   }
 
@@ -1889,36 +1889,36 @@ namespace EUGENEGDK
 
   void Animation::reset_animation_setting()
   {
-   frame=1;
+   frame=0;
    frames=1;
   }
 
   void Animation::increase_frame()
   {
-   ++frame;
-   if (frame>frames)
+
+   if (frame<frames)
    {
-    frame=1;
+    ++frame;
+   }
+   else
+   {
+    frame=0;
    }
 
   }
 
   void Animation::set_frame(const unsigned int target)
   {
-   if (target>0)
+   if (target<frames)
    {
-    if (target<=frames)
-    {
-     frame=target;
-    }
-
+    frame=target;
    }
 
   }
 
   void Animation::set_frames(const unsigned int amount)
   {
-   if (amount>1)
+   if (amount>0)
    {
     frames=amount;
    }
@@ -2227,10 +2227,10 @@ namespace EUGENEGDK
    switch(current_kind)
    {
     case EUGENEGDK::HORIZONTAL_STRIP:
-    billboard.set_horizontal_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
+    billboard.set_horizontal_offset(static_cast<double>(this->get_frame()+1),static_cast<double>(this->get_frames()));
     break;
     case EUGENEGDK::VERTICAL_STRIP:
-    billboard.set_vertical_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
+    billboard.set_vertical_offset(static_cast<double>(this->get_frame()+1),static_cast<double>(this->get_frames()));
     break;
     default:
     billboard.set_horizontal_offset(1.0,1.0);
@@ -2356,12 +2356,24 @@ namespace EUGENEGDK
 
   unsigned int Sheet::get_row() const
   {
-   return (this->get_frame()%rows)+1;
+   unsigned int row;
+   row=0;
+   if (this->get_frame()>0)
+   {
+    row=this->get_frame()%rows;
+   }
+   return row;
   }
 
   unsigned int Sheet::get_column() const
   {
-   return (this->get_frame()/columns)+1;
+   unsigned int column;
+   column=0;
+   if (this->get_frame()>0)
+   {
+    column=this->get_frame()/rows;
+   }
+   return column;
   }
 
   unsigned int Sheet::get_rows() const
@@ -2411,11 +2423,11 @@ namespace EUGENEGDK
 
   void Sheet::select(const unsigned int row,const unsigned int column)
   {
-   if (row>0)
+   if (row<rows)
    {
-    if (column>0)
+    if (column<columns)
     {
-     billboard.set_tile_offset(static_cast<double>(row),static_cast<double>(rows),static_cast<double>(column),static_cast<double>(columns));
+     billboard.set_tile_offset(static_cast<double>(row+1),static_cast<double>(rows),static_cast<double>(column+1),static_cast<double>(columns));
     }
 
    }

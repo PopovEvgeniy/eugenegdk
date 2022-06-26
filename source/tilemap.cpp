@@ -26,7 +26,7 @@ int main()
  {
   for (y=0;y<screen.get_height();y+=tilemap.get_height())
   {
-   tilemap.select(1,2);
+   tilemap.select(0,1);
    tilemap.draw_sprite(x,y);
   }
 
