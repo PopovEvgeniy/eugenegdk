@@ -541,12 +541,16 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         &amp;background);</span> – Load normal background.<span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">void Background::draw_background();</span>
       – Draw a background.<br>
+      <span style="font-style: italic;">void Background::destroy_image();</span>&nbsp;
+      – Destroy a background image.<br>
       <span style="font-style: italic;">void Background::destroy_background();</span>
       – Destroy a background image and a background texture.<br>
       <span style="font-style: italic;">unsigned int Background::get_frame()
         const;</span> – Return current frame in scrollable background.<br>
       <span style="font-style: italic;">unsigned int Background::get_frames()
         const;</span> – Return amount of frames in scrollable background.<br>
+      <span style="font-style: italic;">EUGENEGDK::BACKGROUND_TYPE
+        Background::get_kind() const;</span> – Get background type.<br>
       <br>
       <span style="text-decoration: underline;">Background texture</span><br>
       <br>
@@ -822,8 +826,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       character at specific position.<br>
       <span style="font-style: italic;">void Text::draw_text(const unsigned int
         x,const unsigned int y,const char *text);</span> – Draw text at specific
-      position.</big><big><br>
-    </big>
+      position.<br>
+      <span style="font-style: italic;">void Text::destroy_image();</span> –
+      Destroy a font image.<br>
+      <span style="font-style: italic;">void Text::destroy_font();</span> –
+      Destroy a font image and a font texture.<br>
+    </big><big> </big>
     <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 10. Loading
         images</big></h2>
     <big> <span style="text-decoration: underline;">Load a image from a files</span><br>
@@ -2022,6 +2030,10 @@ Multimedia API</a>. </big>
         5.5.8 – Background subsystem improved.<br>
         5.5.9 – Base sprite subsystem improved.<br>
         5.6 – 5.6.4 – Small changes.<br>
+        5.6.5 – Background subsystem improved.<br>
+        5.6.6 – Text drawing subsystem improved.<br>
+        5.6.7 – Background subsystem improved.<br>
+        5.6.8 – Text drawing subsystem improved.<br>
       </big></span>
   </body>
 </html>

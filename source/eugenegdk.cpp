@@ -2517,6 +2517,11 @@ namespace EUGENEGDK
    stage.draw_sprite(false);
   }
 
+  void Background::destroy_image()
+  {
+   stage.destroy_image();
+  }
+
   void Background::destroy_background()
   {
    stage.destroy_sprite();
@@ -2530,6 +2535,21 @@ namespace EUGENEGDK
   unsigned int Background::get_frames() const
   {
    return stage.get_frames();
+  }
+
+  EUGENEGDK::BACKGROUND_TYPE Background::get_kind() const
+  {
+   BACKGROUND_TYPE kind;
+   kind=EUGENEGDK::NORMAL_BACKGROUND;
+   if (stage.get_kind()==EUGENEGDK::HORIZONTAL_STRIP)
+   {
+    kind=EUGENEGDK::HORIZONTAL_BACKGROUND;
+   }
+   if (stage.get_kind()==EUGENEGDK::VERTICAL_STRIP)
+   {
+    kind=EUGENEGDK::VERTICAL_BACKGROUND;
+   }
+   return kind;
   }
 
   Text::Text()
@@ -2615,6 +2635,16 @@ namespace EUGENEGDK
   {
    this->set_position(x,y);
    this->draw_text(text);
+  }
+
+  void Text::destroy_image()
+  {
+   text.destroy_image();
+  }
+
+  void Text::destroy_font()
+  {
+   // text.destroy_sprite();
   }
 
  }

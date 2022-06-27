@@ -776,9 +776,11 @@ typedef enum
    void set_target(const unsigned int target);
    void step();
    void draw_background();
+   void destroy_image();
    void destroy_background();
    unsigned int get_frame() const;
    unsigned int get_frames() const;
+   EUGENEGDK::BACKGROUND_TYPE get_kind() const;
   };
 
   class Text
@@ -802,6 +804,8 @@ typedef enum
    void draw_text(const char *text);
    void draw_character(const unsigned int x,const unsigned int y,const char target);
    void draw_text(const unsigned int x,const unsigned int y,const char *text);
+   void destroy_image();
+   void destroy_font();
   };
 
  }
