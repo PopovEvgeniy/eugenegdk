@@ -1878,7 +1878,7 @@ namespace EUGENEGDK
 
   Animation::Animation()
   {
-   frame=0;
+   frame=1;
    frames=1;
   }
 
@@ -1889,20 +1889,16 @@ namespace EUGENEGDK
 
   void Animation::reset_animation_setting()
   {
-   frame=0;
+   frame=1;
    frames=1;
   }
 
   void Animation::increase_frame()
   {
-
-   if (frame<frames)
+   ++frame;
+   if (frame>frames)
    {
-    ++frame;
-   }
-   else
-   {
-    frame=0;
+    frame=1;
    }
 
   }
@@ -1912,6 +1908,10 @@ namespace EUGENEGDK
    if (target<frames)
    {
     frame=target;
+   }
+   if (frame==0)
+   {
+    frame=1;
    }
 
   }
@@ -2227,10 +2227,10 @@ namespace EUGENEGDK
    switch(current_kind)
    {
     case EUGENEGDK::HORIZONTAL_STRIP:
-    billboard.set_horizontal_offset(static_cast<double>(this->get_frame()+1),static_cast<double>(this->get_frames()));
+    billboard.set_horizontal_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
     break;
     case EUGENEGDK::VERTICAL_STRIP:
-    billboard.set_vertical_offset(static_cast<double>(this->get_frame()+1),static_cast<double>(this->get_frames()));
+    billboard.set_vertical_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
     break;
     default:
     billboard.set_horizontal_offset(1.0,1.0);
@@ -2354,28 +2354,6 @@ namespace EUGENEGDK
    columns=0;
   }
 
-  unsigned int Sheet::get_row() const
-  {
-   unsigned int row;
-   row=0;
-   if (this->get_frame()>0)
-   {
-    row=this->get_frame()%rows;
-   }
-   return row;
-  }
-
-  unsigned int Sheet::get_column() const
-  {
-   unsigned int column;
-   column=0;
-   if (this->get_frame()>0)
-   {
-    column=this->get_frame()/rows;
-   }
-   return column;
-  }
-
   unsigned int Sheet::get_rows() const
   {
    return rows;
@@ -2389,7 +2367,6 @@ namespace EUGENEGDK
   void Sheet::destroy_sheet()
   {
    this->destroy_image();
-   this->reset_animation_setting();
    this->reset_billboard_setting();
    this->reset_sheet_setting();
   }
@@ -2405,7 +2382,6 @@ namespace EUGENEGDK
      {
       rows=row_amount;
       columns=column_amount;
-      this->set_frames(rows*columns);
       this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
       this->set_size(this->get_image_width()/rows,this->get_image_height()/columns);
      }
@@ -2423,27 +2399,15 @@ namespace EUGENEGDK
 
   void Sheet::select(const unsigned int row,const unsigned int column)
   {
-   if (row<rows)
+   if (row>0)
    {
-    if (column<columns)
+    if (column>0)
     {
-     billboard.set_tile_offset(static_cast<double>(row+1),static_cast<double>(rows),static_cast<double>(column+1),static_cast<double>(columns));
+     billboard.set_tile_offset(static_cast<double>(row),static_cast<double>(rows),static_cast<double>(column),static_cast<double>(columns));
     }
 
    }
 
-  }
-
-  void Sheet::select(const unsigned int target)
-  {
-   this->set_frame(target);
-   this->select(this->get_row(),this->get_column());
-  }
-
-  void Sheet::step()
-  {
-   this->increase_frame();
-   this->select(this->get_row(),this->get_column());
   }
 
   Background::Background()
@@ -2561,7 +2525,7 @@ namespace EUGENEGDK
 
   Text::~Text()
   {
-   text.destroy_sheet();
+   text.destroy_sprite();
   }
 
   void Text::increase_position()
@@ -2598,7 +2562,7 @@ namespace EUGENEGDK
 
   void Text::load_font(Image *font)
   {
-   text.load_sheet(font,16,16);
+   text.load_sprite(font,EUGENEGDK::HORIZONTAL_STRIP,256);
   }
 
   void Text::load_font(Image &font)
@@ -2608,7 +2572,7 @@ namespace EUGENEGDK
 
   void Text::draw_character(const char target)
   {
-   text.select(static_cast<unsigned char>(target));
+   text.set_target(static_cast<unsigned char>(target)+1);
    text.draw_sprite(true);
   }
 
@@ -2644,7 +2608,7 @@ namespace EUGENEGDK
 
   void Text::destroy_font()
   {
-   // text.destroy_sprite();
+   text.destroy_sprite();
   }
 
  }

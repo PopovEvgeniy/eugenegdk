@@ -249,10 +249,7 @@
 C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </big>
     <h2><a class="mozTocH2" name="mozTocId491993"></a><big>Chapter 6. Compilers</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;">Supported compilers</span><br>
-      <br>
-      This engine successfully tested with these compilers: </big> <br>
+    <big> This engine successfully tested with these compilers: </big> <br>
     <ul>
       <li><a href="https://jmeubank.github.io/tdm-gcc/"><big>TDM-GCC</big></a></li>
       <li><a href="http://mingw-w64.org"><big>MINGW-w64</big></a></li>
@@ -448,10 +445,13 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </big>
     <h2><a class="mozTocH2" name="mozTocId501089"></a><big>Chapter 4. Animation
         subsystem</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;">Very important subsystems</span><br>
+    <big> <span style="text-decoration: underline;">Very important subsystems</span><br>
       <br>
       Animation subsystem let you control animation frames.<br>
+      <br>
+      <span style="text-decoration: underline;">Frame indexing</span><br>
+      <br>
+      First frame index is 1.<br>
       <br>
       <span style="text-decoration: underline;">Work with animation subsystem</span><br>
       <br>
@@ -467,8 +467,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       animated sprite.<br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId738557"></a><big>Chapter 5. Background</big></h2>
-    <big> <br>
-      <span style="text-decoration: underline;">Level decoration</span><br>
+    <big> <span style="text-decoration: underline;">Level decoration</span><br>
       <br>
       Background is a big image. It is like decoration in theater stage. Any
       game has a background. The background will stretch to screen resolution
@@ -507,11 +506,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         </tr>
       </tbody>
     </table>
-    <big><br>
-      <span style="text-decoration: underline;">Frame indexing</span><br>
-      <br>
-      Frame indexing start at 0.<br>
-      <br style="text-decoration: underline;">
+    <big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Work with background</span><br>
       <br>
       Just use <span style="font-style: italic;">Background</span> class for
@@ -559,8 +554,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"></span> method.</big><br>
     <h2><a class="mozTocH2" name="mozTocId309905"></a><big>Chapter 6. Base
         sprite subsystem</big></h2>
-    <big><br>
-    </big><big><span style="text-decoration: underline;">Small important thing</span><br>
+    <big> </big><big><span style="text-decoration: underline;">Small important
+        thing</span><br>
       <br>
       A sprite is a transparent image. It is useful for many things: enemies,
       bonuses, etc…<br>
@@ -573,6 +568,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Transparent mode is enabled by default.<br>
       <br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Work with base sprite subsystem</span><br
+
         style="text-decoration: underline;">
       <br>
       <span style="font-style: italic;">Billboard</span> class provide simple
@@ -647,8 +643,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> </big>
     <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 7. Ordinary
         sprites</big></h2>
-    <big> <br>
-      <span style="text-decoration: underline;">Sprite types</span><br>
+    <big> <span style="text-decoration: underline;">Sprite types</span><br>
       <br>
       There are two kinds of ordinary sprites: normal sprites and strip. The
       strip is animated sprite. Do you remember analog camera? <br>
@@ -733,8 +728,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       automatically create when load or clone sprite.</big><big> </big>
     <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 8. Sprite
         sheet</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;">Some words about sprite sheet</span><br>
+    <big> <span style="text-decoration: underline;">Some words about sprite
+        sheet</span><br>
       <br>
       Sprite sheet is special kind of animated sprites. Each frame have fixed
       size. Sprite sheet is matrix of frames. Look to this picture for
@@ -742,36 +737,26 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <img style="width: 380px; height: 249px;" alt="" src="sheet.png"><br>
       <br>
-      <span style="text-decoration: underline;">Matrix access to frame</span><br>
+      <span style="text-decoration: underline;">Row and column</span><br>
       <br>
-      Row indexing start at 0. Column indexing start at 0.<br>
-      <br>
-    </big><big><span style="text-decoration: underline;">Simple access to frame</span><br>
-      <br>
-      Frame indexing start at 0.<br>
-      <br style="text-decoration: underline;">
+      First row is 1. First column is 1.<br>
+    </big><big><br style="text-decoration: underline;">
     </big><big> <span style="text-decoration: underline;">Work with sprite
         sheet subsystem</span><br>
       <br>
       <span style="font-style: italic;">Sheet</span> class provide access to the
-      sprite sheet subsystem. </big><big>It is derived from threee&nbsp;<span style="font-style: italic;"></span>classes:
-      </big><big><span style="font-style: italic;">Billboard</span>,<span style="font-style: italic;">
-        Animation</span> and <span style="font-style: italic;">Picture</span></big><big>.</big><big>
-      Let’s look on public methods.<br>
+      sprite sheet subsystem. </big><big>It is derived from </big><big><span style="font-style: italic;">Billboard</span><span
+        style="font-style: italic;"></span> and <span style="font-style: italic;">Picture</span></big><big>
+      classes. Let’s look on public methods.<br>
       <span style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">unsigned int Sheet::get_rows() const;</span>
       – Return amount of rows.<br>
       <span style="font-style: italic;">unsigned int Sheet::get_columns() const;</span>
       – Return amount of columns.<span style="font-style: italic;"></span></big><big><span
         style="font-style: italic;"></span></big><br>
-    <big> <span style="font-style: italic;">void Tileset::select(const unsigned
-        int row,const unsigned int column);</span> – Select target tile via row
-      and column.<br>
-    </big><big><span style="font-style: italic;">void Tileset::select(const
-        unsigned int target);</span> – Select target tile via frame number.<br>
-    </big><big><span style="font-style: italic;">void Sheet::step();</span> –
-      Increase number of target frame. Set it to 1 if number of target frame
-      more than amount of frames.</big><br>
+    <big> <span style="font-style: italic;">void Sheet::select(const unsigned
+        int row,const unsigned int column);</span> – Select target sprite.</big><big><span
+        style="font-style: italic;"></span></big><br>
     <big> <span style="font-style: italic;">void Sheet::destroy_sheet();</span>
       – Destroy a sprite sheet image and a sprite sheet texture.</big><big><span
         style="font-style: italic;"></span></big><big><br>
@@ -789,12 +774,11 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       method.<br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId752257"></a><big>Chapter 9. Text</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;">How draw a text?</span><br>
+    <big> <span style="text-decoration: underline;">How draw a text?</span><br>
       <br>
       Just use text subsystem for draw a text. This subsystem need a font for
       text drawing. You must load a font before start draw the text. The font is
-      just sprite sheet with 16 rows and 16 columns.<br>
+      just horizontal strip with 256 frames.<br>
       <br>
       <span style="text-decoration: underline;">Valid characters</span><br>
       <br>
@@ -1503,7 +1487,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <p><big> D-pad button codes look as predefined constants. You can see it
         bellow.</big></p>
     <big> </big>
-    <table style="text-align: left; width: 613px; height: 304px;" cellspacing="2"
+    <table style="text-align: left; width: 568px; height: 304px;" cellspacing="2"
       cellpadding="2" border="1">
       <tbody>
         <tr>
@@ -2034,6 +2018,9 @@ Multimedia API</a>. </big>
         5.6.6 – Text drawing subsystem improved.<br>
         5.6.7 – Background subsystem improved.<br>
         5.6.8 – Text drawing subsystem improved.<br>
+        5.6.9 – Small changes.<br>
+        5.7 – Text drawing subsystem improved.<br>
+        5.7.1 – 5.7.2 – Sprite sheet subsystem improved.<br>
       </big></span>
   </body>
 </html>

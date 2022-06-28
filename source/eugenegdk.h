@@ -739,14 +739,12 @@ typedef enum
    void destroy_sprite();
   };
 
-  class Sheet:public Billboard,public Animation,public Picture
+  class Sheet:public Billboard,public Picture
   {
    private:
    unsigned int rows;
    unsigned int columns;
    void reset_sheet_setting();
-   unsigned int get_row() const;
-   unsigned int get_column() const;
    public:
    Sheet();
    ~Sheet();
@@ -756,8 +754,6 @@ typedef enum
    void load_sheet(Image *sheet,const unsigned int row_amount,const unsigned int column_amount);
    void load_sheet(Image &sheet,const unsigned int row_amount,const unsigned int column_amount);
    void select(const unsigned int row,const unsigned int column);
-   void select(const unsigned int target);
-   void step();
   };
 
   class Background
@@ -786,7 +782,7 @@ typedef enum
   class Text
   {
    private:
-   Graphics::Sheet text;
+   Graphics::Sprite text;
    unsigned int current_x;
    unsigned int current_y;
    void increase_position();
