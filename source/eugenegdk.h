@@ -426,9 +426,9 @@ typedef enum
    void set_total_size(const unsigned int width,const unsigned int height);
    void set_size(const unsigned int width,const unsigned int height);
    void set_position(const unsigned int x,const unsigned int y);
+   void set_tile_offset(const double row,const double rows,const double column,const double columns);
    void set_horizontal_offset(const double current,const double total);
    void set_vertical_offset(const double current,const double total);
-   void set_tile_offset(const double row,const double rows,const double column,const double columns);
   };
 
   class Rectangle:public Shape

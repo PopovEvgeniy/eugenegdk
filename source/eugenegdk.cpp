@@ -725,30 +725,6 @@ namespace EUGENEGDK
    current_y=y;
   }
 
-  void Shape::set_horizontal_offset(const double current,const double total)
-  {
-   point[0].u=Core::get_start_offset(current,total);
-   point[0].v=1.0;
-   point[1].u=Core::get_end_offset(current,total);
-   point[1].v=1.0;
-   point[2].u=Core::get_end_offset(current,total);
-   point[2].v=0.0;
-   point[3].u=Core::get_start_offset(current,total);
-   point[3].v=0.0;
-  }
-
-  void Shape::set_vertical_offset(const double current,const double total)
-  {
-   point[0].u=0.0;
-   point[0].v=Core::get_end_offset(current,total);
-   point[1].u=1.0;
-   point[1].v=Core::get_end_offset(current,total);
-   point[2].u=1.0;
-   point[2].v=Core::get_start_offset(current,total);
-   point[3].u=0.0;
-   point[3].v=Core::get_start_offset(current,total);
-  }
-
   void Shape::set_tile_offset(const double row,const double rows,const double column,const double columns)
   {
    point[0].u=Core::get_start_offset(row,rows);
@@ -759,6 +735,16 @@ namespace EUGENEGDK
    point[2].v=Core::get_start_offset(column,columns);
    point[3].u=Core::get_start_offset(row,rows);
    point[3].v=Core::get_start_offset(column,columns);
+  }
+
+  void Shape::set_horizontal_offset(const double current,const double total)
+  {
+   this->set_tile_offset(current,total,1.0,1.0);
+  }
+
+  void Shape::set_vertical_offset(const double current,const double total)
+  {
+   this->set_tile_offset(1.0,1.0,current,total);
   }
 
   Rectangle::Rectangle()
@@ -1675,7 +1661,6 @@ namespace EUGENEGDK
    size_t index,position,amount;
    index=0;
    position=0;
-   amount=0;
    while (index<data.get_length())
    {
     if (target[position]<128)
