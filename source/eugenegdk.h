@@ -888,8 +888,9 @@ typedef enum
  {
 
   template <class RESOURCE>
-  void create_resource(RESOURCE *target)
+  RESOURCE *create_resource()
   {
+   RESOURCE *target;
    try
    {
     target=new RESOURCE;
@@ -900,12 +901,13 @@ typedef enum
     puts("Can't create a resource");
     exit(EXIT_FAILURE);
    }
-
+   return target;
   }
 
   template <class RESOURCE>
-  void create_resource_array(RESOURCE *target,const size_t amount)
+  RESOURCE *create_resource_array(const size_t amount)
   {
+   RESOURCE *target;
    try
    {
     target=new RESOURCE[amount];
@@ -916,7 +918,7 @@ typedef enum
     puts("Can't create resource array");
     exit(EXIT_FAILURE);
    }
-
+   return target;
   }
 
   template <class RESOURCE>
@@ -925,7 +927,6 @@ typedef enum
    if (target!=NULL)
    {
     delete target;
-    target=NULL;
    }
 
   }
@@ -936,7 +937,6 @@ typedef enum
    if (target!=NULL)
    {
     delete[] target;
-    target=NULL;
    }
 
   }

@@ -568,7 +568,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Transparent mode is enabled by default.<br>
       <br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Work with base sprite subsystem</span><br
-
         style="text-decoration: underline;">
       <br>
       <span style="font-style: italic;">Billboard</span> class provide simple
@@ -720,6 +719,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       empty.<br>
       <span style="font-style: italic;">void Sprite::destroy_sprite();</span> –
       Destroy a sprite image and a sprite texture.<span style="font-style: italic;"></span></big><big><span
+
         style="font-style: italic;"></span><br>
     </big> <big><br>
       <span style="text-decoration: underline;">Sprite texture</span><br>
@@ -1048,13 +1048,13 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       functions. All these function declared in&nbsp; <span style="font-style: italic;">Resource</span>
       sub-namespace.<br>
       <br>
-      <span style="font-style: italic;">create_resource function</span> create
-      single resource or terminate the program if&nbsp; operation failed. It
-      takes resource handle as argument.<br>
+      <span style="font-style: italic;">create_resource function</span>
+      create single resource or terminate the program if operation failed. It
+      don't takes argument and return handle of resource.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;">create_resource_array function</span>
       create resource array or terminate the program if operation failed. It
-      takes resource handle and amount of resources as arguments.<br>
+      take resource amount as argument and return handle of resource array.<br>
       <br>
       <span style="font-style: italic;">delete_resource</span> function delete
       resource if it already exists. This function takes resource handle as
@@ -2022,6 +2022,7 @@ Multimedia API</a>. </big>
         5.7 – Text drawing subsystem improved.<br>
         5.7.1 – 5.7.2 – Sprite sheet subsystem improved.<br>
         5.7.3 – 5.7.4 – Small changes.<br>
+        5.7.4 – 5.7.5 – Resource manager improved.<br>
       </big></span>
   </body>
 </html>
