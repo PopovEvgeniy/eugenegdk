@@ -331,10 +331,7 @@ typedef enum
    }
    catch (...)
    {
-    buffer=NULL;
-    length=0;
-    puts(message);
-    exit(EXIT_FAILURE);
+    EUGENEGDK::Halt(message);
    }
 
   }
@@ -897,9 +894,7 @@ typedef enum
    }
    catch (...)
    {
-    target=NULL;
-    puts("Can't create a resource");
-    exit(EXIT_FAILURE);
+    EUGENEGDK::Halt("Can't create a resource");
    }
    return target;
   }
@@ -914,9 +909,7 @@ typedef enum
    }
    catch (...)
    {
-    target=NULL;
-    puts("Can't create resource array");
-    exit(EXIT_FAILURE);
+    EUGENEGDK::Halt("Can't create resource array");
    }
    return target;
   }
