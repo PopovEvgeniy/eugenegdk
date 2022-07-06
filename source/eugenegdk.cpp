@@ -2561,14 +2561,14 @@ namespace EUGENEGDK
    text.draw_sprite(true);
   }
 
-  void Text::draw_text(const char *text)
+  void Text::draw_text(const char *target)
   {
    size_t index,length;
-   length=strlen(text);
+   length=strlen(target);
    this->restore_position();
    for (index=0;index<length;++index)
    {
-    this->draw_character(text[index]);
+    this->draw_character(target[index]);
     this->increase_position();
    }
 
@@ -2580,10 +2580,10 @@ namespace EUGENEGDK
    this->draw_character(target);
   }
 
-  void Text::draw_text(const unsigned int x,const unsigned int y,const char *text)
+  void Text::draw_text(const unsigned int x,const unsigned int y,const char *target)
   {
    this->set_position(x,y);
-   this->draw_text(text);
+   this->draw_text(target);
   }
 
   void Text::destroy_image()

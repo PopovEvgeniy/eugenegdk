@@ -794,9 +794,9 @@ typedef enum
    void load_font(Image *font);
    void load_font(Image &font);
    void draw_character(const char target);
-   void draw_text(const char *text);
+   void draw_text(const char *target);
    void draw_character(const unsigned int x,const unsigned int y,const char target);
-   void draw_text(const unsigned int x,const unsigned int y,const char *text);
+   void draw_text(const unsigned int x,const unsigned int y,const char *target);
    void destroy_image();
    void destroy_font();
   };
