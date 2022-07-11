@@ -889,8 +889,8 @@ namespace EUGENEGDK
    glDisable(GL_TEXTURE_GEN_T);
    glDisable(GL_TEXTURE_1D);
    glDisable(GL_DEPTH_TEST);
+   glDisable(GL_CULL_FACE);
    glEnable(GL_TEXTURE_2D);
-   glEnable(GL_CULL_FACE);
    glEnable(GL_ALPHA_TEST);
    glEnable(GL_BLEND);
    glEnableClientState(GL_VERTEX_ARRAY);
@@ -912,8 +912,6 @@ namespace EUGENEGDK
   void Render::set_common_setting()
   {
    glDepthMask(GL_TRUE);
-   glFrontFace(GL_CCW);
-   glCullFace(GL_BACK);
    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
    glAlphaFunc(GL_GREATER,0.1f);
    glClearColor(0.0,0.0,0.0,0.0);
@@ -1830,11 +1828,6 @@ namespace EUGENEGDK
 
   }
 
-  void Picture::load_image(Image &buffer)
-  {
-   this->load_image(buffer.get_handle());
-  }
-
   unsigned int *Picture::get_image()
   {
    return image.get_buffer();
@@ -2243,13 +2236,10 @@ namespace EUGENEGDK
 
   void Sprite::set_setting(const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames)
   {
+   this->reset_animation_setting();
    if (kind!=EUGENEGDK::SINGLE_SPRITE)
    {
     this->set_frames(frames);
-   }
-   else
-   {
-    this->reset_animation_setting();
    }
    this->set_kind(kind);
   }

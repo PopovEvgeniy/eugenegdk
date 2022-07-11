@@ -638,7 +638,6 @@ typedef enum
    void create_storage();
    void copy_image(const unsigned int *target);
    void load_image(Image *buffer);
-   void load_image(Image &buffer);
    public:
    Picture();
    ~Picture();
