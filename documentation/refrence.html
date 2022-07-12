@@ -522,14 +522,16 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">void Background::step();</span> –
       Increase number of target frame in scrollable background. Set it to 1 if
       number of target frame more than amount of frames.<br>
+      <span style="font-style: italic;">void Background::set_setting(const
+        EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);</span> – Set
+      background setting. Last argument will ignored if background not
+      scrollable.<br>
       <span style="font-style: italic;">void Background::load_background(Image
         *background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
-        frames);</span> – Load background. Last argument will ignored if
-      background not scrollable.<br>
+        frames);</span> – Load background.<br>
       <span style="font-style: italic;">void Background::load_background(Image
         &amp;background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
-        frames);</span> – Load background. Last argument will ignored if
-      background not scrollable.<br>
+        frames);</span> – Load background.<br>
       <span style="font-style: italic;">void Background::load_background(Image
         *background);</span> – Load normal background.<br>
       <span style="font-style: italic;">void Background::load_background(Image
@@ -683,7 +685,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Work with sprites</span><br>
       <br>
-      Just use <span style="font-style: italic;">Sprites</span> class for work
+      Just use <span style="font-style: italic;">Sprite</span> class for work
       with a sprite. It is derived from threee&nbsp;<span style="font-style: italic;"></span>classes:
       </big><big><span style="font-style: italic;">Billboard</span>,<span style="font-style: italic;">
         Animation</span> and <span style="font-style: italic;">Picture</span></big><big>.
@@ -719,7 +721,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       empty.<br>
       <span style="font-style: italic;">void Sprite::destroy_sprite();</span> –
       Destroy a sprite image and a sprite texture.<span style="font-style: italic;"></span></big><big><span
-
         style="font-style: italic;"></span><br>
     </big> <big><br>
       <span style="text-decoration: underline;">Sprite texture</span><br>
@@ -803,14 +804,14 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         Load a font.</span><br>
       <span style="font-style: italic;">void Text::draw_character(const char
         target); – Draw single character at current position.</span><br>
-      <span style="font-style: italic;">void Text::draw_text(const char *target);
-        – Draw text at current position.</span><br>
+      <span style="font-style: italic;">void Text::draw_text(const char
+        *target); – Draw text at current position.</span><br>
       <span style="font-style: italic;">void Text::draw_character(const unsigned
         int x,const unsigned int y,const char target);</span> – Draw single
       character at specific position.<br>
       <span style="font-style: italic;">void Text::draw_text(const unsigned int
-        x,const unsigned int y,const char *target);</span> – Draw text at specific
-      position.<br>
+        x,const unsigned int y,const char *target);</span> – Draw text at
+      specific position.<br>
       <span style="font-style: italic;">void Text::destroy_image();</span> –
       Destroy a font image.<br>
       <span style="font-style: italic;">void Text::destroy_font();</span> –
@@ -1048,9 +1049,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       functions. All these function declared in&nbsp; <span style="font-style: italic;">Resource</span>
       sub-namespace.<br>
       <br>
-      <span style="font-style: italic;">create_resource function</span>
-      create single resource or terminate the program if operation failed. It
-      don't takes argument and return handle of resource.<br>
+      <span style="font-style: italic;">create_resource function</span> create
+      single resource or terminate the program if operation failed. It don't
+      takes argument and return handle of resource.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;">create_resource_array function</span>
       create resource array or terminate the program if operation failed. It
@@ -2024,6 +2025,7 @@ Multimedia API</a>. </big>
         5.7.3 – 5.7.4 – Small changes.<br>
         5.7.5 – 5.7.6 – Resource manager improved.<br>
         5.7.7 – 5.8.2 – Small changes.<br>
+        5.8.3 – Background subsystem improved.<br>
       </big></span>
   </body>
 </html>

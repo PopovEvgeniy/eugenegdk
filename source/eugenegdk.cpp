@@ -2409,6 +2409,23 @@ namespace EUGENEGDK
    this->prepare(screen.get_handle());
   }
 
+  void Background::set_setting(const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
+  {
+   switch (kind)
+   {
+    case EUGENEGDK::HORIZONTAL_BACKGROUND:
+    stage.set_setting(EUGENEGDK::HORIZONTAL_STRIP,frames);
+    break;
+    case EUGENEGDK::VERTICAL_BACKGROUND:
+    stage.set_setting(EUGENEGDK::VERTICAL_STRIP,frames);
+    break;
+    default:
+    stage.set_setting(EUGENEGDK::SINGLE_SPRITE,1);
+    break;
+   }
+
+  }
+
   void Background::load_background(Image *background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
   {
    switch (kind)
