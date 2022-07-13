@@ -1883,11 +1883,11 @@ namespace EUGENEGDK
 
   void Animation::set_frame(const unsigned int target)
   {
-   if (target<frames)
+   if (target>0)
    {
     frame=target;
    }
-   if (frame==0)
+   if (frame>frames)
    {
     frame=1;
    }
