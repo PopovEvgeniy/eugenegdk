@@ -2404,6 +2404,11 @@ namespace EUGENEGDK
 
   }
 
+  void Background::prepare(const unsigned int width,const unsigned int height)
+  {
+   stage.set_size(width,height);
+  }
+
   void Background::prepare(Screen &screen)
   {
    this->prepare(screen.get_handle());
@@ -2491,6 +2496,16 @@ namespace EUGENEGDK
   unsigned int Background::get_frames() const
   {
    return stage.get_frames();
+  }
+
+  unsigned int Background::get_width() const
+  {
+   return stage.get_width();
+  }
+
+  unsigned int Background::get_height() const
+  {
+   return stage.get_height();
   }
 
   EUGENEGDK::BACKGROUND_TYPE Background::get_kind() const

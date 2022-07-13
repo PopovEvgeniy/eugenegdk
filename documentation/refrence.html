@@ -516,6 +516,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         *screen);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::prepare(Screen
         &amp;screen);</span> – Prepare for drawing.<br>
+      <span style="font-style: italic;">void Background::prepare(const unsigned
+        int width,const unsigned int heigt);</span> – Prepare for drawing.<br>
       <span style="font-style: italic;">void Background::set_target(const
         unsigned int target);</span> – Set target frame in scrollable
       background.<br>
@@ -528,10 +530,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       scrollable.<br>
       <span style="font-style: italic;">void Background::load_background(Image
         *background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
-        frames);</span> – Load background.<br>
+        frames);</span> – Load background and set it setting.<br>
       <span style="font-style: italic;">void Background::load_background(Image
         &amp;background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
-        frames);</span> – Load background.<br>
+        frames);</span> – Load background and set it setting.<br>
       <span style="font-style: italic;">void Background::load_background(Image
         *background);</span> – Load normal background.<br>
       <span style="font-style: italic;">void Background::load_background(Image
@@ -546,6 +548,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         const;</span> – Return current frame in scrollable background.<br>
       <span style="font-style: italic;">unsigned int Background::get_frames()
         const;</span> – Return amount of frames in scrollable background.<br>
+      <span style="font-style: italic;">unsigned int Background::get_width()
+        const;</span> – Return the width of the background.<br>
+      <span style="font-style: italic;">unsigned int Background::get_height()
+        const;</span> – Return the height of the background.<br>
       <span style="font-style: italic;">EUGENEGDK::BACKGROUND_TYPE
         Background::get_kind() const;</span> – Get background type.<br>
       <br>
@@ -553,7 +559,13 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       Background don't draw if background texture don't exist. Background
       texture will automatically create after call <span style="font-style: italic;">load_background</span>
-      <span style="font-style: italic;"></span> method.</big><br>
+      <span style="font-style: italic;"></span> method.<br>
+      <br style="text-decoration: underline;">
+      <span style="text-decoration: underline;">Important notice</span><br>
+      <br>
+      Always call <span style="font-style: italic;">prepare</span> method after
+      set background setting or load background.<br>
+    </big>
     <h2><a class="mozTocH2" name="mozTocId309905"></a><big>Chapter 6. Base
         sprite subsystem</big></h2>
     <big> </big><big><span style="text-decoration: underline;">Small important
@@ -2025,7 +2037,7 @@ Multimedia API</a>. </big>
         5.7.3 – 5.7.4 – Small changes.<br>
         5.7.5 – 5.7.6 – Resource manager improved.<br>
         5.7.7 – 5.8.2 – Small changes.<br>
-        5.8.3 – Background subsystem improved.<br>
+        5.8.3 – 5.8.5 – Background subsystem improved.<br>
       </big></span>
   </body>
 </html>

@@ -761,6 +761,7 @@ typedef enum
    ~Background();
    void prepare(const Screen *screen);
    void prepare(Screen &screen);
+   void prepare(const unsigned int width,const unsigned int height);
    void set_setting(const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
    void load_background(Image *background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
    void load_background(Image *background);
@@ -773,6 +774,8 @@ typedef enum
    void destroy_background();
    unsigned int get_frame() const;
    unsigned int get_frames() const;
+   unsigned int get_width() const;
+   unsigned int get_height() const;
    EUGENEGDK::BACKGROUND_TYPE get_kind() const;
   };
 
