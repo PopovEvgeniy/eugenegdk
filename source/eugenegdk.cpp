@@ -2921,10 +2921,9 @@ namespace EUGENEGDK
   bool Timer::check_timer()
   {
    bool check;
-   check=false;
-   if (difftime(time(NULL),start)>=interval)
+   check=difftime(time(NULL),start)>=interval;
+   if (check==true)
    {
-    check=true;
     start=time(NULL);
    }
    return check;
