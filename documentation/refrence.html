@@ -582,6 +582,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Transparent mode is enabled by default.<br>
       <br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Work with base sprite subsystem</span><br
+
         style="text-decoration: underline;">
       <br>
       <span style="font-style: italic;">Billboard</span> class provide simple
@@ -758,24 +759,29 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         sheet subsystem</span><br>
       <br>
       <span style="font-style: italic;">Sheet</span> class provide access to the
-      sprite sheet subsystem. </big><big>It is derived from </big><big><span style="font-style: italic;">Billboard</span><span
-        style="font-style: italic;"></span> and <span style="font-style: italic;">Picture</span></big><big>
-      classes. Let’s look on public methods.<br>
+      sprite sheet subsystem. </big><big>It is derived from&nbsp; three </big><big><span
+        style="font-style: italic;"></span></big><big>classes: <span style="font-style: italic;">Billboard</span>,
+      <span style="font-style: italic;">Picture</span> and <span style="font-style: italic;">Animation</span>.
+      Let’s look on public methods.<br>
       <span style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">unsigned int Sheet::get_rows() const;</span>
       – Return amount of rows.<br>
       <span style="font-style: italic;">unsigned int Sheet::get_columns() const;</span>
       – Return amount of columns.<span style="font-style: italic;"></span></big><big><span
-        style="font-style: italic;"></span></big><br>
-    <big> <span style="font-style: italic;">void Sheet::select(const unsigned
-        int row,const unsigned int column);</span> – Select target sprite.</big><big><span
-        style="font-style: italic;"></span></big><br>
+        style="font-style: italic;"></span></big><big></big><big><span style="font-style: italic;"></span></big><br>
     <big> <span style="font-style: italic;">void Sheet::destroy_sheet();</span>
-      – Destroy a sprite sheet image and a sprite sheet texture.</big><big><span
-        style="font-style: italic;"></span></big><big><br>
-    </big> <big> <span style="font-style: italic;">void
-        Sheet::load_tileset(Image *sheet,const unsigned int row_amount,const
-        unsigned int column_amount);</span> – Load a sprite sheet.<br>
+      – Destroy a sprite sheet image and a sprite sheet texture.</big><br>
+    <big> <span style="font-style: italic;">void Sheet::select(const unsigned
+        int row,const unsigned int column);</span> – Select the sprite by row
+      and column.<br>
+    </big> <big> <span style="font-style: italic;">void Sheet::select(const
+        unsigned int target);</span> – Select the sprite by frame number.<br>
+    </big><big><span style="font-style: italic;"></span></big><big><span style="font-style: italic;">void
+        Sheet::step();</span> – Increase number of target frame. Set it to 1 if
+      number of target frame more than amount of frames.</big><br>
+    <big> <span style="font-style: italic;">void Sheet::load_tileset(Image
+        *sheet,const unsigned int row_amount,const unsigned int column_amount);</span>
+      – Load a sprite sheet.<br>
       <span style="font-style: italic;">void Sheet::load_tileset(Image
         &amp;sheet,const unsigned int row_amount,const unsigned int
         column_amount);</span> – Load a sprite sheet.<br>
@@ -791,7 +797,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       Just use text subsystem for draw a text. This subsystem need a font for
       text drawing. You must load a font before start draw the text. The font is
-      just horizontal strip with 256 frames.<br>
+      just sprite sheet with 16 rows and 16 columns.<br>
       <br>
       <span style="text-decoration: underline;">Valid characters</span><br>
       <br>
@@ -2039,6 +2045,9 @@ Multimedia API</a>. </big>
         5.7.7 – 5.8.2 – Small changes.<br>
         5.8.3 – 5.8.5 – Background subsystem improved.<br>
         5.8.6 – Small changes.<br>
+        5.8.7 – 5.9.1 – Sprite sheet subsystem improved.<br>
+        5.9.2 – 5.9.4 – Small changes.<br>
+        5.9.5 – Text drawing subsystem improved.<br>
       </big></span>
   </body>
 </html>

@@ -1871,14 +1871,19 @@ namespace EUGENEGDK
    frames=1;
   }
 
-  void Animation::increase_frame()
+  void Animation::correct_frame()
   {
-   ++frame;
    if (frame>frames)
    {
     frame=1;
    }
 
+  }
+
+  void Animation::increase_frame()
+  {
+   ++frame;
+   this->correct_frame();
   }
 
   void Animation::set_frame(const unsigned int target)
@@ -1887,11 +1892,7 @@ namespace EUGENEGDK
    {
     frame=target;
    }
-   if (frame>frames)
-   {
-    frame=1;
-   }
-
+   this->correct_frame();
   }
 
   void Animation::set_frames(const unsigned int amount)
@@ -2249,6 +2250,7 @@ namespace EUGENEGDK
    this->load_image(buffer);
    if (this->is_storage_empty()==false)
    {
+    this->reset_animation_setting();
     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
     this->set_setting(kind,frames);
    }
@@ -2329,6 +2331,35 @@ namespace EUGENEGDK
    columns=0;
   }
 
+  void Sheet::prepare_sheet()
+  {
+   this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
+   this->set_size(this->get_image_width()/rows,this->get_image_height()/columns);
+  }
+
+  unsigned int Sheet::get_row() const
+  {
+   unsigned int row;
+   row=this->get_frame()%rows;
+   if (row==0)
+   {
+    row=rows;
+   }
+   return row;
+  }
+
+  unsigned int Sheet::get_column() const
+  {
+   unsigned int column,target;
+   column=1;
+   target=this->get_frame();
+   if (target>rows)
+   {
+    column+=(target-1)/rows;
+   }
+   return column;
+  }
+
   unsigned int Sheet::get_rows() const
   {
    return rows;
@@ -2341,35 +2372,11 @@ namespace EUGENEGDK
 
   void Sheet::destroy_sheet()
   {
+   billboard.destroy_texture();
    this->destroy_image();
    this->reset_billboard_setting();
+   this->reset_animation_setting();
    this->reset_sheet_setting();
-  }
-
-  void Sheet::load_sheet(Image *sheet,const unsigned int row_amount,const unsigned int column_amount)
-  {
-   if (row_amount>0)
-   {
-    if (column_amount>0)
-    {
-     this->load_image(sheet);
-     if (this->is_storage_empty()==false)
-     {
-      rows=row_amount;
-      columns=column_amount;
-      this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
-      this->set_size(this->get_image_width()/rows,this->get_image_height()/columns);
-     }
-
-    }
-
-   }
-
-  }
-
-  void Sheet::load_sheet(Image &sheet,const unsigned int row_amount,const unsigned int column_amount)
-  {
-   this->load_sheet(sheet.get_handle(),row_amount,column_amount);
   }
 
   void Sheet::select(const unsigned int row,const unsigned int column)
@@ -2383,6 +2390,46 @@ namespace EUGENEGDK
 
    }
 
+  }
+
+  void Sheet::select(const unsigned int target)
+  {
+   this->set_frame(target);
+   this->select(this->get_row(),this->get_column());
+  }
+
+  void Sheet::step()
+  {
+   this->increase_frame();
+   this->select(this->get_row(),this->get_column());
+  }
+
+  void Sheet::load_sheet(Image *sheet,const unsigned int row_amount,const unsigned int column_amount)
+  {
+   if (row_amount>0)
+   {
+    if (column_amount>0)
+    {
+     this->load_image(sheet);
+     if (this->is_storage_empty()==false)
+     {
+      rows=row_amount;
+      columns=column_amount;
+      this->reset_animation_setting();
+      this->set_frames(rows*columns);
+      this->select(1);
+      this->prepare_sheet();
+     }
+
+    }
+
+   }
+
+  }
+
+  void Sheet::load_sheet(Image &sheet,const unsigned int row_amount,const unsigned int column_amount)
+  {
+   this->load_sheet(sheet.get_handle(),row_amount,column_amount);
   }
 
   Background::Background()
@@ -2532,7 +2579,7 @@ namespace EUGENEGDK
 
   Text::~Text()
   {
-   text.destroy_sprite();
+   text.destroy_sheet();
   }
 
   void Text::increase_position()
@@ -2569,7 +2616,7 @@ namespace EUGENEGDK
 
   void Text::load_font(Image *font)
   {
-   text.load_sprite(font,EUGENEGDK::HORIZONTAL_STRIP,256);
+   text.load_sheet(font,16,16);
   }
 
   void Text::load_font(Image &font)
@@ -2579,7 +2626,7 @@ namespace EUGENEGDK
 
   void Text::draw_character(const char target)
   {
-   text.set_target(static_cast<unsigned char>(target)+1);
+   text.select(static_cast<unsigned char>(target)+1);
    text.draw_sprite(true);
   }
 
@@ -2615,7 +2662,7 @@ namespace EUGENEGDK
 
   void Text::destroy_font()
   {
-   text.destroy_sprite();
+   text.destroy_sheet();
   }
 
  }
