@@ -283,8 +283,7 @@ namespace EUGENEGDK
 
   void Engine::get_instance()
   {
-   window_class.hInstance=GetModuleHandle(NULL);
-   if (window_class.hInstance==NULL)
+   if (GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,NULL,&window_class.hInstance)==FALSE)
    {
     EUGENEGDK::Halt("Can't get the application instance");
    }
@@ -1865,12 +1864,6 @@ namespace EUGENEGDK
 
   }
 
-  void Animation::reset_animation_setting()
-  {
-   frame=1;
-   frames=1;
-  }
-
   void Animation::correct_frame()
   {
    if (frame>frames)
@@ -1878,6 +1871,12 @@ namespace EUGENEGDK
     frame=1;
    }
 
+  }
+
+  void Animation::reset_animation_setting()
+  {
+   frame=1;
+   frames=1;
   }
 
   void Animation::increase_frame()
@@ -2350,12 +2349,11 @@ namespace EUGENEGDK
 
   unsigned int Sheet::get_column() const
   {
-   unsigned int column,target;
+   unsigned int column;
    column=1;
-   target=this->get_frame();
-   if (target>rows)
+   if (this->get_frame()>rows)
    {
-    column+=(target-1)/rows;
+    column+=(this->get_frame()-1)/rows;
    }
    return column;
   }

@@ -48,7 +48,7 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #endif
 
 #if defined __WATCOMC__
-  #define WINVER 0x0500
+  #define WINVER 0x0501
   #define OATRUE -1
 #endif
 
@@ -653,9 +653,9 @@ typedef enum
    private:
    unsigned int frames;
    unsigned int frame;
+   void correct_frame();
    protected:
    void reset_animation_setting();
-   void correct_frame();
    void increase_frame();
    void set_frame(const unsigned int target);
    void set_frames(const unsigned int amount);
