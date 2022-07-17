@@ -48,13 +48,19 @@
       <li><a href="#mozTocId64443">Part 4. Common things</a>
         <ul>
           <li><a href="#mozTocId597525">Chapter 1. The sub-namespace</a></li>
-          <li><a href="#mozTocId23432">Chapter 2. Multimedia</a></li>
-          <li><a href="#mozTocId853711">Chapter 3. Abnormal program termination</a></li>
-          <li><a href="#mozTocId656377">Chapter 4. Timer</a></li>
-          <li><a href="#mozTocId381935">Chapter 5. Collision</a></li>
+          <li><a href="#mozTocId853711">Chapter 2. Abnormal program termination</a></li>
+          <li><a href="#mozTocId656377">Chapter 3. Timer</a></li>
+          <li><a href="#mozTocId381935">Chapter 4. Collision</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId209024">Part 5. Misc</a>
+      <li><a href="#mozTocId611237">Part 5. Other important things</a>
+        <ul>
+          <li><a href="#mozTocId648026">Chapter 1. The sub-namespace</a></li>
+          <li><a href="#mozTocId909723">Chapter 2. Memory</a></li>
+          <li><a href="#mozTocId950985">Chapter 3. Multimedia</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId209024">Part 6. Misc</a>
         <ul>
           <li><a href="#mozTocId608755">Chapter 1. Filesystem</a></li>
           <li><a href="#mozTocId59386">Chapter 2. Interaction with operation
@@ -62,7 +68,7 @@
           <li><a href="#mozTocId573582">Chapter 3. Resource manager</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId590919"> Part 6. Binary files</a>
+      <li><a href="#mozTocId590919"> Part 7. Binary files</a>
         <ul>
           <li><a href="#mozTocId200879">Chapter 1. The sub-namespace</a></li>
           <li><a href="#mozTocId961921"> Chapter 2. Base binary files subsystem</a></li>
@@ -70,7 +76,7 @@
           <li><a href="#mozTocId511135"> Chapter 4. File writer</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId291572">Part 7. Input</a>
+      <li><a href="#mozTocId291572">Part 8. Input</a>
         <ul>
           <li><a href="#mozTocId783369">Chapter 1. The sub-namespace</a></li>
           <li><a href="#mozTocId685403">Chapter 2. Keyboard</a></li>
@@ -78,7 +84,7 @@
           <li><a href="#mozTocId861609">Chapter 4. Game-pad</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId309127">Part 8. Internal details of the engine
+      <li><a href="#mozTocId309127">Part 9. Internal details of the engine
           subsystems</a>
         <ul>
           <li><a href="#mozTocId383177">Chapter 1. A few words for a curious
@@ -878,15 +884,101 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       You can use wide range of graphics software for convert you images to
       correct format. I recommend use <a href="https://www.gimp.org">GIMP</a>
-      for do it. It is powerful open source and cross-platform image editor.</big><br>
-    <big> </big>
+      for do it. It is powerful open source and cross-platform image editor.<br>
+    </big> <big> </big>
     <h1><a class="mozTocH1" name="mozTocId64443"></a><big>Part 4. Common things</big></h1>
     <h2><a class="mozTocH2" name="mozTocId597525"></a><big>Chapter 1. The
         sub-namespace</big></h2>
     <big>Almost all subsystems in this section declared in <span style="font-style: italic;">Common</span>
       sub-namespace.<br>
+    </big> <big></big> <big> </big> <big> <span style="font-style: italic;"></span>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId23432"></a><big>Chapter 2. Multimedia</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 2. Abnormal
+        program termination</big></h2>
+    <big> You can use Halt function for terminate program. This function
+      declared in <span style="font-style: italic;">EGENEGDK</span> name-space.<br>
+      <br>
+      <span style="font-style: italic;">void EUGENEGDK::Halt(const char
+        *message);</span> – Terminate the program. Write error message to log
+      file if logging enabled. </big><big> </big>
+    <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 3. Timer</big></h2>
+    <big> Timer is very useful thing. Just use <span style="font-style: italic;">Timer</span>
+      class for work with the timer. Let’s look to public methods.<br>
+      <br>
+      <span style="font-style: italic;">void Timer::set_timer(const double
+        seconds);</span> – Set timer interval and initialize start point.<br>
+      <span style="font-style: italic;">bool Timer::check_timer();</span> –
+      Return true and reinitialize start point if interval between stop and
+      start points large or equal than specific seconds.</big><br>
+    <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 4. Collision</big></h2>
+    <big><br>
+      <span style="text-decoration: underline;">Very important thing for any
+        game</span><br>
+      <br>
+      What is very important thing for a video games? A collision.<br>
+      <br>
+      <span style="text-decoration: underline;">Collision detail</span><br>
+      <br>
+      Collision detector using bounding box collision method for detect
+      collision. Collision related information represent by special custom data
+      type. Let me introduce it.<br>
+      <br>
+      <span style="font-style: italic;">typedef struct</span><br style="font-style: italic;">
+      <span style="font-style: italic;">{</span><br style="font-style: italic;">
+      &nbsp; <span style="font-style: italic;">unsigned int x;</span><br style="font-style: italic;">
+      &nbsp; <span style="font-style: italic;">unsigned int y;</span><br style="font-style: italic;">
+      &nbsp; <span style="font-style: italic;">unsigned int width;</span><br style="font-style: italic;">
+      &nbsp; <span style="font-style: italic;">unsigned int height;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">} BOX;</span><br>
+      <br>
+      <span style="text-decoration: underline;">Work with collision detector</span><br>
+      <br>
+      <span style="font-style: italic;">Collision</span> class provide easy
+      access to collision detector. It is very simple class with few methods.
+      Let’s look to public methods.<br>
+      <span style="font-style: italic;"></span></big><br>
+    <big><span style="font-style: italic;">void Collision::set_target(const
+        EUGENEGDK::BOX &amp;first_target,const EUGENEGDK::BOX
+        &amp;second_target);</span> – Set targets for collision detector.<br>
+      <span style="font-style: italic;">bool Collision::check_collision() const;</span>
+      – Return true if collision between two objects is accepted.<br>
+      <span style="font-style: italic;">bool Collision::check_collision(const
+        EUGENEGDK::BOX &amp;first_target,const EUGENEGDK::BOX
+        &amp;second_target);</span> – Set collision target and check collision
+      between two objects.<br>
+      <span style="font-style: italic;">EUGENEGDK::BOX
+        Collision::generate_box(const unsigned int x,const unsigned int y,const
+        unsigned int width,const unsigned int height) const;</span> – Generate
+      collision related information from the object properties.<br>
+    </big>
+    <h1><a class="mozTocH1" name="mozTocId611237"></a><big>Part 5. Other
+        important things</big></h1>
+    <h2><a class="mozTocH2" name="mozTocId648026"></a><big>Chapter 1. The
+        sub-namespace</big></h2>
+    <big>All subsystems in this section declared in <span style="font-style: italic;">Misc</span>
+      sub-namespace.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId909723"></a><big>Chapter 2. Memory</big></h2>
+    <big>RAM is very important resource. Just use <span style="font-style: italic;">Memory</span>
+      class for get total memory size and free memory size. Let’s look to public
+      methods.<br>
+      <br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_total_physical();</span> – Return total physical memory size
+      in bytes.<br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_free_physical();</span> – Return free physical memory size
+      in bytes.<br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_total_virtual();</span> – Return total <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
+        memory</a> size in bytes.<br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_free_virtual();</span> – Return free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
+        memory</a> size in bytes.<br>
+      <span style="font-style: italic;">unsigned long int Memory::get_usage();</span>
+      – Return percentage of physical memory usage. <br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId950985"></a><big>Chapter 3. Multimedia</big></h2>
     <big><span style="text-decoration: underline;">Improve you game</span><br>
       <br>
       What is good things for a video games? A sounds and video. The sound can
@@ -969,66 +1061,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       playing a content of the target file.<br>
       <span style="font-style: italic;">bool Multimedia::check_playing();</span>
       – Return true if the multimedia resource is playing.</big><br>
-    <big> </big> <big> <span style="font-style: italic;"></span> </big>
-    <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 3. Abnormal
-        program termination</big></h2>
-    <big> You can use Halt function for terminate program. This function
-      declared in <span style="font-style: italic;">EGENEGDK</span> name-space.<br>
-      <br>
-      <span style="font-style: italic;">void EUGENEGDK::Halt(const char
-        *message);</span> – Terminate the program. Write error message to log
-      file if logging enabled. </big><big> </big>
-    <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 4. Timer</big></h2>
-    <big> Timer is very useful thing. Just use <span style="font-style: italic;">Timer</span>
-      class for work with the timer. Let’s look to public methods.<br>
-      <br>
-      <span style="font-style: italic;">void Timer::set_timer(const double
-        seconds);</span> – Set timer interval and initialize start point.<br>
-      <span style="font-style: italic;">bool Timer::check_timer();</span> –
-      Return true and reinitialize start point if interval between stop and
-      start points large or equal than specific seconds.</big><br>
-    <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 5. Collision</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;">Very important thing for any
-        game</span><br>
-      <br>
-      What is very important thing for a video games? A collision.<br>
-      <br>
-      <span style="text-decoration: underline;">Collision detail</span><br>
-      <br>
-      Collision detector using bounding box collision method for detect
-      collision. Collision related information represent by special custom data
-      type. Let me introduce it.<br>
-      <br>
-      <span style="font-style: italic;">typedef struct</span><br style="font-style: italic;">
-      <span style="font-style: italic;">{</span><br style="font-style: italic;">
-      &nbsp; <span style="font-style: italic;">unsigned int x;</span><br style="font-style: italic;">
-      &nbsp; <span style="font-style: italic;">unsigned int y;</span><br style="font-style: italic;">
-      &nbsp; <span style="font-style: italic;">unsigned int width;</span><br style="font-style: italic;">
-      &nbsp; <span style="font-style: italic;">unsigned int height;</span><br style="font-style: italic;">
-      <span style="font-style: italic;">} BOX;</span><br>
-      <br>
-      <span style="text-decoration: underline;">Work with collision detector</span><br>
-      <br>
-      <span style="font-style: italic;">Collision</span> class provide easy
-      access to collision detector. It is very simple class with few methods.
-      Let’s look to public methods.<br>
-      <span style="font-style: italic;"></span></big><br>
-    <big><span style="font-style: italic;">void Collision::set_target(const
-        EUGENEGDK::BOX &amp;first_target,const EUGENEGDK::BOX
-        &amp;second_target);</span> – Set targets for collision detector.<br>
-      <span style="font-style: italic;">bool Collision::check_collision() const;</span>
-      – Return true if collision between two objects is accepted.<br>
-      <span style="font-style: italic;">bool Collision::check_collision(const
-        EUGENEGDK::BOX &amp;first_target,const EUGENEGDK::BOX
-        &amp;second_target);</span> – Set collision target and check collision
-      between two objects.<br>
-      <span style="font-style: italic;">EUGENEGDK::BOX
-        Collision::generate_box(const unsigned int x,const unsigned int y,const
-        unsigned int width,const unsigned int height) const;</span> – Generate
-      collision related information from the object properties.</big><big><br>
-    </big>
-    <h1><a class="mozTocH1" name="mozTocId209024"></a><big>Part 5. Misc</big></h1>
+    <big> </big>
+    <h1><a class="mozTocH1" name="mozTocId209024"></a><big>Part 6. Misc</big></h1>
     <h2><a class="mozTocH2" name="mozTocId608755"></a><big>Chapter 1. Filesystem</big></h2>
     <big><br>
       Filesystem subsystem implement as two simple function. All these function
@@ -1089,7 +1123,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       delete resource array if it already exists. This function takes resource
       array handle as argument.<br>
     </big>
-    <h1><a class="mozTocH1" name="mozTocId590919"></a><big> Part 6. Binary files</big></h1>
+    <h1><a class="mozTocH1" name="mozTocId590919"></a><big> Part 7. Binary files</big></h1>
     <h2><a class="mozTocH2" name="mozTocId200879"></a><big>Chapter 1. The
         sub-namespace</big></h2>
     <big>All subsystems in this section declared in <span style="font-style: italic;">File</span>
@@ -1142,7 +1176,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big><i>void Output_File::flush();</i> – Force writing internal buffer data
       to the file.</big><br>
     <big> </big>
-    <h1><a class="mozTocH1" name="mozTocId291572"></a><big>Part 7. Input</big></h1>
+    <h1><a class="mozTocH1" name="mozTocId291572"></a><big>Part 8. Input</big></h1>
     <h2><a class="mozTocH2" name="mozTocId783369"></a><big>Chapter 1. The
         sub-namespace</big></h2>
     <big>All subsystems in this section declared in <span style="font-style: italic;">Input</span>
@@ -1660,7 +1694,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         Gamepad::get_right_stick_y();</span> – Return y-direction of right
       stick.<br>
     </big>
-    <h1><a class="mozTocH1" name="mozTocId309127"></a><big>Part 8. Internal
+    <h1><a class="mozTocH1" name="mozTocId309127"></a><big>Part 9. Internal
         details of the engine subsystems</big></h1>
     <big></big> <big> </big>
     <h2><a class="mozTocH2" name="mozTocId383177"></a><big>Chapter 1. A few
@@ -2056,6 +2090,8 @@ Multimedia API</a>. </big>
         5.9.5 – Text drawing subsystem improved.<br>
         5.9.6 – 5.9.8 – Small changes.<br>
         5.9.9 – Windows 2000 support removed.<br>
+        6.0 – Changes in the engine API.<br>
+        6.0.1 – New subsystem added.<br>
       </big></span>
   </body>
 </html>

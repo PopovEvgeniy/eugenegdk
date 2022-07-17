@@ -955,6 +955,307 @@ namespace EUGENEGDK
 
  }
 
+ namespace Misc
+ {
+
+  Multimedia::Multimedia()
+   {
+    loader=NULL;
+    player=NULL;
+    controler=NULL;
+    video=NULL;
+   }
+
+   Multimedia::~Multimedia()
+   {
+    if (player!=NULL)
+   {
+    player->Stop();
+    player->Release();
+    player=NULL;
+   }
+   if (video!=NULL)
+   {
+    video->Release();
+    video=NULL;
+   }
+   if (controler!=NULL)
+   {
+    controler->Release();
+    controler=NULL;
+   }
+   if (loader!=NULL)
+   {
+    loader->Release();
+    loader=NULL;
+   }
+   CoUninitialize();
+  }
+
+  void Multimedia::com_setup()
+  {
+   if (CoInitializeEx(NULL,COINIT_APARTMENTTHREADED)!=S_OK)
+   {
+    if (CoInitializeEx(NULL,COINIT_APARTMENTTHREADED)!=S_FALSE)
+    {
+     EUGENEGDK::Halt("Can't initialize COM");
+    }
+
+   }
+
+  }
+
+  void Multimedia::set_screen_mode()
+  {
+   if (video!=NULL)
+   {
+    video->put_FullScreenMode(OATRUE);
+   }
+
+  }
+
+  void Multimedia::load_content(const wchar_t *target)
+  {
+   if (loader!=NULL)
+   {
+    loader->RenderFile(target,NULL);
+   }
+
+  }
+
+  void Multimedia::open(const wchar_t *target)
+  {
+   this->load_content(target);
+   this->set_screen_mode();
+  }
+
+  bool Multimedia::is_play()
+  {
+   long long current,total;
+   current=0;
+   total=0;
+   if (controler!=NULL)
+   {
+    if (controler->GetPositions(&current,&total)!=S_OK)
+    {
+     current=0;
+     total=0;
+    }
+
+   }
+   return current<total;
+  }
+
+  void Multimedia::rewind()
+  {
+   long long position;
+   position=0;
+   if (controler!=NULL)
+   {
+    controler->SetPositions(&position,AM_SEEKING_AbsolutePositioning,NULL,AM_SEEKING_NoPositioning);
+   }
+
+  }
+
+  void Multimedia::play_content()
+  {
+   if (player!=NULL)
+   {
+    player->Run();
+   }
+
+  }
+
+  void Multimedia::create_loader()
+  {
+   if (loader==NULL)
+   {
+    if (CoCreateInstance(CLSID_FilterGraph,NULL,CLSCTX_INPROC_SERVER,IID_IGraphBuilder,reinterpret_cast<void**>(&loader))!=S_OK)
+    {
+     loader=NULL;
+     EUGENEGDK::Halt("Can't create a multimedia loader");
+    }
+
+   }
+
+  }
+
+  void Multimedia::create_player()
+  {
+   if (player==NULL)
+   {
+    if (loader->QueryInterface(IID_IMediaControl,reinterpret_cast<void**>(&player))!=S_OK)
+    {
+     player=NULL;
+     EUGENEGDK::Halt("Can't create a multimedia player");
+    }
+
+   }
+
+  }
+
+  void Multimedia::create_controler()
+  {
+   if (controler==NULL)
+   {
+    if (loader->QueryInterface(IID_IMediaSeeking,reinterpret_cast<void**>(&controler))!=S_OK)
+    {
+     controler=NULL;
+     EUGENEGDK::Halt("Can't create a player controler");
+    }
+
+   }
+
+  }
+
+  void Multimedia::create_video_player()
+  {
+   if (video==NULL)
+   {
+    if (loader->QueryInterface(IID_IVideoWindow,reinterpret_cast<void**>(&video))!=S_OK)
+    {
+     video=NULL;
+     EUGENEGDK::Halt("Can't create a video player");
+    }
+
+   }
+
+  }
+
+  void Multimedia::initialize()
+  {
+   this->com_setup();
+   this->create_loader();
+   this->create_player();
+   this->create_controler();
+   this->create_video_player();
+  }
+
+  bool Multimedia::check_playing()
+  {
+   OAFilterState state;
+   bool playing;
+   playing=false;
+   if (player!=NULL)
+   {
+    if (player->GetState(INFINITE,&state)!=E_FAIL)
+    {
+     if (state==State_Running)
+     {
+      playing=this->is_play();
+     }
+
+    }
+
+   }
+   return playing;
+  }
+
+  void Multimedia::stop()
+  {
+   if (player!=NULL)
+   {
+    player->Stop();
+   }
+
+  }
+
+  void Multimedia::play()
+  {
+   this->stop();
+   this->rewind();
+   this->play_content();
+  }
+
+  void Multimedia::play_loop()
+  {
+   if (this->check_playing()==false)
+   {
+    this->play();
+   }
+
+  }
+
+  void Multimedia::load(const char *target)
+  {
+   Core::Unicode_Convertor convertor;
+   this->stop();
+   this->open(convertor.convert(target));
+  }
+
+  void Multimedia::initialize(const char *target)
+  {
+   this->initialize();
+   this->load(target);
+  }
+
+  Memory::Memory()
+  {
+   memory.dwLength=sizeof(MEMORYSTATUSEX);
+   memory.dwMemoryLoad=0;
+   memory.ullAvailExtendedVirtual=0;
+   memory.ullAvailPageFile=0;
+   memory.ullAvailPhys=0;
+   memory.ullAvailVirtual=0;
+   memory.ullTotalPageFile=0;
+   memory.ullTotalPhys=0;
+   memory.ullTotalVirtual=0;
+  }
+
+  Memory::~Memory()
+  {
+
+  }
+
+  void Memory::get_status()
+  {
+   if (GlobalMemoryStatusEx(&memory)==FALSE)
+   {
+    memory.dwLength=sizeof(MEMORYSTATUSEX);
+    memory.dwMemoryLoad=0;
+    memory.ullAvailExtendedVirtual=0;
+    memory.ullAvailPageFile=0;
+    memory.ullAvailPhys=0;
+    memory.ullAvailVirtual=0;
+    memory.ullTotalPageFile=0;
+    memory.ullTotalPhys=0;
+    memory.ullTotalVirtual=0;
+   }
+
+  }
+
+  unsigned long long int Memory::get_total_physical()
+  {
+   this->get_status();
+   return memory.ullTotalPhys;
+  }
+
+  unsigned long long int Memory::get_free_physical()
+  {
+   this->get_status();
+   return memory.ullAvailPhys;
+  }
+
+  unsigned long long int Memory::get_total_virtual()
+  {
+   this->get_status();
+   return memory.ullTotalVirtual;
+  }
+
+  unsigned long long int Memory::get_free_virtual()
+  {
+   this->get_status();
+   return memory.ullAvailVirtual;
+  }
+
+  unsigned long int Memory::get_usage()
+  {
+   this->get_status();
+   return memory.dwMemoryLoad;
+  }
+
+ }
+
  namespace Input
  {
 
@@ -2667,237 +2968,6 @@ namespace EUGENEGDK
 
  namespace Common
  {
-
-   Multimedia::Multimedia()
-   {
-    loader=NULL;
-    player=NULL;
-    controler=NULL;
-    video=NULL;
-   }
-
-   Multimedia::~Multimedia()
-   {
-    if (player!=NULL)
-   {
-    player->Stop();
-    player->Release();
-    player=NULL;
-   }
-   if (video!=NULL)
-   {
-    video->Release();
-    video=NULL;
-   }
-   if (controler!=NULL)
-   {
-    controler->Release();
-    controler=NULL;
-   }
-   if (loader!=NULL)
-   {
-    loader->Release();
-    loader=NULL;
-   }
-   CoUninitialize();
-  }
-
-  void Multimedia::com_setup()
-  {
-   if (CoInitializeEx(NULL,COINIT_APARTMENTTHREADED)!=S_OK)
-   {
-    if (CoInitializeEx(NULL,COINIT_APARTMENTTHREADED)!=S_FALSE)
-    {
-     EUGENEGDK::Halt("Can't initialize COM");
-    }
-
-   }
-
-  }
-
-  void Multimedia::set_screen_mode()
-  {
-   if (video!=NULL)
-   {
-    video->put_FullScreenMode(OATRUE);
-   }
-
-  }
-
-  void Multimedia::load_content(const wchar_t *target)
-  {
-   if (loader!=NULL)
-   {
-    loader->RenderFile(target,NULL);
-   }
-
-  }
-
-  void Multimedia::open(const wchar_t *target)
-  {
-   this->load_content(target);
-   this->set_screen_mode();
-  }
-
-  bool Multimedia::is_play()
-  {
-   long long current,total;
-   current=0;
-   total=0;
-   if (controler!=NULL)
-   {
-    if (controler->GetPositions(&current,&total)!=S_OK)
-    {
-     current=0;
-     total=0;
-    }
-
-   }
-   return current<total;
-  }
-
-  void Multimedia::rewind()
-  {
-   long long position;
-   position=0;
-   if (controler!=NULL)
-   {
-    controler->SetPositions(&position,AM_SEEKING_AbsolutePositioning,NULL,AM_SEEKING_NoPositioning);
-   }
-
-  }
-
-  void Multimedia::play_content()
-  {
-   if (player!=NULL)
-   {
-    player->Run();
-   }
-
-  }
-
-  void Multimedia::create_loader()
-  {
-   if (loader==NULL)
-   {
-    if (CoCreateInstance(CLSID_FilterGraph,NULL,CLSCTX_INPROC_SERVER,IID_IGraphBuilder,reinterpret_cast<void**>(&loader))!=S_OK)
-    {
-     loader=NULL;
-     EUGENEGDK::Halt("Can't create a multimedia loader");
-    }
-
-   }
-
-  }
-
-  void Multimedia::create_player()
-  {
-   if (player==NULL)
-   {
-    if (loader->QueryInterface(IID_IMediaControl,reinterpret_cast<void**>(&player))!=S_OK)
-    {
-     player=NULL;
-     EUGENEGDK::Halt("Can't create a multimedia player");
-    }
-
-   }
-
-  }
-
-  void Multimedia::create_controler()
-  {
-   if (controler==NULL)
-   {
-    if (loader->QueryInterface(IID_IMediaSeeking,reinterpret_cast<void**>(&controler))!=S_OK)
-    {
-     controler=NULL;
-     EUGENEGDK::Halt("Can't create a player controler");
-    }
-
-   }
-
-  }
-
-  void Multimedia::create_video_player()
-  {
-   if (video==NULL)
-   {
-    if (loader->QueryInterface(IID_IVideoWindow,reinterpret_cast<void**>(&video))!=S_OK)
-    {
-     video=NULL;
-     EUGENEGDK::Halt("Can't create a video player");
-    }
-
-   }
-
-  }
-
-  void Multimedia::initialize()
-  {
-   this->com_setup();
-   this->create_loader();
-   this->create_player();
-   this->create_controler();
-   this->create_video_player();
-  }
-
-  bool Multimedia::check_playing()
-  {
-   OAFilterState state;
-   bool playing;
-   playing=false;
-   if (player!=NULL)
-   {
-    if (player->GetState(INFINITE,&state)!=E_FAIL)
-    {
-     if (state==State_Running)
-     {
-      playing=this->is_play();
-     }
-
-    }
-
-   }
-   return playing;
-  }
-
-  void Multimedia::stop()
-  {
-   if (player!=NULL)
-   {
-    player->Stop();
-   }
-
-  }
-
-  void Multimedia::play()
-  {
-   this->stop();
-   this->rewind();
-   this->play_content();
-  }
-
-  void Multimedia::play_loop()
-  {
-   if (this->check_playing()==false)
-   {
-    this->play();
-   }
-
-  }
-
-  void Multimedia::load(const char *target)
-  {
-   Core::Unicode_Convertor convertor;
-   this->stop();
-   this->open(convertor.convert(target));
-  }
-
-  void Multimedia::initialize(const char *target)
-  {
-   this->initialize();
-   this->load(target);
-  }
 
   Timer::Timer()
   {

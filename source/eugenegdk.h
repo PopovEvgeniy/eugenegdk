@@ -468,6 +468,56 @@ typedef enum
 
  }
 
+ namespace Misc
+ {
+
+  class Multimedia
+  {
+   private:
+   IGraphBuilder *loader;
+   IMediaControl *player;
+   IMediaSeeking *controler;
+   IVideoWindow *video;
+   void com_setup();
+   void set_screen_mode();
+   void load_content(const wchar_t *target);
+   void open(const wchar_t *target);
+   bool is_play();
+   void rewind();
+   void play_content();
+   void create_loader();
+   void create_player();
+   void create_controler();
+   void create_video_player();
+   public:
+   Multimedia();
+   ~Multimedia();
+   void initialize();
+   bool check_playing();
+   void stop();
+   void play();
+   void play_loop();
+   void load(const char *target);
+   void initialize(const char *target);
+  };
+
+  class Memory
+  {
+   private:
+   MEMORYSTATUSEX memory;
+   void get_status();
+   public:
+   Memory();
+   ~Memory();
+   unsigned long long int get_total_physical();
+   unsigned long long int get_free_physical();
+   unsigned long long int get_total_virtual();
+   unsigned long long int get_free_virtual();
+   unsigned long int get_usage();
+  };
+
+ }
+
  namespace Input
  {
 
@@ -814,36 +864,6 @@ typedef enum
 
  namespace Common
  {
-
-  class Multimedia
-  {
-   private:
-   IGraphBuilder *loader;
-   IMediaControl *player;
-   IMediaSeeking *controler;
-   IVideoWindow *video;
-   void com_setup();
-   void set_screen_mode();
-   void load_content(const wchar_t *target);
-   void open(const wchar_t *target);
-   bool is_play();
-   void rewind();
-   void play_content();
-   void create_loader();
-   void create_player();
-   void create_controler();
-   void create_video_player();
-   public:
-   Multimedia();
-   ~Multimedia();
-   void initialize();
-   bool check_playing();
-   void stop();
-   void play();
-   void play_loop();
-   void load(const char *target);
-   void initialize(const char *target);
-  };
 
   class Timer
   {
