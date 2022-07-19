@@ -37,12 +37,13 @@
           <li><a href="#mozTocId552078">Chapter 2. Base graphics subsystem</a></li>
           <li><a href="#mozTocId289525">Chapter 3. Picture subsystem</a></li>
           <li><a href="#mozTocId501089">Chapter 4. Animation subsystem</a></li>
-          <li><a href="#mozTocId738557">Chapter 5. Background</a></li>
-          <li><a href="#mozTocId309905">Chapter 6. Base sprite subsystem</a></li>
-          <li><a href="#mozTocId662651"> Chapter 7. Ordinary sprites</a></li>
-          <li><a href="#mozTocId146800">Chapter 8. Sprite sheet</a></li>
-          <li><a href="#mozTocId752257">Chapter 9. Text</a></li>
-          <li><a href="#mozTocId67980">Chapter 10. Loading images</a></li>
+          <li><a href="#mozTocId904725">Chapter 5. Image kind</a></li>
+          <li><a href="#mozTocId738557">Chapter 6. Background</a></li>
+          <li><a href="#mozTocId309905">Chapter 7. Base sprite subsystem</a></li>
+          <li><a href="#mozTocId662651"> Chapter 8. Ordinary sprites</a></li>
+          <li><a href="#mozTocId146800">Chapter 9. Sprite sheet</a></li>
+          <li><a href="#mozTocId752257">Chapter 10. Text</a></li>
+          <li><a href="#mozTocId67980">Chapter 11. Loading images</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId64443">Part 4. Common things</a>
@@ -433,8 +434,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Return the handle to base graphics subsystem object. </big>
     <h2><a class="mozTocH2" name="mozTocId289525"></a><big>Chapter 3. Picture
         subsystem</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;">Very important subsystems</span><br>
+    <big> <span style="text-decoration: underline;">Very important subsystems</span><br>
       <br>
       Picture subsystem implement image storage.<br>
       <br>
@@ -479,7 +479,39 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         const;</span> – Return current frame in scrollable background or
       animated sprite.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId738557"></a><big>Chapter 5. Background</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId904725"></a><big>Chapter 5. Image kind</big></h2>
+    <big></big>
+    <p><big> Image kind look as predefined constants. You can see it bellow.</big></p>
+    <big> </big>
+    <table style="text-align: left; width: 617px; height: 162px;" cellspacing="2"
+      cellpadding="2" border="1">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><big>Image kind<br>
+            </big></td>
+          <td style="vertical-align: top;"><big>Description </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>STATIC_IMAGE </big></td>
+          <td style="vertical-align: top;"><big>Static background or static
+              sprite<br>
+            </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>HORIZONTAL_ANIMATED </big></td>
+          <td style="vertical-align: top;"><big>Horizontal scrolling background
+              or horizontal strip </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>VERTICAL_ANIMATED </big></td>
+          <td style="vertical-align: top;"><big>Vertical scrolling background or
+              vertical strip<br>
+            </big></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <h2><a class="mozTocH2" name="mozTocId738557"></a><big>Chapter 6. Background</big></h2>
     <big> <span style="text-decoration: underline;">Level decoration</span><br>
       <br>
       Background is a big image. It is like decoration in theater stage. Any
@@ -491,35 +523,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Horizontal orientated scrolling background like horizontal orientated
       photo ribbon. Vertical orientated scrolling background like vertical
       orientated photo ribbon.<br>
-      <br>
-      <span style="text-decoration: underline;">Background types</span><br>
-    </big>
-    <p><big> Background types codes look as predefined constants. You can see it
-        bellow.</big></p>
-    <big> </big>
-    <table style="text-align: left; width: 554px; height: 124px;" cellspacing="2"
-      cellpadding="2" border="1">
-      <tbody>
-        <tr>
-          <td style="vertical-align: top;"><big>Background type </big></td>
-          <td style="vertical-align: top;"><big>Description </big></td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;"><big>NORMAL_BACKGROUND </big></td>
-          <td style="vertical-align: top;"><big>Normal background </big></td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;"><big>HORIZONTAL_BACKGROUND </big></td>
-          <td style="vertical-align: top;"><big>Horizontal scrolling background
-            </big></td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;"><big>VERTICAL_BACKGROUND </big></td>
-          <td style="vertical-align: top;"><big>Vertical scrolling background </big></td>
-        </tr>
-      </tbody>
-    </table>
-    <big><br style="text-decoration: underline;">
+      <span style="text-decoration: underline;"></span></big><big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Work with background</span><br>
       <br>
       Just use <span style="font-style: italic;">Background</span> class for
@@ -538,14 +542,14 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Increase number of target frame in scrollable background. Set it to 1 if
       number of target frame more than amount of frames.<br>
       <span style="font-style: italic;">void Background::set_setting(const
-        EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);</span> – Set
+        EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Set
       background setting. Last argument will ignored if background not
       scrollable.<br>
       <span style="font-style: italic;">void Background::load_background(Image
-        *background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
-        frames);</span> – Load background and set it setting.<br>
+        *background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
+      – Load background and set it setting.<br>
       <span style="font-style: italic;">void Background::load_background(Image
-        &amp;background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int
+        &amp;background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int
         frames);</span> – Load background and set it setting.<br>
       <span style="font-style: italic;">void Background::load_background(Image
         *background);</span> – Load normal background.<br>
@@ -565,7 +569,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         const;</span> – Return the width of the background.<br>
       <span style="font-style: italic;">unsigned int Background::get_height()
         const;</span> – Return the height of the background.<br>
-      <span style="font-style: italic;">EUGENEGDK::BACKGROUND_TYPE
+      <span style="font-style: italic;">EUGENEGDK::IMAGE_KIND
         Background::get_kind() const;</span> – Get background type.<br>
       <br>
       <span style="text-decoration: underline;">Background texture</span><br>
@@ -579,7 +583,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Always call <span style="font-style: italic;">prepare</span> method after
       set background setting or load background.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId309905"></a><big>Chapter 6. Base
+    <h2><a class="mozTocH2" name="mozTocId309905"></a><big>Chapter 7. Base
         sprite subsystem</big></h2>
     <big> </big><big><span style="text-decoration: underline;">Small important
         thing</span><br>
@@ -667,7 +671,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         int x, const unsigned int y);</i> – Set transparent mode and draw a
       sprite at target position.</big><big><span style="font-style: italic;"></span></big><br>
     <big> </big>
-    <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 7. Ordinary
+    <h2><a class="mozTocH2" name="mozTocId662651"></a><big> Chapter 8. Ordinary
         sprites</big></h2>
     <big> <span style="text-decoration: underline;">Sprite types</span><br>
       <br>
@@ -676,34 +680,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Strip look like photo ribbon. Horizontal strip look like the horizontal
       orientated photo ribbon.<br>
       Vertical strip look like the vertical orientated photo ribbon.<br>
-      <br style="text-decoration: underline;">
-      <span style="text-decoration: underline;">Sprite type flags</span><br>
-    </big>
-    <p><big> Sprite types codes look as predefined constants. You can see it
-        bellow.</big></p>
-    <big> </big>
-    <table style="text-align: left; width: 363px; height: 124px;" cellspacing="2"
-      cellpadding="2" border="1">
-      <tbody>
-        <tr>
-          <td style="vertical-align: top;"><big>Sprite type </big></td>
-          <td style="vertical-align: top;"><big>Description </big></td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;"><big>SINGLE_SPRITE </big></td>
-          <td style="vertical-align: top;"><big>Normal sprite </big></td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;"><big>HORIZONTAL_STRIP </big></td>
-          <td style="vertical-align: top;"><big>Horizontal strip </big></td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;"><big>VERTICAL_STRIP </big></td>
-          <td style="vertical-align: top;"><big>Vertical strip </big></td>
-        </tr>
-      </tbody>
-    </table>
-    <big><br>
+      <span style="text-decoration: underline;"></span></big><big><br>
     </big><big><span style="text-decoration: underline;">Frame indexing</span><br>
       <br>
       Frame indexing start at 0.</big><br>
@@ -717,16 +694,16 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Let’s look to public methods.<br>
       <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">void Sprite::set_setting(const
-        EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);</span> – Set
+        EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Set
       sprite setting. Last argument will ignored if sprite not animated.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image
-        *buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);</span>
+        *buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
       – Load a sprite and set it setting.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image *buffer);</span>
       – Load normal sprite.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image
-        &amp;buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int
-        frames);</span> – Load a sprite and set it setting.<br>
+        &amp;buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
+      – Load a sprite and set it setting.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image
         &amp;buffer);</span> – Load normal sprite.<br>
       <span style="font-style: italic;">void Sprite::set_target(const unsigned
@@ -734,8 +711,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">void Sprite::step();</span> – Increase
       number of target frame in strip. Set it to 1 if number of target frame
       more than amount of frames.<span style="font-style: italic;"></span><br>
-      <span style="font-style: italic;">EUGENEGDK::SPRITE_TYPE
-        Sprite::get_kind() const;</span> – Get sprite type.</big><big><br>
+      <span style="font-style: italic;">EUGENEGDK::IMAGE_KIND Sprite::get_kind()
+        const;</span> – Get sprite type.</big><big><br>
       <span style="font-style: italic;">Sprite* Sprite::get_handle();</span> –
       Return the handle to sprite object.<br>
       <span style="font-style: italic;">void Sprite::clone(Sprite *target);</span>
@@ -752,7 +729,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       Sprite don't draw if sprite texture don't exist. Sprite texture will
       automatically create when load or clone sprite.</big><big> </big>
-    <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 8. Sprite
+    <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 9. Sprite
         sheet</big></h2>
     <big> <span style="text-decoration: underline;">Some words about sprite
         sheet</span><br>
@@ -804,7 +781,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       texture will automatically create after call <span style="font-style: italic;">load_sheet</span>
       method.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId752257"></a><big>Chapter 9. Text</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId752257"></a><big>Chapter 10. Text</big></h2>
     <big> <span style="text-decoration: underline;">How draw a text?</span><br>
       <br>
       Just use text subsystem for draw a text. This subsystem need a font for
@@ -847,7 +824,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">void Text::destroy_font();</span> –
       Destroy a font image and a font texture.<br>
     </big><big> </big>
-    <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 10. Loading
+    <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 11. Loading
         images</big></h2>
     <big> <span style="text-decoration: underline;">Load a image from a files</span><br>
       <br>
@@ -2092,6 +2069,9 @@ Multimedia API</a>. </big>
         5.9.9 – Windows 2000 support removed.<br>
         6.0 – Changes in the engine API.<br>
         6.0.1 – New subsystem added.<br>
+        6.0.2 – Small changes.<br>
+        6.0.3 – Background subsystem and sprite subsystem improved.<br>
+        6.0.4 – Small changes.<br>
       </big></span>
   </body>
 </html>

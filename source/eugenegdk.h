@@ -81,17 +81,10 @@ namespace EUGENEGDK
 
  typedef enum
  {
-  NORMAL_BACKGROUND=0,
-  HORIZONTAL_BACKGROUND=1,
-  VERTICAL_BACKGROUND=2
- } BACKGROUND_TYPE;
-
- typedef enum
- {
-  SINGLE_SPRITE=0,
-  HORIZONTAL_STRIP=1,
-  VERTICAL_STRIP=2
- } SPRITE_TYPE;
+  STATIC_IMAGE=0,
+  HORIZONTAL_ANIMATED=1,
+  VERTICAL_ANIMATED=2
+ } IMAGE_KIND;
 
  typedef enum
  {
@@ -763,21 +756,21 @@ typedef enum
   class Sprite:public Billboard,public Animation,public Picture
   {
    private:
-   EUGENEGDK::SPRITE_TYPE current_kind;
+   EUGENEGDK::IMAGE_KIND current_kind;
    void reset_sprite_setting();
    void set_sprite_setting();
    void configure_sprite();
    void set_sprite_frame();
-   void set_kind(const EUGENEGDK::SPRITE_TYPE kind);
+   void set_kind(const EUGENEGDK::IMAGE_KIND kind);
    public:
    Sprite();
    ~Sprite();
    Sprite* get_handle();
-   EUGENEGDK::SPRITE_TYPE get_kind() const;
-   void set_setting(const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
-   void load_sprite(Image *buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
+   EUGENEGDK::IMAGE_KIND get_kind() const;
+   void set_setting(const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
+   void load_sprite(Image *buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
    void load_sprite(Image *buffer);
-   void load_sprite(Image &buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames);
+   void load_sprite(Image &buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
    void load_sprite(Image &buffer);
    void set_target(const unsigned int target);
    void step();
@@ -818,10 +811,10 @@ typedef enum
    void prepare(const Screen *screen);
    void prepare(Screen &screen);
    void prepare(const unsigned int width,const unsigned int height);
-   void set_setting(const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
-   void load_background(Image *background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
+   void set_setting(const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
+   void load_background(Image *background,const IMAGE_KIND kind,const unsigned int frames);
    void load_background(Image *background);
-   void load_background(Image &background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames);
+   void load_background(Image &background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
    void load_background(Image &background);
    void set_target(const unsigned int target);
    void step();
@@ -832,7 +825,7 @@ typedef enum
    unsigned int get_frames() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
-   EUGENEGDK::BACKGROUND_TYPE get_kind() const;
+   EUGENEGDK::IMAGE_KIND get_kind() const;
   };
 
   class Text

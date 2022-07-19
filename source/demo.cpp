@@ -20,7 +20,7 @@ int main()
  space.load_background(image);
  space.prepare(screen);
  image.load_tga("ship.tga");
- ship.load_sprite(image,EUGENEGDK::HORIZONTAL_STRIP,2);
+ ship.load_sprite(image,EUGENEGDK::HORIZONTAL_ANIMATED,2);
  ship.set_position(screen.get_width()/2,screen.get_height()/2);
  image.load_tga("font.tga");
  text.load_font(image);

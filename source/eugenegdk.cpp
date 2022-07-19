@@ -2462,7 +2462,7 @@ namespace EUGENEGDK
 
   Sprite::Sprite()
   {
-   current_kind=EUGENEGDK::SINGLE_SPRITE;
+   current_kind=EUGENEGDK::STATIC_IMAGE;
   }
 
   Sprite::~Sprite()
@@ -2472,17 +2472,17 @@ namespace EUGENEGDK
 
   void Sprite::reset_sprite_setting()
   {
-   current_kind=EUGENEGDK::SINGLE_SPRITE;
+   current_kind=EUGENEGDK::STATIC_IMAGE;
   }
 
   void Sprite::set_sprite_setting()
   {
    switch (current_kind)
    {
-    case EUGENEGDK::HORIZONTAL_STRIP:
+    case EUGENEGDK::HORIZONTAL_ANIMATED:
     this->set_size(this->get_image_width()/this->get_frames(),this->get_image_height());
     break;
-    case EUGENEGDK::VERTICAL_STRIP:
+    case EUGENEGDK::VERTICAL_ANIMATED:
     this->set_size(this->get_image_width(),this->get_image_height()/this->get_frames());
     break;
     default:
@@ -2505,10 +2505,10 @@ namespace EUGENEGDK
   {
    switch(current_kind)
    {
-    case EUGENEGDK::HORIZONTAL_STRIP:
+    case EUGENEGDK::HORIZONTAL_ANIMATED:
     billboard.set_horizontal_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
     break;
-    case EUGENEGDK::VERTICAL_STRIP:
+    case EUGENEGDK::VERTICAL_ANIMATED:
     billboard.set_vertical_offset(static_cast<double>(this->get_frame()),static_cast<double>(this->get_frames()));
     break;
     default:
@@ -2518,7 +2518,7 @@ namespace EUGENEGDK
 
   }
 
-  void Sprite::set_kind(const EUGENEGDK::SPRITE_TYPE kind)
+  void Sprite::set_kind(const EUGENEGDK::IMAGE_KIND kind)
   {
    current_kind=kind;
    this->configure_sprite();
@@ -2530,22 +2530,22 @@ namespace EUGENEGDK
    return this;
   }
 
-  EUGENEGDK::SPRITE_TYPE Sprite::get_kind() const
+  EUGENEGDK::IMAGE_KIND Sprite::get_kind() const
   {
    return current_kind;
   }
 
-  void Sprite::set_setting(const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames)
+  void Sprite::set_setting(const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
    this->reset_animation_setting();
-   if (kind!=EUGENEGDK::SINGLE_SPRITE)
+   if (kind!=EUGENEGDK::STATIC_IMAGE)
    {
     this->set_frames(frames);
    }
    this->set_kind(kind);
   }
 
-  void Sprite::load_sprite(Image *buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames)
+  void Sprite::load_sprite(Image *buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
    this->load_image(buffer);
    if (this->is_storage_empty()==false)
@@ -2559,10 +2559,10 @@ namespace EUGENEGDK
 
   void Sprite::load_sprite(Image *buffer)
   {
-   this->load_sprite(buffer,EUGENEGDK::SINGLE_SPRITE,1);
+   this->load_sprite(buffer,EUGENEGDK::STATIC_IMAGE,1);
   }
 
-  void Sprite::load_sprite(Image &buffer,const EUGENEGDK::SPRITE_TYPE kind,const unsigned int frames)
+  void Sprite::load_sprite(Image &buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
    this->load_sprite(buffer.get_handle(),kind,frames);
   }
@@ -2760,46 +2760,22 @@ namespace EUGENEGDK
    this->prepare(screen.get_handle());
   }
 
-  void Background::set_setting(const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
+  void Background::set_setting(const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
-   switch (kind)
-   {
-    case EUGENEGDK::HORIZONTAL_BACKGROUND:
-    stage.set_setting(EUGENEGDK::HORIZONTAL_STRIP,frames);
-    break;
-    case EUGENEGDK::VERTICAL_BACKGROUND:
-    stage.set_setting(EUGENEGDK::VERTICAL_STRIP,frames);
-    break;
-    default:
-    stage.set_setting(EUGENEGDK::SINGLE_SPRITE,1);
-    break;
-   }
-
+   stage.set_setting(kind,frames);
   }
 
-  void Background::load_background(Image *background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
+  void Background::load_background(Image *background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
-   switch (kind)
-   {
-    case EUGENEGDK::HORIZONTAL_BACKGROUND:
-    stage.load_sprite(background,EUGENEGDK::HORIZONTAL_STRIP,frames);
-    break;
-    case EUGENEGDK::VERTICAL_BACKGROUND:
-    stage.load_sprite(background,EUGENEGDK::VERTICAL_STRIP,frames);
-    break;
-    default:
-    stage.load_sprite(background);
-    break;
-   }
-
+   stage.load_sprite(background,kind,frames);
   }
 
   void Background::load_background(Image *background)
   {
-   this->load_background(background,EUGENEGDK::NORMAL_BACKGROUND,1);
+   this->load_background(background,EUGENEGDK::STATIC_IMAGE,1);
   }
 
-  void Background::load_background(Image &background,const EUGENEGDK::BACKGROUND_TYPE kind,const unsigned int frames)
+  void Background::load_background(Image &background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
    this->load_background(background.get_handle(),kind,frames);
   }
@@ -2854,19 +2830,9 @@ namespace EUGENEGDK
    return stage.get_height();
   }
 
-  EUGENEGDK::BACKGROUND_TYPE Background::get_kind() const
+  EUGENEGDK::IMAGE_KIND Background::get_kind() const
   {
-   BACKGROUND_TYPE kind;
-   kind=EUGENEGDK::NORMAL_BACKGROUND;
-   if (stage.get_kind()==EUGENEGDK::HORIZONTAL_STRIP)
-   {
-    kind=EUGENEGDK::HORIZONTAL_BACKGROUND;
-   }
-   if (stage.get_kind()==EUGENEGDK::VERTICAL_STRIP)
-   {
-    kind=EUGENEGDK::VERTICAL_BACKGROUND;
-   }
-   return kind;
+   return stage.get_kind();
   }
 
   Text::Text()
