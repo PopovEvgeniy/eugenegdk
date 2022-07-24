@@ -2102,16 +2102,6 @@ namespace EUGENEGDK
    image.create_buffer("Can't allocate memory for image storage");
   }
 
-  void Picture::copy_image(const unsigned int *target)
-  {
-   size_t index;
-   for (index=0;index<image.get_length();++index)
-   {
-    image[index]=target[index];
-   }
-
-  }
-
   void Picture::load_image(Image *buffer)
   {
    this->destroy_image();
@@ -2126,11 +2116,6 @@ namespace EUGENEGDK
 
    }
 
-  }
-
-  unsigned int *Picture::get_image()
-  {
-   return image.get_buffer();
   }
 
   void Picture::destroy_image()
@@ -2152,6 +2137,16 @@ namespace EUGENEGDK
   unsigned int Picture::get_image_height() const
   {
    return image_height;
+  }
+
+  size_t Picture::get_image_length() const
+  {
+   return image.get_length()*sizeof(unsigned int);
+  }
+
+  unsigned int *Picture::get_image()
+  {
+   return image.get_buffer();
   }
 
   Animation::Animation()
@@ -2593,7 +2588,7 @@ namespace EUGENEGDK
     this->create_storage();
     this->set_setting(target->get_kind(),target->get_frames());
     this->set_transparent(target->get_transparent());
-    this->copy_image(target->get_image());
+    memcpy(this->get_image(),target->get_image(),target->get_image_length());
     this->set_size(target->get_width(),target->get_height());
     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
    }

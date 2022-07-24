@@ -679,16 +679,16 @@ typedef enum
    protected:
    void set_image_size(const unsigned int width,const unsigned int height);
    void create_storage();
-   void copy_image(const unsigned int *target);
    void load_image(Image *buffer);
    public:
    Picture();
    ~Picture();
-   unsigned int *get_image();
    void destroy_image();
    bool is_storage_empty() const;
    unsigned int get_image_width() const;
    unsigned int get_image_height() const;
+   size_t get_image_length() const;
+   unsigned int *get_image();
   };
 
   class Animation
