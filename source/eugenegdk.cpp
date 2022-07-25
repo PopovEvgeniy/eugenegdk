@@ -2586,6 +2586,7 @@ namespace EUGENEGDK
     this->destroy_sprite();
     this->set_image_size(target->get_image_width(),target->get_image_height());
     this->create_storage();
+    this->reset_animation_setting();
     this->set_setting(target->get_kind(),target->get_frames());
     this->set_transparent(target->get_transparent());
     memcpy(this->get_image(),target->get_image(),target->get_image_length());
