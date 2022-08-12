@@ -40,7 +40,7 @@
           <li><a href="#mozTocId904725">Chapter 5. Image kind</a></li>
           <li><a href="#mozTocId738557">Chapter 6. Background</a></li>
           <li><a href="#mozTocId309905">Chapter 7. Base sprite subsystem</a></li>
-          <li><a href="#mozTocId662651"> Chapter 8. Ordinary sprites</a></li>
+          <li><a href="#mozTocId662651">Chapter 8. Ordinary sprites</a></li>
           <li><a href="#mozTocId146800">Chapter 9. Sprite sheet</a></li>
           <li><a href="#mozTocId752257">Chapter 10. Text</a></li>
           <li><a href="#mozTocId67980">Chapter 11. Loading images</a></li>
@@ -69,12 +69,12 @@
           <li><a href="#mozTocId573582">Chapter 3. Resource manager</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId590919"> Part 7. Binary files</a>
+      <li><a href="#mozTocId590919">Part 7. Binary files</a>
         <ul>
           <li><a href="#mozTocId200879">Chapter 1. The sub-namespace</a></li>
-          <li><a href="#mozTocId961921"> Chapter 2. Base binary files subsystem</a></li>
-          <li><a href="#mozTocId424835"> Chapter 3. File reader</a></li>
-          <li><a href="#mozTocId511135"> Chapter 4. File writer</a></li>
+          <li><a href="#mozTocId961921">Chapter 2. Base binary subsystem</a></li>
+          <li><a href="#mozTocId424835">Chapter 3. File reader</a></li>
+          <li><a href="#mozTocId511135">Chapter 4. File writer</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId291572">Part 8. Input</a>
@@ -383,9 +383,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> <br>
       <span style="text-decoration: underline;">Render performance</span><br>
       <br>
-      Always use latest video-card drivers. It can increase render
-      performance. You can also try to change screen resolution if you have
-      low render performance.<br>
+      Always use latest video-card drivers. It can increase render performance.
+      You can also try to change screen resolution if you have low render
+      performance.<br>
       <br>
       <span style="text-decoration: underline;">Fps limitation</span><br>
       <br>
@@ -397,8 +397,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         subsystem</span><br>
       <br>
       <span style="font-style: italic;">Screen</span> class provide access to
-      the base graphic subsystem. It is derived from Frame class. Let’s look at
-      public methods.<br>
+      the base graphic subsystem. Let’s look at public methods.<br>
       <br>
       <span style="font-style: italic;">void Screen::clear_screen();</span> –
       Clear the screen. Fill it by black color.<br>
@@ -601,7 +600,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       pixel. Transparent mode enabled by default.<br>
       <br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Work with base sprite subsystem</span><br
-
         style="text-decoration: underline;">
       <br>
       <span style="font-style: italic;">Billboard</span> class provide simple
@@ -720,7 +718,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       empty.<br>
       <span style="font-style: italic;">void Sprite::destroy_sprite();</span> –
       Destroy a sprite image and a sprite texture.<span style="font-style: italic;"></span></big><big><span
-
         style="font-style: italic;"></span><br>
     </big> <big><br>
       <span style="text-decoration: underline;">Sprite texture</span><br>
@@ -1105,12 +1102,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       sub-namespace.</big><br>
     <big> </big>
     <h2><a class="mozTocH2" name="mozTocId961921"></a><big> Chapter 2. Base
-        binary files subsystem</big></h2>
+        binary subsystem</big></h2>
     <big> <br>
       <u> Work with binary files</u><br>
       <br>
-      <i>Binary_File</i> class provide simple access to base binary files
-      subsystem. Don’t use it directly. Let’s look at public methods.<br>
+      <i>Binary_File</i> class provide simple access to base binary subsystem.
+      Don’t use it directly. Let’s look at public methods.<br>
       <br>
       <i> void Binary_File::close();</i> – Close the file.<br>
       <i> void Binary_File::set_position(const long int offset);</i> – Set the
@@ -1140,7 +1137,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         writer</big></h2>
     <big> <br>
       File writer is intending to write data to binary files. <i>Output_File</i>
-      class provide access to file reader. It is derived from <i>Binary_File</i>
+      class provide access to file writer. It is derived from <i>Binary_File</i>
       class. Let’s look at public methods.<br>
       <br>
       <i> void Output_File::open(const char *name);</i> – Open a file for write.<br>
@@ -2073,6 +2070,7 @@ Multimedia API</a>. </big>
         6.0.6 – 6.0.7 – Small changes.<br>
         6.0.7.1 – Documentation updated.<br>
         6.0.8 – Base graphics subsystem improved.<br>
+        6.0.8.1 – Documentation updated.<br>
       </big></span>
   </body>
 </html>
