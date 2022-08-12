@@ -643,6 +643,7 @@ typedef enum
    bool sync();
    bool is_ready() const;
    bool is_accelerated() const;
+   bool is_software() const;
    unsigned long int get_color() const;
    unsigned int get_fps() const;
    unsigned int get_width() const;

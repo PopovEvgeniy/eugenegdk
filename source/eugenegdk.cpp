@@ -1915,6 +1915,11 @@ namespace EUGENEGDK
    return Internal::WINGL::is_software_render()==false;
   }
 
+  bool Screen::is_software() const
+  {
+   return Internal::WINGL::is_software_render();
+  }
+
   unsigned long int Screen::get_color() const
   {
    return Internal::Display::get_depth();
