@@ -2839,6 +2839,7 @@ namespace EUGENEGDK
   Text::Text()
   {
    text.set_size(0,0);
+   orientation=EUGENEGDK::HORIZONTAL_TEXT;
    current_x=0;
    current_y=0;
   }
@@ -2848,14 +2849,37 @@ namespace EUGENEGDK
    text.destroy_sheet();
   }
 
+  void Text::reset_orientation()
+  {
+   orientation=EUGENEGDK::HORIZONTAL_TEXT;
+  }
+
   void Text::increase_position()
   {
-   text.increase_x(text.get_width());
+   if (orientation==EUGENEGDK::HORIZONTAL_TEXT)
+   {
+    text.increase_x(text.get_width());
+   }
+   else
+   {
+    text.increase_y(text.get_height());
+   }
+
   }
 
   void Text::restore_position()
   {
    text.set_position(current_x,current_y);
+  }
+
+  EUGENEGDK::TEXT_ORIENTATION Text::get_orientation() const
+  {
+   return orientation;
+  }
+
+  void Text::set_orientation(const EUGENEGDK::TEXT_ORIENTATION target)
+  {
+   orientation=target;
   }
 
   unsigned int Text::get_font_width() const
@@ -2883,6 +2907,7 @@ namespace EUGENEGDK
   void Text::load_font(Image *font)
   {
    text.load_sheet(font,16,16);
+   this->reset_orientation();
   }
 
   void Text::load_font(Image &font)
@@ -2929,6 +2954,7 @@ namespace EUGENEGDK
   void Text::destroy_font()
   {
    text.destroy_sheet();
+   this->reset_orientation();
   }
 
  }

@@ -40,7 +40,7 @@
           <li><a href="#mozTocId904725">Chapter 5. Image kind</a></li>
           <li><a href="#mozTocId738557">Chapter 6. Background</a></li>
           <li><a href="#mozTocId309905">Chapter 7. Base sprite subsystem</a></li>
-          <li><a href="#mozTocId662651">Chapter 8. Ordinary sprites</a></li>
+          <li><a href="#mozTocId662651"> Chapter 8. Ordinary sprites</a></li>
           <li><a href="#mozTocId146800">Chapter 9. Sprite sheet</a></li>
           <li><a href="#mozTocId752257">Chapter 10. Text</a></li>
           <li><a href="#mozTocId67980">Chapter 11. Loading images</a></li>
@@ -69,12 +69,12 @@
           <li><a href="#mozTocId573582">Chapter 3. Resource manager</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId590919">Part 7. Binary files</a>
+      <li><a href="#mozTocId590919"> Part 7. Binary files</a>
         <ul>
           <li><a href="#mozTocId200879">Chapter 1. The sub-namespace</a></li>
-          <li><a href="#mozTocId961921">Chapter 2. Base binary subsystem</a></li>
-          <li><a href="#mozTocId424835">Chapter 3. File reader</a></li>
-          <li><a href="#mozTocId511135">Chapter 4. File writer</a></li>
+          <li><a href="#mozTocId961921"> Chapter 2. Base binary file subsystem</a></li>
+          <li><a href="#mozTocId424835"> Chapter 3. File reader</a></li>
+          <li><a href="#mozTocId511135"> Chapter 4. File writer</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId291572">Part 8. Input</a>
@@ -109,7 +109,7 @@
       <span style="text-decoration: underline;">Introduction</span><br>
       <br>
       Hello from Russia. My name is Popov Evgeniy Alekseyevich. I am the
-      individual programmer. I enjoy creating a software. I also like old–school
+      individual programmer. I enjoy creating software. I also like old–school
       video games. Do you want to develop video games for Microsoft Windows? You
       need a good game engine for doing it. I made my own engine. I hope that my
       C++ game engine will be useful for many programmers.<br>
@@ -123,8 +123,8 @@
       <li><big>Very fast.</big></li>
       <li><big>Minimum external dependencies: only DirectX, OPENGL and standard
           Windows API libraries.</big></li>
-      <li><big>Don’t need to link main program with engine binary file. The
-          engine is just source code files with all engine codes.</big></li>
+      <li><big>Don’t need to link a main program with the engine binary file.
+          The engine is just source code files with all engine codes.</big></li>
     </ul>
     <big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Installation</span><br>
@@ -446,7 +446,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">unsigned int *Picture::get_image();</span>
       – Return handle to image storage.<br>
     </big><big><span style="font-style: italic;">void Picture::destroy_image();</span>
-      – Destroy image&nbsp; in the storage.</big><big><span style="font-style: italic;"></span><br>
+      – Destroy an image&nbsp; in the storage.</big><big><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Picture::is_storage_empty() const;</span>
       – Return true if storage is empty.<br>
       <span style="font-style: italic;">unsigned int Picture::get_image_width()
@@ -483,6 +483,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <h2><a class="mozTocH2" name="mozTocId904725"></a><big>Chapter 5. Image kind</big></h2>
     <big></big>
     <p><big> Image kind look as predefined constants. You can see it below.</big></p>
+    <br>
     <big> </big>
     <table style="text-align: left; width: 617px; height: 162px;" cellspacing="2"
       cellpadding="2" border="1">
@@ -521,8 +522,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       There are two background kinds: normal background and scrolling
       background. The scrolling background is a big image with few frames.
-      Horizontal orientated scrolling background, like horizontal orientated
-      photo ribbon. Vertical orientated scrolling background, like vertical
+      Horizontal orientated scrolling background look like horizontal orientated
+      photo ribbon. Vertical orientated scrolling background look like vertical
       orientated photo ribbon.<br>
       <span style="text-decoration: underline;"></span></big><big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Work with background</span><br>
@@ -561,7 +562,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">void Background::destroy_image();</span>&nbsp;
       – Destroy a background image.<br>
       <span style="font-style: italic;">void Background::destroy_background();</span>
-      – Destroy a background image and a background texture.<br>
+      – Destroy a background image and destroy a background texture.<br>
       <span style="font-style: italic;">unsigned int Background::get_frame()
         const;</span> – Return current frame in scrollable background.<br>
       <span style="font-style: italic;">unsigned int Background::get_frames()
@@ -597,7 +598,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       Some pixel will be ignored. Ignored pixels have a transparent color. How
       to determinate it? The transparent color is&nbsp; the color of the first
-      pixel. Transparent mode enabled by default.<br>
+      pixel. A transparent mode enabled by default.<br>
       <br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Work with base sprite subsystem</span><br
         style="text-decoration: underline;">
@@ -671,7 +672,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> <span style="text-decoration: underline;">Sprite types</span><br>
       <br>
       There are two kinds of ordinary sprites: normal sprites and strip. The
-      strip is animated sprite. Do you remember analog camera? <br>
+      strip is an animated sprite. Do you remember an analog camera? <br>
       Strip look like photo ribbon. Horizontal strip look like the horizontal
       orientated photo ribbon.<br>
       Vertical strip look like the vertical orientated photo ribbon.<br>
@@ -690,17 +691,17 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">void Sprite::set_setting(const
         EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Set
-      sprite setting. Last argument will ignored if sprite not animated.<br>
+      sprite setting. Last argument will ignore if sprite not animated.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image
         *buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
       – Load a sprite and set it setting.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image *buffer);</span>
-      – Load normal sprite.<br>
+      – Load a normal sprite.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image
         &amp;buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
       – Load a sprite and set it setting.<br>
       <span style="font-style: italic;">void Sprite::load_sprite(Image
-        &amp;buffer);</span> – Load normal sprite.<br>
+        &amp;buffer);</span> – Load a normal sprite.<br>
       <span style="font-style: italic;">void Sprite::set_target(const unsigned
         int target);</span> – Set target frame in strip.<br>
       <span style="font-style: italic;">void Sprite::step();</span> – Increase
@@ -711,13 +712,13 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">Sprite* Sprite::get_handle();</span> –
       Return the handle to sprite object.<br>
       <span style="font-style: italic;">void Sprite::clone(Sprite *target);</span>
-      – Create copy of exist sprite if the image storage of exist sprite is not
+      – Create copy of the sprite if the image storage of target sprite is not
       empty.<br>
       <span style="font-style: italic;">void Sprite::clone(Sprite &amp;target);</span>
-      – Create copy of exist sprite if the image storage of exist sprite is not
+      – Create copy of the sprite if the image storage of target sprite is not
       empty.<br>
       <span style="font-style: italic;">void Sprite::destroy_sprite();</span> –
-      Destroy a sprite image and a sprite texture.<span style="font-style: italic;"></span></big><big><span
+      Destroy a sprite image and destroy a sprite texture.<span style="font-style: italic;"></span></big><big><span
         style="font-style: italic;"></span><br>
     </big> <big><br>
       <span style="text-decoration: underline;">Sprite texture</span><br>
@@ -754,7 +755,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Return</big><big> column</big><big> amount.<span style="font-style: italic;"></span></big><big><span
         style="font-style: italic;"></span></big><big><span style="font-style: italic;"></span></big><br>
     <big> <span style="font-style: italic;">void Sheet::destroy_sheet();</span>
-      – Destroy a sprite sheet image and a sprite sheet texture.</big><br>
+      – Destroy a sprite sheet image and destroy a sprite sheet texture.</big><br>
     <big> <span style="font-style: italic;">void Sheet::select(const unsigned
         int row,const unsigned int column);</span> – Select the sprite by row
       and column.<br>
@@ -785,13 +786,43 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="text-decoration: underline;">Valid characters</span><br>
       <br>
-      Only 8-bit </big><big>characters</big><big> are supported.<br>
-      <br style="text-decoration: underline;">
+      Only 8-bit </big><big>characters</big><big> supported.<br>
+      <br>
+    </big><big style="text-decoration: underline;">Text orientation</big><br>
+    <br>
+    <big>Text orientation look as predefined constants. You can see it below.<br>
+      <br>
+    </big> <big> </big>
+    <table style="text-align: left; width: 393px; height: 162px;" cellspacing="2"
+      cellpadding="2" border="1">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;"><big>Text orientation<br>
+            </big></td>
+          <td style="vertical-align: top;"><big>Description </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>HORIZONTAL_TEXT </big></td>
+          <td style="vertical-align: top;"><big>Horizontal orientated text<br>
+            </big></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"><big>VERTICAL_TEXT </big></td>
+          <td style="vertical-align: top;"><big>Vertical orientated text</big></td>
+        </tr>
+      </tbody>
+    </table>
+    <big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Work with text</span><br>
       <br>
-      <span style="font-style: italic;">Text</span> class provide simple
+      <span style="font-style: italic;">Text</span> class provide a simple
       interface to text subsystem. Let’s look at public methods.<br>
       <br>
+      <span style="font-style: italic;">EUGENEGDK::TEXT_ORIENTATION
+        Text::get_orientation() const;</span> – Get current text orientation.<br>
+      <span style="font-style: italic;">void Text::set_orientation(const
+        EUGENEGDK::TEXT_ORIENTATION target);</span> – Set current text
+      orientation.<br>
       <span style="font-style: italic;">unsigned int Text::get_font_width()
         const;</span> – Get current font width in pixels.<br>
       <span style="font-style: italic;">unsigned int Text::get_font_height()
@@ -817,7 +848,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">void Text::destroy_image();</span> –
       Destroy a font image.<br>
       <span style="font-style: italic;">void Text::destroy_font();</span> –
-      Destroy a font image and a font texture.<br>
+      Destroy a font image and destroy a font texture.<br>
     </big><big> </big>
     <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 11. Loading
         images</big></h2>
@@ -840,12 +871,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">Image* Image::get_handle();</span> –
       Return the handle to image loader.<br>
       <span style="font-style: italic;">void Image::destroy_image();</span> –
-      Destroy current image and free image buffer.<br>
+      Destroy the current image and free image buffer.<br>
       <br>
       <span style="text-decoration: underline;">Important remark</span><br>
       <br>
-      New image replace current image if current image already exist. Incorrect
-      images will ignore and don't load.<br>
+      A new image replace current image if current image already exist.
+      Incorrect images will ignore and don't load.<br>
       <br>
       <span style="text-decoration: underline;">Supported format<br>
       </span> </big>
@@ -1011,7 +1042,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big><br>
       <span style="text-decoration: underline;">Additional formats</span><br>
       <br>
-      You can use additional format if you install third-party codecs.<br>
+      You can use an additional format if you install third-party codecs.<br>
       <br>
       <span style="text-decoration: underline;">Working with multimedia</span><br>
       <br>
@@ -1052,8 +1083,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> </big>
     <h2><a class="mozTocH2" name="mozTocId59386"></a><big>Chapter 2. Interaction
         with operating system</big></h2>
-    <big>Operating system</big><big> interaction module implement as two simple
-      functions</big><big>. All these functions declared in <span style="font-style: italic;">Tools</span>
+    <big>This module implemented as two simple functions</big><big>. All these
+      functions declared in <span style="font-style: italic;">Tools</span>
       sub-namespace.<br>
       <br>
       <span style="font-style: italic;">quit</span> function exit from your
@@ -1102,7 +1133,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       sub-namespace.</big><br>
     <big> </big>
     <h2><a class="mozTocH2" name="mozTocId961921"></a><big> Chapter 2. Base
-        binary subsystem</big></h2>
+        binary file subsystem</big></h2>
     <big> <br>
       <u> Work with binary files</u><br>
       <br>
@@ -1159,12 +1190,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="text-decoration: underline;">Low-level input</span><br>
       <br>
       Any keyboard has a built-in chip. It generates a special code when user
-      press or release key. This code is called «scan code».<br>
+      press or release key. This code called «scan code».<br>
       <br>
       <span style="text-decoration: underline;">Working with keyboard</span><br>
       <br>
       Just use <span style="font-style: italic;">Keyboard</span> class to work
-      with keyboard. Let’s look at public methods.<br>
+      with a keyboard. Let’s look at public methods.<br>
       <br>
       <span style="font-style: italic;">void Keyboard::initialize();</span> –
       Initialize the subsystem.<br>
@@ -1444,7 +1475,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="text-decoration: underline;">Working with mouse</span><br>
       <br>
       Just use <span style="font-style: italic;">Mouse</span> class to work
-      with mouse. Let’s look at public methods.<br>
+      with a mouse. Let’s look at public methods.<br>
       <br>
       <span style="font-style: italic;">void Mouse::show();</span> – Show mouse
       cursor.<br>
@@ -1721,7 +1752,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big><span style="text-decoration: underline;"></span> </big><big><span style="text-decoration: underline;">Visible
         object</span></big><br>
     <big> </big><br>
-    <big> Any visible object is textured rectangles.</big><br>
+    <big> Any visible object is a textured rectangles.</big><br>
     <big> </big><br>
     <big> <span style="text-decoration: underline;">Images</span></big><br>
     <big> </big><br>
@@ -2071,6 +2102,9 @@ Multimedia API</a>. </big>
         6.0.7.1 – Documentation updated.<br>
         6.0.8 – Base graphics subsystem improved.<br>
         6.0.8.1 – Documentation updated.<br>
+        6.0.9 – 6.1.1 – Small changes.<br>
+        6.1.2 – Text drawing subsystem improved.<br>
+        6.1.3 – Small changes.<br>
       </big></span>
   </body>
 </html>

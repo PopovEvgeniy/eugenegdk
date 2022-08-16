@@ -88,6 +88,12 @@ namespace EUGENEGDK
 
  typedef enum
  {
+  HORIZONTAL_TEXT=0,
+  VERTICAL_TEXT=1,
+ } TEXT_ORIENTATION;
+
+ typedef enum
+ {
   MOUSE_LEFT=0,
   MOUSE_RIGHT=1,
   MOUSE_MIDDLE=2
@@ -833,13 +839,17 @@ typedef enum
   {
    private:
    Graphics::Sheet text;
+   EUGENEGDK::TEXT_ORIENTATION orientation;
    unsigned int current_x;
    unsigned int current_y;
+   void reset_orientation();
    void increase_position();
    void restore_position();
    public:
    Text();
    ~Text();
+   EUGENEGDK::TEXT_ORIENTATION get_orientation() const;
+   void set_orientation(const EUGENEGDK::TEXT_ORIENTATION target);
    unsigned int get_font_width() const;
    unsigned int get_font_height() const;
    void set_position(const unsigned int x,const unsigned int y);
