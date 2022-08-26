@@ -1,6 +1,6 @@
 /*
-Eugene game development kit was create by Popov Evgeniy Alekseyevich
-Some code was taken from wglext.h(https://www.khronos.org/registry/OpenGL/api/GL/wglext.h) by The Khronos Group Inc
+Eugene game development kit made by Popov Evgeniy Alekseyevich
+Some code taken from wglext.h(https://www.khronos.org/registry/OpenGL/api/GL/wglext.h) by The Khronos Group Inc
 
 Eugene game development kit license
 
@@ -2681,9 +2681,9 @@ namespace EUGENEGDK
 
   void Sheet::select(const unsigned int row,const unsigned int column)
   {
-   if (row>0)
+   if ((row>0)&&(row<=rows))
    {
-    if (column>0)
+    if ((column>0)&&(column<=columns))
     {
      billboard.set_tile_offset(static_cast<double>(row),static_cast<double>(rows),static_cast<double>(column),static_cast<double>(columns));
     }

@@ -1,6 +1,6 @@
 /*
-Eugene game development kit was create by Popov Evgeniy Alekseyevich
-Some code was taken from wglext.h(https://www.khronos.org/registry/OpenGL/api/GL/wglext.h) by The Khronos Group Inc
+Eugene game development kit made by Popov Evgeniy Alekseyevich
+Some code taken from wglext.h(https://www.khronos.org/registry/OpenGL/api/GL/wglext.h) by The Khronos Group Inc
 
 Eugene game development kit license
 
