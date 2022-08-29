@@ -601,6 +601,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       pixel. A transparent mode enabled by default.<br>
       <br style="text-decoration: underline;">
       <span style="text-decoration: underline;">Work with base sprite subsystem</span><br
+
         style="text-decoration: underline;">
       <br>
       <span style="font-style: italic;">Billboard</span> class provide simple
@@ -719,6 +720,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       empty.<br>
       <span style="font-style: italic;">void Sprite::destroy_sprite();</span> –
       Destroy a sprite image and destroy a sprite texture.<span style="font-style: italic;"></span></big><big><span
+
         style="font-style: italic;"></span><br>
     </big> <big><br>
       <span style="text-decoration: underline;">Sprite texture</span><br>
@@ -749,8 +751,11 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">Picture</span> and <span style="font-style: italic;">Animation</span>.
       Let’s look at public methods.<br>
       <span style="font-style: italic;"></span><span style="font-style: italic;"></span><br>
-      <span style="font-style: italic;">unsigned int Sheet::get_rows() const;</span>
-      – Return row amount.<br>
+    </big><big><span style="font-style: italic;">unsigned int
+        Sheet::calculate(const unsigned int row,const unsigned int column)
+        const;</span> – Calculate the frame by row and column.</big><br>
+    <big> <span style="font-style: italic;">unsigned int Sheet::get_rows()
+        const;</span> – Return row amount.<br>
       <span style="font-style: italic;">unsigned int Sheet::get_columns() const;</span>
       – Return</big><big> column</big><big> amount.<span style="font-style: italic;"></span></big><big><span
         style="font-style: italic;"></span></big><big><span style="font-style: italic;"></span></big><br>
@@ -2107,6 +2112,7 @@ Multimedia API</a>. </big>
         6.1.3 – Small changes.<br>
       </big></span><span><big> 6.1.3.1 – Documentation updated.<br>
         6.1.4 – Small bug fixed.<br>
+        6.1.5 – Sprite sheet subsystem improved.<br>
       </big></span>
   </body>
 </html>

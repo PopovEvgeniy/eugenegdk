@@ -1031,7 +1031,7 @@ namespace EUGENEGDK
 
   bool Multimedia::is_play()
   {
-   long long current,total;
+   long long int current,total;
    current=0;
    total=0;
    if (controler!=NULL)
@@ -1048,7 +1048,7 @@ namespace EUGENEGDK
 
   void Multimedia::rewind()
   {
-   long long position;
+   long long int position;
    position=0;
    if (controler!=NULL)
    {
@@ -2636,6 +2636,21 @@ namespace EUGENEGDK
   {
    this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
    this->set_size(this->get_image_width()/rows,this->get_image_height()/columns);
+  }
+
+  unsigned int Sheet::calculate(const unsigned int row,const unsigned int column) const
+  {
+   unsigned int target;
+   target=1;
+   if ((row>0)&&(row<=rows))
+   {
+    if ((column>0)&&(column<=columns))
+    {
+     target+=(row-1)+(column-1)*rows;
+    }
+
+   }
+   return target;
   }
 
   unsigned int Sheet::get_row() const

@@ -174,7 +174,7 @@ typedef enum
  namespace Internal
  {
 
-  typedef BOOL (WINAPI * PFNWGLSWAPINTERVALEXTPROC) (int interval); // This code was taken from wglext.h by The Khronos Group Inc
+  typedef BOOL (WINAPI * PFNWGLSWAPINTERVALEXTPROC) (int interval); // This code taken from wglext.h by The Khronos Group Inc
 
   LRESULT CALLBACK Process_Message(HWND window,UINT Message,WPARAM wParam,LPARAM lParam);
 
@@ -798,6 +798,7 @@ typedef enum
    public:
    Sheet();
    ~Sheet();
+   unsigned int calculate(const unsigned int row,const unsigned int column) const;
    unsigned int get_rows() const;
    unsigned int get_columns() const;
    void destroy_sheet();
