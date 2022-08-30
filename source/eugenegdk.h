@@ -253,6 +253,61 @@ typedef enum
 
  }
 
+ namespace Resource
+ {
+
+  template <class RESOURCE>
+  RESOURCE *create_resource()
+  {
+   RESOURCE *target;
+   try
+   {
+    target=new RESOURCE;
+   }
+   catch (...)
+   {
+    EUGENEGDK::Halt("Can't create a resource");
+   }
+   return target;
+  }
+
+  template <class RESOURCE>
+  RESOURCE *create_resource_array(const size_t amount)
+  {
+   RESOURCE *target;
+   try
+   {
+    target=new RESOURCE[amount];
+   }
+   catch (...)
+   {
+    EUGENEGDK::Halt("Can't create resource array");
+   }
+   return target;
+  }
+
+  template <class RESOURCE>
+  void delete_resource(RESOURCE *target)
+  {
+   if (target!=NULL)
+   {
+    delete target;
+   }
+
+  }
+
+  template <class RESOURCE>
+  void delete_resource_array(RESOURCE *target)
+  {
+   if (target!=NULL)
+   {
+    delete[] target;
+   }
+
+  }
+
+ }
+
  namespace Core
  {
 
@@ -793,11 +848,11 @@ typedef enum
    unsigned int columns;
    void reset_sheet_setting();
    void prepare_sheet();
-   unsigned int get_row() const;
-   unsigned int get_column() const;
    public:
    Sheet();
    ~Sheet();
+   unsigned int get_row(const unsigned int target) const;
+   unsigned int get_column(const unsigned int target) const;
    unsigned int calculate(const unsigned int row,const unsigned int column) const;
    unsigned int get_rows() const;
    unsigned int get_columns() const;
@@ -913,61 +968,6 @@ typedef enum
   void randomize();
   unsigned int get_random(const unsigned int number);
   unsigned int get_texture_size();
- }
-
- namespace Resource
- {
-
-  template <class RESOURCE>
-  RESOURCE *create_resource()
-  {
-   RESOURCE *target;
-   try
-   {
-    target=new RESOURCE;
-   }
-   catch (...)
-   {
-    EUGENEGDK::Halt("Can't create a resource");
-   }
-   return target;
-  }
-
-  template <class RESOURCE>
-  RESOURCE *create_resource_array(const size_t amount)
-  {
-   RESOURCE *target;
-   try
-   {
-    target=new RESOURCE[amount];
-   }
-   catch (...)
-   {
-    EUGENEGDK::Halt("Can't create resource array");
-   }
-   return target;
-  }
-
-  template <class RESOURCE>
-  void delete_resource(RESOURCE *target)
-  {
-   if (target!=NULL)
-   {
-    delete target;
-   }
-
-  }
-
-  template <class RESOURCE>
-  void delete_resource_array(RESOURCE *target)
-  {
-   if (target!=NULL)
-   {
-    delete[] target;
-   }
-
-  }
-
  }
 
 }

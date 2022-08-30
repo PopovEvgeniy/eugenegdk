@@ -2638,6 +2638,40 @@ namespace EUGENEGDK
    this->set_size(this->get_image_width()/rows,this->get_image_height()/columns);
   }
 
+  unsigned int Sheet::get_row(const unsigned int target) const
+  {
+   unsigned int row;
+   row=1;
+   if (target>0)
+   {
+    if (target<=this->get_frames())
+    {
+     row=target%rows;
+    }
+
+   }
+   if (row==0)
+   {
+    row=rows;
+   }
+   return row;
+  }
+
+  unsigned int Sheet::get_column(const unsigned int target) const
+  {
+   unsigned int column;
+   column=1;
+   if (target>rows)
+   {
+    if (target<=this->get_frames())
+    {
+     column+=(target-1)/rows;
+    }
+
+   }
+   return column;
+  }
+
   unsigned int Sheet::calculate(const unsigned int row,const unsigned int column) const
   {
    unsigned int target;
@@ -2651,28 +2685,6 @@ namespace EUGENEGDK
 
    }
    return target;
-  }
-
-  unsigned int Sheet::get_row() const
-  {
-   unsigned int row;
-   row=this->get_frame()%rows;
-   if (row==0)
-   {
-    row=rows;
-   }
-   return row;
-  }
-
-  unsigned int Sheet::get_column() const
-  {
-   unsigned int column;
-   column=1;
-   if (this->get_frame()>rows)
-   {
-    column+=(this->get_frame()-1)/rows;
-   }
-   return column;
   }
 
   unsigned int Sheet::get_rows() const
@@ -2710,13 +2722,13 @@ namespace EUGENEGDK
   void Sheet::select(const unsigned int target)
   {
    this->set_frame(target);
-   this->select(this->get_row(),this->get_column());
+   this->select(this->get_row(this->get_frame()),this->get_column(this->get_frame()));
   }
 
   void Sheet::step()
   {
    this->increase_frame();
-   this->select(this->get_row(),this->get_column());
+   this->select(this->get_row(this->get_frame()),this->get_column(this->get_frame()));
   }
 
   void Sheet::load_sheet(Image *sheet,const unsigned int row_amount,const unsigned int column_amount)
