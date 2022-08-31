@@ -633,8 +633,11 @@ typedef enum
 
   class Binary_File
   {
-   protected:
+   private:
    FILE *target;
+   protected:
+   FILE *get_target();
+   void set_target(FILE *point);
    public:
    Binary_File();
    ~Binary_File();

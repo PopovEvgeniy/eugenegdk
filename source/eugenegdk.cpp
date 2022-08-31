@@ -1676,6 +1676,16 @@ namespace EUGENEGDK
 
   }
 
+  FILE *Binary_File::get_target()
+  {
+   return target;
+  }
+
+  void Binary_File::set_target(FILE *point)
+  {
+   target=point;
+  }
+
   void Binary_File::close()
   {
    if (target!=NULL)
@@ -1742,27 +1752,22 @@ namespace EUGENEGDK
 
   Input_File::~Input_File()
   {
-   if (target!=NULL)
-   {
-    fclose(target);
-    target=NULL;
-   }
 
   }
 
   void Input_File::open(const char *name)
   {
    this->close();
-   target=fopen(name,"rb");
+   this->set_target(fopen(name,"rb"));
   }
 
   void Input_File::read(void *buffer,const size_t length)
   {
-   if (target!=NULL)
+   if (this->get_target()!=NULL)
    {
     if (buffer!=NULL)
     {
-     fread(buffer,sizeof(char),length,target);
+     fread(buffer,sizeof(char),length,this->get_target());
     }
 
    }
@@ -1776,33 +1781,28 @@ namespace EUGENEGDK
 
   Output_File::~Output_File()
   {
-   if (target!=NULL)
-   {
-    fclose(target);
-    target=NULL;
-   }
 
   }
 
   void Output_File::open(const char *name)
   {
    this->close();
-   target=fopen(name,"wb");
+   this->set_target(fopen(name,"wb"));
   }
 
   void Output_File::create_temp()
   {
    this->close();
-   target=tmpfile();
+   this->set_target(tmpfile());
   }
 
   void Output_File::write(const void *buffer,const size_t length)
   {
-   if (target!=NULL)
+   if (this->get_target()!=NULL)
    {
     if (buffer!=NULL)
     {
-     fwrite(buffer,sizeof(char),length,target);
+     fwrite(buffer,sizeof(char),length,this->get_target());
     }
 
    }
@@ -1811,9 +1811,9 @@ namespace EUGENEGDK
 
   void Output_File::flush()
   {
-   if (target!=NULL)
+   if (this->get_target()!=NULL)
    {
-    fflush(target);
+    fflush(this->get_target());
    }
 
   }
