@@ -511,7 +511,7 @@ namespace EUGENEGDK
   wchar_t *Unicode_Convertor::convert(const char *source)
   {
    target.set_length(strlen(source)+1);
-   target.create_buffer("Can't allocate memory for string buffer");
+   target.create_buffer();
    target.fill_buffer(0);
    this->convert_string(source);
    return target.get_buffer();
@@ -597,7 +597,7 @@ namespace EUGENEGDK
    size_t length;
    length=static_cast<size_t>(target_width)*static_cast<size_t>(target_height);
    image.set_length(length);
-   image.create_buffer("Can't allocate memory for texture buffer");
+   image.create_buffer();
   }
 
   void Resizer::make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit)
@@ -1285,7 +1285,7 @@ namespace EUGENEGDK
   {
    if (preversion.get_buffer()==NULL)
    {
-    preversion.create_buffer("Can't allocate memory for keyboard state buffer");
+    preversion.create_buffer();
     preversion.fill_buffer(KEY_RELEASE);
    }
 
@@ -1825,7 +1825,7 @@ namespace EUGENEGDK
 
   Screen::Screen()
   {
-   ready=false;
+
   }
 
   Screen::~Screen()
@@ -1859,7 +1859,7 @@ namespace EUGENEGDK
 
   void Screen::clear_screen()
   {
-   if (ready==true)
+   if (Internal::Engine::get_context()!=NULL)
    {
     Core::Render::clear_stage();
    }
@@ -1868,29 +1868,27 @@ namespace EUGENEGDK
 
   void Screen::initialize()
   {
-   if (ready==false)
+   if (Internal::Engine::get_context()==NULL)
    {
     this->check_video_mode();
     this->screen_setup();
-    ready=true;
    }
 
   }
 
   void Screen::initialize(const unsigned int width,const unsigned int height)
   {
-   if (ready==false)
+   if (Internal::Engine::get_context()==NULL)
    {
     this->set_resolution(width,height);
     this->screen_setup();
-    ready=true;
    }
 
   }
 
   bool Screen::update()
   {
-   if (ready==true)
+   if (Internal::Engine::get_context()!=NULL)
    {
     Internal::WINGL::Swap();
     Core::FPS::update_counter();
@@ -1905,9 +1903,9 @@ namespace EUGENEGDK
    return this->update();
   }
 
-  bool Screen::is_ready() const
+  bool Screen::is_ready()
   {
-   return ready;
+   return Internal::Engine::get_context()!=NULL;
   }
 
   bool Screen::is_accelerated() const
@@ -2005,7 +2003,7 @@ namespace EUGENEGDK
    if (image.color==IMAGE_COLOR)
    {
     data.set_length(uncompressed_length);
-    data.create_buffer("Can't allocate memory for uncompressed image buffer");
+    data.create_buffer();
     switch (head.type)
     {
      case 2:
@@ -2013,7 +2011,7 @@ namespace EUGENEGDK
      break;
      case 10:
      compressed_buffer.set_length(compressed_length);
-     compressed_buffer.create_buffer("Can't allocate memory for compressed image buffer");
+     compressed_buffer.create_buffer();
      target.read(compressed_buffer.get_buffer(),compressed_buffer.get_length());
      this->uncompress_tga_data(compressed_buffer.get_buffer());
      compressed_buffer.destroy_buffer();
@@ -2104,7 +2102,7 @@ namespace EUGENEGDK
    size_t length;
    length=static_cast<size_t>(image_width)*static_cast<size_t>(image_height);
    image.set_length(length);
-   image.create_buffer("Can't allocate memory for image storage");
+   image.create_buffer();
   }
 
   void Picture::load_image(Image *buffer)

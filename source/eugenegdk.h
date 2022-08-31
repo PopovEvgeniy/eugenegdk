@@ -266,7 +266,7 @@ typedef enum
    }
    catch (...)
    {
-    EUGENEGDK::Halt("Can't create a resource");
+    EUGENEGDK::Halt("Can't allocate memory");
    }
    return target;
   }
@@ -281,7 +281,7 @@ typedef enum
    }
    catch (...)
    {
-    EUGENEGDK::Halt("Can't create resource array");
+    EUGENEGDK::Halt("Can't allocate memory");
    }
    return target;
   }
@@ -342,13 +342,9 @@ typedef enum
 
   ~Buffer()
   {
-   if (buffer!=NULL)
-   {
-    delete[] buffer;
-    buffer=NULL;
-    length=0;
-   }
-
+   Resource::delete_resource_array(buffer);
+   buffer=NULL;
+   length=0;
   }
 
   void set_length(const size_t amount)
@@ -358,13 +354,9 @@ typedef enum
 
   void destroy_buffer()
   {
-   if (buffer!=NULL)
-   {
-    delete[] buffer;
-    buffer=NULL;
-    length=0;
-   }
-
+   Resource::delete_resource_array(buffer);
+   buffer=NULL;
+   length=0;
   }
 
   void fill_buffer(const DATA_TYPE value)
@@ -377,17 +369,9 @@ typedef enum
 
   }
 
-  void create_buffer(const char *message)
+  void create_buffer()
   {
-   try
-   {
-    buffer=new DATA_TYPE[length];
-   }
-   catch (...)
-   {
-    EUGENEGDK::Halt(message);
-   }
-
+   buffer=Resource::create_resource_array<DATA_TYPE>(length);
   }
 
   size_t get_length() const
@@ -690,7 +674,6 @@ typedef enum
   class Screen:public Core::FPS, public Core::Render, public Internal::Engine, public Internal::Display, public Internal::WINGL, public Internal::Synchronization
  {
    private:
-   bool ready;
    void check_video_mode();
    void set_resolution(const unsigned long int width,const unsigned long int height);
    void screen_setup();
@@ -702,7 +685,7 @@ typedef enum
    void initialize(const unsigned int width,const unsigned int height);
    bool update();
    bool sync();
-   bool is_ready() const;
+   bool is_ready();
    bool is_accelerated() const;
    bool is_software() const;
    unsigned long int get_color() const;

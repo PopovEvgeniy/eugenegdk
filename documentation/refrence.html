@@ -414,11 +414,11 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">bool Screen::update();</span> – Show
       current back-buffer content on screen. Return false if a game is
       terminated. This method ignoring fps limit and need high processor usage.<br>
-      <span style="font-style: italic;">bool Screen::is_ready() const;</span>&nbsp;
+      <span style="font-style: italic;">bool Screen::is_ready();</span>
       – Return true if the subsystem is already initialized.<br>
-      <span style="font-style: italic;">bool Screen::is_accelerated() const;</span>&nbsp;
+      <span style="font-style: italic;">bool Screen::is_accelerated() const;</span>
       – Return true if render is hardware accelerated.<br>
-      <span style="font-style: italic;">bool Screen::is_software() const;</span>&nbsp;
+      <span style="font-style: italic;">bool Screen::is_software() const;</span>
       – Return true if software render is active.<br>
       <span style="font-style: italic;">unsigned int Screen::get_fps() const;</span>
       – Return current fps value.<br>
@@ -446,7 +446,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">unsigned int *Picture::get_image();</span>
       – Return handle to image storage.<br>
     </big><big><span style="font-style: italic;">void Picture::destroy_image();</span>
-      – Destroy an image&nbsp; in the storage.</big><big><span style="font-style: italic;"></span><br>
+      – Destroy an image in the storage.</big><big><span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">bool Picture::is_storage_empty() const;</span>
       – Return true if storage is empty.<br>
       <span style="font-style: italic;">unsigned int Picture::get_image_width()
@@ -559,7 +559,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         &amp;background);</span> – Load normal background.<span style="font-style: italic;"></span><br>
       <span style="font-style: italic;">void Background::draw_background();</span>
       – Draw a background.<br>
-      <span style="font-style: italic;">void Background::destroy_image();</span>&nbsp;
+      <span style="font-style: italic;">void Background::destroy_image();</span>
       – Destroy a background image.<br>
       <span style="font-style: italic;">void Background::destroy_background();</span>
       – Destroy a background image and destroy a background texture.<br>
@@ -684,7 +684,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="text-decoration: underline;">Work with sprites</span><br>
       <br>
       Just use <span style="font-style: italic;">Sprite</span> class to work
-      with a sprite. It is derived from three&nbsp;<span style="font-style: italic;"></span>classes:
+      with a sprite. It is derived from three<span style="font-style: italic;"></span>classes:
       </big><big><span style="font-style: italic;">Billboard</span>,<span style="font-style: italic;">
         Animation</span> and <span style="font-style: italic;">Picture</span></big><big>.
       Let’s look at public methods.<br>
@@ -938,10 +938,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;">typedef struct</span><br style="font-style: italic;">
       <span style="font-style: italic;">{</span><br style="font-style: italic;">
-      &nbsp; <span style="font-style: italic;">unsigned int x;</span><br style="font-style: italic;">
-      &nbsp; <span style="font-style: italic;">unsigned int y;</span><br style="font-style: italic;">
-      &nbsp; <span style="font-style: italic;">unsigned int width;</span><br style="font-style: italic;">
-      &nbsp; <span style="font-style: italic;">unsigned int height;</span><br style="font-style: italic;">
+       <span style="font-style: italic;">unsigned int x;</span><br style="font-style: italic;">
+       <span style="font-style: italic;">unsigned int y;</span><br style="font-style: italic;">
+       <span style="font-style: italic;">unsigned int width;</span><br style="font-style: italic;">
+       <span style="font-style: italic;">unsigned int height;</span><br style="font-style: italic;">
       <span style="font-style: italic;">} BOX;</span><br>
       <br>
       <span style="text-decoration: underline;">Work with collision detector</span><br>
@@ -1219,7 +1219,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">bool Keyboard::check_release(const
         unsigned char code);</span> – Return true if key with specific scan-code
       was release.<br>
-      <span style="font-style: italic;">bool Keyboard::is_ready() const;</span>&nbsp;
+      <span style="font-style: italic;">bool Keyboard::is_ready() const;</span>
       – Return true if the subsystem is already initialized.<br>
       <br>
       <span style="text-decoration: underline;">List of supported scan-codes</span><br>
@@ -1780,9 +1780,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <span><big> <span style="font-style: italic;">typedef struct Vertex</span></big></span><br
       style="font-style: italic;">
     <span><big> <span style="font-style: italic;">{</span></big></span><br style="font-style: italic;">
-    <span><big> <span style="font-style: italic;">&nbsp;int x;</span></big></span><br
+    <span><big> <span style="font-style: italic;">int x;</span></big></span><br
       style="font-style: italic;">
-    <span><big> <span style="font-style: italic;">&nbsp;int y;</span></big></span><br
+    <span><big> <span style="font-style: italic;">int y;</span></big></span><br
       style="font-style: italic;">
     <span><big> <span style="font-style: italic;">};</span></big></span><br>
     <span><big> </big></span><br>
@@ -1792,9 +1792,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <span><big> <span style="font-style: italic;">typedef struct</span></big></span><br
       style="font-style: italic;">
     <span><big> <span style="font-style: italic;">{</span></big></span><br style="font-style: italic;">
-    &nbsp; <span><big> <span style="font-style: italic;">double u;</span></big></span><br
+     <span><big> <span style="font-style: italic;">double u;</span></big></span><br
       style="font-style: italic;">
-    &nbsp; <span><big> <span style="font-style: italic;">double v;</span></big></span><br
+     <span><big> <span style="font-style: italic;">double v;</span></big></span><br
       style="font-style: italic;">
     <span><big> <span style="font-style: italic;">} Point;</span></big></span><br>
     <span></span><span><big> </big> <br>
@@ -2119,8 +2119,9 @@ Multimedia API</a>. </big>
         6.1.3 – Small changes.<br>
       </big></span><span><big> 6.1.3.1 – Documentation updated.<br>
         6.1.4 – Small bug fixed.<br>
-        6.1.5 –&nbsp; 6.1.6 – Sprite sheet subsystem improved.<br>
-        6.1.7 – 6.1.8 – Small changes.<br>
+        6.1.5 – 6.1.6 – Sprite sheet subsystem improved.<br>
+        6.1.7 – 6.2.1 – Small changes.<br>
+        6.2.2 – 6.2.3 – Base graphics subsystem improved.<br>
       </big></span>
   </body>
 </html>
