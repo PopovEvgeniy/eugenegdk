@@ -2593,8 +2593,8 @@ namespace EUGENEGDK
     this->set_setting(target->get_kind(),target->get_frames());
     this->set_transparent(target->get_transparent());
     memcpy(this->get_image(),target->get_image(),target->get_image_length());
-    this->set_size(target->get_width(),target->get_height());
     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
+    this->set_size(target->get_width(),target->get_height());
    }
 
   }
@@ -3031,24 +3031,12 @@ namespace EUGENEGDK
 
   bool Collision::check_horizontal_collision() const
   {
-   bool collision;
-   collision=false;
-   if ((first.x+first.width)>=second.x)
-   {
-    collision=first.x<=(second.x+second.width);
-   }
-   return collision;
+   return ((first.x+first.width)>=second.x) && (first.x<=(second.x+second.width));
   }
 
   bool Collision::check_vertical_collision() const
   {
-   bool collision;
-   collision=false;
-   if ((first.y+first.height)>=second.y)
-   {
-    collision=first.y<=(second.y+second.height);
-   }
-   return collision;
+   return ((first.y+first.height)>=second.y) && (first.y<=(second.y+second.height));
   }
 
   void Collision::set_target(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target)

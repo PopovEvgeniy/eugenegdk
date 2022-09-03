@@ -89,7 +89,7 @@ namespace EUGENEGDK
  typedef enum
  {
   HORIZONTAL_TEXT=0,
-  VERTICAL_TEXT=1,
+  VERTICAL_TEXT=1
  } TEXT_ORIENTATION;
 
  typedef enum
