@@ -15,7 +15,7 @@ Features
  Easy to use object-orientated API
  Animated and static sprites.
  Scrollable and static backgrounds.
- Tile-maps.
+ Sprite-sheets.
  Image loader with TGA support.
  Text drawing subsystem.
  Custom fonts.

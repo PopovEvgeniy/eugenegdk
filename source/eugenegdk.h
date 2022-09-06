@@ -259,7 +259,7 @@ typedef enum
   template <class RESOURCE>
   RESOURCE *create_resource()
   {
-   RESOURCE *target;
+   RESOURCE *target=NULL;
    try
    {
     target=new RESOURCE;
@@ -274,7 +274,7 @@ typedef enum
   template <class RESOURCE>
   RESOURCE *create_resource_array(const size_t amount)
   {
-   RESOURCE *target;
+   RESOURCE *target=NULL;
    try
    {
     target=new RESOURCE[amount];
