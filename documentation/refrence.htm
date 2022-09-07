@@ -308,7 +308,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       optimization.<br>
       <br>
       <span style="text-decoration: underline;"> Note for Visual C++ users</span><br
-
         style="text-decoration: underline;">
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
@@ -378,7 +377,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -621,26 +619,22 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         unsigned int width);</span> – Change the sprite width.<br>
       <span style="font-style: italic;"> void Billboard::set_height(const
         unsigned int height);</span> – Change the sprite height.</big><br>
-    <big><i>void Billboard::increase_x();</i> – Increase x–coordinate of the
-      current sprite position.</big><br>
-    <big><i>void Billboard::decrease_x();</i> – Decrease x–coordinate of the
-      current sprite position.</big><br>
-    <big><i>void Billboard::increase_y();</i> – Increase y–coordinate of the
-      current sprite position.</big><br>
-    <big><i>void Billboard::decrease_y();</i> – Decrease y–coordinate of the
-      current sprite position.</big><br>
-    <big><i>void Billboard::increase_x(const unsigned int increment);</i> –
-      Increase x–coordinate of the current sprite position with user–defined
-      increment.</big><br>
-    <big><i>void Billboard::decrease_x(const unsigned int decrement);</i> –
-      Decrease x–coordinate of the current sprite position with user–defined
-      decrement.</big><br>
-    <big><i>void Billboard::increase_y(const unsigned int increment);</i> –
-      Increase y–coordinate of the current sprite position with user–defined
-      increment.</big><br>
-    <big><i>void Billboard::decrease_y(const unsigned int decrement);</i> –
-      Decrease y–coordinate of the current sprite position with user–defined
-      decrement.</big><big><br>
+    <big><i>unsigned int Billboard::increase_x();</i> – Increase x–coordinate
+      and return increased x–position.</big><br>
+    <big><i>unsigned int Billboard::decrease_x();</i> – Decrease x–coordinate
+      and return decreased x–position.</big><br>
+    <big><i>unsigned int Billboard::increase_y();</i> – Increase y–coordinate
+      and return increased y–position.</big><br>
+    <big><i>unsigned int Billboard::decrease_y();</i> – Decrease y–coordinate
+      and return increased y–position.</big><br>
+    <big><i>unsigned int Billboard::increase_x(const unsigned int increment);</i>
+      – Increase x–coordinate with user value and return increased x–position.</big><br>
+    <big><i>unsigned int Billboard::decrease_x(const unsigned int decrement);</i>
+      – Decrease x–coordinate with user value and return decreased x–position.</big><br>
+    <big><i>unsigned int Billboard::increase_y(const unsigned int increment);</i>
+      – Increase y–coordinate with user value and return increased y–position.</big><br>
+    <big><i>unsigned int Billboard::decrease_y(const unsigned int decrement);</i>
+      – Decrease y–coordinate with user value and return decreased y–position.</big><big><br>
       <span style="font-style: italic;"> unsigned int Billboard::get_x() const;</span>
       – Return x–coordinate of the sprite position.<br>
       <span style="font-style: italic;"> unsigned int Billboard::get_y() const;</span>
@@ -2095,6 +2089,7 @@ Multimedia API</a>. </big>
       6.2.7 – Collision detection subsystem improved.<br>
       6.2.8 – Small bug fixed.<br>
       6.2.9 – Small changes.<br>
+      6.3 – Base sprite subsystem improved.<br>
     </big>
     <p></p>
   </body>

@@ -958,7 +958,7 @@ namespace EUGENEGDK
  namespace Misc
  {
 
-  Multimedia::Multimedia()
+   Multimedia::Multimedia()
    {
     loader=NULL;
     player=NULL;
@@ -2332,76 +2332,76 @@ namespace EUGENEGDK
 
   }
 
-  void Billboard::increase_x()
+  unsigned int Billboard::increase_x()
   {
    if (billboard.is_texture_exist()==true)
    {
     ++current_x;
    }
-
+   return current_x;
   }
 
-  void Billboard::decrease_x()
+  unsigned int Billboard::decrease_x()
   {
    if (billboard.is_texture_exist()==true)
    {
     --current_x;
    }
-
+   return current_x;
   }
 
-  void Billboard::increase_y()
+  unsigned int Billboard::increase_y()
   {
    if (billboard.is_texture_exist()==true)
    {
     ++current_y;
    }
-
+   return current_y;
   }
 
-  void Billboard::decrease_y()
+  unsigned int Billboard::decrease_y()
   {
    if (billboard.is_texture_exist()==true)
    {
     --current_y;
    }
-
+   return current_y;
   }
 
-  void Billboard::increase_x(const unsigned int increment)
+  unsigned int Billboard::increase_x(const unsigned int increment)
   {
    if (billboard.is_texture_exist()==true)
    {
     current_x+=increment;
    }
-
+   return current_x;
   }
 
-  void Billboard::decrease_x(const unsigned int decrement)
+  unsigned int Billboard::decrease_x(const unsigned int decrement)
   {
    if (billboard.is_texture_exist()==true)
    {
     current_x-=decrement;
    }
-
+   return current_x;
   }
 
-  void Billboard::increase_y(const unsigned int increment)
+  unsigned int Billboard::increase_y(const unsigned int increment)
   {
    if (billboard.is_texture_exist()==true)
    {
     current_y+=increment;
    }
-
+   return current_y;
   }
 
-  void Billboard::decrease_y(const unsigned int decrement)
+  unsigned int Billboard::decrease_y(const unsigned int decrement)
   {
    if (billboard.is_texture_exist()==true)
    {
     current_y-=decrement;
    }
-
+   return current_y;
   }
 
   unsigned int Billboard::get_x() const
