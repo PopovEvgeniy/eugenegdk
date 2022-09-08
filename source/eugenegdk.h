@@ -674,7 +674,7 @@ typedef enum
  namespace Graphics
  {
 
-  class Screen:public Core::FPS, public Core::Render, public Internal::Engine, public Internal::Display, public Internal::WINGL, public Internal::Synchronization
+  class Screen: public Core::FPS, public Core::Render, public Internal::Display, public Internal::Engine, public Internal::WINGL, public Internal::Synchronization
  {
    private:
    void check_video_mode();

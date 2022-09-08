@@ -403,7 +403,7 @@ namespace EUGENEGDK
   {
    if (render!=NULL)
    {
-    wglMakeCurrent(NULL,NULL);
+    wglMakeCurrent(device,NULL);
     wglDeleteContext(render);
     render=NULL;
    }
