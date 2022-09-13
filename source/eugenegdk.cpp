@@ -102,6 +102,9 @@ namespace EUGENEGDK
   {
    switch (Message)
    {
+    case WM_CREATE:
+    ;
+    break;
     case WM_CLOSE:
     DestroyWindow(window);
     break;
