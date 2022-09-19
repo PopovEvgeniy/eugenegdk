@@ -1838,40 +1838,40 @@ namespace EUGENEGDK
 
   void Screen::check_video_mode()
   {
-   Internal::Display::get_video_mode();
-   Internal::Display::correct_depth();
-   Internal::Display::set_video_mode();
+   this->get_video_mode();
+   this->correct_depth();
+   this->set_video_mode();
   }
 
   void Screen::set_resolution(const unsigned long int width,const unsigned long int height)
   {
-   Internal::Display::get_video_mode();
-   Internal::Display::correct_depth();
-   Internal::Display::set_setting(width,height);
-   Internal::Display::set_video_mode();
+   this->get_video_mode();
+   this->correct_depth();
+   this->set_setting(width,height);
+   this->set_video_mode();
   }
 
   void Screen::screen_setup()
   {
-   Internal::Engine::prepare_engine();
-   Internal::WINGL::set_render(Internal::Engine::get_context(),Internal::Display::get_depth());
-   Core::Render::start_render(Internal::Display::get_display_width(),Internal::Display::get_display_height());
-   Internal::Synchronization::create_timer();
-   Internal::Synchronization::set_timer(17);
+   this->prepare_engine();
+   this->set_render(this->get_context(),this->get_depth());
+   this->start_render(this->get_display_width(),this->get_display_height());
+   this->create_timer();
+   this->set_timer(17);
   }
 
   void Screen::clear_screen()
   {
-   if (Internal::Engine::get_context()!=NULL)
+   if (this->get_context()!=NULL)
    {
-    Core::Render::clear_stage();
+    this->clear_stage();
    }
 
   }
 
   void Screen::initialize()
   {
-   if (Internal::Engine::get_context()==NULL)
+   if (this->get_context()==NULL)
    {
     this->check_video_mode();
     this->screen_setup();
@@ -1881,7 +1881,7 @@ namespace EUGENEGDK
 
   void Screen::initialize(const unsigned int width,const unsigned int height)
   {
-   if (Internal::Engine::get_context()==NULL)
+   if (this->get_context()==NULL)
    {
     this->set_resolution(width,height);
     this->screen_setup();
@@ -1891,54 +1891,54 @@ namespace EUGENEGDK
 
   bool Screen::update()
   {
-   if (Internal::Engine::get_context()!=NULL)
+   if (this->get_context()!=NULL)
    {
-    Internal::WINGL::Swap();
-    Core::FPS::update_counter();
-    Core::Render::clear_stage();
+    this->Swap();
+    this->update_counter();
+    this->clear_stage();
    }
-   return Internal::Engine::process_message();
+   return this->process_message();
   }
 
   bool Screen::sync()
   {
-   Internal::Synchronization::wait_timer();
+   this->wait_timer();
    return this->update();
   }
 
   bool Screen::is_ready()
   {
-   return Internal::Engine::get_context()!=NULL;
+   return this->get_context()!=NULL;
   }
 
   bool Screen::is_accelerated() const
   {
-   return Internal::WINGL::is_software_render()==false;
+   return this->is_software_render()==false;
   }
 
   bool Screen::is_software() const
   {
-   return Internal::WINGL::is_software_render();
+   return this->is_software_render();
   }
 
   unsigned long int Screen::get_color() const
   {
-   return Internal::Display::get_depth();
+   return this->get_depth();
   }
 
   unsigned int Screen::get_fps() const
   {
-   return Core::FPS::get_fps_amount();
+   return this->get_fps_amount();
   }
 
   unsigned int Screen::get_width() const
   {
-   return Internal::Display::get_display_width();
+   return this->get_display_width();
   }
 
   unsigned int Screen::get_height() const
   {
-   return Internal::Display::get_display_height();
+   return this->get_display_height();
   }
 
   Screen* Screen::get_handle()
