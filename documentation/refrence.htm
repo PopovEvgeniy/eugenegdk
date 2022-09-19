@@ -259,7 +259,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <li><a href="http://openwatcom.org"><big>Open Watcom 1.9</big></a></li>
       <li><big><a href="https://open-watcom.github.io">Open Watcom V2 Fork</a><br>
         </big></li>
-      <li><big>Visual C++ 2008</big></li>
+      <li><big>Visual C++ 2005</big></li>
+      <li><big>Visual C++ 2008<br>
+        </big></li>
       <li><big>Visual C++ 2010</big></li>
       <li><big>Visual C++ 2012</big></li>
       <li><big>Visual C++ 2013</big></li>
@@ -298,9 +300,15 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <li><big>TDM–GCC</big></li>
       <li><big>Open Watcom 1.9</big></li>
       <li><big>Open Watcom V2 Fork</big></li>
-      <li><big>Visual C++ 2008</big></li>
+      <li><big>Visual C++ 2005</big></li>
+      <li><big>Visual C++ 2008<br>
+        </big></li>
     </ul>
-    <big> </big><big><br>
+    <big> </big><big><span style="text-decoration: underline;">Windows SDK</span><br>
+      <br>
+      You need <a href="https://www.microsoft.com/download/details.aspx?id=8279">Windows
+        SDK for Windows 7 and .NET Framework 4</a> if you using Visual C++ 2005.<br>
+      <br>
       <span style="text-decoration: underline;"> Compiler optimization</span><br>
       <br>
       Disable all compiler optimization for correct working. See documentation
@@ -308,6 +316,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       optimization.<br>
       <br>
       <span style="text-decoration: underline;"> Note for Visual C++ users</span><br
+
         style="text-decoration: underline;">
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
@@ -587,14 +596,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       A sprite is a transparent image. It is useful for many things: enemies,
       bonuses, etc&amp;<br>
-      <br>
-    </big><big><span style="text-decoration: underline;">Some words about sprite
-        transparency</span><br>
-      <br>
-      Some pixel will be ignored. Ignored pixels have a transparent color. How
-      to determinate it? The transparent color is&nbsp; the color of the first
-      pixel. A transparent mode enabled by default.<br>
-      <br>
+    </big><big><br>
       <span style="text-decoration: underline;"> Work with base sprite subsystem</span><br>
       <br>
       <span style="font-style: italic;"> Billboard</span> class provide simple
@@ -603,7 +605,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </big><big><br>
     </big><big><span style="font-style: italic;"> void
         Billboard::set_transparent(const bool enabled);</span> – Enable or
-      disable transparent mode.<br>
+      disable the transparent mode.<br>
       <span style="font-style: italic;"> bool Billboard::get_transparent()
         const;</span> – Return true if transparent mode is enabled.<br>
     </big><big><span style="font-style: italic;">void
@@ -2091,7 +2093,9 @@ Multimedia API</a>. </big>
       6.2.9 – Small changes.<br>
       6.3 – Base sprite subsystem improved.<br>
       6.3.1 – 6.3.2 – Small changes.<br>
-      6.3.3 – Base graphics subsystem ported from Neon game development kit 5.8.4.<br>
+      6.3.3 – Base graphics subsystem ported from Neon game development kit
+      5.8.4.<br>
+      6.3.4 – Visual C++ 2005 support added.<br>
     </big>
     <p></p>
   </body>
