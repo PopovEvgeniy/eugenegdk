@@ -1214,7 +1214,6 @@ namespace EUGENEGDK
   {
    if (GlobalMemoryStatusEx(&memory)==FALSE)
    {
-    memory.dwLength=sizeof(MEMORYSTATUSEX);
     memory.dwMemoryLoad=0;
     memory.ullAvailExtendedVirtual=0;
     memory.ullAvailPageFile=0;
