@@ -903,6 +903,7 @@ typedef enum
    void set_size(const unsigned int width,const unsigned int height);
    void load_font(Image *font);
    void load_font(Image &font);
+   void load_font(const char *name);
    void draw_character(const char target);
    void draw_text(const char *target);
    void draw_character(const unsigned int x,const unsigned int y,const char target);

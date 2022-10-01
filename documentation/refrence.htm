@@ -316,6 +316,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       optimization.<br>
       <br>
       <span style="text-decoration: underline;"> Note for Visual C++ users</span><br
+
         style="text-decoration: underline;">
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
@@ -569,7 +570,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Load background </big><big>from target file</big><big> and set it
       setting.<br>
       <span style="font-style: italic;">void Background::load_background(</span></big><big
-
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load normal background from target file.<br>
       <span style="font-style: italic;"> void Background::draw_background();</span>
@@ -850,9 +850,11 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> void Text::set_size(const unsigned int
         width,const unsigned int height);</span> – Change the font size.<br>
       <span style="font-style: italic;"> void Text::load_font(Image *font);</span>
-      – Load a font.<br>
+      – Load a font from the buffer.<br>
       <span style="font-style: italic;"> void Text::load_font(Image &amp;font);</span>
-      – Load a font.<br>
+      – Load a font from the buffer.<br>
+      <span style="font-style: italic;">void Text::load_font(const char *name);</span>
+      – Load a font from target file.<br>
       <span style="font-style: italic;"> void Text::draw_character(const char
         target);</span> – Draw single character at current position.<br>
       <span style="font-style: italic;"> void Text::draw_text(const char
@@ -2120,6 +2122,7 @@ Multimedia API</a>. </big>
       6.3.6 – Ordinary sprite subsystem improved.<br>
       6.3.7 – Sprite sheet subsystem improved.<br>
       6.3.8 – Background subsystem improved.<br>
+      6.3.9 – Text drawing subsystem improved.<br>
     </big>
     <p></p>
   </body>
