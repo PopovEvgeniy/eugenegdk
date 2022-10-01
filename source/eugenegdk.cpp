@@ -2907,11 +2907,6 @@ namespace EUGENEGDK
    text.destroy_sheet();
   }
 
-  void Text::reset_orientation()
-  {
-   orientation=EUGENEGDK::HORIZONTAL_TEXT;
-  }
-
   void Text::increase_position()
   {
    if (orientation==EUGENEGDK::HORIZONTAL_TEXT)
@@ -2965,7 +2960,6 @@ namespace EUGENEGDK
   void Text::load_font(Image *font)
   {
    text.load_sheet(font,16,16);
-   this->reset_orientation();
   }
 
   void Text::load_font(Image &font)
@@ -3017,7 +3011,6 @@ namespace EUGENEGDK
   void Text::destroy_font()
   {
    text.destroy_sheet();
-   this->reset_orientation();
   }
 
  }

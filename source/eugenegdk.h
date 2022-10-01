@@ -889,7 +889,6 @@ typedef enum
    EUGENEGDK::TEXT_ORIENTATION orientation;
    unsigned int current_x;
    unsigned int current_y;
-   void reset_orientation();
    void increase_position();
    void restore_position();
    public:
