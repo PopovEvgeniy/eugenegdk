@@ -315,6 +315,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       optimization.<br>
       <br>
       <span style="text-decoration: underline;"> Note for Visual C++ users</span><br
+
         style="text-decoration: underline;">
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
@@ -408,32 +409,44 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br style="font-style: italic;">
       <span style="font-style: italic;"> void Screen::clear_screen();</span> –
       Clear the screen. Fill it by black color.<br>
+      <br>
       <span style="font-style: italic;"> void Screen::initialize();</span> –
       Initialize the base graphic subsystem with default screen resolution.<br>
+      <br>
     </big><big style="font-style: italic;">void Screen::initialize(const
       unsigned int width,</big><big style="font-style: italic;">const unsigned
       int heigt</big><big><span style="font-style: italic;">);</span> –
-      Initialize the base graphic subsystem with custom screen resolution.</big><big><br>
-      <span style="font-style: italic;"> bool Screen::sync();</span> – Show
-      current back–buffer content on screen. Return false if a game is
+      Initialize the base graphic subsystem with custom screen resolution.<br>
+      <br>
+    </big><big> <span style="font-style: italic;"> bool Screen::sync();</span>
+      – Show current back–buffer content on screen. Return false if a game is
       terminated. This method uses fps limit and do wait between frames.<br>
+      <br>
       <span style="font-style: italic;"> bool Screen::update();</span> – Show
       current back–buffer content on screen. Return false if a game is
       terminated. This method ignoring fps limit and need high processor usage.<br>
+      <br>
       <span style="font-style: italic;"> bool Screen::is_ready();</span> –
       Return true if the subsystem is already initialized.<br>
+      <br>
       <span style="font-style: italic;"> bool Screen::is_accelerated() const;</span>
       – Return true if render is hardware accelerated.<br>
+      <br>
       <span style="font-style: italic;"> bool Screen::is_software() const;</span>
       – Return true if software render is active.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Screen::get_fps() const;</span>
       – Return current fps value.<br>
+      <br>
       <span style="font-style: italic;"> unsigned long int Screen::get_color()
         const;</span> – Return current color depth in bits per pixel.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Screen::get_width() const;</span>
       – Return screen width in pixels.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Screen::get_height()
         const;</span> – Return screen height in pixels.<br>
+      <br>
       <span style="font-style: italic;"> Screen* Screen::get_handle();</span> –
       Return the handle to base graphics subsystem object. </big>
     <h2><a name="mozTocId289525" class="mozTocH2"></a><big>Chapter 3. Picture
@@ -451,15 +464,21 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> unsigned int *Picture::get_image();</span>
       – Return handle to image storage.<br>
+      <br>
     </big><big><span style="font-style: italic;">void Picture::destroy_image();</span>
-      – Destroy an image in the storage.</big><big><br>
-      <span style="font-style: italic;"> bool Picture::is_storage_empty() const;</span>
-      – Return true if storage is empty.<br>
+      – Destroy an image in the storage.<br>
+      <br>
+    </big><big> <span style="font-style: italic;"> bool
+        Picture::is_storage_empty() const;</span> – Return true if storage is
+      empty.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Picture::get_image_width()
         const;</span> – Return image width in pixels.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int
         Picture::get_image_height() const;</span> – Return image height in
       pixels.<br>
+      <br>
     </big><big><span style="font-style: italic;">size_t
         Picture::get_image_lenght() const;</span> – Return image length in
       bytes.</big><br>
@@ -483,6 +502,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> unsigned int Animation::get_frames()
         const;</span> – Return amount of frames in scrollable background or
       animated sprite.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Animation::get_frame()
         const;</span> – Return current frame in scrollable background or
       animated sprite.<br>
@@ -501,7 +521,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         </tr>
         <tr>
           <td><big>STATIC_IMAGE </big></td>
-          <td><big>Static background or static sprite<br>
+          <td><big>Normal background or normal sprite<br>
             </big></td>
         </tr>
         <tr>
@@ -536,54 +556,69 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </big><big><br style="font-style: italic;">
       <span style="font-style: italic;"> void Background::prepare(const Screen
         *screen);</span> – Prepare for drawing.<br>
+      <br>
       <span style="font-style: italic;"> void Background::prepare(Screen
         &amp;screen);</span> – Prepare for drawing.<br>
+      <br>
       <span style="font-style: italic;"> void Background::prepare(const unsigned
         int width,const unsigned int heigt);</span> – Prepare for drawing.<br>
+      <br>
       <span style="font-style: italic;"> void Background::set_target(const
         unsigned int target);</span> – Set target frame in scrollable
       background.<br>
+      <br>
       <span style="font-style: italic;"> void Background::step();</span> –
       Increase number of target frame in scrollable background. Set it to 1 if
       number of target frame more than frame amount.<br>
+      <br>
       <span style="font-style: italic;"> void Background::set_setting(const
         EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Set
-      background setting. Last argument will ignore if background is not
-      scrollable.<br>
+      setting. Last argument will ignore if background is not scrollable.<br>
+      <br>
       <span style="font-style: italic;"> void Background::load_background(Image
         *background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
-      – Load background </big><big>from the buffer</big><big> and set it
-      setting.<br>
+      – Load background </big><big>from the buffer</big><big>.<br>
+      <br>
       <span style="font-style: italic;"> void Background::load_background(Image
         &amp;background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int
-        frames);</span> – Load background </big><big>from the buffer</big><big>
-      and set it setting.<br>
+        frames);</span> – Load background </big><big>from the buffer</big><big>.<br>
+      <br>
       <span style="font-style: italic;"> void Background::load_background(Image
         *background);</span> – Load normal background from the buffer.<br>
+      <br>
       <span style="font-style: italic;"> void Background::load_background(Image
         &amp;background);</span> – Load normal background </big><big>from the
       buffer</big><big>.<br>
+      <br>
       <span style="font-style: italic;">void Background::load_background(const
         char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
-      – Load background </big><big>from target file</big><big> and set it
-      setting.<br>
+      – Load background </big><big>from target file</big><big>.<br>
+      <br>
       <span style="font-style: italic;">void Background::load_background(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load normal background from target file.<br>
+      <br>
       <span style="font-style: italic;"> void Background::draw_background();</span>
       – Draw a background.<br>
+      <br>
       <span style="font-style: italic;"> void Background::destroy_image();</span>
       – Destroy a background image.<br>
+      <br>
       <span style="font-style: italic;"> void Background::destroy_background();</span>
       – Destroy a background image and destroy a background texture.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Background::get_frame()
         const;</span> – Return current frame in scrollable background.<br>
       <span style="font-style: italic;"> unsigned int Background::get_frames()
         const;</span> – Return frame amount in scrollable background.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Background::get_width()
         const;</span> – Return the width of the background.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Background::get_height()
         const;</span> – Return the height of the background.<br>
+      <br>
       <span style="font-style: italic;"> EUGENEGDK::IMAGE_KIND
         Background::get_kind() const;</span> – Get background type.<br>
       <br>
@@ -614,58 +649,88 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </big><big><span style="font-style: italic;"> void
         Billboard::set_transparent(const bool enabled);</span> – Enable or
       disable the transparent mode.<br>
+      <br>
       <span style="font-style: italic;"> bool Billboard::get_transparent()
         const;</span> – Return true if transparent mode is enable.<br>
+      <br>
     </big><big><span style="font-style: italic;">void
         Billboard::set_position(const unsigned int x, const unsigned int y);</span>
       – Set sprite position.<br>
+      <br>
       <span style="font-style: italic;"> void Billboard::set_size(const unsigned
-        int width, const unsigned int height);</span> – Change the sprite size.</big><br>
-    <big><span style="font-style: italic;"> void Billboard::set_x(const unsigned
-        int x);</span> – Set x–coordinate of the sprite position.</big><br>
-    <big><span style="font-style: italic;"> void Billboard::set_y(const unsigned
-        int y);</span> – Set y–coordinate of the sprite position.</big><big><br>
-      <span style="font-style: italic;"> void Billboard::set_width(const
-        unsigned int width);</span> – Change the sprite width.<br>
+        int width, const unsigned int height);</span> – Change the sprite size.<br>
+      <br>
+    </big> <big><span style="font-style: italic;"> void Billboard::set_x(const
+        unsigned int x);</span> – Set x–coordinate of the sprite position.<br>
+      <br>
+    </big> <big><span style="font-style: italic;"> void Billboard::set_y(const
+        unsigned int y);</span> – Set y–coordinate of the sprite position.<br>
+      <br>
+    </big><big> <span style="font-style: italic;"> void
+        Billboard::set_width(const unsigned int width);</span> – Change the
+      sprite width.<br>
+      <br>
       <span style="font-style: italic;"> void Billboard::set_height(const
-        unsigned int height);</span> – Change the sprite height.</big><br>
-    <big><i>unsigned int Billboard::increase_x();</i> – Increase x–coordinate
-      and return increased x–position.</big><br>
-    <big><i>unsigned int Billboard::decrease_x();</i> – Decrease x–coordinate
-      and return decreased x–position.</big><br>
-    <big><i>unsigned int Billboard::increase_y();</i> – Increase y–coordinate
-      and return increased y–position.</big><br>
-    <big><i>unsigned int Billboard::decrease_y();</i> – Decrease y–coordinate
-      and return increased y–position.</big><br>
-    <big><i>unsigned int Billboard::increase_x(const unsigned int increment);</i>
-      – Increase x–coordinate with user value and return increased x–position.</big><br>
-    <big><i>unsigned int Billboard::decrease_x(const unsigned int decrement);</i>
-      – Decrease x–coordinate with user value and return decreased x–position.</big><br>
-    <big><i>unsigned int Billboard::increase_y(const unsigned int increment);</i>
-      – Increase y–coordinate with user value and return increased y–position.</big><br>
-    <big><i>unsigned int Billboard::decrease_y(const unsigned int decrement);</i>
-      – Decrease y–coordinate with user value and return decreased y–position.</big><big><br>
-      <span style="font-style: italic;"> unsigned int Billboard::get_x() const;</span>
-      – Return x–coordinate of the sprite position.<br>
+        unsigned int height);</span> – Change the sprite height.<br>
+      <br>
+    </big> <big><i>unsigned int Billboard::increase_x();</i> – Increase
+      x–coordinate and return increased x–position.<br>
+      <br>
+    </big> <big><i>unsigned int Billboard::decrease_x();</i> – Decrease
+      x–coordinate and return decreased x–position.<br>
+      <br>
+    </big> <big><i>unsigned int Billboard::increase_y();</i> – Increase
+      y–coordinate and return increased y–position.<br>
+      <br>
+    </big> <big><i>unsigned int Billboard::decrease_y();</i> – Decrease
+      y–coordinate and return increased y–position.<br>
+      <br>
+    </big> <big><i>unsigned int Billboard::increase_x(const unsigned int
+        increment);</i> – Increase x–coordinate with user value and return
+      increased x–position.<br>
+      <br>
+    </big> <big><i>unsigned int Billboard::decrease_x(const unsigned int
+        decrement);</i> – Decrease x–coordinate with user value and return
+      decreased x–position.<br>
+      <br>
+    </big> <big><i>unsigned int Billboard::increase_y(const unsigned int
+        increment);</i> – Increase y–coordinate with user value and return
+      increased y–position.<br>
+      <br>
+    </big> <big><i>unsigned int Billboard::decrease_y(const unsigned int
+        decrement);</i> – Decrease y–coordinate with user value and return
+      decreased y–position.<br>
+      <br>
+    </big><big> <span style="font-style: italic;"> unsigned int
+        Billboard::get_x() const;</span> – Return x–coordinate of the sprite
+      position.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Billboard::get_y() const;</span>
       – Return y–coordinate of the sprite position.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Billboard::get_width()
         const;</span> – Return the width of the sprite.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Billboard::get_height()
         const;</span> – Return the height of the sprite.<br>
+      <br>
     </big><big><span style="font-style: italic;">EUGENEGDK::BOX
         Billboard::get_box() const;</span> – Return collision related
-      information.</big><big><br>
-    </big><big><span style="font-style: italic;">void Billboard::draw_sprite();</span>
-      – Draw a sprite.</big><br>
-    <big><span style="font-style: italic;"> void Billboard::draw_sprite(const
-        unsigned int x, const unsigned int y);</span> – Set sprite position and
-      draw it.</big><br>
-    <big><i>void Billboard::draw_sprite(const bool transparency);</i> – Set
-      transparent mode and draw a sprite.</big><br>
-    <big><i>void Billboard::draw_sprite(const bool transparency,const unsigned
-        int x, const unsigned int y);</i> – Set transparent mode and draw a
-      sprite at target position.</big><big></big><br>
+      information.<br>
+      <br>
+    </big><big> </big><big><span style="font-style: italic;">void
+        Billboard::draw_sprite();</span> – Draw a sprite.<br>
+      <br>
+    </big> <big><span style="font-style: italic;"> void
+        Billboard::draw_sprite(const unsigned int x, const unsigned int y);</span>
+      – Set sprite position and draw it.<br>
+      <br>
+    </big> <big><i>void Billboard::draw_sprite(const bool transparency);</i> –
+      Set transparent mode and draw a sprite.<br>
+      <br>
+    </big> <big><i>void Billboard::draw_sprite(const bool transparency,const
+        unsigned int x, const unsigned int y);</i> – Set transparent mode and
+      draw a sprite at target position.</big><br>
     <big> </big>
     <h2><a name="mozTocId662651" class="mozTocH2"></a><big> Chapter 8. Ordinary
         sprites</big></h2>
@@ -691,38 +756,52 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> void Sprite::set_setting(const
         EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Set
       sprite setting. Last argument will ignore if sprite not animated.<br>
+      <br>
       <span style="font-style: italic;"> void Sprite::load_sprite(Image
         *buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
       – Load a sprite from the buffer and set it setting.<br>
+      <br>
       <span style="font-style: italic;"> void Sprite::load_sprite(Image
         *buffer);</span> – Load a normal sprite </big><big>from the buffer</big><big>.<br>
+      <br>
       <span style="font-style: italic;"> void Sprite::load_sprite(Image
         &amp;buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
       – Load a sprite </big><big>from the buffer</big><big> and set it setting.<br>
+      <br>
       <span style="font-style: italic;"> void Sprite::load_sprite(Image
         &amp;buffer);</span> – Load a normal sprite </big><big>from the buffer</big><big>.<br>
+      <br>
       <span style="font-style: italic;">void Sprite::load_sprite(const char
         *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
       – Load a sprite </big><big>from target file</big><big> and set it
       setting.<br>
+      <br>
       <span style="font-style: italic;">void Sprite::load_sprite(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load a normal sprite from target file.<br>
+      <br>
       <span style="font-style: italic;"> void Sprite::set_target(const unsigned
         int target);</span> – Set target frame in strip.<br>
+      <br>
       <span style="font-style: italic;"> void Sprite::step();</span> – Increase
       number of target frame in strip. Set it to 1 if number of target frame
       more than frame amount.<br>
+      <br>
       <span style="font-style: italic;"> EUGENEGDK::IMAGE_KIND
-        Sprite::get_kind() const;</span> – Get sprite type.</big><big><br>
-      <span style="font-style: italic;"> Sprite* Sprite::get_handle();</span> –
-      Return the handle to sprite object.<br>
+        Sprite::get_kind() const;</span> – Get sprite type.<br>
+      <br>
+    </big><big> <span style="font-style: italic;"> Sprite*
+        Sprite::get_handle();</span> – Return the handle to sprite object.<br>
+      <br>
       <span style="font-style: italic;"> void Sprite::clone(Sprite *target);</span>
       – Create copy of the sprite if the image storage of target sprite is not
       empty.<br>
+      <br>
       <span style="font-style: italic;"> void Sprite::clone(Sprite &amp;target);</span>
       – Create copy of the sprite if the image storage of target sprite is not
       empty.<br>
+      <br>
       <span style="font-style: italic;"> void Sprite::destroy_sprite(); </span>–
       Destroy a sprite image and destroy a sprite texture.</big><big><br>
     </big> <big><br>
@@ -757,33 +836,45 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
-      target frame</big><big>.</big><br>
-    <big><span style="font-style: italic;">unsigned int Sheet::calculate(const
-        unsigned int row,const unsigned int column) const;</span> – Calculate
-      the frame by row and column.</big><br>
-    <big><span style="font-style: italic;"> unsigned int Sheet::get_rows()
-        const;</span> – Return row amount.<br>
+      target frame</big><big>.<br>
+      <br>
+    </big> <big><span style="font-style: italic;">unsigned int
+        Sheet::calculate(const unsigned int row,const unsigned int column)
+        const;</span> – Calculate the frame by row and column.<br>
+      <br>
+    </big> <big><span style="font-style: italic;"> unsigned int
+        Sheet::get_rows() const;</span> – Return row amount.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_columns()
-        const;</span> – Return</big><big> column</big><big> amount.</big><br>
-    <big><span style="font-style: italic;"> void Sheet::destroy_sheet();</span>
-      – Destroy a sprite sheet image and destroy a sprite sheet texture.</big><br>
-    <big><span style="font-style: italic;"> void Sheet::select(const unsigned
-        int row,const unsigned int column);</span> – Select the sprite by row
-      and column.<br>
+        const;</span> – Return</big><big> column</big><big> amount.<br>
+      <br>
+    </big> <big><span style="font-style: italic;"> void Sheet::destroy_sheet();</span>
+      – Destroy a sprite sheet image and destroy a sprite sheet texture.<br>
+      <br>
+    </big> <big><span style="font-style: italic;"> void Sheet::select(const
+        unsigned int row,const unsigned int column);</span> – Select the sprite
+      by row and column.<br>
+      <br>
     </big> <big><span style="font-style: italic;"> void Sheet::select(const
         unsigned int target);</span> – Select the sprite by frame number.<br>
+      <br>
     </big><big><span style="font-style: italic;">void Sheet::step();</span> –
       Increase number of target frame. Set it to 1 if number of target frame
-      more than frame amount.</big><br>
-    <big><span style="font-style: italic;"> void Sheet::load_tileset(Image
-        *sheet,const unsigned int row_amount,const unsigned int column_amount);</span>
-      – Load a sprite sheet from the buffer.<br>
+      more than frame amount.<br>
+      <br>
+    </big> <big><span style="font-style: italic;"> void
+        Sheet::load_tileset(Image *sheet,const unsigned int row_amount,const
+        unsigned int column_amount);</span> – Load a sprite sheet from the
+      buffer.<br>
+      <br>
       <span style="font-style: italic;"> void Sheet::load_tileset(Image
         &amp;sheet,const unsigned int row_amount,const unsigned int
         column_amount);</span> – Load a sprite sheet from the buffer.<br>
+      <br>
       <span style="font-style: italic;">void Sheet::load_tileset(const char
         *name,const unsigned int row_amount,const unsigned int column_amount);</span>
       – Load a sprite sheet from tagret file.<br>
@@ -836,35 +927,49 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> EUGENEGDK::TEXT_ORIENTATION
         Text::get_orientation() const;</span> – Get current text orientation.<br>
+      <br>
       <span style="font-style: italic;"> void Text::set_orientation(const
         EUGENEGDK::TEXT_ORIENTATION target);</span> – Set current text
       orientation.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Text::get_font_width()
         const;</span> – Get current font width in pixels.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Text::get_font_height()
         const;</span> – Get current font height in pixels.<br>
+      <br>
       <span style="font-style: italic;"> void Text::set_position(const unsigned
         int x,const unsigned int y);</span> – Set output position.<br>
+      <br>
       <span style="font-style: italic;"> void Text::set_size(const unsigned int
         width,const unsigned int height);</span> – Change the font size.<br>
+      <br>
       <span style="font-style: italic;"> void Text::load_font(Image *font);</span>
       – Load a font from the buffer.<br>
+      <br>
       <span style="font-style: italic;"> void Text::load_font(Image &amp;font);</span>
       – Load a font from the buffer.<br>
+      <br>
       <span style="font-style: italic;">void Text::load_font(const char *name);</span>
       – Load a font from target file.<br>
+      <br>
       <span style="font-style: italic;"> void Text::draw_character(const char
         target);</span> – Draw single character at current position.<br>
+      <br>
       <span style="font-style: italic;"> void Text::draw_text(const char
         *target);</span> – Draw text at current position.<br>
+      <br>
       <span style="font-style: italic;"> void Text::draw_character(const
         unsigned int x,const unsigned int y,const char target);</span> – Draw
       single character at specific position.<br>
+      <br>
       <span style="font-style: italic;"> void Text::draw_text(const unsigned int
         x,const unsigned int y,const char *target);</span> – Draw text at
       specific position.<br>
+      <br>
       <span style="font-style: italic;"> void Text::destroy_image();</span> –
       Destroy a font image.<br>
+      <br>
       <span style="font-style: italic;"> void Text::destroy_font();</span> –
       Destroy a font image and destroy a font texture.<br>
     </big><big> </big>
@@ -876,18 +981,26 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       class provide simple access to image loader. It is a simple class with few
       methods.<br>
       <br style="font-style: italic;">
-      <span style="font-style: italic;"> void Image::load_tga(const char *name);</span>
-      – Load a Truevision TGA image.<br>
+      <span style="font-style: italic;"> </span></big><big><span style="font-style: italic;">unsigned
+        char *</span></big><big><span style="font-style: italic;">Image::load_tga(const
+        char *name);</span> – Load a Truevision TGA image and return handle to
+      image buffer.<br>
+      <br>
+      <span style="font-style: italic;">unsigned char *Image::get_data();</span>&nbsp;
+      – Return handle to image buffer.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Image::get_width() const;</span>
       – Return width of current image.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Image::get_height() const;</span>
       – Return height of current image.<br>
+      <br>
       <span style="font-style: italic;"> size_t Image::get_length() const;</span>
       – Return length of image buffer in bytes.<br>
-      <span style="font-style: italic;"> unsigned char *Image::get_data();</span>
-      – Return handle to image buffer.<br>
+      <br>
       <span style="font-style: italic;"> Image* Image::get_handle();</span> –
       Return the handle to image loader.<br>
+      <br>
       <span style="font-style: italic;"> void Image::destroy_image();</span> –
       Destroy the current image and free image buffer.<br>
       <br>
@@ -927,6 +1040,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> void Timer::set_timer(const double
         seconds); </span>– Set timer interval and initialize start point.<br>
+      <br>
       <span style="font-style: italic;"> bool Timer::check_timer();</span> –
       Return true and reinitialize start point if interval between stop and
       start points large or equal than specific seconds.</big><br>
@@ -959,9 +1073,11 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big><span style="font-style: italic;">void Collision::set_target(const
         EUGENEGDK::BOX &amp;first_target,const EUGENEGDK::BOX
         &amp;second_target);</span> – Set targets for collision detector.<br>
+      <br>
       <span style="font-style: italic;"> bool Collision::check_collision()
         const;</span> – Return true if collision between two objects is
       accepted.<br>
+      <br>
       <span style="font-style: italic;"> bool Collision::check_collision(const
         EUGENEGDK::BOX &amp;first_target,const EUGENEGDK::BOX
         &amp;second_target);</span> – Set collision targets and check collision
@@ -982,15 +1098,19 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> unsigned long long int
         Memory::get_total_physical();</span> – Return total physical memory size
       in bytes.<br>
+      <br>
       <span style="font-style: italic;"> unsigned long long int
         Memory::get_free_physical();</span> – Return free physical memory size
       in bytes.<br>
+      <br>
       <span style="font-style: italic;"> unsigned long long int
         Memory::get_total_virtual();</span> – Return total <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
         memory</a> size in bytes.<br>
+      <br>
       <span style="font-style: italic;"> unsigned long long int
         Memory::get_free_virtual();</span> – Return free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
         memory</a> size in bytes.<br>
+      <br>
       <span style="font-style: italic;"> unsigned long int Memory::get_usage();</span>
       – Return percentage of physical memory usage. <br>
     </big>
@@ -1064,16 +1184,22 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> void Multimedia::initialize();</span> –
       Initialize the subsystem.<br>
+      <br>
       <span style="font-style: italic;"> void Multimedia::initialize(const char
         *target);</span> – Initialize the subsystem and load a multimedia file.<br>
+      <br>
       <span style="font-style: italic;"> void Multimedia::load(const char
         *target);</span> – Load a multimedia file.<br>
+      <br>
       <span style="font-style: italic;"> void Multimedia::play();</span> – Play
       a content of the target file.<br>
+      <br>
       <span style="font-style: italic;"> void Multimedia::play_loop();</span> –
       Checking play status and restart play if needed.<br>
+      <br>
       <span style="font-style: italic;"> void Multimedia::stop();</span> – Stop
       playing a content of the target file.<br>
+      <br>
       <span style="font-style: italic;"> bool Multimedia::check_playing();</span>
       – Return true if the multimedia resource is playing.</big><br>
     <big> </big>
@@ -1095,7 +1221,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       operation failed.</big><br>
     <big> </big>
     <h2><a name="mozTocId59386" class="mozTocH2"></a><big>Chapter 2. Tools</big></h2>
-    <big>This module implemented as two simple functions</big><big>. All these
+    <big>This module implemented as few functions</big><big>. All these
       functions declared in <span style="font-style: italic;">Tools</span>
       sub–namespace.<br>
       <br>
@@ -1118,8 +1244,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;">EUGENEGDK::BOX generate_box(const
         unsigned int x,const unsigned int y,const unsigned int width,const
-        unsigned int height);</span> – Generate collision related information
-      from the object properties.<br>
+        unsigned int height);</span> – Generate collision related information.<br>
     </big>
     <h2><a name="mozTocId573582" class="mozTocH2"></a><big>Chapter 3. Resource
         manager</big></h2>
@@ -1159,13 +1284,18 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Don't use it directly. Let's look at public methods.<br>
       <br>
       <i> void Binary_File::close();</i> – Close the file.<br>
+      <br>
       <i> void Binary_File::set_position(const long int offset);</i> – Set the
       file position.<br>
+      <br>
       <i> long int Binary_File::get_position();</i> – Return current file
       position.<br>
+      <br>
       <i> long int Binary_File::get_length();</i> – Return file length in bytes.<br>
+      <br>
       <i> bool Binary_File::check_error();</i> – Return true if last file
       operation failed.<br>
+      <br>
       <span style="font-style: italic;"> bool Binary_File::is_open() const;</span>
       – Return true if the file was successfully open.<br>
       <br>
@@ -1180,6 +1310,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       class. Let's look at public methods.<br>
       <br>
       <i> void Input_File::open(const char *name);</i> – Open a file for read.<br>
+      <br>
       <i> void Input_File::read(void *buffer,const size_t length);</i> – Read
       data from the file. </big>
     <h2><a name="mozTocId511135" class="mozTocH2"></a><big> Chapter 4. File
@@ -1190,12 +1321,15 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       class. Let's look at public methods.<br>
       <br>
       <i> void Output_File::open(const char *name);</i> – Open a file for write.<br>
+      <br>
       <i> void Output_File::create_temp();</i> – Create a temporary file. This
-      file will be deleted when it closed.</big><br>
-    <big> <i> void Output_File::write(const void *buffer,const size_t length);</i>
-      – Write data to the file.</big><br>
-    <big><i>void Output_File::flush();</i> – Force writing internal buffer data
-      to the file.</big><br>
+      file will be deleted when it closed.<br>
+      <br>
+    </big> <big> <i> void Output_File::write(const void *buffer,const size_t
+        length);</i> – Write data to the file.<br>
+      <br>
+    </big> <big><i>void Output_File::flush();</i> – Force writing internal
+      buffer data to the file.</big><br>
     <big> </big>
     <h1><a name="mozTocId291572" class="mozTocH1"></a><big>Part 8. Input</big></h1>
     <h2><a name="mozTocId783369" class="mozTocH2"></a><big>Chapter 1. The
@@ -1217,15 +1351,19 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> void Keyboard::initialize();</span> –
       Initialize the subsystem.<br>
+      <br>
       <span style="font-style: italic;"> bool Keyboard::check_hold(const
         unsigned char code);</span> – Return true if key with specific scan–code
       is press or holding.<br>
+      <br>
       <span style="font-style: italic;"> bool Keyboard::check_press(const
         unsigned char code);</span> – Return true if key with specific scan–code
       was press.<br>
+      <br>
       <span style="font-style: italic;"> bool Keyboard::check_release(const
         unsigned char code);</span> – Return true if key with specific scan–code
       was release.<br>
+      <br>
       <span style="font-style: italic;"> bool Keyboard::is_ready() const;</span>
       – Return true if the subsystem is already initialized.<br>
       <br>
@@ -1496,20 +1634,27 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> void Mouse::show();</span> – Show mouse
       cursor.<br>
+      <br>
       <span style="font-style: italic;"> void Mouse::hide();</span> – Hide mouse
       cursor.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Mouse::get_x();</span> –
       Return x position of mouse.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Mouse::get_y();</span> –
       Return y position of mouse.<br>
+      <br>
       <span style="font-style: italic;"> void Mouse::set_position(const unsigned
         int x,const unsigned int y);</span> – Set position of mouse.<br>
+      <br>
       <span style="font-style: italic;"> bool Mouse::check_hold(const
         EUGENEGDK::MOUSE_BUTTON button);</span> – Return true if specific mouse
       button is press or holding.<br>
+      <br>
       <span style="font-style: italic;"> bool Mouse::check_press(const
         EUGENEGDK::MOUSE_BUTTON button);</span> – Return true if specific mouse
       button was press.<br>
+      <br>
       <span style="font-style: italic;"> bool Mouse::check_release(const
         EUGENEGDK::MOUSE_BUTTON button);</span> – Return true if specific mouse
       button was release.<br>
@@ -1667,41 +1812,55 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> unsigned int Gamepad::get_amount();</span>
       – Return amount of connected game–pad.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int
         Gamepad::get_button_amount();</span> – Return amount of the game–pad
       buttons.<br>
+      <br>
       <span style="font-style: italic;"> void Gamepad::update();</span> – Update
       internal game–pad state. Always call it before call another methods.<br>
+      <br>
       <span style="font-style: italic;"> void Gamepad::set_active(const unsigned
         int gamepad);</span> – Set current active game–pad.<br>
+      <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DPAD
         Gamepad::get_dpad() const;</span> – Return code of current pressed or
       holding D–pad button.<br>
+      <br>
       <span style="font-style: italic;"> bool Gamepad::check_hold(const
         EUGENEGDK::GAMEPAD_BUTTONS button) const;</span> – Return true if the
       button is press or holding.<br>
+      <br>
       <span style="font-style: italic;"> bool Gamepad::check_press(const
         EUGENEGDK::GAMEPAD_BUTTONS button) const;</span> – Return true if the
       button was press.<br>
+      <br>
       <span style="font-style: italic;"> bool Gamepad::check_released(const
         EUGENEGDK::GAMEPAD_BUTTONS button) const;</span> – Return true if the
       button was release.<br>
+      <br>
       <span style="font-style: italic;"> unsigned long int
         Gamepad::get_sticks_amount();</span> – Return amount of the game–pad
       sticks.<br>
+      <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
         Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick);</span> –
       Return x–direction of specific stick.<br>
+      <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
         Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick);</span> –
       Return y–direction of specific stick.<br>
+      <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
         Gamepad::get_left_stick_x();</span> – Return x–direction of left stick.<br>
+      <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
         Gamepad::get_left_stick_y();</span> – Return y–direction of left stick.<br>
+      <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
         Gamepad::get_right_stick_x();</span> – Return x–direction of right
       stick.<br>
+      <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
         Gamepad::get_right_stick_y();</span> – Return y–direction of right
       stick.<br>
@@ -1795,8 +1954,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <h2><a name="mozTocId472209" class="mozTocH2"></a><big>Chapter 4. Game–pad</big></h2>
     <big><br>
       Game–pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
-Multimedia
-        API</a>. </big>
+Multimedia API</a>. </big>
     <h2><a name="mozTocId804583" class="mozTocH2"></a><big>Chapter 5. Input</big></h2>
     <big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;"> Input back–end</span><br>
@@ -2125,6 +2283,8 @@ Multimedia
       6.3.9 – Text drawing subsystem improved.<br>
       6.4 – Small changes.<br>
       6.4.1 – Collision detection subsystem improved.<br>
+      6.4.1.1 – Documentation updated.<br>
+      6.4.2 – Image loader improved.<br>
     </big>
     <p></p>
   </body>
