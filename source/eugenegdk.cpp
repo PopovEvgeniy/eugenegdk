@@ -3087,16 +3087,6 @@ namespace EUGENEGDK
    return this->check_collision();
   }
 
-  EUGENEGDK::BOX Collision::generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const
-  {
-   EUGENEGDK::BOX collision;
-   collision.x=x;
-   collision.y=y;
-   collision.width=width;
-   collision.height=height;
-   return collision;
-  }
-
  }
 
  namespace Filesystem
@@ -3125,6 +3115,16 @@ namespace EUGENEGDK
 
  namespace Tools
  {
+
+  EUGENEGDK::BOX generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height)
+  {
+   EUGENEGDK::BOX collision;
+   collision.x=x;
+   collision.y=y;
+   collision.width=width;
+   collision.height=height;
+   return collision;
+  }
 
   void quit()
   {

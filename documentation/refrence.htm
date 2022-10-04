@@ -43,7 +43,7 @@
           <li><a href="#mozTocId904725">Chapter 5. Image kind</a></li>
           <li><a href="#mozTocId738557">Chapter 6. Background</a></li>
           <li><a href="#mozTocId309905">Chapter 7. Base sprite subsystem</a></li>
-          <li><a href="#mozTocId662651">Chapter 8. Ordinary sprites</a></li>
+          <li><a href="#mozTocId662651"> Chapter 8. Ordinary sprites</a></li>
           <li><a href="#mozTocId146800">Chapter 9. Sprite sheet</a></li>
           <li><a href="#mozTocId752257">Chapter 10. Text</a></li>
           <li><a href="#mozTocId67980">Chapter 11. Loading images</a></li>
@@ -67,17 +67,16 @@
       <li><a href="#mozTocId209024">Part 6. Misc</a>
         <ul>
           <li><a href="#mozTocId608755">Chapter 1. File system</a></li>
-          <li><a href="#mozTocId59386">Chapter 2. Interaction with operating
-              system</a></li>
+          <li><a href="#mozTocId59386">Chapter 2. Tools</a></li>
           <li><a href="#mozTocId573582">Chapter 3. Resource manager</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId590919">Part 7. Binary files</a>
+      <li><a href="#mozTocId590919"> Part 7. Binary files</a>
         <ul>
           <li><a href="#mozTocId200879">Chapter 1. The sub–namespace</a></li>
-          <li><a href="#mozTocId961921">Chapter 2. Base binary file subsystem</a></li>
-          <li><a href="#mozTocId424835">Chapter 3. File reader</a></li>
-          <li><a href="#mozTocId511135">Chapter 4. File writer</a></li>
+          <li><a href="#mozTocId961921"> Chapter 2. Base binary file subsystem</a></li>
+          <li><a href="#mozTocId424835"> Chapter 3. File reader</a></li>
+          <li><a href="#mozTocId511135"> Chapter 4. File writer</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId291572">Part 8. Input</a>
@@ -316,7 +315,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       optimization.<br>
       <br>
       <span style="text-decoration: underline;"> Note for Visual C++ users</span><br
-
         style="text-decoration: underline;">
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
@@ -966,12 +964,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       accepted.<br>
       <span style="font-style: italic;"> bool Collision::check_collision(const
         EUGENEGDK::BOX &amp;first_target,const EUGENEGDK::BOX
-        &amp;second_target);</span> – Set collision target and check collision
-      between two objects.<br>
-      <span style="font-style: italic;"> EUGENEGDK::BOX
-        Collision::generate_box(const unsigned int x,const unsigned int y,const
-        unsigned int width,const unsigned int height) const;</span> – Generate
-      collision related information from the object properties.<br>
+        &amp;second_target);</span> – Set collision targets and check collision
+      between it.<br>
     </big>
     <h1><a name="mozTocId611237" class="mozTocH1"></a><big>Part 5. Other
         important things</big></h1>
@@ -1100,27 +1094,32 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       All functions take target file name as argument and return false if the
       operation failed.</big><br>
     <big> </big>
-    <h2><a name="mozTocId59386" class="mozTocH2"></a><big>Chapter 2. Interaction
-        with operating system</big></h2>
+    <h2><a name="mozTocId59386" class="mozTocH2"></a><big>Chapter 2. Tools</big></h2>
     <big>This module implemented as two simple functions</big><big>. All these
       functions declared in <span style="font-style: italic;">Tools</span>
       sub–namespace.<br>
       <br>
-      <span style="font-style: italic;"> quit</span> function exit from your
-      program and return user to operating system. It didn't take arguments.<br>
+      <span style="font-style: italic;">void quit();</span> </big><big>–</big><big>
+      Exit from your program and return user to operating system.<br>
       <br>
-      <span style="font-style: italic;"> enable_logging</span> function enable
-      redirecting error messages to a log file. It takes target file name as
-      argument and return false if the operation failed.<br>
+      <span style="font-style: italic;">bool enable_logging(const char *name); </span></big><big>–</big><big><span
+        style="font-style: italic;"></span> Enable redirecting error messages to
+      a log file and return false if the operation failed.<br>
       <br>
-      <span style="font-style: italic;"> randomize</span> function initialize
-      random number generator. It didn't take arguments.<br>
+      <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big><span
+        style="font-style: italic;"></span> Initialize random number generator.<br>
       <br>
-      <span style="font-style: italic;"> get_random</span> function return a
-      random value between zero and maximum. It takes the maximum as argument.<br>
+      <span style="font-style: italic;">unsigned int get_random(const int
+        number); </span></big><big>–</big><big><span style="font-style: italic;"></span>
+      Return a random value between zero and the number.<br>
       <br>
-      <span style="font-style: italic;"> get_texture_size</span> function return
-      maximum width or height of texture. It didn't take argument.<br>
+      <span style="font-style: italic;"> unsigned int get_texture_size();</span>
+    </big><big>–</big><big> Return maximum width or height of texture.<br>
+      <br>
+      <span style="font-style: italic;">EUGENEGDK::BOX generate_box(const
+        unsigned int x,const unsigned int y,const unsigned int width,const
+        unsigned int height);</span> – Generate collision related information
+      from the object properties.<br>
     </big>
     <h2><a name="mozTocId573582" class="mozTocH2"></a><big>Chapter 3. Resource
         manager</big></h2>
@@ -1796,7 +1795,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <h2><a name="mozTocId472209" class="mozTocH2"></a><big>Chapter 4. Game–pad</big></h2>
     <big><br>
       Game–pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
-Multimedia API</a>. </big>
+Multimedia
+        API</a>. </big>
     <h2><a name="mozTocId804583" class="mozTocH2"></a><big>Chapter 5. Input</big></h2>
     <big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;"> Input back–end</span><br>
@@ -2124,6 +2124,7 @@ Multimedia API</a>. </big>
       6.3.8 – Background subsystem improved.<br>
       6.3.9 – Text drawing subsystem improved.<br>
       6.4 – Small changes.<br>
+      6.4.1 – Collision detection subsystem improved.<br>
     </big>
     <p></p>
   </body>

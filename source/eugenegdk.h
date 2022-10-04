@@ -941,7 +941,6 @@ typedef enum
    void set_target(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target);
    bool check_collision() const;
    bool check_collision(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target);
-   EUGENEGDK::BOX generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height) const;
   };
 
  }
@@ -954,6 +953,7 @@ typedef enum
 
  namespace Tools
  {
+  EUGENEGDK::BOX generate_box(const unsigned int x,const unsigned int y,const unsigned int width,const unsigned int height);
   void quit();
   bool enable_logging(const char *name);
   void randomize();
