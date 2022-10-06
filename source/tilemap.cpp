@@ -11,7 +11,7 @@ int main()
  screen.initialize();
  text.load_font("font.tga");
  text.set_position(text.get_font_width(),text.get_font_height());
- tilemap.load_sheet("grass.tga",6,3);
+ tilemap.load("grass.tga",6,3);
  tilemap.set_transparent(false);
  while (screen.sync())
  {
@@ -24,11 +24,11 @@ int main()
   for (y=0;y<screen.get_height();y+=tilemap.get_height())
   {
    tilemap.select(1,2);
-   tilemap.draw_sprite(x,y);
+   tilemap.draw(x,y);
   }
 
  }
-  text.draw_text("Press Esc to exit");
+  text.print("Press Esc to exit");
  }
  return 0;
 }

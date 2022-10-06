@@ -2436,28 +2436,28 @@ namespace EUGENEGDK
    return collision;
   }
 
-  void Billboard::draw_sprite()
+  void Billboard::draw()
   {
    this->check_transparent();
    this->draw_sprite_image();
   }
 
-  void Billboard::draw_sprite(const unsigned int x,const unsigned int y)
+  void Billboard::draw(const unsigned int x,const unsigned int y)
   {
    this->set_position(x,y);
-   this->draw_sprite();
+   this->draw();
   }
 
-  void Billboard::draw_sprite(const bool transparency)
+  void Billboard::draw(const bool transparency)
   {
    this->set_transparent(transparency);
-   this->draw_sprite();
+   this->draw();
   }
 
-  void Billboard::draw_sprite(const bool transparency,const unsigned int x,const unsigned int y)
+  void Billboard::draw(const bool transparency,const unsigned int x,const unsigned int y)
   {
    this->set_transparent(transparency);
-   this->draw_sprite(x,y);
+   this->draw(x,y);
   }
 
   Sprite::Sprite()
@@ -2545,7 +2545,7 @@ namespace EUGENEGDK
    this->set_kind(kind);
   }
 
-  void Sprite::load_sprite(Image *buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
+  void Sprite::load(Image *buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
    this->load_image(buffer);
    if (this->is_storage_empty()==false)
@@ -2557,32 +2557,32 @@ namespace EUGENEGDK
 
   }
 
-  void Sprite::load_sprite(Image *buffer)
+  void Sprite::load(Image *buffer)
   {
-   this->load_sprite(buffer,EUGENEGDK::STATIC_IMAGE,1);
+   this->load(buffer,EUGENEGDK::STATIC_IMAGE,1);
   }
 
-  void Sprite::load_sprite(Image &buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
+  void Sprite::load(Image &buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
-   this->load_sprite(buffer.get_handle(),kind,frames);
+   this->load(buffer.get_handle(),kind,frames);
   }
 
-  void Sprite::load_sprite(Image &buffer)
+  void Sprite::load(Image &buffer)
   {
-   this->load_sprite(buffer.get_handle());
+   this->load(buffer.get_handle());
   }
 
-  void Sprite::load_sprite(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
+  void Sprite::load(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
    Image picture;
    picture.load_tga(name);
-   this->load_sprite(picture,kind,frames);
+   this->load(picture,kind,frames);
    picture.destroy_image();
   }
 
-  void Sprite::load_sprite(const char *name)
+  void Sprite::load(const char *name)
   {
-   this->load_sprite(name,EUGENEGDK::STATIC_IMAGE,1);
+   this->load(name,EUGENEGDK::STATIC_IMAGE,1);
   }
 
   void Sprite::set_target(const unsigned int target)
@@ -2744,7 +2744,7 @@ namespace EUGENEGDK
    this->select(this->get_row(this->get_frame()),this->get_column(this->get_frame()));
   }
 
-  void Sheet::load_sheet(Image *sheet,const unsigned int row_amount,const unsigned int column_amount)
+  void Sheet::load(Image *sheet,const unsigned int row_amount,const unsigned int column_amount)
   {
    if (row_amount>0)
    {
@@ -2767,16 +2767,16 @@ namespace EUGENEGDK
 
   }
 
-  void Sheet::load_sheet(Image &sheet,const unsigned int row_amount,const unsigned int column_amount)
+  void Sheet::load(Image &sheet,const unsigned int row_amount,const unsigned int column_amount)
   {
-   this->load_sheet(sheet.get_handle(),row_amount,column_amount);
+   this->load(sheet.get_handle(),row_amount,column_amount);
   }
 
-  void Sheet::load_sheet(const char *name,const unsigned int row_amount,const unsigned int column_amount)
+  void Sheet::load(const char *name,const unsigned int row_amount,const unsigned int column_amount)
   {
    Image picture;
    picture.load_tga(name);
-   this->load_sheet(picture,row_amount,column_amount);
+   this->load(picture,row_amount,column_amount);
    picture.destroy_image();
   }
 
@@ -2814,34 +2814,34 @@ namespace EUGENEGDK
    stage.set_setting(kind,frames);
   }
 
-  void Background::load_background(Image *background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
+  void Background::load(Image *background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
-   stage.load_sprite(background,kind,frames);
+   stage.load(background,kind,frames);
   }
 
-  void Background::load_background(Image *background)
+  void Background::load(Image *background)
   {
-   this->load_background(background,EUGENEGDK::STATIC_IMAGE,1);
+   this->load(background,EUGENEGDK::STATIC_IMAGE,1);
   }
 
-  void Background::load_background(Image &background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
+  void Background::load(Image &background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
-   this->load_background(background.get_handle(),kind,frames);
+   this->load(background.get_handle(),kind,frames);
   }
 
-  void Background::load_background(Image &background)
+  void Background::load(Image &background)
   {
-   this->load_background(background.get_handle());
+   this->load(background.get_handle());
   }
 
-  void Background::load_background(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
+  void Background::load(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
-   stage.load_sprite(name,kind,frames);
+   stage.load(name,kind,frames);
   }
 
-  void Background::load_background(const char *name)
+  void Background::load(const char *name)
   {
-   stage.load_sprite(name);
+   stage.load(name);
   }
 
   void Background::set_target(const unsigned int target)
@@ -2854,9 +2854,9 @@ namespace EUGENEGDK
    stage.step();
   }
 
-  void Background::draw_background()
+  void Background::draw()
   {
-   stage.draw_sprite(false);
+   stage.draw(false);
   }
 
   void Background::destroy_image()
@@ -2959,7 +2959,7 @@ namespace EUGENEGDK
 
   void Text::load_font(Image *font)
   {
-   text.load_sheet(font,16,16);
+   text.load(font,16,16);
   }
 
   void Text::load_font(Image &font)
@@ -2969,38 +2969,38 @@ namespace EUGENEGDK
 
   void Text::load_font(const char *name)
   {
-   text.load_sheet(name,16,16);
+   text.load(name,16,16);
   }
 
-  void Text::draw_character(const char target)
+  void Text::print(const char target)
   {
    text.select(static_cast<unsigned char>(target)+1);
-   text.draw_sprite(true);
+   text.draw(true);
   }
 
-  void Text::draw_text(const char *target)
+  void Text::print(const char *target)
   {
    size_t index,length;
    length=strlen(target);
    this->restore_position();
    for (index=0;index<length;++index)
    {
-    this->draw_character(target[index]);
+    this->print(target[index]);
     this->increase_position();
    }
 
   }
 
-  void Text::draw_character(const unsigned int x,const unsigned int y,const char target)
+  void Text::print(const unsigned int x,const unsigned int y,const char target)
   {
    this->set_position(x,y);
-   this->draw_character(target);
+   this->print(target);
   }
 
-  void Text::draw_text(const unsigned int x,const unsigned int y,const char *target)
+  void Text::print(const unsigned int x,const unsigned int y,const char *target)
   {
    this->set_position(x,y);
-   this->draw_text(target);
+   this->print(target);
   }
 
   void Text::destroy_image()

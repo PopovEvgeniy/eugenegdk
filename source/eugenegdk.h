@@ -795,10 +795,10 @@ typedef enum
    unsigned int get_width() const;
    unsigned int get_height() const;
    EUGENEGDK::BOX get_box() const;
-   void draw_sprite();
-   void draw_sprite(const unsigned int x,const unsigned int y);
-   void draw_sprite(const bool transparency);
-   void draw_sprite(const bool transparency,const unsigned int x,const unsigned int y);
+   void draw();
+   void draw(const unsigned int x,const unsigned int y);
+   void draw(const bool transparency);
+   void draw(const bool transparency,const unsigned int x,const unsigned int y);
   };
 
   class Sprite:public Billboard,public Animation,public Picture
@@ -816,12 +816,12 @@ typedef enum
    Sprite* get_handle();
    EUGENEGDK::IMAGE_KIND get_kind() const;
    void set_setting(const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   void load_sprite(Image *buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   void load_sprite(Image *buffer);
-   void load_sprite(Image &buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   void load_sprite(Image &buffer);
-   void load_sprite(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   void load_sprite(const char *name);
+   void load(Image *buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
+   void load(Image *buffer);
+   void load(Image &buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
+   void load(Image &buffer);
+   void load(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
+   void load(const char *name);
    void set_target(const unsigned int target);
    void step();
    void clone(Sprite *target);
@@ -848,9 +848,9 @@ typedef enum
    void select(const unsigned int row,const unsigned int column);
    void select(const unsigned int target);
    void step();
-   void load_sheet(Image *sheet,const unsigned int row_amount,const unsigned int column_amount);
-   void load_sheet(Image &sheet,const unsigned int row_amount,const unsigned int column_amount);
-   void load_sheet(const char *name,const unsigned int row_amount,const unsigned int column_amount);
+   void load(Image *sheet,const unsigned int row_amount,const unsigned int column_amount);
+   void load(Image &sheet,const unsigned int row_amount,const unsigned int column_amount);
+   void load(const char *name,const unsigned int row_amount,const unsigned int column_amount);
   };
 
   class Background
@@ -864,15 +864,15 @@ typedef enum
    void prepare(Screen &screen);
    void prepare(const unsigned int width,const unsigned int height);
    void set_setting(const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   void load_background(Image *background,const IMAGE_KIND kind,const unsigned int frames);
-   void load_background(Image *background);
-   void load_background(Image &background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   void load_background(Image &background);
-   void load_background(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   void load_background(const char *name);
+   void load(Image *background,const IMAGE_KIND kind,const unsigned int frames);
+   void load(Image *background);
+   void load(Image &background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
+   void load(Image &background);
+   void load(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
+   void load(const char *name);
    void set_target(const unsigned int target);
    void step();
-   void draw_background();
+   void draw();
    void destroy_image();
    void destroy_background();
    unsigned int get_frame() const;
@@ -903,10 +903,10 @@ typedef enum
    void load_font(Image *font);
    void load_font(Image &font);
    void load_font(const char *name);
-   void draw_character(const char target);
-   void draw_text(const char *target);
-   void draw_character(const unsigned int x,const unsigned int y,const char target);
-   void draw_text(const unsigned int x,const unsigned int y,const char *target);
+   void print(const char target);
+   void print(const char *target);
+   void print(const unsigned int x,const unsigned int y,const char target);
+   void print(const unsigned int x,const unsigned int y,const char *target);
    void destroy_image();
    void destroy_font();
   };
