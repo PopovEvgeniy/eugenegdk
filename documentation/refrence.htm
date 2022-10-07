@@ -315,7 +315,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       optimization.<br>
       <br>
       <span style="text-decoration: underline;"> Note for Visual C++ users</span><br
-
         style="text-decoration: underline;">
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
@@ -595,6 +594,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Load background </big><big>from target file</big><big>.<br>
       <br>
       <span style="font-style: italic;">void Background::load(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load normal background from target file.<br>
       <br>
@@ -604,8 +604,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> void Background::destroy_image();</span>
       – Destroy a background image.<br>
       <br>
-      <span style="font-style: italic;"> void Background::destroy_background();</span>
-      – Destroy a background image and destroy a background texture.<br>
+      <span style="font-style: italic;"> void Background::destroy();</span> –
+      Destroy a background image and destroy a background texture.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Background::get_frame()
         const;</span> – Return current frame in scrollable background.<br>
@@ -800,7 +800,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Create copy of the sprite if the image storage of target sprite is not
       empty.<br>
       <br>
-      <span style="font-style: italic;"> void Sprite::destroy_sprite(); </span>–
+      <span style="font-style: italic;"> void Sprite::destroy(); </span>–
       Destroy a sprite image and destroy a sprite texture.</big><big><br>
     </big> <big><br>
       <span style="text-decoration: underline;"> Sprite texture</span><br>
@@ -832,12 +832,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       public methods.<br>
       <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -852,7 +850,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> unsigned int Sheet::get_columns()
         const;</span> – Return</big><big> column</big><big> amount.<br>
       <br>
-    </big> <big><span style="font-style: italic;"> void Sheet::destroy_sheet();</span>
+    </big> <big><span style="font-style: italic;"> void Sheet::destroy();</span>
       – Destroy a sprite sheet image and destroy a sprite sheet texture.<br>
       <br>
     </big> <big><span style="font-style: italic;"> void Sheet::select(const
@@ -2289,6 +2287,9 @@ Multimedia API</a>. </big>
       6.4.5 – </big><big>6.4.6 –</big><big> Background subsystem improved.<br>
       6.4.7 – Sprite sheet subsystem improved.<br>
       6.4.8 – 6.4.9 – Text drawing subsystem improved.<br>
+      6.5 – Ordinary sprite subsystem improved.<br>
+      6.5.1 – Background subsystem improved.<br>
+      6.5.2 – Sprite sheet subsystem improved.<br>
     </big>
     <p></p>
   </body>
