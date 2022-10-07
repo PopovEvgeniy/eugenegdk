@@ -2925,12 +2925,12 @@ namespace EUGENEGDK
    text.set_position(current_x,current_y);
   }
 
-  EUGENEGDK::TEXT_ORIENTATION Text::get_orientation() const
+  EUGENEGDK::TEXT_KIND Text::get_orientation() const
   {
    return orientation;
   }
 
-  void Text::set_orientation(const EUGENEGDK::TEXT_ORIENTATION target)
+  void Text::set_orientation(const EUGENEGDK::TEXT_KIND target)
   {
    orientation=target;
   }
@@ -2955,6 +2955,12 @@ namespace EUGENEGDK
   void Text::set_size(const unsigned int width,const unsigned int height)
   {
    text.set_size(width,height);
+  }
+
+  void Text::set_setting(const unsigned int width,const unsigned int height,const EUGENEGDK::TEXT_KIND kind)
+  {
+   this->set_size(width,height);
+   this->set_orientation(kind);
   }
 
   void Text::load_font(Image *font)

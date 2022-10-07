@@ -107,8 +107,7 @@
     <big> </big>
     <h2><a name="mozTocId471990" class="mozTocH2"></a><big>Chapter 1.
         Introduction</big></h2>
-    <big><br style="text-decoration: underline;">
-      <span style="text-decoration: underline;"> Introduction</span><br>
+    <big> <span style="text-decoration: underline;"> Introduction</span><br>
       <br>
       Hello from Russia. My name is Popov Evgeniy Alekseyevich. I am the
       individual programmer. I enjoy creating software. I also like old–school
@@ -149,8 +148,8 @@
       with me. </big>
     <h2><a name="mozTocId85003" class="mozTocH2"></a><big>Chapter 2. A special
         thanks</big></h2>
-    <big><br>
-      I want to say «Big thanks for technical consultation» to these peoples: </big>
+    <big> I want to say «Big thanks for technical consultation» to these
+      peoples: </big>
     <ul>
       <li><a href="https://github.com/dmitrysmagin"><big>Dmitry Smagin</big></a></li>
       <li><a href="https://bsg.org.ua"><big>Pavel Samko</big></a></li>
@@ -164,9 +163,8 @@
       Also thanks to PVS–Studio team for <a href="https://www.viva64.com/en/b/0614/">free
         license</a>. </big>
     <h2><a name="mozTocId810132" class="mozTocH2"></a><big>Chapter 3. License</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;"> Eugene game development kit
-        license</span><br>
+    <big> <span style="text-decoration: underline;"> Eugene game development
+        kit license</span><br>
       <br>
       Copyright (C) 2021 – 2022 Popov Evgeniy Alekseyevich<br>
       <br>
@@ -379,8 +377,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> </big>
     <h2><a name="mozTocId552078" class="mozTocH2"></a><big>Chapter 2. Base
         graphics subsystem</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;"> Introduce to base graphics
+    <big> <span style="text-decoration: underline;"> Introduce to base graphics
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
@@ -755,7 +752,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> void Sprite::set_setting(const
         EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Set
-      sprite setting. Last argument will ignore if sprite not animated.<br>
+      sprite settings. Last argument will ignore if sprite not animated.<br>
       <br>
       <span style="font-style: italic;"> void Sprite::load(Image *buffer,const
         EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Load a
@@ -922,12 +919,11 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> Text</span> class provide a simple
       interface to text subsystem. Let's look at public methods.<br>
       <br>
-      <span style="font-style: italic;"> EUGENEGDK::TEXT_ORIENTATION
+      <span style="font-style: italic;"> EUGENEGDK::TEXT_KIND
         Text::get_orientation() const;</span> – Get current text orientation.<br>
       <br>
       <span style="font-style: italic;"> void Text::set_orientation(const
-        EUGENEGDK::TEXT_ORIENTATION target);</span> – Set current text
-      orientation.<br>
+        EUGENEGDK::TEXT_KIND target);</span> – Set current text orientation.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Text::get_font_width()
         const;</span> – Get current font width in pixels.<br>
@@ -940,6 +936,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> void Text::set_size(const unsigned int
         width,const unsigned int height);</span> – Change the font size.<br>
+      <br>
+      <span style="font-style: italic;">void Text::set_size(const unsigned int
+        width,const unsigned int height,const EUGENEGDK::TEXT_KIND kind);</span>
+      – Set text output settings.<br>
       <br>
       <span style="font-style: italic;"> void Text::load_font(Image *font);</span>
       – Load a font from the buffer.<br>
@@ -1042,8 +1042,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Return true and reinitialize start point if interval between stop and
       start points large or equal than specific seconds.</big><br>
     <h2><a name="mozTocId381935" class="mozTocH2"></a><big>Chapter 4. Collision</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;"> An important thing for any game</span><br>
+    <big> <span style="text-decoration: underline;"> An important thing for any
+        game</span><br>
       <br>
       What is an important thing for a video games? A collision.<br>
       <br>
@@ -1203,8 +1203,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <h1><a name="mozTocId209024" class="mozTocH1"></a><big>Part 6. Misc</big></h1>
     <h2><a name="mozTocId608755" class="mozTocH2"></a><big>Chapter 1. File
         system</big></h2>
-    <big><br>
-      File system subsystem implement as two simple functions. All these
+    <big> File system subsystem implement as two simple functions. All these
       functions declared in <span style="font-style: italic;">Filesystem</span>
       sub–namespace.<br>
       <br>
@@ -1226,10 +1225,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Exit from your program and return user to operating system.<br>
       <br>
       <span style="font-style: italic;">bool enable_logging(const char *name); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Enable redirecting error messages to
       a log file and return false if the operation failed.<br>
       <br>
       <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Initialize random number generator.<br>
       <br>
       <span style="font-style: italic;">unsigned int get_random(const int
@@ -1301,8 +1302,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Target file size limit is 2 gigabytes. </big>
     <h2><a name="mozTocId424835" class="mozTocH2"></a><big> Chapter 3. File
         reader</big></h2>
-    <big> <br>
-      File reader is intending to reading data from a binary files. <i>Input_File</i>
+    <big> File reader is intending to reading data from a binary files. <i>Input_File</i>
       class provide access to file reader. It is derived from <i>Binary_File</i>
       class. Let's look at public methods.<br>
       <br>
@@ -1312,8 +1312,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       data from the file. </big>
     <h2><a name="mozTocId511135" class="mozTocH2"></a><big> Chapter 4. File
         writer</big></h2>
-    <big> <br>
-      File writer is intending to write data to binary files. <i>Output_File</i>
+    <big> File writer is intending to write data to binary files. <i>Output_File</i>
       class provide access to file writer. It is derived from <i>Binary_File</i>
       class. Let's look at public methods.<br>
       <br>
@@ -1335,8 +1334,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       sub–namespace.</big><br>
     <big> </big>
     <h2><a name="mozTocId685403" class="mozTocH2"></a><big>Chapter 2. Keyboard</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;"> Low–level input</span><br>
+    <big> <span style="text-decoration: underline;"> Low–level input</span><br>
       <br>
       Any keyboard has a built–in chip. It generates a special code when user
       press or release key. This code called «scan code».<br>
@@ -1618,8 +1616,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </table>
     <big> </big>
     <h2><a name="mozTocId686993" class="mozTocH2"></a><big>Chapter 3. Mouse</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;"> A few words about mouse</span><br>
+    <big> <span style="text-decoration: underline;"> A few words about mouse</span><br>
       <br>
       Mouse is very useful for interaction with graphical user interface. But
       mouse also can use in a video games.<br>
@@ -1683,8 +1680,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </table>
     <big> </big>
     <h2><a name="mozTocId861609" class="mozTocH2"></a><big>Chapter 4. Game–pad</big></h2>
-    <big><br style="text-decoration: underline;">
-      <span style="text-decoration: underline;"> Best friend of retro gamer</span><br>
+    <big> <span style="text-decoration: underline;"> Best friend of retro gamer</span><br>
       <br>
       What is good choice for game control device when user play in arcade or
       old–school style video–game? A game–pad. This engine provides simple
@@ -1982,13 +1978,11 @@ Multimedia API</a>. </big>
     </table>
     <big> </big>
     <h2><a name="mozTocId692266" class="mozTocH2"></a><big>Chapter 6. Multimedia</big></h2>
-    <big><br>
-      Multimedia subsystem working over <a href="https://docs.microsoft.com/en-us/windows/desktop/DirectShow/directshow">DirectShow</a>.
+    <big> Multimedia subsystem working over <a href="https://docs.microsoft.com/en-us/windows/desktop/DirectShow/directshow">DirectShow</a>.
       It is available as part of <a href="https://docs.microsoft.com/en-us/windows/desktop/directx-sdk--august-2009-">DirectX</a>.
       DirectX is pre–installed by default under modern versions of Windows. </big>
     <h1><a name="mozTocId78453" class="mozTocH1"></a><big>Version history</big></h1>
-    <big><br>
-      0.1 – Initial version.<br>
+    <big> 0.1 – Initial version.<br>
       0.1.1 – 0.7.6 – Internal unstable builds.<br>
       0.7.7 </big><big>–</big><big> Small changes.</big><big><br>
       0.7.8 </big><big>–</big><big> Small bug in sprite subsystem fixed.</big><big><br>
@@ -2290,6 +2284,7 @@ Multimedia API</a>. </big>
       6.5 – Ordinary sprite subsystem improved.<br>
       6.5.1 – Background subsystem improved.<br>
       6.5.2 – Sprite sheet subsystem improved.<br>
+      6.5.3 – 6.5.4 – Text drawing subsystem improved.<br>
     </big>
     <p></p>
   </body>
