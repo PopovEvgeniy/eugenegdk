@@ -1518,7 +1518,7 @@ namespace EUGENEGDK
     dpad=EUGENEGDK::GAMEPAD_LEFT;
     break;
     case JOY_POVRIGHT:
-    dpad=GAMEPAD_RIGHT;
+    dpad=EUGENEGDK::GAMEPAD_RIGHT;
     break;
     case JOYSTICK_UPLEFT:
     dpad=EUGENEGDK::GAMEPAD_UPLEFT;
@@ -1551,11 +1551,11 @@ namespace EUGENEGDK
      control=(configuration.wXmax-configuration.wXmin)/2;
      if (current.dwXpos<control)
      {
-      directional=GAMEPAD_NEGATIVE_DIRECTION;
+      directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
      if (current.dwXpos>control)
      {
-      directional=GAMEPAD_POSITIVE_DIRECTION;
+      directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
 
     }
@@ -1568,11 +1568,11 @@ namespace EUGENEGDK
      control=(configuration.wZmax-configuration.wZmin)/2;
      if (current.dwZpos<control)
      {
-      directional=GAMEPAD_NEGATIVE_DIRECTION;
+      directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
      if (current.dwZpos>control)
      {
-      directional=GAMEPAD_POSITIVE_DIRECTION;
+      directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
 
     }
@@ -1593,11 +1593,11 @@ namespace EUGENEGDK
      control=(configuration.wYmax-configuration.wYmin)/2;
      if (current.dwYpos<control)
      {
-      directional=GAMEPAD_NEGATIVE_DIRECTION;
+      directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
      if (current.dwYpos>control)
      {
-      directional=GAMEPAD_POSITIVE_DIRECTION;
+      directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
 
     }
@@ -1610,11 +1610,11 @@ namespace EUGENEGDK
      control=(configuration.wRmax-configuration.wRmin)/2;
      if (current.dwRpos<control)
      {
-      directional=GAMEPAD_NEGATIVE_DIRECTION;
+      directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
      if (current.dwRpos>control)
      {
-      directional=GAMEPAD_POSITIVE_DIRECTION;
+      directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
 
     }
