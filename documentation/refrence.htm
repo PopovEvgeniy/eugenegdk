@@ -313,7 +313,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       optimization.<br>
       <br>
       <span style="text-decoration: underline;"> Note for Visual C++ users</span><br
-
         style="text-decoration: underline;">
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
@@ -1226,10 +1225,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Exit from your program and return user to operating system.<br>
       <br>
       <span style="font-style: italic;">bool enable_logging(const char *name); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Enable redirecting error messages to
       a log file and return false if the operation failed.<br>
       <br>
       <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Initialize random number generator.<br>
       <br>
       <span style="font-style: italic;">unsigned int get_random(const int
@@ -1796,6 +1797,14 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       </tbody>
     </table>
     <big><br>
+      <span style="text-decoration: underline;">Important remark</span><br>
+      <br>
+      Any stick has two axes.<br>
+      Highest position of vertical axis is up. Lowest position of vertical axis
+      is down.<br>
+      Highest position of horizontal axis is right. Lowest position of
+      horizontal axis is left.<br>
+      <br>
       <span style="text-decoration: underline;"> Working with game–pad</span><br>
       <br>
       Just use <span style="font-style: italic;">Gamepad</span> class to work
@@ -2286,6 +2295,7 @@ Multimedia API</a>. </big>
       6.5.5 – Resource manager improved.<br>
       6.5.6 – Processor usage reduced.<br>
       6.5.7 – 6.5.8 – Small changes.<br>
+      6.5.9 – Small bug in game–pad subsystem fixed.<br>
     </big>
     <p></p>
   </body>

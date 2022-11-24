@@ -1542,18 +1542,16 @@ namespace EUGENEGDK
   EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick)
   {
    EUGENEGDK::GAMEPAD_DIRECTION directional;
-   unsigned long int control;
    directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
     if (this->get_sticks_amount()>0)
     {
-     control=(configuration.wXmax-configuration.wXmin)/2;
-     if (current.dwXpos<control)
+     if (current.dwXpos<=configuration.wXmin)
      {
       directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
-     if (current.dwXpos>control)
+     if (current.dwXpos>=configuration.wXmax)
      {
       directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
@@ -1565,12 +1563,11 @@ namespace EUGENEGDK
    {
     if (this->get_sticks_amount()>1)
     {
-     control=(configuration.wZmax-configuration.wZmin)/2;
-     if (current.dwZpos<control)
+     if (current.dwZpos<=configuration.wZmin)
      {
       directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
-     if (current.dwZpos>control)
+     if (current.dwZpos>=configuration.wZmax)
      {
       directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
@@ -1584,18 +1581,16 @@ namespace EUGENEGDK
   EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick)
   {
    EUGENEGDK::GAMEPAD_DIRECTION directional;
-   unsigned long int control;
    directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
     if (this->get_sticks_amount()>0)
     {
-     control=(configuration.wYmax-configuration.wYmin)/2;
-     if (current.dwYpos<control)
+     if (current.dwYpos<=configuration.wYmin)
      {
       directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
-     if (current.dwYpos>control)
+     if (current.dwYpos>=configuration.wYmax)
      {
       directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
@@ -1607,12 +1602,11 @@ namespace EUGENEGDK
    {
     if (this->get_sticks_amount()>1)
     {
-     control=(configuration.wRmax-configuration.wRmin)/2;
-     if (current.dwRpos<control)
+     if (current.dwRpos<=configuration.wRmin)
      {
       directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
-     if (current.dwRpos>control)
+     if (current.dwRpos>=configuration.wRmax)
      {
       directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
