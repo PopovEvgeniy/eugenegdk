@@ -47,6 +47,10 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
   #pragma warning(disable : 4996)
 #endif
 
+#if defined _MSC_VER && _MSC_VER<1500
+  #define _WIN32_WINNT 0x0501
+#endif
+
 #if defined __WATCOMC__
   #define WINVER 0x0501
   #define OATRUE -1
