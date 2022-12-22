@@ -904,6 +904,8 @@ typedef enum
    unsigned int get_font_height() const;
    void set_position(const unsigned int x,const unsigned int y);
    void set_size(const unsigned int width,const unsigned int height);
+   void set_width(const unsigned int width);
+   void set_height(const unsigned int height);
    void set_setting(const unsigned int width,const unsigned int height,const EUGENEGDK::TEXT_KIND kind);
    void load_font(Image *font);
    void load_font(Image &font);

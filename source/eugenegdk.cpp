@@ -2951,6 +2951,16 @@ namespace EUGENEGDK
    text.set_size(width,height);
   }
 
+  void Text::set_width(const unsigned int width)
+  {
+   text.set_width(width);
+  }
+
+  void Text::set_height(const unsigned int height)
+  {
+   text.set_height(height);
+  }
+
   void Text::set_setting(const unsigned int width,const unsigned int height,const EUGENEGDK::TEXT_KIND kind)
   {
    this->set_size(width,height);

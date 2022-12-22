@@ -382,6 +382,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
+
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -938,7 +939,13 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> void Text::set_size(const unsigned int
         width,const unsigned int height);</span> – Change the font size.<br>
       <br>
-      <span style="font-style: italic;">void Text::set_size(const unsigned int
+    </big><big><span style="font-style: italic;"> void Text::set_width(const
+        unsigned int width);</span> – Set the font width.<br>
+      <br>
+    </big><big><span style="font-style: italic;"> void Text::set_height(const
+        unsigned int height);</span> – Set the font height.</big><br>
+    <big> <br>
+      <span style="font-style: italic;">void Text::set_setting(const unsigned int
         width,const unsigned int height,const EUGENEGDK::TEXT_KIND kind);</span>
       – Set text output settings.<br>
       <br>
@@ -2296,6 +2303,7 @@ Multimedia API</a>. </big>
       6.5.7 – 6.5.8 – Small changes.<br>
       6.5.9 – Small bug in game–pad subsystem fixed.<br>
       6.6 – Source code synced with Gray game development kit 2.2.7.<br>
+      6.6.1 – Text drawing subsystem improved.<br>
     </big>
     <p></p>
   </body>
