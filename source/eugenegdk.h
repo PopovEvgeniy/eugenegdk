@@ -4,7 +4,7 @@ Some code taken from wglext.h(https://www.khronos.org/registry/OpenGL/api/GL/wgl
 
 Eugene game development kit license
 
-Copyright (C) 2021 - 2022 Popov Evgeniy Alekseyevich
+Copyright (C) 2021 - 2023 Popov Evgeniy Alekseyevich
 
 This software is provided 'as-is', without any express or implied
 warranty.  In no event will the authors be held liable for any damages
@@ -79,6 +79,10 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #include <dshow.h>
 #include <mmsystem.h>
 #include <GL\gl.h>
+
+#define SOUND_STOP PlaySound(NULL,NULL,SND_ASYNC)
+#define SOUND_PLAY(sound) PlaySound(TEXT(sound),NULL,SND_FILENAME|SND_NODEFAULT|SND_ASYNC)
+#define MUSIC_PLAY(music) PlaySound(TEXT(music),NULL,SND_FILENAME|SND_NODEFAULT|SND_ASYNC|SND_LOOP)
 
 namespace EUGENEGDK
 {

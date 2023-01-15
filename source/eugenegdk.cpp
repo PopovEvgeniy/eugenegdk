@@ -4,7 +4,7 @@ Some code taken from wglext.h(https://www.khronos.org/registry/OpenGL/api/GL/wgl
 
 Eugene game development kit license
 
-Copyright (C) 2021 - 2022 Popov Evgeniy Alekseyevich
+Copyright (C) 2021 - 2023 Popov Evgeniy Alekseyevich
 
 This software is provided 'as-is', without any express or implied
 warranty.  In no event will the authors be held liable for any damages
