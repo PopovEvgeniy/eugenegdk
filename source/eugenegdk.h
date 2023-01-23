@@ -80,10 +80,6 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #include <mmsystem.h>
 #include <GL\gl.h>
 
-#define SOUND_STOP PlaySound(NULL,NULL,SND_ASYNC)
-#define SOUND_PLAY(sound) PlaySound(TEXT(sound),NULL,SND_FILENAME|SND_NODEFAULT|SND_ASYNC)
-#define MUSIC_PLAY(music) PlaySound(TEXT(music),NULL,SND_FILENAME|SND_NODEFAULT|SND_ASYNC|SND_LOOP)
-
 namespace EUGENEGDK
 {
 
@@ -525,16 +521,15 @@ typedef enum
    IMediaSeeking *controler;
    IVideoWindow *video;
    void com_setup();
-   void set_screen_mode();
+   void disable_video();
    void load_content(const wchar_t *target);
-   void open(const wchar_t *target);
    bool is_play();
    void rewind();
    void play_content();
    void create_loader();
    void create_player();
    void create_controler();
-   void create_video_player();
+   void get_video_instance();
    public:
    Multimedia();
    ~Multimedia();

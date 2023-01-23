@@ -61,8 +61,7 @@
         <ul>
           <li><a href="#mozTocId648026">Chapter 1. The sub–namespace</a></li>
           <li><a href="#mozTocId909723">Chapter 2. Memory</a></li>
-          <li><a href="#mozTocId907298">Chapter 3. Sound</a></li>
-          <li><a href="#mozTocId950985">Chapter 4. Multimedia</a></li>
+          <li><a href="#mozTocId950985">Chapter 3. Multimedia</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId209024">Part 6. Misc</a>
@@ -98,7 +97,6 @@
           <li><a href="#mozTocId472209">Chapter 4. Game–pad</a></li>
           <li><a href="#mozTocId804583">Chapter 5. Input</a></li>
           <li><a href="#mozTocId692266">Chapter 6. Multimedia</a></li>
-          <li><a href="#mozTocId60413">Chapter 7. Sound</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId78453">Version history</a></li>
@@ -316,7 +314,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       optimization.<br>
       <br>
       <span style="text-decoration: underline;"> Note for Visual C++ users</span><br
-
         style="text-decoration: underline;">
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
@@ -1119,84 +1116,17 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         memory</a> size in bytes.<br>
       <br>
       <span style="font-style: italic;"> unsigned long int Memory::get_usage();</span>
-      – Return percentage of physical memory usage.<br>
+      – Return percentage of physical memory usage.</big><big><span style="text-decoration: underline;"></span><br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId907298"></a><big>Chapter 3. Sound</big></h2>
-    <big><span style="text-decoration: underline;">Simple sound subsystem</span><br>
+    <h2><a name="mozTocId950985" class="mozTocH2"></a><big>Chapter 3. Multimedia</big></h2>
+    <big><span style="text-decoration: underline;">A few words about multimedia
+        subsystem</span><br>
       <br>
-      Sound subsystem intend for playing <a href="https://en.wikipedia.org/wiki/Wav">Waveform
-        Audio File Format</a> sounds.<br>
-      <br>
-      <span style="text-decoration: underline;">Working with sound</span><br style="text-decoration: underline;">
-      <br>
-      Sound subsystem implemented as few macros.<br>
-      <br>
-      <span style="font-style: italic;">SOUND_STOP</span> stop playing all
-      sounds. It didn't take arguments.<br>
-      <br style="font-style: italic;">
-      <span style="font-style: italic;">SOUND_PLAY</span> play a sound once. It
-      takes string literal as argument.<br>
-      <br style="font-style: italic;">
-      <span style="font-style: italic;">MUSIC_PLAY</span> play a sound in loop.
-      It takes string literal as argument.<span style="text-decoration: underline;"></span><br>
-    </big>
-    <h2><a name="mozTocId950985" class="mozTocH2"></a><big>Chapter 4. Multimedia</big></h2>
-    <big><span style="text-decoration: underline;">Improve your game</span><br>
-      <br>
-      Multimedia subsystem intend for playing audio and video.<br>
-      <br style="text-decoration: underline;">
-      <span style="text-decoration: underline;"> Supported formats</span><br>
-      <br>
-      You can see a list of supported formats below.<br>
-      <br>
-    </big>
-    <table border="1">
-      <tbody>
-        <tr>
-          <td><big>Format<br>
-            </big></td>
-          <td><big>Type<br>
-            </big></td>
-        </tr>
-        <tr>
-          <td><big>WAVE<br>
-            </big></td>
-          <td><big>Audio<br>
-            </big></td>
-        </tr>
-        <tr>
-          <td><big>MPEG Audio Layer 3<br>
-            </big></td>
-          <td><big>Audio<br>
-            </big></td>
-        </tr>
-        <tr>
-          <td><big>Windows Media Audio<br>
-            </big></td>
-          <td><big>Audio<br>
-            </big></td>
-        </tr>
-        <tr>
-          <td><big>MPEG–1<br>
-            </big></td>
-          <td><big>Video<br>
-            </big></td>
-        </tr>
-        <tr>
-          <td><big>MPEG–2<br>
-            </big></td>
-          <td><big>Video<br>
-            </big></td>
-        </tr>
-        <tr>
-          <td><big>Windows Media Video<br>
-            </big></td>
-          <td><big>Video<br>
-            </big></td>
-        </tr>
-      </tbody>
-    </table>
-    <big><br>
+      Multimedia subsystem intend for playing music and sounds. <a href="https://en.wikipedia.org/wiki/WAV">Waveform
+        Audio File Format</a>, <a href="https://en.wikipedia.org/wiki/MP3">MPEG
+        Audio Layer 3</a> and <a href="https://en.wikipedia.org/wiki/Windows_Media_Audio">Windows
+        Media Audio</a> are supported.<br>
+    </big><big><br>
       <span style="text-decoration: underline;"> Additional formats</span><br>
       <br>
       You can use an additional format if you install third–party codecs.<br>
@@ -1222,7 +1152,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Checking play status and restart play if needed.<br>
       <br>
       <span style="font-style: italic;"> void Multimedia::stop();</span> – Stop
-      playing a content of the target file and close video if needed.<br>
+      playing a content of the target file.<br>
       <br>
       <span style="font-style: italic;"> bool Multimedia::check_playing();</span>
       – Return true if the multimedia resource is playing.</big><br>
@@ -1252,10 +1182,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Exit from your program and return user to operating system.<br>
       <br>
       <span style="font-style: italic;">bool enable_logging(const char *name); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Enable redirecting error messages to
       a log file and return false if the operation failed.<br>
       <br>
       <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Initialize random number generator.<br>
       <br>
       <span style="font-style: italic;">unsigned int get_random(const int
@@ -2010,11 +1942,7 @@ Multimedia API</a>. </big>
     <h2><a name="mozTocId692266" class="mozTocH2"></a><big>Chapter 6. Multimedia</big></h2>
     <big> Multimedia subsystem working over <a href="https://docs.microsoft.com/en-us/windows/desktop/DirectShow/directshow">DirectShow</a>.
       It is available as part of <a href="https://en.wikipedia.org/wiki/DirectX">DirectX</a>.
-      DirectX is pre–installed by default under modern versions of Windows.<br>
-    </big>
-    <h2><a class="mozTocH2" name="mozTocId60413"></a><big>Chapter 7. Sound</big></h2>
-    <big>Sound subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd743606%28v=vs.85%29.aspx">Windows
-        Multimedia</a>.<br>
+      DirectX is pre–installed by default under modern versions of Windows.</big><big><br>
     </big>
     <h1><a name="mozTocId78453" class="mozTocH1"></a><big>Version history</big></h1>
     <big> 0.1 – Initial version.<br>
@@ -2330,6 +2258,9 @@ Multimedia API</a>. </big>
       5.7.8.<br>
       6.6.3 – Small bug in multimedia subsystem fixed.<br>
       6.6.4 – 6.6.6 – Small changes.<br>
+      6.6.7 – Multimedia subsystem improved.<br>
+      6.6.8 – Simple sound subsystem removed.<br>
+      6.6.9 – 6.7 – Multimedia subsystem improved.<br>
     </big>
     <p></p>
   </body>

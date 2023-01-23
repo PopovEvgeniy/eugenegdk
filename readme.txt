@@ -24,4 +24,4 @@ Features
  Integrated fps counter.
  Powerful input subsystem: keyboard, mouse, game-pad.
  Simple sound subsystem.
- Simple multimedia subsystem for playing audio and video.
+ Simple multimedia subsystem for playing music and sounds.
