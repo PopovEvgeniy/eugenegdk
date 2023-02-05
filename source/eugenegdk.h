@@ -931,6 +931,7 @@ typedef enum
    Timer();
    ~Timer();
    void set_timer(const double seconds);
+   double get_interval() const;
    bool check_timer();
   };
 

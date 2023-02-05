@@ -1033,7 +1033,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <h2><a name="mozTocId853711" class="mozTocH2"></a><big>Chapter 2. Abnormal
         program termination</big></h2>
     <big> You can use <span style="font-style: italic;">Halt</span> function to
-      terminate a program. This function declared in EGENEGDK name–space.<br>
+      terminate a program. This function declared in <i>EGENEGDK</i>
+      name–space.<br>
       <br>
       <span style="font-style: italic;"> void EUGENEGDK::Halt(const char
         *message);</span> – Terminate the program. Write error message to log
@@ -1044,6 +1045,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> void Timer::set_timer(const double
         seconds); </span>– Set timer interval and initialize start point.<br>
+      <br>
+      <span style="font-style: italic;">double Timer::get_interval() const;</span>
+      – Return current timer interval.<br>
       <br>
       <span style="font-style: italic;"> bool Timer::check_timer();</span> –
       Return true and reinitialize start point if interval between stop and
@@ -1062,10 +1066,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> typedef struct</span><br style="font-style: italic;">
       <span style="font-style: italic;"> {</span><br style="font-style: italic;">
-      <span style="font-style: italic;"> unsigned int x;</span><br style="font-style: italic;">
-      <span style="font-style: italic;"> unsigned int y;</span><br style="font-style: italic;">
-      <span style="font-style: italic;"> unsigned int width;</span><br style="font-style: italic;">
-      <span style="font-style: italic;"> unsigned int height;</span><br style="font-style: italic;">
+      &nbsp; <span style="font-style: italic;"> unsigned int x;</span><br style="font-style: italic;">
+      &nbsp; <span style="font-style: italic;"> unsigned int y;</span><br style="font-style: italic;">
+      &nbsp; <span style="font-style: italic;"> unsigned int width;</span><br style="font-style: italic;">
+      &nbsp; <span style="font-style: italic;"> unsigned int height;</span><br
+
+        style="font-style: italic;">
       <span style="font-style: italic;"> } BOX;</span><br>
       <br>
       <span style="text-decoration: underline;"> Work with collision detector</span><br>
@@ -1182,12 +1188,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Exit from your program and return user to operating system.<br>
       <br>
       <span style="font-style: italic;">bool enable_logging(const char *name); </span></big><big>–</big><big><span
-
         style="font-style: italic;"></span> Enable redirecting error messages to
       a log file and return false if the operation failed.<br>
       <br>
       <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big><span
-
         style="font-style: italic;"></span> Initialize random number generator.<br>
       <br>
       <span style="font-style: italic;">unsigned int get_random(const int
@@ -1892,8 +1896,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> </big><br>
     <big style="font-style: italic;"> typedef struct Vertex</big><br style="font-style: italic;">
     <big style="font-style: italic;"> {</big><br style="font-style: italic;">
-    <big style="font-style: italic;"> int x;</big><br style="font-style: italic;">
-    <big style="font-style: italic;"> int y;</big><br style="font-style: italic;">
+    &nbsp; <big style="font-style: italic;"> int x;</big><br style="font-style: italic;">
+    &nbsp; <big style="font-style: italic;"> int y;</big><br style="font-style: italic;">
     <big style="font-style: italic;"> };</big><br>
     <big> </big><br>
     <big> </big><big>Single texture coordinate represent by follow custom data
@@ -1901,8 +1905,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> </big><br>
     <big style="font-style: italic;"> typedef struct</big><br style="font-style: italic;">
     <big style="font-style: italic;"> {</big><br style="font-style: italic;">
-    <big style="font-style: italic;"> double u;</big><br style="font-style: italic;">
-    <big style="font-style: italic;"> double v;</big><br style="font-style: italic;">
+    &nbsp; <big style="font-style: italic;"> double u;</big><br style="font-style: italic;">
+    &nbsp; <big style="font-style: italic;"> double v;</big><br style="font-style: italic;">
     <big style="font-style: italic;"> } Point;</big><br>
     <big> </big> <br>
     <big>All these custom types declared in <span style="font-style: italic;">Core</span>
@@ -2261,6 +2265,7 @@ Multimedia API</a>. </big>
       6.6.7 – Multimedia subsystem improved.<br>
       6.6.8 – Simple sound subsystem removed.<br>
       6.6.9 – 6.7 – Multimedia subsystem improved.<br>
+      6.7.1 – Timer subsystem improved.<br>
     </big>
     <p></p>
   </body>
