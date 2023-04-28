@@ -382,6 +382,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
+
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -560,6 +561,18 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> void Background::prepare(const unsigned
         int width,const unsigned int heigt);</span> – Prepare for drawing.<br>
       <br>
+      <span style="font-style: italic;">void Background::disable_mirror();</span>
+      – Disable background mirroring mode.<br>
+      <br>
+      <span style="font-style: italic;">void Background::horizontal_mirror();</span>
+      – Set horizontal background mirroring mode.<br>
+      <br>
+      <span style="font-style: italic;">void Background::vertical_mirror();</span>
+      – Set vertical background mirroring mode.<br>
+      <br>
+      <span style="font-style: italic;">void Background::complex_mirror();</span>
+      – Set both horizontal and vertical background mirroring mode.<br>
+      <br>
       <span style="font-style: italic;"> void Background::set_target(const
         unsigned int target);</span> – Set target frame in scrollable
       background.<br>
@@ -623,7 +636,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="text-decoration: underline;"> Background texture</span><br>
       <br>
       Background don't draw if background texture is don't exist. Background
-      texture will automatically create after call load_background method.<br>
+      texture will automatically create after call <span style="font-style: italic;">load_background</span>
+      method.<br>
       <br>
       <span style="text-decoration: underline;"> Important notice</span><br>
       <br>
@@ -636,8 +650,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         thing</span><br>
       <br>
       A sprite is a transparent image. It is useful for many things: enemies,
-      bonuses, etc&amp;<br>
-    </big><big><br>
+      bonuses, etc.<br>
+      <span style="text-decoration: underline;"></span></big><big><br>
       <span style="text-decoration: underline;"> Work with base sprite subsystem</span><br>
       <br>
       <span style="font-style: italic;"> Billboard</span> class provide simple
@@ -663,7 +677,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
     </big> <big><span style="font-style: italic;"> void Billboard::set_y(const
         unsigned int y);</span> – Set y–coordinate of the sprite position.<br>
-      <br>
+      <span style="font-style: italic;"></span><br>
     </big><big> <span style="font-style: italic;"> void
         Billboard::set_width(const unsigned int width);</span> – Change the
       sprite width.<br>
@@ -715,6 +729,18 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </big><big><span style="font-style: italic;">EUGENEGDK::BOX
         Billboard::get_box() const;</span> – Return collision related
       information.<br>
+      <br>
+      <span style="font-style: italic;">void Billboard::disable_mirror();</span>
+      – Disable sprite mirroring mode.<br>
+      <br>
+      <span style="font-style: italic;">void Billboard::horizontal_mirror();</span>
+      – Set horizontal sprite mirroring mode.<br>
+      <br>
+      <span style="font-style: italic;">void Billboard::vertical_mirror();</span>
+      – Set vertical sprite mirroring mode.<br>
+      <br>
+      <span style="font-style: italic;">void Billboard::complex_mirror();</span>
+      – Set both horizontal and vertical sprite mirroring mode.<br>
       <br>
     </big><big> </big><big><span style="font-style: italic;">void
         Billboard::draw();</span> – Draw a sprite.<br>
@@ -970,6 +996,18 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> void Text::print(const unsigned int
         x,const unsigned int y,const char *target);</span> – Draw text at
       specific position.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">void Text::disable_mirror();</span> –
+      Disable text mirroring mode.<br>
+      <br>
+      <span style="font-style: italic;">void Text::horizontal_mirror();</span> –
+      Set horizontal text mirroring mode.<br>
+      <br>
+      <span style="font-style: italic;">void Text::vertical_mirror();</span> –
+      Set vertical text mirroring mode.<br>
+      <br>
+      <span style="font-style: italic;">void Text::complex_mirror();</span> –
+      Set both horizontal and vertical text mirroring mode.<br>
       <br>
       <span style="font-style: italic;"> void Text::destroy_image();</span> –
       Destroy a font image.<br>
@@ -1070,7 +1108,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       &nbsp; <span style="font-style: italic;"> unsigned int y;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int width;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int height;</span><br
-
         style="font-style: italic;">
       <span style="font-style: italic;"> } BOX;</span><br>
       <br>
@@ -1188,10 +1225,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Exit from your program and return user to operating system.<br>
       <br>
       <span style="font-style: italic;">bool enable_logging(const char *name); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Enable redirecting error messages to
       a log file and return false if the operation failed.<br>
       <br>
       <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Initialize random number generator.<br>
       <br>
       <span style="font-style: italic;">unsigned int get_random(const int
@@ -2266,6 +2305,10 @@ Multimedia API</a>. </big>
       6.6.8 – Simple sound subsystem removed.<br>
       6.6.9 – 6.7 – Multimedia subsystem improved.<br>
       6.7.1 – Timer subsystem improved.<br>
+      6.7.2 – 6.7.3 – Sprite subsystem improved.<br>
+      6.7.4 – Background subsystem improved.<br>
+      6.7.5 – Text drawing subsystem improved.<br>
+      6.7.6 – Sprite subsystem improved.<br>
     </big>
     <p></p>
   </body>

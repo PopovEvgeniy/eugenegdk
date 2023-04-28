@@ -687,16 +687,52 @@ namespace EUGENEGDK
 
   }
 
-  void Shape::set_data()
+  void Shape::set_data(const Core::MIRROR_KIND kind)
   {
-   vertex[0].x=current_x;
-   vertex[0].y=current_y+target_height;
-   vertex[1].x=current_x+target_width;
-   vertex[1].y=current_y+target_height;
-   vertex[2].x=current_x+target_width;
-   vertex[2].y=current_y;
-   vertex[3].x=current_x;
-   vertex[3].y=current_y;
+   switch (kind)
+   {
+    case Core::HORIZONTAL_MIRROR:
+    vertex[0].x=current_x+target_width;
+    vertex[0].y=current_y+target_height;
+    vertex[1].x=current_x;
+    vertex[1].y=current_y+target_height;
+    vertex[2].x=current_x;
+    vertex[2].y=current_y;
+    vertex[3].x=current_x+target_width;
+    vertex[3].y=current_y;
+    break;
+    case Core::VERTICAL_MIRROR:
+    vertex[0].x=current_x;
+    vertex[0].y=current_y;
+    vertex[1].x=current_x+target_width;
+    vertex[1].y=current_y;
+    vertex[2].x=current_x+target_width;
+    vertex[2].y=current_y+target_height;
+    vertex[3].x=current_x;
+    vertex[3].y=current_y+target_height;
+    break;
+    case Core::MIRROR_BOTH:
+    vertex[0].x=current_x+target_width;
+    vertex[0].y=current_y;
+    vertex[1].x=current_x;
+    vertex[1].y=current_y;
+    vertex[2].x=current_x;
+    vertex[2].y=current_y+target_height;
+    vertex[3].x=current_x+target_width;
+    vertex[3].y=current_y+target_height;
+    break;
+    default:
+    vertex[0].x=current_x;
+    vertex[0].y=current_y+target_height;
+    vertex[1].x=current_x+target_width;
+    vertex[1].y=current_y+target_height;
+    vertex[2].x=current_x+target_width;
+    vertex[2].y=current_y;
+    vertex[3].x=current_x;
+    vertex[3].y=current_y;
+    break;
+   }
+
   }
 
   unsigned int Shape::get_total_width() const
@@ -833,11 +869,11 @@ namespace EUGENEGDK
 
   }
 
- void Rectangle::draw()
+ void Rectangle::draw(const Core::MIRROR_KIND kind)
  {
   if (texture!=0)
   {
-   this->set_data();
+   this->set_data(kind);
    this->load_data();
    this->draw_rectangle();
   }
@@ -2212,6 +2248,7 @@ namespace EUGENEGDK
    current_y=0;
    sprite_width=0;
    sprite_height=0;
+   mirror=Core::MIRROR_NONE;
   }
 
   Billboard::~Billboard()
@@ -2236,7 +2273,7 @@ namespace EUGENEGDK
   {
    billboard.set_size(sprite_width,sprite_height);
    billboard.set_position(current_x,current_y);
-   billboard.draw();
+   billboard.draw(mirror);
   }
 
   void Billboard::reset_billboard_setting()
@@ -2246,6 +2283,7 @@ namespace EUGENEGDK
    current_y=0;
    sprite_width=0;
    sprite_height=0;
+   mirror=Core::MIRROR_NONE;
   }
 
   void Billboard::prepare(const unsigned int width,const unsigned int height,const unsigned int *picture)
@@ -2424,6 +2462,26 @@ namespace EUGENEGDK
    collision.width=sprite_width;
    collision.height=sprite_height;
    return collision;
+  }
+
+  void Billboard::disable_mirror()
+  {
+   mirror=Core::MIRROR_NONE;
+  }
+
+  void Billboard::horizontal_mirror()
+  {
+   mirror=Core::HORIZONTAL_MIRROR;
+  }
+
+  void Billboard::vertical_mirror()
+  {
+   mirror=Core::VERTICAL_MIRROR;
+  }
+
+  void Billboard::complex_mirror()
+  {
+   mirror=Core::MIRROR_BOTH;
   }
 
   void Billboard::draw()
@@ -2834,6 +2892,26 @@ namespace EUGENEGDK
    stage.load(name);
   }
 
+  void Background::disable_mirror()
+  {
+   stage.disable_mirror();
+  }
+
+  void Background::horizontal_mirror()
+  {
+   stage.horizontal_mirror();
+  }
+
+  void Background::vertical_mirror()
+  {
+   stage.vertical_mirror();
+  }
+
+  void Background::complex_mirror()
+  {
+   stage.complex_mirror();
+  }
+
   void Background::set_target(const unsigned int target)
   {
    stage.set_target(target);
@@ -3007,6 +3085,26 @@ namespace EUGENEGDK
   {
    this->set_position(x,y);
    this->print(target);
+  }
+
+  void Text::disable_mirror()
+  {
+   text.disable_mirror();
+  }
+
+  void Text::horizontal_mirror()
+  {
+   text.horizontal_mirror();
+  }
+
+  void Text::vertical_mirror()
+  {
+   text.vertical_mirror();
+  }
+
+  void Text::complex_mirror()
+  {
+   text.complex_mirror();
   }
 
   void Text::destroy_image()

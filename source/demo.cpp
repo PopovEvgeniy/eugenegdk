@@ -38,6 +38,22 @@ int main()
   {
    break;
   }
+  if (keyboard.check_hold(59)==true)
+  {
+   space.disable_mirror();
+  }
+  if (keyboard.check_hold(60)==true)
+  {
+   space.horizontal_mirror();
+  }
+  if (keyboard.check_hold(61)==true)
+  {
+   space.vertical_mirror();
+  }
+  if (keyboard.check_hold(62)==true)
+  {
+   space.complex_mirror();
+  }
   if (keyboard.check_hold(72)==true)
   {
    ship.decrease_y(2);
