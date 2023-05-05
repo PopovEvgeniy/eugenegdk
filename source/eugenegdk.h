@@ -505,6 +505,7 @@ typedef enum
    void set_perfomance_setting();
    void set_render_hints();
    void set_common_setting();
+   void disable_depth_buffer();
    void set_matrix_setting();
    void set_perspective(const unsigned int width,const unsigned int height);
    void create_render(const unsigned int width,const unsigned int height);
