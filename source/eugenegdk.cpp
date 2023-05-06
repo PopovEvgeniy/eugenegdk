@@ -2010,7 +2010,10 @@ namespace EUGENEGDK
     {
      for (amount=target[position]-127;amount>0;--amount)
      {
-      memcpy(data.get_buffer()+index,target+(position+1),sizeof(unsigned int));
+      data[index]=target[position+1];
+      data[index+1]=target[position+2];
+      data[index+2]=target[position+3];
+      data[index+3]=target[position+4];
       index+=sizeof(unsigned int);
      }
      position+=1+sizeof(unsigned int);
