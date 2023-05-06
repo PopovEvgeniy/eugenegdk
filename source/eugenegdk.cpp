@@ -2001,10 +2001,13 @@ namespace EUGENEGDK
     if (target[position]<128)
     {
      amount=target[position]+1;
-     amount*=sizeof(unsigned int);
-     memcpy(data.get_buffer()+index,target+(position+1),amount);
-     index+=amount;
-     position+=1+amount;
+     for (amount*=sizeof(unsigned int);amount>0;--amount)
+     {
+      data[index]=target[position+1];
+      ++index;
+      ++position;
+     }
+     ++position;
     }
     else
     {
