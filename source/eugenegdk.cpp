@@ -546,11 +546,11 @@ namespace EUGENEGDK
    unsigned int x,y,x_ratio,y_ratio;
    x=0;
    y=0;
-   x_ratio=(source_width*USHRT_MAX)/target_width;
-   y_ratio=(source_height*USHRT_MAX)/target_height;
+   x_ratio=(source_width*UCHAR_MAX)/target_width;
+   y_ratio=(source_height*UCHAR_MAX)/target_height;
    for (index=0;index<image.get_length();++index)
    {
-    image[index]=target[this->get_source_offset((x*x_ratio)/USHRT_MAX,(y*y_ratio)/USHRT_MAX)];
+    image[index]=target[this->get_source_offset((x*x_ratio)/UCHAR_MAX,(y*y_ratio)/UCHAR_MAX)];
     ++x;
     if (x==target_width)
     {
@@ -944,7 +944,7 @@ namespace EUGENEGDK
    glHint(GL_LINE_SMOOTH_HINT,GL_FASTEST);
    glHint(GL_POINT_SMOOTH_HINT,GL_FASTEST);
    glHint(GL_POLYGON_SMOOTH_HINT,GL_FASTEST);
-   glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_NICEST);
+   glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_FASTEST);
   }
 
   void Render::set_common_setting()
