@@ -2107,8 +2107,11 @@ namespace EUGENEGDK
   unsigned char *Image::load_tga(const char *name)
   {
    File::Input_File target;
-   this->destroy_image();
-   target.open(name);
+   if (name!=NULL)
+   {
+    this->destroy_image();
+    target.open(name);
+   }
    if (target.is_open()==true)
    {
     this->load_tga(target);
@@ -2143,6 +2146,20 @@ namespace EUGENEGDK
    length=static_cast<size_t>(image_width)*static_cast<size_t>(image_height);
    image.set_length(length);
    image.create_buffer();
+  }
+
+  void Picture::copy_image(const unsigned int *target)
+  {
+   size_t index;
+   if (target!=NULL)
+   {
+    for (index=0;index<image.get_length();++index)
+    {
+     image[index]=target[index];
+    }
+
+   }
+
   }
 
   void Picture::load_image(Image *buffer)
@@ -2659,17 +2676,21 @@ namespace EUGENEGDK
 
   void Sprite::clone(Sprite *target)
   {
-   if (target->is_storage_empty()==false)
+   if (target!=NULL)
    {
-    this->destroy();
-    this->set_image_size(target->get_image_width(),target->get_image_height());
-    this->create_storage();
-    this->reset_animation_setting();
-    this->set_setting(target->get_kind(),target->get_frames());
-    this->set_transparent(target->get_transparent());
-    memcpy(this->get_image(),target->get_image(),target->get_image_length());
-    this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
-    this->set_size(target->get_width(),target->get_height());
+    if (target->get_image_length()>0)
+    {
+     this->destroy();
+     this->set_image_size(target->get_image_width(),target->get_image_height());
+     this->create_storage();
+     this->reset_animation_setting();
+     this->set_setting(target->get_kind(),target->get_frames());
+     this->set_transparent(target->get_transparent());
+     this->copy_image(target->get_image());
+     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
+     this->set_size(target->get_width(),target->get_height());
+    }
+
    }
 
   }

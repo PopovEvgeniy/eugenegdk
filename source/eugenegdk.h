@@ -739,6 +739,7 @@ typedef enum
    protected:
    void set_image_size(const unsigned int width,const unsigned int height);
    void create_storage();
+   void copy_image(const unsigned int *target);
    void load_image(Image *buffer);
    public:
    Picture();
