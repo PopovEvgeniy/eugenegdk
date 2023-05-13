@@ -912,6 +912,10 @@ namespace EUGENEGDK
    glDisable(GL_POINT_SMOOTH);
    glDisable(GL_LINE_SMOOTH);
    glDisable(GL_POLYGON_SMOOTH);
+   glDisable(GL_POLYGON_OFFSET_POINT);
+   glDisable(GL_POLYGON_OFFSET_LINE);
+   glDisable(GL_POLYGON_OFFSET_FILL);
+   glDisable(GL_POLYGON_STIPPLE);
    glDisable(GL_DITHER);
    glDisable(GL_LOGIC_OP);
    glDisable(GL_FOG);
@@ -978,10 +982,10 @@ namespace EUGENEGDK
 
   void Render::create_render(const unsigned int width,const unsigned int height)
   {
+   this->set_perspective(width,height);
    this->set_perfomance_setting();
    this->set_render_hints();
    this->set_common_setting();
-   this->set_perspective(width,height);
    this->set_matrix_setting();
    this->disable_depth_buffer();
    MAXIMUM_TEXTURE_SIZE=this->get_maximum_texture_size();
