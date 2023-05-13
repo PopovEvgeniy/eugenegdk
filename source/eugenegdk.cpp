@@ -1003,7 +1003,7 @@ namespace EUGENEGDK
  namespace Misc
  {
 
-   Multimedia::Multimedia()
+   Audio::Audio()
    {
     loader=NULL;
     player=NULL;
@@ -1011,7 +1011,7 @@ namespace EUGENEGDK
     video=NULL;
    }
 
-   Multimedia::~Multimedia()
+   Audio::~Audio()
    {
     if (player!=NULL)
    {
@@ -1037,7 +1037,7 @@ namespace EUGENEGDK
    CoUninitialize();
   }
 
-  void Multimedia::com_setup()
+  void Audio::com_setup()
   {
    if (CoInitializeEx(NULL,COINIT_APARTMENTTHREADED)!=S_OK)
    {
@@ -1050,7 +1050,7 @@ namespace EUGENEGDK
 
   }
 
-  void Multimedia::disable_video()
+  void Audio::disable_video()
   {
    if (video!=NULL)
    {
@@ -1060,7 +1060,7 @@ namespace EUGENEGDK
 
   }
 
-  void Multimedia::load_content(const wchar_t *target)
+  void Audio::load_content(const wchar_t *target)
   {
    if (loader!=NULL)
    {
@@ -1069,7 +1069,7 @@ namespace EUGENEGDK
 
   }
 
-  bool Multimedia::is_play()
+  bool Audio::is_play()
   {
    long long int current,total;
    current=0;
@@ -1086,7 +1086,7 @@ namespace EUGENEGDK
    return current<total;
   }
 
-  void Multimedia::rewind()
+  void Audio::rewind()
   {
    long long int position;
    position=0;
@@ -1097,7 +1097,7 @@ namespace EUGENEGDK
 
   }
 
-  void Multimedia::play_content()
+  void Audio::play_content()
   {
    if (player!=NULL)
    {
@@ -1106,7 +1106,7 @@ namespace EUGENEGDK
 
   }
 
-  void Multimedia::create_loader()
+  void Audio::create_loader()
   {
    if (loader==NULL)
    {
@@ -1120,7 +1120,7 @@ namespace EUGENEGDK
 
   }
 
-  void Multimedia::create_player()
+  void Audio::create_player()
   {
    if (player==NULL)
    {
@@ -1134,7 +1134,7 @@ namespace EUGENEGDK
 
   }
 
-  void Multimedia::create_controler()
+  void Audio::create_controler()
   {
    if (controler==NULL)
    {
@@ -1148,7 +1148,7 @@ namespace EUGENEGDK
 
   }
 
-  void Multimedia::get_video_instance()
+  void Audio::get_video_instance()
   {
    if (video==NULL)
    {
@@ -1162,7 +1162,7 @@ namespace EUGENEGDK
 
   }
 
-  void Multimedia::initialize()
+  void Audio::initialize()
   {
    this->com_setup();
    this->create_loader();
@@ -1172,7 +1172,7 @@ namespace EUGENEGDK
    this->disable_video();
   }
 
-  bool Multimedia::check_playing()
+  bool Audio::check_playing()
   {
    OAFilterState state;
    bool playing;
@@ -1192,7 +1192,7 @@ namespace EUGENEGDK
    return playing;
   }
 
-  void Multimedia::stop()
+  void Audio::stop()
   {
    if (player!=NULL)
    {
@@ -1201,14 +1201,14 @@ namespace EUGENEGDK
 
   }
 
-  void Multimedia::play()
+  void Audio::play()
   {
    this->stop();
    this->rewind();
    this->play_content();
   }
 
-  void Multimedia::play_loop()
+  void Audio::play_loop()
   {
    if (this->check_playing()==false)
    {
@@ -1217,14 +1217,14 @@ namespace EUGENEGDK
 
   }
 
-  void Multimedia::load(const char *target)
+  void Audio::load(const char *target)
   {
    Core::Unicode_Convertor convertor;
    this->stop();
    this->load_content(convertor.convert(target));
   }
 
-  void Multimedia::initialize(const char *target)
+  void Audio::initialize(const char *target)
   {
    this->initialize();
    this->load(target);
@@ -2164,11 +2164,11 @@ namespace EUGENEGDK
 
   void Picture::load_image(Image *buffer)
   {
-   this->destroy_image();
    if (buffer!=NULL)
    {
     if (buffer->get_length()>0)
     {
+     this->destroy_image();
      this->set_image_size(buffer->get_width(),buffer->get_height());
      this->create_storage();
      memcpy(image.get_buffer(),buffer->get_data(),buffer->get_length());

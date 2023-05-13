@@ -7,7 +7,7 @@ int main()
  EUGENEGDK::Input::Keyboard keyboard;
  EUGENEGDK::Input::Gamepad gamepad;
  EUGENEGDK::Input::Mouse mouse;
- EUGENEGDK::Misc::Multimedia media;
+ EUGENEGDK::Misc::Audio media;
  EUGENEGDK::Graphics::Screen screen;
  EUGENEGDK::Graphics::Background space;
  EUGENEGDK::Graphics::Sprite ship;
