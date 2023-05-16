@@ -1018,26 +1018,26 @@ namespace EUGENEGDK
    Audio::~Audio()
    {
     if (player!=NULL)
-   {
-    player->Stop();
-    player->Release();
-    player=NULL;
-   }
-   if (video!=NULL)
-   {
-    video->Release();
-    video=NULL;
-   }
-   if (controler!=NULL)
-   {
-    controler->Release();
-    controler=NULL;
-   }
-   if (loader!=NULL)
-   {
-    loader->Release();
-    loader=NULL;
-   }
+    {
+     player->Stop();
+     player->Release();
+     player=NULL;
+    }
+    if (video!=NULL)
+    {
+     video->Release();
+     video=NULL;
+    }
+    if (controler!=NULL)
+    {
+     controler->Release();
+     controler=NULL;
+    }
+    if (loader!=NULL)
+    {
+     loader->Release();
+     loader=NULL;
+    }
    CoUninitialize();
   }
 
@@ -1117,7 +1117,6 @@ namespace EUGENEGDK
     if (CoCreateInstance(CLSID_FilterGraph,NULL,CLSCTX_INPROC_SERVER,IID_IGraphBuilder,reinterpret_cast<void**>(&loader))!=S_OK)
     {
      loader=NULL;
-     EUGENEGDK::Halt("Can't create a multimedia loader");
     }
 
    }
@@ -1126,12 +1125,15 @@ namespace EUGENEGDK
 
   void Audio::create_player()
   {
-   if (player==NULL)
+   if (loader!=NULL)
    {
-    if (loader->QueryInterface(IID_IMediaControl,reinterpret_cast<void**>(&player))!=S_OK)
+    if (player==NULL)
     {
-     player=NULL;
-     EUGENEGDK::Halt("Can't create a multimedia player");
+     if (loader->QueryInterface(IID_IMediaControl,reinterpret_cast<void**>(&player))!=S_OK)
+     {
+      player=NULL;
+     }
+
     }
 
    }
@@ -1140,12 +1142,15 @@ namespace EUGENEGDK
 
   void Audio::create_controler()
   {
-   if (controler==NULL)
+   if (loader!=NULL)
    {
-    if (loader->QueryInterface(IID_IMediaSeeking,reinterpret_cast<void**>(&controler))!=S_OK)
+    if (controler==NULL)
     {
-     controler=NULL;
-     EUGENEGDK::Halt("Can't create a player controler");
+     if (loader->QueryInterface(IID_IMediaSeeking,reinterpret_cast<void**>(&controler))!=S_OK)
+     {
+      controler=NULL;
+     }
+
     }
 
    }
@@ -1154,12 +1159,15 @@ namespace EUGENEGDK
 
   void Audio::get_video_instance()
   {
-   if (video==NULL)
+   if (loader!=NULL)
    {
-    if (loader->QueryInterface(IID_IVideoWindow,reinterpret_cast<void**>(&video))!=S_OK)
+    if (video==NULL)
     {
-     video=NULL;
-     EUGENEGDK::Halt("Can't get access to video windows instance");
+     if (loader->QueryInterface(IID_IVideoWindow,reinterpret_cast<void**>(&video))!=S_OK)
+     {
+      video=NULL;
+     }
+
     }
 
    }
