@@ -1477,9 +1477,18 @@ namespace EUGENEGDK
 
   Gamepad::Gamepad()
   {
-   active=0;
    memset(&configuration,0,sizeof(JOYCAPS));
-   memset(&current,0,sizeof(JOYINFOEX));
+   active=0;
+   current.dwButtonNumber=0;
+   current.dwButtons=0;
+   current.dwReserved1=0;
+   current.dwReserved2=0;
+   current.dwRpos=0;
+   current.dwUpos=0;
+   current.dwVpos=0;
+   current.dwXpos=0;
+   current.dwYpos=0;
+   current.dwZpos=0;
    current.dwSize=sizeof(JOYINFOEX);
    current.dwFlags=JOY_RETURNALL;
    current.dwPOV=JOY_POVCENTERED;
@@ -1503,8 +1512,16 @@ namespace EUGENEGDK
 
   void Gamepad::clear_state()
   {
-   memset(&configuration,0,sizeof(JOYCAPS));
-   memset(&current,0,sizeof(JOYINFOEX));
+   current.dwButtonNumber=0;
+   current.dwButtons=0;
+   current.dwReserved1=0;
+   current.dwReserved2=0;
+   current.dwRpos=0;
+   current.dwUpos=0;
+   current.dwVpos=0;
+   current.dwXpos=0;
+   current.dwYpos=0;
+   current.dwZpos=0;
    current.dwSize=sizeof(JOYINFOEX);
    current.dwFlags=JOY_RETURNALL;
    current.dwPOV=JOY_POVCENTERED;
@@ -1526,15 +1543,9 @@ namespace EUGENEGDK
    return joyGetNumDevs();
   }
 
-  unsigned int Gamepad::get_button_amount()
+  unsigned int Gamepad::get_button_amount() const
   {
-   unsigned int button_amount;
-   button_amount=0;
-   if (this->read_configuration()==true)
-   {
-    button_amount=configuration.wNumButtons;
-   }
-   return button_amount;
+   return configuration.wNumButtons;
   }
 
   void Gamepad::update()
@@ -1544,20 +1555,20 @@ namespace EUGENEGDK
    {
     this->clear_state();
    }
+   if (this->read_configuration()==false)
+   {
+    memset(&configuration,0,sizeof(JOYCAPS));
+   }
 
   }
 
-  unsigned long int Gamepad::get_sticks_amount()
+  unsigned int Gamepad::get_sticks_amount() const
   {
-   unsigned long int sticks_amount;
+   unsigned int sticks_amount;
    sticks_amount=0;
-   if (this->read_configuration()==true)
+   if (configuration.wNumAxes>1)
    {
-    if (configuration.wNumAxes>1)
-    {
-     sticks_amount=configuration.wNumAxes/2;
-    }
-
+    sticks_amount=configuration.wNumAxes/2;
    }
    return sticks_amount;
   }

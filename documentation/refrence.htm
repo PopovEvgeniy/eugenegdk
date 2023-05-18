@@ -314,7 +314,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       optimization.<br>
       <br>
       <span style="text-decoration: underline;"> Note for Visual C++ users</span><br
-
         style="text-decoration: underline;">
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
@@ -605,7 +604,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Load background </big><big>from target file</big><big>.<br>
       <br>
       <span style="font-style: italic;">void Background::load(</span></big><big
-
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load normal background from target file.<br>
       <br>
@@ -1812,8 +1810,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Return amount of connected game–pad.<br>
       <br>
       <span style="font-style: italic;"> unsigned int
-        Gamepad::get_button_amount();</span> – Return amount of the game–pad
-      buttons.<br>
+        Gamepad::get_button_amount() const;</span> – Return amount of the
+      game–pad buttons.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">unsigned int
+        Gamepad::get_sticks_amount() const;</span> – Return amount of the
+      game–pad sticks.<br>
       <br>
       <span style="font-style: italic;"> void Gamepad::update();</span> – Update
       internal game–pad state. Always call it before call another methods.<br>
@@ -2315,6 +2317,7 @@ Multimedia API</a>. </big>
       6.8.5 – Render performance increased.<br>
       6.8.6 – Audio subsystem improved.<br>
       6.8.7 – Small changes.<br>
+      6.8.8 – 6.8.9 – Game–pad subsystem improved.<br>
     </big>
     <p></p>
   </body>
