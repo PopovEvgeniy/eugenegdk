@@ -391,10 +391,30 @@ namespace EUGENEGDK
 
   WINGL::WINGL()
   {
-   memset(&setting,0,sizeof(PIXELFORMATDESCRIPTOR));
    device=NULL;
    render=NULL;
    wglSwapIntervalEXT=NULL;
+   setting.bReserved=0;
+   setting.cAccumAlphaBits=0;
+   setting.cAccumBits=0;
+   setting.cAccumBlueBits=0;
+   setting.cAccumGreenBits=0;
+   setting.cAccumRedBits=0;
+   setting.cAlphaBits=0;
+   setting.cAlphaShift=0;
+   setting.cAuxBuffers=0;
+   setting.cBlueBits=0;
+   setting.cBlueShift=0;
+   setting.cColorBits=0;
+   setting.cDepthBits=0;
+   setting.cGreenBits=0;
+   setting.cGreenShift=0;
+   setting.cRedBits=0;
+   setting.cRedShift=0;
+   setting.cStencilBits=0;
+   setting.dwDamageMask=0;
+   setting.dwLayerMask=0;
+   setting.dwVisibleMask=0;
    setting.nSize=sizeof(PIXELFORMATDESCRIPTOR);
    setting.nVersion=1;
    setting.dwFlags=PFD_DRAW_TO_WINDOW|PFD_SUPPORT_OPENGL|PFD_DOUBLEBUFFER;
@@ -1038,7 +1058,7 @@ namespace EUGENEGDK
      loader->Release();
      loader=NULL;
     }
-   CoUninitialize();
+    CoUninitialize();
   }
 
   void Audio::com_setup()
