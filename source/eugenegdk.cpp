@@ -1898,8 +1898,12 @@ namespace EUGENEGDK
   void Screen::check_video_mode()
   {
    this->get_video_mode();
-   this->correct_depth();
-   this->set_video_mode();
+   if (this->get_depth()<16)
+   {
+    this->correct_depth();
+    this->set_video_mode();
+   }
+
   }
 
   void Screen::set_resolution(const unsigned long int width,const unsigned long int height)
