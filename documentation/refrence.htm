@@ -604,6 +604,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Load background </big><big>from target file</big><big>.<br>
       <br>
       <span style="font-style: italic;">void Background::load(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load normal background from target file.<br>
       <br>
@@ -897,6 +898,17 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">void Sheet::load(const char *name,const
         unsigned int row_amount,const unsigned int column_amount);</span> – Load
       a sprite sheet from tagret file.<br>
+      <br>
+      <span style="font-style: italic;">Sheet* Sheet::get_handle();</span> –
+      Return the handle to sprite sheet.<br>
+      <br>
+      <span style="font-style: italic;">void Sheet::clone(Sheet *target);</span>
+      – Create copy of the sprite sheet if the image storage of target sprite sheet is
+      not empty.<br>
+      <br>
+      <span style="font-style: italic;">void Sheet::clone(Sheet &amp;target);</span>
+      – Create copy of the sprite sheet if the image storage of target sheet sprite is
+      not empty.<br>
       <br>
       <span style="text-decoration: underline;"> Sprite sheet texture</span><br>
       <br>
@@ -1844,18 +1856,20 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       sticks.<br>
       <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-        Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick) const;</span> –
-      Return x–direction of specific stick.<br>
+        Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick) const;</span>
+      – Return x–direction of specific stick.<br>
       <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-        Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick) const;</span> –
-      Return y–direction of specific stick.<br>
+        Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick) const;</span>
+      – Return y–direction of specific stick.<br>
       <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-        Gamepad::get_left_stick_x() const;</span> – Return x–direction of left stick.<br>
+        Gamepad::get_left_stick_x() const;</span> – Return x–direction of left
+      stick.<br>
       <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-        Gamepad::get_left_stick_y() const;</span> – Return y–direction of left stick.<br>
+        Gamepad::get_left_stick_y() const;</span> – Return y–direction of left
+      stick.<br>
       <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
         Gamepad::get_right_stick_x() const;</span> – Return x–direction of right
@@ -1953,7 +1967,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> </big>
     <h2><a name="mozTocId472209" class="mozTocH2"></a><big>Chapter 4. Game–pad</big></h2>
     <big> Game–pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
-Multimedia API</a>. </big>
+Multimedia
+        API</a>. </big>
     <h2><a name="mozTocId804583" class="mozTocH2"></a><big>Chapter 5. Input</big></h2>
     <big> <span style="text-decoration: underline;"> Input back–end</span><br>
       <br>
@@ -2320,6 +2335,7 @@ Multimedia API</a>. </big>
       6.8.8 – 6.9.1 – Game–pad subsystem improved.<br>
       6.9.2 – Small changes.<br>
       6.9.3 – Source code synced with Neon game development kit 6.2.6.<br>
+      6.9.4 – Sprite sheet subsystem improved.<br>
     </big>
     <p></p>
   </body>

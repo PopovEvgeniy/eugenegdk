@@ -2715,7 +2715,6 @@ namespace EUGENEGDK
      this->destroy();
      this->set_image_size(target->get_image_width(),target->get_image_height());
      this->create_storage();
-     this->reset_animation_setting();
      this->set_setting(target->get_kind(),target->get_frames());
      this->set_transparent(target->get_transparent());
      this->copy_image(target->get_image());
@@ -2750,6 +2749,11 @@ namespace EUGENEGDK
   Sheet::~Sheet()
   {
 
+  }
+
+  Sheet* Sheet::get_handle()
+  {
+   return this;
   }
 
   void Sheet::reset_sheet_setting()
@@ -2830,6 +2834,34 @@ namespace EUGENEGDK
    this->reset_billboard_setting();
    this->reset_animation_setting();
    this->reset_sheet_setting();
+  }
+
+  void Sheet::clone(Sheet *target)
+  {
+   if (target!=NULL)
+   {
+    if (target->get_image_length()>0)
+    {
+     this->destroy();
+     this->set_image_size(target->get_image_width(),target->get_image_height());
+     this->create_storage();
+     this->copy_image(target->get_image());
+     rows=target->get_rows();
+     columns=target->get_columns();
+     this->set_frames(rows*columns);
+     this->prepare_sheet();
+     this->set_transparent(target->get_transparent());
+     this->select(target->get_frame());
+     this->set_size(target->get_width(),target->get_height());
+    }
+
+   }
+
+  }
+
+  void Sheet::clone(Sheet &target)
+  {
+   this->clone(target.get_handle());
   }
 
   void Sheet::select(const unsigned int row,const unsigned int column)
