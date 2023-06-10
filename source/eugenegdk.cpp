@@ -1621,16 +1621,19 @@ namespace EUGENEGDK
   EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick) const
   {
    EUGENEGDK::GAMEPAD_DIRECTION directional;
+   unsigned int control,dead;
    directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
     if (this->get_sticks_amount()>0)
     {
-     if (current.dwXpos<=configuration.wXmin)
+     control=(configuration.wXmax-configuration.wXmin)/2;
+     dead=configuration.wXmax/10;
+     if (current.dwXpos<(control-dead))
      {
       directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
-     if (current.dwXpos>=configuration.wXmax)
+     if (current.dwXpos>(control+dead))
      {
       directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
@@ -1642,11 +1645,13 @@ namespace EUGENEGDK
    {
     if (this->get_sticks_amount()>1)
     {
-     if (current.dwZpos<=configuration.wZmin)
+     control=(configuration.wZmax-configuration.wZmin)/2;
+     dead=configuration.wZmax/10;
+     if (current.dwZpos<(control-dead))
      {
       directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
-     if (current.dwZpos>=configuration.wZmax)
+     if (current.dwZpos>(control+dead))
      {
       directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
@@ -1660,16 +1665,19 @@ namespace EUGENEGDK
   EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick) const
   {
    EUGENEGDK::GAMEPAD_DIRECTION directional;
+   unsigned int control,dead;
    directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
     if (this->get_sticks_amount()>0)
     {
-     if (current.dwYpos<=configuration.wYmin)
+     control=(configuration.wYmax-configuration.wYmin)/2;
+     dead=configuration.wYmax/10;
+     if (current.dwYpos<(control-dead))
      {
       directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
-     if (current.dwYpos>=configuration.wYmax)
+     if (current.dwYpos>(control+dead))
      {
       directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
@@ -1681,11 +1689,13 @@ namespace EUGENEGDK
    {
     if (this->get_sticks_amount()>1)
     {
-     if (current.dwRpos<=configuration.wRmin)
+     control=(configuration.wRmax-configuration.wRmin)/2;
+     dead=configuration.wRmax/10;
+     if (current.dwRpos<(control-dead))
      {
       directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
-     if (current.dwRpos>=configuration.wRmax)
+     if (current.dwRpos>(control+dead))
      {
       directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
