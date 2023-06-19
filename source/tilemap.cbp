@@ -43,7 +43,6 @@
 			<Add library="kernel32" />
 			<Add library="gdi32" />
 			<Add library="opengl32" />
-			<Add library="glu32" />
 			<Add library="ole32" />
 			<Add library="strmiids" />
 			<Add library="winmm" />
