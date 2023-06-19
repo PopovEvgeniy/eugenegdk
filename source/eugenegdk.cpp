@@ -555,33 +555,6 @@ namespace EUGENEGDK
    image.destroy_buffer();
   }
 
-  size_t Resizer::get_source_offset(const unsigned int x,const unsigned int y) const
-  {
-   return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(source_width);
-  }
-
-  void Resizer::resize_image(const unsigned int *target)
-  {
-   size_t index;
-   unsigned int x,y,x_ratio,y_ratio;
-   x=0;
-   y=0;
-   x_ratio=(source_width*UCHAR_MAX)/target_width;
-   y_ratio=(source_height*UCHAR_MAX)/target_height;
-   for (index=0;index<image.get_length();++index)
-   {
-    image[index]=target[this->get_source_offset((x*x_ratio)/UCHAR_MAX,(y*y_ratio)/UCHAR_MAX)];
-    ++x;
-    if (x==target_width)
-    {
-     x=0;
-     ++y;
-    }
-
-   }
-
-  }
-
   void Resizer::set_setting(const unsigned int width,const unsigned int height,const unsigned int limit)
   {
    source_width=width;
@@ -629,7 +602,7 @@ namespace EUGENEGDK
    this->calculate_size();
    this->correct_size();
    this->create_texture();
-   this->resize_image(target);
+   gluScaleImage(GL_BGRA_EXT,source_width,source_height,GL_UNSIGNED_BYTE,target,target_width,target_height,GL_UNSIGNED_BYTE,image.get_buffer());
   }
 
   unsigned int Resizer::get_width() const

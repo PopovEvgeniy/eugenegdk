@@ -61,6 +61,7 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
  #pragma comment(lib,"user32.lib")
  #pragma comment(lib,"gdi32.lib")
  #pragma comment(lib,"opengl32.lib")
+ #pragma comment(lib,"glu32.lib")
  #pragma comment(lib,"ole32.lib")
  #pragma comment(lib,"strmiids.lib")
  #pragma comment(lib,"winmm.lib")
@@ -79,6 +80,7 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #include <dshow.h>
 #include <mmsystem.h>
 #include <GL\gl.h>
+#include <GL\glu.h>
 
 namespace EUGENEGDK
 {
@@ -423,8 +425,6 @@ typedef enum
    unsigned int source_height;
    unsigned int target_width;
    unsigned int target_height;
-   size_t get_source_offset(const unsigned int x,const unsigned int y) const;
-   void resize_image(const unsigned int *target);
    void set_setting(const unsigned int width,const unsigned int height,const unsigned int limit);
    void calculate_size();
    void correct_size();

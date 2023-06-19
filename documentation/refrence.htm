@@ -340,6 +340,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <li><big>kernel32.lib</big></li>
       <li><big>gdi32.lib</big></li>
       <li><big>opengl32.lib</big></li>
+      <li><big>glu32.lib<br>
+        </big></li>
       <li><big>ole32.lib</big></li>
       <li><big>strmiids.lib</big></li>
       <li><big>winmm.lib</big></li>
@@ -386,7 +388,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -609,6 +610,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Load background </big><big>from target file</big><big>.<br>
       <br>
       <span style="font-style: italic;">void Background::load(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load normal background from target file.<br>
       <br>
@@ -1122,7 +1124,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       &nbsp; <span style="font-style: italic;"> unsigned int y;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int width;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int height;</span><br
-
         style="font-style: italic;">
       <span style="font-style: italic;"> } BOX;</span><br>
       <br>
@@ -1243,12 +1244,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Exit from your program and return user to operating system.<br>
       <br>
       <span style="font-style: italic;">bool enable_logging(const char *name); </span></big><big>–</big><big><span
-
         style="font-style: italic;"></span> Enable redirecting error messages to
       a log file and return false if the operation failed.<br>
       <br>
       <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big><span
-
         style="font-style: italic;"></span> Initialize random number generator.<br>
       <br>
       <span style="font-style: italic;">unsigned int get_random(const int
@@ -2341,6 +2340,7 @@ Multimedia API</a>. </big>
       6.9.6 – Source code synced with Gray game development kit 2.5.7.<br>
       6.9.7 – Game–pad support improved.<br>
       6.9.8 – Source code synced with Gray game development kit 2.6.<br>
+      6.9.9 – Image resizer improved.<br>
     </big>
     <p></p>
   </body>
