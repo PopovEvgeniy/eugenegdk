@@ -572,7 +572,17 @@ namespace EUGENEGDK
    return (target_y*y_ratio)/UCHAR_MAX;
   }
 
-  void Resizer::resize_image(const unsigned int *target)
+  void Resizer::load_image(const unsigned int *target)
+  {
+   size_t index;
+   for (index=0;index<image.get_length();++index)
+   {
+    image[index]=target[index];
+   }
+
+  }
+
+  void Resizer::scale_image(const unsigned int *target)
   {
    size_t index;
    unsigned int x,y;
@@ -588,6 +598,19 @@ namespace EUGENEGDK
      ++y;
     }
 
+   }
+
+  }
+
+  void Resizer::resize_image(const unsigned int *target)
+  {
+   if ((source_width==target_width) && (source_height==target_height))
+   {
+    this->load_image(target);
+   }
+   else
+   {
+    this->scale_image(target);
    }
 
   }
