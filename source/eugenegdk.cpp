@@ -1604,11 +1604,6 @@ namespace EUGENEGDK
    return configuration.wNumButtons;
   }
 
-  unsigned int Gamepad::get_sticks_amount() const
-  {
-   return (configuration.wNumAxes+1)/2;
-  }
-
   void Gamepad::set_active(const unsigned int gamepad)
   {
    if (gamepad<this->get_amount())
@@ -1663,7 +1658,7 @@ namespace EUGENEGDK
    directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
-    if (this->get_sticks_amount()>0)
+    if (configuration.wNumAxes>1)
     {
      control=(configuration.wXmax-configuration.wXmin)/2;
      dead=configuration.wXmax/10;
@@ -1681,15 +1676,15 @@ namespace EUGENEGDK
    }
    if (stick==EUGENEGDK::GAMEPAD_RIGHT_STICK)
    {
-    if (this->get_sticks_amount()>1)
+    if (configuration.wNumAxes>3)
     {
-     control=(configuration.wZmax-configuration.wZmin)/2;
-     dead=configuration.wZmax/10;
-     if (current.dwZpos<(control-dead))
+     control=(configuration.wUmax-configuration.wUmin)/2;
+     dead=configuration.wUmax/10;
+     if (current.dwUpos<(control-dead))
      {
       directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
-     if (current.dwZpos>(control+dead))
+     if (current.dwUpos>(control+dead))
      {
       directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
@@ -1707,17 +1702,17 @@ namespace EUGENEGDK
    directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
-    if (this->get_sticks_amount()>0)
+    if (configuration.wNumAxes>1)
     {
      control=(configuration.wYmax-configuration.wYmin)/2;
      dead=configuration.wYmax/10;
      if (current.dwYpos<(control-dead))
      {
-      directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
+      directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
      if (current.dwYpos>(control+dead))
      {
-      directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
+      directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
 
     }
@@ -1725,17 +1720,17 @@ namespace EUGENEGDK
    }
    if (stick==EUGENEGDK::GAMEPAD_RIGHT_STICK)
    {
-    if (this->get_sticks_amount()>1)
+    if (configuration.wNumAxes>3)
     {
      control=(configuration.wRmax-configuration.wRmin)/2;
      dead=configuration.wRmax/10;
      if (current.dwRpos<(control-dead))
      {
-      directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
+      directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
      }
      if (current.dwRpos>(control+dead))
      {
-      directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
+      directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
      }
 
     }
@@ -1762,6 +1757,16 @@ namespace EUGENEGDK
   EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_y() const
   {
    return this->get_stick_y(EUGENEGDK::GAMEPAD_RIGHT_STICK);
+  }
+
+  bool Gamepad::check_left_trigger() const
+  {
+   return current.dwZpos>(configuration.wZmax/2);
+  }
+
+  bool Gamepad::check_right_trigger() const
+  {
+   return current.dwZpos<(configuration.wZmax/2);
   }
 
   bool Gamepad::check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button) const

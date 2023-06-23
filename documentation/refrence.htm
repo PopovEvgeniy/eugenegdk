@@ -1122,6 +1122,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       &nbsp; <span style="font-style: italic;"> unsigned int y;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int width;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int height;</span><br
+
         style="font-style: italic;">
       <span style="font-style: italic;"> } BOX;</span><br>
       <br>
@@ -1823,11 +1824,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> unsigned int
         Gamepad::get_button_amount() const;</span> – Return amount of the
       game–pad buttons.<br>
-      <br style="font-style: italic;">
-      <span style="font-style: italic;">unsigned int
-        Gamepad::get_sticks_amount() const;</span> – Return amount of the
-      game–pad sticks.<br>
-      <br>
+      <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;"> void Gamepad::update();</span> – Update
       internal game–pad state. Always call it before call another methods.<br>
       <br>
@@ -1837,6 +1834,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DPAD
         Gamepad::get_dpad() const;</span> – Return code of current pressed or
       holding D–pad button.<br>
+      <br>
+      <span style="font-style: italic;">bool Gamepad::check_left_trigger()
+        const;</span> – Return true if the left trigger is press or holding.<br>
+      <br>
+      <span style="font-style: italic;">bool Gamepad::check_right_trigger()
+        const;</span> – Return true if the right trigger is press or holding.<br>
       <br>
       <span style="font-style: italic;"> bool Gamepad::check_hold(const
         EUGENEGDK::GAMEPAD_BUTTONS button) const;</span> – Return true if the
@@ -2309,8 +2312,7 @@ Multimedia API</a>. </big>
       6.5.9 – Small bug in game–pad subsystem fixed.<br>
       6.6 – Source code synced with Gray game development kit 2.2.7.<br>
       6.6.1 – Text drawing subsystem improved.<br>
-      6.6.2 – Simple sound subsystem back-ported from Neon game development kit
-      5.7.8.<br>
+      6.6.2 – Simple sound subsystem back-ported from Neon game development kit 5.7.8.<br>
       6.6.3 – Small bug in multimedia subsystem fixed.<br>
       6.6.4 – 6.6.6 – Small changes.<br>
       6.6.7 – Multimedia subsystem improved.<br>
@@ -2343,6 +2345,10 @@ Multimedia API</a>. </big>
       7.0 – Source code synced with Neon game development kit 6.3.6.<br>
       7.0.1 – Image resizer improved.<br>
       7.0.2 – Small changes.<br>
+      7.0.3 – Small bug fixed.<br>
+      7.0.4 – 7.0.5 – Game–pad support improved.<br>
+    </big>
     <p></p>
+    <big> </big>
   </body>
 </html>
