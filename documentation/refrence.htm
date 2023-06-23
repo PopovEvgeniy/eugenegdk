@@ -608,7 +608,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Load background </big><big>from target file</big><big>.<br>
       <br>
       <span style="font-style: italic;">void Background::load(</span></big><big
-
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load normal background from target file.<br>
       <br>
@@ -1122,7 +1121,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       &nbsp; <span style="font-style: italic;"> unsigned int y;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int width;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int height;</span><br
-
         style="font-style: italic;">
       <span style="font-style: italic;"> } BOX;</span><br>
       <br>
@@ -1824,6 +1822,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> unsigned int
         Gamepad::get_button_amount() const;</span> – Return amount of the
       game–pad buttons.<br>
+      <br>
+      <span style="font-style: italic;">unsigned int
+        Gamepad::get_stick_amount();</span> – Return amount of the game–pad
+      sticks.<br>
       <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;"> void Gamepad::update();</span> – Update
       internal game–pad state. Always call it before call another methods.<br>
@@ -1852,11 +1854,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> bool Gamepad::check_released(const
         EUGENEGDK::GAMEPAD_BUTTONS button) const;</span> – Return true if the
       button was release.<br>
-      <br>
-      <span style="font-style: italic;"> unsigned long int
-        Gamepad::get_sticks_amount();</span> – Return amount of the game–pad
-      sticks.<br>
-      <br>
+      <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
         Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick) const;</span>
       – Return x–direction of specific stick.<br>
@@ -2346,7 +2344,7 @@ Multimedia API</a>. </big>
       7.0.1 – Image resizer improved.<br>
       7.0.2 – Small changes.<br>
       7.0.3 – Small bug fixed.<br>
-      7.0.4 – 7.0.5 – Game–pad support improved.<br>
+      7.0.4 – 7.0.6 – Game–pad support improved.<br>
     </big>
     <p></p>
     <big> </big>
