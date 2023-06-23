@@ -418,7 +418,6 @@ typedef enum
   {
    private:
    Buffer<unsigned int> image;
-   unsigned int size_limit;
    unsigned int source_width;
    unsigned int source_height;
    unsigned int target_width;
@@ -431,10 +430,10 @@ typedef enum
    void load_image(const unsigned int *target);
    void scale_image(const unsigned int *target);
    void resize_image(const unsigned int *target);
-   void set_setting(const unsigned int width,const unsigned int height,const unsigned int limit);
+   void set_setting(const unsigned int width,const unsigned int height);
+   void correct_size(const unsigned int limit);
    void calculate_scale_ratio();
    void calculate_size();
-   void correct_size();
    void create_texture();
    public:
    Resizer();
