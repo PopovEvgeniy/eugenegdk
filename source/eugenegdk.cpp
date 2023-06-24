@@ -1767,16 +1767,6 @@ namespace EUGENEGDK
    return this->get_stick_y(EUGENEGDK::GAMEPAD_RIGHT_STICK);
   }
 
-  bool Gamepad::check_left_trigger() const
-  {
-   return current.dwZpos>(configuration.wZmax/2);
-  }
-
-  bool Gamepad::check_right_trigger() const
-  {
-   return current.dwZpos<(configuration.wZmax/2);
-  }
-
   bool Gamepad::check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button) const
   {
    return this->check_current_state(button);
