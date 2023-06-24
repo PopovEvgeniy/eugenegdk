@@ -337,6 +337,9 @@ typedef enum
 
  double get_start_offset(const double current,const double total);
  double get_end_offset(const double current,const double total);
+ EUGENEGDK::GAMEPAD_DIRECTION get_horizontal_direction(const unsigned int current,const unsigned int maximum,const unsigned int minimum);
+ EUGENEGDK::GAMEPAD_DIRECTION get_inverted_direction(const EUGENEGDK::GAMEPAD_DIRECTION target);
+ EUGENEGDK::GAMEPAD_DIRECTION get_vertical_direction(const unsigned int current,const unsigned int maximum,const unsigned int minimum);
 
  template <class DATA_TYPE>
  class Buffer
@@ -621,8 +624,8 @@ typedef enum
    JOYCAPS configuration;
    unsigned int active;
    void clear_state();
-   bool check_current_state(const unsigned long int button) const;
-   bool check_preversion_state(const unsigned long int button) const;
+   bool check_current_state(const EUGENEGDK::GAMEPAD_BUTTONS button) const;
+   bool check_preversion_state(const EUGENEGDK::GAMEPAD_BUTTONS button) const;
    public:
    Gamepad();
    ~Gamepad();
@@ -632,12 +635,12 @@ typedef enum
    unsigned int get_stick_amount();
    void set_active(const unsigned int gamepad);
    EUGENEGDK::GAMEPAD_DPAD get_dpad() const;
-   EUGENEGDK::GAMEPAD_DIRECTION get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick) const;
-   EUGENEGDK::GAMEPAD_DIRECTION get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick) const;
-   EUGENEGDK::GAMEPAD_DIRECTION get_left_stick_x() const;
-   EUGENEGDK::GAMEPAD_DIRECTION get_left_stick_y() const;
-   EUGENEGDK::GAMEPAD_DIRECTION get_right_stick_x() const;
-   EUGENEGDK::GAMEPAD_DIRECTION get_right_stick_y() const;
+   EUGENEGDK::GAMEPAD_DIRECTION get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick);
+   EUGENEGDK::GAMEPAD_DIRECTION get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick);
+   EUGENEGDK::GAMEPAD_DIRECTION get_left_stick_x();
+   EUGENEGDK::GAMEPAD_DIRECTION get_left_stick_y();
+   EUGENEGDK::GAMEPAD_DIRECTION get_right_stick_x();
+   EUGENEGDK::GAMEPAD_DIRECTION get_right_stick_y();
    bool check_left_trigger() const;
    bool check_right_trigger() const;
    bool check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button) const;

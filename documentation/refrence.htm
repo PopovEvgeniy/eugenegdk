@@ -608,6 +608,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Load background </big><big>from target file</big><big>.<br>
       <br>
       <span style="font-style: italic;">void Background::load(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load normal background from target file.<br>
       <br>
@@ -1121,6 +1122,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       &nbsp; <span style="font-style: italic;"> unsigned int y;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int width;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int height;</span><br
+
         style="font-style: italic;">
       <span style="font-style: italic;"> } BOX;</span><br>
       <br>
@@ -1856,27 +1858,25 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       button was release.<br>
       <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-        Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick) const;</span>
-      – Return x–direction of specific stick.<br>
+        Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick);</span> –
+      Return x–direction of specific stick.<br>
       <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-        Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick) const;</span>
-      – Return y–direction of specific stick.<br>
+        Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick);</span> –
+      Return y–direction of specific stick.<br>
       <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-        Gamepad::get_left_stick_x() const;</span> – Return x–direction of left
+        Gamepad::get_left_stick_x();</span> – Return x–direction of left stick.<br>
+      <br>
+      <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
+        Gamepad::get_left_stick_y();</span> – Return y–direction of left stick.<br>
+      <br>
+      <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
+        Gamepad::get_right_stick_x();</span> – Return x–direction of right
       stick.<br>
       <br>
       <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-        Gamepad::get_left_stick_y() const;</span> – Return y–direction of left
-      stick.<br>
-      <br>
-      <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-        Gamepad::get_right_stick_x() const;</span> – Return x–direction of right
-      stick.<br>
-      <br>
-      <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-        Gamepad::get_right_stick_y() const;</span> – Return y–direction of right
+        Gamepad::get_right_stick_y();</span> – Return y–direction of right
       stick.<br>
     </big>
     <h1><a name="mozTocId309127" class="mozTocH1"></a><big>Part 9. Internal
@@ -1912,7 +1912,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;"> Core classes</span><br>
       <br>
-      All engine core classes declared in <span style="font-style: italic;">Core</span>
+      All engine core classes and functions declared in <span style="font-style: italic;">Core</span>
       sub–namespace.<br>
       <br>
     </big> <big><span style="font-style: italic;"> FPS</span> implement fps
@@ -2345,6 +2345,8 @@ Multimedia API</a>. </big>
       7.0.2 – Small changes.<br>
       7.0.3 – Small bug fixed.<br>
       7.0.4 – 7.0.6 – Game–pad support improved.<br>
+      7.0.7 – Small changes.<br>
+      7.0.8 – 7.0.9 – Game–pad support improved.<br>
     </big>
     <p></p>
     <big> </big>

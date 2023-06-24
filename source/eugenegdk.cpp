@@ -511,6 +511,47 @@ namespace EUGENEGDK
    return (1.0/total)*current;
   }
 
+  EUGENEGDK::GAMEPAD_DIRECTION get_horizontal_direction(const unsigned int current,const unsigned int maximum,const unsigned int minimum)
+  {
+   EUGENEGDK::GAMEPAD_DIRECTION directional;
+   unsigned int center,dead;
+   directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
+   center=(maximum-minimum)/2;
+   dead=maximum/10;
+   if (current>(center+dead))
+   {
+    directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
+   }
+   if (current<(center-dead))
+   {
+    directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
+   }
+   return directional;
+  }
+
+ EUGENEGDK::GAMEPAD_DIRECTION get_inverted_direction(const EUGENEGDK::GAMEPAD_DIRECTION target)
+ {
+  EUGENEGDK::GAMEPAD_DIRECTION directional;
+  switch (target)
+  {
+   case EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION:
+   directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
+   break;
+   case EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION:
+   directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
+   break;
+   default:
+   directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
+   break;
+  }
+  return directional;
+ }
+
+ EUGENEGDK::GAMEPAD_DIRECTION get_vertical_direction(const unsigned int current,const unsigned int maximum,const unsigned int minimum)
+ {
+  return Core::get_inverted_direction(Core::get_horizontal_direction(current,maximum,minimum));
+ }
+
   Unicode_Convertor::Unicode_Convertor()
   {
    target.set_length(0);
@@ -1570,12 +1611,12 @@ namespace EUGENEGDK
    preversion=current;
   }
 
-  bool Gamepad::check_current_state(const unsigned long int button) const
+  bool Gamepad::check_current_state(const EUGENEGDK::GAMEPAD_BUTTONS button) const
   {
    return (current.dwButtons&button)!=0;
   }
 
-  bool Gamepad::check_preversion_state(const unsigned long int button) const
+  bool Gamepad::check_preversion_state(const EUGENEGDK::GAMEPAD_BUTTONS button) const
   {
    return (preversion.dwButtons&button)!=0;
   }
@@ -1660,110 +1701,68 @@ namespace EUGENEGDK
    return dpad;
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick) const
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick)
   {
    EUGENEGDK::GAMEPAD_DIRECTION directional;
-   unsigned int control,dead;
    directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
-    if (configuration.wNumAxes>1)
+    if (this->get_stick_amount()>0)
     {
-     control=(configuration.wXmax-configuration.wXmin)/2;
-     dead=configuration.wXmax/10;
-     if (current.dwXpos<(control-dead))
-     {
-      directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
-     }
-     if (current.dwXpos>(control+dead))
-     {
-      directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
-     }
-
+     directional=Core::get_horizontal_direction(current.dwXpos,configuration.wXmax,configuration.wXmin);
     }
 
    }
-   if (stick==EUGENEGDK::GAMEPAD_RIGHT_STICK)
+   else
    {
-    if (configuration.wNumAxes>3)
+    if (this->get_stick_amount()>1)
     {
-     control=(configuration.wUmax-configuration.wUmin)/2;
-     dead=configuration.wUmax/10;
-     if (current.dwUpos<(control-dead))
-     {
-      directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
-     }
-     if (current.dwUpos>(control+dead))
-     {
-      directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
-     }
-
+     directional=Core::get_horizontal_direction(current.dwUpos,configuration.wUmax,configuration.wUmin);
     }
 
    }
    return directional;
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick) const
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick)
   {
    EUGENEGDK::GAMEPAD_DIRECTION directional;
-   unsigned int control,dead;
    directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
-    if (configuration.wNumAxes>1)
+    if (this->get_stick_amount()>0)
     {
-     control=(configuration.wYmax-configuration.wYmin)/2;
-     dead=configuration.wYmax/10;
-     if (current.dwYpos<(control-dead))
-     {
-      directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
-     }
-     if (current.dwYpos>(control+dead))
-     {
-      directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
-     }
-
+     directional=Core::get_vertical_direction(current.dwYpos,configuration.wYmax,configuration.wYmin);
     }
 
    }
-   if (stick==EUGENEGDK::GAMEPAD_RIGHT_STICK)
+   else
    {
-    if (configuration.wNumAxes>3)
+    if (this->get_stick_amount()>1)
     {
-     control=(configuration.wRmax-configuration.wRmin)/2;
-     dead=configuration.wRmax/10;
-     if (current.dwRpos<(control-dead))
-     {
-      directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
-     }
-     if (current.dwRpos>(control+dead))
-     {
-      directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
-     }
-
+     directional=Core::get_vertical_direction(current.dwRpos,configuration.wRmax,configuration.wRmin);
     }
 
    }
    return directional;
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_x() const
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_x()
   {
    return this->get_stick_x(EUGENEGDK::GAMEPAD_LEFT_STICK);
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_y() const
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_y()
   {
    return this->get_stick_y(EUGENEGDK::GAMEPAD_LEFT_STICK);
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_x() const
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_x()
   {
    return this->get_stick_x(EUGENEGDK::GAMEPAD_RIGHT_STICK);
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_y() const
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_y()
   {
    return this->get_stick_y(EUGENEGDK::GAMEPAD_RIGHT_STICK);
   }
