@@ -12,5 +12,5 @@ F4 - Do both horizontal and vertical background mirror
 
 Controls for gamepad
 
-D-pad or left stick - Move
+D-pad or right stick - Move
 X - Exit from demo

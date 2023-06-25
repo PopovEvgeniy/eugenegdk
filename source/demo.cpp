@@ -108,19 +108,19 @@ int main()
    ;
    break;
   }
-  if (gamepad.get_stick_x(EUGENEGDK::GAMEPAD_LEFT_STICK)==EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION)
+  if (gamepad.get_stick_x(EUGENEGDK::GAMEPAD_RIGHT_STICK)==EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION)
   {
    ship.decrease_x();
   }
-  if (gamepad.get_stick_x(EUGENEGDK::GAMEPAD_LEFT_STICK)==EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION)
+  if (gamepad.get_stick_x(EUGENEGDK::GAMEPAD_RIGHT_STICK)==EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION)
   {
    ship.increase_x();
   }
-  if (gamepad.get_stick_y(EUGENEGDK::GAMEPAD_LEFT_STICK)==EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION)
+  if (gamepad.get_stick_y(EUGENEGDK::GAMEPAD_RIGHT_STICK)==EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION)
   {
    ship.decrease_y();
   }
-  if (gamepad.get_stick_y(EUGENEGDK::GAMEPAD_LEFT_STICK)==EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION)
+  if (gamepad.get_stick_y(EUGENEGDK::GAMEPAD_RIGHT_STICK)==EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION)
   {
    ship.increase_y();
   }

@@ -626,6 +626,8 @@ typedef enum
    void clear_state();
    bool check_current_state(const EUGENEGDK::GAMEPAD_BUTTONS button) const;
    bool check_preversion_state(const EUGENEGDK::GAMEPAD_BUTTONS button) const;
+   EUGENEGDK::GAMEPAD_DIRECTION get_right_stick_horizontal_directional() const;
+   EUGENEGDK::GAMEPAD_DIRECTION get_right_stick_vertical_directional() const;
    public:
    Gamepad();
    ~Gamepad();
