@@ -1625,7 +1625,7 @@ namespace EUGENEGDK
   {
    EUGENEGDK::GAMEPAD_DIRECTION directional;
    directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
-   if (configuration.wMid==1356)
+   if ((configuration.wMid==1356)||(configuration.wMid==2064))
    {
     directional=Core::get_horizontal_direction(current.dwZpos,configuration.wZmax,configuration.wZmin); // Playstation gamepad
    }
