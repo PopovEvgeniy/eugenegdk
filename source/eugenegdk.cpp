@@ -1683,13 +1683,9 @@ namespace EUGENEGDK
    return configuration.wNumButtons;
   }
 
-  unsigned int Gamepad::get_stick_amount()
+  unsigned int Gamepad::get_stick_amount() const
   {
-   if (configuration.wNumAxes==0)
-   {
-    configuration.wNumAxes=1;
-   }
-   return configuration.wNumAxes/2;
+   return (configuration.wNumAxes==0) ? 0:(configuration.wNumAxes/2);
   }
 
   void Gamepad::set_active(const unsigned int gamepad)
@@ -1739,7 +1735,7 @@ namespace EUGENEGDK
    return dpad;
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick)
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick) const
   {
    EUGENEGDK::GAMEPAD_DIRECTION directional;
    directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
@@ -1762,7 +1758,7 @@ namespace EUGENEGDK
    return directional;
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick)
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick) const
   {
    EUGENEGDK::GAMEPAD_DIRECTION directional;
    directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
@@ -1785,22 +1781,22 @@ namespace EUGENEGDK
    return directional;
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_x()
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_x() const
   {
    return this->get_stick_x(EUGENEGDK::GAMEPAD_LEFT_STICK);
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_y()
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_y() const
   {
    return this->get_stick_y(EUGENEGDK::GAMEPAD_LEFT_STICK);
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_x()
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_x() const
   {
    return this->get_stick_x(EUGENEGDK::GAMEPAD_RIGHT_STICK);
   }
 
-  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_y()
+  EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_y() const
   {
    return this->get_stick_y(EUGENEGDK::GAMEPAD_RIGHT_STICK);
   }
