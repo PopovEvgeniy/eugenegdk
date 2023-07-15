@@ -608,7 +608,7 @@ namespace EUGENEGDK
    source_x=0;
    if (target_x>0)
    {
-    source_x=(target_x*x_ratio)/UCHAR_MAX;
+    source_x=(target_x*x_ratio)/USHRT_MAX;
    }
    return source_x;
   }
@@ -619,7 +619,7 @@ namespace EUGENEGDK
    source_y=0;
    if (target_y>0)
    {
-    source_y=(target_y*y_ratio)/UCHAR_MAX;
+    source_y=(target_y*y_ratio)/USHRT_MAX;
    }
    return source_y;
   }
@@ -688,8 +688,8 @@ namespace EUGENEGDK
 
   void Resizer::calculate_scale_ratio()
   {
-   x_ratio=(source_width*UCHAR_MAX)/target_width;
-   y_ratio=(source_height*UCHAR_MAX)/target_height;
+   x_ratio=(source_width*USHRT_MAX)/target_width+1;
+   y_ratio=(source_height*USHRT_MAX)/target_height+1;
   }
 
   void Resizer::calculate_size()
