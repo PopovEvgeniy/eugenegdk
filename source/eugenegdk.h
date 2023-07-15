@@ -425,12 +425,17 @@ typedef enum
    unsigned int source_height;
    unsigned int target_width;
    unsigned int target_height;
+   unsigned int x_ratio;
+   unsigned int y_ratio;
    size_t get_source_offset(const unsigned int x,const unsigned int y) const;
+   unsigned int get_source_x(const unsigned int target_x) const;
+   unsigned int get_source_y(const unsigned int target_y) const;
    void load_image(const unsigned int *target);
    void scale_image(const unsigned int *target);
    void resize_image(const unsigned int *target);
    void set_setting(const unsigned int width,const unsigned int height);
    void correct_size(const unsigned int limit);
+   void calculate_scale_ratio();
    void calculate_size();
    void create_texture();
    public:
