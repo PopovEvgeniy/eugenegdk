@@ -565,7 +565,8 @@ namespace EUGENEGDK
   void Unicode_Convertor::convert_string(const char *source)
   {
    size_t index;
-   for (index=0;index<target.get_length();++index)
+   target[0]=std::btowc(source[0]);
+   for (index=target.get_length()-1;index>0;--index)
    {
     target[index]=std::btowc(source[index]);
    }
