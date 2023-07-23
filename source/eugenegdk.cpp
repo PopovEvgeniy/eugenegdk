@@ -623,18 +623,7 @@ namespace EUGENEGDK
    return source_y;
   }
 
-  void Resizer::load_image(const unsigned int *target)
-  {
-   size_t index;
-   image[0]=target[0];
-   for (index=image.get_length()-1;index>0;--index)
-   {
-    image[index]=target[index];
-   }
-
-  }
-
-  void Resizer::scale_image(const unsigned int *target)
+  void Resizer::resize_image(const unsigned int *target)
   {
    size_t index;
    unsigned int x,y;
@@ -650,19 +639,6 @@ namespace EUGENEGDK
      ++y;
     }
 
-   }
-
-  }
-
-  void Resizer::resize_image(const unsigned int *target)
-  {
-   if ((source_width==target_width) && (source_height==target_height))
-   {
-    this->load_image(target);
-   }
-   else
-   {
-    this->scale_image(target);
    }
 
   }
