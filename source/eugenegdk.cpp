@@ -601,37 +601,16 @@ namespace EUGENEGDK
    return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(source_width);
   }
 
-  unsigned int Resizer::get_source_x(const unsigned int target_x) const
+  void Resizer::scale_image(const unsigned int *target)
   {
-   unsigned int source_x;
-   source_x=0;
-   if (target_x>0)
-   {
-    source_x=(target_x*source_width)/target_width;
-   }
-   return source_x;
-  }
-
-  unsigned int Resizer::get_source_y(const unsigned int target_y) const
-  {
-   unsigned int source_y;
-   source_y=0;
-   if (target_y>0)
-   {
-    source_y=(target_y*source_height)/target_height;
-   }
-   return source_y;
-  }
-
-  void Resizer::resize_image(const unsigned int *target)
-  {
-   size_t index;
+   size_t index,length;
    unsigned int x,y;
    x=0;
    y=0;
-   for (index=0;index<image.get_length();++index)
+   length=image.get_length();
+   for (index=0;index<length;++index)
    {
-    image[index]=target[this->get_source_offset(this->get_source_x(x),this->get_source_y(y))];
+    image[index]=target[this->get_source_offset((x*source_width+1)/target_width,(y*source_height+1)/target_height)];
     ++x;
     if (x==target_width)
     {
@@ -639,6 +618,30 @@ namespace EUGENEGDK
      ++y;
     }
 
+   }
+
+  }
+
+  void Resizer::load_image(const unsigned int *target)
+  {
+   size_t index;
+   image[0]=target[0];
+   for (index=image.get_length()-1;index>0;--index)
+   {
+    image[index]=target[index];
+   }
+
+  }
+
+  void Resizer::resize_image(const unsigned int *target)
+  {
+   if ((source_width==target_width) && (source_height==target_height))
+   {
+    this->load_image(target);
+   }
+   else
+   {
+    this->scale_image(target);
    }
 
   }
