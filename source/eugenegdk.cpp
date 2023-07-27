@@ -603,19 +603,15 @@ namespace EUGENEGDK
 
   void Resizer::scale_image(const unsigned int *target)
   {
-   size_t index,length;
+   size_t index;
    unsigned int x,y;
-   x=0;
-   y=0;
-   length=image.get_length();
-   for (index=0;index<length;++index)
+   index=0;
+   for (y=0;y<target_height;++y)
    {
-    image[index]=target[this->get_source_offset((x*source_width+1)/target_width,(y*source_height+1)/target_height)];
-    ++x;
-    if (x==target_width)
+    for (x=0;x<target_width;++x)
     {
-     x=0;
-     ++y;
+     image[index]=target[this->get_source_offset((x*source_width+1)/target_width,(y*source_height+1)/target_height)];
+     ++index;
     }
 
    }
