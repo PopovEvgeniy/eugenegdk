@@ -997,6 +997,8 @@ namespace EUGENEGDK
    glDisable(GL_POLYGON_STIPPLE);
    glDisable(GL_DITHER);
    glDisable(GL_LOGIC_OP);
+   glDisable(GL_INDEX_LOGIC_OP);
+   glDisable(GL_COLOR_LOGIC_OP);
    glDisable(GL_FOG);
    glDisable(GL_STENCIL_TEST);
    glDisable(GL_SCISSOR_TEST);
