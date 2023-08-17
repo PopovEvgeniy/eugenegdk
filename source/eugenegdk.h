@@ -902,6 +902,7 @@ typedef enum
    void set_target(const unsigned int target);
    void step();
    void draw();
+   void draw(const unsigned int target);
    void destroy_image();
    void destroy();
    unsigned int get_frame() const;
