@@ -55,6 +55,7 @@
           <li><a href="#mozTocId853711">Chapter 2. Abnormal program termination</a></li>
           <li><a href="#mozTocId656377">Chapter 3. Timer</a></li>
           <li><a href="#mozTocId381935">Chapter 4. Collision</a></li>
+          <li><a href="#mozTocId429738">Chapter 5. Tile–map</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId611237">Part 5. Other important things</a>
@@ -280,7 +281,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         specific notes</big></h2>
     <big><span style="text-decoration: underline;"> Old processor support</span><br>
       <br>
-      need one of follow compilers need for old processors support:<br>
+      You need one of follow compilers need for old processors support:<br>
       <br>
     </big>
     <ul>
@@ -318,7 +319,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       optimization.<br>
       <br>
       <span style="text-decoration: underline;"> Note for Visual C++ users</span><br
-
         style="text-decoration: underline;">
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
@@ -609,6 +609,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Load background </big><big>from target file</big><big>.<br>
       <br>
       <span style="font-style: italic;">void Background::load(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load normal background from target file.<br>
       <br>
@@ -848,9 +849,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <img src="sheet.png"><br>
       <br>
-      <span style="text-decoration: underline;"> Row and column</span><br>
+      <span style="text-decoration: underline;"> Rows and columns</span><br>
       <br>
-      First row is 1. First column is 1.<br>
+      First row index is 1. First column index is 1.<br>
     </big><big><br>
     </big><big><span style="text-decoration: underline;"> Work with sprite sheet
         subsystem</span><br>
@@ -1147,6 +1148,70 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         &amp;second_target);</span> – Set collision targets and check collision
       between it.<br>
     </big>
+    <h2><a class="mozTocH2" name="mozTocId429738"></a><big>Chapter 5. Tile</big><big>–</big><big>map</big></h2>
+    <big><span style="text-decoration: underline;">A few words about tile-map</span><br>
+      <br>
+      The tile</big><big>–</big><big>map is tile matrix. A tile is a small non</big><big>–</big><big>transparent
+      sprite. A tile</big><big>–</big><big>map is very useful thing for level
+      background.<br>
+      <br>
+      <span style="text-decoration: underline;">Rows and columns</span><br>
+      <br>
+      First row index is 0. First column index is 0.<br>
+      <br>
+      <span style="text-decoration: underline;">Work with tile-map</span><br>
+      <br>
+      <span style="font-style: italic;">Tilemap</span> class provide easy access
+      to the tile</big><big>–</big><big>map. It is a simple class with few
+      methods. Let's look at public methods.<br>
+      <br>
+      <span style="font-style: italic;">void Tilemap::initialize(const unsigned
+        int tile_width,const unsigned int tile_height);</span> – Initialize the
+      subsystem.<br>
+      <br>
+    </big><big style="font-style: italic;">unsigned int</big><big><span style="font-style: italic;">
+        Tilemap::get_tile_width() const;</span> – Return the tile width in
+      pixels.<br>
+      <br>
+    </big><big style="font-style: italic;">unsigned int</big><big><span style="font-style: italic;">
+        Tilemap::get_tile_height() const;</span> – Return the tile height in
+      pixels.<br>
+      <br>
+    </big><big style="font-style: italic;">unsigned int</big><big style="font-style: italic;">
+      Tilemap::get_x(const </big><big style="font-style: italic;">unsigned int
+      row</big><big><span style="font-style: italic;">) const;</span> – Get
+      x-coordinate from target row.<br>
+      <br>
+    </big><big style="font-style: italic;">unsigned int</big><big style="font-style: italic;">
+      Tilemap::get_y(const </big><big style="font-style: italic;">unsigned int
+      column</big><big><span style="font-style: italic;">) const;</span> – Get
+      y-coordinate from target column.<br>
+      <br>
+    </big><big style="font-style: italic;">unsigned int</big><big style="font-style: italic;">
+      Tilemap::get_row(const </big><big style="font-style: italic;">unsigned
+      int x</big><big><span style="font-style: italic;">) const;</span> – Get
+      the row from x-coordinate.<br>
+      <br>
+    </big><big style="font-style: italic;">unsigned int</big><big style="font-style: italic;">
+      Tilemap::get_column(const </big><big style="font-style: italic;">unsigned
+      int y</big><big><span style="font-style: italic;">) const;</span> – Get
+      the column from y-coordinate.<br>
+      <br>
+    </big><big style="font-style: italic;">unsigned int</big><big style="font-style: italic;">
+      Tilemap::get_row_amount(const </big><big style="font-style: italic;">unsigned
+      int viewport_width</big><big><span style="font-style: italic;">) const;</span>
+      – Get amount of maximum visible rows.<br>
+      <br>
+    </big><big style="font-style: italic;">unsigned int</big><big style="font-style: italic;">
+      Tilemap::get_column_amount(const </big><big style="font-style: italic;">unsigned
+      int viewport_width</big><big><span style="font-style: italic;">) const;</span>
+      – Get amount of maximum visible columns.<br>
+      <br>
+      <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big
+      style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
+      int row,const unsigned int column</big><big><span style="font-style: italic;">)
+        const;</span> – Return collision related information.<br>
+    </big>
     <h1><a name="mozTocId611237" class="mozTocH1"></a><big>Part 5. Other
         important things</big></h1>
     <h2><a name="mozTocId648026" class="mozTocH2"></a><big>Chapter 1. The
@@ -1245,10 +1310,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Exit from your program and return user to operating system.<br>
       <br>
       <span style="font-style: italic;">bool enable_logging(const char *name); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Enable redirecting error messages to
       a log file and return false if the operation failed.<br>
       <br>
       <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Initialize random number generator.<br>
       <br>
       <span style="font-style: italic;">unsigned int get_random(const int
@@ -2357,6 +2424,9 @@ Multimedia API</a>. </big>
       7.3.5 – Small changes.<br>
       7.3.6 – Source code synced with Simple windows game framework 7.3.5.<br>
       7.3.7 – Image resizer improved.<br>
+      7.3.8 – 7.4 – Experemental branch.<br>
+      7.4.1 – New subsystem added.<br>
+      7.4.2 – 7.4.4 – Tile–map subsystem improved.<br>
     </big>
     <p></p>
     <big> </big>

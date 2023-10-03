@@ -16,6 +16,7 @@ Features
  Animated and static sprites.
  Scrollable and static backgrounds.
  Sprite-sheets.
+ Tile-maps.
  Image transformation: resizing and mirroring.
  Image loader with TGA support.
  Text drawing subsystem.
