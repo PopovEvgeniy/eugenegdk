@@ -979,6 +979,26 @@ typedef enum
    bool check_collision(const EUGENEGDK::BOX &first_target,const EUGENEGDK::BOX &second_target);
   };
 
+  class Tilemap
+  {
+   private:
+   unsigned int cell_width;
+   unsigned int cell_height;
+   public:
+   Tilemap();
+   ~Tilemap();
+   void initialize(const unsigned int tile_width,const unsigned int tile_height);
+   unsigned int get_tile_width() const;
+   unsigned int get_tile_height() const;
+   unsigned int get_x(const unsigned int row) const;
+   unsigned int get_y(const unsigned int column) const;
+   unsigned int get_row(const unsigned int x) const;
+   unsigned int get_column(const unsigned int y) const;
+   unsigned int get_row_amount(const unsigned int viewport_width) const;
+   unsigned int get_column_amount(const unsigned int viewport_height) const;
+   EUGENEGDK::BOX get_box(const unsigned int row,const unsigned int column) const;
+  };
+
  }
 
  namespace Filesystem

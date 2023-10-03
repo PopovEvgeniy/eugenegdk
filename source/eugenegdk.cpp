@@ -3378,6 +3378,132 @@ namespace EUGENEGDK
    return this->check_collision();
   }
 
+  Tilemap::Tilemap()
+  {
+   cell_width=1;
+   cell_height=1;
+  }
+
+  Tilemap::~Tilemap()
+  {
+
+  }
+
+  void Tilemap::initialize(const unsigned int tile_width,const unsigned int tile_height)
+  {
+   if (tile_width>0)
+   {
+    cell_width=tile_width;
+   }
+   if (tile_height>0)
+   {
+    cell_height=tile_height;
+   }
+
+  }
+
+  unsigned int Tilemap::get_tile_width() const
+  {
+   return cell_width;
+  }
+
+  unsigned int Tilemap::get_tile_height() const
+  {
+   return cell_height;
+  }
+
+  unsigned int Tilemap::get_x(const unsigned int row) const
+  {
+   return row*cell_width;
+  }
+
+  unsigned int Tilemap::get_y(const unsigned int column) const
+  {
+   return column*cell_height;
+  }
+
+  unsigned int Tilemap::get_row(const unsigned int x) const
+  {
+   unsigned int row;
+   row=0;
+   if (x>cell_width)
+   {
+    row=x/cell_width;
+    if ((x%cell_width)==0)
+    {
+     --row;
+    }
+    else
+    {
+     ++row;
+    }
+
+   }
+   return row;
+  }
+
+  unsigned int Tilemap::get_column(const unsigned int y) const
+  {
+   unsigned int column;
+   column=0;
+   if (y>cell_height)
+   {
+    column=y/cell_height;
+    if ((y%cell_height)==0)
+    {
+     --column;
+    }
+    else
+    {
+     ++column;
+    }
+
+   }
+   return column;
+  }
+
+  unsigned int Tilemap::get_row_amount(const unsigned int viewport_width) const
+  {
+   unsigned int amount;
+   amount=0;
+   if (viewport_width>0)
+   {
+    amount=viewport_width/cell_width;
+    if ((viewport_width%cell_width)!=0)
+    {
+     ++amount;
+    }
+
+   }
+   return amount;
+  }
+
+  unsigned int Tilemap::get_column_amount(const unsigned int viewport_height) const
+  {
+   unsigned int amount;
+   amount=0;
+   if (viewport_height>0)
+   {
+    amount=viewport_height/cell_height;
+    if ((viewport_height%cell_height)!=0)
+    {
+     ++amount;
+    }
+
+   }
+   return amount;
+  }
+
+  EUGENEGDK::BOX Tilemap::get_box(const unsigned int row,const unsigned int column) const
+  {
+   EUGENEGDK::BOX collision;
+   collision.x=this->get_x(row);
+   collision.y=this->get_y(column);
+   collision.width=cell_width;
+   collision.height=cell_height;
+   return collision;
+  }
+
  }
 
  namespace Filesystem
