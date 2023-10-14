@@ -964,6 +964,26 @@ typedef enum
 
  }
 
+ namespace Transformation
+ {
+
+  class Coordinates
+  {
+   private:
+   int half_viewport_width;
+   int half_viewport_height;
+   public:
+   Coordinates();
+   ~Coordinates();
+   void initialize(const int viewport_width,const int viewport_height);
+   int get_cartesian_x(const int x) const;
+   int get_cartesian_y(const int y) const;
+   int get_screen_x(const int x) const;
+   int get_screen_y(const int y) const;
+  };
+
+ }
+
  namespace Common
  {
 
