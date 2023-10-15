@@ -871,12 +871,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       public methods.<br>
       <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -1076,7 +1074,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="text-decoration: underline;"> Important remark</span><br>
       <br>
-      A new will image replace current image if current image already exist.
+      A new image will replace current image if current image already exist.
       Incorrect images will ignore and don't load.<br>
       <br>
       <span style="text-decoration: underline;"> Supported format</span><br>
@@ -1094,8 +1092,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big></big>
     <h2><a id="mozTocId833933" class="mozTocH2"></a><big>Chapter 1. The
         sub–namespace</big></h2>
-    <big>
-      All subsystems in this section declared in <span style="font-style: italic;">Transformation</span>
+    <big> All subsystems in this section declared in <span style="font-style: italic;">Transformation</span>
       sub–namespace.<br>
     </big>
     <h2><a id="mozTocId468222" class="mozTocH2"></a><big>Chapter 2. Cartesian
@@ -1107,18 +1104,34 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <img style="width: 107px; height: 111px;" alt="" src="cartesian_system.png"><br>
       <br style="text-decoration: underline;">
-      <span style="text-decoration: underline;">Convert cartesian coordinates to
-        screen coordinates and convert screen coordinates to cartsian
-        coordinates.</span><br>
+      <span style="text-decoration: underline;">Cartesian coordinates to screen
+        coordinates conversion and convert screen coordinates to cartsian
+        coordinates conversion</span><br>
       <br>
       You can convert cartesian coordinates to screen coordinates. You can also
       convert screen coordinates to cartesian coordinates.<br>
-      Just use <span style="font-style: italic;">Coordinates</span> for doing
-      it. Let's look at public methods.<br>
+      Just use <span style="font-style: italic;">Coordinates</span> class for
+      doing it. Let's look at public methods.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;">void Coordinates::initialize(const int
         viewport_width,const int viewport_height);</span> – Initialize the
       subsystem.<br>
+      <br>
+      <span style="font-style: italic;">int
+        Coordinates::get_lowest_cartesian_x() const;</span> – Return lowest
+      allowable cartesian x-coordinate.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">int
+        Coordinates::get_highest_cartesian_x() const;</span> – Return highest
+      allowable cartesian x-coordinate.<br>
+      <br>
+      <span style="font-style: italic;">int
+        Coordinates::get_lowest_cartesian_y() const;</span> – Return lowest
+      allowable cartesian y-coordinate.<br>
+      <br>
+      <span style="font-style: italic;">int
+        Coordinates::get_highest_cartesian_y() const;</span> – Return highest
+      allowable cartesian y-coordinate.<br>
       <br>
       <span style="font-style: italic;">int Coordinates::get_screen_x(const int
         x) const;</span> – Convert cartesian x-coordinate to screen
@@ -1182,6 +1195,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       &nbsp; <span style="font-style: italic;"> unsigned int y;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int width;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int height;</span><br
+
         style="font-style: italic;">
       <span style="font-style: italic;"> } BOX;</span><br>
       <br>
@@ -2484,9 +2498,10 @@ Multimedia API</a>. </big>
       7.4.5 – Image resizer back-ported from Eugene game development kit 7.3.5.<br>
       7.4.6 – Image resizer back-ported from Eugene game development kit 7.3.6.<br>
       7.4.7 – 7.5 – Image resizer improved.<br>
-      7.5 – New subsystem added.<br>
-      7.5.1 – Small changes.<br>
-      7.5.2 – Small bug fixed.<br>
+      7.5.1 – New subsystem added.<br>
+      7.5.2 – Small changes.<br>
+      7.5.3 – Small bug fixed.<br>
+      7.5.4 – Coordinates conversion subsystem improved.<br>
     </big>
     <p></p>
     <big> </big>

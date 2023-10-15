@@ -3406,6 +3406,26 @@ namespace EUGENEGDK
 
   }
 
+  int Coordinates::get_lowest_cartesian_x() const
+  {
+   return -1*half_viewport_width;
+  }
+
+  int Coordinates::get_highest_cartesian_x() const
+  {
+   return half_viewport_width;
+  }
+
+  int Coordinates::get_lowest_cartesian_y() const
+  {
+   return -1*half_viewport_height;
+  }
+
+  int Coordinates::get_highest_cartesian_y() const
+  {
+   return half_viewport_height;
+  }
+
   int Coordinates::get_cartesian_x(const int x) const
   {
    return (x<0) ? 0:(x-half_viewport_width);
