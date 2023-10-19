@@ -986,6 +986,17 @@ typedef enum
    int get_screen_y(const int y) const;
   };
 
+  class Isometric
+  {
+   public:
+   Isometric();
+   ~Isometric();
+   int get_cartesian_x(const int x,const int y);
+   int get_cartesian_y(const int x,const int y);
+   int get_isometric_x(const int x,const int y);
+   int get_isometric_y(const int x,const int y);
+  };
+
  }
 
  namespace Common

@@ -3446,6 +3446,53 @@ namespace EUGENEGDK
    return half_viewport_height-y;
   }
 
+  Isometric::Isometric()
+  {
+
+  }
+
+  Isometric::~Isometric()
+  {
+
+  }
+
+  int Isometric::get_cartesian_x(const int x,const int y)
+  {
+   int cartesian_x;
+   cartesian_x=0;
+   if ((x!=0)||(y!=0))
+   {
+    cartesian_x=(2*y+x)/2;
+   }
+   return cartesian_x;
+  }
+
+  int Isometric::get_cartesian_y(const int x,const int y)
+  {
+    int cartesian_y;
+   cartesian_y=0;
+   if ((x!=0)||(y!=0))
+   {
+    cartesian_y=(2*y-x)/2;
+   }
+   return cartesian_y;
+  }
+
+  int Isometric::get_isometric_x(const int x,const int y)
+  {
+   return x-y;
+  }
+
+  int Isometric::get_isometric_y(const int x,const int y)
+  {
+   int isometric_y=0;
+   if ((x!=0)||(y!=0))
+   {
+    isometric_y=(x+y)/2;
+   }
+   return isometric_y;
+  }
+
  }
 
  namespace Common
