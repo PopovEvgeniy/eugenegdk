@@ -1134,12 +1134,20 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         Coordinates::get_highest_cartesian_y() const;</span> – Return highest
       allowable cartesian y-coordinate.<br>
       <br>
+    </big><big><span style="font-style: italic;">bool
+        Coordinates::check_cartesian_x(const int x) const;</span> – Return true
+      if the cartesian x-coordinate is valid.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">bool
+        Coordinates::check_cartesian_y(const int y) const;</span> – Return true
+      if the cartesian y-coordinate is valid.</big><br>
+    <big> <br>
       <span style="font-style: italic;">int Coordinates::get_screen_x(const int
         x) const;</span> – Convert cartesian x-coordinate to screen
       x-coordinate.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;">int Coordinates::get_screen_y(const int
-        x) const;</span> – Convert cartesian y-coordinate to screen
+        y) const;</span> – Convert cartesian y-coordinate to screen
       y-coordinate.<br>
       <br>
       <span style="font-style: italic;">int Coordinates::get_cartesian_x(const
@@ -1147,7 +1155,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       x-coordinate.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;">int Coordinates::get_cartesian_y(const
-        int x) const;</span> – Convert screen y-coordinate to cartesian
+        int y) const;</span> – Convert screen y-coordinate to cartesian
       y-coordinate.<br>
     </big>
     <h2><a id="mozTocId462738" class="mozTocH2"></a><big>Chapter 3. Cartesian
@@ -2454,8 +2462,7 @@ Multimedia API</a>. </big>
       6.2.9 – Small changes.<br>
       6.3 – Base sprite subsystem improved.<br>
       6.3.1 – 6.3.2 – Small changes.<br>
-      6.3.3 – Base graphics subsystem back-ported from Neon game development kit
-      5.8.4.<br>
+      6.3.3 – Base graphics subsystem back-ported from Neon game development kit 5.8.4.<br>
       6.3.4 – Visual C++ 2005 support added.<br>
       6.3.5 – Small changes.<br>
       6.3.6 – Ordinary sprite subsystem improved.<br>
@@ -2481,8 +2488,7 @@ Multimedia API</a>. </big>
       6.5.9 – Small bug in game–pad subsystem fixed.<br>
       6.6 – Source code synced with Gray game development kit 2.2.7.<br>
       6.6.1 – Text drawing subsystem improved.<br>
-      6.6.2 – Simple sound subsystem back-ported from Neon game development kit
-      5.7.8.<br>
+      6.6.2 – Simple sound subsystem back-ported from Neon game development kit 5.7.8.<br>
       6.6.3 – Small bug in multimedia subsystem fixed.<br>
       6.6.4 – 6.6.6 – Small changes.<br>
       6.6.7 – Multimedia subsystem improved.<br>
@@ -2527,8 +2533,7 @@ Multimedia API</a>. </big>
       7.2.6 – 7.2.9 – Image resizer improved.<br>
       7.3 – 7.3.1 – Small changes.<br>
       7.3.2 – Small render bug fixed.<br>
-      7.3.3 – Animation subsystem back-ported from Eugene game development kit
-      5.6.2.<br>
+      7.3.3 – Animation subsystem back-ported from Eugene game development kit 5.6.2.<br>
       7.3.4 – Background subsystem improved.<br>
       7.3.5 – Small changes.<br>
       7.3.6 – Source code synced with Simple windows game framework 7.3.5.<br>
@@ -2545,6 +2550,7 @@ Multimedia API</a>. </big>
       7.5.4 – Coordinates conversion subsystem improved.<br>
       7.5.5 – New subsystem added.<br>
       7.5.6 – 7.5.7 – Isometric subsystem improved.<br>
+      7.5.8 – Coordinates conversion subsystem improved.<br>
     </big>
     <p></p>
     <big> </big>
