@@ -2,8 +2,7 @@
 
 int main()
 {
- unsigned int source_x,source_y,start_x,start_y,row,column;
- int cartesian_x,cartesian_y,isometric_x,isometric_y;
+ int x,y,row,column;
  EUGENEGDK::Graphics::Screen screen;
  EUGENEGDK::Graphics::Background sky;
  EUGENEGDK::Graphics::Sprite ground;
@@ -19,8 +18,7 @@ int main()
  text.load_font("font.tga");
  text.set_position(text.get_font_width(),text.get_font_height());
  cartesian.initialize(screen.get_width(),screen.get_height());
- start_x=screen.get_width()/2;
- start_y=screen.get_height()/2;
+ isometric.initialize(ground.get_width(),ground.get_height());
  while (screen.sync())
  {
   if (keyboard.check_hold(1)==true)
@@ -32,13 +30,9 @@ int main()
   {
    for (column=0;column<5;++column)
    {
-    source_x=row*ground.get_width()/2;
-    source_y=column*ground.get_height();
-    cartesian_x=cartesian.get_cartesian_x(source_x+start_x);
-    cartesian_y=cartesian.get_cartesian_y(source_y+start_y);
-    isometric_x=isometric.get_isometric_x(cartesian_x,cartesian_y);
-    isometric_y=isometric.get_isometric_y(cartesian_x,cartesian_y);
-    ground.draw(cartesian.get_screen_x(isometric_x),cartesian.get_screen_y(isometric_y));
+    x=isometric.get_target_x(row,column);
+    y=isometric.get_target_y(row,column);
+    ground.draw(cartesian.get_screen_x(x),cartesian.get_screen_y(y));
    }
 
   }

@@ -3458,7 +3458,8 @@ namespace EUGENEGDK
 
   Isometric::Isometric()
   {
-
+   half_tile_width=1;
+   half_tile_height=1;
   }
 
   Isometric::~Isometric()
@@ -3466,41 +3467,27 @@ namespace EUGENEGDK
 
   }
 
-  int Isometric::get_cartesian_x(const int x,const int y)
+  void Isometric::initialize(const int tile_width,const int tile_height)
   {
-   int cartesian_x;
-   cartesian_x=0;
-   if ((x!=0)||(y!=0))
+   if (tile_width>1)
    {
-    cartesian_x=(2*y+x)/2;
+    half_tile_width=tile_width/2;
    }
-   return cartesian_x;
+   if (tile_height>1)
+   {
+    half_tile_height=tile_height/2;
+   }
+
   }
 
-  int Isometric::get_cartesian_y(const int x,const int y)
+  int Isometric::get_target_x(const int row,const int column) const
   {
-    int cartesian_y;
-   cartesian_y=0;
-   if ((x!=0)||(y!=0))
-   {
-    cartesian_y=(2*y-x)/2;
-   }
-   return cartesian_y;
+   return (row-column)*half_tile_width;
   }
 
-  int Isometric::get_isometric_x(const int x,const int y)
+  int Isometric::get_target_y(const int row,const int column) const
   {
-   return x-y;
-  }
-
-  int Isometric::get_isometric_y(const int x,const int y)
-  {
-   int isometric_y=0;
-   if ((x!=0)||(y!=0))
-   {
-    isometric_y=(x+y)/2;
-   }
-   return isometric_y;
+   return (row+column)*half_tile_height;
   }
 
  }

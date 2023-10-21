@@ -990,13 +990,15 @@ typedef enum
 
   class Isometric
   {
+   private:
+   int half_tile_width;
+   int half_tile_height;
    public:
    Isometric();
    ~Isometric();
-   int get_cartesian_x(const int x,const int y);
-   int get_cartesian_y(const int x,const int y);
-   int get_isometric_x(const int x,const int y);
-   int get_isometric_y(const int x,const int y);
+   void initialize(const int tile_width,const int tile_height);
+   int get_target_x(const int row,const int column) const;
+   int get_target_y(const int row,const int column) const;
   };
 
  }
