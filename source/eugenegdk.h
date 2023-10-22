@@ -335,18 +335,8 @@ typedef enum
   MIRROR_BOTH=3
  } MIRROR_KIND;
 
- typedef enum
- {
-  RED_COMPONENT=16,
-  GREEN_COMPONENT=8,
-  BLUE_COMPONENT=0,
-  ALPHA_COMPONENT=24
- } PIXEL_COMPONENT;
-
  double get_start_offset(const double current,const double total);
  double get_end_offset(const double current,const double total);
- unsigned int get_pixel_component(const unsigned int pixel,const Core::PIXEL_COMPONENT component);
- unsigned int make_pixel(const unsigned int red,const unsigned int green,const unsigned int blue,const unsigned int alpha);
  EUGENEGDK::GAMEPAD_DIRECTION get_horizontal_direction(const unsigned int current,const unsigned int maximum,const unsigned int minimum);
  EUGENEGDK::GAMEPAD_DIRECTION get_inverted_direction(const EUGENEGDK::GAMEPAD_DIRECTION target);
  EUGENEGDK::GAMEPAD_DIRECTION get_vertical_direction(const unsigned int current,const unsigned int maximum,const unsigned int minimum);
@@ -436,10 +426,6 @@ typedef enum
    unsigned int target_width;
    unsigned int target_height;
    size_t get_source_offset(const unsigned int x,const unsigned int y) const;
-   unsigned int get_source_x(const unsigned int target_x) const;
-   unsigned int get_source_y(const unsigned int target_y) const;
-   unsigned int get_next_x(const unsigned int target_x) const;
-   unsigned int get_next_y(const unsigned int target_y) const;
    void scale_image(const unsigned int *target);
    void load_image(const unsigned int *target);
    void resize_image(const unsigned int *target);
@@ -1051,6 +1037,9 @@ typedef enum
    unsigned int get_column(const unsigned int y) const;
    unsigned int get_row_amount(const unsigned int viewport_width) const;
    unsigned int get_column_amount(const unsigned int viewport_height) const;
+   unsigned int get_tile_amount(const unsigned int viewport_width,const unsigned int viewport_height) const;
+   bool check_row(const unsigned int row,const unsigned int viewport_width) const;
+   bool check_column(const unsigned int column,const unsigned int viewport_height) const;
    EUGENEGDK::BOX get_box(const unsigned int row,const unsigned int column) const;
   };
 

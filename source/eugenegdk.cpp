@@ -511,16 +511,6 @@ namespace EUGENEGDK
    return (1.0/total)*current;
   }
 
-  unsigned int get_pixel_component(const unsigned int pixel,const Core::PIXEL_COMPONENT component)
-  {
-   return (pixel >> component) & 0xFF;
-  }
-
-  unsigned int make_pixel(const unsigned int red,const unsigned int green,const unsigned int blue,const unsigned int alpha)
-  {
-   return (alpha << 24)+(red << 16)+(green << 8)+blue;
-  }
-
   EUGENEGDK::GAMEPAD_DIRECTION get_horizontal_direction(const unsigned int current,const unsigned int maximum,const unsigned int minimum)
   {
    EUGENEGDK::GAMEPAD_DIRECTION directional;
@@ -611,60 +601,16 @@ namespace EUGENEGDK
    return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(source_width);
   }
 
-  unsigned int Resizer::get_source_x(const unsigned int target_x) const
-  {
-   return (target_x*source_width+1)/target_width;
-  }
-
-  unsigned int Resizer::get_source_y(const unsigned int target_y) const
-  {
-   return (target_y*source_height+1)/target_height;
-  }
-
-  unsigned int Resizer::get_next_x(const unsigned int target_x) const
-  {
-   unsigned int next_x;
-   next_x=this->get_source_x(target_x)+1;
-   if (next_x>=source_width)
-   {
-    next_x=source_width-1;
-   }
-   return next_x;
-  }
-
-  unsigned int Resizer::get_next_y(const unsigned int target_y) const
-  {
-   unsigned int next_y;
-   next_y=this->get_source_y(target_y)+1;
-   if (next_y>=source_height)
-   {
-    next_y=source_height-1;
-   }
-   return next_y;
-  }
-
   void Resizer::scale_image(const unsigned int *target)
   {
    size_t index;
-   unsigned int x,y,source_x,source_y,next_x,next_y,first,second,third,last,red,green,blue,alpha;
+   unsigned int x,y;
    index=0;
    for (y=0;y<target_height;++y)
    {
-    source_y=this->get_source_y(y);
-    next_y=this->get_next_y(y);
     for (x=0;x<target_width;++x)
     {
-     source_x=this->get_source_x(x);
-     next_x=this->get_next_x(x);
-     first=target[this->get_source_offset(source_x,source_y)];
-     second=target[this->get_source_offset(next_x,source_y)];
-     third=target[this->get_source_offset(source_x,next_y)];
-     last=target[this->get_source_offset(next_x,next_y)];
-     red=(get_pixel_component(first,Core::RED_COMPONENT)+get_pixel_component(second,Core::RED_COMPONENT)+get_pixel_component(third,Core::RED_COMPONENT)+get_pixel_component(last,Core::RED_COMPONENT)+1)/4;
-     green=(get_pixel_component(first,Core::GREEN_COMPONENT)+get_pixel_component(second,Core::GREEN_COMPONENT)+get_pixel_component(third,Core::GREEN_COMPONENT)+get_pixel_component(last,Core::GREEN_COMPONENT)+1)/4;
-     blue=(get_pixel_component(first,Core::BLUE_COMPONENT)+get_pixel_component(second,Core::BLUE_COMPONENT)+get_pixel_component(third,Core::BLUE_COMPONENT)+get_pixel_component(last,Core::BLUE_COMPONENT)+1)/4;
-     alpha=(get_pixel_component(first,Core::ALPHA_COMPONENT)+get_pixel_component(second,Core::ALPHA_COMPONENT)+get_pixel_component(third,Core::ALPHA_COMPONENT)+get_pixel_component(last,Core::ALPHA_COMPONENT)+1)/4;
-     image[index]=Core::make_pixel(red,green,blue,alpha);
+     image[index]=target[this->get_source_offset((x*source_width+1)/target_width,(y*source_height+1)/target_height)];
      ++index;
     }
 
@@ -3683,6 +3629,21 @@ namespace EUGENEGDK
 
    }
    return amount;
+  }
+
+  unsigned int Tilemap::get_tile_amount(const unsigned int viewport_width,const unsigned int viewport_height) const
+  {
+   return this->get_row_amount(viewport_width)*this->get_column_amount(viewport_height);
+  }
+
+  bool Tilemap::check_row(const unsigned int row,const unsigned int viewport_width) const
+  {
+   return row<this->get_row_amount(viewport_width);
+  }
+
+  bool Tilemap::check_column(const unsigned int column,const unsigned int viewport_height) const
+  {
+   return column<this->get_column_amount(viewport_height);
   }
 
   EUGENEGDK::BOX Tilemap::get_box(const unsigned int row,const unsigned int column) const
