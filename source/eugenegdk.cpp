@@ -3649,8 +3649,22 @@ namespace EUGENEGDK
   EUGENEGDK::BOX Tilemap::get_box(const unsigned int row,const unsigned int column) const
   {
    EUGENEGDK::BOX collision;
-   collision.x=this->get_x(row);
-   collision.y=this->get_y(column);
+   if (row>0)
+   {
+    collision.x=this->get_x(row-1);
+   }
+   else
+   {
+    collision.x=this->get_x(0);
+   }
+   if (column>0)
+   {
+    collision.y=this->get_y(column-1);
+   }
+   else
+   {
+    collision.y=this->get_y(0);
+   }
    collision.width=cell_width;
    collision.height=cell_height;
    return collision;
