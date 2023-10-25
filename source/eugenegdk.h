@@ -962,6 +962,8 @@ typedef enum
    Coordinates();
    ~Coordinates();
    void initialize(const int viewport_width,const int viewport_height);
+   int get_viewport_width() const;
+   int get_viewport_height() const;
    int get_lowest_cartesian_x() const;
    int get_highest_cartesian_x() const;
    int get_lowest_cartesian_y() const;
