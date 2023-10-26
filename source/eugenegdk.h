@@ -712,6 +712,8 @@ typedef enum
    unsigned int get_fps() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
+   bool check_x(const unsigned int x) const;
+   bool check_y(const unsigned int y) const;
    Screen* get_handle();
   };
 

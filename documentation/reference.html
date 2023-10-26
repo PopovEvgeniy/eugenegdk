@@ -328,6 +328,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       optimization.<br>
       <br>
       <span style="text-decoration: underline;"> Note for Visual C++ users</span><br
+
         style="text-decoration: underline;">
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
@@ -396,7 +397,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -458,7 +458,13 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> unsigned int Screen::get_height()
         const;</span> – Return screen height in pixels.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">bool Screen::check_x(const unsigned int
+        x) const;</span> – Return true if x-coordinate is valid.<br>
       <br>
+    </big><big><span style="font-style: italic;">bool Screen::check_y(const
+        unsigned int y) const;</span> – Return true if y-coordinate is valid.</big><br>
+    <big> <br>
       <span style="font-style: italic;"> Screen* Screen::get_handle();</span> –
       Return the handle to base graphics subsystem object. </big>
     <h2><a name="mozTocId289525" class="mozTocH2"></a><big>Chapter 3. Picture
@@ -1191,7 +1197,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;">int Isometric::get_target_x(const int
         row,</span></big><big style="font-style: italic;">const int column</big><big><span
-
         style="font-style: italic;">);</span> – Get target cartesian
       x-coordinate from the row and column.<br>
       <br>
@@ -1246,7 +1251,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       &nbsp; <span style="font-style: italic;"> unsigned int y;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int width;</span><br style="font-style: italic;">
       &nbsp; <span style="font-style: italic;"> unsigned int height;</span><br
-
         style="font-style: italic;">
       <span style="font-style: italic;"> } BOX;</span><br>
       <br>
@@ -1342,6 +1346,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Return true if the column is valid.<br>
       <br>
       <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big
+
       style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
       int row,const unsigned int column</big><big><span style="font-style: italic;">)
         const;</span> – Return collision related information.<br>
@@ -1444,10 +1449,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Exit from your program and return user to operating system.<br>
       <br>
       <span style="font-style: italic;">bool enable_logging(const char *name); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Enable redirecting error messages to
       a log file and return false if the operation failed.<br>
       <br>
       <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Initialize random number generator.<br>
       <br>
       <span style="font-style: italic;">unsigned int get_random(const int
@@ -2574,6 +2581,7 @@ Multimedia API</a>. </big>
       7.6.3 – Image resizer back-ported from Eugene game development kit 7.4.5.<br>
       7.6.4 – Small bug in tile–map subsystem fixed.<br>
       7.6.5 – Coordinates conversion subsystem improved.<br>
+      7.6.6 – Base graphics subsystem improved.<br>
     </big>
     <p></p>
     <big> </big>

@@ -2107,6 +2107,16 @@ namespace EUGENEGDK
    return this->get_display_height();
   }
 
+  bool Screen::check_x(const unsigned int x) const
+  {
+   return x<this->get_width();
+  }
+
+  bool Screen::check_y(const unsigned int y) const
+  {
+   return y<this->get_height();
+  }
+
   Screen* Screen::get_handle()
   {
    return this;
