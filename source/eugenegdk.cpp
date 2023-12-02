@@ -613,6 +613,16 @@ namespace EUGENEGDK
    return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(source_width);
   }
 
+  unsigned int Resizer::get_x_difference(const unsigned int x) const
+  {
+   return (x*x_ratio+1)%UCHAR_MAX;
+  }
+
+  unsigned int Resizer::get_y_difference(const unsigned int y) const
+  {
+   return (y*y_ratio+1)%UCHAR_MAX;
+  }
+
   unsigned int Resizer::get_source_x(const unsigned int x) const
   {
    return (x*x_ratio+1)/UCHAR_MAX;
@@ -645,15 +655,17 @@ namespace EUGENEGDK
    return next_y;
   }
 
-  void Resizer::upscale_image(const unsigned int *target)
+    void Resizer::upscale_image(const unsigned int *target)
   {
    size_t index;
-   unsigned int x,y,source_x,source_y,next_x,next_y,first,second,third,last,red,green,blue,alpha;
+   unsigned int x,y,source_x,source_y,next_x,next_y,first,second,third,last,red,green,blue,alpha,x_difference,y_difference,x_weigh,y_weigh;
    index=0;
    for (y=0;y<target_height;++y)
    {
     source_y=this->get_source_y(y);
     next_y=this->get_next_y(y);
+    y_difference=this->get_y_difference(y);
+    y_weigh=UCHAR_MAX-y_difference;
     for (x=0;x<target_width;++x)
     {
      source_x=this->get_source_x(x);
@@ -662,9 +674,11 @@ namespace EUGENEGDK
      second=target[this->get_source_offset(next_x,source_y)];
      third=target[this->get_source_offset(source_x,next_y)];
      last=target[this->get_source_offset(next_x,next_y)];
-     red=(get_pixel_component(first,Core::RED_COMPONENT)+get_pixel_component(second,Core::RED_COMPONENT)+get_pixel_component(third,Core::RED_COMPONENT)+get_pixel_component(last,Core::RED_COMPONENT)+1)/4;
-     green=(get_pixel_component(first,Core::GREEN_COMPONENT)+get_pixel_component(second,Core::GREEN_COMPONENT)+get_pixel_component(third,Core::GREEN_COMPONENT)+get_pixel_component(last,Core::GREEN_COMPONENT)+1)/4;
-     blue=(get_pixel_component(first,Core::BLUE_COMPONENT)+get_pixel_component(second,Core::BLUE_COMPONENT)+get_pixel_component(third,Core::BLUE_COMPONENT)+get_pixel_component(last,Core::BLUE_COMPONENT)+1)/4;
+     x_difference=this->get_x_difference(x);
+     x_weigh=UCHAR_MAX-x_difference;
+     red=(get_pixel_component(first,Core::RED_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::RED_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::RED_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::RED_COMPONENT)*x_difference*y_difference+1)/USHRT_MAX;
+     green=(get_pixel_component(first,Core::GREEN_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::GREEN_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::GREEN_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::GREEN_COMPONENT)*x_difference*y_difference+1)/USHRT_MAX;
+     blue=(get_pixel_component(first,Core::BLUE_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::BLUE_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::BLUE_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::BLUE_COMPONENT)*x_difference*y_difference+1)/USHRT_MAX;
      alpha=(get_pixel_component(first,Core::ALPHA_COMPONENT)+get_pixel_component(second,Core::ALPHA_COMPONENT)+get_pixel_component(third,Core::ALPHA_COMPONENT)+get_pixel_component(last,Core::ALPHA_COMPONENT)+1)/4;
      image[index]=Core::make_pixel(red,green,blue,alpha);
      ++index;

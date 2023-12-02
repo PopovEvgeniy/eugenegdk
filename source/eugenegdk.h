@@ -438,6 +438,8 @@ typedef enum
    unsigned int x_ratio;
    unsigned int y_ratio;
    size_t get_source_offset(const unsigned int x,const unsigned int y) const;
+   unsigned int get_x_difference(const unsigned int x) const;
+   unsigned int get_y_difference(const unsigned int y) const;
    unsigned int get_source_x(const unsigned int x) const;
    unsigned int get_source_y(const unsigned int y) const;
    unsigned int get_next_x(const unsigned int x) const;
