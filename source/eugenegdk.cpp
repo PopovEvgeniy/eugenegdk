@@ -655,7 +655,7 @@ namespace EUGENEGDK
    return next_y;
   }
 
-    void Resizer::upscale_image(const unsigned int *target)
+  void Resizer::upscale_image(const unsigned int *target)
   {
    size_t index;
    unsigned int x,y,source_x,source_y,next_x,next_y,first,second,third,last,red,green,blue,alpha,x_difference,y_difference,x_weigh,y_weigh;
@@ -758,8 +758,8 @@ namespace EUGENEGDK
 
   void Resizer::calculate_ratio()
   {
-   x_ratio=(source_width*UCHAR_MAX)/target_width;
-   y_ratio=(source_height*UCHAR_MAX)/target_height;
+   x_ratio=((source_width-1)*UCHAR_MAX)/(target_width-1);
+   y_ratio=((source_height-1)*UCHAR_MAX)/(target_height-1);
   }
 
   void Resizer::calculate_size()
