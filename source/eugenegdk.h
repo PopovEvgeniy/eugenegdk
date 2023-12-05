@@ -445,8 +445,7 @@ typedef enum
    unsigned int get_source_y(const unsigned int y) const;
    unsigned int get_next_x(const unsigned int x) const;
    unsigned int get_next_y(const unsigned int y) const;
-   void upscale_image(const unsigned int *target);
-   void downscale_image(const unsigned int *target);
+   void scale_image(const unsigned int *target);
    void load_image(const unsigned int *target);
    void resize_image(const unsigned int *target);
    void set_setting(const unsigned int width,const unsigned int height);
