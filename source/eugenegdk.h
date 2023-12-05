@@ -437,6 +437,7 @@ typedef enum
    unsigned int target_height;
    unsigned int x_ratio;
    unsigned int y_ratio;
+   unsigned int normalization;
    size_t get_source_offset(const unsigned int x,const unsigned int y) const;
    unsigned int get_x_difference(const unsigned int x) const;
    unsigned int get_y_difference(const unsigned int y) const;
