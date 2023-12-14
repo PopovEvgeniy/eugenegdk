@@ -8,7 +8,7 @@ int main()
  EUGENEGDK::Graphics::Sprite ground;
  EUGENEGDK::Graphics::Text text;
  EUGENEGDK::Transformation::Coordinates cartesian;
- EUGENEGDK::Transformation::Isometric isometric;
+ EUGENEGDK::Transformation::World level;
  EUGENEGDK::Input::Keyboard keyboard;
  keyboard.initialize();
  screen.initialize();
@@ -18,7 +18,7 @@ int main()
  text.load_font("font.tga");
  text.set_position(text.get_font_width(),text.get_font_height());
  cartesian.initialize(screen.get_width(),screen.get_height());
- isometric.initialize(ground.get_width(),ground.get_height());
+ level.initialize(ground.get_width(),ground.get_height());
  while (screen.sync())
  {
   if (keyboard.check_hold(1)==true)
@@ -26,12 +26,12 @@ int main()
    break;
   }
   sky.draw();
-  for (row=0;row<5;++row)
+  for (row=-5;row<5;++row)
   {
-   for (column=0;column<5;++column)
+   for (column=-5;column<5;++column)
    {
-    x=isometric.get_target_x(row,column);
-    y=isometric.get_target_y(row,column);
+    x=level.get_target_x(row,column);
+    y=level.get_target_y(row,column);
     ground.draw(cartesian.get_screen_x(x),cartesian.get_screen_y(y));
    }
 

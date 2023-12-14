@@ -1001,14 +1001,31 @@ typedef enum
   class Isometric
   {
    private:
-   int half_tile_width;
-   int half_tile_height;
+   int target_x;
+   int target_y;
    public:
    Isometric();
    ~Isometric();
+   void set_target(const int x,const int y);
+   int get_isometric_x() const;
+   int get_isometric_y() const;
+   int get_cartesian_x() const;
+   int get_cartesian_y() const;
+  };
+
+  class World
+  {
+   private:
+   int half_tile_width;
+   int half_tile_height;
+   public:
+   World();
+   ~World();
    void initialize(const int tile_width,const int tile_height);
    int get_target_x(const int row,const int column) const;
    int get_target_y(const int row,const int column) const;
+   int get_row(const int x,const int y) const;
+   int get_column(const int x,const int y) const;
   };
 
  }

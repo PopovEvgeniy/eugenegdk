@@ -54,7 +54,10 @@
           <li><a href="#mozTocId679493">Chapter 1. The sub–namespace</a></li>
           <li><a href="#mozTocId29297">Chapter 2. Cartesian coordinates and
               screen coordinates</a></li>
-          <li><a href="#mozTocId143616">Chapter 3. Isometric</a></li>
+          <li><a href="#mozTocId122919">Chapter 3. Cartesian coordinates and
+              isometric coordinates</a></li>
+          <li><a href="#mozTocId143616">Chapter 4. Isometric level
+            </a></li>
         </ul>
       </li>
       <li><a href="#mozTocId64443">Part 5. Common things</a>
@@ -397,6 +400,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
+
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -879,12 +883,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       public methods.<br>
       <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -1174,37 +1176,74 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         int y) const;</span> – Convert screen y-coordinate to cartesian
       y-coordinate.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId143616"></a><big>Chapter 3. Isometric</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId122919"></a><big>Chapter 3. Cartesian
+        coordinates and isometric coordinates</big></h2>
     <big><span style="text-decoration: underline;">A few words about isometric</span><br>
       <br>
       <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometric</a>
       is very popular way for pseudo-3D games. Many old-school games are
       isometric games.<br>
       <br>
-      <span style="text-decoration: underline;">Rows and columns in isometric
-        map</span><br>
+    </big><big><span style="text-decoration: underline;">Cartesian coordinates
+        to isometric coordinates conversion and isometric coordinates to
+        cartsian coordinates conversion</span><br>
       <br>
-      First row index is 0. First column index is 0.<br>
-      <br style="text-decoration: underline;">
-      <span style="text-decoration: underline;">Isometric subsystem</span><br>
-      <br>
-      Isometric subsystem intend for for help you to create an isometric worlds.
+      You can convert cartesian coordinates to isometric coordinates. You can
+      also convert isometric coordinates to cartesian coordinates.<br>
       Just use <span style="font-style: italic;">Isometric</span> class for
       doing it. Let's look at public methods.<br>
       <br>
-      <span style="font-style: italic;">void Isometric::initialize(const int
+    </big><big><span style="font-style: italic;">void
+        Isometric::set_target(const int x,const int y);</span> – Set target
+      point.<br>
+      <br>
+    </big><big><span style="font-style: italic;">int
+        Isometric::get_isometric_x() const;</span> – Convert x-coordinate of
+      target point from cartesian system to isometric system.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">int Isometric::get_isometric_y() const;</span>
+      – </big><big>Convert y-coordinate of target point from cartesian system
+      to isometric system.</big><br>
+    <big> <br>
+      <span style="font-style: italic;">int Isometric::get_cartesian_x(const int
+        x) const;</span> – </big><big>Convert x-coordinate of target point from
+      isometric system to cartesian system.</big><br>
+    <big> <br style="font-style: italic;">
+      <span style="font-style: italic;">int Isometric::get_cartesian_y(const int
+        y) const;</span> – </big><big>Convert y-coordinate of target point from
+      isometric system to cartesian system.</big>
+    <h2><a class="mozTocH2" name="mozTocId143616"></a><big>Chapter 4. Isometric
+        level<br>
+      </big></h2>
+    <big><span style="text-decoration: underline;"></span> Isometric level
+      subsystem intend for help you to create an isometric levels. Just use <span
+        style="font-style: italic;">World</span> class for doing it. Let's look
+      at public methods.<br>
+      <br>
+      <span style="font-style: italic;">void World::initialize(const int
         tile_width,const int tile_height);</span> – Initialize the subsystem.<br>
       <br>
-      <span style="font-style: italic;">int Isometric::get_target_x(const int
-        row,</span></big><big style="font-style: italic;">const int column</big><big><span
-        style="font-style: italic;">);</span> – Get target cartesian
-      x-coordinate from the row and column.<br>
+      <span style="font-style: italic;">int World::get_target_x(const int row,</span></big><big
+      style="font-style: italic;">const int column</big><big><span style="font-style: italic;">)
+        const;</span> – Get target cartesian x-coordinate from the row and
+      column.<br>
       <br>
-      <span style="font-style: italic;">int Isometric::get_target_y(const int
-        row</span></big><big style="font-style: italic;">,</big><big style="font-style: italic;">const
-      int column</big><big><span style="font-style: italic;">);</span> – Get
-      target cartesian y-coordinate </big><big>from the row and column.</big><big>
-    </big> <big> </big>
+      <span style="font-style: italic;">int World::get_target_y(const int row</span></big><big
+
+      style="font-style: italic;">,</big><big style="font-style: italic;">const
+      int column</big><big><span style="font-style: italic;">) const;</span> –
+      Get target cartesian y-coordinate </big><big>from the row and column.<br>
+      <br>
+    </big><big><span style="font-style: italic;">int World::get_row(const int x,</span></big><big
+
+      style="font-style: italic;">const int y</big><big><span style="font-style: italic;">)
+        const;</span> – Get the row from target point.<br>
+      <br>
+      <span style="font-style: italic;">int World::get_column(const int y</span></big><big
+
+      style="font-style: italic;">,</big><big style="font-style: italic;">const
+      int y</big><big><span style="font-style: italic;">) const;</span> – Get
+      the column</big><big> from target point.</big><big> </big> <big> </big>
     <h1><a name="mozTocId64443" class="mozTocH1"></a><big>Part 5. Common things</big></h1>
     <h2><a name="mozTocId597525" class="mozTocH2"></a><big>Chapter 1. The
         sub–namespace</big></h2>
@@ -1346,7 +1385,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Return true if the column is valid.<br>
       <br>
       <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big
-
       style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
       int row,const unsigned int column</big><big><span style="font-style: italic;">)
         const;</span> – Return collision related information.<br>
@@ -1449,12 +1487,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Exit from your program and return user to operating system.<br>
       <br>
       <span style="font-style: italic;">bool enable_logging(const char *name); </span></big><big>–</big><big><span
-
         style="font-style: italic;"></span> Enable redirecting error messages to
       a log file and return false if the operation failed.<br>
       <br>
       <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big><span
-
         style="font-style: italic;"></span> Initialize random number generator.<br>
       <br>
       <span style="font-style: italic;">unsigned int get_random(const int
@@ -2586,7 +2622,10 @@ Multimedia API</a>. </big>
       7.7.2 – 7.7.3 – Small changes.<br>
       7.7.4 – Small bug fixed.<br>
       7.7.5 – 7.7.6 – Image resizer improved.<br>
-    </big>
+    </big><big>7.7.7 – Small changes.<br>
+    </big><big>7.7.8 – Isometric level subsystem improved.<br>
+    </big><big>7.7.9 – Isometric subsystem improved.<br>
+    </big><big>7.8 – Small changes.</big><br>
     <p></p>
     <big> </big>
   </body>

@@ -21,6 +21,8 @@ Features
  Image loader with TGA support.
  Text drawing subsystem.
  Custom fonts.
+ Coordinates transformation.
+ Isometric.
  Timers.
  Collision detector.
  Integrated fps counter.

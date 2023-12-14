@@ -3502,8 +3502,8 @@ namespace EUGENEGDK
 
   Isometric::Isometric()
   {
-   half_tile_width=1;
-   half_tile_height=1;
+   target_x=0;
+   target_y=0;
   }
 
   Isometric::~Isometric()
@@ -3511,7 +3511,62 @@ namespace EUGENEGDK
 
   }
 
-  void Isometric::initialize(const int tile_width,const int tile_height)
+  void Isometric::set_target(const int x,const int y)
+  {
+   target_x=x;
+   target_y=y;
+  }
+
+  int Isometric::get_isometric_x() const
+  {
+   return target_x-target_y;
+  }
+
+  int Isometric::get_isometric_y() const
+  {
+   int isometric_y;
+   isometric_y=target_x+target_y;
+   if (isometric_y!=0)
+   {
+    isometric_y/=2;
+   }
+   return isometric_y;
+  }
+
+  int Isometric::get_cartesian_x() const
+  {
+   int cartesian_x;
+   cartesian_x=2*target_y+target_x;
+   if (cartesian_x!=0)
+   {
+    cartesian_x/=2;
+   }
+   return cartesian_x;
+  }
+
+  int Isometric::get_cartesian_y() const
+  {
+   int cartesian_y;
+   cartesian_y=2*target_y-target_x;
+   if (cartesian_y!=0)
+   {
+    cartesian_y/=2;
+   }
+   return cartesian_y;
+  }
+
+  World::World()
+  {
+   half_tile_width=1;
+   half_tile_height=1;
+  }
+
+  World::~World()
+  {
+
+  }
+
+  void World::initialize(const int tile_width,const int tile_height)
   {
    if (tile_width>1)
    {
@@ -3524,14 +3579,36 @@ namespace EUGENEGDK
 
   }
 
-  int Isometric::get_target_x(const int row,const int column) const
+  int World::get_target_x(const int row,const int column) const
   {
    return (row-column)*half_tile_width;
   }
 
-  int Isometric::get_target_y(const int row,const int column) const
+  int World::get_target_y(const int row,const int column) const
   {
    return (row+column)*half_tile_height;
+  }
+
+  int World::get_row(const int x,const int y) const
+  {
+   int row;
+   row=(x/half_tile_width)+(y/half_tile_height);
+   if (row!=0)
+   {
+    row/=2;
+   }
+   return row;
+  }
+
+  int World::get_column(const int x,const int y) const
+  {
+   int column;
+   column=(y/half_tile_height)-(x/half_tile_width);
+   if (column!=0)
+   {
+    column/=2;
+   }
+   return column;
   }
 
  }
