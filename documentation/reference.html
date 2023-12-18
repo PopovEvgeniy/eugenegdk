@@ -56,8 +56,7 @@
               screen coordinates</a></li>
           <li><a href="#mozTocId122919">Chapter 3. Cartesian coordinates and
               isometric coordinates</a></li>
-          <li><a href="#mozTocId143616">Chapter 4. Isometric level
-            </a></li>
+          <li><a href="#mozTocId143616">Chapter 4. Isometric level </a></li>
         </ul>
       </li>
       <li><a href="#mozTocId64443">Part 5. Common things</a>
@@ -400,7 +399,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -1205,13 +1203,30 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – </big><big>Convert y-coordinate of target point from cartesian system
       to isometric system.</big><br>
     <big> <br>
-      <span style="font-style: italic;">int Isometric::get_cartesian_x(const int
-        x) const;</span> – </big><big>Convert x-coordinate of target point from
-      isometric system to cartesian system.</big><br>
+      <span style="font-style: italic;">int Isometric::get_cartesian_x() const;</span>
+      – </big><big>Convert x-coordinate of target point from isometric system
+      to cartesian system.</big><br>
     <big> <br style="font-style: italic;">
+      <span style="font-style: italic;">int Isometric::get_cartesian_y() const;</span>
+      – </big><big>Convert y-coordinate of target point from isometric system
+      to cartesian system.<br>
+      <br>
+      <span style="font-style: italic;">int Isometric::get_isometric_x(const int
+        x,const int y);</span> – Set target point and convert x-coordinate from
+      cartesian system to isometric system.<br>
+      <br>
+      <span style="font-style: italic;">int Isometric::get_isometric_y(const int
+        x,const int y);</span> – </big><big>Set target point and c</big><big>onvert
+      y-coordinatefrom cartesian system to isometric system.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">int Isometric::get_cartesian_x(const int
+        x,const int y);</span> – </big><big>Set target point and c</big><big>onvert
+      x-coordinatefrom isometric system to cartesian system.<br>
+      <br>
       <span style="font-style: italic;">int Isometric::get_cartesian_y(const int
-        y) const;</span> – </big><big>Convert y-coordinate of target point from
-      isometric system to cartesian system.</big>
+        x,const int y);</span> – </big><big>Set target point and c</big><big>onvert
+      y-coordinate from isometric system to cartesian system.<br>
+    </big>
     <h2><a class="mozTocH2" name="mozTocId143616"></a><big>Chapter 4. Isometric
         level<br>
       </big></h2>
@@ -1229,18 +1244,15 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       column.<br>
       <br>
       <span style="font-style: italic;">int World::get_target_y(const int row</span></big><big
-
       style="font-style: italic;">,</big><big style="font-style: italic;">const
       int column</big><big><span style="font-style: italic;">) const;</span> –
       Get target cartesian y-coordinate </big><big>from the row and column.<br>
       <br>
     </big><big><span style="font-style: italic;">int World::get_row(const int x,</span></big><big
-
       style="font-style: italic;">const int y</big><big><span style="font-style: italic;">)
         const;</span> – Get the row from target point.<br>
       <br>
       <span style="font-style: italic;">int World::get_column(const int y</span></big><big
-
       style="font-style: italic;">,</big><big style="font-style: italic;">const
       int y</big><big><span style="font-style: italic;">) const;</span> – Get
       the column</big><big> from target point.</big><big> </big> <big> </big>
@@ -1385,6 +1397,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Return true if the column is valid.<br>
       <br>
       <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big
+
       style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
       int row,const unsigned int column</big><big><span style="font-style: italic;">)
         const;</span> – Return collision related information.<br>
@@ -2625,7 +2638,9 @@ Multimedia API</a>. </big>
     </big><big>7.7.7 – Small changes.<br>
     </big><big>7.7.8 – Isometric level subsystem improved.<br>
     </big><big>7.7.9 – Isometric subsystem improved.<br>
-    </big><big>7.8 – Small changes.</big><br>
+    </big><big>7.8 – Small changes.<br>
+      7.8.1 – Isometric subsystem improved.<br>
+    </big>
     <p></p>
     <big> </big>
   </body>
