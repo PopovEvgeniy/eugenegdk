@@ -330,7 +330,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       optimization.<br>
       <br>
       <span style="text-decoration: underline;"> Note for Visual C++ users</span><br
-
         style="text-decoration: underline;">
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
@@ -881,10 +880,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       public methods.<br>
       <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -1232,11 +1233,14 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       </big></h2>
     <big><span style="text-decoration: underline;"></span> Isometric level
       subsystem intend for help you to create an isometric levels. Just use <span
+
         style="font-style: italic;">World</span> class for doing it. Let's look
       at public methods.<br>
       <br>
       <span style="font-style: italic;">void World::initialize(const int
-        tile_width,const int tile_height);</span> – Initialize the subsystem.<br>
+        tile_width,const int tile_height,</span></big><big><span style="font-style: italic;">const
+        int screen_width,const int screen_height</span></big><big><span style="font-style: italic;">);</span>
+      – Initialize the subsystem.<br>
       <br>
       <span style="font-style: italic;">int World::get_target_x(const int row,</span></big><big
       style="font-style: italic;">const int column</big><big><span style="font-style: italic;">)
@@ -1255,7 +1259,17 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">int World::get_column(const int y</span></big><big
       style="font-style: italic;">,</big><big style="font-style: italic;">const
       int y</big><big><span style="font-style: italic;">) const;</span> – Get
-      the column</big><big> from target point.</big><big> </big> <big> </big>
+      the column</big><big> from target point.<br>
+      <br>
+      <span style="font-style: italic;">int World::get_row_amount() const;</span>
+      – Get amount of maximum visible rows.<br>
+      <br>
+      <span style="font-style: italic;">int World::get_column_amount() const;</span>
+      – Get amount of maximum visible columns.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">int World::get_tile_amount() const;</span>
+      – Get amount of maximum visible isometric tiles.<br>
+    </big><big> </big> <big> </big>
     <h1><a name="mozTocId64443" class="mozTocH1"></a><big>Part 5. Common things</big></h1>
     <h2><a name="mozTocId597525" class="mozTocH2"></a><big>Chapter 1. The
         sub–namespace</big></h2>
@@ -1397,7 +1411,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Return true if the column is valid.<br>
       <br>
       <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big
-
       style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
       int row,const unsigned int column</big><big><span style="font-style: italic;">)
         const;</span> – Return collision related information.<br>
@@ -2640,7 +2653,8 @@ Multimedia API</a>. </big>
       7.7.9 – Isometric subsystem improved.<br>
       7.8 – Small changes.<br>
       7.8.1 – Isometric subsystem improved.<br>
-      7.8.2 – Small changes.<br>
+      7.8.2 – 7.8.3 – Small changes.<br>
+      7.8.4 – Isometric level subsystem improved.<br>
     </big>
     <p></p>
     <big> </big>

@@ -18,7 +18,7 @@ int main()
  text.load_font("font.tga");
  text.set_position(text.get_font_width(),text.get_font_height());
  cartesian.initialize(screen.get_width(),screen.get_height());
- level.initialize(ground.get_width(),ground.get_height());
+ level.initialize(ground.get_width(),ground.get_height(),screen.get_width(),screen.get_height());
  while (screen.sync())
  {
   if (keyboard.check_hold(1)==true)

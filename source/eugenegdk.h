@@ -1020,16 +1020,21 @@ typedef enum
   class World
   {
    private:
+   int surface_width;
+   int surface_height;
    int half_tile_width;
    int half_tile_height;
    public:
    World();
    ~World();
-   void initialize(const int tile_width,const int tile_height);
+   void initialize(const int tile_width,const int tile_height,const int screen_width,const int screen_height);
    int get_target_x(const int row,const int column) const;
    int get_target_y(const int row,const int column) const;
    int get_row(const int x,const int y) const;
    int get_column(const int x,const int y) const;
+   int get_row_amount() const;
+   int get_column_amount() const;
+   int get_tile_amount() const;
   };
 
  }
