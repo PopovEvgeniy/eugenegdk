@@ -178,7 +178,7 @@
     <big> <span style="text-decoration: underline;"> Eugene game development
         kit license</span><br>
       <br>
-      Copyright (C) 2021 – 2023 Popov Evgeniy Alekseyevich<br>
+      Copyright (C) 2021 – 2024 Popov Evgeniy Alekseyevich<br>
       <br>
       This software is provided 'as–is', without any express or implied<br>
       warranty. In no event will the authors be held liable for any damages<br>
@@ -525,7 +525,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> unsigned int Animation::get_frame()
         const;</span> – Return current frame in scrollable background or
       animated sprite.<br>
-    </big>
+      <br>
+    </big><big><span style="font-style: italic;"> bool
+        Animation::is_last_frame() const;</span> – Return true if current frame
+      is last frame.</big><br>
     <h2><a name="mozTocId904725" class="mozTocH2"></a><big>Chapter 5. Image kind</big></h2>
     <big></big>
     <p><big> Image kind look as predefined constants. You can see it below.</big></p>
@@ -880,12 +883,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       public methods.<br>
       <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -1233,7 +1234,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       </big></h2>
     <big><span style="text-decoration: underline;"></span> Isometric level
       subsystem intend for help you to create an isometric levels. Just use <span
-
         style="font-style: italic;">World</span> class for doing it. Let's look
       at public methods.<br>
       <br>
@@ -1513,10 +1513,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Exit from your program and return user to operating system.<br>
       <br>
       <span style="font-style: italic;">bool enable_logging(const char *name); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Enable redirecting error messages to
       a log file and return false if the operation failed.<br>
       <br>
       <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big><span
+
         style="font-style: italic;"></span> Initialize random number generator.<br>
       <br>
       <span style="font-style: italic;">unsigned int get_random(const int
@@ -2656,6 +2658,7 @@ Multimedia API</a>. </big>
       7.8.2 – 7.8.3 – Small changes.<br>
       7.8.4 – Isometric level subsystem improved.<br>
       7.8.5 – Small changes.<br>
+      7.8.6 – Animation subsystem improved.<br>
     </big>
     <p></p>
     <big> </big>
