@@ -885,6 +885,8 @@ typedef enum
    Sheet();
    ~Sheet();
    Sheet* get_handle();
+   bool check_row(const unsigned int target) const;
+   bool check_column(const unsigned int target) const;
    unsigned int get_row(const unsigned int target) const;
    unsigned int get_column(const unsigned int target) const;
    unsigned int calculate(const unsigned int row,const unsigned int column) const;
