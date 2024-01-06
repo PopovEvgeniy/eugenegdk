@@ -18,7 +18,8 @@ int main()
  space.load("space.tga");
  space.prepare(screen);
  ship.load("ship.tga",EUGENEGDK::HORIZONTAL_ANIMATED,2);
- ship.set_position(screen.get_width()/2,screen.get_height()/2);
+ ship.set_start(screen.get_width()/2,screen.get_height()/2);
+ ship.go_start();
  text.load_font("font.tga");
  text.set_position(text.get_font_width(),text.get_font_height());
  mouse.hide();
@@ -124,13 +125,13 @@ int main()
   {
    ship.increase_y();
   }
-  if (ship.get_x()>screen.get_width())
+  if (screen.check_x(ship.get_x())==false)
   {
-   ship.set_x(screen.get_width()/2);
+   ship.go_start();
   }
-  if (ship.get_y()>screen.get_height())
+  if (screen.check_y(ship.get_y())==false)
   {
-   ship.set_y(screen.get_height()/2);
+   ship.go_start();
   }
   itoa(screen.get_fps(),perfomance,10);
   space.draw();

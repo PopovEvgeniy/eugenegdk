@@ -330,6 +330,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       optimization.<br>
       <br>
       <span style="text-decoration: underline;"> Note for Visual C++ users</span><br
+
         style="text-decoration: underline;">
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
@@ -696,6 +697,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         Billboard::set_position(const unsigned int x, const unsigned int y);</span>
       – Set sprite position.<br>
       <br>
+      <span style="font-style: italic;">void Billboard::set_start(const unsigned
+        int x, const unsigned int y);</span> – Set start position of the sprite.<br>
+      <br>
       <span style="font-style: italic;"> void Billboard::set_size(const unsigned
         int width, const unsigned int height);</span> – Change the sprite size.<br>
       <br>
@@ -768,6 +772,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;">void Billboard::complex_mirror();</span>
       – Set both horizontal and vertical sprite mirroring mode.<br>
+      <br>
+      <span style="font-style: italic;">void Billboard::go_start();</span> – Set
+      sprite position to start position.<br>
       <br>
     </big><big> </big><big><span style="font-style: italic;">void
         Billboard::draw();</span> – Draw a sprite.<br>
@@ -889,12 +896,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         int target) const;</span> – Return true if target column is valid.<br>
       <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -1261,12 +1266,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Get target cartesian y-coordinate </big><big>from the row and column.<br>
       <br>
     </big><big><span style="font-style: italic;">int World::get_row(const int x,</span></big><big
-
       style="font-style: italic;">const int y</big><big><span style="font-style: italic;">)
         const;</span> – Get the row from target point.<br>
       <br>
       <span style="font-style: italic;">int World::get_column(const int y</span></big><big
-
       style="font-style: italic;">,</big><big style="font-style: italic;">const
       int y</big><big><span style="font-style: italic;">) const;</span> – Get
       the column</big><big> from target point.<br>
@@ -1421,6 +1424,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Return true if the column is valid.<br>
       <br>
       <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big
+
       style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
       int row,const unsigned int column</big><big><span style="font-style: italic;">)
         const;</span> – Return collision related information.<br>
@@ -2630,7 +2634,8 @@ Multimedia API</a>. </big>
       7.2.6 – 7.2.9 – Image resizer improved.<br>
       7.3 – 7.3.1 – Small changes.<br>
       7.3.2 – Small render bug fixed.<br>
-      7.3.3 – Animation subsystem back-ported from Eugene game development kit 5.6.2.<br>
+      7.3.3 – Animation subsystem back-ported from Eugene game development kit
+      5.6.2.<br>
       7.3.4 – Background subsystem improved.<br>
       7.3.5 – Small changes.<br>
       7.3.6 – Source code synced with Simple windows game framework 7.3.5.<br>
@@ -2667,8 +2672,10 @@ Multimedia API</a>. </big>
       7.8.4 – Isometric level subsystem improved.<br>
       7.8.5 – Small changes.<br>
       7.8.6 – Animation subsystem improved.<br>
-    </big><big>7.8.7 – Sprite sheet subsystem improved.<br>
-    </big><big> 7.8.8 – Small changes.</big><br>
+      7.8.7 – Sprite sheet subsystem improved.<br>
+      7.8.8 – Small changes.<br>
+      7.8.9 – Base sprite subsystem improved.<br>
+    </big>
     <p></p>
     <big> </big>
   </body>

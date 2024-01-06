@@ -804,6 +804,8 @@ typedef enum
    bool transparent;
    unsigned int current_x;
    unsigned int current_y;
+   unsigned int start_x;
+   unsigned int start_y;
    unsigned int sprite_width;
    unsigned int sprite_height;
    void check_transparent();
@@ -820,6 +822,7 @@ typedef enum
    void set_width(const unsigned int width);
    void set_height(const unsigned int height);
    void set_size(const unsigned int width,const unsigned int height);
+   void set_start(const unsigned int x,const unsigned int y);
    void set_position(const unsigned int x,const unsigned int y);
    void set_x(const unsigned int x);
    void set_y(const unsigned int y);
@@ -840,6 +843,7 @@ typedef enum
    void horizontal_mirror();
    void vertical_mirror();
    void complex_mirror();
+   void go_start();
    void draw();
    void draw(const unsigned int x,const unsigned int y);
    void draw(const bool transparency);
