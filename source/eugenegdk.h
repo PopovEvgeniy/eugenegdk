@@ -834,6 +834,8 @@ typedef enum
    unsigned int decrease_x(const unsigned int decrement);
    unsigned int increase_y(const unsigned int increment);
    unsigned int decrease_y(const unsigned int decrement);
+   unsigned int get_start_x() const;
+   unsigned int get_start_y() const;
    unsigned int get_x() const;
    unsigned int get_y() const;
    unsigned int get_width() const;

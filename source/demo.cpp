@@ -127,11 +127,11 @@ int main()
   }
   if (screen.check_x(ship.get_x())==false)
   {
-   ship.go_start();
+   ship.set_x(ship.get_start_x());
   }
   if (screen.check_y(ship.get_y())==false)
   {
-   ship.go_start();
+   ship.set_y(ship.get_start_y());
   }
   itoa(screen.get_fps(),perfomance,10);
   space.draw();
