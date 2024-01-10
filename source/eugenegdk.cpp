@@ -3167,6 +3167,11 @@ namespace EUGENEGDK
    stage.destroy();
   }
 
+  Background* Background::get_handle()
+  {
+   return this;
+  }
+
   void Background::prepare(const Screen *screen)
   {
    if (screen!=NULL)
@@ -3270,6 +3275,11 @@ namespace EUGENEGDK
   void Background::destroy()
   {
    stage.destroy();
+  }
+
+  bool Background::is_last_frame() const
+  {
+   return stage.is_last_frame();
   }
 
   unsigned int Background::get_frame() const

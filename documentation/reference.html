@@ -575,6 +575,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       Just use <span style="font-style: italic;">Background</span> class to
       work with background. Let's look at public methods.<br>
+      <br>
+      <span style="font-style: italic;">Background* Background::get_handle();</span>
+      – Return the handle to background object.<br>
     </big><big><br style="font-style: italic;">
       <span style="font-style: italic;"> void Background::prepare(const Screen
         *screen);</span> – Prepare for drawing.<br>
@@ -629,7 +632,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Load background </big><big>from target file</big><big>.<br>
       <br>
       <span style="font-style: italic;">void Background::load(</span></big><big
-
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load normal background from target file.<br>
       <br>
@@ -644,6 +646,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> void Background::destroy();</span> –
       Destroy a background image and destroy a background texture.<br>
+      <br>
+      <span style="font-style: italic;">bool Background::is_last_frame() const;</span>
+      – Return true if current frame of scrollable background is last frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Background::get_frame()
         const;</span> – Return current frame in scrollable background.<br>
@@ -2679,7 +2684,9 @@ Multimedia API</a>. </big>
       7.8.8 – Small changes.<br>
       7.8.9 – Base sprite subsystem improved.<br>
       7.9 – Text drawing subsystem improved.<br>
-    </big><big> 7.9.1 – Base sprite subsystem improved.</big><br>
+    </big><big> 7.9.1 – Base sprite subsystem improved.<br>
+      7.9.2 – Background subsystem improved.<br>
+    </big>
     <p></p>
     <big> </big>
   </body>
