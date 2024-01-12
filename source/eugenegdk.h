@@ -880,6 +880,20 @@ typedef enum
    void clone(Sprite &target);
   };
 
+  class Cartoon:public Billboard,public Picture
+  {
+   public:
+   Cartoon();
+   ~Cartoon();
+   Cartoon* get_handle();
+   void load(Image *buffer);
+   void load(Image &buffer);
+   void load(const char *name);
+   void destroy();
+   void clone(Cartoon *target);
+   void clone(Cartoon &target);
+  };
+
   class Sheet:public Billboard,public Picture,public Animation
   {
    private:

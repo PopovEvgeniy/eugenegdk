@@ -2962,6 +2962,77 @@ namespace EUGENEGDK
    this->clone(target.get_handle());
   }
 
+  Cartoon::Cartoon()
+  {
+
+  }
+
+  Cartoon::~Cartoon()
+  {
+
+  }
+
+  Cartoon* Cartoon::get_handle()
+  {
+   return this;
+  }
+
+  void Cartoon::load(Image *buffer)
+  {
+   this->load_image(buffer);
+   if (this->is_storage_empty()==false)
+   {
+    this->reset_billboard_setting();
+    this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
+    this->set_size(this->get_image_width(),this->get_image_height());
+   }
+
+  }
+
+  void Cartoon::load(Image &buffer)
+  {
+   this->load(buffer.get_handle());
+  }
+
+  void Cartoon::destroy()
+  {
+   billboard.destroy_texture();
+   this->destroy_image();
+   this->reset_billboard_setting();
+  }
+
+  void Cartoon::load(const char *name)
+  {
+   Image picture;
+   picture.load_tga(name);
+   this->load(picture);
+   picture.destroy_image();
+  }
+
+  void Cartoon::clone(Cartoon *target)
+  {
+   if (target!=NULL)
+   {
+    if (target->get_image_length()>0)
+    {
+     this->destroy();
+     this->set_image_size(target->get_image_width(),target->get_image_height());
+     this->create_storage();
+     this->set_transparent(target->get_transparent());
+     this->copy_image(target->get_image());
+     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
+     this->set_size(target->get_width(),target->get_height());
+    }
+
+   }
+
+  }
+
+  void Cartoon::clone(Cartoon &target)
+  {
+   this->clone(target.get_handle());
+  }
+
   Sheet::Sheet()
   {
    rows=0;

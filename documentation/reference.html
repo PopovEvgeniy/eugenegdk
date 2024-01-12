@@ -44,9 +44,10 @@
           <li><a href="#mozTocId738557">Chapter 6. Background</a></li>
           <li><a href="#mozTocId309905">Chapter 7. Base sprite subsystem</a></li>
           <li><a href="#mozTocId662651"> Chapter 8. Ordinary sprites</a></li>
-          <li><a href="#mozTocId146800">Chapter 9. Sprite sheet</a></li>
-          <li><a href="#mozTocId752257">Chapter 10. Text</a></li>
-          <li><a href="#mozTocId67980">Chapter 11. Loading images</a></li>
+          <li><a href="#mozTocId656897">Chapter 9. Static sprites</a></li>
+          <li><a href="#mozTocId146800">Chapter 10. Sprite sheet</a></li>
+          <li><a href="#mozTocId752257">Chapter 11. Text</a></li>
+          <li><a href="#mozTocId67980">Chapter 12. Loading images</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId861378">Part 4. Transformation</a>
@@ -632,6 +633,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Load background </big><big>from target file</big><big>.<br>
       <br>
       <span style="font-style: italic;">void Background::load(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load normal background from target file.<br>
       <br>
@@ -874,8 +876,52 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="text-decoration: underline;"> Sprite texture</span><br>
       <br>
       Sprite will don't draw if sprite texture is don't exist. Sprite texture
-      will automatically create when load or clone sprite.</big><big> </big>
-    <h2><a name="mozTocId146800" class="mozTocH2"></a><big>Chapter 9. Sprite
+      will automatically create when load or clone sprite.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId656897"></a><big>Chapter 9. Static
+        sprites</big></h2>
+    <big><span style="text-decoration: underline;">A few words about static
+        sprite</span><br>
+      <br>
+      The static sprite is simple kind of sprites. It contain one frame only.<br>
+    </big><big><span style="text-decoration: underline;"></span></big><big><br style="text-decoration: underline;">
+      <span style="text-decoration: underline;"> Work with static sprites</span><br>
+      <br>
+      Just use <span style="font-style: italic;">Cartoon</span> class to work
+      with a static sprite. It is derived from two classes: </big><big><span style="font-style: italic;">Billboard</span>
+      and <span style="font-style: italic;">Picture</span></big><big>. Let's
+      look at public methods.<br>
+      <span style="font-style: italic;"></span><br>
+      <span style="font-style: italic;"> void Cartoon::load(Image *buffer);</span>
+      – Load a static sprite </big><big>from the buffer</big><big>.<br>
+      <span style="font-style: italic;"></span></big><big><br>
+      <span style="font-style: italic;"> void Cartoon::load(Image &amp;buffer);</span>
+      – Load a static sprite </big><big>from the buffer</big><big>.<br>
+      <span style="font-style: italic;"></span></big><big><br>
+      <span style="font-style: italic;">void Cartoon::load(</span></big><big style="font-style: italic;">const
+      char *name</big><big><span style="font-style: italic;">);</span> – Load a
+      static sprite from target file.<br>
+      <span style="font-style: italic;"></span><br>
+    </big><big> <span style="font-style: italic;"> Cartoon*
+        Cartoon::get_handle();</span> – Return the handle to sprite object.<br>
+      <br>
+      <span style="font-style: italic;"> void Cartoon::clone(Cartoon *target);</span>
+      – Create copy of the sprite if the image storage of target sprite is not
+      empty.<br>
+      <br>
+      <span style="font-style: italic;"> void Cartoon::clone(Cartoon
+        &amp;target);</span> – Create copy of the sprite if the image storage of
+      target sprite is not empty.<br>
+      <br>
+      <span style="font-style: italic;"> void Cartoon::destroy(); </span>–
+      Destroy a sprite image and destroy a sprite texture.</big><big><br>
+    </big> <big><br>
+      <span style="text-decoration: underline;"> Sprite texture</span><br>
+      <br>
+      Sprite will don't draw if sprite texture is don't exist. Sprite texture
+      will automatically create when load or clone sprite.</big><br>
+    <big> </big>
+    <h2><a name="mozTocId146800" class="mozTocH2"></a><big>Chapter 10. Sprite
         sheet</big></h2>
     <big><span style="text-decoration: underline;"> Some words about sprite
         sheet</span><br>
@@ -906,10 +952,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         int target) const;</span> – Return true if target column is valid.<br>
       <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -967,7 +1015,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       sheet texture will automatically create after call <span style="font-style: italic;">load_sheet</span>
       method.<br>
     </big>
-    <h2><a name="mozTocId752257" class="mozTocH2"></a><big>Chapter 10. Text</big></h2>
+    <h2><a name="mozTocId752257" class="mozTocH2"></a><big>Chapter 11. Text</big></h2>
     <big><span style="text-decoration: underline;"> How to draw a text?</span><br>
       <br>
       Just use text subsystem to draw a text. This subsystem need a font for
@@ -1076,7 +1124,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> void Text::destroy_font();</span> –
       Destroy a font image and destroy a font texture.<br>
     </big><big> </big>
-    <h2><a name="mozTocId67980" class="mozTocH2"></a><big>Chapter 11. Loading
+    <h2><a name="mozTocId67980" class="mozTocH2"></a><big>Chapter 12. Loading
         images</big></h2>
     <big><span style="text-decoration: underline;"> Load an image from files</span><br>
       <br>
@@ -1271,6 +1319,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       column.<br>
       <br>
       <span style="font-style: italic;">int World::get_target_y(const int row</span></big><big
+
       style="font-style: italic;">,</big><big style="font-style: italic;">const
       int column</big><big><span style="font-style: italic;">) const;</span> –
       Get target cartesian y-coordinate </big><big>from the row and column.<br>
@@ -1280,6 +1329,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         const;</span> – Get the row from target point.<br>
       <br>
       <span style="font-style: italic;">int World::get_column(const int y</span></big><big
+
       style="font-style: italic;">,</big><big style="font-style: italic;">const
       int y</big><big><span style="font-style: italic;">) const;</span> – Get
       the column</big><big> from target point.<br>
@@ -2684,9 +2734,9 @@ Multimedia API</a>. </big>
       7.8.8 – Small changes.<br>
       7.8.9 – Base sprite subsystem improved.<br>
       7.9 – Text drawing subsystem improved.<br>
-    </big><big> 7.9.1 – Base sprite subsystem improved.<br>
+      7.9.1 – Base sprite subsystem improved.<br>
       7.9.2 – Background subsystem improved.<br>
-    </big>
+      7.9.3 – New subsystem added.<br>
     <p></p>
     <big> </big>
   </body>
