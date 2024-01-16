@@ -2994,19 +2994,19 @@ namespace EUGENEGDK
    this->load(buffer.get_handle());
   }
 
-  void Cartoon::destroy()
-  {
-   billboard.destroy_texture();
-   this->destroy_image();
-   this->reset_billboard_setting();
-  }
-
   void Cartoon::load(const char *name)
   {
    Image picture;
    picture.load_tga(name);
    this->load(picture);
    picture.destroy_image();
+  }
+
+  void Cartoon::destroy()
+  {
+   billboard.destroy_texture();
+   this->destroy_image();
+   this->reset_billboard_setting();
   }
 
   void Cartoon::clone(Cartoon *target)
@@ -3376,6 +3376,100 @@ namespace EUGENEGDK
   EUGENEGDK::IMAGE_KIND Background::get_kind() const
   {
    return stage.get_kind();
+  }
+
+  Scene::Scene()
+  {
+   stage.set_position(0,0);
+  }
+
+  Scene::~Scene()
+  {
+   stage.destroy();
+  }
+
+  Scene* Scene::get_handle()
+  {
+   return this;
+  }
+
+  void Scene::prepare(const Screen *screen)
+  {
+   if (screen!=NULL)
+   {
+    stage.set_size(screen->get_width(),screen->get_height());
+   }
+
+  }
+
+  void Scene::prepare(const unsigned int width,const unsigned int height)
+  {
+   stage.set_size(width,height);
+  }
+
+  void Scene::prepare(Screen &screen)
+  {
+   this->prepare(screen.get_handle());
+  }
+
+  void Scene::load(Image *background)
+  {
+   this->load(background);
+  }
+
+  void Scene::load(Image &background)
+  {
+   this->load(background.get_handle());
+  }
+
+  void Scene::load(const char *name)
+  {
+   stage.load(name);
+  }
+
+  void Scene::disable_mirror()
+  {
+   stage.disable_mirror();
+  }
+
+  void Scene::horizontal_mirror()
+  {
+   stage.horizontal_mirror();
+  }
+
+  void Scene::vertical_mirror()
+  {
+   stage.vertical_mirror();
+  }
+
+  void Scene::complex_mirror()
+  {
+   stage.complex_mirror();
+  }
+
+  void Scene::draw()
+  {
+   stage.draw(false);
+  }
+
+  void Scene::destroy_image()
+  {
+   stage.destroy_image();
+  }
+
+  void Scene::destroy()
+  {
+   stage.destroy();
+  }
+
+  unsigned int Scene::get_width() const
+  {
+   return stage.get_width();
+  }
+
+  unsigned int Scene::get_height() const
+  {
+   return stage.get_height();
   }
 
   Text::Text()

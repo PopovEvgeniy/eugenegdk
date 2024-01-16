@@ -4,7 +4,7 @@ int main()
 {
  int x,y,row,column;
  EUGENEGDK::Graphics::Screen screen;
- EUGENEGDK::Graphics::Background sky;
+ EUGENEGDK::Graphics::Scene sky;
  EUGENEGDK::Graphics::Sprite ground;
  EUGENEGDK::Graphics::Text text;
  EUGENEGDK::Transformation::Coordinates cartesian;

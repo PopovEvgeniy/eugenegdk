@@ -9,7 +9,7 @@ int main()
  EUGENEGDK::Input::Mouse mouse;
  EUGENEGDK::Misc::Audio media;
  EUGENEGDK::Graphics::Screen screen;
- EUGENEGDK::Graphics::Background space;
+ EUGENEGDK::Graphics::Scene space;
  EUGENEGDK::Graphics::Sprite ship;
  EUGENEGDK::Graphics::Text text;
  EUGENEGDK::Tools::enable_logging("log.txt");
