@@ -724,6 +724,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       buffer</big><big>.<br>
       <br>
     </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load static background from target file.</big><br>
     <big><br>
@@ -1755,6 +1756,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       class provide access to file reader. It is derived from <i>Binary_File</i>
       class. Let's look at public methods.<br>
       <br>
+      <span style="font-style: italic;">Input_File* Input_File::get_handle();</span>
+      – Return the handle to file reader.<br>
+      <br>
       <i> void Input_File::open(const char *name);</i> – Open a file for read.<br>
       <br>
       <i> void Input_File::read(void *buffer,const size_t length);</i> – Read
@@ -1765,6 +1769,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       class provide access to file writer. It is derived from <i>Binary_File</i>
       class. Let's look at public methods.<br>
       <br>
+    </big><big><span style="font-style: italic;">Output_File*
+        Output_File::get_handle();</span> – Return the handle to file writer.</big><br>
+    <big> <br>
       <i> void Output_File::open(const char *name);</i> – Open a file for write.<br>
       <br>
       <i> void Output_File::create_temp();</i> – Create a temporary file. This
@@ -2829,7 +2836,7 @@ Multimedia API</a>. </big>
       7.9.2 – Background subsystem improved.<br>
       7.9.3 – New subsystem added.<br>
       7.9.4 – New subsystem added.<br>
-      7.9.5 – Small changes.<br>
+      7.9.5 – 7.9.6 – Small changes.<br>
     </big>
     <p></p>
     <big> <big> <big> </big> </big> </big>
