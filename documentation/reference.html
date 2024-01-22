@@ -863,6 +863,14 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">void Billboard::go_start();</span> – Set
       sprite position to start position.<br>
       <br>
+    </big><big><span style="font-style: italic;">void Billboard::go_start_x();</span>
+      – Set </big><big>x–coordinate of</big><big> sprite position to </big><big>x–coordinate
+      of</big><big> start position.<br>
+      <br>
+    </big><big><span style="font-style: italic;">void Billboard::go_start_y();</span>
+      – Set </big><big>y–coordinate of</big><big> sprite position to </big><big>y–coordinate
+      of</big><big> start position.</big><br>
+    <big> <br>
     </big><big> </big><big><span style="font-style: italic;">void
         Billboard::draw();</span> – Draw a sprite.<br>
       <br>
@@ -1027,10 +1035,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         int target) const;</span> – Return true if target column is valid.<br>
       <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -2403,7 +2413,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> </big>
     <h2><a name="mozTocId472209" class="mozTocH2"></a><big>Chapter 4. Game–pad</big></h2>
     <big> Game–pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
-Multimedia API</a>. </big>
+Multimedia
+        API</a>. </big>
     <h2><a name="mozTocId804583" class="mozTocH2"></a><big>Chapter 5. Input</big></h2>
     <big> <span style="text-decoration: underline;"> Input back–end</span><br>
       <br>
@@ -2837,7 +2848,7 @@ Multimedia API</a>. </big>
       7.9.3 – New subsystem added.<br>
       7.9.4 – New subsystem added.<br>
       7.9.5 – 7.9.6 – Small changes.<br>
-    </big>
+      7.9.7 – Base sprite subsystem improved.<br>
     <p></p>
     <big> <big> <big> </big> </big> </big>
   </body>

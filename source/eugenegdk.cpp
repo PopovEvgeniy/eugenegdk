@@ -2778,6 +2778,16 @@ namespace EUGENEGDK
    this->set_position(start_x,start_y);
   }
 
+  void Billboard::go_start_x()
+  {
+   this->set_x(start_x);
+  }
+
+  void Billboard::go_start_y()
+  {
+   this->set_y(start_y);
+  }
+
   void Billboard::draw()
   {
    this->check_transparent();
