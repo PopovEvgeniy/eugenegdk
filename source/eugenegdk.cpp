@@ -2231,12 +2231,14 @@ namespace EUGENEGDK
    {
     if (target[position]<128)
     {
-     amount=target[position]+1;
-     for (amount*=sizeof(unsigned int);amount>0;--amount)
+     for (amount=target[position]+1;amount>0;--amount)
      {
       data[index]=target[position+1];
-      ++index;
-      ++position;
+      data[index+1]=target[position+2];
+      data[index+2]=target[position+3];
+      data[index+3]=target[position+4];
+      index+=sizeof(unsigned int);
+      position+=sizeof(unsigned int);
      }
      ++position;
     }
