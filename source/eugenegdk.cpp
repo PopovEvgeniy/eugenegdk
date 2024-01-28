@@ -690,30 +690,6 @@ namespace EUGENEGDK
 
   }
 
-  void Resizer::load_image(const unsigned int *target)
-  {
-   size_t index;
-   image[0]=target[0];
-   for (index=image.get_length()-1;index>0;--index)
-   {
-    image[index]=target[index];
-   }
-
-  }
-
-  void Resizer::resize_image(const unsigned int *target)
-  {
-   if ((source_width==target_width) && (source_height==target_height))
-   {
-    this->load_image(target);
-   }
-   else
-   {
-    this->scale_image(target);
-   }
-
-  }
-
   void Resizer::set_setting(const unsigned int width,const unsigned int height)
   {
    source_width=width;
@@ -760,14 +736,9 @@ namespace EUGENEGDK
    image.create_buffer();
   }
 
-  void Resizer::make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit)
+  bool Resizer::is_dont_need_resize() const
   {
-   this->set_setting(width,height);
-   this->calculate_size();
-   this->correct_size(limit);
-   this->calculate_ratio();
-   this->create_texture();
-   this->resize_image(target);
+   return (source_width==target_width) && (source_height==target_height);
   }
 
   unsigned int Resizer::get_width() const
@@ -783,6 +754,20 @@ namespace EUGENEGDK
   unsigned int *Resizer::get_buffer()
   {
    return image.get_buffer();
+  }
+
+  void Resizer::make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit)
+  {
+   this->set_setting(width,height);
+   this->calculate_size();
+   this->correct_size(limit);
+   if (this->is_dont_need_resize()==false)
+   {
+    this->calculate_ratio();
+    this->create_texture();
+    this->scale_image(target);
+   }
+
   }
 
   FPS::FPS()
@@ -959,10 +944,8 @@ namespace EUGENEGDK
 
   }
 
-  void Rectangle::create_texture(const unsigned int *buffer)
+  void Rectangle::load_texture(const unsigned int width,const unsigned int height,const unsigned int *buffer)
   {
-   Resizer resizer;
-   resizer.make_texture(buffer,this->get_total_width(),this->get_total_height(),MAXIMUM_TEXTURE_SIZE);
    glPixelStorei(GL_UNPACK_ALIGNMENT,1);
    glGenTextures(1,&texture);
    glBindTexture(GL_TEXTURE_2D,texture);
@@ -971,7 +954,22 @@ namespace EUGENEGDK
    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_CLAMP);
    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP);
-   glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,resizer.get_width(),resizer.get_height(),0,GL_BGRA_EXT,GL_UNSIGNED_BYTE,resizer.get_buffer());
+   glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,width,height,0,GL_BGRA_EXT,GL_UNSIGNED_BYTE,buffer);
+  }
+
+  void Rectangle::create_texture(const unsigned int *buffer)
+  {
+   Resizer resizer;
+   resizer.make_texture(buffer,this->get_total_width(),this->get_total_height(),MAXIMUM_TEXTURE_SIZE);
+   if (resizer.is_dont_need_resize()==true)
+   {
+    this->load_texture(this->get_total_width(),this->get_total_height(),buffer);
+   }
+   else
+   {
+    this->load_texture(resizer.get_width(),resizer.get_height(),resizer.get_buffer());
+   }
+
   }
 
   void Rectangle::delete_texture()
