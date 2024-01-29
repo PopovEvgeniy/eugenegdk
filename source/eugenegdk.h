@@ -505,7 +505,7 @@ typedef enum
   {
    private:
    unsigned int texture;
-   void load_texture(const unsigned int width,const unsigned int height,const unsigned int *buffer);
+   void load_texture(const unsigned int width,const unsigned int height,const void *buffer);
    void create_texture(const unsigned int *buffer);
    void delete_texture();
    void check_texture();

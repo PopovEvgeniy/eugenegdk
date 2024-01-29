@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=windows-1251">
     <title>Programmer reference</title>
   </head>
   <body>
+    <p> </p>
     <p> <big> </big> </p>
     <div>
       <div style="text-align: center;"><big>Eugene game development kit:
@@ -44,7 +46,7 @@
           <li><a href="#mozTocId738557">Chapter 6. Background</a></li>
           <li><a href="#mozTocId946803">Chapter 7. Static background</a></li>
           <li><a href="#mozTocId309905">Chapter 8. Base sprite subsystem</a></li>
-          <li><a href="#mozTocId662651"> Chapter 9. Ordinary sprites</a></li>
+          <li><a href="#mozTocId662651">Chapter 9. Ordinary sprites</a></li>
           <li><a href="#mozTocId656897">Chapter 10. Static sprites</a></li>
           <li><a href="#mozTocId146800">Chapter 11. Sprite sheet</a></li>
           <li><a href="#mozTocId752257">Chapter 12. Text</a></li>
@@ -58,7 +60,7 @@
               screen coordinates</a></li>
           <li><a href="#mozTocId122919">Chapter 3. Cartesian coordinates and
               isometric coordinates</a></li>
-          <li><a href="#mozTocId143616">Chapter 4. Isometric level </a></li>
+          <li><a href="#mozTocId143616">Chapter 4. Isometric level</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId64443">Part 5. Common things</a>
@@ -84,12 +86,12 @@
           <li><a href="#mozTocId573582">Chapter 3. Resource manager</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId590919"> Part 8. Binary files</a>
+      <li><a href="#mozTocId590919">Part 8. Binary files</a>
         <ul>
           <li><a href="#mozTocId200879">Chapter 1. The sub–namespace</a></li>
-          <li><a href="#mozTocId961921"> Chapter 2. Base binary file subsystem</a></li>
-          <li><a href="#mozTocId424835"> Chapter 3. File reader</a></li>
-          <li><a href="#mozTocId511135"> Chapter 4. File writer</a></li>
+          <li><a href="#mozTocId961921">Chapter 2. Base binary file subsystem</a></li>
+          <li><a href="#mozTocId424835">Chapter 3. File reader</a></li>
+          <li><a href="#mozTocId511135">Chapter 4. File writer</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId291572">Part 9. Input</a>
@@ -387,7 +389,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       What is the main point in your game? A game cycle. You can see the
       structure of a typical game cycle below.<br>
       <br>
-      <img style="width: 379px; height: 354px;" alt="" src="game_cycle.png"> </big>
+      <img style="width: 379px; height: 354px;" alt="" src="game_cycle.png">
+    </big>
     <h1><a name="mozTocId760374" class="mozTocH1"></a><big>Part 3. Graphics</big></h1>
     <h2><a name="mozTocId182571" class="mozTocH2"></a><big>Chapter 1. The
         sub–namespace</big></h2>
@@ -400,6 +403,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
+
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -1035,12 +1039,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         int target) const;</span> – Return true if target column is valid.<br>
       <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -1397,6 +1399,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       </big></h2>
     <big><span style="text-decoration: underline;"></span> Isometric level
       subsystem intend for help you to create an isometric levels. Just use <span
+
         style="font-style: italic;">World</span> class for doing it. Let's look
       at public methods.<br>
       <br>
@@ -1586,6 +1589,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Return true if the column is valid.<br>
       <br>
       <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big
+
       style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
       int row,const unsigned int column</big><big><span style="font-style: italic;">)
         const;</span> – Return collision related information.<br>
@@ -2413,8 +2417,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> </big>
     <h2><a name="mozTocId472209" class="mozTocH2"></a><big>Chapter 4. Game–pad</big></h2>
     <big> Game–pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
-Multimedia
-        API</a>. </big>
+Multimedia API</a>. </big>
     <h2><a name="mozTocId804583" class="mozTocH2"></a><big>Chapter 5. Input</big></h2>
     <big> <span style="text-decoration: underline;"> Input back–end</span><br>
       <br>
@@ -2852,8 +2855,8 @@ Multimedia
       7.9.8 – Image loader improved.<br>
       7.9.9 – Small changes.<br>
       8.0 – 8.0.2 – Image resizer improved.<br>
-      8.0.3 – Small changes.<br>
-     </big>
+      8.0.3 – 8.0.4 – Small changes.<br>
+    </big>
     <p></p>
   </body>
 </html>

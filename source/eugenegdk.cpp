@@ -944,7 +944,7 @@ namespace EUGENEGDK
 
   }
 
-  void Rectangle::load_texture(const unsigned int width,const unsigned int height,const unsigned int *buffer)
+  void Rectangle::load_texture(const unsigned int width,const unsigned int height,const void *buffer)
   {
    glPixelStorei(GL_UNPACK_ALIGNMENT,1);
    glGenTextures(1,&texture);
