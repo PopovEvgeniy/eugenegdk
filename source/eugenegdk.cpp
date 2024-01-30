@@ -682,10 +682,34 @@ namespace EUGENEGDK
      green=(get_pixel_component(first,Core::GREEN_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::GREEN_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::GREEN_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::GREEN_COMPONENT)*x_difference*y_difference+1)/normalization;
      blue=(get_pixel_component(first,Core::BLUE_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::BLUE_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::BLUE_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::BLUE_COMPONENT)*x_difference*y_difference+1)/normalization;
      alpha=(get_pixel_component(first,Core::ALPHA_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::ALPHA_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::ALPHA_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::ALPHA_COMPONENT)*x_difference*y_difference+1)/normalization;
-     image[index]=Core::make_pixel(red,green,blue,alpha);
+     image[index]=Core::make_pixel(blue,green,red,alpha);
      ++index;
     }
 
+   }
+
+  }
+
+  void Resizer::load_image(const unsigned int *target)
+  {
+   size_t index;
+   image[0]=Core::make_pixel(Core::get_pixel_component(target[0],Core::BLUE_COMPONENT),Core::get_pixel_component(target[0],Core::GREEN_COMPONENT),Core::get_pixel_component(target[0],Core::RED_COMPONENT),Core::get_pixel_component(target[0],Core::ALPHA_COMPONENT));
+   for (index=image.get_length()-1;index>0;--index)
+   {
+    image[index]=Core::make_pixel(Core::get_pixel_component(target[index],Core::BLUE_COMPONENT),Core::get_pixel_component(target[index],Core::GREEN_COMPONENT),Core::get_pixel_component(target[index],Core::RED_COMPONENT),Core::get_pixel_component(target[index],Core::ALPHA_COMPONENT));
+   }
+
+  }
+
+  void Resizer::resize_image(const unsigned int *target)
+  {
+   if ((source_width==target_width) && (source_height==target_height))
+   {
+    this->load_image(target);
+   }
+   else
+   {
+    this->scale_image(target);
    }
 
   }
@@ -736,9 +760,14 @@ namespace EUGENEGDK
    image.create_buffer();
   }
 
-  bool Resizer::is_dont_need_resize() const
+  void Resizer::make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit)
   {
-   return (source_width==target_width) && (source_height==target_height);
+   this->set_setting(width,height);
+   this->calculate_size();
+   this->correct_size(limit);
+   this->calculate_ratio();
+   this->create_texture();
+   this->resize_image(target);
   }
 
   unsigned int Resizer::get_width() const
@@ -754,20 +783,6 @@ namespace EUGENEGDK
   unsigned int *Resizer::get_buffer()
   {
    return image.get_buffer();
-  }
-
-  void Resizer::make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit)
-  {
-   this->set_setting(width,height);
-   this->calculate_size();
-   this->correct_size(limit);
-   if (this->is_dont_need_resize()==false)
-   {
-    this->calculate_ratio();
-    this->create_texture();
-    this->scale_image(target);
-   }
-
   }
 
   FPS::FPS()
@@ -954,22 +969,14 @@ namespace EUGENEGDK
    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_CLAMP);
    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP);
-   glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,width,height,0,GL_BGRA_EXT,GL_UNSIGNED_BYTE,buffer);
+   glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,width,height,0,GL_RGBA,GL_UNSIGNED_BYTE,buffer);
   }
 
   void Rectangle::create_texture(const unsigned int *buffer)
   {
    Resizer resizer;
    resizer.make_texture(buffer,this->get_total_width(),this->get_total_height(),MAXIMUM_TEXTURE_SIZE);
-   if (resizer.is_dont_need_resize()==true)
-   {
-    this->load_texture(this->get_total_width(),this->get_total_height(),buffer);
-   }
-   else
-   {
-    this->load_texture(resizer.get_width(),resizer.get_height(),resizer.get_buffer());
-   }
-
+   this->load_texture(resizer.get_width(),resizer.get_height(),resizer.get_buffer());
   }
 
   void Rectangle::check_texture()
