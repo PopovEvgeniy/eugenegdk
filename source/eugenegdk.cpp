@@ -638,7 +638,7 @@ namespace EUGENEGDK
   unsigned int Resizer::get_next_x(const unsigned int x) const
   {
    unsigned int next_x;
-   next_x=this->get_source_x(x)+1;
+   next_x=x+1;
    if (next_x>=source_width)
    {
     next_x=source_width-1;
@@ -649,7 +649,7 @@ namespace EUGENEGDK
   unsigned int Resizer::get_next_y(const unsigned int y) const
   {
    unsigned int next_y;
-   next_y=this->get_source_y(y)+1;
+   next_y=y+1;
    if (next_y>=source_height)
    {
     next_y=source_height-1;
@@ -665,13 +665,13 @@ namespace EUGENEGDK
    for (y=0;y<target_height;++y)
    {
     source_y=this->get_source_y(y);
-    next_y=this->get_next_y(y);
+    next_y=this->get_next_y(source_y);
     y_difference=this->get_y_difference(y);
     y_weigh=UCHAR_MAX-y_difference;
     for (x=0;x<target_width;++x)
     {
      source_x=this->get_source_x(x);
-     next_x=this->get_next_x(x);
+     next_x=this->get_next_x(source_x);
      first=target[this->get_source_offset(source_x,source_y)];
      second=target[this->get_source_offset(next_x,source_y)];
      third=target[this->get_source_offset(source_x,next_y)];
