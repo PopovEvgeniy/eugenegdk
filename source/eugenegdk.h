@@ -337,9 +337,9 @@ typedef enum
 
  typedef enum
  {
-  RED_COMPONENT=16,
+  RED_COMPONENT=0,
   GREEN_COMPONENT=8,
-  BLUE_COMPONENT=0,
+  BLUE_COMPONENT=16,
   ALPHA_COMPONENT=24
  } PIXEL_COMPONENT;
 
@@ -446,8 +446,6 @@ typedef enum
    unsigned int get_next_x(const unsigned int x) const;
    unsigned int get_next_y(const unsigned int y) const;
    void scale_image(const unsigned int *target);
-   void load_image(const unsigned int *target);
-   void resize_image(const unsigned int *target);
    void set_setting(const unsigned int width,const unsigned int height);
    void correct_size(const unsigned int limit);
    void calculate_ratio();
@@ -456,10 +454,11 @@ typedef enum
    public:
    Resizer();
    ~Resizer();
-   void make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit);
+   bool is_dont_need_resize() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
    unsigned int *get_buffer();
+   void make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit);
   };
 
   class FPS
@@ -769,6 +768,7 @@ typedef enum
    void set_image_size(const unsigned int width,const unsigned int height);
    void create_storage();
    void copy_image(const unsigned int *target);
+   void convert_image(const unsigned char *target);
    void load_image(Image *buffer);
    public:
    Picture();
