@@ -5,7 +5,7 @@ int main()
  int x,y,row,column;
  EUGENEGDK::Graphics::Screen screen;
  EUGENEGDK::Graphics::Scene sky;
- EUGENEGDK::Graphics::Sprite ground;
+ EUGENEGDK::Graphics::Cartoon ground;
  EUGENEGDK::Graphics::Text text;
  EUGENEGDK::Transformation::Coordinates cartesian;
  EUGENEGDK::Transformation::World level;

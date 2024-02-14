@@ -85,9 +85,8 @@ namespace EUGENEGDK
 
  typedef enum
  {
-  STATIC_IMAGE=0,
-  HORIZONTAL_ANIMATED=1,
-  VERTICAL_ANIMATED=2
+  HORIZONTAL_ANIMATED=0,
+  VERTICAL_ANIMATED=1
  } IMAGE_KIND;
 
  typedef enum
@@ -872,11 +871,8 @@ typedef enum
    EUGENEGDK::IMAGE_KIND get_kind() const;
    void set_setting(const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
    void load(Image *buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   void load(Image *buffer);
    void load(Image &buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   void load(Image &buffer);
    void load(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   void load(const char *name);
    void set_target(const unsigned int target);
    void step();
    void destroy();
@@ -940,11 +936,8 @@ typedef enum
    void prepare(const unsigned int width,const unsigned int height);
    void set_setting(const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
    void load(Image *background,const IMAGE_KIND kind,const unsigned int frames);
-   void load(Image *background);
    void load(Image &background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   void load(Image &background);
    void load(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   void load(const char *name);
    void disable_mirror();
    void horizontal_mirror();
    void vertical_mirror();

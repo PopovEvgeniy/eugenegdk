@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=windows-1251">
@@ -389,8 +388,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       What is the main point in your game? A game cycle. You can see the
       structure of a typical game cycle below.<br>
       <br>
-      <img style="width: 379px; height: 354px;" alt="" src="game_cycle.png">
-    </big>
+      <img style="width: 379px; height: 354px;" alt="" src="game_cycle.png"> </big>
     <h1><a name="mozTocId760374" class="mozTocH1"></a><big>Part 3. Graphics</big></h1>
     <h2><a name="mozTocId182571" class="mozTocH2"></a><big>Chapter 1. The
         sub–namespace</big></h2>
@@ -403,7 +401,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -525,12 +522,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       methods.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Animation::get_frames()
-        const;</span> – Return amount of frames in scrollable background or
-      animated sprite.<br>
+        const;</span> – Return amount of frames.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Animation::get_frame()
-        const;</span> – Return current frame in scrollable background or
-      animated sprite.<br>
+        const;</span> – Return current frame.<br>
       <br>
     </big><big><span style="font-style: italic;"> bool
         Animation::is_last_frame() const;</span> – Return true if current frame
@@ -546,11 +541,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
           <td><big>Image kind<br>
             </big></td>
           <td><big>Description </big></td>
-        </tr>
-        <tr>
-          <td><big>STATIC_IMAGE </big></td>
-          <td><big>Normal background or normal sprite<br>
-            </big></td>
         </tr>
         <tr>
           <td><big>HORIZONTAL_ANIMATED </big></td>
@@ -571,11 +561,11 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       game has a background. The background will stretch to screen resolution
       before rendering the game scene.<br>
       <br>
-      There are two background kinds: normal background and scrolling
-      background. The scrolling background is a big image with few frames.
-      Horizontal orientated scrolling background look like horizontal orientated
-      photo ribbon. Vertical orientated scrolling background look like vertical
-      orientated photo ribbon.<br>
+      There are two background kinds: horizontal orientated scrolling background
+      and vertical orientated scrolling background. The scrolling background is
+      a big image with few frames. Horizontal orientated scrolling background
+      look like horizontal orientated photo ribbon. Vertical orientated
+      scrolling background look like vertical orientated photo ribbon.<br>
     </big><big><br>
       <span style="text-decoration: underline;"> Work with background</span><br>
       <br>
@@ -607,16 +597,15 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Set both horizontal and vertical background mirroring mode.<br>
       <br>
       <span style="font-style: italic;"> void Background::set_target(const
-        unsigned int target);</span> – Set target frame in scrollable
-      background.<br>
+        unsigned int target);</span> – Set target frame.<br>
       <br>
       <span style="font-style: italic;"> void Background::step();</span> –
-      Increase number of target frame in scrollable background. Set it to 1 if
-      number of target frame more than frame amount.<br>
+      Increase number of target frame. Set it to 1 if number of target frame
+      more than frame amount.<br>
       <br>
       <span style="font-style: italic;"> void Background::set_setting(const
         EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Set
-      setting. Last argument will ignore if background is not scrollable.<br>
+      setting.<br>
       <br>
       <span style="font-style: italic;"> void Background::load(Image
         *background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
@@ -625,28 +614,16 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> void Background::load(Image
         &amp;background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int
         frames);</span> – Load background </big><big>from the buffer</big><big>.<br>
-      <br>
-      <span style="font-style: italic;"> void Background::load(Image
-        *background);</span> – Load normal background from the buffer.<br>
-      <br>
-      <span style="font-style: italic;"> void Background::load(Image
-        &amp;background);</span> – Load normal background </big><big>from the
-      buffer</big><big>.<br>
-      <br>
+    </big><big><br>
       <span style="font-style: italic;">void Background::load(const char
         *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
       – Load background </big><big>from target file</big><big>.<br>
-      <br>
-      <span style="font-style: italic;">void Background::load(</span></big><big
-
-      style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
-      – Load normal background from target file.<br>
-      <br>
+    </big><big><br>
       <span style="font-style: italic;"> void Background::draw();</span> – Draw
       a background.<br>
       <br>
       <span style="font-style: italic;">void Background::draw(const unsigned int
-        target);</span> – Draw target frame in scrollable background.<br>
+        target);</span> – Draw target frame.<br>
       <br>
       <span style="font-style: italic;"> void Background::destroy_image();</span>
       – Destroy a background image.<br>
@@ -655,13 +632,13 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Destroy a background image and destroy a background texture.<br>
       <br>
       <span style="font-style: italic;">bool Background::is_last_frame() const;</span>
-      – Return true if current frame of scrollable background is last frame.<br>
+      – Return true if current frame is last frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Background::get_frame()
-        const;</span> – Return current frame in scrollable background.<br>
+        const;</span> – Return current frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Background::get_frames()
-        const;</span> – Return frame amount in scrollable background.<br>
+        const;</span> – Return frame amount.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Background::get_width()
         const;</span> – Return the width of the background.<br>
@@ -728,7 +705,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       buffer</big><big>.<br>
       <br>
     </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
-
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load static background from target file.</big><br>
     <big><br>
@@ -893,8 +869,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         sprites</big></h2>
     <big><span style="text-decoration: underline;"> Sprite types</span><br>
       <br>
-      There are two kinds of ordinary sprites: normal sprites and strip. The
-      strip is an animated sprite. Do you remember an analog camera? <br>
+      There are two kinds of ordinary sprites: horizontal strip and vertical
+      strip. The strip is an animated sprite. Do you remember an analog camera?
+      <br>
       Strip look like photo ribbon. Horizontal strip look like the horizontal
       orientated photo ribbon.<br>
       Vertical strip look like the vertical orientated photo ribbon.<br>
@@ -906,42 +883,32 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="text-decoration: underline;"> Work with sprites</span><br>
       <br>
       Just use <span style="font-style: italic;">Sprite</span> class to work
-      with a sprite. It is derived from threeclasses: </big><big><span style="font-style: italic;">Billboard</span>,
+      with a sprite. It is derived from three classes: </big><big><span style="font-style: italic;">Billboard</span>,
       <span style="font-style: italic;">Animation</span> and <span style="font-style: italic;">Picture</span></big><big>.
       Let's look at public methods.<br>
       <br>
       <span style="font-style: italic;"> void Sprite::set_setting(const
         EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Set
-      sprite settings. Last argument will ignore if sprite not animated.<br>
+      sprite settings.<br>
       <br>
       <span style="font-style: italic;"> void Sprite::load(Image *buffer,const
         EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Load a
       sprite from the buffer and set it setting.<br>
-      <br>
-      <span style="font-style: italic;"> void Sprite::load(Image *buffer);</span>
-      – Load a normal sprite </big><big>from the buffer</big><big>.<br>
-      <br>
+    </big><big><br>
       <span style="font-style: italic;"> void Sprite::load(Image
         &amp;buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
       – Load a sprite </big><big>from the buffer</big><big> and set it setting.<br>
-      <br>
-      <span style="font-style: italic;"> void Sprite::load(Image &amp;buffer);</span>
-      – Load a normal sprite </big><big>from the buffer</big><big>.<br>
-      <br>
+    </big><big><br>
       <span style="font-style: italic;">void Sprite::load(const char *name,const
         EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Load a
       sprite </big><big>from target file</big><big> and set it setting.<br>
-      <br>
-      <span style="font-style: italic;">void Sprite::load(</span></big><big style="font-style: italic;">const
-      char *name</big><big><span style="font-style: italic;">);</span> – Load a
-      normal sprite from target file.<br>
-      <br>
+    </big><big><br>
       <span style="font-style: italic;"> void Sprite::set_target(const unsigned
-        int target);</span> – Set target frame in strip.<br>
+        int target);</span> – Set target frame.<br>
       <br>
       <span style="font-style: italic;"> void Sprite::step();</span> – Increase
-      number of target frame in strip. Set it to 1 if number of target frame
-      more than frame amount.<br>
+      number of target frame. Set it to 1 if number of target frame more than
+      frame amount.<br>
       <br>
       <span style="font-style: italic;"> EUGENEGDK::IMAGE_KIND
         Sprite::get_kind() const;</span> – Get sprite type.<br>
@@ -1589,7 +1556,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Return true if the column is valid.<br>
       <br>
       <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big
-
       style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
       int row,const unsigned int column</big><big><span style="font-style: italic;">)
         const;</span> – Return collision related information.<br>
@@ -2760,7 +2726,8 @@ Multimedia API</a>. </big>
       6.5.9 – Small bug in game–pad subsystem fixed.<br>
       6.6 – Source code synced with Gray game development kit 2.2.7.<br>
       6.6.1 – Text drawing subsystem improved.<br>
-      6.6.2 – Simple sound subsystem back-ported from Neon game development kit 5.7.8.<br>
+      6.6.2 – Simple sound subsystem back-ported from Neon game development kit
+      5.7.8.<br>
       6.6.3 – Small bug in multimedia subsystem fixed.<br>
       6.6.4 – 6.6.6 – Small changes.<br>
       6.6.7 – Multimedia subsystem improved.<br>
@@ -2867,6 +2834,8 @@ Multimedia API</a>. </big>
       8.1.6 – 8.1.7 – Small changes.<br>
       8.1.8 – Small bug in the tile-map subsystem fixed.<br>
       8.1.9 – Small bug with keyboard input subsystem and mouse input subsystem fixed.<br>
+      8.2 – Ordinary sprite subsystem improved.<br>
+      8.2.1 – Background subsystem improved.<br>
     </big>
     <p></p>
   </body>
