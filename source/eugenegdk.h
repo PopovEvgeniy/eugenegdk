@@ -314,16 +314,16 @@ typedef enum
  namespace Core
  {
 
-  typedef struct
+ typedef struct
  {
   int x;
   int y;
  } Vertex;
 
-  typedef struct
+ typedef struct
  {
-  double u;
-  double v;
+  float u;
+  float v;
  } Point;
 
  typedef enum
@@ -342,8 +342,8 @@ typedef enum
   ALPHA_COMPONENT=24
  } PIXEL_COMPONENT;
 
- double get_start_offset(const double current,const double total);
- double get_end_offset(const double current,const double total);
+ float get_start_offset(const float current,const float total);
+ float get_end_offset(const float current,const float total);
  unsigned int get_pixel_component(const unsigned int pixel,const Core::PIXEL_COMPONENT component);
  unsigned int make_pixel(const unsigned int red,const unsigned int green,const unsigned int blue,const unsigned int alpha);
  EUGENEGDK::GAMEPAD_DIRECTION get_horizontal_direction(const unsigned int current,const unsigned int maximum,const unsigned int minimum);
@@ -495,9 +495,9 @@ typedef enum
    void set_total_size(const unsigned int width,const unsigned int height);
    void set_size(const unsigned int width,const unsigned int height);
    void set_position(const unsigned int x,const unsigned int y);
-   void set_tile_offset(const double row,const double rows,const double column,const double columns);
-   void set_horizontal_offset(const double current,const double total);
-   void set_vertical_offset(const double current,const double total);
+   void set_tile_offset(const float row,const float rows,const float column,const float columns);
+   void set_horizontal_offset(const float current,const float total);
+   void set_vertical_offset(const float current,const float total);
   };
 
   class Rectangle:public Shape

@@ -562,10 +562,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       before rendering the game scene.<br>
       <br>
       There are two background kinds: horizontal orientated scrolling background
-      and vertical orientated scrolling background. The scrolling background is
-      a big image with few frames. Horizontal orientated scrolling background
-      look like horizontal orientated photo ribbon. Vertical orientated
-      scrolling background look like vertical orientated photo ribbon.<br>
+      and vertical orientated scrolling background. It is a big image with few
+      frames. Horizontal orientated scrolling background look like horizontal
+      orientated photo ribbon. Vertical orientated scrolling background look
+      like vertical orientated photo ribbon.<br>
     </big><big><br>
       <span style="text-decoration: underline;"> Work with background</span><br>
       <br>
@@ -609,15 +609,15 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> void Background::load(Image
         *background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
-      – Load background </big><big>from the buffer</big><big>.<br>
+      – Load a background </big><big>from the buffer</big><big>.<br>
       <br>
       <span style="font-style: italic;"> void Background::load(Image
         &amp;background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int
-        frames);</span> – Load background </big><big>from the buffer</big><big>.<br>
+        frames);</span> – Load a background </big><big>from the buffer</big><big>.<br>
     </big><big><br>
       <span style="font-style: italic;">void Background::load(const char
         *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
-      – Load background </big><big>from target file</big><big>.<br>
+      – Load a background </big><big>from target file</big><big>.<br>
     </big><big><br>
       <span style="font-style: italic;"> void Background::draw();</span> – Draw
       a background.<br>
@@ -698,15 +698,14 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Set both horizontal and vertical background mirroring mode.<br>
       <span style="font-style: italic;"></span><span style="font-style: italic;"></span></big><big><br>
       <span style="font-style: italic;"> void Scene::load(Image *background);</span>
-      – Load static background from the buffer.<br>
+      – Load a background from the buffer.<br>
       <br>
       <span style="font-style: italic;"> void Scene::load(Image
-        &amp;background);</span> – Load static background </big><big>from the
-      buffer</big><big>.<br>
+        &amp;background);</span> – Load a background </big><big>from the buffer</big><big>.<br>
       <br>
     </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
-      – Load static background from target file.</big><br>
+      – Load a background from target file.</big><br>
     <big><br>
       <span style="font-style: italic;"> void Scene::draw();</span> – Draw a
       background.<br>
@@ -870,8 +869,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big><span style="text-decoration: underline;"> Sprite types</span><br>
       <br>
       There are two kinds of ordinary sprites: horizontal strip and vertical
-      strip. The strip is an animated sprite. Do you remember an analog camera?
-      <br>
+      strip. It is a small image with few frames. Do you remember an analog
+      camera? <br>
       Strip look like photo ribbon. Horizontal strip look like the horizontal
       orientated photo ribbon.<br>
       Vertical strip look like the vertical orientated photo ribbon.<br>
@@ -893,15 +892,15 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> void Sprite::load(Image *buffer,const
         EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Load a
-      sprite from the buffer and set it setting.<br>
+      sprite from the buffer.<br>
     </big><big><br>
       <span style="font-style: italic;"> void Sprite::load(Image
         &amp;buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
-      – Load a sprite </big><big>from the buffer</big><big> and set it setting.<br>
+      – Load a sprite </big><big>from the buffer</big><big>.<br>
     </big><big><br>
       <span style="font-style: italic;">void Sprite::load(const char *name,const
         EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Load a
-      sprite </big><big>from target file</big><big> and set it setting.<br>
+      sprite </big><big>from target file</big><big>.<br>
     </big><big><br>
       <span style="font-style: italic;"> void Sprite::set_target(const unsigned
         int target);</span> – Set target frame.<br>
@@ -947,14 +946,14 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       look at public methods.<br>
       <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;"> void Cartoon::load(Image *buffer);</span>
-      – Load a static sprite </big><big>from the buffer</big><big>.<br>
+      – Load a sprite </big><big>from the buffer</big><big>.<br>
       <span style="font-style: italic;"></span></big><big><br>
       <span style="font-style: italic;"> void Cartoon::load(Image &amp;buffer);</span>
-      – Load a static sprite </big><big>from the buffer</big><big>.<br>
+      – Load a sprite </big><big>from the buffer</big><big>.<br>
       <span style="font-style: italic;"></span></big><big><br>
       <span style="font-style: italic;">void Cartoon::load(</span></big><big style="font-style: italic;">const
       char *name</big><big><span style="font-style: italic;">);</span> – Load a
-      static sprite from target file.<br>
+      sprite from target file.<br>
       <span style="font-style: italic;"></span><br>
     </big><big> <span style="font-style: italic;"> Cartoon*
         Cartoon::get_handle();</span> – Return the handle to sprite object.<br>
@@ -1006,10 +1005,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         int target) const;</span> – Return true if target column is valid.<br>
       <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -1048,7 +1049,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;">void Sheet::load(const char *name,const
         unsigned int row_amount,const unsigned int column_amount);</span> – Load
-      a sprite sheet from tagret file.<br>
+      a sprite sheet from targret file.<br>
       <br>
       <span style="font-style: italic;">Sheet* Sheet::get_handle();</span> –
       Return the handle to sprite sheet.<br>
@@ -2374,8 +2375,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> </big><br>
     <big style="font-style: italic;"> typedef struct</big><br style="font-style: italic;">
     <big style="font-style: italic;"> {</big><br style="font-style: italic;">
-    &nbsp; <big style="font-style: italic;"> double u;</big><br style="font-style: italic;">
-    &nbsp; <big style="font-style: italic;"> double v;</big><br style="font-style: italic;">
+    &nbsp; <big style="font-style: italic;"> float u;</big><br style="font-style: italic;">
+    &nbsp; <big style="font-style: italic;"> float v;</big><br style="font-style: italic;">
     <big style="font-style: italic;"> } Point;</big><br>
     <big> </big> <br>
     <big>All these custom types declared in <span style="font-style: italic;">Core</span>
@@ -2726,8 +2727,7 @@ Multimedia API</a>. </big>
       6.5.9 – Small bug in game–pad subsystem fixed.<br>
       6.6 – Source code synced with Gray game development kit 2.2.7.<br>
       6.6.1 – Text drawing subsystem improved.<br>
-      6.6.2 – Simple sound subsystem back-ported from Neon game development kit
-      5.7.8.<br>
+      6.6.2 – Simple sound subsystem back-ported from Neon game development kit 5.7.8.<br>
       6.6.3 – Small bug in multimedia subsystem fixed.<br>
       6.6.4 – 6.6.6 – Small changes.<br>
       6.6.7 – Multimedia subsystem improved.<br>
@@ -2836,6 +2836,8 @@ Multimedia API</a>. </big>
       8.1.9 – Small bug with keyboard input subsystem and mouse input subsystem fixed.<br>
       8.2 – Ordinary sprite subsystem improved.<br>
       8.2.1 – Background subsystem improved.<br>
+      8.2.2 – Render performance increased.<br>
+      8.2.3 – Small changes.<br>
     </big>
     <p></p>
   </body>
