@@ -27,7 +27,7 @@ int main()
  media.initialize();
  media.load("space.mp3");
  memset(perfomance,0,8);
- while(screen.sync())
+ while (screen.sync())
  {
   gamepad.update();
   media.play_loop();
