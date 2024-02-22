@@ -529,7 +529,11 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
     </big><big><span style="font-style: italic;"> bool
         Animation::is_last_frame() const;</span> – Return true if current frame
-      is last frame.</big><br>
+      is last frame.<br>
+      <br>
+    </big><big><span style="font-style: italic;"> bool
+        Animation::check_frame(const unsigned int target) const;</span> – Return
+      true if target frame is valid.</big><br>
     <h2><a name="mozTocId904725" class="mozTocH2"></a><big>Chapter 5. Image kind</big></h2>
     <big></big>
     <p><big> Image kind look as predefined constants. You can see it below.</big></p>
@@ -704,6 +708,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         &amp;background);</span> – Load a background </big><big>from the buffer</big><big>.<br>
       <br>
     </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load a background from target file.</big><br>
     <big><br>
@@ -1367,7 +1372,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       </big></h2>
     <big><span style="text-decoration: underline;"></span> Isometric level
       subsystem intend for help you to create an isometric levels. Just use <span
-
         style="font-style: italic;">World</span> class for doing it. Let's look
       at public methods.<br>
       <br>
@@ -2701,7 +2705,8 @@ Multimedia API</a>. </big>
       6.2.9 – Small changes.<br>
       6.3 – Base sprite subsystem improved.<br>
       6.3.1 – 6.3.2 – Small changes.<br>
-      6.3.3 – Base graphics subsystem back-ported from Neon game development kit 5.8.4.<br>
+      6.3.3 – Base graphics subsystem back-ported from Neon game development kit
+      5.8.4.<br>
       6.3.4 – Visual C++ 2005 support added.<br>
       6.3.5 – Small changes.<br>
       6.3.6 – Ordinary sprite subsystem improved.<br>
@@ -2727,7 +2732,8 @@ Multimedia API</a>. </big>
       6.5.9 – Small bug in game–pad subsystem fixed.<br>
       6.6 – Source code synced with Gray game development kit 2.2.7.<br>
       6.6.1 – Text drawing subsystem improved.<br>
-      6.6.2 – Simple sound subsystem back-ported from Neon game development kit 5.7.8.<br>
+      6.6.2 – Simple sound subsystem back-ported from Neon game development kit
+      5.7.8.<br>
       6.6.3 – Small bug in multimedia subsystem fixed.<br>
       6.6.4 – 6.6.6 – Small changes.<br>
       6.6.7 – Multimedia subsystem improved.<br>
@@ -2840,7 +2846,9 @@ Multimedia API</a>. </big>
       8.2.3 – 8.2.8 – Small changes.<br>
       8.2.9 – Render performance increased.<br>
       8.3 – Small bug fixed.<br>
-    </big>
+      8.3.1 – Small changes.<br>
+      8.3.2 – Render performance increased.<br>
+    </big><big> 8.3.3 – Animation subsystem improved.</big><br>
     <p></p>
   </body>
 </html>

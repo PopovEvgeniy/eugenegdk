@@ -483,19 +483,12 @@ typedef enum
    unsigned int total_height;
    unsigned int current_x;
    unsigned int current_y;
-   float current_row;
-   float row_amount;
-   float current_column;
-   float column_amount;
-   Core::MIRROR_KIND mirror;
    protected:
    Vertex vertex[4];
    Point point[4];
-   void set_data();
+   void set_data(const Core::MIRROR_KIND kind);
    unsigned int get_total_width() const;
    unsigned int get_total_height() const;
-   void set_mirror(const Core::MIRROR_KIND kind);
-   void choose();
    public:
    Shape();
    ~Shape();
@@ -803,6 +796,7 @@ typedef enum
    unsigned int get_frames() const;
    unsigned int get_frame() const;
    bool is_last_frame() const;
+   bool check_frame(const unsigned int target) const;
   };
 
   class Billboard
