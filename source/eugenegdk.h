@@ -52,8 +52,9 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #endif
 
 #if defined __WATCOMC__
+  #define OAFALSE 0
   #define WINVER 0x0501
-  #define OATFALSE 0
+  #define _WIN32_WINNT WINVER
 #endif
 
 #if !defined __GNUC__
