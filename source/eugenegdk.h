@@ -241,7 +241,6 @@ typedef enum
    HGLRC render;
    PIXELFORMATDESCRIPTOR setting;
    PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT;
-   bool check_flag(const unsigned long int flag) const;
    void set_pixel_format(HDC target);
    void create_render_context();
    void disable_vsync();
