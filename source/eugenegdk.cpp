@@ -1080,7 +1080,6 @@ namespace EUGENEGDK
    glDisable(GL_TEXTURE_GEN_S);
    glDisable(GL_TEXTURE_GEN_T);
    glDisable(GL_TEXTURE_1D);
-   glDisable(GL_DEPTH_TEST);
    glDisable(GL_CULL_FACE);
    glDisable(GL_MAP1_COLOR_4);
    glDisable(GL_MAP1_INDEX);
@@ -1129,8 +1128,10 @@ namespace EUGENEGDK
 
   void Render::disable_depth_buffer()
   {
+   glEnable(GL_DEPTH_TEST);
    glClear(GL_DEPTH_BUFFER_BIT);
    glDepthMask(GL_FALSE);
+   glDisable(GL_DEPTH_TEST);
   }
 
  void Render::set_matrix_setting()
@@ -1162,7 +1163,7 @@ namespace EUGENEGDK
 
   void Render::clear_stage()
   {
-   glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+   glClear(GL_COLOR_BUFFER_BIT);
   }
 
   void Render::start_render(const unsigned int width,const unsigned int height)
