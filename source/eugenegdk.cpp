@@ -990,14 +990,22 @@ namespace EUGENEGDK
 
   void Rectangle::enable_transparent()
   {
-   glEnable(GL_ALPHA_TEST);
-   glEnable(GL_BLEND);
+   if (glIsEnabled(GL_ALPHA_TEST)==GL_FALSE)
+   {
+    glEnable(GL_ALPHA_TEST);
+    glEnable(GL_BLEND);
+   }
+
   }
 
   void Rectangle::disable_transparent()
   {
-   glDisable(GL_ALPHA_TEST);
-   glDisable(GL_BLEND);
+   if (glIsEnabled(GL_ALPHA_TEST)==GL_TRUE)
+   {
+    glDisable(GL_ALPHA_TEST);
+    glDisable(GL_BLEND);
+   }
+
   }
 
   void Rectangle::destroy_texture()
