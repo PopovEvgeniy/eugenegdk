@@ -329,7 +329,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       of your favorite compiler for more information about compiler
       optimization.<br>
       <br>
-      <span style="text-decoration: underline;"> Note for Visual C++ users</span>
+      <span style="text-decoration: underline;"> Note for Visual C++ users</span><br>
       <br>
       Disable pre–compiled headers before start compilation. Old Visual C++
       users can do it via project creation wizard.<br>
@@ -397,7 +397,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -407,6 +406,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Always use latest video–card drivers. It can increase render performance.
       You can also try to change screen resolution if you have low render
       performance.<br>
+      <br>
       <span style="text-decoration: underline;"> Fps limitation</span><br>
       <br>
       Fps is an important thing. Many fps need for good animation, but it also
@@ -418,6 +418,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> Screen</span> class provide access to
       the base graphic subsystem. Let's look at public methods.<br>
+      <br>
       <span style="font-style: italic;"> void Screen::clear_screen();</span> –
       Clear the screen. Fill it by black color.<br>
       <br>
@@ -461,6 +462,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> unsigned int Screen::get_height()
         const;</span> – Return screen height in pixels.<br>
+      <br>
       <span style="font-style: italic;">bool Screen::check_x(const unsigned int
         x) const;</span> – Return true if x-coordinate is valid.<br>
       <br>
@@ -508,6 +510,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big><span style="text-decoration: underline;"> An important subsystem</span><br>
       <br>
       Animation subsystem let you control animation frames.<br>
+      <br>
       <span style="text-decoration: underline;"> Frame indexing</span><br>
       <br>
       First frame index is 1.<br>
@@ -575,6 +578,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;">Background* Background::get_handle();</span>
       – Return the handle to background object.<br>
+      <br>
     </big><big> <span style="font-style: italic;"> void
         Background::prepare(const Screen *screen);</span> – Prepare for drawing.<br>
       <br>
@@ -679,6 +683,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;">Scene* Scene::get_handle();</span> –
       Return the handle to background object.<br>
+      <br>
     </big><big> <span style="font-style: italic;"> void Scene::prepare(const
         Screen *screen);</span> – Prepare for drawing.<br>
       <br>
@@ -873,15 +878,15 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       There are two kinds of ordinary sprites: horizontal strip and vertical
       strip. It is a small image with few frames. Do you remember an analog
-      camera? <br>
-      Strip look like photo ribbon. Horizontal strip look like the horizontal
-      orientated photo ribbon.<br>
+      camera?&nbsp; Strip look like photo ribbon.<br>
+      Horizontal strip look like the horizontal orientated photo ribbon.<br>
       Vertical strip look like the vertical orientated photo ribbon.<br>
     </big><big><br>
     </big><big><span style="text-decoration: underline;">Frame indexing</span><br>
       <br>
-      First frame index is 1.</big><br>
-    <big> <span style="text-decoration: underline;"> Work with sprites</span><br>
+      First frame index is 1.<br>
+      <br>
+    </big> <big> <span style="text-decoration: underline;"> Work with sprites</span><br>
       <br>
       Just use <span style="font-style: italic;">Sprite</span> class to work
       with a sprite. It is derived from three classes: </big><big><span style="font-style: italic;">Billboard</span>,
@@ -939,7 +944,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         sprite</span><br>
       <br>
       The static sprite is simple kind of sprites. It contain one frame only.<br>
+      <br>
     </big><big><span style="text-decoration: underline;"></span></big><big> <span
+
         style="text-decoration: underline;"> Work with static sprites</span><br>
       <br>
       Just use <span style="font-style: italic;">Cartoon</span> class to work
@@ -1007,12 +1014,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         int target) const;</span> – Return true if target column is valid.<br>
       <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -1163,6 +1168,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> void Text::print(const unsigned int
         x,const unsigned int y,const char *target);</span> – Draw text at
       specific position.<br>
+      <br>
       <span style="font-style: italic;">void Text::disable_mirror();</span> –
       Disable text mirroring mode.<br>
       <br>
@@ -1188,6 +1194,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Use image loader to load an image from a file. <span style="font-style: italic;">Image</span>
       class provide simple access to image loader. It is a simple class with few
       methods.<br>
+      <br>
       <span style="font-style: italic;"> </span></big><big><span style="font-style: italic;">unsigned
         char *</span></big><big><span style="font-style: italic;">Image::load_tga(const
         char *name);</span> – Load a Truevision TGA image and return handle to
@@ -1254,6 +1261,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;">Coordinates* Coordinates::get_handle();</span>
       – Return the handle to coordinates conversion subsystem.<br>
+      <br>
       <span style="font-style: italic;">void Coordinates::initialize(const int
         viewport_width,const int viewport_height);</span> – Initialize the
       subsystem.<br>
@@ -1267,6 +1275,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">int
         Coordinates::get_lowest_cartesian_x() const;</span> – Return lowest
       allowable cartesian x-coordinate.<br>
+      <br>
       <span style="font-style: italic;">int
         Coordinates::get_highest_cartesian_x() const;</span> – Return highest
       allowable cartesian x-coordinate.<br>
@@ -1282,6 +1291,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </big><big><span style="font-style: italic;">bool
         Coordinates::check_cartesian_x(const int x) const;</span> – Return true
       if the cartesian x-coordinate is valid.<br>
+      <br>
       <span style="font-style: italic;">bool
         Coordinates::check_cartesian_y(const int y) const;</span> – Return true
       if the cartesian y-coordinate is valid.</big><br>
@@ -1289,6 +1299,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">int Coordinates::get_screen_x(const int
         x) const;</span> – Convert cartesian x-coordinate to screen
       x-coordinate.<br>
+      <br>
       <span style="font-style: italic;">int Coordinates::get_screen_y(const int
         y) const;</span> – Convert cartesian y-coordinate to screen
       y-coordinate.<br>
@@ -1296,6 +1307,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">int Coordinates::get_cartesian_x(const
         int x) const;</span> – Convert screen x-coordinate to cartesian
       x-coordinate.<br>
+      <br>
       <span style="font-style: italic;">int Coordinates::get_cartesian_y(const
         int y) const;</span> – Convert screen y-coordinate to cartesian
       y-coordinate.<br>
@@ -1327,16 +1339,18 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     </big><big><span style="font-style: italic;">int
         Isometric::get_isometric_x() const;</span> – Convert x-coordinate of
       target point from cartesian system to isometric system.<br>
+      <br>
       <span style="font-style: italic;">int Isometric::get_isometric_y() const;</span>
       – </big><big>Convert y-coordinate of target point from cartesian system
       to isometric system.</big><br>
     <big> <br>
       <span style="font-style: italic;">int Isometric::get_cartesian_x() const;</span>
       – </big><big>Convert x-coordinate of target point from isometric system
-      to cartesian system.</big><br>
-    <big> <span style="font-style: italic;">int Isometric::get_cartesian_y()
-        const;</span> – </big><big>Convert y-coordinate of target point from
-      isometric system to cartesian system.<br>
+      to cartesian system.<br>
+      <br>
+    </big> <big> <span style="font-style: italic;">int
+        Isometric::get_cartesian_y() const;</span> – </big><big>Convert
+      y-coordinate of target point from isometric system to cartesian system.<br>
       <br>
       <span style="font-style: italic;">int Isometric::get_isometric_x(const int
         x,const int y);</span> – Set target point and convert x-coordinate from
@@ -1345,6 +1359,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;">int Isometric::get_isometric_y(const int
         x,const int y);</span> – </big><big>Set target point and c</big><big>onvert
       y-coordinatefrom cartesian system to isometric system.<br>
+      <br>
       <span style="font-style: italic;">int Isometric::get_cartesian_x(const int
         x,const int y);</span> – </big><big>Set target point and c</big><big>onvert
       x-coordinatefrom isometric system to cartesian system.<br>
@@ -1358,6 +1373,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       </big></h2>
     <big><span style="text-decoration: underline;"></span> Isometric level
       subsystem intend for help you to create an isometric levels. Just use <span
+
         style="font-style: italic;">World</span> class for doing it. Let's look
       at public methods.<br>
       <br>
@@ -1393,6 +1409,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;">int World::get_column_amount() const;</span>
       – Get amount of maximum visible columns.<br>
+      <br>
       <span style="font-style: italic;">int World::get_tile_amount() const;</span>
       – Get amount of maximum visible isometric tiles.<br>
     </big><big> </big> <big> </big>
@@ -1439,17 +1456,20 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       collision. Collision related information store in special custom data
       type.<br>
       <br>
-      <span style="font-style: italic;"> typedef struct</span> <span style="font-style: italic;">
-        {</span> &nbsp; <span style="font-style: italic;"> unsigned int x;</span>
-      &nbsp; <span style="font-style: italic;"> unsigned int y;</span> &nbsp; <span
-        style="font-style: italic;"> unsigned int width;</span> &nbsp; <span style="font-style: italic;">
-        unsigned int height;</span> <span style="font-style: italic;"> } BOX;</span><br>
+      <span style="font-style: italic;"> typedef struct</span><span style="font-style: italic;"><br>
+        {</span><br>
+      &nbsp;<span style="font-style: italic;">unsigned int x;</span><br>
+      <span style="font-style: italic;">&nbsp;unsigned int y;</span><br>
+      <span style="font-style: italic;">&nbsp;unsigned int width;</span><br>
+      <span style="font-style: italic;">&nbsp;unsigned int height;</span><span style="font-style: italic;"><br>
+        } BOX;</span><br>
       <br>
       <span style="text-decoration: underline;"> Work with collision detector</span><br>
       <br>
       <span style="font-style: italic;"> Collision</span> class provide easy
       access to collision detector. It is a simple class with few methods. Let's
       look at public methods.<br>
+      <br>
       <span style="font-style: italic;">Collision* Collision::get_handle();</span>
       – Return the handle to the collision detector.<br>
     </big><br>
@@ -1671,6 +1691,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> create</span> function create single
       resource or terminate the program if operation failed. It didn't take
       argument and return handle of the resource.<br>
+      <br>
       <span style="font-style: italic;"> create_array</span> function create
       resource array or terminate the program if operation failed. It takes
       resource amount as argument and return handle of resource array.<br>
@@ -1690,8 +1711,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> </big>
     <h2><a name="mozTocId961921" class="mozTocH2"></a><big> Chapter 2. Base
         binary file subsystem</big></h2>
-    <big> <br>
-      <u> Work with binary files</u><br>
+    <big> <u> Work with binary files</u><br>
       <br>
       <i>Binary_File</i> class provide simple access to base binary subsystem.
       Don't use it directly. Let's look at public methods.<br>
@@ -2117,6 +2137,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       Ordinary buttons codes look as predefined constants. First button is
       GAMEPAD_BUTTON1. Last button is GAMEPAD_BUTTON32.<br>
+      <br>
       <span style="text-decoration: underline;"> D–pad buttons codes</span><br>
     </big>
     <p><big> D–pad button codes look as predefined constants. You can see it
@@ -2346,19 +2367,20 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> Any rectangle need four vertexes and four texture coordinates.</big><br>
     <big> Single vertex represent by follow custom data type.</big><br>
     <big> </big><br>
-    <big style="font-style: italic;"> typedef struct Vertex</big> <big style="font-style: italic;">
-      {</big> &nbsp; <big style="font-style: italic;"> int x;</big> &nbsp; <big
-
-      style="font-style: italic;"> int y;</big> <big style="font-style: italic;">
-      };</big><br>
+    <big style="font-style: italic;"> typedef struct Vertex</big><big style="font-style: italic;"><br>
+      {</big><br>
+    <big style="font-style: italic;">&nbsp;int x;</big><big style="font-style: italic;"><br>
+      &nbsp;int y;<br>
+    </big><big style="font-style: italic;">};</big><br>
     <big> </big><br>
     <big> </big><big>Single texture coordinate represent by follow custom data
       type.</big><br>
     <big> </big><br>
     <big style="font-style: italic;"> typedef struct</big> <big style="font-style: italic;">
-      {</big> &nbsp; <big style="font-style: italic;"> float u;</big> &nbsp; <big
-
-      style="font-style: italic;"> float v;</big> <big style="font-style: italic;">
+      <br>
+      {<br>
+    </big><big style="font-style: italic;">&nbsp;float u;</big><br>
+    <big style="font-style: italic;">&nbsp;float v;</big><big style="font-style: italic;"><br>
       } Point;</big><br>
     <big> </big> <br>
     <big>All these custom types declared in <span style="font-style: italic;">Core</span>
@@ -2835,6 +2857,7 @@ Multimedia API</a>. </big>
       8.4.1 – Small changes.<br>
       8.4.2 – Base graphics subsystem improved.<br>
       8.4.3 – 8.4.5 – Small changes.<br>
+      8.4.5.1 – Documentation updated.<br>
     </big>
   </body>
 </html>
