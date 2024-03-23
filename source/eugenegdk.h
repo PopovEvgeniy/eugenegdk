@@ -506,7 +506,6 @@ typedef enum
    void load_texture(const unsigned int width,const unsigned int height,const void *buffer);
    void create_texture(const unsigned int *buffer);
    void check_texture();
-   void load_data();
    void draw_rectangle();
    public:
    Rectangle();
