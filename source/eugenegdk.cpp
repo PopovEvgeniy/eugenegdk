@@ -2400,7 +2400,11 @@ namespace EUGENEGDK
    position=0;
    for (index=0;index<length;++index)
    {
-    image[index]=Core::make_pixel(target[position+2],target[position+1],target[position],target[position+3]);
+    image[index]=Core::make_pixel(target[position+2],target[position+1],target[position],0);
+    if (image[0]!=image[index])
+    {
+     image[index]=Core::make_pixel(target[position+2],target[position+1],target[position],UCHAR_MAX);
+    }
     position+=sizeof(unsigned int);
    }
 
