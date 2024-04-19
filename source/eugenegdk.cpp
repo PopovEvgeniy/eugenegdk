@@ -515,6 +515,11 @@ namespace EUGENEGDK
    return (alpha << 24)+(blue << 16)+(green << 8)+red;
   }
 
+  size_t get_offset(const unsigned int x,const unsigned int y,const unsigned int width)
+  {
+   return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(width);
+  }
+
   EUGENEGDK::GAMEPAD_DIRECTION get_horizontal_direction(const unsigned int current,const unsigned int maximum,const unsigned int minimum)
   {
    EUGENEGDK::GAMEPAD_DIRECTION directional;
@@ -603,11 +608,6 @@ namespace EUGENEGDK
    image.destroy_buffer();
   }
 
-  size_t Resizer::get_source_offset(const unsigned int x,const unsigned int y) const
-  {
-   return static_cast<size_t>(x)+static_cast<size_t>(y)*static_cast<size_t>(source_width);
-  }
-
   unsigned int Resizer::get_x_difference(const unsigned int x) const
   {
    return (x*x_ratio+1)%UCHAR_MAX;
@@ -665,10 +665,10 @@ namespace EUGENEGDK
     {
      source_x=this->get_source_x(x);
      next_x=this->get_next_x(source_x);
-     first=target[this->get_source_offset(source_x,source_y)];
-     second=target[this->get_source_offset(next_x,source_y)];
-     third=target[this->get_source_offset(source_x,next_y)];
-     last=target[this->get_source_offset(next_x,next_y)];
+     first=target[Core::get_offset(source_x,source_y,source_width)];
+     second=target[Core::get_offset(next_x,source_y,source_width)];
+     third=target[Core::get_offset(source_x,next_y,source_width)];
+     last=target[Core::get_offset(next_x,next_y,source_width)];
      x_difference=this->get_x_difference(x);
      x_weigh=UCHAR_MAX-x_difference;
      red=(get_pixel_component(first,Core::RED_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::RED_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::RED_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::RED_COMPONENT)*x_difference*y_difference+1)/normalization;
@@ -2381,13 +2381,7 @@ namespace EUGENEGDK
 
   void Picture::copy_image(const unsigned int *target)
   {
-   size_t index;
-   image[0]=target[0];
-   for (index=image.get_length()-1;index>0;--index)
-   {
-    image[index]=target[index];
-   }
-
+   image.copy_data(target);
   }
 
   void Picture::convert_image(const unsigned char *target)
