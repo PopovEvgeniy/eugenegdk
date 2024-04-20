@@ -755,6 +755,7 @@ typedef enum
    size_t get_target_position(const unsigned int x,const unsigned int y,const Core::MIRROR_KIND mirror);
    void mirror_image(const Core::MIRROR_KIND mirror);
    void uncompress_tga_data(const unsigned char *target);
+   void mirror_tga(const unsigned char descriptor);
    void load_tga(File::Input_File &target);
    public:
    Image();
