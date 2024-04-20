@@ -2222,6 +2222,52 @@ namespace EUGENEGDK
    height=0;
   }
 
+  size_t Image::get_target_position(const unsigned int x,const unsigned int y,const Core::MIRROR_KIND mirror)
+  {
+   size_t position;
+   switch (mirror)
+   {
+    case Core::HORIZONTAL_MIRROR:
+    position=Core::get_offset(width-x-1,y,width);
+    break;
+    case Core::VERTICAL_MIRROR:
+    position=Core::get_offset(x,height-y-1,width);
+    break;
+    case Core::MIRROR_BOTH:
+    position=Core::get_offset(width-x-1,height-y-1,width);
+    break;
+    default:
+    position=Core::get_offset(x,y,width);
+    break;
+   }
+   return position*3;
+  }
+
+  void Image::mirror_image(const Core::MIRROR_KIND mirror)
+  {
+   Core::Buffer<unsigned char> original;
+   unsigned int x,y;
+   size_t index,position;
+   original.set_length(data.get_length());
+   original.create_buffer();
+   original.copy_data(data.get_buffer());
+   index=0;
+   position=0;
+   for (y=0;y<height;++y)
+   {
+    for (x=0;x<width;++x)
+    {
+     position=this->get_target_position(x,y,mirror);
+     data[index]=original[position];
+     data[index+1]=original[position+1];
+     data[index+2]=original[position+2];
+     index+=3;
+    }
+
+   }
+   original.destroy_buffer();
+  }
+
   void Image::uncompress_tga_data(const unsigned char *target)
   {
    size_t index,position,amount;
@@ -2326,6 +2372,33 @@ namespace EUGENEGDK
   Image* Image::get_handle()
   {
    return this;
+  }
+
+  void Image::horizontal_mirror()
+  {
+   if (data.get_buffer()!=NULL)
+   {
+    this->mirror_image(Core::HORIZONTAL_MIRROR);
+   }
+
+  }
+
+  void Image::vertical_mirror()
+  {
+   if (data.get_buffer()!=NULL)
+   {
+    this->mirror_image(Core::VERTICAL_MIRROR);
+   }
+
+  }
+
+  void Image::complex_mirror()
+  {
+   if (data.get_buffer()!=NULL)
+   {
+    this->mirror_image(Core::MIRROR_BOTH);
+   }
+
   }
 
   void Image::destroy_image()
@@ -3410,12 +3483,12 @@ namespace EUGENEGDK
 
   void Scene::load(Image *background)
   {
-   this->load(background);
+   stage.load(background);
   }
 
   void Scene::load(Image &background)
   {
-   this->load(background.get_handle());
+   stage.load(background.get_handle());
   }
 
   void Scene::load(const char *name)

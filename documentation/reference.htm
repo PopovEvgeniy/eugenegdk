@@ -947,6 +947,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       The static sprite is simple kind of sprites. It contain one frame only.<br>
       <br>
     </big><big><span style="text-decoration: underline;"></span></big><big> <span
+
         style="text-decoration: underline;"> Work with static sprites</span><br>
       <br>
       Just use <span style="font-style: italic;">Cartoon</span> class to work
@@ -1214,6 +1215,15 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> Image* Image::get_handle();</span> –
       Return the handle to image loader.<br>
+      <br>
+      <span style="font-style: italic;">void Image::horizontal_mirror();</span>
+      – Do horizontal image mirror.<br>
+      <br>
+      <span style="font-style: italic;">void Image::vertical_mirror();</span> –
+      Do vertical image mirror.<br>
+      <br>
+      <span style="font-style: italic;">void Image::complex_mirror();</span> –
+      Do both horizontal and vertical image mirror.<br>
       <br>
       <span style="font-style: italic;"> void Image::destroy_image();</span> –
       Destroy the current image and free image buffer.<br>
@@ -1564,7 +1574,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Return true if the column is valid.<br>
       <br>
       <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big
-
       style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
       int row,const unsigned int column</big><big><span style="font-style: italic;">)
         const;</span> – Return collision related information.<br>
@@ -2867,6 +2876,7 @@ Multimedia API</a>. </big>
       8.5 – Small changes.<br>
       8.5.0.1 – Documentation updated.<br>
       8.5.1 – 8.5.5 – Small changes.<br>
+      8.5.6 – Image loader improved.<br>
     </big>
   </body>
 </html>
