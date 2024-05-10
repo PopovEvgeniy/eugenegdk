@@ -676,18 +676,15 @@ typedef enum
 
   class Binary_File
   {
-   private:
-   FILE *target;
    protected:
-   FILE *get_target();
-   void set_target(FILE *point);
+   FILE *target;
    public:
    Binary_File();
    ~Binary_File();
    void close();
    void set_position(const long int offset);
-   long int get_position();
    long int get_length();
+   long int get_position();
    bool check_error();
    bool is_open() const;
   };
