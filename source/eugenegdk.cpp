@@ -3081,8 +3081,8 @@ namespace EUGENEGDK
 
   Sheet::Sheet()
   {
-   rows=0;
-   columns=0;
+   rows=1;
+   columns=1;
   }
 
   Sheet::~Sheet()
@@ -3107,8 +3107,8 @@ namespace EUGENEGDK
 
   void Sheet::reset_sheet_setting()
   {
-   rows=0;
-   columns=0;
+   rows=1;
+   columns=1;
   }
 
   void Sheet::prepare_sheet()
@@ -3121,13 +3121,9 @@ namespace EUGENEGDK
   {
    unsigned int row;
    row=1;
-   if (target>0)
+   if (this->check_frame(target)==true)
    {
-    if (target<=this->get_frames())
-    {
-     row=target%rows;
-    }
-
+    row=target%rows;
    }
    if (row==0)
    {
