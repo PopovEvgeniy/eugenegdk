@@ -1118,6 +1118,7 @@ namespace EUGENEGDK
   void Render::set_common_setting()
   {
    glDrawBuffer(GL_BACK);
+   glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
    glShadeModel(GL_FLAT);
    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
    glAlphaFunc(GL_GREATER,0.1f);
