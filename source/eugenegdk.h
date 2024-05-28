@@ -734,7 +734,7 @@ typedef enum
    bool is_ready();
    bool is_accelerated() const;
    bool is_software() const;
-   unsigned long int get_color() const;
+   unsigned int get_color() const;
    unsigned int get_fps() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
