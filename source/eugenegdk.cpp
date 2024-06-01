@@ -102,6 +102,9 @@ namespace EUGENEGDK
     case WM_CLOSE:
     run=false;
     break;
+    case WM_PAINT:
+    ValidateRect(window,NULL);
+    break;
     case WM_DESTROY:
     PostQuitMessage(0);
     break;
