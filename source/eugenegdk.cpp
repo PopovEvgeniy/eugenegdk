@@ -378,9 +378,13 @@ namespace EUGENEGDK
    return run;
   }
 
+  void Engine::Swap()
+  {
+   SwapBuffers(context);
+  }
+
   WINGL::WINGL()
   {
-   device=NULL;
    render=NULL;
    wglSwapIntervalEXT=NULL;
    setting.bReserved=0;
@@ -415,17 +419,16 @@ namespace EUGENEGDK
   {
    if (render!=NULL)
    {
-    wglMakeCurrent(device,NULL);
+    wglMakeCurrent(NULL,NULL);
     wglDeleteContext(render);
     render=NULL;
    }
 
   }
 
-  void WINGL::set_pixel_format(HDC target)
+  void WINGL::set_pixel_format(HDC device)
   {
    int format;
-   device=target;
    format=ChoosePixelFormat(device,&setting);
    if (format==0)
    {
@@ -439,7 +442,7 @@ namespace EUGENEGDK
 
   }
 
-  void WINGL::create_render_context()
+  void WINGL::create_render_context(HDC device)
   {
    render=wglCreateContext(device);
    if (render==NULL)
@@ -459,16 +462,11 @@ namespace EUGENEGDK
 
   }
 
-  void WINGL::set_render(HDC target)
+  void WINGL::set_render(HDC device)
   {
-   this->set_pixel_format(target);
-   this->create_render_context();
+   this->set_pixel_format(device);
+   this->create_render_context(device);
    this->disable_vsync();
-  }
-
-  void WINGL::Swap()
-  {
-   SwapBuffers(device);
   }
 
   bool WINGL::is_software_render() const

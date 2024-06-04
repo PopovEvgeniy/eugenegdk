@@ -229,6 +229,7 @@ typedef enum
    HDC get_context();
    void prepare_engine();
    bool process_message();
+   void Swap();
    public:
    Engine();
    ~Engine();
@@ -237,16 +238,14 @@ typedef enum
   class WINGL
   {
    private:
-   HDC device;
    HGLRC render;
    PIXELFORMATDESCRIPTOR setting;
    PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT;
-   void set_pixel_format(HDC target);
-   void create_render_context();
+   void set_pixel_format(HDC device);
+   void create_render_context(HDC device);
    void disable_vsync();
    protected:
-   void set_render(HDC target);
-   void Swap();
+   void set_render(HDC device);
    bool is_software_render() const;
    public:
    WINGL();
