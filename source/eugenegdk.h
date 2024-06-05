@@ -185,10 +185,12 @@ typedef enum
   class Synchronization
   {
    private:
-   HANDLE timer;
+   HANDLE event;
+   MMRESULT timer;
+   void create_event();
+   void timer_setup(const unsigned int delay);
    protected:
-   void create_timer();
-   void set_timer(const unsigned long int interval);
+   void create_timer(const unsigned int delay);
    void wait_timer();
    public:
    Synchronization();

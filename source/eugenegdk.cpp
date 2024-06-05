@@ -144,46 +144,57 @@ namespace EUGENEGDK
 
   Synchronization::Synchronization()
   {
-   timer=NULL;
+   event=NULL;
+   timer=0;
   }
 
   Synchronization::~Synchronization()
   {
-   if (timer!=NULL)
+   if (timer!=0)
    {
-    CancelWaitableTimer(timer);
-    CloseHandle(timer);
-    timer=NULL;
+    timeKillEvent(timer);
+    timer=0;
+   }
+   if (event!=NULL)
+   {
+    CloseHandle(event);
+    event=NULL;
    }
 
   }
 
-  void Synchronization::create_timer()
+  void Synchronization::create_event()
   {
-   timer=CreateWaitableTimer(NULL,FALSE,NULL);
-   if (timer==NULL)
+   event=CreateEvent(NULL,TRUE,FALSE,NULL);
+   if (event==NULL)
    {
-    EUGENEGDK::Halt("Can't create synchronization timer");
+    EUGENEGDK::Halt("Can't create synchronization event");
    }
 
   }
 
-  void Synchronization::set_timer(const unsigned long int interval)
+  void Synchronization::timer_setup(const unsigned int delay)
   {
-   LARGE_INTEGER start;
-   start.QuadPart=0;
-   if (SetWaitableTimer(timer,&start,interval,NULL,NULL,FALSE)==FALSE)
+   timer=timeSetEvent(delay,0,reinterpret_cast<LPTIMECALLBACK>(event),0,TIME_PERIODIC|TIME_CALLBACK_EVENT_SET);
+   if (timer==0)
    {
-    EUGENEGDK::Halt("Can't set timer");
+    EUGENEGDK::Halt("Can't set timer setting");
    }
 
+  }
+
+  void Synchronization::create_timer(const unsigned int delay)
+  {
+   this->create_event();
+   this->timer_setup(delay);
   }
 
   void Synchronization::wait_timer()
   {
-   if (timer!=NULL)
+   if (event!=NULL)
    {
-    WaitForSingleObjectEx(timer,INFINITE,TRUE);
+    WaitForSingleObjectEx(event,INFINITE,TRUE);
+    ResetEvent(event);
    }
 
   }
@@ -2064,8 +2075,7 @@ namespace EUGENEGDK
    this->prepare_engine();
    this->set_render(this->get_context());
    this->start_render(this->get_display_width(),this->get_display_height());
-   this->create_timer();
-   this->set_timer(17);
+   this->create_timer(17);
   }
 
   void Screen::clear_screen()
