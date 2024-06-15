@@ -1490,6 +1490,18 @@ namespace EUGENEGDK
    return memory.ullAvailVirtual;
   }
 
+  unsigned long long int Memory::get_physical_usage()
+  {
+   this->get_status();
+   return memory.ullTotalPhys-memory.ullAvailPhys;
+  }
+
+  unsigned long long int Memory::get_virtual_usge()
+  {
+   this->get_status();
+   return memory.ullTotalVirtual-memory.ullAvailVirtual;
+  }
+
   unsigned long int Memory::get_usage()
   {
    this->get_status();

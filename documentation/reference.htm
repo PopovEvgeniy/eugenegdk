@@ -454,8 +454,8 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> unsigned int Screen::get_fps() const;</span>
       – Return current fps value.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Screen::get_color()
-        const;</span> – Return current color depth in bits per pixel.<br>
+      <span style="font-style: italic;"> unsigned int Screen::get_color() const;</span>
+      – Return current color depth in bits per pixel.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Screen::get_width() const;</span>
       – Return screen width in pixels.<br>
@@ -712,7 +712,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         &amp;background);</span> – Load a background </big><big>from the buffer</big><big>.<br>
       <br>
     </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
-
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load a background from target file.</big><br>
     <big><br>
@@ -1375,7 +1374,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       </big></h2>
     <big><span style="text-decoration: underline;"></span> Isometric level
       subsystem intend for help you to create an isometric levels. Just use <span
-
         style="font-style: italic;">World</span> class for doing it. Let's look
       at public methods.<br>
       <br>
@@ -1476,17 +1474,16 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       – Return the handle to the collision detector.<br>
     </big><br>
     <big><span style="font-style: italic;">void Collision::set_target(const
-        EUGENEGDK::BOX first_target,const EUGENEGDK::BOX
-        second_target);</span> – Set targets for collision detector.<br>
+        EUGENEGDK::BOX first_target,const EUGENEGDK::BOX second_target);</span>
+      – Set targets for collision detector.<br>
       <br>
       <span style="font-style: italic;"> bool Collision::check_collision()
         const;</span> – Return true if collision between two objects is
       accepted.<br>
       <br>
       <span style="font-style: italic;"> bool Collision::check_collision(const
-        EUGENEGDK::BOX first_target,const EUGENEGDK::BOX
-        second_target);</span> – Set collision targets and check collision
-      between it.<br>
+        EUGENEGDK::BOX first_target,const EUGENEGDK::BOX second_target);</span>
+      – Set collision targets and check collision between it.<br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId429738"></a><big>Chapter 5. Tile</big><big>–</big><big>map</big></h2>
     <big><span style="text-decoration: underline;">A few words about tile-map</span><br>
@@ -1596,6 +1593,14 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         Memory::get_free_virtual();</span> – Return free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
         memory</a> size in bytes.<br>
       <br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_physical_usge();</span> – Return usage physical memory in
+      bytes.<br>
+      <br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_virtual_usge();</span> – Return usage virtual memory in
+      bytes.<br>
+      <br>
       <span style="font-style: italic;"> unsigned long int Memory::get_usage();</span>
       – Return percentage of physical memory usage.</big><big><span style="text-decoration: underline;"></span><br>
     </big>
@@ -1666,12 +1671,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Exit from your program and return user to operating system.<br>
       <br>
       <span style="font-style: italic;">bool enable_logging(const char *name); </span></big><big>–</big><big><span
-
         style="font-style: italic;"></span> Enable redirecting error messages to
       a log file and return false if the operation failed.<br>
       <br>
       <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big><span
-
         style="font-style: italic;"></span> Initialize random number generator.<br>
       <br>
       <span style="font-style: italic;">unsigned int get_random(const int
@@ -2709,7 +2712,8 @@ Multimedia API</a>. </big>
       6.2.9 – Small changes.<br>
       6.3 – Base sprite subsystem improved.<br>
       6.3.1 – 6.3.2 – Small changes.<br>
-      6.3.3 – Base graphics subsystem back-ported from Neon game development kit 5.8.4.<br>
+      6.3.3 – Base graphics subsystem back-ported from Neon game development kit
+      5.8.4.<br>
       6.3.4 – Visual C++ 2005 support added.<br>
       6.3.5 – Small changes.<br>
       6.3.6 – Ordinary sprite subsystem improved.<br>
@@ -2735,7 +2739,8 @@ Multimedia API</a>. </big>
       6.5.9 – Small bug in game–pad subsystem fixed.<br>
       6.6 – Source code synced with Gray game development kit 2.2.7.<br>
       6.6.1 – Text drawing subsystem improved.<br>
-      6.6.2 – Simple sound subsystem back-ported from Neon game development kit 5.7.8.<br>
+      6.6.2 – Simple sound subsystem back-ported from Neon game development kit
+      5.7.8.<br>
       6.6.3 – Small bug in multimedia subsystem fixed.<br>
       6.6.4 – 6.6.6 – Small changes.<br>
       6.6.7 – Multimedia subsystem improved.<br>
@@ -2883,6 +2888,7 @@ Multimedia API</a>. </big>
       8.8 – Source code synced with Black game development kit 5.7.6.<br>
       8.8.1 – Synchronization timer back-ported from Neon game development kit 7.5.8.<br>
       8.8.2 – Synchronization timer back-ported from Neon game development kit 7.7.7.<br>
+      8.8.3 – Memory subsystem improved.<br>
     </big>
   </body>
 </html>
