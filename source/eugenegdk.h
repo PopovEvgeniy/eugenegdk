@@ -769,7 +769,7 @@ typedef enum
    unsigned char *get_data();
    Image* get_handle();
    void destroy_image();
-   unsigned char *load_tga(const char *name);
+   unsigned char *load(const char *name);
   };
 
   class Picture
