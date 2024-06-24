@@ -263,33 +263,31 @@ typedef enum
  {
 
   template <class RESOURCE>
-  RESOURCE *create()
+  void create(RESOURCE **target)
   {
-   RESOURCE *target=NULL;
    try
    {
-    target=new RESOURCE;
+    *target=new RESOURCE;
    }
    catch (...)
    {
     EUGENEGDK::Halt("Can't allocate memory");
    }
-   return target;
+
   }
 
   template <class RESOURCE>
-  RESOURCE *create_array(const size_t amount)
+  void create(RESOURCE **target,const size_t amount)
   {
-   RESOURCE *target=NULL;
    try
    {
-    target=new RESOURCE[amount];
+    *target=new RESOURCE[amount];
    }
    catch (...)
    {
     EUGENEGDK::Halt("Can't allocate memory");
    }
-   return target;
+
   }
 
   template <class RESOURCE>
@@ -409,7 +407,7 @@ typedef enum
 
   void create_buffer()
   {
-   buffer=Resource::create_array<DATA_TYPE>(length);
+   Resource::create(&buffer,length);
   }
 
   size_t get_length() const
