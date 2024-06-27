@@ -595,7 +595,7 @@ namespace EUGENEGDK
 
   Resizer::Resizer()
   {
-   image.set_length(0);
+   image=NULL;
    source_width=0;
    source_height=0;
    x_ratio=0;
@@ -607,7 +607,8 @@ namespace EUGENEGDK
 
   Resizer::~Resizer()
   {
-   image.destroy_buffer();
+   Resource::destroy_array(image);
+   image=NULL;
   }
 
   unsigned int Resizer::get_x_difference(const unsigned int x) const
@@ -667,12 +668,12 @@ namespace EUGENEGDK
     {
      source_x=this->get_source_x(x);
      next_x=this->get_next_x(source_x);
+     x_difference=this->get_x_difference(x);
+     x_weigh=UCHAR_MAX-x_difference;
      first=target[Core::get_offset(source_x,source_y,source_width)];
      second=target[Core::get_offset(next_x,source_y,source_width)];
      third=target[Core::get_offset(source_x,next_y,source_width)];
      last=target[Core::get_offset(next_x,next_y,source_width)];
-     x_difference=this->get_x_difference(x);
-     x_weigh=UCHAR_MAX-x_difference;
      red=(get_pixel_component(first,Core::RED_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::RED_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::RED_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::RED_COMPONENT)*x_difference*y_difference+1)/normalization;
      green=(get_pixel_component(first,Core::GREEN_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::GREEN_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::GREEN_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::GREEN_COMPONENT)*x_difference*y_difference+1)/normalization;
      blue=(get_pixel_component(first,Core::BLUE_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::BLUE_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::BLUE_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::BLUE_COMPONENT)*x_difference*y_difference+1)/normalization;
@@ -727,8 +728,7 @@ namespace EUGENEGDK
   {
    size_t length;
    length=static_cast<size_t>(target_width)*static_cast<size_t>(target_height);
-   image.set_length(length);
-   image.create_buffer();
+   Resource::create(&image,length);
   }
 
   bool Resizer::is_dont_need_resize() const
@@ -748,7 +748,7 @@ namespace EUGENEGDK
 
   unsigned int *Resizer::get_buffer()
   {
-   return image.get_buffer();
+   return image;
   }
 
   void Resizer::make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit)

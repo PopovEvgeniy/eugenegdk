@@ -441,7 +441,7 @@ typedef enum
   class Resizer
   {
    private:
-   Buffer<unsigned int> image;
+   unsigned int *image;
    unsigned int source_width;
    unsigned int source_height;
    unsigned int target_width;
