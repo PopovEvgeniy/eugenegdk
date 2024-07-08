@@ -773,9 +773,10 @@ typedef enum
   class Picture
   {
    private:
-   Core::Buffer<unsigned int> image;
+   unsigned int *image;
    unsigned int image_width;
    unsigned int image_height;
+   size_t pixels;
    protected:
    void set_image_size(const unsigned int width,const unsigned int height);
    void create_storage();
