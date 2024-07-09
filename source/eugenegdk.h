@@ -790,6 +790,7 @@ typedef enum
    bool is_storage_empty() const;
    unsigned int get_image_width() const;
    unsigned int get_image_height() const;
+   size_t get_pixel_amount() const;
    size_t get_image_length() const;
    unsigned int *get_image();
   };

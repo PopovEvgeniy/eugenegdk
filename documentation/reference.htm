@@ -501,6 +501,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         Picture::get_image_height() const;</span> – Return image height in
       pixels.<br>
       <br>
+      <span style="font-style: italic;">size_t Picture::get_pixel_amount()
+        const;</span> – Return amount of image pixels.<br>
+      <br>
     </big><big><span style="font-style: italic;">size_t
         Picture::get_image_lenght() const;</span> – Return image length in
       bytes.</big><br>
@@ -1013,12 +1016,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         int target) const;</span> – Return true if target column is valid.<br>
       <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -1697,12 +1698,11 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       functions. All these functions declared in <span style="font-style: italic;">Resource</span>
       sub–namespace.<br>
       <br>
-      <span style="font-style: italic;">create</span>
-      function create a single resource or array of resources. It has two
-      form. First form create a single resource. First form takes a handle to
-      resource handle as arguments. Second form create array of resources.
-      Second form takes a handle to resource handle and resource amount as
-      arguments.<br>
+      <span style="font-style: italic;">create</span> function create a single
+      resource or array of resources. It has two form. First form create a
+      single resource. First form takes a handle to resource handle as
+      arguments. Second form create array of resources. Second form takes a
+      handle to resource handle and resource amount as arguments.<br>
       <br>
       <span style="font-style: italic;"> destroy</span> function delete resource
       if it already exists. This function takes resource handle as argument.<br>
@@ -2784,8 +2784,7 @@ Multimedia API</a>. </big>
       7.2.6 – 7.2.9 – Image resizer improved.<br>
       7.3 – 7.3.1 – Small changes.<br>
       7.3.2 – Small render bug fixed.<br>
-      7.3.3 – Animation subsystem back-ported from Eugene game development kit
-      5.6.2.<br>
+      7.3.3 – Animation subsystem back-ported from Eugene game development kit 5.6.2.<br>
       7.3.4 – Background subsystem improved.<br>
       7.3.5 – Small changes.<br>
       7.3.6 – Source code synced with Simple windows game framework 7.3.5.<br>
