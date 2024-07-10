@@ -185,15 +185,12 @@ typedef enum
   class Synchronization
   {
    private:
-   TIMECAPS resolution;
-   unsigned int start;
-   unsigned int delay;
-   void set_timer_resolution();
-   void reset_timer_resolution();
-   void pause();
+   HANDLE event;
+   MMRESULT timer;
+   void create_event();
+   void timer_setup(const unsigned int delay);
    protected:
-   void create_timer();
-   void set_timer(const unsigned int interval);
+   void create_timer(const unsigned int delay);
    void wait_timer();
    public:
    Synchronization();

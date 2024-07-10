@@ -144,66 +144,59 @@ namespace EUGENEGDK
 
   Synchronization::Synchronization()
   {
-   start=0;
-   delay=0;
-   resolution.wPeriodMin=0;
-   resolution.wPeriodMax=0;
+   event=NULL;
+   timer=0;
   }
 
   Synchronization::~Synchronization()
   {
-
-  }
-
-  void Synchronization::set_timer_resolution()
-  {
-   if (timeBeginPeriod(resolution.wPeriodMin)!=TIMERR_NOERROR)
+   if (timer!=0)
    {
-    EUGENEGDK::Halt("Can't set timer resolution");
+    timeKillEvent(timer);
+    timer=0;
+   }
+   if (event!=NULL)
+   {
+    CloseHandle(event);
+    event=NULL;
    }
 
   }
 
-  void Synchronization::reset_timer_resolution()
+  void Synchronization::create_event()
   {
-   if (timeEndPeriod(resolution.wPeriodMin)!=TIMERR_NOERROR)
+   event=CreateEvent(NULL,TRUE,FALSE,NULL);
+   if (event==NULL)
    {
-    EUGENEGDK::Halt("Can't reset timer resolution");
+    EUGENEGDK::Halt("Can't create synchronization event");
    }
 
   }
 
-  void Synchronization::pause()
+  void Synchronization::timer_setup(const unsigned int delay)
   {
-   unsigned int interval;
-   interval=timeGetTime()-start;
-   if (interval<delay)
+   timer=timeSetEvent(delay,0,reinterpret_cast<LPTIMECALLBACK>(event),0,TIME_PERIODIC|TIME_CALLBACK_EVENT_SET);
+   if (timer==0)
    {
-    SleepEx(delay-interval,FALSE);
-   }
-   start=timeGetTime();
-  }
-
-  void Synchronization::create_timer()
-  {
-   if (timeGetDevCaps(&resolution,sizeof(TIMECAPS))!=MMSYSERR_NOERROR)
-   {
-    EUGENEGDK::Halt("Can't get timer resolution");
+    EUGENEGDK::Halt("Can't set timer setting");
    }
 
   }
 
-  void Synchronization::set_timer(const unsigned int interval)
+  void Synchronization::create_timer(const unsigned int delay)
   {
-   delay=interval;
-   start=timeGetTime();
+   this->create_event();
+   this->timer_setup(delay);
   }
 
   void Synchronization::wait_timer()
   {
-   this->set_timer_resolution();
-   this->pause();
-   this->reset_timer_resolution();
+   if (event!=NULL)
+   {
+    WaitForSingleObjectEx(event,INFINITE,TRUE);
+    ResetEvent(event);
+   }
+
   }
 
   Display::Display()
@@ -2094,8 +2087,7 @@ namespace EUGENEGDK
    this->prepare_engine();
    this->set_render(this->get_context());
    this->start_render(this->get_display_width(),this->get_display_height());
-   this->create_timer();
-   this->set_timer(17);
+   this->create_timer(17);
   }
 
   void Screen::clear_screen()
