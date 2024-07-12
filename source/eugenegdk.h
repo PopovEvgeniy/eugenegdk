@@ -750,7 +750,7 @@ typedef enum
    unsigned char *data;
    unsigned int width;
    unsigned int height;
-   size_t uncompressed_length;
+   size_t length;
    size_t get_source_position(const unsigned int x,const unsigned int y,const Core::MIRROR_KIND mirror) const;
    void set_size(const unsigned int image_width,const unsigned int image_height);
    void mirror_image(const Core::MIRROR_KIND mirror);
@@ -760,13 +760,13 @@ typedef enum
    public:
    Image();
    ~Image();
+   void destroy_image();
+   size_t get_length() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
-   size_t get_length() const;
    unsigned char *get_data();
-   Image* get_handle();
-   void destroy_image();
    unsigned char *load(const char *name);
+   Image* get_handle();
   };
 
   class Picture

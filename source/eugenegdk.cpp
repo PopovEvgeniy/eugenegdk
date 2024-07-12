@@ -2200,7 +2200,7 @@ namespace EUGENEGDK
    data=NULL;
    width=0;
    height=0;
-   uncompressed_length=0;
+   length=0;
   }
 
   Image::~Image()
@@ -2234,32 +2234,32 @@ namespace EUGENEGDK
   {
    width=image_width;
    height=image_height;
-   uncompressed_length=static_cast<size_t>(width)*static_cast<size_t>(height)*3;
+   length=static_cast<size_t>(width)*static_cast<size_t>(height)*3;
   }
 
   void Image::mirror_image(const Core::MIRROR_KIND mirror)
   {
-   Core::Buffer<unsigned char> original;
+   unsigned char *mirrored;
    unsigned int x,y;
    size_t index,position;
-   original.set_length(uncompressed_length);
-   original.create_buffer();
-   original.copy_data(data);
    index=0;
    position=0;
+   mirrored=NULL;
+   Resource::create(&mirrored,length);
    for (y=0;y<height;++y)
    {
     for (x=0;x<width;++x)
     {
      position=this->get_source_position(x,y,mirror);
-     data[index]=original[position];
-     data[index+1]=original[position+1];
-     data[index+2]=original[position+2];
+     mirrored[index]=data[position];
+     mirrored[index+1]=data[position+1];
+     mirrored[index+2]=data[position+2];
      index+=3;
     }
 
    }
-   original.destroy_buffer();
+   Resource::destroy_array(data);
+   data=mirrored;
   }
 
   void Image::uncompress_tga_data(const unsigned char *source)
@@ -2267,7 +2267,7 @@ namespace EUGENEGDK
    size_t index,position,amount;
    index=0;
    position=0;
-   while (index<uncompressed_length)
+   while (index<length)
    {
     if (source[position]<128)
     {
@@ -2319,12 +2319,12 @@ namespace EUGENEGDK
 
   void Image::load_tga(File::Input_File &target)
   {
-   unsigned char *compressed_buffer;
+   unsigned char *buffer;
    size_t compressed_length;
    TGA_head head;
    TGA_map color_map;
    TGA_image image;
-   data=NULL;
+   buffer=NULL;
    compressed_length=static_cast<size_t>(target.get_length()-18);
    target.read(&head,3);
    target.read(&color_map,5);
@@ -2332,18 +2332,18 @@ namespace EUGENEGDK
    if (image.color==24)
    {
     this->set_size(image.width,image.height);
-    Resource::create(&data,uncompressed_length);
+    Resource::create(&data,length);
     switch (head.type)
     {
      case 2:
-     target.read(data,uncompressed_length);
+     target.read(data,length);
      break;
      case 10:
-     Resource::create(&compressed_buffer,compressed_length);
-     target.read(compressed_buffer,compressed_length);
-     this->uncompress_tga_data(compressed_buffer);
-     Resource::destroy_array(compressed_buffer);
-     compressed_buffer=NULL;
+     Resource::create(&buffer,compressed_length);
+     target.read(buffer,compressed_length);
+     this->uncompress_tga_data(buffer);
+     Resource::destroy_array(buffer);
+     buffer=NULL;
      break;
      default:
      this->destroy_image();
@@ -2352,6 +2352,18 @@ namespace EUGENEGDK
     this->mirror_tga(image.descriptor);
    }
 
+  }
+
+  void Image::destroy_image()
+  {
+   Resource::destroy_array(data);
+   data=NULL;
+   this->set_size(0,0);
+  }
+
+  size_t Image::get_length() const
+  {
+   return length;
   }
 
   unsigned int Image::get_width() const
@@ -2364,26 +2376,9 @@ namespace EUGENEGDK
    return height;
   }
 
-  size_t Image::get_length() const
-  {
-   return uncompressed_length;
-  }
-
   unsigned char *Image::get_data()
   {
    return data;
-  }
-
-  Image* Image::get_handle()
-  {
-   return this;
-  }
-
-  void Image::destroy_image()
-  {
-   Resource::destroy_array(data);
-   data=NULL;
-   this->set_size(0,0);
   }
 
   unsigned char *Image::load(const char *name)
@@ -2400,6 +2395,11 @@ namespace EUGENEGDK
     target.close();
    }
    return data;
+  }
+
+  Image* Image::get_handle()
+  {
+   return this;
   }
 
   Picture::Picture()
