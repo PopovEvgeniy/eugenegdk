@@ -427,8 +427,7 @@ typedef enum
   class Unicode_Convertor
   {
    private:
-   Buffer<wchar_t> target;
-   void convert_string(const char *source);
+   wchar_t *target;
    public:
    Unicode_Convertor();
    ~Unicode_Convertor();

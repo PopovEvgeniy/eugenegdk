@@ -558,32 +558,27 @@ namespace EUGENEGDK
 
   Unicode_Convertor::Unicode_Convertor()
   {
-   target.set_length(0);
+   target=NULL;
   }
 
   Unicode_Convertor::~Unicode_Convertor()
   {
-   target.destroy_buffer();
-  }
-
-  void Unicode_Convertor::convert_string(const char *source)
-  {
-   size_t index;
-   target[0]=std::btowc(source[0]);
-   for (index=target.get_length()-1;index>0;--index)
-   {
-    target[index]=std::btowc(source[index]);
-   }
-
+   Resource::destroy_array(target);
+   target=NULL;
   }
 
   wchar_t *Unicode_Convertor::convert(const char *source)
   {
-   target.set_length(strlen(source)+1);
-   target.create_buffer();
-   target.fill_buffer(0);
-   this->convert_string(source);
-   return target.get_buffer();
+   size_t index,length;
+   length=strlen(source);
+   Resource::create(&target,length+1);
+   memset(target,0,sizeof(wchar_t)*length+1);
+   target[0]=std::btowc(source[0]);
+   for (index=length;index>0;--index)
+   {
+    target[index]=std::btowc(source[index]);
+   }
+   return target;
   }
 
   Resizer::Resizer()
