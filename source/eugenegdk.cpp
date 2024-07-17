@@ -552,15 +552,11 @@ namespace EUGENEGDK
 
   wchar_t *Unicode_Convertor::convert(const char *source)
   {
-   size_t index,length;
+   size_t length;
    length=strlen(source);
    Resource::create(&target,length+1);
-   memset(target,0,sizeof(wchar_t)*length+1);
-   target[0]=std::btowc(source[0]);
-   for (index=length;index>0;--index)
-   {
-    target[index]=std::btowc(source[index]);
-   }
+   memset(target,0,(length+1)*sizeof(wchar_t));
+   MultiByteToWideChar(CP_ACP,0,source,-1,target,static_cast<int>(length));
    return target;
   }
 
