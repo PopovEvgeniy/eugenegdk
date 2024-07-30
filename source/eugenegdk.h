@@ -784,6 +784,7 @@ typedef enum
    unsigned int get_y() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
+   bool is_load() const;
    EUGENEGDK::BOX get_box() const;
    void disable_mirror();
    void horizontal_mirror();

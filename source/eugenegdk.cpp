@@ -2810,6 +2810,11 @@ namespace EUGENEGDK
    return sprite_height;
   }
 
+  bool Billboard::is_load() const
+  {
+   return billboard.is_texture_exist();
+  }
+
   EUGENEGDK::BOX Billboard::get_box() const
   {
    EUGENEGDK::BOX collision;

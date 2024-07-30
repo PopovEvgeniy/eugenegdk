@@ -834,6 +834,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> unsigned int Billboard::get_height()
         const;</span> – Return the height of the sprite.<br>
       <br>
+    </big><big><span style="font-style: italic;">bool Billboard::is_load()
+        const;</span> – Return true if the sprite is already loaded.</big><br>
+    <big> <br>
     </big><big><span style="font-style: italic;">EUGENEGDK::BOX
         Billboard::get_box() const;</span> – Return collision related
       information.<br>
@@ -1377,6 +1380,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       </big></h2>
     <big><span style="text-decoration: underline;"></span> Isometric level
       subsystem intend for help you to create an isometric levels. Just use <span
+
         style="font-style: italic;">World</span> class for doing it. Let's look
       at public methods.<br>
       <br>
@@ -1564,7 +1568,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       Return true if the column is valid.<br>
       <br>
       <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big
-
       style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
       int row,const unsigned int column</big><big><span style="font-style: italic;">)
         const;</span> – Return collision related information.<br>
@@ -2396,8 +2399,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
     <big> </big>
     <h2><a name="mozTocId472209" class="mozTocH2"></a><big>Chapter 4. Game–pad</big></h2>
     <big> Game–pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
-Multimedia
-        API</a>. </big>
+Multimedia API</a>. </big>
     <h2><a name="mozTocId804583" class="mozTocH2"></a><big>Chapter 5. Input</big></h2>
     <big> <span style="text-decoration: underline;"> Input back–end</span><br>
       <br>
@@ -2740,7 +2742,8 @@ Multimedia
       6.5.9 – Small bug in game–pad subsystem fixed.<br>
       6.6 – Source code synced with Gray game development kit 2.2.7.<br>
       6.6.1 – Text drawing subsystem improved.<br>
-      6.6.2 – Simple sound subsystem back-ported from Neon game development kit 5.7.8.<br>
+      6.6.2 – Simple sound subsystem back-ported from Neon game development kit
+      5.7.8.<br>
       6.6.3 – Small bug in multimedia subsystem fixed.<br>
       6.6.4 – 6.6.6 – Small changes.<br>
       6.6.7 – Multimedia subsystem improved.<br>
@@ -2785,7 +2788,8 @@ Multimedia
       7.2.6 – 7.2.9 – Image resizer improved.<br>
       7.3 – 7.3.1 – Small changes.<br>
       7.3.2 – Small render bug fixed.<br>
-      7.3.3 – Animation subsystem back-ported from Eugene game development kit 5.6.2.<br>
+      7.3.3 – Animation subsystem back-ported from Eugene game development kit
+      5.6.2.<br>
       7.3.4 – Background subsystem improved.<br>
       7.3.5 – Small changes.<br>
       7.3.6 – Source code synced with Simple windows game framework 7.3.5.<br>
@@ -2908,6 +2912,7 @@ Multimedia
       9.0.1 – Small changes.<br>
       9.0.2 – Source code synced with Black game development kit 6.0.3.<br>
       9.0.3 – Small changes.<br>
+      9.0.4 – Base sprite subsystem improved.<br>
     </big>
   </body>
 </html>
