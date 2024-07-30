@@ -3395,6 +3395,11 @@ namespace EUGENEGDK
    stage.destroy();
   }
 
+  bool Background::is_load() const
+  {
+   return stage.is_load();
+  }
+
   bool Background::is_last_frame() const
   {
    return stage.is_last_frame();
@@ -3512,6 +3517,11 @@ namespace EUGENEGDK
   void Scene::destroy()
   {
    stage.destroy();
+  }
+
+  bool Scene::is_load() const
+  {
+   return stage.is_load();
   }
 
   unsigned int Scene::get_width() const

@@ -638,6 +638,9 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <span style="font-style: italic;"> void Background::destroy();</span> –
       Destroy a background image and destroy a background texture.<br>
       <br>
+    </big><big><span style="font-style: italic;">bool Background::is_load()
+        const;</span> – Return true if a background is already loaded.</big><br>
+    <big> <br>
       <span style="font-style: italic;">bool Background::is_last_frame() const;</span>
       – Return true if current frame is last frame.<br>
       <br>
@@ -715,6 +718,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         &amp;background);</span> – Load a background </big><big>from the buffer</big><big>.<br>
       <br>
     </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load a background from target file.</big><br>
     <big><br>
@@ -726,7 +730,10 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       <br>
       <span style="font-style: italic;"> void Scene::destroy();</span> – Destroy
       a background image and destroy a background texture.<br>
-      <span style="font-style: italic;"></span><br>
+      <br>
+    </big><big><span style="font-style: italic;">bool Scene::is_load() const;</span>
+      – Return true if a static background is already loaded.</big><br>
+    <big> <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;"> unsigned int Scene::get_width() const;</span>
       – Return the width of the background.<br>
       <br>
@@ -952,6 +959,7 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       The static sprite is simple kind of sprites. It contain one frame only.<br>
       <br>
     </big><big><span style="text-decoration: underline;"></span></big><big> <span
+
         style="text-decoration: underline;"> Work with static sprites</span><br>
       <br>
       Just use <span style="font-style: italic;">Cartoon</span> class to work
@@ -1019,10 +1027,12 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
         int target) const;</span> – Return true if target column is valid.<br>
       <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -1380,7 +1390,6 @@ C++ Redistributable Packages</a> if you game code compiled under Visual C++.
       </big></h2>
     <big><span style="text-decoration: underline;"></span> Isometric level
       subsystem intend for help you to create an isometric levels. Just use <span
-
         style="font-style: italic;">World</span> class for doing it. Let's look
       at public methods.<br>
       <br>
@@ -2742,8 +2751,7 @@ Multimedia API</a>. </big>
       6.5.9 – Small bug in game–pad subsystem fixed.<br>
       6.6 – Source code synced with Gray game development kit 2.2.7.<br>
       6.6.1 – Text drawing subsystem improved.<br>
-      6.6.2 – Simple sound subsystem back-ported from Neon game development kit
-      5.7.8.<br>
+      6.6.2 – Simple sound subsystem back-ported from Neon game development kit 5.7.8.<br>
       6.6.3 – Small bug in multimedia subsystem fixed.<br>
       6.6.4 – 6.6.6 – Small changes.<br>
       6.6.7 – Multimedia subsystem improved.<br>
@@ -2788,8 +2796,7 @@ Multimedia API</a>. </big>
       7.2.6 – 7.2.9 – Image resizer improved.<br>
       7.3 – 7.3.1 – Small changes.<br>
       7.3.2 – Small render bug fixed.<br>
-      7.3.3 – Animation subsystem back-ported from Eugene game development kit
-      5.6.2.<br>
+      7.3.3 – Animation subsystem back-ported from Eugene game development kit 5.6.2.<br>
       7.3.4 – Background subsystem improved.<br>
       7.3.5 – Small changes.<br>
       7.3.6 – Source code synced with Simple windows game framework 7.3.5.<br>
@@ -2913,6 +2920,7 @@ Multimedia API</a>. </big>
       9.0.2 – Source code synced with Black game development kit 6.0.3.<br>
       9.0.3 – Small changes.<br>
       9.0.4 – Base sprite subsystem improved.<br>
+      9.0.5 – Background subsystem improved.<br>
     </big>
   </body>
 </html>

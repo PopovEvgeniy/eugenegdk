@@ -892,6 +892,7 @@ typedef enum
    void draw(const unsigned int target);
    void destroy_image();
    void destroy();
+   bool is_load() const;
    bool is_last_frame() const;
    bool check_frame(const unsigned int target) const;
    unsigned int get_frame() const;
@@ -922,6 +923,7 @@ typedef enum
    void draw();
    void destroy_image();
    void destroy();
+   bool is_load() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
   };
