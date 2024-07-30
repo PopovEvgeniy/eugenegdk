@@ -941,6 +941,7 @@ typedef enum
    Text* get_handle();
    EUGENEGDK::TEXT_KIND get_orientation() const;
    void set_orientation(const EUGENEGDK::TEXT_KIND target);
+   bool is_font_load() const;
    unsigned int get_font_width() const;
    unsigned int get_font_height() const;
    void set_position(const unsigned int x,const unsigned int y);

@@ -3578,6 +3578,11 @@ namespace EUGENEGDK
    orientation=target;
   }
 
+  bool Text::is_font_load() const
+  {
+   return text.is_load();
+  }
+
   unsigned int Text::get_font_width() const
   {
    return text.get_width();
