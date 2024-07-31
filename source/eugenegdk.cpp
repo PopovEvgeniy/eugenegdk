@@ -490,7 +490,7 @@ namespace EUGENEGDK
 
   unsigned int make_pixel(const unsigned int red,const unsigned int green,const unsigned int blue,const unsigned int alpha)
   {
-   return (alpha << 24)+(blue << 16)+(green << 8)+red;
+   return (alpha << 24)|(blue << 16)|(green << 8)|red;
   }
 
   size_t get_offset(const unsigned int x,const unsigned int y,const unsigned int width)
