@@ -10,7 +10,7 @@ F2 - Do horizontal background mirror
 F3 - Do vertical background mirror
 F4 - Do both horizontal and vertical background mirror
 
-Controls for gamepad
+Controls for the gamepad
 
 D-pad or right stick - Move
 Button 2 - Exit from demo
