@@ -9,7 +9,7 @@ Eugene game development kit is distributed under a Zlib license.
 Features
 
  Minimum external dependencies: only DirectX, OPENGL and standard Windows API libraries.
- Don’t need to link the main program with the engine binary file. The engine is just source code files with all engine codes.
+ You don't need to link a main program with the engine binary file. The engine is just the source code files.
  Wide range of supported compilers.
  Two render backends: hardware-accelerated OPENGL and software OPENGL.
  Easy-to-use object-oriented API

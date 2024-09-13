@@ -8,6 +8,7 @@
     <meta name="generator" content="quillbot-gc">
     <meta name="generator" content="quillbot-gc">
     <meta name="generator" content="quillbot-gc">
+    <meta name="generator" content="quillbot-gc">
   </head>
   <body>&nbsp;
     <div>
@@ -26,7 +27,7 @@
           <li><a href="#mozTocId85003">Chapter 2. A special thanks</a></li>
           <li><a href="#mozTocId810132">Chapter 3. License</a></li>
           <li><a href="#mozTocId336772">Chapter 4. System requirements</a></li>
-          <li><a href="#mozTocId928115">Chapter 5. Trouble guide</a></li>
+          <li><a href="#mozTocId928115">Chapter 5. Troubleshooting Guide</a></li>
           <li><a href="#mozTocId491993">Chapter 6. Compilers</a></li>
           <li><a href="#mozTocId56069">Chapter 7. Platform-specific notes</a></li>
           <li><a href="#mozTocId914689">Chapter 8. The engine namespace</a></li>
@@ -63,7 +64,7 @@
               screen coordinates</a></li>
           <li><a href="#mozTocId122919">Chapter 3. Cartesian coordinates and
               isometric coordinates</a></li>
-          <li><a href="#mozTocId143616">Chapter 4. Isometric level</a></li>
+          <li><a href="#mozTocId143616">Chapter 4. Isometric Level</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId64443">Part 5. Common things</a>
@@ -72,7 +73,7 @@
           <li><a href="#mozTocId853711">Chapter 2. Abnormal program termination</a></li>
           <li><a href="#mozTocId656377">Chapter 3. Timer</a></li>
           <li><a href="#mozTocId381935">Chapter 4. Collision</a></li>
-          <li><a href="#mozTocId429738">Chapter 5. Tile-map</a></li>
+          <li><a href="#mozTocId429738">Chapter 5. Tile map</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId611237">Part 6. Other important things</a>
@@ -112,7 +113,7 @@
               programmer</a></li>
           <li><a href="#mozTocId318160">Chapter 2. Internal classes</a></li>
           <li><a href="#mozTocId293644">Chapter 3. Base graphics subsystem</a></li>
-          <li><a href="#mozTocId472209">Chapter 4. Game-pad</a></li>
+          <li><a href="#mozTocId472209">Chapter 4. Game-Pad</a></li>
           <li><a href="#mozTocId804583">Chapter 5. Input</a></li>
           <li><a href="#mozTocId692266">Chapter 6. Audio</a></li>
         </ul>
@@ -129,10 +130,11 @@
     <p><big> <span style="text-decoration: underline;">Introduction</span><br>
         <br>
         Hello from Russia. My name is Popov Evgeniy Alekseyevich. I am the
-        individual programmer. I enjoy creating software. I also like old-school
-        video games. Do you want to develop video games for Microsoft Windows?
-        You need a good game engine for doing it. I made my own engine. I hope
-        that my C++ game engine will be useful for many programmers.<br>
+        individual programmer. I enjoy creating software. I also like the
+        old-school video games. Do you want to develop a video games for
+        Microsoft Windows? You need a good game engine for doing it. I made my
+        own engine. I hope that my C++ game engine will be useful for many
+        programmers.<br>
         <br>
         <span style="text-decoration: underline;"> Features</span><br>
         <br>
@@ -145,11 +147,12 @@
       <li><big>Minimum external dependencies: only DirectX, OPENGL, and standard
           Windows API libraries.</big></li>
       <li><big>You don't need to link a main program with the engine binary
-          file. The engine is just source code files with all engine codes.</big></li>
+          file. The engine is just the source code files.<br>
+        </big></li>
     </ul>
     <p><big> <span style="text-decoration: underline;">Installation</span><br>
         <br>
-        How do I install this engine? Follow these steps: <br>
+        How do I install this engine? Follow these steps:<br>
         <br>
         Copy these files to your project directory: </big></p>
     <ul>
@@ -157,18 +160,18 @@
       <li><big>eugenegdk.cpp</big><br>
       </li>
     </ul>
-    <p><big>Add it to your project. <br>
-        Add this directive to your code: #include "eugenegdk.h" <br>
-        Yes. This is really all that you need to do.<br>
+    <p><big>Add it to your project.<br>
+        Add this directive to your code: #include "eugenegdk.h"<br>
+        Yes. This is really all you need to do.<br>
         <br>
         <span style="text-decoration: underline;">Feedback</span><br>
         <br>
         Send me an <a href="mailto:tuzik87@inbox.ru">email</a> if you want
-        contact with me. </big></p>
+        contact with me.</big></p>
     <h2><a class="mozTocH2" name="mozTocId85003"></a><big>Chapter 2. A special
         thanks</big></h2>
     <p><big>I want to say «Big thanks for technical consultation» to these
-        people: </big></p>
+        people:</big></p>
     <ul>
       <li><a href="https://github.com/dmitrysmagin"><big>Dmitry Smagin</big></a></li>
       <li><a href="https://bsg.org.ua/"><big>Pavel Samko</big></a></li>
@@ -181,7 +184,7 @@
       </li>
     </ul>
     <p><big>Thanks to the PVS-Studio team for the <a href="https://www.viva64.com/en/b/0614/">free
-          license</a>. </big></p>
+          license</a>.</big></p>
     <h2><a class="mozTocH2" name="mozTocId810132"></a><big>Chapter 3. License</big></h2>
     <p><big><span style="text-decoration: underline;">Eugene game development
           kit license</span><br>
@@ -240,7 +243,7 @@
     <h2><a class="mozTocH2" name="mozTocId336772"></a><big>Chapter 4. System
         requirements</big></h2>
     <p><big> </big></p>
-    <p><big>You can see the minimum system requirement below.</big></p>
+    <p><big>You can see the minimum system requirements below.</big></p>
     <p><big> </big></p>
     <table border="1">
       <tbody>
@@ -266,11 +269,11 @@
       </tbody>
     </table>
     <p><big> </big></p>
-    <h2><a class="mozTocH2" name="mozTocId928115"></a><big>Chapter 5. Trouble
-        guide</big><br>
+    <h2><a class="mozTocH2" name="mozTocId928115"></a><big>Chapter 5.
+        Troubleshooting Guide</big><br>
     </h2>
     <p><big>You need <a href="https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads">Visual
-          C++ Redistributable Packages</a> if your game code is compiled under
+          C++ Redistributable packages</a> if your game code is compiled under
         Visual C++. </big></p>
     <h2><a class="mozTocH2" name="mozTocId491993"></a><big>Chapter 6. Compilers</big></h2>
     <p><big>This engine was successfully tested with these compilers:</big> </p>
@@ -335,7 +338,7 @@
       </li>
     </ul>
     <p><big><span style="text-decoration: underline;">Windows SDK and DirectX
-          SDK </span><br>
+          SDK</span><br>
         <br>
         You need <a href="https://www.microsoft.com/en-us/download/details.aspx?id=15656">Windows
           Server 2003 SP1 Platform SDK</a> and <a href="https://archive.org/details/dxsdk_feb2005">DirectX
@@ -343,7 +346,7 @@
         <span style="text-decoration: underline;"></span><br>
         <span style="text-decoration: underline;"> Note for Visual C++ users</span></big></p>
     <p><big> Disable pre-compiled headers before starting compilation. Old
-        Visual C++ users can do it via the project creation wizard. <br>
+        Visual C++ users can do it via the project creation wizard.<br>
         Visual C++ 2017 or higher users must follow these steps:<br>
       </big></p>
     <ul>
@@ -397,7 +400,7 @@
     <h1><a class="mozTocH1" name="mozTocId749937"></a><big>Part 3. Graphics</big></h1>
     <h2><a class="mozTocH2" name="mozTocId182571"></a><big>Chapter 1. The
         sub-namespace</big></h2>
-    <p><big>All subsystems in this section are declared in the <em>Graphics</em>
+    <p><big>All classes in this section are declared in the <em>Graphics</em>
         sub-namespace.</big><br>
       <big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId552078"></a><big>Chapter 2. Base
@@ -405,26 +408,27 @@
     <p><big><span style="text-decoration: underline;">Introduce</span></big></p>
     <p><big>The base graphics subsystem does render a game scene. This subsystem
         uses <a href="http://opengl.org/">OPENGL</a> for rendering. All modern
-        videocards support hardware-accelerated OPENGL. Software OPENGL will be
-        activated if </big><big>hardware acceleration is not available.</big><br>
+        video cards support hardware-accelerated OPENGL. The software OPENGL
+        will be activated if </big><big>the acceleration is not available.</big><br>
       <br>
       <big><span style="text-decoration: underline;">Render performance</span><br>
         <br>
-        Always use the latest video card drivers. It may increase render
+        Always use the latest video card drivers. It may increase rendering
         performance. You can also try to change the screen resolution if you
-        have low render performance.<br>
+        have low rendering performance.<br>
         <br>
         <span style="text-decoration: underline;"> Fps limitation</span><br>
         <br>
-        FPS is an important thing. Many fps are needed for good animation, but
-        it also needs high processor usage. FPS limit is 60 by default. It is an
-        optimal value.<br>
+        FPS is an important thing. Many FPS are needed for good animation, but
+        it also needs high processor usage. FPS limit is 60 by default. It has
+        an ideal value.<br>
         <br>
         <span style="text-decoration: underline;"> Work with the base graphics
           subsystem</span><br>
         <br>
         The <span style="font-style: italic;">Screen</span> class provides
-        access to the base graphic subsystem. Let's look at public methods.<br>
+        access to the base graphic subsystem. Let's look at the publicly
+        available methods.<br>
         <br>
         <span style="font-style: italic;"> void Screen::clear_screen();</span> –
         Clear the screen. Fill it with black color.<br>
@@ -433,22 +437,23 @@
         Initializes the base graphic subsystem with default screen resolution.<br>
         <br>
       </big><big style="font-style: italic;">void Screen::initialize(const
-        unsigned int width,</big><big style="font-style: italic;">const unsigned
-        int height</big><big><span style="font-style: italic;">);</span> –
-        Initializes the base graphic subsystem with custom screen resolution.<br>
+        unsigned int width,</big><big style="font-style: italic;"> const
+        unsigned int height</big><big><span style="font-style: italic;">);</span>
+        – Initializes the base graphic subsystem with custom screen resolution.<br>
         <br>
       </big><big><span style="font-style: italic;">bool Screen::sync();</span> –
-        Show current back-buffer content on screen. Return false if a game is
-        terminated. This method uses FPS limits and waits between frames.<br>
+        Show the current content of the back buffer on the screen. Return false
+        if a game is terminated. This method uses FPS limits and waits between
+        frames.<br>
         <br>
         <span style="font-style: italic;"> bool Screen::update();</span> – Show
-        current back-buffer content on screen. Return false if a game is
-        terminated. This method ignores the FPS limit and needs high processor
-        usage.<br>
+        the current content of the back buffer on the screen. Return false if a
+        game is terminated. This method ignores the FPS limit and needs high
+        processor usage.<br>
         <br>
         <span style="font-style: italic;">bool Screen::sync(const bool limit);</span>
-        – Show current back-buffer content on screen. Return false if a game is
-        terminated.<br>
+        – Show the current content of the back buffer on the screen. Return
+        false if a game is terminated.<br>
         <br>
         <span style="font-style: italic;"> bool Screen::is_ready();</span> –
         Return true if the subsystem is already initialized.<br>
@@ -460,22 +465,23 @@
         – Return true if the software render is active.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Screen::get_fps() const;</span>
-        – Return current FPS value.<br>
+        – Return the current FPS value.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Screen::get_color()
-          const;</span> – Return current color depth in bits per pixel.<br>
+          const;</span> – Return the current color depth in bits per pixel.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Screen::get_width()
-          const;</span> – Return screen width in pixels.<br>
+          const;</span> – Return the screen width in pixels.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Screen::get_height()
-          const;</span> – Return screen height in pixels.<br>
+          const;</span> – Return the screen height in pixels.<br>
         <br>
         <span style="font-style: italic;">bool Screen::check_x(const unsigned
-          int x) const;</span> – Return true if x-coordinate is valid.<br>
+          int x) const;</span> – Return true if the x-coordinate is valid.<br>
         <br>
       </big><big><span style="font-style: italic;">bool Screen::check_y(const
-          unsigned int y) const;</span> – Return true if y-coordinate is valid.</big><br>
+          unsigned int y) const;</span> – Return true if the y-coordinate is
+        valid.</big><br>
       <br>
       <big><span style="font-style: italic;">Screen *Screen::get_handle();</span>
         – Return the handle to the base graphics subsystem object. </big></p>
@@ -490,7 +496,7 @@
         <br>
         The <span style="font-style: italic;">Picture</span> class provides
         simple access to the picture subsystem. Don't use it directly. Let's
-        look at public methods.<br>
+        look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> unsigned int *Picture::get_image();</span>
         – Return handle to image storage.<br>
@@ -499,22 +505,22 @@
           Picture::destroy_image();</span> – Destroy an image in the storage.<br>
         <br>
       </big><big><span style="font-style: italic;">bool
-          Picture::is_storage_empty() const;</span> – Return true if storage is
-        empty.<br>
+          Picture::is_storage_empty() const;</span> – Return true if the storage
+        is empty.<br>
         <br>
         <span style="font-style: italic;"> unsigned int
-          Picture::get_image_width() const;</span> – Return image width in
+          Picture::get_image_width() const;</span> – Return the image width in
         pixels.<br>
         <br>
         <span style="font-style: italic;"> unsigned int
-          Picture::get_image_height() const;</span> – Return image height in
+          Picture::get_image_height() const;</span> – Return the image height in
         pixels.<br>
         <br>
         <span style="font-style: italic;">size_t Picture::get_pixel_amount()
           const;</span> – Return the amount of image pixels.<br>
         <br>
       </big><big><span style="font-style: italic;">size_t
-          Picture::get_image_lenght() const;</span> – Return image length in
+          Picture::get_image_lenght() const;</span> – Return the image length in
         bytes.</big><br>
       <big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId501089"></a><big>Chapter 4. Animation
@@ -531,10 +537,10 @@
         <br>
         <span style="font-style: italic;"> The Animation</span> class provides
         simple access to the animation subsystem. Don't use it directly. Let's
-        look at public methods.<br>
+        look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Animation::get_frames()
-          const;</span> – Return amount of frames.<br>
+          const;</span> – Return the number of frames.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Animation::get_frame()
           const;</span> – Return the current frame.<br>
@@ -569,21 +575,24 @@
     <h2><a class="mozTocH2" name="mozTocId738557"></a><big>Chapter 6. Background</big></h2>
     <p><big><span style="text-decoration: underline;">Level decoration</span><br>
         <br>
-        Background is a big image. It is like decoration on a theater stage. Any
-        game has a background. The background will stretch to screen resolution
-        before rendering the game scene. Background transparency is disabled. <br>
+        A background is a big image. It is like decoration on a theater stage.
+        Any game has a background. The background will be stretched to the
+        screen resolution before rendering the game scene. The background
+        transparency is always disabled.<br>
         <br>
-        There are two background kinds: horizontally oriented scrolling
-        background and vertically oriented scrolling background. It is a big
-        image with few frames. Horizontal-oriented scrolling backgrounds look
-        like horizontal-oriented photo ribbons. Vertically oriented scrolling
-        backgrounds look like vertically oriented photo ribbons.<span style="text-decoration: underline;"><br>
+        There are two kinds of backgrounds: horizontally oriented scrolling
+        backgrounds and vertically oriented scrolling backgrounds. It is a big
+        image with few frames. The horizontal-oriented scrolling backgrounds
+        look like the horizontal-oriented photo ribbons. Vertically oriented
+        scrolling backgrounds look like the vertically-oriented photo ribbons.<span
+          style="text-decoration: underline;"><br>
         </span></big></p>
     <p><big><span style="text-decoration: underline;"></span></big><big><span style="text-decoration: underline;">Work
           with the background</span><br>
         <br>
         Just use the <span style="font-style: italic;">Background</span> class
-        to work with background. Let's look at public methods. <br>
+        to work with the background. Let's look at the publicly available
+        methods.<br>
         <br>
         <span style="font-style: italic;">Background *Background::get_handle();</span>
         – Return the handle to the background object.<br>
@@ -596,7 +605,7 @@
           &amp;screen);</span> – Prepare for drawing.<br>
         <br>
         <span style="font-style: italic;"> void Background::prepare(const
-          unsigned int width,const unsigned int height);</span> – Prepare for
+          unsigned int width, const unsigned int height);</span> – Prepare for
         drawing.<br>
         <br>
         <span style="font-style: italic;">void Background::disable_mirror();</span>
@@ -618,26 +627,26 @@
         number of frames.<br>
         <br>
         <span style="font-style: italic;"> void Background::set_setting(const
-          EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Set
-        setting.<br>
+          EUGENEGDK::IMAGE_KIND kind, const unsigned int frames);</span> – Set
+        the background setting.<br>
         <br>
         <span style="font-style: italic;"> void Background::load(Image
-          *background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int
+          *background,const EUGENEGDK::IMAGE_KIND kind, const unsigned int
           frames);</span> – Load a background </big><big>from the buffer</big><big>.<br>
         <br>
         <span style="font-style: italic;"> void Background::load(Image
-          &amp;background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int
+          &amp;background,const EUGENEGDK::IMAGE_KIND kind, const unsigned int
           frames);</span> – Load a background </big><big>from the buffer.</big><big><br>
       </big><big><br>
         <span style="font-style: italic;">void Background::load(const char
-          *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
+          *name,const EUGENEGDK::IMAGE_KIND kind, const unsigned int frames);</span>
         – Load a background </big><big>from the target file</big><big>.<br>
       </big><big><br>
         <span style="font-style: italic;"> void Background::draw();</span> –
         Draw a background.<br>
         <br>
         <span style="font-style: italic;">void Background::draw(const unsigned
-          int target);</span> – Draw target frame.<br>
+          int target);</span> – Draw the target frame.<br>
         <br>
         <span style="font-style: italic;"> void Background::destroy_image();</span>
         – Destroy a background image.<br>
@@ -656,10 +665,10 @@
         Return true if target frame is valid.</big><br>
       <br>
       <big><span style="font-style: italic;">&nbsp;unsigned int
-          Background::get_frame() const;</span> – Return current frame.<br>
+          Background::get_frame() const;</span> – Return the current frame.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Background::get_frames()
-          const;</span> – Return frame amount.<br>
+          const;</span> – Return the number frames.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Background::get_width()
           const;</span> – Return the width of the background.<br>
@@ -668,18 +677,17 @@
           const;</span> – Return the height of the background.<br>
         <br>
         <span style="font-style: italic;"> EUGENEGDK::IMAGE_KIND
-          Background::get_kind() const;</span> – Get the background type.<br>
+          Background::get_kind() const;</span> – Get the background kind.<br>
         <br>
-        <span style="text-decoration: underline;"> Background texture</span><br>
+        <span style="text-decoration: underline;"> A background texture</span><br>
         <br>
         The background doesn't draw if the background texture doesn't exist. It
-        will automatically be created after the call<span style="font-style: italic;">
-          load</span> method.<br>
+        will automatically be created when you load an image.<br>
         <br>
         <span style="text-decoration: underline;"> Important notice</span><br>
         <br>
-        Always call the <span style="font-style: italic;">prepare</span> method
-        after loading background.<br>
+        Always call the <span style="font-style: italic;">prepare</span> after
+        the background has loaded.<br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId946803"></a><big>Chapter 7. Static
         background</big></h2>
@@ -692,7 +700,8 @@
         <span style="text-decoration: underline;"> Work with the background</span><br>
         <br>
         Just use the <span style="font-style: italic;">Scene</span> class to
-        work with the static background. Let's look at public methods. <br>
+        work with the static background. Let's look at the publicly available
+        methods.<br>
         <br>
         <span style="font-style: italic;">Scene *Scene::get_handle();</span> –
         Return the handle to the background object.<br>
@@ -704,7 +713,7 @@
           &amp;screen);</span> – Prepare for drawing.<br>
         <br>
         <span style="font-style: italic;"> void Scene::prepare(const unsigned
-          int width,const unsigned int height);</span> – Prepare for drawing. <br>
+          int width, const unsigned int height);</span> – Prepare for drawing. <br>
         <br>
         <span style="font-style: italic;">void Scene::disable_mirror();</span> –
         Disable background mirroring mode.<br>
@@ -716,7 +725,7 @@
         – Set vertical background mirroring mode.<br>
         <br>
         <span style="font-style: italic;">void Scene::complex_mirror();</span> –
-        Set both horizontal and vertical background mirroring mode.<br>
+        Set both horizontal and vertical background mirroring modes.<br>
       </big><big><br>
         <span style="font-style: italic;"> void Scene::load(Image *background);</span>
         – Load a background from the buffer.<br>
@@ -735,7 +744,7 @@
         Destroy a background image.<br>
         <br>
         <span style="font-style: italic;"> void Scene::destroy();</span> –
-        Destroy a background image and destroy a background texture.<br>
+        Destroy a background image and destroy the texture.<br>
         <br>
       </big><big><span style="font-style: italic;">bool Scene::is_load() const;</span>
         – Return true if a static background is already loaded.</big><br>
@@ -746,15 +755,15 @@
         <span style="font-style: italic;"> unsigned int Scene::get_height()
           const;</span> – Return the height of the background.<br>
         <br>
-        <span style="text-decoration: underline;"> Background texture</span><br>
+        <span style="text-decoration: underline;"> A background texture</span><br>
         <br>
         The background doesn't draw if the background texture doesn't exist. It
-        will automatically be created after the call <span style="font-style: italic;">load</span>
-        method.<br>
+        will automatically be created when you load an image.<br>
         <br>
         <span style="text-decoration: underline;"> Important notice</span></big></p>
     <p><big>Always call the <span style="font-style: italic;">prepare</span>
-        method after loading background.</big></p>
+        after the background has loaded.<br>
+      </big></p>
     <h2><a class="mozTocH2" name="mozTocId309905"></a><big>Chapter 8. Base
         sprite subsystem</big></h2>
     <p><big> </big><big><span style="text-decoration: underline;">A small,
@@ -768,14 +777,14 @@
         <br>
         The <span style="font-style: italic;">Billboard</span> class provides
         simple access to the base sprite subsystem. Don't use it directly. Let's
-        look at public methods.<br>
+        look at the publicly available methods.<br>
       </big><big><br>
       </big><big><span style="font-style: italic;"> void
           Billboard::set_transparent(const bool enabled);</span> – Enable or
         disable the transparent mode.<br>
         <br>
         <span style="font-style: italic;"> bool Billboard::get_transparent()
-          const;</span> – Return true if transparent mode is enabled.<br>
+          const;</span> – Return true if the transparent mode is enabled.<br>
         <br>
       </big><big><span style="font-style: italic;">void
           Billboard::set_position(const unsigned int x, const unsigned int y);</span>
@@ -790,10 +799,10 @@
         sprite size.<br>
         <br>
       </big><big><span style="font-style: italic;">void Billboard::set_x(const
-          unsigned int x);</span> – Set x-coordinate of the sprite position.<br>
+          unsigned int x);</span> – Set the x-coordinate of the sprite position.<br>
         <br>
       </big><big><span style="font-style: italic;">void Billboard::set_y(const
-          unsigned int y);</span> – Set y-coordinate of the sprite position.<br>
+          unsigned int y);</span> – Set the y-coordinate of the sprite position.<br>
         <br>
       </big><big><span style="font-style: italic;">void
           Billboard::set_width(const unsigned int width);</span> – Change the
@@ -802,37 +811,34 @@
         <span style="font-style: italic;"> void Billboard::set_height(const
           unsigned int height);</span> – Change the sprite height.<br>
         <br>
-      </big> <big><em>unsigned int Billboard::increase_x();</em> – Increase x
-        coordinate and return increased </big><big> the </big><big>x-position.<br>
+      </big> <big><em>unsigned int Billboard::increase_x();</em> – Increase the
+        x-coordinate and return it</big><big>.<br>
         <br>
-      </big> <big><em>unsigned int Billboard::decrease_x();</em> – Decrease
-        x-coordinate and return decreased </big><big> the </big><big>x-position.<br>
+      </big> <big><em>unsigned int Billboard::decrease_x();</em> – Decrease the
+        x-coordinate and return it</big><big>.<br>
         <br>
       </big> <big style="outline-color: navy ! important; outline-style: dashed ! important; outline-width: 2px ! important;"><em></em></big><big><span
           style="font-style: italic;">unsigned int Billboard::increase_y();</span>
-        – Increase y-coordinate and return increased&nbsp; the y-position.<br>
+        – Increase the y-coordinate and return it.<br>
         <br>
-      </big> <big><em>unsigned int Billboard::decrease_y();</em> – Decrease
-        y-coordinate and return increased </big><big> the </big><big>y-position.<br>
+      </big> <big><em>unsigned int Billboard::decrease_y();</em> – Decrease the
+        y-coordinate and return it</big><big>.<br>
         <br>
       </big> <big><em>unsigned int Billboard::increase_x(const unsigned int
           increment);</em> – Increase </big><big> the </big><big>x-coordinate
-        with user value and return </big><big> the </big><big>increased
-        position.<br>
+        with user value and return </big><big> the </big><big>it.<br>
         <br>
       </big> <big><em>unsigned int Billboard::decrease_x(const unsigned int
           decrement);</em> – Decrease </big><big> the </big><big>x-coordinate
-        with user value and return </big><big> the </big><big>decreased
-        position.<br>
+        with user value and return </big><big>it</big><big>.<br>
         <br>
       </big> <big><em>unsigned int Billboard::increase_y(const unsigned int
           increment);</em> – Increase </big><big> the </big><big>y-coordinate
-        with user value and return </big><big> the </big><big>increased </big><big>position.<br>
+        with user value and return </big><big> the </big><big>it</big><big>.<br>
         <br>
       </big> <big><em>unsigned int Billboard::decrease_y(const unsigned int
           decrement);</em> - Decrease </big><big> the </big><big>y-coordinate
-        with user value and return </big><big> the </big><big>decreased
-        position.<br>
+        with user value and return </big><big> it</big><big>.<br>
         <br>
         <span style="font-style: italic;">unsigned int Billboard::get_start_x()
           const;</span> – Return </big><big> the </big><big>x-coordinate of </big><big>
@@ -843,11 +849,11 @@
         the </big><big>start position.<br>
         <br>
       </big><big><span style="font-style: italic;">unsigned int
-          Billboard::get_x() const;</span> – Return x-coordinate of the sprite
-        position.<br>
+          Billboard::get_x() const;</span> – Return the x-coordinate of the
+        sprite position.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Billboard::get_y()
-          const;</span> – Return y-coordinate of the sprite position.<br>
+          const;</span> – Return the y-coordinate of the sprite position.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Billboard::get_width()
           const;</span> – Return the width of the sprite.<br>
@@ -872,32 +878,32 @@
         – Set vertical sprite mirroring mode.<br>
         <br>
         <span style="font-style: italic;">void Billboard::complex_mirror();</span>
-        – Set both horizontal and vertical sprite mirroring mode.<br>
+        – Set both horizontal and vertical sprite mirroring modes.<br>
         <br>
         <span style="font-style: italic;">void Billboard::go_start();</span> –
-        Set sprite position to start position.<br>
+        Set the sprite position to the start position.<br>
         <br>
       </big><big><span style="font-style: italic;">void Billboard::go_start_x();</span>
-        – Set </big><big>x-coordinate of</big><big> sprite position to </big><big>x-coordinate
+        – Set </big><big>the x-coordinate of</big><big> sprite position to </big><big>x-coordinate
         of</big><big> start position.<br>
         <br>
       </big><big><span style="font-style: italic;">void Billboard::go_start_y();</span>
-        – Set </big><big>y-coordinate of</big><big> sprite position to </big><big>y-coordinate
+        – Set the </big><big>y-coordinate of</big><big> sprite position to </big><big>y-coordinate
         of</big><big> start position.</big><br>
       <br>
       <big><span style="font-style: italic;">void Billboard::draw();</span> –
         Draw a sprite.<br>
         <br>
       </big><big><span style="font-style: italic;">void Billboard::draw(const
-          unsigned int x, const unsigned int y);</span> – Set sprite position
-        and draw it.<br>
+          unsigned int x, const unsigned int y);</span> – Set the sprite
+        position and draw it.<br>
         <br>
       </big> <big><em>void Billboard::draw(const bool transparency);</em> – Set
-        transparent mode and draw a sprite.<br>
+        the transparent mode and draw a sprite.<br>
         <br>
-      </big> <big><em>void Billboard::draw(const bool transparency,const
-          unsigned int x, const unsigned int y);</em> – Set transparent mode and
-        draw a sprite at the target position.</big><br>
+      </big> <big><em>void Billboard::draw(const bool transparency, const
+          unsigned int x, const unsigned int y);</em> – Set the transparent mode
+        and draw a sprite at the target position.</big><br>
       <big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId662651"></a><big>Chapter 9. Ordinary
         sprites</big></h2>
@@ -905,33 +911,34 @@
         <br>
         There are two kinds of ordinary sprites: horizontal strips and vertical
         strips. It is a small image with few frames. Do you remember an analog
-        camera? Strips look like photo ribbon.</big></p>
+        camera? The strips look like photo ribbon.</big></p>
     <p><big>The horizontal strip looks like the horizontally oriented photo
-        ribbon. <br>
-        The vertical strip looks like the vertically oriented photo ribbon. <br>
+        ribbon.<br>
+        The vertical strip looks like the vertically oriented photo ribbon.<br>
       </big><big><br>
       </big><big><span style="text-decoration: underline;">Work with the sprites</span><br>
         <br>
         Just use the <span style="font-style: italic;">Sprite</span> class to
         work with a sprite. It is derived from three classes: </big><big><span
+
           style="font-style: italic;">Billboard</span>, <span style="font-style: italic;">Animation,</span>
         and <span style="font-style: italic;">Picture. </span></big><big>Let's
-        look at public methods.<br>
+        look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> void Sprite::set_setting(const
-          EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Set
-        sprite settings.<br>
+          EUGENEGDK::IMAGE_KIND kind, const unsigned int frames);</span> – Set
+        the sprite settings.<br>
         <br>
         <span style="font-style: italic;"> void Sprite::load(Image *buffer,const
-          EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span> – Load a
-        sprite from the buffer.<br>
+          EUGENEGDK::IMAGE_KIND kind, const unsigned int frames);</span> – Load
+        a sprite from the buffer.<br>
       </big><big><br>
         <span style="font-style: italic;"> void Sprite::load(Image
-          &amp;buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int
+          &amp;buffer,const EUGENEGDK::IMAGE_KIND kind, const unsigned int
           frames);</span> – Load a sprite </big><big>from the buffer.</big><big><br>
       </big><big><br>
         <span style="font-style: italic;">void Sprite::load(const char
-          *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);</span>
+          *name,const EUGENEGDK::IMAGE_KIND kind, const unsigned int frames);</span>
         – Load a sprite </big><big>from the target file</big><big>.<br>
       </big><big><br>
         <span style="font-style: italic;"> void Sprite::set_target(const
@@ -942,26 +949,26 @@
         number of frames.<br>
         <br>
         <span style="font-style: italic;"> EUGENEGDK::IMAGE_KIND
-          Sprite::get_kind() const;</span> – Get the sprite type.<br>
+          Sprite::get_kind() const;</span> – Get the sprite kind.<br>
         <br>
       </big><big><span style="font-style: italic;">Sprite *Sprite::get_handle();</span>
         – Return the handle to the sprite object.<br>
         <br>
         <span style="font-style: italic;"> void Sprite::clone(Sprite *target);</span>
-        – Create a copy of the sprite if the image storage of the target sprite
-        is not empty.<br>
+        – Create a copy of the sprite if the storage of the target sprite is not
+        empty.<br>
         <br>
         <span style="font-style: italic;"> void Sprite::clone(Sprite
-          &amp;target);</span> – Create a copy of the sprite if the image
-        storage of the target sprite is not empty.<br>
+          &amp;target);</span> – Create a copy of the sprite if the storage of
+        the target sprite is not empty.<br>
         <br>
         <span style="font-style: italic;"> void Sprite::destroy():</span>
         Destroy a sprite image and destroy the texture.</big><big><br>
       </big><big><br>
-        <span style="text-decoration: underline;"> Sprite texture</span><br>
+        <span style="text-decoration: underline;"> A sprite texture</span><br>
         <br>
         A sprite doesn't draw if the sprite texture doesn't exist. It will
-        automatically create when you load or clone a sprite.<br>
+        automatically be created when you load or clone a sprite.<br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId656897"></a><big>Chapter 10. Static
         sprites</big></h2>
@@ -976,9 +983,8 @@
         <br>
         Just use the <span style="font-style: italic;">Cartoon</span> class to
         work with a static sprite. It is derived from two classes: </big><big><span
-
           style="font-style: italic;">billboard</span> and <span style="font-style: italic;">picture.
-          </span></big><big>Let's look at public methods.<br>
+          </span></big><big>Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> void Cartoon::load(Image *buffer);</span>
         – Load a sprite </big><big>from the buffer</big><big>.<br>
@@ -991,23 +997,24 @@
         a sprite from the target file.<br>
         <br>
       </big><big><span style="font-style: italic;">Cartoon
-          *Cartoon::get_handle();</span> – Return the handle to sprite object.<br>
+          *Cartoon::get_handle();</span> – Return the handle to the sprite
+        object.<br>
         <br>
         <span style="font-style: italic;"> void Cartoon::clone(Cartoon *target);</span>
-        – Create a copy of the sprite if the image storage of the target sprite
-        is not empty.<br>
+        – Create a copy of the sprite if the storage of the target sprite is not
+        empty.<br>
         <br>
         <span style="font-style: italic;"> void Cartoon::clone(Cartoon
-          &amp;target);</span> – Create a copy of the sprite if the image
-        storage of the target sprite is not empty.<br>
+          &amp;target);</span> – Create a copy of the sprite if the storage of
+        the target sprite is not empty.<br>
         <br>
         <span style="font-style: italic;"> void Cartoon::destroy(); </span>–
-        Destroy a sprite image and destroy a sprite texture.</big><big><br>
+        Destroy a sprite image and the texture.</big><big><br>
       </big><big><br>
-        <span style="text-decoration: underline;"> Sprite texture</span><br>
+        <span style="text-decoration: underline;"> A sprite texture</span><br>
         <br>
         A sprite doesn't draw if the sprite texture doesn't exist. It will
-        automatically create when you load or clone a sprite.</big><br>
+        automatically be created when you load or clone a sprite.</big><br>
       <big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId146800"></a><big>Chapter 11. Sprite
         sheet</big></h2>
@@ -1015,49 +1022,48 @@
           sheet</span><br>
         <br>
         A sprite sheet is a special kind of animated sprites. Each frame has a
-        fixed size. The sprite sheet is a matrix of frames. Look at this picture
-        to understand it.<br>
+        fixed size. The sheet is a matrix of frames. Look at this picture to
+        understand it.<br>
         <br>
         <img style="width: 380px; height: 249px;" alt="" src="sheet.png"><br>
         <br>
         <span style="text-decoration: underline;"> Rows and columns</span><br>
         <br>
-        First row index is 1. First column index is 1.<br>
+        The first row index is 1. The first column index is 1.<br>
       </big><big><br>
-      </big><big><span style="text-decoration: underline;"> Work with the sprite
-          sheet subsystem</span><br>
+      </big><big><span style="text-decoration: underline;"> Work with the sheet</span><br>
         <br>
         The <span style="font-style: italic;">Sheet</span> class provides
         access to the sprite sheet subsystem. </big><big>It is derived from
         three </big><big>classes: <span style="font-style: italic;">Billboard</span>,
         <span style="font-style: italic;">Picture,</span> and <span style="font-style: italic;">Animation.
-          </span>Let's look at public methods. <br>
+          </span>Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;">bool Sheet::check_row(const unsigned
-          int target) const;</span> – Return true if target row is valid.<br>
+          int target) const;</span> – Return true if the target row is valid.<br>
         <br>
         <span style="font-style: italic;">bool Sheet::check_column(const
-          unsigned int target) const;</span> – Return true if target column is
-        valid.<br>
+          unsigned int target) const;</span> – Return true if the target column
+        is valid.<br>
         <br>
       </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
         style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
-          const;</span> – Return row of target frame.<br>
+          const;</span> – Return the row of the the target frame.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
         style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
-          const;</span> – Return</big><big> column</big><big> </big><big>of
+          const;</span> – Return</big><big> column</big><big> </big><big>of the
         target frame</big><big>.<br>
         <br>
       </big> <big><span style="font-style: italic;">unsigned int
-          Sheet::calculate(const unsigned int row,const unsigned int column)
+          Sheet::calculate(const unsigned int row, const unsigned int column)
           const;</span> – Calculate the frame by row and column.<br>
         <br>
       </big><big><span style="font-style: italic;">unsigned int
-          Sheet::get_rows() const;</span> – Return row amount.<br>
+          Sheet::get_rows() const;</span> – Return the number of rows.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Sheet::get_columns()
-          const;</span> – Return</big><big> column</big><big> amount.<br>
+          const;</span> – Return</big><big> the number of column</big><big>s.<br>
         <br>
       </big><big><span style="font-style: italic;">void Sheet::destroy()</span></big><big><span
           style="font-style: italic;">;</span> – </big><big><span style="font-style: italic;"></span>Destroy
@@ -1075,32 +1081,32 @@
         number of frames.<br>
         <br>
       </big><big><span style="font-style: italic;">void Sheet::load(Image
-          *sheet,const unsigned int row_amount,const unsigned int
+          *sheet, const unsigned int row_amount, const unsigned int
           column_amount);</span> – Load a sprite sheet from the buffer.<br>
         <br>
-        <span style="font-style: italic;"> void Sheet::load(Image
-          &amp;sheet,const unsigned int row_amount,const unsigned int
-          column_amount);</span> – Load a sprite sheet from the buffer.<br>
+        <span style="font-style: italic;"> void Sheet::load(Image &amp;sheet,
+          const unsigned int row_amount, const unsigned int column_amount);</span>
+        – Load a sprite sheet from the buffer.<br>
         <br>
-        <span style="font-style: italic;">void Sheet::load(const char
-          *name,const unsigned int row_amount,const unsigned int column_amount);</span>
-        – Load a sprite sheet from a targret file.</big></p>
+        <span style="font-style: italic;">void Sheet::load(const char *name,
+          const unsigned int row_amount, const unsigned int column_amount);</span>
+        – Load a sprite sheet from a target file.</big></p>
     <p><big><span style="font-style: italic;">Sheet *Sheet::get_handle();</span>
         – Return the handle to the sprite sheet.<br>
         <br>
         <span style="font-style: italic;">void Sheet::clone(Sheet *target);</span>
-        – Create a copy of the sprite sheet if the image storage of the target
-        sprite sheet is not empty.<br>
+        – Create a copy of the sprite sheet if the storage of the target sprite
+        sheet is not empty.<br>
         <br>
         <span style="font-style: italic;">void Sheet::clone(Sheet &amp;target);</span>
-        – Create a copy of the sprite sheet if the image storage of the target
-        sheet sprite is not empty.<br>
+        – Create a copy of the sprite sheet if the storage of the target sheet
+        sprite is not empty.<br>
         <br>
-        <span style="text-decoration: underline;"> Sprite sheet texture</span><br>
+        <span style="text-decoration: underline;"> A sprite sheet texture</span><br>
         <br>
         A sprite sheet doesn't draw if the sprite sheet texture doesn't exist.
-        It will automatically be created after calling the <span style="font-style: italic;">load_sheet</span>
-        method.</big></p>
+        It will automatically be created when you load a sheet.<br>
+      </big></p>
     <h2><a class="mozTocH2" name="mozTocId752257"></a><big>Chapter 12. Text</big></h2>
     <p><big><span style="text-decoration: underline;">How do I draw a text?</span><br>
         <br>
@@ -1138,31 +1144,35 @@
     <p><big><span style="text-decoration: underline;">Work with the text</span><br>
         <br>
         The <span style="font-style: italic;">Text</span> class provides a
-        simple interface to the text subsystem. Let's look at public methods. <br>
+        simple interface to the text subsystem. Let's look at the publicly
+        available methods.<br>
         <br>
         <span style="font-style: italic;">Text *Text::get_handle();</span> –
         Return the handle to the text drawing subsystem.<br>
         <br>
         <span style="font-style: italic;"> EUGENEGDK::TEXT_KIND
-          Text::get_orientation() const;</span> – Get current text orientation.<br>
+          Text::get_orientation() const;</span> – Get the current text
+        orientation.<br>
         <br>
         <span style="font-style: italic;"> void Text::set_orientation(const
-          EUGENEGDK::TEXT_KIND target);</span> – Set current text orientation.<br>
+          EUGENEGDK::TEXT_KIND target);</span> – Set the current text
+        orientation.<br>
         <br>
       </big><big><span style="font-style: italic;">bool Text::is_font_load()
           const;</span> – Return true if the font is already loaded.</big><br>
       <br>
       <big><span style="font-style: italic;">unsigned int Text::get_font_width()
-          const;</span> – Get current font width in pixels.<br>
+          const;</span> – Get the current font width in pixels.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Text::get_font_height()
-          const;</span> – Get current font height in pixels.<br>
+          const;</span> – Get the current font height in pixels.<br>
         <br>
         <span style="font-style: italic;"> void Text::set_position(const
-          unsigned int x,const unsigned int y);</span> – Set output position.<br>
+          unsigned int x, const unsigned int y);</span> – Set the output
+        position.<br>
         <br>
         <span style="font-style: italic;"> void Text::set_size(const unsigned
-          int width,const unsigned int height);</span> – Change the font size.<br>
+          int width, const unsigned int height);</span> – Change the font size.<br>
         <br>
       </big><big><span style="font-style: italic;"> void Text::set_width(const
           unsigned int width);</span> – Set the font width.<br>
@@ -1171,8 +1181,8 @@
           unsigned int height);</span> – Set the font height.</big><br>
       <big><br>
         <span style="font-style: italic;">void Text::set_setting(const unsigned
-          int width,const unsigned int height,const EUGENEGDK::TEXT_KIND kind);</span>
-        – Set text output settings.<br>
+          int width, const unsigned int height, const EUGENEGDK::TEXT_KIND
+          kind);</span> – Set the text output settings.<br>
         <br>
         <span style="font-style: italic;"> void Text::load_font(Image *font);</span>
         – Load a font from the buffer.<br>
@@ -1181,21 +1191,21 @@
           &amp;font);</span> – Load a font from the buffer.<br>
         <br>
         <span style="font-style: italic;">void Text::load_font(const char
-          *name);</span> – Load a font from target file.<br>
+          *name);</span> – Load a font from the target file.<br>
         <br>
         <span style="font-style: italic;"> void Text::print(const char target);</span>
-        – Draw single character at current position.<br>
+        – Draw a single character in the current position.<br>
         <br>
         <span style="font-style: italic;"> void Text::print(const char *target);</span>
-        – Draw text at current position.<br>
+        – Draw a text at the current position.<br>
         <br>
         <span style="font-style: italic;"> void Text::print(const unsigned int
-          x,const unsigned int y,const char target);</span> – Draw single
-        character at specific position.<br>
+          x, const unsigned int y, const char target);</span> – Draw a single
+        character in the specific position.<br>
         <br>
         <span style="font-style: italic;"> void Text::print(const unsigned int
-          x,const unsigned int y,const char *target);</span> – Draw text at
-        specific position.<br>
+          x, const unsigned int y, const char *target);</span> – Draw a text in
+        the specific position.<br>
         <br>
         <span style="font-style: italic;">void Text::disable_mirror();</span> –
         Disable text mirroring mode.<br>
@@ -1207,21 +1217,21 @@
         Set vertical text mirroring mode.<br>
         <br>
         <span style="font-style: italic;">void Text::complex_mirror();</span> –
-        Set both horizontal and vertical text mirroring mode.<br>
+        Set both horizontal and vertical text mirroring modes.<br>
         <br>
         <span style="font-style: italic;"> void Text::destroy_image();</span> –
         Destroy a font image.<br>
         <br>
         <span style="font-style: italic;"> void Text::destroy_font();</span> –
-        Destroy a font image and destroy a font texture.<br>
+        Destroy a font image and the texture.<br>
       </big><big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId67980"></a><big>Chapter 13. Loading
         images</big></h2>
-    <p><big><span style="text-decoration: underline;">Load an image from files</span><br>
+    <p><big><span style="text-decoration: underline;">Load an image from a file</span><br>
         <br>
         Use the image loader to load an image from a file. The <span style="font-style: italic;">Image</span>
         class provides simple access to the image loader. It is a simple class
-        with few methods.<br>
+        with a few methods.<br>
         <br>
         <span style="font-style: italic;"> </span></big><big><span style="font-style: italic;">unsigned
           char *</span></big><big><span style="font-style: italic;">Image::load(const
@@ -1229,29 +1239,30 @@
         image buffer.<br>
         <br>
         <span style="font-style: italic;">unsigned char *Image::get_data();</span>
-        – Return handle to image buffer.<br>
+        – Return handle to the image buffer.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Image::get_width()
-          const;</span> – Return width of current image.<br>
+          const;</span> – Return the width of the current image.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Image::get_height()
-          const;</span> – Return height of current image.<br>
+          const;</span> – Return height of the current image.<br>
         <br>
         <span style="font-style: italic;"> size_t Image::get_length() const;</span>
-        – Return length of image buffer in bytes.<br>
+        – Return length of the image buffer in bytes.<br>
         <br>
         <span style="font-style: italic;"> Image *Image::get_handle();</span> –
         Return the handle to the image loader.<br>
         <br>
         <span style="font-style: italic;"> void Image::destroy_image();</span> –
-        Destroy the current image and free image buffer.<br>
+        Destroy the current image and free the image buffer.<br>
         <br>
         <span style="text-decoration: underline;"> Important remark</span><br>
         <br>
         A new image will replace the current image if the current image already
-        exists. Incorrect images will be ignored and don't load. <br>
+        exists. An incorrect image will be ignored and don't load.<br>
         The source image will be converted to <a href="https://en.wikipedia.org/wiki/RGBA">RGBA</a>
-        format. Pixels equal to the top-left pixel will mark as transparent.<br>
+        format. Pixels equal to the top-left pixel will be marked as
+        transparent.<br>
         <br>
         <span style="text-decoration: underline;"> Supported format</span><br>
       </big></p>
@@ -1262,17 +1273,18 @@
         <br>
         You can use a wide range of graphics software to convert your images to
         the correct format. I recommend using <a href="https://www.gimp.org/">GIMP</a>
-        for doing it. It is a powerful image editor.</big></p>
+        for doing it. It is a powerful image editor.<br>
+      </big></p>
     <h1><a class="mozTocH1" name="mozTocId130685"></a><big>Part 4.
         Transformation</big></h1>
     <h2><a class="mozTocH2" name="mozTocId679493"></a><a id="mozTocId833933" class="mozTocH2"></a><big>Chapter
         1. The sub-namespace</big></h2>
-    <p><big>All subsystems in this section are declared in the <span style="font-style: italic;">Transformation</span>
+    <p><big>All classes in this section are declared in the <span style="font-style: italic;">Transformation</span>
         sub-namespace.<br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId29297"></a><a id="mozTocId979980" class="mozTocH2"></a><big>Chapter
         2. Cartesian coordinates and screen coordinates</big></h2>
-    <p><big><span style="text-decoration: underline;">Cartesian coordinates </span><br>
+    <p><big><span style="text-decoration: underline;">Cartesian coordinates</span><br>
         <br>
         Cartesian coordinates start at the center of the screen. Look at this
         picture to understand it.<br>
@@ -1287,14 +1299,14 @@
         also convert screen coordinates to Cartesian coordinates.<br>
         <br>
         Just use the <span style="font-style: italic;">Coordinates</span> class
-        for doing it. Let's look at public methods.<br>
+        for doing it. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;">Coordinates
           *Coordinates::get_handle();</span> – Return the handle to the
         coordinates conversion subsystem. <br>
         <br>
         <span style="font-style: italic;">void Coordinates::initialize(const int
-          viewport_width,const int viewport_height);</span> – Initialize the
+          viewport_width, const int viewport_height);</span> – Initialize the
         subsystem. <br>
         <br>
         <span style="font-style: italic;">int Coordinates::get_viewport_width()
@@ -1330,131 +1342,131 @@
         true if the Cartesian y-coordinate is valid.</big><br>
       <big><br>
         <span style="font-style: italic;">int Coordinates::get_screen_x(const
-          int x) const;</span> – Convert Cartesian x-coordinate to screen
-        x-coordinate.<br>
+          int x) const;</span> – Convert the Cartesian x-coordinate to the
+        screen x-coordinate.<br>
         <br>
         <span style="font-style: italic;">int Coordinates::get_screen_y(const
-          int y) const;</span> – Convert Cartesian y-coordinate to screen
-        y-coordinate.<br>
+          int y) const;</span> – Convert the Cartesian y-coordinate to the
+        screen y-coordinate.<br>
         <br>
         <span style="font-style: italic;">int Coordinates::get_cartesian_x(const
-          int x) const;</span> – Convert screen x-coordinate to Cartesian
-        x-coordinate.<br>
+          int x) const;</span> – Convert the screen x-coordinate to the
+        Cartesian x-coordinate.<br>
         <br>
         <span style="font-style: italic;">int Coordinates::get_cartesian_y(const
-          int y) const;</span> – Convert screen y-coordinate to Cartesian
-        y-coordinate.<br>
+          int y) const;</span> – Convert the screen y-coordinate to the
+        Cartesian y-coordinate.<br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId122919"></a><big>Chapter 3. Cartesian
         coordinates and isometric coordinates</big></h2>
     <p><big><span style="text-decoration: underline;">A few words about
-          isometric </span><br>
+          isometric games</span><br>
         <br>
-        <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometric</a>
-        is a very popular way for pseudo-3D games. Many old-school games are
-        isometric games.<br>
+        <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometr<span
+            style="color: black;">y</span></a> is a very popular way for
+        pseudo-3D games. Many old-school games are isometric games.<br>
         <br>
       </big><big><span style="text-decoration: underline;">Cartesian coordinates
           to isometric coordinates conversion and isometric coordinates to
-          Cartesian coordinates conversion </span><br>
+          Cartesian coordinates conversion</span><br>
         <br>
         You can convert Cartesian coordinates to isometric coordinates. You can
         also convert isometric coordinates to Cartesian coordinates.<br>
         Just use the <span style="font-style: italic;">Isometric</span> class
-        for doing it. Let's look at public methods.<br>
+        for doing it. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;">Isometric *Isometric::get_handle();</span>
         – Return the handle to the isometric subsystem.<br>
         <br>
       </big><big><span style="font-style: italic;">void
-          Isometric::set_target(const int x,const int y);</span> – Set the
+          Isometric::set_target(const int x, const int y);</span> – Set the
         target point.<br>
         <br>
       </big><big><span style="font-style: italic;">int
-          Isometric::get_isometric_x() const;</span> – Convert x-coordinate of </big><big>
-        the </big><big>target point from Cartesian system to isometric system.<br>
+          Isometric::get_isometric_x() const;</span> – Convert the x-coordinate
+      </big><big>from Cartesian system to isometric system.<br>
         <br>
         <span style="font-style: italic;">int Isometric::get_isometric_y()
-          const;</span> – </big><big>Convert y-coordinate of </big><big> the </big><big>target
-        point from Cartesian system to isometric system.</big><br>
+          const;</span> – </big><big>Convert the y-coordinate </big><big>from
+        Cartesian system to isometric system.</big><br>
       <big><br>
         <span style="font-style: italic;">int Isometric::get_cartesian_x()
-          const;</span> – </big><big>Convert x-coordinate of </big><big> the </big><big>target
-        point from isometric system to Cartesian system.<br>
+          const;</span> – </big><big>Convert the x-coordinate </big><big>from
+        isometric system to Cartesian system.<br>
         <br>
       </big><big><span style="font-style: italic;">int
-          Isometric::get_cartesian_y() const;</span> – </big><big>Convert
-        y-coordinate of </big><big>the t</big><big>arget point from isometric
-        system to Cartesian system.<br>
+          Isometric::get_cartesian_y() const;</span> – </big><big>Convert the
+        y-coordinate </big><big>from isometric system to Cartesian system.<br>
         <br>
         <span style="font-style: italic;">int Isometric::get_isometric_x(const
-          int x,const int y);</span> – Set </big><big> the </big><big>target
-        point and convert x-coordinate from Cartesian system to isometric
+          int x, const int y);</span> – Set </big><big> the </big><big>target
+        point and convert the x-coordinate from Cartesian system to isometric
         system.<br>
         <br>
         <span style="font-style: italic;">int Isometric::get_isometric_y(const
-          int x,const int y);</span> – </big><big>Set </big><big> the </big><big>target
-        point and c</big><big>onvert y-coordinate from Cartesian system to
+          int x, const int y);</span> – </big><big>Set </big><big> the </big><big>target
+        point and c</big><big>onvert the y-coordinate from Cartesian system to
         isometric system.<br>
         <br>
         <span style="font-style: italic;">int Isometric::get_cartesian_x(const
-          int x,const int y);</span> – </big><big>Set </big><big> the </big><big>target
-        point and c</big><big>onvert x-coordinate from isometric system to
+          int x, const int y);</span> – </big><big>Set </big><big> the </big><big>target
+        point and c</big><big>onvert the x-coordinate from isometric system to
         Cartesian system. <br>
         <br>
         <span style="font-style: italic;">int Isometric::get_cartesian_y(const
-          int x,const int y);</span> – </big><big>Set </big><big> the </big><big>target
-        point and c</big><big>onvert y-coordinate from isometric system to
+          int x, const int y);</span> – </big><big>Set </big><big> the </big><big>target
+        point and c</big><big>onvert the y-coordinate from isometric system to
         Cartesian system.<br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId143616"></a><big>Chapter 4. Isometric
-        level<br>
+        Level<br>
       </big></h2>
     <p><big> The isometric level subsystem intends to help you create isometric
         levels. Just use the <span style="font-style: italic;">World</span>
-        class for doing it. Let's look at public methods.<br>
+        class for doing it. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;">World *World::get_handle();</span> –
         Return the handle to isometric level subsystem.<br>
         <br>
         <span style="font-style: italic;">void World::initialize(const int
-          tile_width,const int tile_height,</span></big><big><span style="font-style: italic;">const
-          int screen_width,const int screen_height</span></big><big><span style="font-style: italic;">);</span>
+          tile_width, const int tile_height, </span></big><big><span style="font-style: italic;">const
+          int screen_width, const int screen_height</span></big><big><span style="font-style: italic;">);</span>
         – Initialize the subsystem.<br>
         <br>
         <span style="font-style: italic;">int World::get_target_x(const int row,</span></big><big
-        style="font-style: italic;">const int column</big><big><span style="font-style: italic;">)
-          const;</span> – Get target Cartesian x-coordinate from the row and
+        style="font-style: italic;"> const int column</big><big><span style="font-style: italic;">)
+          const;</span> – Get the target Cartesian x-coordinate from the row and
         column.<br>
         <br>
         <span style="font-style: italic;">int World::get_target_y(const int row</span></big><big
-        style="font-style: italic;">,</big><big style="font-style: italic;">const
-        int column</big><big><span style="font-style: italic;">) const;</span> –
-        Get target Cartesian y-coordinate </big><big>from the row and column.<br>
+        style="font-style: italic;">,</big><big style="font-style: italic;">
+        const int column</big><big><span style="font-style: italic;">) const;</span>
+        – Get the target Cartesian y-coordinate </big><big>from the row and
+        column.<br>
         <br>
       </big><big><span style="font-style: italic;">int World::get_row(const int
-          x,</span></big><big style="font-style: italic;">const int y</big><big><span
-          style="font-style: italic;">) const;</span> – Get the row from target
-        point.<br>
+          x, </span></big><big style="font-style: italic;">const int y</big><big><span
+          style="font-style: italic;">) const;</span> – Get a row from the
+        target point.<br>
         <br>
         <span style="font-style: italic;">int World::get_column(const int y</span></big><big
-        style="font-style: italic;">,</big><big style="font-style: italic;">const
-        int y</big><big><span style="font-style: italic;">) const;</span> – Get
-        the column</big><big> from target point.<br>
+        style="font-style: italic;">,</big><big style="font-style: italic;">
+        const int y</big><big><span style="font-style: italic;">) const;</span>
+        – Get a column</big><big> from the target point.<br>
         <br>
         <span style="font-style: italic;">int World::get_row_amount() const;</span>
-        – Get amount of maximum visible rows.<br>
+        – Get the maximum number of visible rows.<br>
         <br>
         <span style="font-style: italic;">int World::get_column_amount() const;</span>
-        – Get amount of maximum visible columns.<br>
+        – Get the maximum number of visible columns.<br>
         <br>
         <span style="font-style: italic;">int World::get_tile_amount() const;</span>
-        – Get amount of maximum visible isometric tiles.<br>
+        – Get the maximum number visible of isometric tiles.<br>
       </big><big></big><big></big></p>
     <h1><a class="mozTocH1" name="mozTocId64443"></a><big>Part 5. Common things</big></h1>
     <h2><a class="mozTocH2" name="mozTocId597525"></a><big>Chapter 1. The
         sub-namespace</big></h2>
-    <p><big>Almost all subsystems in this section are declared in the <span style="font-style: italic;">Common</span>
+    <p><big>All classes in this section are declared in the <span style="font-style: italic;">Common</span>
         sub-namespace.<br>
       </big><big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 2. Abnormal
@@ -1468,32 +1480,34 @@
         log file if logging is enabled.</big><big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 3. Timer</big></h2>
     <p><big> A timer is a very useful thing. Just use <span style="font-style: italic;">the
-          Timer</span> class to work with the timer. Let's look at public
-        methods.<br>
+          Timer</span> class to work with the timer. Let's look at the publicly
+        available methods.<br>
         <br>
         <span style="font-style: italic;">Timer *Timer::get_handle();</span> –
         Return the handle to the timer.<br>
         <br>
         <span style="font-style: italic;"> void Timer::set_timer(const double
-          seconds); </span>– Set timer interval and initialize start point.<br>
+          seconds); </span>– Set the timer interval and initialize the start
+        point.<br>
         <br>
         <span style="font-style: italic;">double Timer::get_interval() const;</span>
-        – Return current timer interval.<br>
+        – Return the current timer interval.<br>
         <br>
         <span style="font-style: italic;"> bool Timer::check_timer();</span> –
-        Return true and reinitialize start point if interval between stop and
-        start points is large or equal to specific seconds.</big></p>
+        Return true and reinitialize the start point if the interval
+        between&nbsp; the stop and start points is large or equal to specific
+        seconds.</big></p>
     <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 4. Collision</big></h2>
     <p><big><span style="text-decoration: underline;">An important thing for any
-          game </span><br>
+          game</span><br>
         <br>
         What is an important thing for a video game? A collision.<br>
         <br>
         <span style="text-decoration: underline;"> Collision detail</span><br>
       </big></p>
     <p><big>The detector uses the bounding box collision method to detect
-        collisions. The collision-related information is stored in a special
-        custom data type.<br>
+        collisions. The collision-related information is stored in a custom data
+        type.<br>
         <br>
         <span style="font-style: italic;"> typedef struct</span><span style="font-style: italic;"><br>
           {</span><br>
@@ -1501,7 +1515,6 @@
         <span style="font-style: italic;">&nbsp;unsigned int y;</span><br>
         <span style="font-style: italic;">&nbsp;unsigned int width;</span><br>
         <span style="font-style: italic;">&nbsp;unsigned int height;</span><span
-
           style="font-style: italic;"><br>
           } BOX;</span><br>
         <br>
@@ -1509,162 +1522,164 @@
           detector</span><br>
         <br>
         The <span style="font-style: italic;">Collision</span> class provides
-        easy access to collision detectors. It is a simple class with few
-        methods. Let's look at public methods.<br>
+        easy access to collision detectors. It is a simple class with a few
+        methods. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;">Collision *Collision::get_handle();</span>
         – Return the handle to the collision detector.<br>
       </big><br>
       <big><span style="font-style: italic;">void Collision::set_target(const
-          EUGENEGDK::BOX first_target,const EUGENEGDK::BOX second_target);</span>
-        – Set targets for the collision detector.<br>
+          EUGENEGDK::BOX first_target, const EUGENEGDK::BOX second_target);</span>
+        – Set the targets for the collision detector.<br>
         <br>
         <span style="font-style: italic;"> bool Collision::check_collision()
-          const;</span> – Return true if collision between two objects is
+          const;</span> – Return true if the collision between two objects is
         accepted.<br>
         <br>
         <span style="font-style: italic;"> bool Collision::check_collision(const
-          EUGENEGDK::BOX first_target,const EUGENEGDK::BOX second_target);</span>
-        – Set collision targets and check collision between them.<br>
+          EUGENEGDK::BOX first_target, const EUGENEGDK::BOX second_target);</span>
+        – Set the targets and check collisions between them.<br>
       </big></p>
-    <h2><a class="mozTocH2" name="mozTocId429738"></a><big>Chapter 5. Tile</big><big>-</big><big>map</big></h2>
-    <p><big><span style="text-decoration: underline;">A few words about tile-map
-        </span><br>
+    <h2><a class="mozTocH2" name="mozTocId429738"></a><big>Chapter 5. Tile</big>
+      <big>map</big></h2>
+    <p><big><span style="text-decoration: underline;">A few words about tile
+          maps</span><br>
         <br>
-        The tile</big><big>-</big><big>map is a tile matrix. A tile is a small,
-        non</big><big>-</big><big>transparent sprite. A tile</big><big>-</big><big>map
-        is a very useful thing for level background.<br>
+        The tile</big> <big>map is a tile matrix. A tile is a small, non</big><big>-</big><big>transparent
+        sprite. A tile</big> <big>map is a very useful thing for the
+        background.<br>
         <br>
-        <span style="text-decoration: underline;">Rows and columns </span><br>
+        <span style="text-decoration: underline;">Rows and columns</span><br>
         <br>
-        First row index is 0. First column index is 0.<br>
+        The first row index is 0. The first column index is 0.<br>
         <br>
-        <span style="text-decoration: underline;">Work with tile-map </span><br>
+        <span style="text-decoration: underline;">Work with the tile map</span><br>
         <br>
         The <span style="font-style: italic;">Tilemap</span> class provides
-        easy access to the tilemap. </big><big>It is a simple class with few
-        methods. Let's look at public methods. <br>
+        easy access to the tile map. </big><big>It is a simple class with few
+        methods. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;">Tilemap *Tilemap::get_handle();</span>
         – Return the handle to the tile-map subsystem.<br>
         <br>
         <span style="font-style: italic;">void Tilemap::initialize(const
-          unsigned int tile_width,const unsigned int tile_height);</span> –
+          unsigned int tile_width, const unsigned int tile_height);</span> –
         Initialize the subsystem.<br>
         <br>
       </big><big style="font-style: italic;">unsigned int</big><big><span style="font-style: italic;">
           Tilemap::get_tile_width() const;</span> – Return the tile width in
-        pixels. <br>
+        pixels.<br>
         <br>
       </big><big style="font-style: italic;">unsigned int</big><big><span style="font-style: italic;">
           Tilemap::get_tile_height() const;</span> – Return the tile height in
-        pixels. <br>
+        pixels.<br>
         <br>
       </big><big style="font-style: italic;">unsigned int</big><big style="font-style: italic;">
         Tilemap::get_x(const </big><big style="font-style: italic;">unsigned
         int row</big><big><span style="font-style: italic;">) const;</span> –
-        Get x-coordinate from target row. <br>
+        Get the x-coordinate from the target row.<br>
         <br>
       </big><big style="font-style: italic;">unsigned int</big><big style="font-style: italic;">
         Tilemap::get_y(const </big><big style="font-style: italic;">unsigned
         int column</big><big><span style="font-style: italic;">) const;</span> –
-        Get y-coordinate from target column. <br>
+        Get the y-coordinate from the target column.<br>
         <br>
       </big><big style="font-style: italic;">unsigned int</big><big style="font-style: italic;">
         Tilemap::get_row(const </big><big style="font-style: italic;">unsigned
         int x</big><big><span style="font-style: italic;">) const;</span> – Get
-        the row from x-coordinate. <br>
+        the row from the x-coordinate.<br>
         <br>
       </big><big style="font-style: italic;">unsigned int</big><big style="font-style: italic;">
         Tilemap::get_column(const </big><big style="font-style: italic;">unsigned
         int y</big><big><span style="font-style: italic;">) const;</span> – Get
-        the column from y-coordinate. <br>
+        the column from the y-coordinate.<br>
         <br>
       </big><big style="font-style: italic;">unsigned int</big><big style="font-style: italic;">
         Tilemap::get_row_amount(const </big><big style="font-style: italic;">unsigned
         int viewport_width</big><big><span style="font-style: italic;">) const;</span>
-        – Get amount of maximum visible rows.<br>
+        – Get the maximum number of visible rows.<br>
         <br>
       </big><big style="font-style: italic;">unsigned int </big><big style="font-style: italic;">Tilemap::get_column_amount(const
         </big><big style="font-style: italic;">unsigned int viewport_width</big><big><span
-          style="font-style: italic;">) const;</span> – Get amount of maximum
-        visible columns.<br>
+          style="font-style: italic;">) const;</span> – Get the maximum number
+        of visible columns.<br>
         <br>
         <span style="font-style: italic;">unsigned int
-          Tilemap::get_tile_amount(const unsigned int viewport_width,const
-          unsigned int viewport_height) const;</span> – Get amount of maximum
-        visible tiles. <br>
+          Tilemap::get_tile_amount(const unsigned int viewport_width, const
+          unsigned int viewport_height) const;</span> – Get the maximum number
+        visible tiles.<br>
         <br>
         <span style="font-style: italic;">bool Tilemap::check_row(const unsigned
           int row,const unsigned int viewport_width) const;</span> – Return true
-        if the row is valid. <br>
+        if the row is valid.<br>
         <br>
         <span style="font-style: italic;">bool Tilemap::check_column(const
           unsigned int column,const unsigned int viewport_height) const;</span>
         – Return true if the column is valid.<br>
         <br>
         <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big
+
         style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
         int row,const unsigned int column</big><big><span style="font-style: italic;">)
-          const;</span> – Return collision-related information.<br>
+          const;</span> – Return the collision-related information.<br>
       </big></p>
     <h1><a class="mozTocH1" name="mozTocId611237"></a><big>Part 6. Other
         important things</big></h1>
     <h2><a class="mozTocH2" name="mozTocId648026"></a><big>Chapter 1. The
         sub-namespace</big></h2>
-    <p><big>All subsystems in this section are declared in the <span style="font-style: italic;">Misc</span>
+    <p><big>All classes in this section are declared in the <span style="font-style: italic;">Misc</span>
         sub-namespace.<br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId909723"></a><big>Chapter 2. Memory</big></h2>
     <p><big>RAM is an important resource. Just use the <span style="font-style: italic;">Memory</span>
         class to get the total memory size and free memory size. Let's look at
-        public methods.<br>
+        the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> unsigned long long int
-          Memory::get_total_physical();</span> – Return total physical memory
+          Memory::get_total_physical();</span> – Return the total physical
+        memory size in bytes.<br>
+        <br>
+        <span style="font-style: italic;"> unsigned long long int
+          Memory::get_free_physical();</span> – Return the free physical memory
         size in bytes.<br>
         <br>
         <span style="font-style: italic;"> unsigned long long int
-          Memory::get_free_physical();</span> – Return free physical memory size
-        in bytes.<br>
-        <br>
-        <span style="font-style: italic;"> unsigned long long int
-          Memory::get_total_virtual();</span> – Return total <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
+          Memory::get_total_virtual();</span> – Return the total <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
           memory</a> size in bytes.<br>
         <br>
         <span style="font-style: italic;"> unsigned long long int
-          Memory::get_free_virtual();</span> – Return free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
+          Memory::get_free_virtual();</span> – Return the free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
           memory</a> size in bytes. <br>
         <br>
         <span style="font-style: italic;">unsigned long long int
-          Memory::get_physical_usge();</span> – Return usage physical memory in
-        bytes. <br>
+          Memory::get_physical_usge();</span> – Return the physical memory usage
+        in bytes. <br>
         <br>
         <span style="font-style: italic;">unsigned long long int
-          Memory::get_virtual_usge();</span> – Return usage virtual memory in
-        bytes.<br>
+          Memory::get_virtual_usge();</span> – Return the virtual memory usage
+        in bytes.<br>
         <br>
         <span style="font-style: italic;"> unsigned long int
-          Memory::get_usage();</span> – Return percentage of physical memory
-        usage.</big><big><br>
+          Memory::get_usage();</span> – Return the percentage of physical memory
+        used.</big><big><br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId950985"></a><big>Chapter 3. Audio</big></h2>
-    <p><big><span style="text-decoration: underline;">A few words about
-          multimedia subsystems </span><br>
+    <p><big><span style="text-decoration: underline;">A few words about audio
+          subsystem</span><br>
         <br>
         Audio subsystem intended for playing music and sounds. <a href="https://en.wikipedia.org/wiki/WAV">Waveform
           Audio File Format</a>, <a href="https://en.wikipedia.org/wiki/MP3">MPEG
           Audio Layer 3,</a> and <a href="https://en.wikipedia.org/wiki/Windows_Media_Audio">Windows
           Media Audio</a> are supported.<br>
       </big><big><br>
-        <span style="text-decoration: underline;"> Additional formats </span><br>
+        <span style="text-decoration: underline;"> Additional formats</span><br>
         <br>
         You can use an additional format if you install third-party codecs.<br>
         <br>
-        <span style="text-decoration: underline;"> Working with audio </span><br>
+        <span style="text-decoration: underline;"> Working with audio</span><br>
         <br>
         Just use <span style="font-style: italic;">Audio</span> class to work
-        with audio. Let's look at public methods.<br>
+        with audio. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> void Audio::initialize();</span> –
         Initialize the subsystem.<br>
@@ -1679,10 +1694,10 @@
         content of the target file.<br>
         <br>
         <span style="font-style: italic;"> void Audio::play_loop();</span> –
-        Checking play status and restarting play if needed. <br>
+        Checking the playback status and restarting playback if needed. <br>
         <br>
         <span style="font-style: italic;">void Audio::play(const bool loop);</span>
-        – Play a sound. You can set the loop flag as true for loop playing mode.<br>
+        – Play a sound. You can set the loop flag to true for loop mode.<br>
         <br>
         <span style="font-style: italic;"> void Audio::stop();</span> – Stop
         playing the content of the target file.<br>
@@ -1699,7 +1714,7 @@
           Filesystem</span> sub-namespace.<br>
         <br>
         <span style="font-style: italic;"> file_exist</span> check the target
-        file for exist.<br>
+        file to see if one exists.<br>
         <br>
         <span style="font-style: italic;"> delete_file</span> delete the target
         file. <br>
@@ -1710,24 +1725,24 @@
     <h2><a class="mozTocH2" name="mozTocId59386"></a><big>Chapter 2. Tools</big></h2>
     <p><big>This module implemented a few functions</big><big>. All these
         functions are declared in <span style="font-style: italic;">Tools</span>
-        sub–namespace.<br>
+        sub-namespace.<br>
         <br>
         <span style="font-style: italic;">void quit();</span> </big><big>–</big><big>
-        Exit from your program and return user to operating system. <br>
+        Exit from your program and return the user to the operating system.<br>
         <br>
         <span style="font-style: italic;">bool enable_logging(const char *name);
         </span></big><big>–</big><big> Enable redirecting error messages to a
-        log file and return false if the operation failed. <br>
+        log file and return false if the operation failed.<br>
         <br>
         <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big>
-        Initialize random number generator. <br>
+        Initialize random number generator.<br>
         <br>
         <span style="font-style: italic;">unsigned int get_random(const int
           number); </span></big><big>–</big><big> Return a random value between
         zero and the number.<br>
         <br>
         <span style="font-style: italic;"> unsigned int get_texture_size();</span>
-      </big><big>–</big><big> Return maximum width or height of texture. <br>
+      </big><big>–</big><big> Return maximum width or height of texture.<br>
         <br>
         <span style="font-style: italic;">EUGENEGDK::BOX generate_box(const
           unsigned int x,const unsigned int y,const unsigned int width,const
@@ -1735,27 +1750,27 @@
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId573582"></a><big>Chapter 3. Resource
         Manager</big></h2>
-    <p><big>A resource is an instance of a user-defined class or structure.
-        Resource manager is storage for resources. It implemented a few template
-        functions. All these functions are declared in <span style="font-style: italic;">Resource</span>
-        sub–namespace.<br>
+    <p><big>A resource is an instance of a user-defined class or structure. The
+        resource manager is implemented as a few template functions. All these
+        functions are declared in <span style="font-style: italic;">Resource</span>
+        sub-namespace.<br>
         <br>
         <span style="font-style: italic;">create</span> create a single resource
-        or array of resources. It has two forms. First, create a single
+        or an array of resources. It has two forms. First, create a single
         resource. First form takes a handle to resource handle as arguments.
         Second form: create an array of resources. The second form takes a
         handle to resource handle and resource amount as arguments.</big></p>
     <p><big><span style="font-style: italic;"> destroy</span> delete a resource
         if it already exists. This function takes resource handle as an
         argument.</big></p>
-    <p><big><span style="font-style: italic;">destroy_array</span> delete
+    <p><big><span style="font-style: italic;">destroy_array</span> delete the
         resource array if it already exists. This function takes a resource
         array handle as an argument.<br>
       </big></p>
     <h1><a class="mozTocH1" name="mozTocId590919"></a><big>Part 8. Binary files</big></h1>
     <h2><a class="mozTocH2" name="mozTocId200879"></a><big>Chapter 1. The
         sub-namespace</big></h2>
-    <p><big>All subsystems in this section are declared in the <span style="font-style: italic;">File</span>
+    <p><big>All classes in this section are declared in the <span style="font-style: italic;">File</span>
         sub-namespace.</big><br>
       <big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId961921"></a><big>Chapter 2. Base
@@ -1763,21 +1778,22 @@
     <p><big><u>Work with the binary files</u><br>
         <br>
         The <em>Binary_File</em> class provides simple access to the base
-        binary subsystem. Don't use it directly. Let's look at public methods.<br>
+        binary subsystem. Don't use it directly. Let's look at the publicly
+        available methods.<br>
         <br>
         <em> void Binary_File::close();</em> – Close the file.<br>
         <br>
         <em> void Binary_File::set_position(const long int offset);</em> – Set
         the file position.<br>
         <br>
-        <em> long int Binary_File::get_position();</em> – Return current file
-        position.<br>
+        <em> long int Binary_File::get_position();</em> – Return the current
+        file position.<br>
         <br>
-        <em> long int Binary_File::get_length();</em> – Return file length in
-        bytes.<br>
+        <em> long int Binary_File::get_length();</em> – Return the file length
+        in bytes.<br>
         <br>
-        <em> bool Binary_File::check_error();</em> – Return true if last file
-        operation failed.<br>
+        <em> bool Binary_File::check_error();</em> – Return true if the last
+        file operation failed.<br>
         <br>
         <span style="font-style: italic;"> bool Binary_File::is_open() const;</span>
         – Return true if the file was successfully opened.<br>
@@ -1787,28 +1803,29 @@
         The target file size limit is 2 gigabytes. </big></p>
     <h2><a class="mozTocH2" name="mozTocId424835"></a><big>Chapter 3. File
         reader</big></h2>
-    <p><big>File Reader is intending to read data from binary files. The <em>Input_file</em>
-        class provides access to file readers. It is derived from the <em>Binary_File</em>
-        class. Let's look at public methods. <br>
+    <p><big>File Reader is intended to read data from the binary files. The <em>Input_file</em>
+        class provides access to a file reader. It is derived from the <em>Binary_File</em>
+        class. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;">Input_File* Input_File::get_handle();</span>
-        – Return the handle to file reader.<br>
+        – Return the handle to the file reader.<br>
         <br>
-        <em> void Input_File::open(const char *name);</em> – Open a file for
+        <em> void Input_File::open(const char *name);</em> – Open a file to
         read.<br>
         <br>
         <em> void Input_File::read(void *buffer,const size_t length);</em> –
-        Read data from the file. </big></p>
+        Read data from the file.</big></p>
     <h2><a class="mozTocH2" name="mozTocId511135"></a><big>Chapter 4. File
         writer</big></h2>
-    <p><big>File Writer is intending to write data to binary files. The <em>Output_File</em>
-        class provides access to file writers. It is derived from the<em><i> </i>
-          Binary_File</em> class. Let's look at public methods. <br>
+    <p><big>File Writer is intended to write data to the binary files. The <em>Output_File</em>
+        class provides access to a file writer. It is derived from the<em><i> </i>
+          Binary_File</em> class. Let's look at the publicly available methods.<br>
         <br>
       </big><big><span style="font-style: italic;">Output_File*
-          Output_File::get_handle();</span> – Return the handle to file writer.</big><br>
+          Output_File::get_handle();</span> – Return the handle to the file
+        writer.</big><br>
       <br>
-      <big><em>void Output_File::open(const char *name);</em> – Open a file for
+      <big><em>void Output_File::open(const char *name);</em> – Open a file to
         write.<br>
         <br>
         <em> void Output_File::create_temp();</em> – Create a temporary file.
@@ -1823,19 +1840,19 @@
     <h1><a class="mozTocH1" name="mozTocId291572"></a><big>Part 9. Input</big></h1>
     <h2><a class="mozTocH2" name="mozTocId783369"></a><big>Chapter 1. The
         sub-namespace</big></h2>
-    <p><big>All subsystems in this section are declared in the <span style="font-style: italic;">Input</span>
+    <p><big>All classes in this section are declared in the <span style="font-style: italic;">Input</span>
         sub-namespace.</big><br>
       <big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId685403"></a><big>Chapter 2. Keyboard</big></h2>
-    <p><big><span style="text-decoration: underline;">Low–level input </span><br>
+    <p><big><span style="text-decoration: underline;">Low–level input</span><br>
         <br>
         Any keyboard has a built-in chip. It generates a special code when the
         user presses or releases the key. This code is called a «scan code».<br>
         <br>
-        <span style="text-decoration: underline;"> Working with keyboard </span><br>
+        <span style="text-decoration: underline;"> Working with the keyboard</span><br>
         <br>
         Just use <span style="font-style: italic;">Keyboard</span> class to
-        work with a keyboard. Let's look at public methods.<br>
+        work with a keyboard. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> void Keyboard::initialize();</span> –
         Initialize the subsystem.<br>
@@ -1853,7 +1870,7 @@
         scan-code was released.<span style="font-style: italic;"><br>
         </span></big></p>
     <p><big><span style="font-style: italic;">bool Keyboard::is_ready() const;</span>
-        – Return true if the subsystem is already initialized.<br>
+        – Return true if the subsystem has already been initialized.<br>
         <br>
         <span style="text-decoration: underline;"> List of supported scan codes</span><br>
       </big></p>
@@ -2117,33 +2134,34 @@
         <span style="text-decoration: underline;"> Working with the mouse</span><br>
         <br>
         Just use <span style="font-style: italic;">the Mouse</span> class to
-        work with a mouse. Let's look at public methods.<br>
+        work with a mouse. Let's look at the publicly available methods.<br>
         <br>
-        <span style="font-style: italic;"> void Mouse::show();</span> – Show
+        <span style="font-style: italic;"> void Mouse::show();</span> – Show the
         mouse cursor.<br>
         <br>
-        <span style="font-style: italic;"> void Mouse::hide();</span> – Hide
+        <span style="font-style: italic;"> void Mouse::hide();</span> – Hide the
         mouse cursor.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Mouse::get_x();</span> –
-        Return x position of mouse.<br>
+        Return the x-position of the mouse.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Mouse::get_y();</span> –
-        Return y position of mouse.<br>
+        Return the y-position of the mouse.<br>
         <br>
         <span style="font-style: italic;"> void Mouse::set_position(const
-          unsigned int x,const unsigned int y);</span> – Set position of mouse.<br>
+          unsigned int x,const unsigned int y);</span> – Set the position of the
+        mouse.<br>
         <br>
         <span style="font-style: italic;"> bool Mouse::check_hold(const
-          EUGENEGDK::MOUSE_BUTTON button);</span> – Return true if specific
-        mouse button is pressed or holding.<br>
+          EUGENEGDK::MOUSE_BUTTON button);</span> – Return true if a mouse
+        button is pressed or held.<br>
         <br>
         <span style="font-style: italic;"> bool Mouse::check_press(const
-          EUGENEGDK::MOUSE_BUTTON button);</span> – Return true if specific
-        mouse button was pressed.</big></p>
+          EUGENEGDK::MOUSE_BUTTON button);</span> – Return true if a mouse
+        button was pressed.</big></p>
     <p><big><span style="font-style: italic;">bool Mouse::check_release(const
-          EUGENEGDK::MOUSE_BUTTON button);</span> – Return true if specific
-        mouse button was released.</big></p>
+          EUGENEGDK::MOUSE_BUTTON button);</span> – Return true if a mouse
+        button was released.</big></p>
     <p><big><span style="text-decoration: underline;">Mouse buttons</span><br>
       </big></p>
     <p><big>Mouse button codes look as predefined constants. You can see it
@@ -2175,12 +2193,12 @@
           gamer</span><br>
         <br>
         What is a good choice for a game control device when the user plays an
-        arcade or an old-school style video game? A game–pad. This engine
-        provides simple access to a gamepad.</big></p>
+        arcade or an old-school style video game? A Game-pad. This engine
+        provides simple access to it.</big></p>
     <p><big><span style="text-decoration: underline;">Numbers of connected
-          gamepads</span><br>
+          Game-Pads</span><br>
         <br>
-        You can connect a few gamepads. Any connected gamepad has an internal
+        You can connect a few Game-Pads. Any connected gamepad has an internal
         index. First gamepad is 0. First Gamepad will activate by default at
         program start.<br>
         <br>
@@ -2189,52 +2207,52 @@
         Ordinary button codes look like predefined constants. The first button
         is GAMEPAD_BUTTON1. The last button is GAMEPAD_BUTTON32.<br>
         <br>
-        <span style="text-decoration: underline;"> D-pad button codes</span><br>
+        <span style="text-decoration: underline;"> D-Pad button codes</span><br>
       </big></p>
-    <p><big>D-pad button codes look as predefined constants. You can see it
+    <p><big>D-Pad button codes look as predefined constants. You can see it
         below.</big></p>
     <p><big> </big></p>
     <table border="1">
       <tbody>
         <tr>
           <td><big>D-pad button code </big></td>
-          <td><big>D–pad button </big></td>
+          <td><big>D-Pad button </big></td>
         </tr>
         <tr>
           <td><big>GAMEPAD_NONE </big></td>
-          <td><big>None of the d-pad buttons are pressed or holding. </big></td>
+          <td><big>None of the D-Pad buttons are pressed or holding. </big></td>
         </tr>
         <tr>
           <td><big>GAMEPAD_UP </big></td>
-          <td><big>D–pad up </big></td>
+          <td><big>D-Pad up </big></td>
         </tr>
         <tr>
           <td><big>GAMEPAD_DOWN </big></td>
-          <td><big>D–pad down </big></td>
+          <td><big>D-Pad down </big></td>
         </tr>
         <tr>
           <td><big>GAMEPAD_LEFT </big></td>
-          <td><big>D–pad left </big></td>
+          <td><big>D-Pad left </big></td>
         </tr>
         <tr>
           <td><big>GAMEPAD_RIGHT </big></td>
-          <td><big>D–pad right </big></td>
+          <td><big>D-Pad right </big></td>
         </tr>
         <tr>
           <td><big>GAMEPAD_UPLEFT </big></td>
-          <td><big>Both D-pad up and D-pad left </big></td>
+          <td><big>Both D-Pad up and D-Pad left </big></td>
         </tr>
         <tr>
           <td><big>GAMEPAD_UPRIGHT </big></td>
-          <td><big>Both D-pad up and D-pad right </big></td>
+          <td><big>Both D-Pad up and D-Pad right </big></td>
         </tr>
         <tr>
           <td><big>GAMEPAD_DOWNLEFT </big></td>
-          <td><big>Both D-pad down and D-pad left </big></td>
+          <td><big>Both D-Pad down and D-Pad left </big></td>
         </tr>
         <tr>
           <td><big>GAMEPAD_DOWNRIGHT </big></td>
-          <td><big>Both D-pad down and D-pad right</big></td>
+          <td><big>Both D-Pad down and D-Pad right</big></td>
         </tr>
       </tbody>
     </table>
@@ -2288,36 +2306,36 @@
         </tr>
       </tbody>
     </table>
-    <p><big><span style="text-decoration: underline;">Working with a gamepad</span><br>
+    <p><big><span style="text-decoration: underline;">Working with a Game-pad</span><br>
         <br>
         Just use <span style="font-style: italic;">Gamepad</span> class to work
-        with Gamepad. Let's look at public methods.<br>
+        with a Game-pad. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Gamepad::get_amount();</span>
-        – Return the amount of connected gamepad.<span style="font-style: italic;"><br>
+        – Return the number of connected Game-Pad.<span style="font-style: italic;"><br>
         </span></big></p>
     <p><big><span style="font-style: italic;">unsigned int
-          Gamepad::get_button_amount() const;</span> – Return the amount of the
-        gamepad buttons.<br>
+          Gamepad::get_button_amount() const;</span> – Return the number of the
+        Game-Pad buttons.<br>
         <br>
         <span style="font-style: italic;">unsigned int
-          Gamepad::get_stick_amount() const;</span> – Return the amount of the
-        gamepad sticks.<br>
+          Gamepad::get_stick_amount() const;</span> – Return the number of the
+        Game-Pad sticks.<br>
         <br>
         <span style="font-style: italic;"> void Gamepad::update();</span> –
-        Update internal gamepad state. Always call it before calling another
-        method.<span style="font-style: italic;"><br>
+        Update the internal Game-Pad state.<span style="font-style: italic;"><br>
         </span></big></p>
     <p><big><span style="font-style: italic;">void Gamepad::set_active(const
-          unsigned int gamepad);</span> – Set current active gamepad.<span style="font-style: italic;"><br>
+          unsigned int gamepad);</span> – Set the current active Game-Pad.<span
+          style="font-style: italic;"><br>
         </span></big></p>
     <p><big><span style="font-style: italic;">EUGENEGDK::GAMEPAD_DPAD
           Gamepad::get_dpad() const;</span> – Return code of current pressed or
-        holding D-pad button.<br>
+        holding D-Pad button.<br>
         <br>
         <span style="font-style: italic;"> bool Gamepad::check_hold(const
           EUGENEGDK::GAMEPAD_BUTTONS button) const;</span> – Return true if the
-        button is pressed or holding.<br>
+        button is pressed or held.<br>
         <br>
         <span style="font-style: italic;"> bool Gamepad::check_press(const
           EUGENEGDK::GAMEPAD_BUTTONS button) const;</span> – Return true if the
@@ -2327,26 +2345,26 @@
         button was released.</big></p>
     <p><big> <span style="font-style: italic;">EUGENEGDK::GAMEPAD_DIRECTION
           Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick) const;</span>
-        – Return x-direction of specific stick.<br>
+        – Return the x-direction of a specific stick.<br>
         <br>
         <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
           Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick) const;</span>
-        – Return y-direction of specific stick.<br>
+        – Return the y-direction of a specific stick.<br>
         <br>
         <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-          Gamepad::get_left_stick_x() const;</span> – Return x-direction of left
-        stick.<br>
+          Gamepad::get_left_stick_x() const;</span> – Return the x-direction of
+        left stick.<br>
         <br>
         <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-          Gamepad::get_left_stick_y() const;</span> – Return y-direction of left
-        stick.<br>
+          Gamepad::get_left_stick_y() const;</span> – Return the y-direction of
+        left stick.<br>
         <br>
         <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-          Gamepad::get_right_stick_x() const;</span> – Return x-direction of
+          Gamepad::get_right_stick_x() const;</span> – Return the x-direction of
         right stick.<br>
         <br>
         <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
-          Gamepad::get_right_stick_y() const;</span> – Return y-direction of
+          Gamepad::get_right_stick_y() const;</span> – Return the y-direction of
         right stick.<br>
       </big></p>
     <h1><a class="mozTocH1" name="mozTocId54918"></a><big>Part 10. Internal
@@ -2359,13 +2377,13 @@
       <big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId318160"></a><big>Chapter 2. Internal
         classes</big></h2>
-    <p><big><span style="text-decoration: underline;">Internal classes </span><br>
+    <p><big><span style="text-decoration: underline;">Internal classes</span><br>
         <br>
         Some classes are designed for internal use only. Don't touch them. What
         are doing these strange classes?<br>
         <br>
         <span style="text-decoration: underline;"> Microsoft Windows-specific
-          classes </span><br>
+          classes</span><br>
         <br>
         All Microsoft Windows-specific classes are declared in the <span style="font-style: italic;">Internal</span>
         sub-namespace.<br>
@@ -2374,8 +2392,8 @@
         game window and does message processing.</big><br>
       <big><span style="font-style: italic;">Synchronization</span> implements
         the synchronization timer.</big><br>
-      <big><span style="font-style: italic;">Display</span> implement display
-        manager.</big><br>
+      <big><span style="font-style: italic;">Display</span> implements the
+        display manager.</big><br>
       <big><span style="font-style: italic;">WINGL</span> contains
         Windows-specific OPENGL initialization code.</big><br>
       <br>
@@ -2384,18 +2402,18 @@
         All engine core classes and functions are declared in the <span style="font-style: italic;">Core</span>
         sub-namespace.<br>
         <br>
-      </big><big><span style="font-style: italic;">FPS</span> implements a FPS
+      </big><big><span style="font-style: italic;">FPS</span> implements the FPS
         counter. <br>
-      </big><big><em>Unicode_Convertor</em> implements system code-page to
-        UTF-16 convertor.<br>
-      </big><big><span style="font-style: italic;"> Render</span> implements
+      </big><big><em>Unicode_Convertor</em> implements the system code-page to
+        UTF-16 converter.<br>
+      </big><big><span style="font-style: italic;"> Render</span> implements the
         OPENGL render.<br>
-        <span style="font-style: italic;"> Resizer</span> intending to calculate
+        <span style="font-style: italic;"> Resizer</span> intended to calculate
         the correct texture size.<br>
-        <span style="font-style: italic;"> Rectangle</span> intending to draw a
+        <span style="font-style: italic;"> Rectangle</span> intended to draw a
         textured rectangle.<br>
-        <span style="font-style: italic;"> Shape</span> is the base class of the
-        <span style="font-style: italic;">Rectangle</span> class.<br>
+        <span style="font-style: italic;"> Shape</span> is the base class of <span
+          style="font-style: italic;">Rectangle</span> class.<br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
         graphics subsystem</big></h2>
@@ -2403,16 +2421,17 @@
       <big> </big><br>
       <big>Any visible object is a textured rectangle.</big><br>
       <big> </big><br>
-      <big style="text-decoration: underline;">Images</big><br>
+      <big style="text-decoration: underline;">Textures</big><br>
       <big> </big><br>
       <big>A texture width must be a power of two. A texture height also must be
-        a power of two. Any image will automatically resize before loading.</big><br>
+        a power of two. Any image will automatically be resized before
+        uploading.</big><br>
       <br>
       <big style="text-decoration: underline;">Vertex arrays and texture
         coordinate arrays</big><br>
       <big> </big><br>
       <big>Any rectangle needs four vertexes and four texture coordinates.</big><br>
-      <big>A single vertex represents the following custom data type.</big><br>
+      <big>A single vertex represents the following custom data type:</big><br>
       <big> </big><br>
       <big style="font-style: italic;">typedef struct Vertex</big><big style="font-style: italic;"><br>
         {</big><br>
@@ -2421,7 +2440,7 @@
       </big><big style="font-style: italic;">};</big><br>
       <big> </big><br>
       <big>A single texture coordinate represents the following custom data
-        type.</big><br>
+        type:</big><br>
       <big> </big><br>
       <big style="font-style: italic;">typedef struct</big><big style="font-style: italic;">
         <br>
@@ -2433,19 +2452,20 @@
       <big>All these custom types are declared in the <span style="font-style: italic;">Core</span>
         sub-namespace.</big><br>
       <big> </big></p>
-    <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 4. Game-pad</big></h2>
-    <p><big>Game-pad subsystem working over <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">the
-          Joystick Multimedia API</a>. </big></p>
+    <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 4. Game-Pad</big></h2>
+    <p><big>Game-Pad subsystem working over the <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
+          Multimedia API</a>. </big></p>
     <h2><a class="mozTocH2" name="mozTocId804583"></a><big>Chapter 5. Input</big></h2>
-    <p><big><span style="text-decoration: underline;">Input backend </span><br>
+    <p><big><span style="text-decoration: underline;">Input backend</span><br>
         <br>
         Keyboard and mouse input subsystems are simple. It works over a standard
-        Windows API.<br>
+        Microsoft Windows API.<br>
         <br>
         <span style="text-decoration: underline;"> Internal key state</span><br>
       </big></p>
     <p><big>Internal states of keyboard keys and mouse buttons look like
-        predefined constants. You can see it below.</big></p>
+        predefined constants. You can see it below.<br>
+      </big></p>
     <p><big> </big></p>
     <table border="1">
       <tbody>
@@ -2469,31 +2489,30 @@
         DirectX is pre-installed by default under modern versions of Windows.</big></p>
     <h1><a class="mozTocH1" name="mozTocId670307"></a><big>Version history<br>
       </big></h1>
-    <meta name="generator" content="quillbot-gc">
     <big>0.1: Initial version.<br>
-      0.1.1–0.7.6: Internal unstable builds.<br>
+      0.1.1 – 0.7.6: Internal unstable builds.<br>
       0.7.7: Small changes.<br>
-      0.7.8: Small bug in Sprite subsystem fixed.<br>
-      0.7.9–0.8.1: Small changes.<br>
+      0.7.8: Small bug in sprite subsystem fixed.<br>
+      0.7.9 – 0.8.1: Small changes.<br>
       0.8.2: Sprite subsystem improved.<br>
       0.8.3: PCX support removed.<br>
       0.8.4: Small changes.<br>
-      0.8.5 – FPS counter improved.<br>
-      0.8.6–0.8.9—small changes.<br>
+      0.8.5: FPS counter improved.<br>
+      0.8.6 – 0.8.9: Small changes.<br>
       0.9: TGA support improved.<br>
-      0.9.1: Small bug in Sprite subsystem fixed.<br>
+      0.9.1: Small bug in sprite subsystem fixed.<br>
       0.9.2: Small changes.<br>
       0.9.3: New subsystem added.<br>
-      0.9.4–0.9.5: Graphic primitives subsystem improved.<br>
-      0.9.6–0.9.9: Small changes.<br>
+      0.9.4 – 0.9.5: Graphic primitives subsystem improved.<br>
+      0.9.6 – 0.9.9: Small changes.<br>
       1.0: Base graphics subsystem improved.<br>
-      1.0.1–1.0.2: Background subsystem improved.<br>
+      1.0.1 – 1.0.2: Background subsystem improved.<br>
       1.0.3: Small changes.<br>
-      1.0.4: Small bug in Sprite subsystem fixed.<br>
-      1.0.5–1.1.4: Small changes.<br>
-      1.1.5–1.1.6: Small bug fixed.<br>
+      1.0.4: Small bug in sprite subsystem fixed.<br>
+      1.0.5 – 1.1.4: Small changes.<br>
+      1.1.5 – 1.1.6: Small bug fixed.<br>
       1.1.7: Unused dependency removed.<br>
-      1.1.8–1.2.5: Small changes.<br>
+      1.1.8 – 1.2.5: Small changes.<br>
       1.2.6: Small bug fixed.<br>
       1.2.7: Small changes.<br>
       1.2.8: Render performance increased.<br>
@@ -2510,100 +2529,100 @@
       1.3.9: Tile-set subsystem improved.<br>
       1.4: Sprite subsystem improved.<br>
       1.4.1: Text subsystem improved.<br>
-      1.4.2–1.4.5: Small changes.<br>
+      1.4.2 – 1.4.5: Small changes.<br>
       1.4.6: New subsystem added. Windows 2000 support was removed.<br>
-      1.4.7–1.4.8: Sprite subsystem improved.<br>
+      1.4.7 – 1.4.8: Sprite subsystem improved.<br>
       1.4.9: Text subsystem improved.<br>
       1.5: Small changes.<br>
       1.5.1: Optional software render added.<br>
-      1.5.2–1.5.7: Small changes.<br>
+      1.5.2 – 1.5.7: Small changes.<br>
       1.5.8: Keyboard input improved.<br>
       1.5.9: Mouse input improved.<br>
       1.6: Gamepad support improved.<br>
       1.6.1: Small bug in game-pad subsystem fixed.<br>
-      1.6.2 – Small changes.<br>
+      1.6.2: Small changes.<br>
       1.6.3: File system subsystem improved.<br>
-      1.6.4–1.6.5: Small changes.<br>
+      1.6.4 – 1.6.5: Small changes.<br>
       1.6.6: Base graphics subsystem improved.<br>
       1.6.7: Small changes.<br>
       1.6.8: Gamepad support improved.<br>
-      1.6.9–1.7: Small changes.<br>
+      1.6.9 – 1.7: Small changes.<br>
       1.7.1: Small bug in Sprite subsystem fixed.<br>
       1.7.2: Graphic primitives subsystem improved.<br>
-      1.7.3–1.7.4: Small changes.<br>
-      1.7.5–1.7.6: Picture subsystem improved.<br>
-      1.7.7–1.7.8: Sprite subsystem improved.<br>
-      1.7.9–1.8: Picture subsystem improved.<br>
+      1.7.3 – 1.7.4: Small changes.<br>
+      1.7.5 – 1.7.6: Picture subsystem improved.<br>
+      1.7.7 – 1.7.8: Sprite subsystem improved.<br>
+      1.7.9 – 1.8: Picture subsystem improved.<br>
       1.8.1: Small changes.<br>
-      1.8.2—Tile-set subsystem improved.<br>
+      1.8.2: Tile-set subsystem improved.<br>
       1.8.3: Small changes.<br>
-      1.8.4–1.8.6: Binary file subsystem improved.<br>
-      1.8.7–1.8.8: Image loader improved.<br>
+      1.8.4 – 1.8.6: Binary file subsystem improved.<br>
+      1.8.7 – 1.8.8: Image loader improved.<br>
       1.8.9: Small changes.<br>
-      1.9–1.9.1: Image loader improved.<br>
+      1.9 – 1.9.1: Image loader improved.<br>
       1.9.2: Picture subsystem improved.<br>
       1.9.3: Small changes.<br>
-      1.9.4—Tile-set subsystem improved.<br>
-      1.9.5–1.9.8: Small changes.<br>
+      1.9.4: Tile-set subsystem improved.<br>
+      1.9.5 – 1.9.8: Small changes.<br>
       1.9.9: Background subsystem improved.<br>
-      2.0–2.0.3: Image loader improved.<br>
+      2.0 – 2.0.3: Image loader improved.<br>
       2.0.4: Sprite subsystem improved.<br>
       2.0.5: Background subsystem improved.<br>
-      2.0.6–2.1.2: Text drawing subsystem improved.<br>
+      2.0.6 – 2.1.2: Text drawing subsystem improved.<br>
       2.1.3: Background subsystem improved.<br>
-      2.1.4–2.1.8: Small changes.<br>
-      2.1.9–2.2.7: Multimedia subsystem improved.<br>
-      2.2.8–2.3.1: Small changes.<br>
-      2.3.2–2.3.3: Base graphics subsystem improved.<br>
+      2.1.4 – 2.1.8: Small changes.<br>
+      2.1.9 – 2.2.7: Multimedia subsystem improved.<br>
+      2.2.8 – 2.3.1: Small changes.<br>
+      2.3.2 – 2.3.3: Base graphics subsystem improved.<br>
       2.3.4: Synchronization timer improved.<br>
-      2.3.5–2.3.6: Small changes.<br>
+      2.3.5 – 2.3.6: Small changes.<br>
       2.3.7: Multimedia subsystem improved.<br>
       2.3.8: Keyboard input improved.<br>
       2.3.9: Small changes.<br>
       2.4: Mouse input improved.<br>
       2.4.1: Small changes.<br>
       2.4.2: Binary file subsystem improved.<br>
-      2.4.3–2.4.7: Small changes.<br>
+      2.4.3 – 2.4.7: Small changes.<br>
       2.4.8: Background subsystem improved.<br>
       2.4.9: Sprite subsystem improved.<br>
       2.5: Tile-set subsystem improved.<br>
-      2.5.1–2.5.2: Small changes.<br>
+      2.5.1 – 2.5.2: Small changes.<br>
       2.5.3: Sprite subsystem improved.<br>
-      2.5.4–2.5.6—Tile-set subsystem improved.<br>
+      2.5.4 – 2.5.6: Tile-set subsystem improved.<br>
       2.5.7: Small changes.<br>
       2.5.8: Sprite subsystem improved.<br>
-      2.5.9–2.6: Small changes.<br>
+      2.5.9 – 2.6: Small changes.<br>
       2.6.1: Animation subsystem improved.<br>
       2.6.2: Background subsystem improved.<br>
-      2.6.3–2.6.4: Sprite subsystem improved.<br>
+      2.6.3 – 2.6.4: Sprite subsystem improved.<br>
       2.6.5: Background subsystem improved.<br>
       2.6.6: Base graphics subsystem improved.<br>
       2.6.7: Small changes.<br>
       2.6.8: Primitive subsystem improved.<br>
       2.6.9: Small bug fixed.<br>
       2.7: Primitive subsystem removed.<br>
-      2.7.1–2.7.6: Preview release of next branch.<br>
+      2.7.1 – 2.7.6: Preview release of next branch.<br>
       2.7.7: Public release of the next branch.<br>
-      2.7.8–2.7.9: Small changes.<br>
+      2.7.8 – 2.7.9: Small changes.<br>
       2.8: Go back to the old stable branch.<br>
-      2.8.1–2.8.5: Small changes.<br>
+      2.8.1 – 2.8.5: Small changes.<br>
       2.8.6: Merge the old branch and new branch.<br>
       2.8.7: Small bug fixed.<br>
-      2.8.8–2.9.9: Small changes.<br>
-      3.0—Basic graphics subsystem improved.<br>
+      2.8.8 – 2.9.9: Small changes.<br>
+      3.0: Basic graphics subsystem improved.<br>
       3.0.1: Small changes.<br>
       3.0.2: Keyboard subsystem improved.<br>
-      3.0.3–3.0.5: Small changes.<br>
+      3.0.3 – 3.0.5: Small changes.<br>
       3.0.6: Operating system interaction subsystem improved.<br>
-      3.0.7–3.1.1: Small changes.<br>
-      3.2–3.2.1: A few changes in the engine API.<br>
+      3.0.7 – 3.1.1: Small changes.<br>
+      3.2 – 3.2.1: A few changes in the engine API.<br>
       3.2.2: Small changes.<br>
       3.3: New subsystem added.<br>
-      3.3.1–3.3.4: Small changes.<br>
+      3.3.1 – 3.3.4: Small changes.<br>
       3.3.5: Keyboard input improved.<br>
       3.3.6: Image loader improved.<br>
-      3.3.7–3.3.8: Small changes.<br>
-      3.3.9–3.4: Sprite subsystem improved.<br>
+      3.3.7 – 3.3.8: Small changes.<br>
+      3.3.9 – 3.4: Sprite subsystem improved.<br>
       3.4.1: Background subsystem improved.<br>
       3.4.2: Image storage improved.<br>
       3.4.3: Sprite subsystem improved.<br>
@@ -2611,37 +2630,37 @@
       3.4.5: Image storage improved.<br>
       3.4.6: Tile-set subsystem improved.<br>
       3.4.7: Background subsystem improved.<br>
-      3.4.8–3.4.9: Sprite subsystem improved.<br>
-      3.5–3.5.4: Small changes.<br>
+      3.4.8 – 3.4.9: Sprite subsystem improved.<br>
+      3.5 – 3.5.4: Small changes.<br>
       3.5.5: Tile-set subsystem improved.<br>
-      3.5.6–3.6.4: Small changes.<br>
+      3.5.6 – 3.6.4: Small changes.<br>
       3.6.5: Multimedia subsystem improved.<br>
-      3.6.6–3.6.8: Small changes.<br>
+      3.6.6 – 3.6.8: Small changes.<br>
       3.6.9: Sprite subsystem improved.<br>
       3.7: Background subsystem improved.<br>
       3.7.1: Small changes.<br>
       3.7.2: Binary file subsystem improved.<br>
       3.7.3: Background subsystem improved.<br>
-      3.7.4–3.7.5: Small changes.<br>
+      3.7.4 – 3.7.5: Small changes.<br>
       3.7.6: Small bug fixed.<br>
-      3.7.7–3.8.5: Small changes.<br>
+      3.7.7 – 3.8.5: Small changes.<br>
       3.8.6: Game-pad subsystem improved.<br>
-      3.8.7–3.8.8: Small changes.<br>
+      3.8.7 – 3.8.8: Small changes.<br>
       3.8.9: Image resizing improved.<br>
-      3.9–3.9.7: Small changes.<br>
-      3.9.8–3.9.9: Keyboard input improved.<br>
-      4.0–4.0.1: Small changes.<br>
+      3.9 – 3.9.7: Small changes.<br>
+      3.9.8 – 3.9.9: Keyboard input improved.<br>
+      4.0 – 4.0.1: Small changes.<br>
       4.0.2: The collision detection subsystem improved.<br>
       4.0.3: Small bug in collision detection subsystem fixed.<br>
       4.0.4: The collision detection subsystem improved.<br>
-      4.0.5–4.0.6: Small changes.<br>
+      4.0.5 – 4.0.6: Small changes.<br>
       4.0.7: New internal subsystem added.<br>
       4.0.8: Small changes in engine core.<br>
       4.0.9: Image loader improved.<br>
       4.1: Keyboard input improved.<br>
       4.1.1: A small bug in the image loader improved.<br>
       4.1.2: Keyboard input improved.<br>
-      4.1.3–4.2.1: Small changes.<br>
+      4.1.3 – 4.2.1: Small changes.<br>
       4.2.2: Image resizer improved.<br>
       4.2.3: Image storage improved.<br>
       4.2.4: Image loader improved.<br>
@@ -2650,111 +2669,111 @@
       4.2.7: Mouse input improved.<br>
       4.2.8: Keyboard input improved.<br>
       4.2.9: Small changes.<br>
-      4.3–4.3.3—Game-pad subsystem improved.<br>
+      4.3 – 4.3.3: Game-pad subsystem improved.<br>
       4.3.4: The collision detection subsystem improved.<br>
       4.3.5: Small changes.<br>
-      4.3.6–4.3.8: System interaction subsystem improved.<br>
-      4.3.9–4.4: Collision detection subsystem improved.<br>
+      4.3.6 – 4.3.8: System interaction subsystem improved.<br>
+      4.3.9 – 4.4: Collision detection subsystem improved.<br>
       4.4.1: New subsystem added.<br>
-      4.4.1.1—Documentation updated.<br>
+      4.4.1.1: Documentation updated.<br>
       4.4.2: Small changes.<br>
-      4.4.3–4.4.4: A new supported compiler added.<br>
-      4.4.4.1—Documentation updated.<br>
+      4.4.3 – 4.4.4: A new supported compiler added.<br>
+      4.4.4.1: Documentation updated.<br>
       4.4.5: Small changes.<br>
       4.4.6: New subsystem added.<br>
-      4.4.6.1—Documentation updated.<br>
-      4.4.7–4.4.8: Small changes.<br>
+      4.4.6.1: Documentation updated.<br>
+      4.4.7 – 4.4.8: Small changes.<br>
       4.4.9: Windows 2000 support added.<br>
       4.4.9.1: Documentation updated.<br>
-      4.5–4.5.3: Small changes.<br>
+      4.5 – 4.5.3: Small changes.<br>
       4.5.4: Gamepad support improved.<br>
-      4.5.5–4.5.7: Render improved.<br>
-      4.5.8–4.6.2: Small changes.<br>
+      4.5.5 – 4.5.7: Render improved.<br>
+      4.5.8 – 4.6.2: Small changes.<br>
       4.6.3: Image resizer improved.<br>
       4.6.4: Small changes.<br>
       4.6.5: Small bug in binary file subsystem fixed.<br>
-      4.6.6–4.6.8: Small changes.<br>
-      4.6.9–4.7: Changes in the engine API.<br>
+      4.6.6 – 4.6.8: Small changes.<br>
+      4.6.9 – 4.7: Changes in the engine API.<br>
       4.7.0.1: Documentation updated.<br>
-      4.7.1–4.7.2: Small changes.<br>
+      4.7.1 – 4.7.2: Small changes.<br>
       4.7.3: Changes in the engine API.<br>
-      4.7.4–4.8: Small changes.<br>
-      4.8.1–4.8.3: Render improved.<br>
-      4.8.4–4.8.6: Small changes.<br>
-      4.8.7—Keyboard input improved.<br>
-      4.8.8–4.8.9: Display manager improved.<br>
-      4.9–4.9.1: Small changes.<br>
+      4.7.4 – 4.8: Small changes.<br>
+      4.8.1 – 4.8.3: Render improved.<br>
+      4.8.4 – 4.8.6: Small changes.<br>
+      4.8.7: Keyboard input improved.<br>
+      4.8.8 – 4.8.9: Display manager improved.<br>
+      4.9 – 4.9.1: Small changes.<br>
       4.9.2: Display manager improved.<br>
-      4.9.3–4.9.4: Small changes.<br>
+      4.9.3 – 4.9.4: Small changes.<br>
       4.9.5: Keyboard input improved.<br>
       4.9.6: Mouse input improved.<br>
-      4.9.7–5.0.8: Small changes.<br>
-      5.0.9–5.2: Experimental branch.<br>
+      4.9.7 – 5.0.8: Small changes.<br>
+      5.0.9 – 5.2: Experimental branch.<br>
       5.2.1: Small changes.<br>
       5.2.2: Text drawing subsystem improved.<br>
-      5.2.3–5.2.5: Small changes.<br>
+      5.2.3 – 5.2.5: Small changes.<br>
       5.2.6: Changes in the engine API.<br>
       5.2.7: New subsystem added.<br>
-      5.2.8–5.2.9: Sprite subsystem improved.<br>
+      5.2.8 – 5.2.9: Sprite subsystem improved.<br>
       5.3: Base sprite subsystem improved.<br>
-      5.3.1–5.3.4: Small changes.<br>
+      5.3.1 – 5.3.4: Small changes.<br>
       5.3.5: New subsystem added.<br>
       5.3.6: Small changes.<br>
       5.3.7: Tile-set subsystem removed.<br>
-      5.3.8 – Small changes.<br>
+      5.3.8: Small changes.<br>
       5.3.9: Sprite sheet subsystem improved.<br>
-      5.4–5.4.1: Small changes.<br>
-      5.4.2–5.4.5: Text drawing subsystem improved.<br>
-      5.4.6–5.5.2: Background subsystem improved.<br>
-      5.5.3–5.5.7: Small changes.<br>
+      5.4 – 5.4.1: Small changes.<br>
+      5.4.2 – 5.4.5: Text drawing subsystem improved.<br>
+      5.4.6 – 5.5.2: Background subsystem improved.<br>
+      5.5.3 – 5.5.7: Small changes.<br>
       5.5.8: Background subsystem improved.<br>
       5.5.9: Base Sprite Subsystem Improved.<br>
-      5.6–5.6.4: Small changes.<br>
+      5.6 – 5.6.4: Small changes.<br>
       5.6.5: Background subsystem improved.<br>
       5.6.6: Text drawing subsystem improved.<br>
       5.6.7: Background subsystem improved.<br>
       5.6.8: Text drawing subsystem improved.<br>
       5.6.9: Small changes.<br>
       5.7: Text drawing subsystem improved.<br>
-      5.7.1–5.7.2: Sprite sheet subsystem improved.<br>
-      5.7.3–5.7.4: Small changes.<br>
-      5.7.5–5.7.6: Resource manager improved.<br>
-      5.7.7–5.8.2: Small changes.<br>
-      5.8.3–5.8.5: Background subsystem improved.<br>
+      5.7.1 – 5.7.2: Sprite sheet subsystem improved.<br>
+      5.7.3 – 5.7.4: Small changes.<br>
+      5.7.5 – 5.7.6: Resource manager improved.<br>
+      5.7.7 – 5.8.2: Small changes.<br>
+      5.8.3 – 5.8.5: Background subsystem improved.<br>
       5.8.6: Small changes.<br>
-      5.8.7–5.9.1: Sprite sheet subsystem improved.<br>
-      5.9.2–5.9.4: Small changes.<br>
+      5.8.7 – 5.9.1: Sprite sheet subsystem improved.<br>
+      5.9.2 – 5.9.4: Small changes.<br>
       5.9.5: Text drawing subsystem improved.<br>
-      5.9.6–5.9.8: Small changes.<br>
-      5.9.9—Windows 2000 support removed.<br>
+      5.9.6 – 5.9.8: Small changes.<br>
+      5.9.9: Windows 2000 support removed.<br>
       6.0: Changes in the engine API.<br>
       6.0.1: New subsystem added.<br>
       6.0.2: Small changes.<br>
       6.0.3: Background subsystem and sprite subsystem improved.<br>
       6.0.4: Small changes.<br>
       6.0.5: Picture subsystem improved.<br>
-      6.0.6–6.0.7: Small changes.<br>
-      6.0.7.1 – Documentation updated.<br>
+      6.0.6 – 6.0.7: Small changes.<br>
+      6.0.7.1: Documentation updated.<br>
       6.0.8: Base graphics subsystem improved.<br>
       6.0.8.1: Documentation updated.<br>
-      6.0.9–6.1.1: Small changes.<br>
+      6.0.9 – 6.1.1: Small changes.<br>
       6.1.2: Text drawing subsystem improved.<br>
       6.1.3: Small changes.<br>
-      6.1.3.1 – Documentation updated.<br>
+      6.1.3.1: Documentation updated.<br>
       6.1.4: Small bug fixed.<br>
-      6.1.5–6.1.6: Sprite sheet subsystem improved.<br>
-      6.1.7–6.2.1: Small changes.<br>
-      6.2.2–6.2.3: Base graphics subsystem improved.<br>
-      6.2.4–6.2.6: Binary file subsystem improved.<br>
-      6.2.6.1 – Documentation updated.<br>
+      6.1.5 – 6.1.6: Sprite sheet subsystem improved.<br>
+      6.1.7 – 6.2.1: Small changes.<br>
+      6.2.2 – 6.2.3: Base graphics subsystem improved.<br>
+      6.2.4 – 6.2.6: Binary file subsystem improved.<br>
+      6.2.6.1: Documentation updated.<br>
       6.2.7: The collision detection subsystem improved.<br>
       6.2.8: Small bug fixed.<br>
       6.2.9: Small changes.<br>
       6.3: Base sprite subsystem improved.<br>
-      6.3.1–6.3.2: Small changes.<br>
+      6.3.1 – 6.3.2: Small changes.<br>
       6.3.3: Base graphics subsystem backported from Neon game development kit 5.8.4.<br>
-      6.3.4 – Visual C++ 2005 support added.<br>
-      6.3.5 – Small changes.<br>
+      6.3.4: Visual C++ 2005 support added.<br>
+      6.3.5: Small changes.<br>
       6.3.6: Ordinary sprite subsystem improved.<br>
       6.3.7: Sprite sheet subsystem improved.<br>
       6.3.8: Background subsystem improved.<br>
@@ -2765,32 +2784,32 @@
       6.4.2: Image loader improved.<br>
       6.4.3: Base sprite subsystem improved.<br>
       6.4.4: Ordinary sprite subsystem improved.<br>
-      6.4.5–6.4.6: Background subsystem improved.<br>
+      6.4.5 – 6.4.6: Background subsystem improved.<br>
       6.4.7: Sprite sheet subsystem improved.<br>
-      6.4.8–6.4.9: Text drawing subsystem improved.<br>
+      6.4.8 – 6.4.9: Text drawing subsystem improved.<br>
       6.5: Ordinary sprite subsystem improved.<br>
       6.5.1: Background subsystem improved.<br>
       6.5.2: Sprite sheet subsystem improved.<br>
-      6.5.3–6.5.4: Text drawing subsystem improved.<br>
+      6.5.3 – 6.5.4: Text drawing subsystem improved.<br>
       6.5.5: Resource manager improved.<br>
       6.5.6: Processor usage reduced.<br>
-      6.5.7–6.5.8: Small changes.<br>
+      6.5.7 – 6.5.8: Small changes.<br>
       6.5.9: Small bug in game-pad subsystem fixed.<br>
       6.6: Source code synced with Gray game development kit 2.2.7.<br>
       6.6.1: Text drawing subsystem improved.<br>
       6.6.2: Simple sound subsystem backported from the Neon game development kit 5.7.8.<br>
       6.6.3: Small bug in multimedia subsystem fixed.<br>
-      6.6.4–6.6.6: Small changes.<br>
+      6.6.4 – 6.6.6: Small changes.<br>
       6.6.7: Multimedia subsystem improved.<br>
       6.6.8: Simple sound subsystem removed.<br>
-      6.6.9–6.7: Multimedia subsystem improved.<br>
+      6.6.9 – 6.7: Multimedia subsystem improved.<br>
       6.7.1: Timer subsystem improved.<br>
-      6.7.2–6.7.3: Sprite subsystem improved.<br>
+      6.7.2 – 6.7.3: Sprite subsystem improved.<br>
       6.7.4: Background subsystem improved.<br>
       6.7.5: Text drawing subsystem improved.<br>
       6.7.6: Sprite subsystem improved.<br>
       6.7.7: Render performance increased.<br>
-      6.7.8–6.7.9: Image loader improved.<br>
+      6.7.8 – 6.7.9: Image loader improved.<br>
       6.8: Small changes.<br>
       6.8.1: Ordinary sprite subsystem improved.<br>
       6.8.2: Small changes.<br>
@@ -2799,7 +2818,7 @@
       6.8.5: Render performance increased.<br>
       6.8.6: Audio subsystem improved.<br>
       6.8.7: Small changes.<br>
-      6.8.8–6.9.1—Game-pad subsystem improved.<br>
+      6.8.8 – 6.9.1: Game-pad subsystem improved.<br>
       6.9.2: Small changes.<br>
       6.9.3: Source code synced with Neon game development kit 6.2.6.<br>
       6.9.4: Sprite sheet subsystem improved.<br>
@@ -2810,85 +2829,85 @@
       6.9.9: Image resizer improved.<br>
       7.0: Source code synced with Neon game development kit 6.3.6.<br>
       7.0.1: Image resizer improved.<br>
-      7.0.2 – Small changes.<br>
-      7.0.3 – Small bug fixed.<br>
-      7.0.4–7.0.6: Game-pad support improved.<br>
-      7.0.7 – Small changes.<br>
-      7.0.8–7.1.6: Game-pad support improved.<br>
+      7.0.2: Small changes.<br>
+      7.0.3: Small bug fixed.<br>
+      7.0.4 – 7.0.6: Game-pad support improved.<br>
+      7.0.7&nbsp; –&nbsp; Small changes.<br>
+      7.0.8 – 7.1.6: Game-pad support improved.<br>
       7.1.7: Small changes.<br>
-      7.1.8–7.2: Image resizer improved.<br>
-      7.2.1–7.2.2: Small changes.<br>
-      7.2.3–7.2.4: Image resizer improved.<br>
+      7.1.8 – 7.2: Image resizer improved.<br>
+      7.2.1 – 7.2.2: Small changes.<br>
+      7.2.3 – 7.2.4: Image resizer improved.<br>
       7.2.5: Small changes.<br>
-      7.2.6–7.2.9: Image resizer improved.<br>
-      7.3–7.3.1: Small changes.<br>
+      7.2.6 – 7.2.9: Image resizer improved.<br>
+      7.3 – 7.3.1: Small changes.<br>
       7.3.2: Small render bug fixed.<br>
-      7.3.3 – Animation subsystem backported from Eugene game development kit 5.6.2.<br>
+      7.3.3: Animation subsystem backported from Eugene game development kit 5.6.2.<br>
       7.3.4: Background subsystem improved.<br>
-      7.3.5 – Small changes.<br>
+      7.3.5: Small changes.<br>
       7.3.6: Source code synced with Simple Windows Game Framework 7.3.5.<br>
       7.3.7: Image resizer improved.<br>
-      7.3.8–7.4: Experimental branch.<br>
+      7.3.8 – 7.4: Experimental branch.<br>
       7.4.1: New subsystem added.<br>
-      7.4.2–7.4.4—Tile-map subsystem improved.<br>
+      7.4.2 – 7.4.4: Tile-map subsystem improved.<br>
       7.4.5: Image resizer backported from Eugene game development kit 7.3.5.<br>
       7.4.6: Image resizer backported from the Eugene game development kit 7.3.6.<br>
-      7.4.7–7.5: Image resizer improved.<br>
+      7.4.7 – 7.5: Image resizer improved.<br>
       7.5.1: New subsystem added.<br>
       7.5.2: Small changes.<br>
-      7.5.3 – Small bug fixed.<br>
-      7.5.4 Coordinates conversion subsystem improved.<br>
+      7.5.3: Small bug fixed.<br>
+      7.5.4: Coordinates conversion subsystem improved.<br>
       7.5.5: New subsystem added.<br>
-      7.5.6–7.5.7—Isometric subsystem improved.<br>
+      7.5.6 – 7.5.7: Isometric subsystem improved.<br>
       7.5.8: Coordinates conversion subsystem improved.<br>
-      7.5.9–7.6.1—Isometric subsystem improved.<br>
+      7.5.9 – 7.6.1: Isometric subsystem improved.<br>
       7.6.2: The tile-map subsystem improved.<br>
       7.6.3: Image resizer backported from Eugene game development kit 7.4.5.<br>
       7.6.4: Small bug in tile-map subsystem fixed.<br>
       7.6.5 Coordinates conversion subsystem improved.<br>
       7.6.6: Base graphics subsystem improved.<br>
-      7.6.7–7.7.1: Image resizer improved.<br>
+      7.6.7 – 7.7.1: Image resizer improved.<br>
       7.7.2-7.7.3: Small changes.<br>
       7.7.4: Small bug fixed.<br>
-      7.7.5–7.7.6: Image resizer improved.<br>
+      7.7.5 – 7.7.6: Image resizer improved.<br>
       7.7.7: Small changes.<br>
       7.7.8: Isometric level subsystem improved.<br>
-      7.7.9—Isometric subsystem improved.<br>
+      7.7.9: Isometric subsystem improved.<br>
       7.8: Small changes.<br>
-      7.8.1—Isometric subsystem improved.<br>
-      7.8.2–7.8.3: Small changes.<br>
+      7.8.1: Isometric subsystem improved.<br>
+      7.8.2 – 7.8.3: Small changes.<br>
       7.8.4: Isometric level subsystem improved.<br>
-      7.8.5 – Small changes.<br>
+      7.8.5: Small changes.<br>
       7.8.6: Animation subsystem improved.<br>
       7.8.7: Sprite sheet subsystem improved.<br>
-      7.8.8 – Small changes.<br>
+      7.8.8 : Small changes.<br>
       7.8.9: The base sprite subsystem improved.<br>
       7.9: Text drawing subsystem improved.<br>
-      7.9.1—Base sprite subsystem improved.<br>
+      7.9.1: Base sprite subsystem improved.<br>
       7.9.2: Background subsystem improved.<br>
       7.9.3: New subsystem added.<br>
       7.9.4: New subsystem added.<br>
-      7.9.5–7.9.6: Small changes.<br>
+      7.9.5 – 7.9.6: Small changes.<br>
       7.9.7: Base Sprite Subsystem Improved.<br>
       7.9.8: Image loader improved.<br>
       7.9.9: Small changes.<br>
-      8.0–8.0.2: Image resizer improved.<br>
-      8.0.3–8.0.5: Small changes.<br>
+      8.0 – 8.0.2: Image resizer improved.<br>
+      8.0.3 – 8.0.5: Small changes.<br>
       8.0.6: Image resizer backported from the Eugene game development kit 7.9.9.<br>
       8.0.7: Image resizer improved.<br>
-      8.0.8–8.0.9: Texture loader improved.<br>
-      8.1–8.1.1—Picture subsystem improved.<br>
+      8.0.8 – 8.0.9: Texture loader improved.<br>
+      8.1 – 8.1.1: Picture subsystem improved.<br>
       8.1.2: Image resizer backported from Eugene game development kit 8.0.5.<br>
       8.1.3: Texture loader improved.<br>
       8.1.4: Small changes.<br>
       8.1.5: Image resizer improved.<br>
-      8.1.6–8.1.7: Small changes.<br>
+      8.1.6 – 8.1.7: Small changes.<br>
       8.1.8: Small bug in the tile-map subsystem fixed.<br>
       8.1.9: Small bug with keyboard input subsystem and mouse input subsystem fixed.<br>
       8.2: Ordinary sprite subsystem improved.<br>
       8.2.1: Background subsystem improved.<br>
       8.2.2: Render performance increased.<br>
-      8.2.3–8.2.8: Small changes.<br>
+      8.2.3 – 8.2.8: Small changes.<br>
       8.2.9: Render performance increased.<br>
       8.3: Small bug fixed.<br>
       8.3.1: Small changes.<br>
@@ -2896,62 +2915,62 @@
       8.3.3: Animation subsystem improved.<br>
       8.3.4: Background subsystem improved.<br>
       8.3.5: Source code synced with Neon game development kit 7.2.9.<br>
-      8.3.6 – Small changes.<br>
+      8.3.6: Small changes.<br>
       8.3.7: Source code synced with Neon game development kit 7.3.<br>
       8.3.8: Source code synced with Neon game development kit 7.3.1.<br>
       8.3.9: Source code synced with Neon game development kit 7.3.2.<br>
       8.4: Source code synced with Neon game development kit 7.3.3.<br>
       8.4.1: Small changes.<br>
       8.4.2: Base graphics subsystem improved.<br>
-      8.4.3–8.4.5: Small changes.<br>
-      8.4.5.1 – Documentation updated.<br>
+      8.4.3 – 8.4.5: Small changes.<br>
+      8.4.5.1: Documentation updated.<br>
       8.4.6: Small changes.<br>
-      8.4.7–8.4.8—Picture subsystem improved.<br>
+      8.4.7 – 8.4.8: Picture subsystem improved.<br>
       8.4.9: Image loader improved.<br>
       8.5: Small changes.<br>
       8.5.0.1: Documentation updated.<br>
-      8.5.1–8.5.5: Small changes.<br>
-      8.5.6–8.5.7: Image loader improved.<br>
-      8.5.8–8.6.4: Small changes.<br>
+      8.5.1 – 8.5.5: Small changes.<br>
+      8.5.6 – 8.5.7: Image loader improved.<br>
+      8.5.8 – 8.6.4: Small changes.<br>
       8.6.5: Render improved.<br>
       8.6.6: The collision detection subsystem improved.<br>
-      8.6.7–8.6.9: Small changes.<br>
+      8.6.7 – 8.6.9: Small changes.<br>
       8.7: Sprite sheet subsystem improved.<br>
-      8.7.1 – Small bug fixed.<br>
+      8.7.1: Small bug fixed.<br>
       8.7.2: Small changes.<br>
-      8.7.3 – Small bug fixed.<br>
+      8.7.3: Small bug fixed.<br>
       8.7.4: Source code synced with Black Game Development Kit 5.6.8.<br>
       8.7.5: Source code synced with Black Game Development Kit 5.6.9.<br>
-      8.7.6–8.7.9: Small changes.<br>
+      8.7.6 – 8.7.9: Small changes.<br>
       8.8: Source code synced with Black Game Development Kit 5.7.6.<br>
       8.8.1: Synchronization timer backported from Neon game development kit 7.5.8.<br>
       8.8.2: Synchronization timer backported from Neon game development kit 7.7.7.<br>
       8.8.3: Memory subsystem improved.<br>
       8.8.4: Small bug fixed.<br>
-      8.8.5 – Small changes.<br>
+      8.8.5: Small changes.<br>
       8.8.6: Source code synced with Black Game Development Kit 5.8.2.<br>
       8.8.7: Image resizer improved.<br>
       8.8.8: Animation subsystem improved.<br>
       8.8.9: Source code synced with Black Game Development Kit 5.8.7.<br>
       8.9: Source code synced with Black Game Development Kit 5.8.8.<br>
-      8.9.0.1 – Documentation updated.<br>
+      8.9.0.1: Documentation updated.<br>
       8.9.1: Synchronization timer backported from Eugene game development kit 8.8.1.<br>
       8.9.2: Source code synced with Black Game Development Kit 5.9.<br>
       8.9.3: Source code synced with Black Game Development Kit 5.9.4.<br>
       8.9.4: Source code synced with Black Game Development Kit 5.9.6.<br>
       8.9.5: Keyboard input subsystem backported from Neon game development kit 7.9.1.<br>
-      8.9.6–8.9.7: Code-page convertor improved.<br>
-      8.9.8–8.9.9: Small changes.<br>
+      8.9.6 – 8.9.7: Code-page converter improved.<br>
+      8.9.8 – 8.9.9: Small changes.<br>
       9.0: Small bug fixed.<br>
-      9.0.1 – Small changes.<br>
+      9.0.1: Small changes.<br>
       9.0.2: Source code synced with Black Game Development Kit 6.0.3.<br>
       9.0.3: Small changes.<br>
       9.0.4: Base sprite subsystem improved.<br>
       9.0.5: Background subsystem improved.<br>
       9.0.6: Text drawing subsystem improved.<br>
-      9.0.7–9.0.8: Small changes.<br>
+      9.0.7 – 9.0.8: Small changes.<br>
       9.0.9: Image resizer improved.<br>
       9.1: Small changes.<br>
-    </big>
+    </big><big>9.1.0.1: Documentation updated.</big><br>
   </body>
 </html>
