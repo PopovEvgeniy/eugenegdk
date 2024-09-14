@@ -2,13 +2,6 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=windows-1251">
     <title>Programmer reference</title>
-    <meta name="generator" content="quillbot-gc">
-    <meta name="generator" content="quillbot-gc">
-    <meta name="generator" content="quillbot-gc">
-    <meta name="generator" content="quillbot-gc">
-    <meta name="generator" content="quillbot-gc">
-    <meta name="generator" content="quillbot-gc">
-    <meta name="generator" content="quillbot-gc">
   </head>
   <body>&nbsp;
     <div>
@@ -161,7 +154,7 @@
       </li>
     </ul>
     <p><big>Add it to your project.<br>
-        Add this directive to your code: #include "eugenegdk.h"<br>
+        Add this directive to your code: <i>#include "eugenegdk.h"</i><br>
         Yes. This is really all you need to do.<br>
         <br>
         <span style="text-decoration: underline;">Feedback</span><br>
@@ -585,6 +578,7 @@
         image with few frames. The horizontal-oriented scrolling backgrounds
         look like the horizontal-oriented photo ribbons. Vertically oriented
         scrolling backgrounds look like the vertically-oriented photo ribbons.<span
+
           style="text-decoration: underline;"><br>
         </span></big></p>
     <p><big><span style="text-decoration: underline;"></span></big><big><span style="text-decoration: underline;">Work
@@ -734,6 +728,7 @@
           background);</span> – Load a background </big><big>from the buffer.</big><big><br>
         <br>
       </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
+
         style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
         – Load a background from the target file.</big><br>
       <big><br>
@@ -920,7 +915,6 @@
         <br>
         Just use the <span style="font-style: italic;">Sprite</span> class to
         work with a sprite. It is derived from three classes: </big><big><span
-
           style="font-style: italic;">Billboard</span>, <span style="font-style: italic;">Animation,</span>
         and <span style="font-style: italic;">Picture. </span></big><big>Let's
         look at the publicly available methods.<br>
@@ -1099,8 +1093,8 @@
         sheet is not empty.<br>
         <br>
         <span style="font-style: italic;">void Sheet::clone(Sheet &amp;target);</span>
-        – Create a copy of the sprite sheet if the storage of the target sheet
-        sprite is not empty.<br>
+        – Create a copy of the sprite sheet if the storage of the target sprite
+        sheet is not empty.<br>
         <br>
         <span style="text-decoration: underline;"> A sprite sheet texture</span><br>
         <br>
@@ -1236,7 +1230,7 @@
         <span style="font-style: italic;"> </span></big><big><span style="font-style: italic;">unsigned
           char *</span></big><big><span style="font-style: italic;">Image::load(const
           char *name);</span> – Load a Truevision TGA image and return handle to
-        image buffer.<br>
+        the image buffer.<br>
         <br>
         <span style="font-style: italic;">unsigned char *Image::get_data();</span>
         – Return handle to the image buffer.<br>
@@ -1362,8 +1356,8 @@
     <p><big><span style="text-decoration: underline;">A few words about
           isometric games</span><br>
         <br>
-        <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometr<span
-            style="color: black;">y</span></a> is a very popular way for
+        <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometry<span
+            style="color: black;"></span></a> is a very popular way for
         pseudo-3D games. Many old-school games are isometric games.<br>
         <br>
       </big><big><span style="text-decoration: underline;">Cartesian coordinates
@@ -1618,7 +1612,6 @@
         – Return true if the column is valid.<br>
         <br>
         <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big
-
         style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
         int row,const unsigned int column</big><big><span style="font-style: italic;">)
           const;</span> – Return the collision-related information.<br>
@@ -1664,10 +1657,10 @@
         used.</big><big><br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId950985"></a><big>Chapter 3. Audio</big></h2>
-    <p><big><span style="text-decoration: underline;">A few words about audio
-          subsystem</span><br>
+    <p><big><span style="text-decoration: underline;">A few words about the
+          audio subsystem</span><br>
         <br>
-        Audio subsystem intended for playing music and sounds. <a href="https://en.wikipedia.org/wiki/WAV">Waveform
+        This subsystem is intended for playing music and sounds. <a href="https://en.wikipedia.org/wiki/WAV">Waveform
           Audio File Format</a>, <a href="https://en.wikipedia.org/wiki/MP3">MPEG
           Audio Layer 3,</a> and <a href="https://en.wikipedia.org/wiki/Windows_Media_Audio">Windows
           Media Audio</a> are supported.<br>
@@ -1678,8 +1671,8 @@
         <br>
         <span style="text-decoration: underline;"> Working with audio</span><br>
         <br>
-        Just use <span style="font-style: italic;">Audio</span> class to work
-        with audio. Let's look at the publicly available methods.<br>
+        Just use the <span style="font-style: italic;">Audio</span> class to
+        work with audio. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> void Audio::initialize();</span> –
         Initialize the subsystem.<br>
@@ -1709,9 +1702,9 @@
     <h1><a class="mozTocH1" name="mozTocId209024"></a><big>Part 7. Misc</big></h1>
     <h2><a class="mozTocH2" name="mozTocId608755"></a><big>Chapter 1. File
         system</big></h2>
-    <p><big>File system subsystems implement two simple functions. All these
-        functions are declared in <span style="font-style: italic;">the
-          Filesystem</span> sub-namespace.<br>
+    <p><big>This module is implemented as a two simple functions. All these
+        functions are declared in the <span style="font-style: italic;">Filesystem</span>
+        sub-namespace.<br>
         <br>
         <span style="font-style: italic;"> file_exist</span> check the target
         file to see if one exists.<br>
@@ -1723,7 +1716,7 @@
         if the operation was failed.</big><br>
       <big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId59386"></a><big>Chapter 2. Tools</big></h2>
-    <p><big>This module implemented a few functions</big><big>. All these
+    <p><big>This module is implemented as a few functions</big><big>. All these
         functions are declared in <span style="font-style: italic;">Tools</span>
         sub-namespace.<br>
         <br>
@@ -1859,7 +1852,7 @@
         <br>
         <span style="font-style: italic;"> bool Keyboard::check_hold(const
           unsigned char code);</span> – Return true if key with specific
-        scan-code is pressing or holding.<br>
+        scan-code is pressed or held.<br>
         <br>
         <span style="font-style: italic;"> bool Keyboard::check_press(const
           unsigned char code);</span> – Return true if key with specific
@@ -2133,7 +2126,7 @@
         <br>
         <span style="text-decoration: underline;"> Working with the mouse</span><br>
         <br>
-        Just use <span style="font-style: italic;">the Mouse</span> class to
+        Just use the<span style="font-style: italic;"> Mouse</span> class to
         work with a mouse. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> void Mouse::show();</span> – Show the
@@ -2164,7 +2157,7 @@
         button was released.</big></p>
     <p><big><span style="text-decoration: underline;">Mouse buttons</span><br>
       </big></p>
-    <p><big>Mouse button codes look as predefined constants. You can see it
+    <p><big>Mouse button codes look like predefined constants. You can see it
         below.</big></p>
     <p><big> </big></p>
     <table border="1">
@@ -2209,7 +2202,7 @@
         <br>
         <span style="text-decoration: underline;"> D-Pad button codes</span><br>
       </big></p>
-    <p><big>D-Pad button codes look as predefined constants. You can see it
+    <p><big>D-Pad button codes look like predefined constants. You can see it
         below.</big></p>
     <p><big> </big></p>
     <table border="1">
@@ -2258,7 +2251,7 @@
     </table>
     <p><big><span style="text-decoration: underline;">Sticks identifiers</span><br>
       </big></p>
-    <p><big>Sticks identifiers look as predefined constants. You can see it
+    <p><big>Sticks identifiers look like predefined constants. You can see it
         below.</big></p>
     <p><big> </big></p>
     <table border="1">
@@ -2832,7 +2825,7 @@
       7.0.2: Small changes.<br>
       7.0.3: Small bug fixed.<br>
       7.0.4 – 7.0.6: Game-pad support improved.<br>
-      7.0.7&nbsp; –&nbsp; Small changes.<br>
+      7.0.7: Small changes.<br>
       7.0.8 – 7.1.6: Game-pad support improved.<br>
       7.1.7: Small changes.<br>
       7.1.8 – 7.2: Image resizer improved.<br>
@@ -2971,6 +2964,6 @@
       9.0.7 – 9.0.8: Small changes.<br>
       9.0.9: Image resizer improved.<br>
       9.1: Small changes.<br>
-    </big><big>9.1.0.1: Documentation updated.</big><br>
+    </big><big>9.1.0.1 </big><big>– 9.1.0.2:</big><big> Documentation updated.</big><br>
   </body>
 </html>
