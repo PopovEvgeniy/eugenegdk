@@ -3,7 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=windows-1251">
     <title>Programmer reference</title>
   </head>
-  <body>&nbsp;
+  <body>
     <div>
       <div style="text-align: center;"><big>Eugene game development kit:
           programmer reference</big></div>
@@ -124,10 +124,9 @@
         <br>
         Hello from Russia. My name is Popov Evgeniy Alekseyevich. I am the
         individual programmer. I enjoy creating software. I also like the
-        old-school video games. Do you want to develop a video games for
-        Microsoft Windows? You need a good game engine for doing it. I made my
-        own engine. I hope that my C++ game engine will be useful for many
-        programmers.<br>
+        old-school video games. Do you want to develop video games for Microsoft
+        Windows? You need a good game engine for doing it. I made my own engine.
+        I hope that my C++ game engine will be useful for many programmers.<br>
         <br>
         <span style="text-decoration: underline;"> Features</span><br>
         <br>
@@ -224,14 +223,14 @@
         &nbsp; The above copyright notice and this permission notice shall be
         included<br>
         &nbsp;in all copies or substantial portions of the Materials.<br>
-        &nbsp; THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-        EXPRESS &nbsp;&nbsp; OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
-        WARRANTIES OF &nbsp;&nbsp; MERCHANTABILITY, FITNESS FOR A PARTICULAR
-        PURPOSE AND NONINFRINGEMENT. IN &nbsp;&nbsp; NO EVENT SHALL THE AUTHORS
-        OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, &nbsp;&nbsp; DAMAGES OR
-        OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR &nbsp;&nbsp;
-        OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE MATERIALS OR
-        THE &nbsp;&nbsp; USE OR OTHER DEALINGS IN THE MATERIALS.</big><br>
+        &nbsp; THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+        KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+        OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+        NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+        LIABLE FOR ANY CLAIM, &nbsp;&nbsp; DAMAGES OR OTHER LIABILITY, WHETHER
+        IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+        CONNECTION WITH THE MATERIALS OR THE USE OR OTHER DEALINGS IN THE
+        MATERIALS.</big><br>
     </p>
     <h2><a class="mozTocH2" name="mozTocId336772"></a><big>Chapter 4. System
         requirements</big></h2>
@@ -271,8 +270,8 @@
     <h2><a class="mozTocH2" name="mozTocId491993"></a><big>Chapter 6. Compilers</big></h2>
     <p><big>This engine was successfully tested with these compilers:</big> </p>
     <ul>
-      <li><a href="https://jmeubank.github.io/tdm-gcc/"><big>TDM–GCC</big></a></li>
-      <li><a href="http://mingw-w64.org/"><big>MINGW–w64</big></a></li>
+      <li><a href="https://jmeubank.github.io/tdm-gcc/"><big>TDM-GCC</big></a></li>
+      <li><a href="http://mingw-w64.org/"><big>MINGW-w64</big></a></li>
       <li><a href="http://openwatcom.org/"><big>Open Watcom</big></a></li>
       <li><big><a href="https://open-watcom.github.io/">Open Watcom V2 Fork</a><br>
         </big></li>
@@ -337,7 +336,7 @@
           Server 2003 SP1 Platform SDK</a> and <a href="https://archive.org/details/dxsdk_feb2005">DirectX
           SDK February 2005</a> if you are using Visual C++ 2005 Express.<br>
         <span style="text-decoration: underline;"></span><br>
-        <span style="text-decoration: underline;"> Note for Visual C++ users</span></big></p>
+        <span style="text-decoration: underline;"> Notes for Visual C++ users</span></big></p>
     <p><big> Disable pre-compiled headers before starting compilation. Old
         Visual C++ users can do it via the project creation wizard.<br>
         Visual C++ 2017 or higher users must follow these steps:<br>
@@ -347,7 +346,7 @@
       <li><big>Set the «Precomiled Header» option to «Not Using Precompiled
           Headers».</big></li>
     </ul>
-    <p><big><span style="text-decoration: underline;">Note for MINGW-w64 and
+    <p><big><span style="text-decoration: underline;">Notes for MINGW-w64 and
           TDM-GCC users</span></big></p>
     <p><big>Don't forget to link your program with these files: </big></p>
     <ul>
@@ -449,7 +448,7 @@
         false if a game is terminated.<br>
         <br>
         <span style="font-style: italic;"> bool Screen::is_ready();</span> –
-        Return true if the subsystem is already initialized.<br>
+        Return true if the subsystem has already been initialized.<br>
         <br>
         <span style="font-style: italic;"> bool Screen::is_accelerated() const;</span>
         – Return true if render is hardware-accelerated.<br>
@@ -578,7 +577,6 @@
         image with few frames. The horizontal-oriented scrolling backgrounds
         look like the horizontal-oriented photo ribbons. Vertically oriented
         scrolling backgrounds look like the vertically-oriented photo ribbons.<span
-
           style="text-decoration: underline;"><br>
         </span></big></p>
     <p><big><span style="text-decoration: underline;"></span></big><big><span style="text-decoration: underline;">Work
@@ -649,7 +647,7 @@
         Destroy a background image and the texture.<br>
         <br>
       </big><big><span style="font-style: italic;">bool Background::is_load()
-          const;</span> – Return true if a background is already loaded.</big><br>
+          const;</span> – Return true if a background has already been loaded.</big><br>
       <big><br>
         <span style="font-style: italic;">bool Background::is_last_frame()
           const;</span> – Return true if the current frame is the last frame.<br>
@@ -728,7 +726,6 @@
           background);</span> – Load a background </big><big>from the buffer.</big><big><br>
         <br>
       </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
-
         style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
         – Load a background from the target file.</big><br>
       <big><br>
@@ -742,7 +739,7 @@
         Destroy a background image and destroy the texture.<br>
         <br>
       </big><big><span style="font-style: italic;">bool Scene::is_load() const;</span>
-        – Return true if a static background is already loaded.</big><br>
+        – Return true if a static background has already been loaded.</big><br>
       <br>
       <big><span style="font-style: italic;">unsigned int Scene::get_width()
           const;</span> – Return the width of the background.<br>
@@ -857,7 +854,7 @@
           const;</span> – Return the height of the sprite.<br>
         <br>
       </big><big><span style="font-style: italic;">bool Billboard::is_load()
-          const;</span> – Return true if the sprite is already loaded.</big><br>
+          const;</span> – Return true if the sprite has already been loaded.</big><br>
       <big><br>
       </big><big><span style="font-style: italic;">EUGENEGDK::BOX
           Billboard::get_box() const;</span> – Return collision-related
@@ -1153,7 +1150,7 @@
         orientation.<br>
         <br>
       </big><big><span style="font-style: italic;">bool Text::is_font_load()
-          const;</span> – Return true if the font is already loaded.</big><br>
+          const;</span> – Return true if the font has already been loaded.</big><br>
       <br>
       <big><span style="font-style: italic;">unsigned int Text::get_font_width()
           const;</span> – Get the current font width in pixels.<br>
@@ -1844,7 +1841,7 @@
         <br>
         <span style="text-decoration: underline;"> Working with the keyboard</span><br>
         <br>
-        Just use <span style="font-style: italic;">Keyboard</span> class to
+        Just use the <span style="font-style: italic;">Keyboard</span> class to
         work with a keyboard. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> void Keyboard::initialize();</span> –
@@ -2121,8 +2118,8 @@
     <h2><a class="mozTocH2" name="mozTocId686993"></a><big>Chapter 3. Mouse</big></h2>
     <p><big><span style="text-decoration: underline;">A few words about mice</span><br>
         <br>
-        Mouse is very useful for interaction with graphical user interface. But
-        the mouse can also be used in video games.<br>
+        A mouse is very useful for interaction with a graphical user interface.
+        But the mouse can also be used in video games.<br>
         <br>
         <span style="text-decoration: underline;"> Working with the mouse</span><br>
         <br>
@@ -2192,8 +2189,7 @@
           Game-Pads</span><br>
         <br>
         You can connect a few Game-Pads. Any connected gamepad has an internal
-        index. First gamepad is 0. First Gamepad will activate by default at
-        program start.<br>
+        index. The first gamepad index is 0. It will activated by default.<br>
         <br>
         <span style="text-decoration: underline;"> Ordinary button codes</span><br>
         <br>
@@ -2213,7 +2209,7 @@
         </tr>
         <tr>
           <td><big>GAMEPAD_NONE </big></td>
-          <td><big>None of the D-Pad buttons are pressed or holding. </big></td>
+          <td><big>None of the D-Pad buttons are pressed or held down. </big></td>
         </tr>
         <tr>
           <td><big>GAMEPAD_UP </big></td>
@@ -2323,8 +2319,8 @@
           style="font-style: italic;"><br>
         </span></big></p>
     <p><big><span style="font-style: italic;">EUGENEGDK::GAMEPAD_DPAD
-          Gamepad::get_dpad() const;</span> – Return code of current pressed or
-        holding D-Pad button.<br>
+          Gamepad::get_dpad() const;</span> – Return the code of the pressed or
+        held D-Pad button.<br>
         <br>
         <span style="font-style: italic;"> bool Gamepad::check_hold(const
           EUGENEGDK::GAMEPAD_BUTTONS button) const;</span> – Return true if the
@@ -2346,19 +2342,19 @@
         <br>
         <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
           Gamepad::get_left_stick_x() const;</span> – Return the x-direction of
-        left stick.<br>
+        the left stick.<br>
         <br>
         <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
           Gamepad::get_left_stick_y() const;</span> – Return the y-direction of
-        left stick.<br>
+        the left stick.<br>
         <br>
         <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
           Gamepad::get_right_stick_x() const;</span> – Return the x-direction of
-        right stick.<br>
+        the right stick.<br>
         <br>
         <span style="font-style: italic;"> EUGENEGDK::GAMEPAD_DIRECTION
           Gamepad::get_right_stick_y() const;</span> – Return the y-direction of
-        right stick.<br>
+        the right stick.<br>
       </big></p>
     <h1><a class="mozTocH1" name="mozTocId54918"></a><big>Part 10. Internal
         details of the engine subsystems</big></h1>
@@ -2508,7 +2504,7 @@
       1.1.8 – 1.2.5: Small changes.<br>
       1.2.6: Small bug fixed.<br>
       1.2.7: Small changes.<br>
-      1.2.8: Render performance increased.<br>
+      1.2.8: Rendering performance increased.<br>
       1.2.9: Windows 2000 support added.<br>
       1.3: Small changes.<br>
       1.3.1: Image resizer improved.<br>
@@ -2527,7 +2523,7 @@
       1.4.7 – 1.4.8: Sprite subsystem improved.<br>
       1.4.9: Text subsystem improved.<br>
       1.5: Small changes.<br>
-      1.5.1: Optional software render added.<br>
+      1.5.1: Optional software rendering added.<br>
       1.5.2 – 1.5.7: Small changes.<br>
       1.5.8: Keyboard input improved.<br>
       1.5.9: Mouse input improved.<br>
@@ -2680,7 +2676,7 @@
       4.4.9.1: Documentation updated.<br>
       4.5 – 4.5.3: Small changes.<br>
       4.5.4: Gamepad support improved.<br>
-      4.5.5 – 4.5.7: Render improved.<br>
+      4.5.5 – 4.5.7: Rendering improved.<br>
       4.5.8 – 4.6.2: Small changes.<br>
       4.6.3: Image resizer improved.<br>
       4.6.4: Small changes.<br>
@@ -2691,7 +2687,7 @@
       4.7.1 – 4.7.2: Small changes.<br>
       4.7.3: Changes in the engine API.<br>
       4.7.4 – 4.8: Small changes.<br>
-      4.8.1 – 4.8.3: Render improved.<br>
+      4.8.1 – 4.8.3: Rendering improved.<br>
       4.8.4 – 4.8.6: Small changes.<br>
       4.8.7: Keyboard input improved.<br>
       4.8.8 – 4.8.9: Display manager improved.<br>
@@ -2801,14 +2797,14 @@
       6.7.4: Background subsystem improved.<br>
       6.7.5: Text drawing subsystem improved.<br>
       6.7.6: Sprite subsystem improved.<br>
-      6.7.7: Render performance increased.<br>
+      6.7.7: Rendering performance increased.<br>
       6.7.8 – 6.7.9: Image loader improved.<br>
       6.8: Small changes.<br>
       6.8.1: Ordinary sprite subsystem improved.<br>
       6.8.2: Small changes.<br>
       6.8.3: Multimedia subsystem replaced by audio subsystem.<br>
       6.8.4: Image loader improved.<br>
-      6.8.5: Render performance increased.<br>
+      6.8.5: Rendering performance increased.<br>
       6.8.6: Audio subsystem improved.<br>
       6.8.7: Small changes.<br>
       6.8.8 – 6.9.1: Game-pad subsystem improved.<br>
@@ -2834,7 +2830,7 @@
       7.2.5: Small changes.<br>
       7.2.6 – 7.2.9: Image resizer improved.<br>
       7.3 – 7.3.1: Small changes.<br>
-      7.3.2: Small render bug fixed.<br>
+      7.3.2: Small rendering bug fixed.<br>
       7.3.3: Animation subsystem backported from Eugene game development kit 5.6.2.<br>
       7.3.4: Background subsystem improved.<br>
       7.3.5: Small changes.<br>
@@ -2899,12 +2895,12 @@
       8.1.9: Small bug with keyboard input subsystem and mouse input subsystem fixed.<br>
       8.2: Ordinary sprite subsystem improved.<br>
       8.2.1: Background subsystem improved.<br>
-      8.2.2: Render performance increased.<br>
+      8.2.2: Rendering performance increased.<br>
       8.2.3 – 8.2.8: Small changes.<br>
-      8.2.9: Render performance increased.<br>
+      8.2.9: Rendering performance increased.<br>
       8.3: Small bug fixed.<br>
       8.3.1: Small changes.<br>
-      8.3.2: Render performance increased.<br>
+      8.3.2: Rendering performance increased.<br>
       8.3.3: Animation subsystem improved.<br>
       8.3.4: Background subsystem improved.<br>
       8.3.5: Source code synced with Neon game development kit 7.2.9.<br>
@@ -2925,7 +2921,7 @@
       8.5.1 – 8.5.5: Small changes.<br>
       8.5.6 – 8.5.7: Image loader improved.<br>
       8.5.8 – 8.6.4: Small changes.<br>
-      8.6.5: Render improved.<br>
+      8.6.5: Rendering improved.<br>
       8.6.6: The collision detection subsystem improved.<br>
       8.6.7 – 8.6.9: Small changes.<br>
       8.7: Sprite sheet subsystem improved.<br>
@@ -2964,6 +2960,6 @@
       9.0.7 – 9.0.8: Small changes.<br>
       9.0.9: Image resizer improved.<br>
       9.1: Small changes.<br>
-    </big><big>9.1.0.1 </big><big>– 9.1.0.2:</big><big> Documentation updated.</big><br>
+      9.1.0.1 – 9.1.0.3: Documentation updated.</big><br>
   </body>
 </html>
