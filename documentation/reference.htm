@@ -30,7 +30,7 @@
       <li><a href="#mozTocId859712">Part 2. Base things</a>
         <ul>
           <li><a href="#mozTocId312970">Chapter 1. Coordinate system</a></li>
-          <li><a href="#mozTocId544184">Chapter 2. A game cycle</a></li>
+          <li><a href="#mozTocId544184">Chapter 2. Game cycle</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId749937">Part 3. Graphics</a>
@@ -223,14 +223,13 @@
         &nbsp; The above copyright notice and this permission notice shall be
         included<br>
         &nbsp;in all copies or substantial portions of the Materials.<br>
-        &nbsp; THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
-        KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-        OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-        NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-        LIABLE FOR ANY CLAIM, &nbsp;&nbsp; DAMAGES OR OTHER LIABILITY, WHETHER
-        IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-        CONNECTION WITH THE MATERIALS OR THE USE OR OTHER DEALINGS IN THE
-        MATERIALS.</big><br>
+        &nbsp; THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+        EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+        MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+        IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+        CLAIM, &nbsp;&nbsp; DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+        CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH
+        THE MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.</big><br>
     </p>
     <h2><a class="mozTocH2" name="mozTocId336772"></a><big>Chapter 4. System
         requirements</big></h2>
@@ -382,8 +381,7 @@
         understand it.</big></p>
     <p><img style="width: 107px; height: 111px;" alt="" src="coordinate_system.png"><br>
     </p>
-    <h2><a class="mozTocH2" name="mozTocId544184"></a><big>Chapter 2. A game
-        cycle</big><br>
+    <h2><a class="mozTocH2" name="mozTocId544184"></a><big>Chapter 2. Game cycle</big><br>
     </h2>
     <p><big>What is the main point in your game? A game cycle. You can see the
         structure of a typical game cycle below.</big></p>
@@ -481,7 +479,7 @@
         subsystem</big></h2>
     <p><big><span style="text-decoration: underline;">An important subsystem</span><br>
         <br>
-        Picture subsystems implement image storage.<br>
+        The picture subsystem implements the image storage.<br>
         <br>
       </big><big><span style="text-decoration: underline;"> Work with the
           picture subsystem</span><br>
@@ -509,7 +507,7 @@
         pixels.<br>
         <br>
         <span style="font-style: italic;">size_t Picture::get_pixel_amount()
-          const;</span> – Return the amount of image pixels.<br>
+          const;</span> – Return the amount of the image pixels.<br>
         <br>
       </big><big><span style="font-style: italic;">size_t
           Picture::get_image_lenght() const;</span> – Return the image length in
@@ -519,7 +517,7 @@
         subsystem</big></h2>
     <p><big><span style="text-decoration: underline;">An important subsystem</span><br>
         <br>
-        The animation subsystem lets you control animation frames.<br>
+        The animation subsystem lets you control the animation frames.<br>
         <br>
         <span style="text-decoration: underline;"> Frame indexing</span></big></p>
     <p><big>The first frame index is 1.<br>
@@ -726,6 +724,7 @@
           background);</span> – Load a background </big><big>from the buffer.</big><big><br>
         <br>
       </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
+
         style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
         – Load a background from the target file.</big><br>
       <big><br>
@@ -818,19 +817,19 @@
         <br>
       </big> <big><em>unsigned int Billboard::increase_x(const unsigned int
           increment);</em> – Increase </big><big> the </big><big>x-coordinate
-        with user value and return </big><big> the </big><big>it.<br>
+        with the user value and return </big><big> the </big><big>it.<br>
         <br>
       </big> <big><em>unsigned int Billboard::decrease_x(const unsigned int
           decrement);</em> – Decrease </big><big> the </big><big>x-coordinate
-        with user value and return </big><big>it</big><big>.<br>
+        with the user value and return </big><big>it</big><big>.<br>
         <br>
       </big> <big><em>unsigned int Billboard::increase_y(const unsigned int
           increment);</em> – Increase </big><big> the </big><big>y-coordinate
-        with user value and return </big><big> the </big><big>it</big><big>.<br>
+        with the user value and return </big><big> the </big><big>it</big><big>.<br>
         <br>
       </big> <big><em>unsigned int Billboard::decrease_y(const unsigned int
           decrement);</em> - Decrease </big><big> the </big><big>y-coordinate
-        with user value and return </big><big> it</big><big>.<br>
+        with the user value and return </big><big> it</big><big>.<br>
         <br>
         <span style="font-style: italic;">unsigned int Billboard::get_start_x()
           const;</span> – Return </big><big> the </big><big>x-coordinate of </big><big>
@@ -857,7 +856,7 @@
           const;</span> – Return true if the sprite has already been loaded.</big><br>
       <big><br>
       </big><big><span style="font-style: italic;">EUGENEGDK::BOX
-          Billboard::get_box() const;</span> – Return collision-related
+          Billboard::get_box() const;</span> – Return the collision-related
         information.<br>
         <br>
         <span style="font-style: italic;">void Billboard::disable_mirror();</span>
@@ -1446,13 +1445,13 @@
         – Get a column</big><big> from the target point.<br>
         <br>
         <span style="font-style: italic;">int World::get_row_amount() const;</span>
-        – Get the maximum number of visible rows.<br>
+        – Get the maximum number of the visible rows.<br>
         <br>
         <span style="font-style: italic;">int World::get_column_amount() const;</span>
-        – Get the maximum number of visible columns.<br>
+        – Get the maximum number of the visible columns.<br>
         <br>
         <span style="font-style: italic;">int World::get_tile_amount() const;</span>
-        – Get the maximum number visible of isometric tiles.<br>
+        – Get the maximum number of visible isometric tiles.<br>
       </big><big></big><big></big></p>
     <h1><a class="mozTocH1" name="mozTocId64443"></a><big>Part 5. Common things</big></h1>
     <h2><a class="mozTocH2" name="mozTocId597525"></a><big>Chapter 1. The
@@ -1470,7 +1469,7 @@
           *message);</span> Terminate the program. Write an error message to the
         log file if logging is enabled.</big><big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 3. Timer</big></h2>
-    <p><big> A timer is a very useful thing. Just use <span style="font-style: italic;">the
+    <p><big> A timer is a very useful thing. Just use the <span style="font-style: italic;">
           Timer</span> class to work with the timer. Let's look at the publicly
         available methods.<br>
         <br>
@@ -1506,6 +1505,7 @@
         <span style="font-style: italic;">&nbsp;unsigned int y;</span><br>
         <span style="font-style: italic;">&nbsp;unsigned int width;</span><br>
         <span style="font-style: italic;">&nbsp;unsigned int height;</span><span
+
           style="font-style: italic;"><br>
           } BOX;</span><br>
         <br>
@@ -1588,17 +1588,17 @@
       </big><big style="font-style: italic;">unsigned int</big><big style="font-style: italic;">
         Tilemap::get_row_amount(const </big><big style="font-style: italic;">unsigned
         int viewport_width</big><big><span style="font-style: italic;">) const;</span>
-        – Get the maximum number of visible rows.<br>
+        – Get the maximum number of the visible rows.<br>
         <br>
       </big><big style="font-style: italic;">unsigned int </big><big style="font-style: italic;">Tilemap::get_column_amount(const
         </big><big style="font-style: italic;">unsigned int viewport_width</big><big><span
           style="font-style: italic;">) const;</span> – Get the maximum number
-        of visible columns.<br>
+        of the visible columns.<br>
         <br>
         <span style="font-style: italic;">unsigned int
           Tilemap::get_tile_amount(const unsigned int viewport_width, const
           unsigned int viewport_height) const;</span> – Get the maximum number
-        visible tiles.<br>
+        of the visible tiles.<br>
         <br>
         <span style="font-style: italic;">bool Tilemap::check_row(const unsigned
           int row,const unsigned int viewport_width) const;</span> – Return true
@@ -1725,18 +1725,19 @@
         log file and return false if the operation failed.<br>
         <br>
         <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big>
-        Initialize random number generator.<br>
+        Initialize the random number generator.<br>
         <br>
         <span style="font-style: italic;">unsigned int get_random(const int
           number); </span></big><big>–</big><big> Return a random value between
         zero and the number.<br>
         <br>
         <span style="font-style: italic;"> unsigned int get_texture_size();</span>
-      </big><big>–</big><big> Return maximum width or height of texture.<br>
+      </big><big>–</big><big> Return maximum the width or height of the texture.<br>
         <br>
         <span style="font-style: italic;">EUGENEGDK::BOX generate_box(const
           unsigned int x,const unsigned int y,const unsigned int width,const
-          unsigned int height);</span> – Generate collision-related information.<br>
+          unsigned int height);</span> – Generate the collision-related
+        information.<br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId573582"></a><big>Chapter 3. Resource
         Manager</big></h2>
@@ -1848,15 +1849,15 @@
         Initialize the subsystem.<br>
         <br>
         <span style="font-style: italic;"> bool Keyboard::check_hold(const
-          unsigned char code);</span> – Return true if key with specific
+          unsigned char code);</span> – Return true if a key with a specific
         scan-code is pressed or held.<br>
         <br>
         <span style="font-style: italic;"> bool Keyboard::check_press(const
-          unsigned char code);</span> – Return true if key with specific
+          unsigned char code);</span> – Return true if a key with a specific
         scan-code was pressed.<span style="font-style: italic;"><br>
         </span></big></p>
     <p><big><span style="font-style: italic;">bool Keyboard::check_release(const
-          unsigned char code);</span> – Return true if key with specific
+          unsigned char code);</span> – Return true if a key with a specific
         scan-code was released.<span style="font-style: italic;"><br>
         </span></big></p>
     <p><big><span style="font-style: italic;">bool Keyboard::is_ready() const;</span>
@@ -2189,7 +2190,7 @@
           Game-Pads</span><br>
         <br>
         You can connect a few Game-Pads. Any connected gamepad has an internal
-        index. The first gamepad index is 0. It will activated by default.<br>
+        index. The first gamepad index is 0. It will be activated by default.<br>
         <br>
         <span style="text-decoration: underline;"> Ordinary button codes</span><br>
         <br>
@@ -2397,11 +2398,11 @@
         UTF-16 converter.<br>
       </big><big><span style="font-style: italic;"> Render</span> implements the
         OPENGL render.<br>
-        <span style="font-style: italic;"> Resizer</span> intended to calculate
+        <span style="font-style: italic;"> Resizer</span> is intended to calculate
         the correct texture size.<br>
-        <span style="font-style: italic;"> Rectangle</span> intended to draw a
+        <span style="font-style: italic;"> Rectangle</span> is intended to draw a
         textured rectangle.<br>
-        <span style="font-style: italic;"> Shape</span> is the base class of <span
+        <span style="font-style: italic;"> Shape</span> is the base class of the <span
           style="font-style: italic;">Rectangle</span> class.<br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId293644"></a><big>Chapter 3. Base
@@ -2960,6 +2961,6 @@
       9.0.7 – 9.0.8: Small changes.<br>
       9.0.9: Image resizer improved.<br>
       9.1: Small changes.<br>
-      9.1.0.1 – 9.1.0.3: Documentation updated.</big><br>
+      9.1.0.1 – 9.1.0.4: Documentation updated.</big><br>
   </body>
 </html>
