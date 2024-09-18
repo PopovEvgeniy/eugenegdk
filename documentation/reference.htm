@@ -424,17 +424,19 @@
         Clear the screen. Fill it with black color.<br>
         <br>
         <span style="font-style: italic;"> void Screen::initialize();</span> –
-        Initializes the base graphic subsystem with default screen resolution.<br>
+        Initializes the base graphic subsystem with the default screen
+        resolution.<br>
         <br>
       </big><big style="font-style: italic;">void Screen::initialize(const
         unsigned int width,</big><big style="font-style: italic;"> const
         unsigned int height</big><big><span style="font-style: italic;">);</span>
-        – Initializes the base graphic subsystem with custom screen resolution.<br>
+        – Initializes the base graphic subsystem with the custom screen
+        resolution.<br>
         <br>
       </big><big><span style="font-style: italic;">bool Screen::sync();</span> –
         Show the current content of the back buffer on the screen. Return false
-        if a game is terminated. This method uses FPS limits and waits between
-        frames.<br>
+        if a game is terminated. This method uses the FPS limits and waits
+        between frames.<br>
         <br>
         <span style="font-style: italic;"> bool Screen::update();</span> – Show
         the current content of the back buffer on the screen. Return false if a
@@ -449,7 +451,7 @@
         Return true if the subsystem has already been initialized.<br>
         <br>
         <span style="font-style: italic;"> bool Screen::is_accelerated() const;</span>
-        – Return true if render is hardware-accelerated.<br>
+        – Return true if the render is hardware-accelerated.<br>
         <br>
         <span style="font-style: italic;"> bool Screen::is_software() const;</span>
         – Return true if the software render is active.<br>
@@ -530,7 +532,7 @@
         look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Animation::get_frames()
-          const;</span> – Return the number of frames.<br>
+          const;</span> – Return the number of the frames.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Animation::get_frame()
           const;</span> – Return the current frame.<br>
@@ -658,7 +660,7 @@
           Background::get_frame() const;</span> – Return the current frame.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Background::get_frames()
-          const;</span> – Return the number frames.<br>
+          const;</span> – Return the number of the frames.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Background::get_width()
           const;</span> – Return the width of the background.<br>
@@ -677,7 +679,7 @@
         <span style="text-decoration: underline;"> Important notice</span><br>
         <br>
         Always call the <span style="font-style: italic;">prepare</span> after
-        the background has loaded.<br>
+        the background has been loaded.<br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId946803"></a><big>Chapter 7. Static
         background</big></h2>
@@ -724,6 +726,7 @@
           background);</span> – Load a background </big><big>from the buffer.</big><big><br>
         <br>
       </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
+
         style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
         – Load a background from the target file.</big><br>
       <big><br>
@@ -752,7 +755,7 @@
         <br>
         <span style="text-decoration: underline;"> Important notice</span></big></p>
     <p><big>Always call the <span style="font-style: italic;">prepare</span>
-        after the background has loaded.<br>
+        after the background has been loaded.<br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId309905"></a><big>Chapter 8. Base
         sprite subsystem</big></h2>
@@ -874,12 +877,12 @@
         Set the sprite position to the start position.<br>
         <br>
       </big><big><span style="font-style: italic;">void Billboard::go_start_x();</span>
-        – Set </big><big>the x-coordinate of</big><big> the sprite position to the </big><big>x-coordinate
-        of</big><big> the start position.<br>
+        – Set </big><big>the x-coordinate of</big><big> the sprite position to
+        the </big><big>x-coordinate of</big><big> the start position.<br>
         <br>
       </big><big><span style="font-style: italic;">void Billboard::go_start_y();</span>
-        – Set the </big><big>y-coordinate of the</big><big> sprite position to the </big><big>y-coordinate
-        of the</big><big> start position.</big><br>
+        – Set the </big><big>y-coordinate of the</big><big> sprite position to
+        the </big><big>y-coordinate of the</big><big> start position.</big><br>
       <br>
       <big><span style="font-style: italic;">void Billboard::draw();</span> –
         Draw a sprite.<br>
@@ -1040,6 +1043,7 @@
           const;</span> – Return the row of the the target frame.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
+
         style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
           const;</span> – Return</big><big> column</big><big> </big><big>of the
         target frame</big><big>.<br>
@@ -1494,9 +1498,9 @@
         <br>
         <span style="text-decoration: underline;"> Collision detail</span><br>
       </big></p>
-    <p><big>The
-        detector uses the bounding box collision method to detect a collision.
-        The collision-related information is stored in a custom data type.<br>
+    <p><big>The detector uses the bounding box collision method to detect a
+        collision. The collision-related information is stored in a custom data
+        type.<br>
         <br>
         <span style="font-style: italic;"> typedef struct</span><span style="font-style: italic;"><br>
           {</span><br>
@@ -1648,8 +1652,8 @@
         in bytes.<br>
         <br>
         <span style="font-style: italic;"> unsigned long int
-          Memory::get_usage();</span> – Return the percentage of physical memory
-        used.</big><big><br>
+          Memory::get_usage();</span> – Return the percentage of the physical
+        memory used.</big><big><br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId950985"></a><big>Chapter 3. Audio</big></h2>
     <p><big><span style="text-decoration: underline;">A few words about the
@@ -1678,14 +1682,14 @@
         <span style="font-style: italic;"> void Audio::load(const char *target);</span>
         – Load a sound file.<br>
         <br>
-        <span style="font-style: italic;"> void Audio::play();</span> – Play the
-        content of the target file.<br>
+        <span style="font-style: italic;"> void Audio::play();</span> – Play a
+        sound.<br>
         <br>
         <span style="font-style: italic;"> void Audio::play_loop();</span> –
         Checking the playback status and restarting playback if needed. <br>
         <br>
         <span style="font-style: italic;">void Audio::play(const bool loop);</span>
-        – Play a sound. You can set the loop flag to true for loop mode.<br>
+        – Play a sound. You can set the loop mode if you want.<br>
         <br>
         <span style="font-style: italic;"> void Audio::stop();</span> – Stop
         playing the content of the target file.<br>
@@ -1744,11 +1748,10 @@
         functions are declared in <span style="font-style: italic;">Resource</span>
         sub-namespace.<br>
         <br>
-        <span style="font-style: italic;">create</span>
-        creates a resources. The first form of this function creates a single
-        resource. It takes a handle to a resource handle as an argument. The
-        second form creates an array of resources. It takes a handle to a
-        resource handle and a resource amount.<br>
+        <span style="font-style: italic;">create</span> creates a resources. The
+        first form of this function creates a single resource. It takes a handle
+        to a resource handle as an argument. The second form creates an array of
+        resources. It takes a handle to a resource handle and a resource amount.<br>
       </big></p>
     <p><big><span style="font-style: italic;"> destroy</span> delete a resource
         if it already exists. This function takes resource handle as an
@@ -2362,7 +2365,7 @@
         words for a curious programmer</big></h2>
     <p><big>The engine subsystems have a different internal structure. It has
         been hidden from you, and you don't have access to it. Do you want to
-        know about hiding things? Just read a next chapter.</big><br>
+        know about hidden things? Just read a next chapter.</big><br>
       <big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId318160"></a><big>Chapter 2. Internal
         classes</big></h2>
@@ -2960,6 +2963,6 @@
       9.0.7 – 9.0.8: Small changes.<br>
       9.0.9: Image resizer improved.<br>
       9.1: Small changes.<br>
-      9.1.0.1 – 9.1.0.5: Documentation updated.</big><br>
+      9.1.0.1 – 9.1.0.6: Documentation updated.</big><br>
   </body>
 </html>
