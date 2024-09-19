@@ -1,3 +1,4 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=windows-1251">
@@ -493,7 +494,7 @@
         look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> unsigned int *Picture::get_image();</span>
-        – Return handle to image storage.<br>
+        – Return the handle to the image storage.<br>
         <br>
       </big><big><span style="font-style: italic;">void
           Picture::destroy_image();</span> – Destroy an image in the storage.<br>
@@ -549,7 +550,7 @@
     <h2><a class="mozTocH2" name="mozTocId904725"></a><big>Chapter 5. Image kind</big></h2>
     <p><big>The image kinds look like the predefined constants. You can see it
         below.</big></p>
-    <table style="width: 661px; height: 106px;" border="1">
+    <table style="width: 681px; height: 106px;" border="1">
       <tbody>
         <tr>
           <td><big>Image kind<br>
@@ -570,17 +571,14 @@
     <h2><a class="mozTocH2" name="mozTocId738557"></a><big>Chapter 6. Background</big></h2>
     <p><big><span style="text-decoration: underline;">Level decoration</span><br>
         <br>
-        A background is a big image. It is like decoration on a theater stage.
+        A background is a big image </big><big>with a few frames</big><big>.
         Any game has a background. The background will be stretched to the
         screen resolution before rendering the game scene. The background
         transparency is always disabled.<br>
         <br>
-        There are two kinds of backgrounds: the horizontally oriented scrolling
-        backgrounds and the vertically oriented scrolling backgrounds. It is a big
-        image with few frames. The horizontal-oriented scrolling backgrounds
-        look like the horizontal-oriented photo ribbons. The vertically oriented
-        scrolling backgrounds look like the vertically-oriented photo ribbons.<span
-          style="text-decoration: underline;"><br>
+        The horizontal scrolling backgrounds look like the horizontal photo
+        ribbons. The vertical scrolling backgrounds look like the vertical photo
+        ribbons.<span style="text-decoration: underline;"><br>
         </span></big></p>
     <p><big><span style="text-decoration: underline;"></span></big><big><span style="text-decoration: underline;">Work
           with the background</span><br>
@@ -904,12 +902,10 @@
         sprites</big></h2>
     <p><big><span style="text-decoration: underline;">Sprite types</span><br>
         <br>
-        There are two kinds of ordinary sprites: horizontal strips and vertical
-        strips. It is a small image with few frames. Do you remember an analog
-        camera? The strips look like a photo ribbon.</big></p>
-    <p><big>The horizontal strip looks like the horizontally oriented photo
-        ribbon.<br>
-        The vertical strip looks like the vertically oriented photo ribbon.<br>
+        There are two kinds of ordinary sprites: the horizontal strips and the
+        vertical strips. It is a small image with a few frames.<br>
+        The horizontal strip looks like the horizontal photo ribbon. The
+        vertical strip looks like the vertical photo ribbon.<br>
       </big><big><br>
       </big><big><span style="text-decoration: underline;">Work with the sprites</span><br>
         <br>
@@ -1041,10 +1037,12 @@
         is valid.<br>
         <br>
       </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
+
         style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
           const;</span> – Return the row of the the target frame.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
+
         style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
           const;</span> – Return</big><big> column</big><big> </big><big>of the
         target frame</big><big>.<br>
@@ -1060,7 +1058,6 @@
           const;</span> – Return</big><big> the number of column</big><big>s.<br>
         <br>
       </big><big><span style="font-style: italic;">void Sheet::destroy()</span></big><big><span
-
           style="font-style: italic;">;</span> – </big><big><span style="font-style: italic;"></span>Destroy
         a sprite sheet image and the texture.<br>
         <br>
@@ -1416,8 +1413,8 @@
     <h2><a class="mozTocH2" name="mozTocId143616"></a><big>Chapter 4. Isometric
         Level<br>
       </big></h2>
-    <p><big> The isometric level subsystem intends to help you create isometric
-        levels. Just use the <span style="font-style: italic;">World</span>
+    <p><big> The isometric level subsystem is intended to help you create
+        isometric levels. Just use the <span style="font-style: italic;">World</span>
         class for doing it. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;">World *World::get_handle();</span> –
@@ -1596,6 +1593,7 @@
         <br>
       </big><big style="font-style: italic;">unsigned int </big><big style="font-style: italic;">Tilemap::get_column_amount(const
         </big><big style="font-style: italic;">unsigned int viewport_width</big><big><span
+
           style="font-style: italic;">) const;</span> – Get the maximum number
         of the visible columns.<br>
         <br>
@@ -1726,14 +1724,14 @@
         <br>
         <span style="font-style: italic;">bool enable_logging(const char *name);
         </span></big><big>–</big><big> Enable redirecting error messages to a
-        log file and return false if the operation failed.<br>
+        log file and return false if the operation was failed.<br>
         <br>
         <span style="font-style: italic;">void randomize(); </span></big><big>–</big><big>
         Initialize the random number generator.<br>
         <br>
-        <span style="font-style: italic;">unsigned int get_random(const int
-          number); </span></big><big>–</big><big> Return a random value between
-        zero and the number.<br>
+        <span style="font-style: italic;">unsigned int get_random(const unsigned
+          int number); </span></big><big>–</big><big> Return a random value
+        between zero and the number.<br>
         <br>
         <span style="font-style: italic;"> unsigned int get_texture_size();</span>
       </big><big>–</big><big> Return maximum the width or height of the texture.<br>
@@ -1788,7 +1786,7 @@
         in bytes.<br>
         <br>
         <em> bool Binary_File::check_error();</em> – Return true if the last
-        file operation failed.<br>
+        file operation was failed.<br>
         <br>
         <span style="font-style: italic;"> bool Binary_File::is_open() const;</span>
         – Return true if the file was successfully opened.<br>
@@ -2965,6 +2963,6 @@
       9.0.7 – 9.0.8: Small changes.<br>
       9.0.9: Image resizer improved.<br>
       9.1: Small changes.<br>
-      9.1.0.1 – 9.1.0.8: Documentation updated.</big><br>
+      9.1.0.1 – 9.1.0.9: Documentation updated.</big><br>
   </body>
 </html>
