@@ -859,7 +859,7 @@ typedef enum
    void clone(Sheet *target);
    void clone(Sheet &target);
    void select(const unsigned int row,const unsigned int column);
-   void select(const unsigned int target);
+   void set_target(const unsigned int target);
    void step();
    void load(Image *sheet,const unsigned int row_amount,const unsigned int column_amount);
    void load(Image &sheet,const unsigned int row_amount,const unsigned int column_amount);
