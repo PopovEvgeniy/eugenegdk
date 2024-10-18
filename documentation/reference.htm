@@ -125,8 +125,8 @@
         Hello from Russia. My name is Popov Evgeniy Alekseyevich. I am the
         individual programmer. I enjoy creating software. I also like the
         old-school video games. Do you want to develop video games for Microsoft
-        Windows? You need a good game engine for doing it. I made my own engine.
-        I hope that my C++ game engine will be useful for many programmers.<br>
+        Windows? You need a good game engine to do it. I made my own engine. I
+        hope that my C++ game engine will be useful for many programmers.<br>
         <br>
         <span style="text-decoration: underline;"> Features</span><br>
         <br>
@@ -620,7 +620,7 @@
         <br>
         <span style="font-style: italic;"> void Background::set_setting(const
           EUGENEGDK::IMAGE_KIND kind, const unsigned int frames); -</span> Set
-        the background setting.<br>
+        the background settings.<br>
         <br>
         <span style="font-style: italic;"> void Background::load(Image
           *background,const EUGENEGDK::IMAGE_KIND kind, const unsigned int
@@ -726,6 +726,7 @@
           background); -</span> Load a background </big><big>from the buffer.</big><big><br>
         <br>
       </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
+
         style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);
           -</span> Load a background from the target file.</big><br>
       <big><br>
@@ -1264,7 +1265,7 @@
         <br>
         You can use a wide range of graphics software to convert your images to
         the correct format. I recommend using <a href="https://www.gimp.org/">GIMP</a>
-        for doing it. It is a powerful image editor.<br>
+        to do it. It is a powerful image editor.<br>
       </big></p>
     <h1><a class="mozTocH1" name="mozTocId130685"></a><big>Part 4.
         Transformation</big></h1>
@@ -1290,7 +1291,7 @@
         also convert screen coordinates to Cartesian coordinates.<br>
         <br>
         Just use the <span style="font-style: italic;">Coordinates</span> class
-        for doing it. Let's look at the publicly available methods.<br>
+        to do it. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;">Coordinates
           *Coordinates::get_handle(); -</span> Return the handle to the
@@ -1364,7 +1365,7 @@
         You can convert Cartesian coordinates to isometric coordinates. You can
         also convert isometric coordinates to Cartesian coordinates.<br>
         Just use the <span style="font-style: italic;">Isometric</span> class
-        for doing it. Let's look at the publicly available methods.<br>
+        to do it. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;">Isometric *Isometric::get_handle(); -</span>
         Return the handle to the isometric subsystem.<br>
@@ -1418,10 +1419,10 @@
       </big></h2>
     <p><big> The isometric level subsystem is intended to help you create
         isometric levels. Just use the <span style="font-style: italic;">World</span>
-        class for doing it. Let's look at the publicly available methods.<br>
+        class to do it. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;">World *World::get_handle(); -</span>
-        Return the handle to isometric level subsystem.<br>
+        Return the handle to the isometric level subsystem.<br>
         <br>
         <span style="font-style: italic;">void World::initialize(const int
           tile_width, const int tile_height, </span></big><big><span style="font-style: italic;">const
@@ -1456,7 +1457,7 @@
           -</span> Get the maximum number of the visible columns.<br>
         <br>
         <span style="font-style: italic;">int World::get_tile_amount() const; -</span>
-        Get the maximum number of visible isometric tiles.<br>
+        Get the maximum number of the visible isometric tiles.<br>
       </big><big></big><big></big></p>
     <h1><a class="mozTocH1" name="mozTocId64443"></a><big>Part 5. Common things</big></h1>
     <h2><a class="mozTocH2" name="mozTocId597525"></a><big>Chapter 1. The
@@ -2791,8 +2792,7 @@
       6.5.9: The small bug in the gamepad subsystem was fixed.<br>
       6.6: The source code synced with Gray game development kit 2.2.7.<br>
       6.6.1: The text-drawing subsystem improved.<br>
-      6.6.2: The simple sound subsystem backported from the Neon game
-      development kit 5.7.8.<br>
+      6.6.2: The simple sound subsystem backported from the Neon game development kit 5.7.8.<br>
       6.6.3: The small bug in the multimedia subsystem was fixed.<br>
       6.6.4-6.6.6: Small changes.<br>
       6.6.7: The multimedia subsystem improved.<br>
@@ -2898,8 +2898,7 @@
       8.1.5: The image resizer improved.<br>
       8.1.6-8.1.7: Small changes.<br>
       8.1.8: The small bug in the tile-map subsystem was fixed.<br>
-      8.1.9: The small bug with keyboard input subsystem and mouse input
-      subsystem was fixed.<br>
+      8.1.9: The small bug with keyboard input subsystem and mouse input subsystem was fixed.<br>
       8.2: The ordinary sprite subsystem improved.<br>
       8.2.1: The background subsystem improved.<br>
       8.2.2: The rendering performance increased.<br>
@@ -2969,6 +2968,6 @@
       9.1: Small changes.<br>
       9.1.0.1-9.1.0.9: Documentation updated.<br>
       9.2: Small changes.<br>
-      9.2.0.1-9.2.0.2: Documentation updated.</big><br>
+      9.2.0.1-9.2.0.3: Documentation updated.</big><br>
   </body>
 </html>
