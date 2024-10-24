@@ -365,6 +365,7 @@ typedef enum
   {
    private:
    unsigned int *image;
+   unsigned int normalization;
    unsigned int source_width;
    unsigned int source_height;
    unsigned int target_width;

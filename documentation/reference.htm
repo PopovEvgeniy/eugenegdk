@@ -96,7 +96,7 @@
           <li><a href="#mozTocId783369">Chapter 1. The sub-namespace</a></li>
           <li><a href="#mozTocId685403">Chapter 2. Keyboard</a></li>
           <li><a href="#mozTocId686993">Chapter 3. Mouse</a></li>
-          <li><a href="#mozTocId861609">Chapter 4. Game-pad</a></li>
+          <li><a href="#mozTocId861609">Chapter 4. Gamepad</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId54918">Part 10. Internal details of the engine
@@ -106,7 +106,7 @@
               programmer</a></li>
           <li><a href="#mozTocId318160">Chapter 2. Internal classes</a></li>
           <li><a href="#mozTocId293644">Chapter 3. Base graphics subsystem</a></li>
-          <li><a href="#mozTocId472209">Chapter 4. Game-Pad</a></li>
+          <li><a href="#mozTocId472209">Chapter 4. Gamepad</a></li>
           <li><a href="#mozTocId804583">Chapter 5. Input</a></li>
           <li><a href="#mozTocId692266">Chapter 6. Audio</a></li>
         </ul>
@@ -159,8 +159,8 @@
         <br>
         <span style="text-decoration: underline;">Feedback</span><br>
         <br>
-        Send me an <a href="mailto:tuzik87@inbox.ru">email</a> if you want
-        contact with me.</big></p>
+        Send me an <a href="mailto:tuzik87@inbox.ru">email</a> if you want to
+        contact me.</big></p>
     <h2><a class="mozTocH2" name="mozTocId85003"></a><big>Chapter 2. A special
         thanks</big></h2>
     <p><big>I want to say «Big thanks for technical consultation» to these
@@ -182,8 +182,9 @@
     <p><big><span style="text-decoration: underline;">Eugene game development
           kit license</span><br>
         <br>
-      </big><big>Copyright (C) 2021 – 2024 Popov Evgeniy Alekseyevich<br>
-        &nbsp; This software is provided 'as–is', without any express or implied<br>
+      </big><big>Copyright (C) 2021 – 2024 Popov Evgeniy Alekseyevich</big></p>
+    <p><big>&nbsp;This software is provided 'as–is', without any express or
+        implied<br>
         &nbsp;warranty. In no event will the authors be held liable for any
         damages<br>
         &nbsp;arising from the use of this software.<br>
@@ -208,8 +209,8 @@
       <span style="text-decoration: underline;"></span><big><span style="text-decoration: underline;">Third–party
           license</span><br>
         <br>
-      </big><big>Copyright (c) 2007 – 2010 The Khronos Group Inc.<br>
-        &nbsp; Permission is hereby granted, free of charge, to any person
+      </big><big>Copyright (c) 2007 – 2010 The Khronos Group Inc.</big></p>
+    <p><big>Permission is hereby granted, free of charge, to any person
         obtaining a<br>
         &nbsp;copy of this software and/or associated documentation files (the<br>
         &nbsp;"Materials"), to deal in the Materials without restriction,
@@ -412,8 +413,8 @@
         <span style="text-decoration: underline;"> Fps limitation</span><br>
         <br>
         FPS is an important thing. Many FPS are needed for good animation, but
-        it also needs high processor usage. FPS limit is 60 by default. It has
-        an ideal value.<br>
+        it also needs high processor usage. The FPS limit is 60 by default. It
+        has an ideal value.<br>
         <br>
         <span style="text-decoration: underline;"> Work with the base graphics
           subsystem</span><br>
@@ -549,7 +550,7 @@
     <h2><a class="mozTocH2" name="mozTocId904725"></a><big>Chapter 5. Image kind</big></h2>
     <p><big>The image kinds look like the predefined constants. You can see it
         below.</big></p>
-    <table style="width: 681px; height: 106px;" border="1">
+    <table style="width: 723px; height: 106px;" border="1">
       <tbody>
         <tr>
           <td><big>Image kind<br>
@@ -726,7 +727,6 @@
           background); -</span> Load a background </big><big>from the buffer.</big><big><br>
         <br>
       </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
-
         style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);
           -</span> Load a background from the target file.</big><br>
       <big><br>
@@ -1115,7 +1115,7 @@
       <big>The text orientation looks like the predefined constants. You can see
         it below.<br>
       </big></p>
-    <table style="width: 404px; height: 85px;" border="1">
+    <table style="width: 420px; height: 85px;" border="1">
       <tbody>
         <tr>
           <td><big>Text orientation<br>
@@ -1258,9 +1258,9 @@
         <br>
         <span style="text-decoration: underline;"> Supported format</span><br>
       </big></p>
-    <p><big>All loading images must have the correct specification. You can load
-        an image from 24 bit </big><big><a href="https://en.wikipedia.org/wiki/Truevision_TGA">Truevision
-          TGA</a> pictures.</big></p>
+    <p><big>All loading images must have the correct specifications. You can
+        load an image from a 24-bit </big><big><a href="https://en.wikipedia.org/wiki/Truevision_TGA">Truevision
+          TGA</a> picture.</big></p>
     <p><big><span style="text-decoration: underline;">Recommend software</span><br>
         <br>
         You can use a wide range of graphics software to convert your images to
@@ -1278,17 +1278,15 @@
         2. Cartesian coordinates and screen coordinates</big></h2>
     <p><big><span style="text-decoration: underline;">Cartesian coordinates</span><br>
         <br>
-        Cartesian coordinates start at the center of the screen. Look at this
-        picture to understand it.<br>
+        The Cartesian coordinates start at the center of the screen. Look at
+        this picture to understand it.<br>
       </big></p>
-    <p><big><img style="width: 380px; height: 249px;" alt="" src="sheet.png"><br>
+    <p><big><img style="width: 107px; height: 111px;" alt="" src="cartesian_system.png"><br>
         <br>
-        <span style="text-decoration: underline;">Cartesian coordinates to
-          screen coordinates conversion and screen coordinates to Cartesian
-          coordinates conversion</span><br>
+        <span style="text-decoration: underline;">Coordinates conversion</span><br>
         <br>
-        You can convert Cartesian coordinates to screen coordinates. You can
-        also convert screen coordinates to Cartesian coordinates.<br>
+        You can convert the Cartesian coordinates to the screen coordinates. You
+        can also convert the screen coordinates to the Cartesian coordinates.<br>
         <br>
         Just use the <span style="font-style: italic;">Coordinates</span> class
         to do it. Let's look at the publicly available methods.<br>
@@ -1358,14 +1356,13 @@
             style="color: black;"></span></a> is a very popular way for
         pseudo-3D games. Many old-school games are isometric games.<br>
         <br>
-      </big><big><span style="text-decoration: underline;">Cartesian coordinates
-          to isometric coordinates conversion and isometric coordinates to
-          Cartesian coordinates conversion</span><br>
+      </big><big><span style="text-decoration: underline;">Coordinates
+          conversion</span><br>
         <br>
-        You can convert Cartesian coordinates to isometric coordinates. You can
-        also convert isometric coordinates to Cartesian coordinates.<br>
-        Just use the <span style="font-style: italic;">Isometric</span> class
-        to do it. Let's look at the publicly available methods.<br>
+        You can convert the Cartesian coordinates to the isometric coordinates.
+        You can also convert the isometric coordinates to the Cartesian
+        coordinates. Just use the <span style="font-style: italic;">Isometric</span>
+        class to do it. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;">Isometric *Isometric::get_handle(); -</span>
         Return the handle to the isometric subsystem.<br>
@@ -1417,8 +1414,8 @@
     <h2><a class="mozTocH2" name="mozTocId143616"></a><big>Chapter 4. Isometric
         Level<br>
       </big></h2>
-    <p><big> The isometric level subsystem is intended to help you create
-        isometric levels. Just use the <span style="font-style: italic;">World</span>
+    <p><big> The isometric level subsystem is intended to help you create an
+        isometric level. Just use the <span style="font-style: italic;">World</span>
         class to do it. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;">World *World::get_handle(); -</span>
@@ -1468,12 +1465,12 @@
     <h2><a class="mozTocH2" name="mozTocId853711"></a><big>Chapter 2. Abnormal
         program termination</big></h2>
     <p><big>You can use the <span style="font-style: italic;">Halt</span>
-        function to terminate a program. This function is declared in <em>EGENEGDK</em>
+        function to terminate a program. This function is declared in the <em>EGENEGDK</em>
         namespace.<br>
         <br>
         <span style="font-style: italic;"> void EUGENEGDK::Halt(const char
-          *message);</span> Terminate the program. Write an error message to the
-        log file if logging is enabled.</big><big> </big></p>
+          *message); -</span> Terminate the program. Write an error message to
+        the log file if logging is enabled.</big><big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId656377"></a><big>Chapter 3. Timer</big></h2>
     <p><big> A timer is a very useful thing. Just use the <span style="font-style: italic;">
           Timer</span> class to work with the timer. Let's look at the publicly
@@ -1614,6 +1611,7 @@
         Return true if the column is valid.<br>
         <br>
         <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big
+
         style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
         int row,const unsigned int column</big><big><span style="font-style: italic;">)
           const; -</span> Return the collision-related information.<br>
@@ -1748,7 +1746,7 @@
         Manager</big></h2>
     <p><big>A resource is an instance of a user-defined class or structure. The
         resource manager is implemented as a few template functions. All these
-        functions are declared in <span style="font-style: italic;">Resource</span>
+        functions are declared in the <span style="font-style: italic;">Resource</span>
         sub-namespace.<br>
         <br>
         <span style="font-style: italic;">create</span> creates a resources. The
@@ -1757,7 +1755,7 @@
         resources. It takes a handle to a resource handle and a resource amount.<br>
       </big></p>
     <p><big><span style="font-style: italic;"> destroy</span> delete a resource
-        if it already exists. This function takes resource handle as an
+        if it already exists. This function takes a resource handle as an
         argument.</big></p>
     <p><big><span style="font-style: italic;">destroy_array</span> delete the
         resource array if it already exists. This function takes a resource
@@ -2184,17 +2182,17 @@
       </tbody>
     </table>
     <p><big> </big></p>
-    <h2><a class="mozTocH2" name="mozTocId861609"></a><big>Chapter 4. Game-pad</big></h2>
+    <h2><a class="mozTocH2" name="mozTocId861609"></a><big>Chapter 4. Gamepad</big></h2>
     <p><big><span style="text-decoration: underline;">Best friend of a retro
           gamer</span><br>
         <br>
         What is a good choice for a game control device when the user plays an
-        arcade or an old-school style video game? A Game-pad. This engine
+        arcade or an old-school style video game? A gamepad. This engine
         provides simple access to it.</big></p>
     <p><big><span style="text-decoration: underline;">Numbers of connected
-          Game-Pads</span><br>
+          gamepads</span><br>
         <br>
-        You can connect a few Game-Pads. Any connected gamepad has an internal
+        You can connect a few gamepads. Any connected gamepad has an internal
         index. The first gamepad index is 0. It will be activated by default.<br>
         <br>
         <span style="text-decoration: underline;"> Ordinary button codes</span><br>
@@ -2301,28 +2299,27 @@
         </tr>
       </tbody>
     </table>
-    <p><big><span style="text-decoration: underline;">Working with a Game-pad</span><br>
+    <p><big><span style="text-decoration: underline;">Working with a gamepad</span><br>
         <br>
-        Just use <span style="font-style: italic;">Gamepad</span> class to work
-        with the Game-pad. Let's look at the publicly available methods.<br>
+        Just use the <span style="font-style: italic;">Gamepad</span> class to work
+        with the a gamepad. Let's look at the publicly available methods.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Gamepad::get_amount(); -</span>
-        Return the number of connected Game-Pad.<span style="font-style: italic;"><br>
+        Return the number of connected gamepad.<span style="font-style: italic;"><br>
         </span></big></p>
     <p><big><span style="font-style: italic;">unsigned int
           Gamepad::get_button_amount() const; -</span> Return the number of the
-        Game-Pad buttons.<br>
+        gamepad buttons.<br>
         <br>
         <span style="font-style: italic;">unsigned int
           Gamepad::get_stick_amount() const; -</span> Return the number of the
-        Game-Pad sticks.<br>
+        gamepad sticks.<br>
         <br>
         <span style="font-style: italic;"> void Gamepad::update(); -</span>
         Update the internal Game-Pad state.<span style="font-style: italic;"><br>
         </span></big></p>
     <p><big><span style="font-style: italic;">void Gamepad::set_active(const
-          unsigned int gamepad); -</span> Set the current active Game-Pad.<span
-          style="font-style: italic;"><br>
+          unsigned int gamepad); -</span> Set the current active gamepad.<span style="font-style: italic;"><br>
         </span></big></p>
     <p><big><span style="font-style: italic;">EUGENEGDK::GAMEPAD_DPAD
           Gamepad::get_dpad() const; -</span> Return the code of the pressed or
@@ -2447,14 +2444,14 @@
       <big>All these custom types are declared in the <span style="font-style: italic;">Core</span>
         sub-namespace.</big><br>
       <big> </big></p>
-    <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 4. Game-Pad</big></h2>
-    <p><big>Game-Pad subsystem working over the <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
+    <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 4. Gamepad</big></h2>
+    <p><big>The gamepad subsystem working over the <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick
           Multimedia API</a>. </big></p>
     <h2><a class="mozTocH2" name="mozTocId804583"></a><big>Chapter 5. Input</big></h2>
     <p><big><span style="text-decoration: underline;">Input backend</span><br>
         <br>
-        Keyboard and mouse input subsystems are simple. It works over a standard
-        Microsoft Windows API.<br>
+        The keyboard and mouse input subsystems are simple. It works over a
+        standard Microsoft Windows API.<br>
         <br>
         <span style="text-decoration: underline;"> Internal key state</span><br>
       </big></p>
@@ -2486,137 +2483,137 @@
       </big></h1>
     <big>0.1: Initial version.<br>
       0.1.1-0.7.6: The internal unstable builds.<br>
-      0.7.7: Small changes.<br>
+      0.7.7: The small changes.<br>
       0.7.8: The small bug in the sprite subsystem was fixed.<br>
-      0.7.9-0.8.1: Small changes.<br>
+      0.7.9-0.8.1: The small changes.<br>
       0.8.2: The sprite subsystem improved.<br>
       0.8.3: The PCX support was removed.<br>
-      0.8.4: Small changes.<br>
+      0.8.4: The small changes.<br>
       0.8.5: The FPS counter improved.<br>
-      0.8.6-0.8.9: Small changes.<br>
+      0.8.6-0.8.9: The small changes.<br>
       0.9: The TGA support improved.<br>
       0.9.1: The small bug in the sprite subsystem was fixed.<br>
-      0.9.2: Small changes.<br>
+      0.9.2: The small changes.<br>
       0.9.3: The new subsystem was added.<br>
       0.9.4-0.9.5: The graphic primitives subsystem improved.<br>
-      0.9.6-0.9.9: Small changes.<br>
+      0.9.6-0.9.9: The small changes.<br>
       1.0: The base graphics subsystem improved.<br>
       1.0.1-1.0.2: The background subsystem improved.<br>
-      1.0.3: Small changes.<br>
+      1.0.3: The small changes.<br>
       1.0.4: The small bug in the sprite subsystem was fixed.<br>
-      1.0.5-1.1.4: Small changes.<br>
-      1.1.5-1.1.6: The small bug was fixed.<br>
+      1.0.5-1.1.4: The small changes.<br>
+      1.1.5-1.1.6: The small bug is fixed.<br>
       1.1.7: The unused dependency is removed.<br>
-      1.1.8-1.2.5: Small changes.<br>
-      1.2.6: The small bug was fixed.<br>
-      1.2.7: Small changes.<br>
+      1.1.8-1.2.5: The small changes.<br>
+      1.2.6: The small bug is fixed.<br>
+      1.2.7: The small changes.<br>
       1.2.8: The rendering performance increased.<br>
       1.2.9: The Windows 2000 support was added.<br>
-      1.3: Small changes.<br>
+      1.3: The small changes.<br>
       1.3.1: The image resizer improved.<br>
       1.3.2: The gamepad subsystem improved.<br>
       1.3.3: The project name changed.<br>
       1.3.4: The sprite subsystem improved.<br>
-      1.3.5: Small changes.<br>
+      1.3.5: The small changes.<br>
       1.3.6: The tile-set subsystem improved.<br>
-      1.3.7: Small changes.<br>
+      1.3.7: The small changes.<br>
       1.3.8: The sprite subsystem improved.<br>
       1.3.9: The tile-set subsystem improved.<br>
       1.4: The sprite subsystem improved.<br>
       1.4.1: The text subsystem improved.<br>
-      1.4.2-1.4.5: Small changes.<br>
+      1.4.2-1.4.5: The small changes.<br>
       1.4.6: The new subsystem was added. Windows 2000 support was removed.<br>
       1.4.7-1.4.8: The sprite subsystem improved.<br>
       1.4.9: The text subsystem improved.<br>
-      1.5: Small changes.<br>
+      1.5: The small changes.<br>
       1.5.1: The optional software rendering was added.<br>
-      1.5.2-1.5.7: Small changes.<br>
+      1.5.2-1.5.7: The small changes.<br>
       1.5.8: The keyboard input improved.<br>
       1.5.9: The mouse input improved.<br>
       1.6: The gamepad support improved.<br>
       1.6.1: The small bug in the gamepad subsystem was fixed.<br>
-      1.6.2: Small changes.<br>
+      1.6.2: The small changes.<br>
       1.6.3: The file system subsystem improved.<br>
-      1.6.4-1.6.5: Small changes.<br>
+      1.6.4-1.6.5: The small changes.<br>
       1.6.6: The base graphics subsystem improved.<br>
-      1.6.7: Small changes.<br>
+      1.6.7: The small changes.<br>
       1.6.8: The gamepad support improved.<br>
-      1.6.9-1.7: Small changes.<br>
+      1.6.9-1.7: The small changes.<br>
       1.7.1: The small bug in the sprite subsystem was fixed.<br>
       1.7.2: The graphic primitives subsystem improved.<br>
-      1.7.3-1.7.4: Small changes.<br>
+      1.7.3-1.7.4: The small changes.<br>
       1.7.5-1.7.6: The picture subsystem improved.<br>
       1.7.7-1.7.8: The sprite subsystem improved.<br>
       1.7.9-1.8: The picture subsystem improved.<br>
-      1.8.1: Small changes.<br>
+      1.8.1: The small changes.<br>
       1.8.2: The tile-set subsystem improved.<br>
-      1.8.3: Small changes.<br>
+      1.8.3: The small changes.<br>
       1.8.4-1.8.6: The binary file subsystem improved.<br>
       1.8.7-1.8.8: The image loader improved.<br>
-      1.8.9: Small changes.<br>
+      1.8.9: The small changes.<br>
       1.9-1.9.1: The image loader improved.<br>
       1.9.2: The picture subsystem improved.<br>
-      1.9.3: Small changes.<br>
+      1.9.3: The small changes.<br>
       1.9.4: The tile-set subsystem improved.<br>
-      1.9.5-1.9.8: Small changes.<br>
+      1.9.5-1.9.8: The small changes.<br>
       1.9.9: The background subsystem improved.<br>
       2.0-2.0.3: The image loader improved.<br>
       2.0.4: The sprite subsystem improved.<br>
       2.0.5: The background subsystem improved.<br>
       2.0.6-2.1.2: The text drawing subsystem improved.<br>
       2.1.3: The background subsystem improved.<br>
-      2.1.4-2.1.8: Small changes.<br>
+      2.1.4-2.1.8: The small changes.<br>
       2.1.9-2.2.7: The multimedia subsystem improved.<br>
-      2.2.8-2.3.1: Small changes.<br>
+      2.2.8-2.3.1: The small changes.<br>
       2.3.2-2.3.3: The base graphics subsystem improved.<br>
       2.3.4: The synchronization timer improved.<br>
-      2.3.5-2.3.6: Small changes.<br>
+      2.3.5-2.3.6: The small changes.<br>
       2.3.7: The multimedia subsystem improved.<br>
       2.3.8: The keyboard input improved.<br>
-      2.3.9: Small changes.<br>
+      2.3.9: The small changes.<br>
       2.4: The mouse input improved.<br>
-      2.4.1: Small changes.<br>
+      2.4.1: The small changes.<br>
       2.4.2: The binary file subsystem improved.<br>
-      2.4.3-2.4.7: Small changes.<br>
+      2.4.3-2.4.7: The small changes.<br>
       2.4.8: The background subsystem improved.<br>
       2.4.9: The sprite subsystem improved.<br>
       2.5: The tile-set subsystem improved.<br>
-      2.5.1-2.5.2: Small changes.<br>
+      2.5.1-2.5.2: The small changes.<br>
       2.5.3: The sprite subsystem improved.<br>
       2.5.4-2.5.6: The tile-set subsystem improved.<br>
-      2.5.7: Small changes.<br>
+      2.5.7: The small changes.<br>
       2.5.8: The sprite subsystem improved.<br>
-      2.5.9-2.6: Small changes.<br>
+      2.5.9-2.6: The small changes.<br>
       2.6.1: The animation subsystem improved.<br>
       2.6.2: The background subsystem improved.<br>
       2.6.3-2.6.4: The sprite subsystem improved.<br>
       2.6.5: The background subsystem improved.<br>
       2.6.6: The base graphics subsystem improved.<br>
-      2.6.7: Small changes.<br>
+      2.6.7: The small changes.<br>
       2.6.8: The primitive subsystem improved.<br>
-      2.6.9: The small bug was fixed.<br>
+      2.6.9: The small bug is fixed.<br>
       2.7: The primitive subsystem removed.<br>
       2.7.1-2.7.6: The preview release of the next branch.<br>
       2.7.7: The public release of the next branch.<br>
-      2.7.8-2.7.9: Small changes.<br>
+      2.7.8-2.7.9: The small changes.<br>
       2.8: The Go back to the old stable branch.<br>
-      2.8.1-2.8.5: Small changes.<br>
+      2.8.1-2.8.5: The small changes.<br>
       2.8.6: The merge the old branch and new branch.<br>
-      2.8.7: The small bug was fixed.<br>
-      2.8.8-2.9.9: Small changes.<br>
+      2.8.7: The small bug is fixed.<br>
+      2.8.8-2.9.9: The small changes.<br>
       3.0: The basic graphics subsystem improved.<br>
-      3.0.1: Small changes.<br>
+      3.0.1: The small changes.<br>
       3.0.2: The keyboard subsystem improved.<br>
-      3.0.3-3.0.5: Small changes.<br>
+      3.0.3-3.0.5: The small changes.<br>
       3.0.6: The operating system interaction subsystem improved.<br>
-      3.0.7-3.1.1: Small changes.<br>
+      3.0.7-3.1.1: The small changes.<br>
       3.2-3.2.1: A few changes in the engine API.<br>
-      3.2.2: Small changes.<br>
+      3.2.2: The small changes.<br>
       3.3: The new subsystem was added.<br>
-      3.3.1-3.3.4: Small changes.<br>
+      3.3.1-3.3.4: The small changes.<br>
       3.3.5: The keyboard input improved.<br>
       3.3.6: The image loader improved.<br>
-      3.3.7-3.3.8: Small changes.<br>
+      3.3.7-3.3.8: The small changes.<br>
       3.3.9-3.4: The sprite subsystem improved.<br>
       3.4.1: The background subsystem improved.<br>
       3.4.2: The image storage improved.<br>
@@ -2626,154 +2623,154 @@
       3.4.6: The tile-set subsystem improved.<br>
       3.4.7: The background subsystem improved.<br>
       3.4.8-3.4.9: The sprite subsystem improved.<br>
-      3.5-3.5.4: Small changes.<br>
+      3.5-3.5.4: The small changes.<br>
       3.5.5: The tile-set subsystem improved.<br>
-      3.5.6-3.6.4: Small changes.<br>
+      3.5.6-3.6.4: The small changes.<br>
       3.6.5: The multimedia subsystem improved.<br>
-      3.6.6-3.6.8: Small changes.<br>
+      3.6.6-3.6.8: The small changes.<br>
       3.6.9: The sprite subsystem improved.<br>
       3.7: The background subsystem improved.<br>
-      3.7.1: Small changes.<br>
+      3.7.1: The small changes.<br>
       3.7.2: The binary file subsystem improved.<br>
       3.7.3: The background subsystem improved.<br>
-      3.7.4-3.7.5: Small changes.<br>
-      3.7.6: The small bug was fixed.<br>
-      3.7.7-3.8.5: Small changes.<br>
+      3.7.4-3.7.5: The small changes.<br>
+      3.7.6: The small bug is fixed.<br>
+      3.7.7-3.8.5: The small changes.<br>
       3.8.6: The gamepad subsystem improved.<br>
-      3.8.7-3.8.8: Small changes.<br>
+      3.8.7-3.8.8: The small changes.<br>
       3.8.9: The image resizing improved.<br>
-      3.9-3.9.7: Small changes.<br>
+      3.9-3.9.7: The small changes.<br>
       3.9.8-3.9.9: The keyboard input improved.<br>
-      4.0-4.0.1: Small changes.<br>
+      4.0-4.0.1: The small changes.<br>
       4.0.2: The collision detection subsystem improved.<br>
       4.0.3: The small bug in the collision detection subsystem was fixed.<br>
       4.0.4: The collision detection subsystem improved.<br>
-      4.0.5-4.0.6: Small changes.<br>
+      4.0.5-4.0.6: The small changes.<br>
       4.0.7: The new internal subsystem was added.<br>
-      4.0.8: Small changes in engine core.<br>
+      4.0.8: The small changes in engine core.<br>
       4.0.9: The image loader improved.<br>
       4.1: The keyboard input improved.<br>
       4.1.1: The small bug in the image loader improved.<br>
       4.1.2: The keyboard input improved.<br>
-      4.1.3-4.2.1: Small changes.<br>
+      4.1.3-4.2.1: The small changes.<br>
       4.2.2: The image resizer improved.<br>
       4.2.3: The image storage improved.<br>
       4.2.4: The image loader improved.<br>
-      4.2.5: Small changes.<br>
+      4.2.5: The small changes.<br>
       4.2.6: The image storage improved.<br>
       4.2.7: The mouse input improved.<br>
       4.2.8: The keyboard input improved.<br>
-      4.2.9: Small changes.<br>
+      4.2.9: The small changes.<br>
       4.3-4.3.3: The gamepad subsystem improved.<br>
       4.3.4: The collision detection subsystem improved.<br>
-      4.3.5: Small changes.<br>
+      4.3.5: The small changes.<br>
       4.3.6-4.3.8: The system interaction subsystem improved.<br>
       4.3.9-4.4: The collision detection subsystem improved.<br>
       4.4.1: The new subsystem was added.<br>
       4.4.1.1: Documentation updated.<br>
-      4.4.2: Small changes.<br>
+      4.4.2: The small changes.<br>
       4.4.3-4.4.4: The new supported compiler was added.<br>
       4.4.4.1: Documentation updated.<br>
-      4.4.5: Small changes.<br>
+      4.4.5: The small changes.<br>
       4.4.6: The new subsystem was added.<br>
       4.4.6.1: Documentation updated.<br>
-      4.4.7-4.4.8: Small changes.<br>
+      4.4.7-4.4.8: The small changes.<br>
       4.4.9: The Windows 2000 support was added.<br>
       4.4.9.1: Documentation updated.<br>
-      4.5-4.5.3: Small changes.<br>
+      4.5-4.5.3: The small changes.<br>
       4.5.4: The gamepad support improved.<br>
       4.5.5-4.5.7: The rendering improved.<br>
-      4.5.8-4.6.2: Small changes.<br>
+      4.5.8-4.6.2: The small changes.<br>
       4.6.3: The image resizer improved.<br>
-      4.6.4: Small changes.<br>
+      4.6.4: The small changes.<br>
       4.6.5: The small bug in the binary file subsystem was fixed.<br>
-      4.6.6-4.6.8: Small changes.<br>
-      4.6.9-4.7: The Changes in the Engine API.<br>
+      4.6.6-4.6.8: The small changes.<br>
+      4.6.9-4.7: The changes in the engine API.<br>
       4.7.0.1: Documentation updated.<br>
-      4.7.1-4.7.2: Small changes.<br>
+      4.7.1-4.7.2: The small changes.<br>
       4.7.3: The changes in the engine API.<br>
-      4.7.4-4.8: Small changes.<br>
+      4.7.4-4.8: The small changes.<br>
       4.8.1-4.8.3: The rendering improved.<br>
-      4.8.4-4.8.6: Small changes.<br>
+      4.8.4-4.8.6: The small changes.<br>
       4.8.7: The keyboard input improved.<br>
       4.8.8-4.8.9: The display manager improved.<br>
-      4.9-4.9.1: Small changes.<br>
+      4.9-4.9.1: The small changes.<br>
       4.9.2: The display manager improved.<br>
-      4.9.3-4.9.4: Small changes.<br>
+      4.9.3-4.9.4: The small changes.<br>
       4.9.5: The keyboard input improved.<br>
       4.9.6: The mouse input improved.<br>
-      4.9.7-5.0.8: Small changes.<br>
+      4.9.7-5.0.8: The small changes.<br>
       5.0.9-5.2: The Experimental Branch.<br>
-      5.2.1: Small changes.<br>
+      5.2.1: The small changes.<br>
       5.2.2: The text-drawing subsystem improved.<br>
-      5.2.3-5.2.5: Small changes.<br>
+      5.2.3-5.2.5: The small changes.<br>
       5.2.6: The changes in the engine API.<br>
       5.2.7: The new subsystem was added.<br>
       5.2.8-5.2.9: The sprite subsystem improved.<br>
       5.3: The base sprite subsystem improved.<br>
-      5.3.1-5.3.4: Small changes.<br>
+      5.3.1-5.3.4: The small changes.<br>
       5.3.5: The new subsystem was added.<br>
-      5.3.6: Small changes.<br>
+      5.3.6: The small changes.<br>
       5.3.7: The tile-set subsystem removed.<br>
-      5.3.8: Small changes.<br>
+      5.3.8: The small changes.<br>
       5.3.9: The sprite sheet subsystem improved.<br>
-      5.4-5.4.1: Small changes.<br>
+      5.4-5.4.1: The small changes.<br>
       5.4.2-5.4.5: The text drawing subsystem improved.<br>
       5.4.6-5.5.2: The background subsystem improved.<br>
-      5.5.3-5.5.7: Small changes.<br>
+      5.5.3-5.5.7: The small changes.<br>
       5.5.8: The background subsystem improved.<br>
       5.5.9: The base Sprite Subsystem Improved.<br>
-      5.6-5.6.4: Small changes.<br>
+      5.6-5.6.4: The small changes.<br>
       5.6.5: The background subsystem improved.<br>
       5.6.6: The text-drawing subsystem improved.<br>
       5.6.7: The background subsystem improved.<br>
       5.6.8: The text-drawing subsystem improved.<br>
-      5.6.9: Small changes.<br>
+      5.6.9: The small changes.<br>
       5.7: The text drawing subsystem improved.<br>
       5.7.1-5.7.2: The sprite sheet subsystem improved.<br>
-      5.7.3-5.7.4: Small changes.<br>
+      5.7.3-5.7.4: The small changes.<br>
       5.7.5-5.7.6: The resource manager improved.<br>
-      5.7.7-5.8.2: Small changes.<br>
+      5.7.7-5.8.2: The small changes.<br>
       5.8.3-5.8.5: The background subsystem improved.<br>
-      5.8.6: Small changes.<br>
+      5.8.6: The small changes.<br>
       5.8.7-5.9.1: The sprite sheet subsystem improved.<br>
-      5.9.2-5.9.4: Small changes.<br>
+      5.9.2-5.9.4: The small changes.<br>
       5.9.5: The text-drawing subsystem improved.<br>
-      5.9.6-5.9.8: Small changes.<br>
+      5.9.6-5.9.8: The small changes.<br>
       5.9.9: The Windows 2000 support was removed.<br>
       6.0: The changes in the engine API.<br>
       6.0.1: The new subsystem was added.<br>
-      6.0.2: Small changes.<br>
+      6.0.2: The small changes.<br>
       6.0.3: The background subsystem and sprite subsystem improved.<br>
-      6.0.4: Small changes.<br>
+      6.0.4: The small changes.<br>
       6.0.5: The picture subsystem improved.<br>
-      6.0.6-6.0.7: Small changes.<br>
+      6.0.6-6.0.7: The small changes.<br>
       6.0.7.1: Documentation updated.<br>
       6.0.8: The base graphics subsystem improved.<br>
       6.0.8.1: Documentation updated.<br>
-      6.0.9-6.1.1: Small changes.<br>
+      6.0.9-6.1.1: The small changes.<br>
       6.1.2: The text drawing subsystem improved.<br>
-      6.1.3: Small changes.<br>
+      6.1.3: The small changes.<br>
       6.1.3.1: Documentation updated.<br>
-      6.1.4: The small bug was fixed.<br>
+      6.1.4: The small bug is fixed.<br>
       6.1.5-6.1.6: The sprite sheet subsystem improved.<br>
-      6.1.7-6.2.1: Small changes.<br>
+      6.1.7-6.2.1: The small changes.<br>
       6.2.2-6.2.3: The base graphics subsystem improved.<br>
       6.2.4-6.2.6: The binary file subsystem improved.<br>
       6.2.6.1: Documentation updated.<br>
       6.2.7: The collision detection subsystem improved.<br>
-      6.2.8: The small bug was fixed.<br>
-      6.2.9: Small changes.<br>
+      6.2.8: The small bug is fixed.<br>
+      6.2.9: The small changes.<br>
       6.3: The base sprite subsystem improved.<br>
-      6.3.1-6.3.2: Small changes.<br>
+      6.3.1-6.3.2: The small changes.<br>
       6.3.3: The base graphics subsystem backported from the Neon game development kit 5.8.4.<br>
       6.3.4: The Visual C++ 2005 support was added.<br>
-      6.3.5: Small changes.<br>
+      6.3.5: The small changes.<br>
       6.3.6: The ordinary sprite subsystem improved.<br>
       6.3.7: The sprite sheet subsystem improved.<br>
       6.3.8: The background subsystem improved.<br>
       6.3.9: The text-drawing subsystem improved.<br>
-      6.4: Small changes.<br>
+      6.4: The small changes.<br>
       6.4.1: The collision detection subsystem improved.<br>
       6.4.1.1: Documentation updated.<br>
       6.4.2: The image loader improved.<br>
@@ -2788,13 +2785,13 @@
       6.5.3-6.5.4: The text-drawing subsystem improved.<br>
       6.5.5: The resource manager improved.<br>
       6.5.6: The processor usage reduced.<br>
-      6.5.7-6.5.8: Small changes.<br>
+      6.5.7-6.5.8: The small changes.<br>
       6.5.9: The small bug in the gamepad subsystem was fixed.<br>
       6.6: The source code synced with Gray game development kit 2.2.7.<br>
       6.6.1: The text-drawing subsystem improved.<br>
       6.6.2: The simple sound subsystem backported from the Neon game development kit 5.7.8.<br>
       6.6.3: The small bug in the multimedia subsystem was fixed.<br>
-      6.6.4-6.6.6: Small changes.<br>
+      6.6.4-6.6.6: The small changes.<br>
       6.6.7: The multimedia subsystem improved.<br>
       6.6.8: The simple sound subsystem was removed.<br>
       6.6.9-6.7: The multimedia subsystem improved.<br>
@@ -2805,16 +2802,16 @@
       6.7.6: The sprite subsystem improved.<br>
       6.7.7: The rendering performance increased.<br>
       6.7.8-6.7.9: The image loader improved.<br>
-      6.8: Small changes.<br>
+      6.8: The small changes.<br>
       6.8.1: The ordinary sprite subsystem improved.<br>
-      6.8.2: Small changes.<br>
+      6.8.2: The small changes.<br>
       6.8.3: The multimedia subsystem is replaced by an audio subsystem.<br>
       6.8.4: The image loader improved.<br>
       6.8.5: The rendering performance increased.<br>
       6.8.6: The audio subsystem improved.<br>
-      6.8.7: Small changes.<br>
+      6.8.7: The small changes.<br>
       6.8.8-6.9.1: The gamepad subsystem improved.<br>
-      6.9.2: Small changes.<br>
+      6.9.2: The small changes.<br>
       6.9.3: The source code synced with the Neon game development kit 6.2.6.<br>
       6.9.4: The sprite sheet subsystem improved.<br>
       6.9.5: The source code synced with the Neon game development kit 6.3.4.<br>
@@ -2824,33 +2821,33 @@
       6.9.9: The image resizer improved.<br>
       7.0: The source code synced with Neon game development kit 6.3.6.<br>
       7.0.1: The image resizer improved.<br>
-      7.0.2: Small changes.<br>
-      7.0.3: The small bug was fixed.<br>
+      7.0.2: The small changes.<br>
+      7.0.3: The small bug is fixed.<br>
       7.0.4-7.0.6: The gamepad support improved.<br>
-      7.0.7: Small changes.<br>
+      7.0.7: The small changes.<br>
       7.0.8-7.1.6: The gamepad support improved.<br>
-      7.1.7: Small changes.<br>
+      7.1.7: The small changes.<br>
       7.1.8-7.2: The image resizer improved.<br>
-      7.2.1-7.2.2: Small changes.<br>
+      7.2.1-7.2.2: The small changes.<br>
       7.2.3-7.2.4: The image resizer improved.<br>
-      7.2.5: Small changes.<br>
+      7.2.5: The small changes.<br>
       7.2.6-7.2.9: The image resizer improved.<br>
-      7.3-7.3.1: Small changes.<br>
+      7.3-7.3.1: The small changes.<br>
       7.3.2: The small rendering bug was fixed.<br>
       7.3.3: The animation subsystem backported from the Eugene game development kit 5.6.2.<br>
       7.3.4: The background subsystem improved.<br>
-      7.3.5: Small changes.<br>
+      7.3.5: The small changes.<br>
       7.3.6: The source code synced with Simple Windows Game Framework 7.3.5.<br>
       7.3.7: The image resizer improved.<br>
-      7.3.8-7.4: The Experimental Branch.<br>
-      7.4.1: The new subsystem was added.<br>
+      7.3.8-7.4: The experimental Branch.<br>
+      7.4.1: The new subsystem has been added.<br>
       7.4.2-7.4.4: The tile-map subsystem improved.<br>
       7.4.5: The image resizer is backported from the Eugene game development kit 7.3.5.<br>
       7.4.6: The image resizer is backported from the Eugene game development kit 7.3.6.<br>
       7.4.7-7.5: The image resizer improved.<br>
       7.5.1: The new subsystem was added.<br>
-      7.5.2: Small changes.<br>
-      7.5.3: The small bug was fixed.<br>
+      7.5.2: The small changes.<br>
+      7.5.3: The small bug is fixed.<br>
       7.5.4: The coordinates conversion subsystem improved.<br>
       7.5.5: The new subsystem was added.<br>
       7.5.6-7.5.7: The isometric subsystem improved.<br>
@@ -2862,87 +2859,87 @@
       7.6.5: The coordinates conversion subsystem improved.<br>
       7.6.6: The base graphics subsystem improved.<br>
       7.6.7-7.7.1: The image resizer improved.<br>
-      7.7.2 - 7.7.3: Small changes.<br>
-      7.7.4: The small bug was fixed.<br>
+      7.7.2 - 7.7.3: The small changes.<br>
+      7.7.4: The small bug is fixed.<br>
       7.7.5-7.7.6: The image resizer improved.<br>
-      7.7.7: Small changes.<br>
+      7.7.7: The small changes.<br>
       7.7.8: The isometric level subsystem improved.<br>
       7.7.9: The isometric subsystem improved.<br>
-      7.8: Small changes.<br>
+      7.8: The small changes.<br>
       7.8.1: The isometric subsystem improved.<br>
-      7.8.2-7.8.3: Small changes.<br>
+      7.8.2-7.8.3: The small changes.<br>
       7.8.4: The isometric level subsystem improved.<br>
-      7.8.5: Small changes.<br>
+      7.8.5: The small changes.<br>
       7.8.6: The animation subsystem improved.<br>
       7.8.7: The sprite sheet subsystem improved.<br>
-      7.8.8 : Small changes.<br>
+      7.8.8 : The small changes.<br>
       7.8.9: The base sprite subsystem improved.<br>
       7.9: The text drawing subsystem improved.<br>
       7.9.1: The base sprite subsystem improved.<br>
       7.9.2: The background subsystem improved.<br>
       7.9.3: The new subsystem was added.<br>
       7.9.4: The new subsystem was added.<br>
-      7.9.5-7.9.6: Small changes.<br>
+      7.9.5-7.9.6: The small changes.<br>
       7.9.7: The base Sprite Subsystem Improved.<br>
       7.9.8: The image loader improved.<br>
-      7.9.9: Small changes.<br>
+      7.9.9: The small changes.<br>
       8.0-8.0.2: The image resizer improved.<br>
-      8.0.3-8.0.5: Small changes.<br>
+      8.0.3-8.0.5: The small changes.<br>
       8.0.6: The image resizer is backported from the Eugene game development kit 7.9.9.<br>
       8.0.7: The image resizer improved.<br>
       8.0.8-8.0.9: The texture loader improved.<br>
       8.1-8.1.1: The picture subsystem improved.<br>
       8.1.2: The image resizer is backported from Eugene game development kit 8.0.5.<br>
       8.1.3: The texture loader improved.<br>
-      8.1.4: Small changes.<br>
+      8.1.4: The small changes.<br>
       8.1.5: The image resizer improved.<br>
-      8.1.6-8.1.7: Small changes.<br>
+      8.1.6-8.1.7: The small changes.<br>
       8.1.8: The small bug in the tile-map subsystem was fixed.<br>
-      8.1.9: The small bug with keyboard input subsystem and mouse input subsystem was fixed.<br>
+      8.1.9: The small bug with the keyboard input subsystem and the mouse input subsystem was fixed.<br>
       8.2: The ordinary sprite subsystem improved.<br>
       8.2.1: The background subsystem improved.<br>
       8.2.2: The rendering performance increased.<br>
-      8.2.3-8.2.8: Small changes.<br>
+      8.2.3-8.2.8: The small changes.<br>
       8.2.9: The rendering performance increased.<br>
-      8.3: The small bug was fixed.<br>
-      8.3.1: Small changes.<br>
+      8.3: The small bug is fixed.<br>
+      8.3.1: The small changes.<br>
       8.3.2: The rendering performance increased.<br>
       8.3.3: The animation subsystem improved.<br>
       8.3.4: The background subsystem improved.<br>
       8.3.5: The source code synced with Neon game development kit 7.2.9.<br>
-      8.3.6: Small changes.<br>
+      8.3.6: The small changes.<br>
       8.3.7: The source code synced with Neon game development kit 7.3.<br>
       8.3.8: The source code synced with Neon game development kit 7.3.1.<br>
       8.3.9: The source code synced with Neon game development kit 7.3.2.<br>
       8.4: The source code synced with Neon game development kit 7.3.3.<br>
-      8.4.1: Small changes.<br>
+      8.4.1: The small changes.<br>
       8.4.2: The base graphics subsystem improved.<br>
-      8.4.3-8.4.5: Small changes.<br>
+      8.4.3-8.4.5: The small changes.<br>
       8.4.5.1: Documentation updated.<br>
-      8.4.6: Small changes.<br>
+      8.4.6: The small changes.<br>
       8.4.7-8.4.8: The picture subsystem improved.<br>
       8.4.9: The image loader improved.<br>
-      8.5: Small changes.<br>
+      8.5: The small changes.<br>
       8.5.0.1: Documentation updated.<br>
-      8.5.1-8.5.5: Small changes.<br>
+      8.5.1-8.5.5: The small changes.<br>
       8.5.6-8.5.7: The image loader improved.<br>
-      8.5.8-8.6.4: Small changes.<br>
+      8.5.8-8.6.4: The small changes.<br>
       8.6.5: The rendering improved.<br>
       8.6.6: The collision detection subsystem improved.<br>
-      8.6.7-8.6.9: Small changes.<br>
+      8.6.7-8.6.9: The small changes.<br>
       8.7: The sprite sheet subsystem improved.<br>
-      8.7.1: The small bug was fixed.<br>
-      8.7.2: Small changes.<br>
-      8.7.3: The small bug was fixed.<br>
+      8.7.1: The small bug is fixed.<br>
+      8.7.2: The small changes.<br>
+      8.7.3: The small bug is fixed.<br>
       8.7.4: The source code synced with Black Game Development Kit 5.6.8.<br>
       8.7.5: The source code synced with Black Game Development Kit 5.6.9.<br>
-      8.7.6-8.7.9: Small changes.<br>
+      8.7.6-8.7.9: The small changes.<br>
       8.8: The source code synced with Black Game Development Kit 5.7.6.<br>
       8.8.1: The synchronization timer is backported from the Neon game development kit 7.5.8.<br>
       8.8.2: The synchronization timer is backported from the Neon game development kit 7.7.7.<br>
       8.8.3: The memory subsystem improved.<br>
-      8.8.4: The small bug was fixed.<br>
-      8.8.5: Small changes.<br>
+      8.8.4: The small bug is fixed.<br>
+      8.8.5: The small changes.<br>
       8.8.6: The source code synced with Black Game Development Kit 5.8.2.<br>
       8.8.7: The image resizer improved.<br>
       8.8.8: The animation subsystem improved.<br>
@@ -2955,19 +2952,20 @@
       8.9.4: The source code synced with Black Game Development Kit 5.9.6.<br>
       8.9.5: The keyboard input subsystem backported from the Neon game development kit 7.9.1.<br>
       8.9.6-8.9.7: The code-page converter improved.<br>
-      8.9.8-8.9.9: Small changes.<br>
-      9.0: The small bug was fixed.<br>
-      9.0.1: Small changes.<br>
+      8.9.8-8.9.9: The small changes.<br>
+      9.0: The small bug is fixed.<br>
+      9.0.1: The small changes.<br>
       9.0.2: The source code synced with Black Game Development Kit 6.0.3.<br>
-      9.0.3: Small changes.<br>
+      9.0.3: The small changes.<br>
       9.0.4: The base sprite subsystem improved.<br>
       9.0.5: The background subsystem improved.<br>
       9.0.6: The text-drawing subsystem improved.<br>
-      9.0.7-9.0.8: Small changes.<br>
+      9.0.7-9.0.8: The small changes.<br>
       9.0.9: The image resizer improved.<br>
-      9.1: Small changes.<br>
+      9.1: The small changes.<br>
       9.1.0.1-9.1.0.9: Documentation updated.<br>
-      9.2: Small changes.<br>
-      9.2.0.1-9.2.0.3: Documentation updated.</big><br>
+      9.2: The small changes.<br>
+      9.2.0.1-9.2.0.3: Documentation updated.<br>
+      9.2.1: The image resizer improved.</big><br>
   </body>
 </html>
