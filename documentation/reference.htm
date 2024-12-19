@@ -24,7 +24,7 @@
           <li><a href="#mozTocId491993">Chapter 6. Compilers</a></li>
           <li><a href="#mozTocId56069">Chapter 7. Platform-specific notes</a></li>
           <li><a href="#mozTocId914689">Chapter 8. The engine namespace</a></li>
-          <li><a href="#mozTocId417277">Chapter 9. Custom date types</a></li>
+          <li><a href="#mozTocId417277">Chapter 9. Custom data types</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId859712">Part 2. Base things</a>
@@ -370,7 +370,7 @@
         nested namespaces.<br>
       </big></p>
     <h2><a class="mozTocH2" name="mozTocId417277"></a><big>Chapter 9. Custom
-        date types</big></h2>
+        data types</big></h2>
     <p><big>Almost all custom data types are declared in the <span style="font-style: italic;">EUGENEGDK</span>
         namespace.<br>
       </big></p>
@@ -1227,11 +1227,11 @@
         <br>
         <span style="font-style: italic;"> </span></big><big><span style="font-style: italic;">unsigned
           char *</span></big><big><span style="font-style: italic;">Image::load(const
-          char *name); -</span> Load a Truevision TGA image and return handle to
+          char *name); -</span> Load a Truevision TGA image and return the handle to
         the image buffer.<br>
         <br>
         <span style="font-style: italic;">unsigned char *Image::get_data(); -</span>
-        Return handle to the image buffer.<br>
+        Return the handle to the image buffer.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Image::get_width()
           const; -</span> Return the width of the current image.<br>
@@ -1432,7 +1432,6 @@
         column.<br>
         <br>
         <span style="font-style: italic;">int World::get_target_y(const int row</span></big><big
-
         style="font-style: italic;">,</big><big style="font-style: italic;">
         const int column</big><big><span style="font-style: italic;">) const; -</span>
         Get the target Cartesian y-coordinate </big><big>from the row and
@@ -1713,7 +1712,7 @@
         file. <br>
         <br>
         All functions take the target file name as an argument and return false
-        if the operation was failed.</big><br>
+        if the operation failed.</big><br>
       <big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId59386"></a><big>Chapter 2. Tools</big></h2>
     <p><big>This module is implemented as a few functions</big><big>. All these
@@ -1724,8 +1723,8 @@
         Exit from your program and return the user to the operating system.<br>
         <br>
         <span style="font-style: italic;">bool enable_logging(const char *name);
-          -</span></big><big></big><big> Enable redirecting error messages to a
-        log file and return false if the operation was failed.<br>
+          -</span></big><big> Enable redirecting error messages to a log file
+        and return false if the operation failed.<br>
         <br>
         <span style="font-style: italic;">void randomize(); -</span></big><big></big><big>
         Initialize the random number generator.<br>
@@ -2422,7 +2421,7 @@
       <big style="text-decoration: underline;">Vertex arrays and texture
         coordinate arrays</big><br>
       <big> </big><br>
-      <big>Any rectangle needs four vertexes and four texture coordinates.</big><br>
+      <big>Any rectangle needs four vertices and four texture coordinates.</big><br>
       <big>A single vertex represents the following custom data type:</big><br>
       <big> </big><br>
       <big style="font-style: italic;">typedef struct Vertex</big><big style="font-style: italic;"><br>
@@ -2947,11 +2946,13 @@
       8.8.9: The source code synced with Black Game Development Kit 5.8.7.<br>
       8.9: The source code synced with Black Game Development Kit 5.8.8.<br>
       8.9.0.1: The documentation has been updated.<br>
-      8.9.1: The synchronization timer is backported from the Eugene game development kit 8.8.1.<br>
+      8.9.1: The synchronization timer is backported from the Eugene game
+      development kit 8.8.1.<br>
       8.9.2: The source code synced with Black Game Development Kit 5.9.<br>
       8.9.3: The source code synced with Black Game Development Kit 5.9.4.<br>
       8.9.4: The source code synced with Black Game Development Kit 5.9.6.<br>
-      8.9.5: The keyboard input subsystem is backported from the Neon game development kit 7.9.1.<br>
+      8.9.5: The keyboard input subsystem is backported from the Neon game
+      development kit 7.9.1.<br>
       8.9.6-8.9.7: The code page converter has improved.<br>
       8.9.8-8.9.9: The small changes.<br>
       9.0: The small bug has been fixed.<br>
@@ -2972,6 +2973,7 @@
       9.2.2.1: The documentation has been updated.<br>
       9.2.3: The small changes.<br>
       9.2.4: The small bug has been fixed.<br>
+      9.2.4.1: The documentation has been updated.<br>
     </big>
   </body>
 </html>
