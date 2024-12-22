@@ -1,12 +1,12 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=windows-1251">
-    <title>Programmer reference</title>
+    <title>Programmer Reference</title>
   </head>
   <body>
     <div>
       <div style="text-align: center;"><big>Eugene game development kit:
-          programmer reference</big></div>
+          Programmer Reference</big></div>
     </div>
     <p><big><br>
         Table of contents<br>
@@ -30,7 +30,7 @@
       <li><a href="#mozTocId859712">Part 2. Base things</a>
         <ul>
           <li><a href="#mozTocId312970">Chapter 1. Coordinate system</a></li>
-          <li><a href="#mozTocId544184">Chapter 2. Game cycle</a></li>
+          <li><a href="#mozTocId544184">Chapter 2. A game loop</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId749937">Part 3. Graphics</a>
@@ -384,11 +384,12 @@
         understand it.</big></p>
     <p><img style="width: 107px; height: 111px;" alt="" src="coordinate_system.png"><br>
     </p>
-    <h2><a class="mozTocH2" name="mozTocId544184"></a><big>Chapter 2. Game cycle</big><br>
+    <h2><a class="mozTocH2" name="mozTocId544184"></a><big>Chapter 2. A game
+        loop</big><br>
     </h2>
-    <p><big>What is the main point in your game? A game cycle. You can see the
-        structure of a typical game cycle below.</big></p>
-    <p><big><img style="width: 379px; height: 354px;" alt="" src="game_cycle.png"><br>
+    <p><big>What is the main point in your game? A game loop. You can see the
+        structure of a typical game loop below.</big></p>
+    <p><big><img style="width: 379px; height: 354px;" alt="" src="game_loop.png"><br>
       </big></p>
     <h1><a class="mozTocH1" name="mozTocId749937"></a><big>Part 3. Graphics</big></h1>
     <h2><a class="mozTocH2" name="mozTocId182571"></a><big>Chapter 1. The
@@ -727,6 +728,7 @@
           background); -</span> Load a background </big><big>from the buffer.</big><big><br>
         <br>
       </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
+
         style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);
           -</span> Load a background from the target file.</big><br>
       <big><br>
@@ -1227,8 +1229,8 @@
         <br>
         <span style="font-style: italic;"> </span></big><big><span style="font-style: italic;">unsigned
           char *</span></big><big><span style="font-style: italic;">Image::load(const
-          char *name); -</span> Load a Truevision TGA image and return the handle to
-        the image buffer.<br>
+          char *name); -</span> Load a Truevision TGA image and return the
+        handle to the image buffer.<br>
         <br>
         <span style="font-style: italic;">unsigned char *Image::get_data(); -</span>
         Return the handle to the image buffer.<br>
@@ -1487,9 +1489,8 @@
         Return the current timer interval.<br>
         <br>
         <span style="font-style: italic;"> bool Timer::check_timer(); -</span>
-        Return true and reinitialize the start point if the interval
-        between the stop and start points is large or equal to specific
-        seconds.</big></p>
+        Return true and reinitialize the start point if the interval between the
+        stop and start points is large or equal to specific seconds.</big></p>
     <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 4. Collision</big></h2>
     <p><big><span style="text-decoration: underline;">An important thing for any
           game</span><br>
@@ -2971,7 +2972,7 @@
       9.2.2.1: The documentation has been updated.<br>
       9.2.3: The small changes.<br>
       9.2.4: The small bug has been fixed.<br>
-      9.2.4.1-9.2.4.3: The documentation has been updated.<br>
+      9.2.4.1-9.2.4.4: The documentation has been updated.<br>
     </big>
   </body>
 </html>
