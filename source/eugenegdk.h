@@ -944,6 +944,8 @@ typedef enum
    bool is_font_load() const;
    unsigned int get_font_width() const;
    unsigned int get_font_height() const;
+   unsigned int get_x() const;
+   unsigned int get_y() const;
    void set_position(const unsigned int x,const unsigned int y);
    void set_size(const unsigned int width,const unsigned int height);
    void set_width(const unsigned int width);

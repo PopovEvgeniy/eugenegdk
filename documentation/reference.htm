@@ -728,7 +728,6 @@
           background); -</span> Load a background </big><big>from the buffer.</big><big><br>
         <br>
       </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
-
         style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);
           -</span> Load a background from the target file.</big><br>
       <big><br>
@@ -1060,6 +1059,7 @@
           const; -</span> Return</big><big> the number of column</big><big>s.<br>
         <br>
       </big><big><span style="font-style: italic;">void Sheet::destroy()</span></big><big><span
+
           style="font-style: italic;">; -</span> </big><big><span style="font-style: italic;"></span>Destroy
         a sprite sheet image and the texture.<br>
         <br>
@@ -1160,8 +1160,13 @@
         <br>
         <span style="font-style: italic;"> unsigned int Text::get_font_height()
           const; -</span> Get the current font height in pixels.<br>
-        <br>
-        <span style="font-style: italic;"> void Text::set_position(const
+      </big></p>
+    <big><span style="font-style: italic;">unsigned int Text::get_x() const; -</span>
+      Get the x-coordinate of the text output position.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">unsigned int Text::get_y() const; -</span>
+      Get the y-coordinate of the text output position.</big>
+    <p><big> <span style="font-style: italic;"> void Text::set_position(const
           unsigned int x, const unsigned int y); -</span> Set the output
         position.<br>
         <br>
@@ -2790,7 +2795,8 @@
       6.5.9: The small bug in the gamepad subsystem has been fixed.<br>
       6.6: The source code synced with Gray game development kit 2.2.7.<br>
       6.6.1: The text-drawing subsystem has improved.<br>
-      6.6.2: The simple sound subsystem is backported from the Neon game development kit 5.7.8.<br>
+      6.6.2: The simple sound subsystem is backported from the Neon game
+      development kit 5.7.8.<br>
       6.6.3: The small bug in the multimedia subsystem has been fixed.<br>
       6.6.4-6.6.6: The small changes.<br>
       6.6.7: The multimedia subsystem has improved.<br>
@@ -2974,6 +2980,7 @@
       9.2.4: The small bug has been fixed.<br>
       9.2.4.1-9.2.4.4: The documentation has been updated.<br>
       9.2.5: The source code synced with Gray Game Development Kit 4.2.<br>
+      9.2.6: The text drawing subsystem has improved.<br>
     </big>
   </body>
 </html>
