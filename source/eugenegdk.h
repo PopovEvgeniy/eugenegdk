@@ -955,9 +955,9 @@ typedef enum
    void load_font(Image &font);
    void load_font(const char *name);
    void print(const char target);
-   void print(const char *target);
    void print(const unsigned int x,const unsigned int y,const char target);
-   void print(const unsigned int x,const unsigned int y,const char *target);
+   size_t print(const char *target);
+   size_t print(const unsigned int x,const unsigned int y,const char *target);
    void disable_mirror();
    void horizontal_mirror();
    void vertical_mirror();
