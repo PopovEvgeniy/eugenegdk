@@ -3798,12 +3798,12 @@ namespace EUGENEGDK
 
   int Coordinates::get_cartesian_x(const int x) const
   {
-   return (x<0) ? 0:(x-half_viewport_width);
+   return (x<0) ? half_viewport_width:(x-half_viewport_width);
   }
 
   int Coordinates::get_cartesian_y(const int y) const
   {
-   return (y<0) ? 0:(half_viewport_height-y);
+   return (y<0) ? half_viewport_height:(half_viewport_height-y);
   }
 
   int Coordinates::get_screen_x(const int x) const
