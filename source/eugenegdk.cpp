@@ -3816,88 +3816,42 @@ namespace EUGENEGDK
    return half_viewport_height-y;
   }
 
-  Isometric::Isometric()
-  {
-   target_x=0;
-   target_y=0;
-  }
-
-  Isometric::~Isometric()
-  {
-
-  }
-
-  Isometric* Isometric::get_handle()
-  {
-   return this;
-  }
-
-  void Isometric::set_target(const int x,const int y)
-  {
-   target_x=x;
-   target_y=y;
-  }
-
-  int Isometric::get_isometric_x() const
-  {
-   return target_x-target_y;
-  }
-
-  int Isometric::get_isometric_y() const
-  {
-   int isometric_y;
-   isometric_y=target_x+target_y;
-   if (isometric_y!=0)
-   {
-    isometric_y/=2;
-   }
-   return isometric_y;
-  }
-
-  int Isometric::get_cartesian_x() const
-  {
-   int cartesian_x;
-   cartesian_x=2*target_y+target_x;
-   if (cartesian_x!=0)
-   {
-    cartesian_x/=2;
-   }
-   return cartesian_x;
-  }
-
-  int Isometric::get_cartesian_y() const
-  {
-   int cartesian_y;
-   cartesian_y=2*target_y-target_x;
-   if (cartesian_y!=0)
-   {
-    cartesian_y/=2;
-   }
-   return cartesian_y;
-  }
-
   int Isometric::get_isometric_x(const int x,const int y)
   {
-   this->set_target(x,y);
-   return this->get_isometric_x();
+   return x-y;
   }
 
   int Isometric::get_isometric_y(const int x,const int y)
   {
-   this->set_target(x,y);
-   return this->get_isometric_y();
+   int isometric_y;
+   isometric_y=0;
+   if ((x!=0)||(y!=0))
+   {
+    isometric_y=(x+y)/2;
+   }
+   return isometric_y;
   }
 
   int Isometric::get_cartesian_x(const int x,const int y)
   {
-   this->set_target(x,y);
-   return this->get_cartesian_x();
+   int cartesian_x;
+   cartesian_x=0;
+   if ((x!=0)||(y!=0))
+   {
+    cartesian_x=(2*y+x)/2;
+   }
+   return cartesian_x;
   }
 
   int Isometric::get_cartesian_y(const int x,const int y)
   {
-   this->set_target(x,y);
-   return this->get_cartesian_y();
+   int cartesian_y;
+   cartesian_y=0;
+   if ((x!=0)||(y!=0))
+   {
+    cartesian_y=(2*y-x)/2;
+   }
+   return cartesian_y;
   }
 
   World::World()

@@ -997,22 +997,11 @@ typedef enum
 
   class Isometric
   {
-   private:
-   int target_x;
-   int target_y;
    public:
-   Isometric();
-   ~Isometric();
-   Isometric* get_handle();
-   void set_target(const int x,const int y);
-   int get_isometric_x() const;
-   int get_isometric_y() const;
-   int get_cartesian_x() const;
-   int get_cartesian_y() const;
-   int get_isometric_x(const int x,const int y);
-   int get_isometric_y(const int x,const int y);
-   int get_cartesian_x(const int x,const int y);
-   int get_cartesian_y(const int x,const int y);
+   static int get_isometric_x(const int x,const int y);
+   static int get_isometric_y(const int x,const int y);
+   static int get_cartesian_x(const int x,const int y);
+   static int get_cartesian_y(const int x,const int y);
   };
 
   class World
