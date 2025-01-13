@@ -3854,6 +3854,55 @@ namespace EUGENEGDK
    return cartesian_y;
   }
 
+  Entity::Entity()
+  {
+   entity_width=1;
+   entity_height=1;
+  }
+
+  Entity::~Entity()
+  {
+
+  }
+
+  void Entity::initialize(const int width,const int height)
+  {
+   if (width>0)
+   {
+    entity_width=width;
+   }
+   if (height>0)
+   {
+    entity_height=height;
+   }
+
+  }
+
+  Entity* Entity::get_handle()
+  {
+   return this;
+  }
+
+  int Entity::get_with() const
+  {
+   return entity_width;
+  }
+
+  int Entity::get_height() const
+  {
+   return entity_height;
+  }
+
+  int Entity::get_x(const int x,const int y) const
+  {
+   return (x-y)*(entity_width/2);
+  }
+
+  int Entity::get_y(const int x,const int y) const
+  {
+   return (x+y)*(entity_height/2);
+  }
+
   World::World()
   {
    surface_width=1;

@@ -2,13 +2,13 @@
 
 int main()
 {
- int x,y,row,column;
+ int row,column;
  EUGENEGDK::Graphics::Screen screen;
  EUGENEGDK::Graphics::Scene sky;
  EUGENEGDK::Graphics::Cartoon ground;
  EUGENEGDK::Graphics::Text text;
  EUGENEGDK::Transformation::Coordinates cartesian;
- EUGENEGDK::Transformation::World level;
+ EUGENEGDK::Transformation::Entity level;
  EUGENEGDK::Input::Keyboard keyboard;
  keyboard.initialize();
  screen.initialize();
@@ -18,7 +18,7 @@ int main()
  text.load_font("font.tga");
  text.set_position(text.get_font_width(),text.get_font_height());
  cartesian.initialize(screen.get_width(),screen.get_height());
- level.initialize(ground.get_width(),ground.get_height(),screen.get_width(),screen.get_height());
+ level.initialize(ground.get_width(),ground.get_height());
  while (screen.sync())
  {
   if (keyboard.check_hold(1)==true)
@@ -26,13 +26,11 @@ int main()
    break;
   }
   sky.draw();
-  for (row=-5;row<5;++row)
+  for (row=0;row<10;++row)
   {
-   for (column=-5;column<5;++column)
+   for (column=0;column<10;++column)
    {
-    x=level.get_target_x(row,column);
-    y=level.get_target_y(row,column);
-    ground.draw(cartesian.get_screen_x(x),cartesian.get_screen_y(y));
+    ground.draw(cartesian.get_screen_x(level.get_x(row,column)),cartesian.get_screen_y(level.get_y(row,column)));
    }
 
   }

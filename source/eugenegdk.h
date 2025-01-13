@@ -1004,6 +1004,22 @@ typedef enum
    static int get_cartesian_y(const int x,const int y);
   };
 
+  class Entity
+  {
+   private:
+   int entity_width;
+   int entity_height;
+   public:
+   Entity();
+   ~Entity();
+   void initialize(const int width,const int height);
+   Entity *get_handle();
+   int get_with() const;
+   int get_height() const;
+   int get_x(const int x,const int y) const;
+   int get_y(const int x,const int y) const;
+  };
+
   class World
   {
    private:
