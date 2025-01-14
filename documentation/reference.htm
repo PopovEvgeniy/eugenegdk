@@ -1,5 +1,5 @@
 <html>
-<head>  
+<head>
   <meta http-equiv="content-type" content="text/html; charset=us-ascii">
   <title>Programmer Reference</title>
 </head>
@@ -59,7 +59,7 @@
         <li><a href="#mozTocId29297">Chapter 2. Cartesian coordinates and screen coordinates</a></li>
         <li><a href="#mozTocId122919">Chapter 3. Cartesian coordinates and isometric coordinates</a></li>
         <li><a href="#mozTocId175651">Chapter 4. Entity</a></li>
-        <li><a href="#mozTocId143616">Chapter 5. Isometric Level</a></li>
+        <li><a href="#mozTocId143616">Chapter 5. Isometric map</a></li>
       </ul>
     </li>
     <li>
@@ -770,7 +770,7 @@
   <p><big><span style="text-decoration: underline;">Cartesian coordinates</span><br>
   <br>
   The Cartesian coordinates start at the center of the screen. Look at this picture to understand it.<br></big></p>
-  <p><big><img style="width: 107px; height: 111px;" alt="" src="file:///D:/%D0%9E%D0%B1%D1%80%D0%B0%D0%B7/eugenegdk/Version%209.2.7/eugenegdk/documentation/cartesian_system.png"><br>
+  <p><big><img style="width: 107px; height: 111px;" alt="" src="cartesian_system.png"><br>
   <br>
   <span style="text-decoration: underline;">Coordinates conversion</span><br>
   <br>
@@ -825,29 +825,19 @@
   <span style="font-style: italic;">void Entity::initialize(const int width, const int height); -</span> Initialize the subsystem.</big></p>
   <p><big><span style="font-style: italic;">int Entity::get_width() const; -</span> Return the width of the object.<br>
   <br>
-  <span style="font-style: italic;">int Entiy::get_height() const; -</span> Return the height of the object.</big><br></p>
+  <span style="font-style: italic;">int Entiy::get_height() const; -</span> Return the height of the object.</big></p>
   <p><big><span style="font-style: italic;">int Entity::get_x(const int x, const int y) const; -</span> Return the target x-coordinate.<br>
   <br>
   <span style="font-style: italic;">int Entity::get_y(const int y, const int y) const; -</span> Return the target y-coordinate.<br></big></p>
-  <h2><a class="mozTocH2" name="mozTocId143616" id="mozTocId143616"></a><big>Chapter 5. Isometric Level<br></big></h2>
-  <p><big>The isometric level subsystem is intended to help you create an isometric level. Just use the <span style="font-style: italic;">World</span> class to do it. Let's look at the publicly available methods.<br>
+  <h2><a class="mozTocH2" name="mozTocId143616" id="mozTocId143616"></a><big>Chapter 5. Isometric map<br></big></h2>
+  <p><big>The isometric map subsystem lets you calculate the isometric map size. Just use the <span style="font-style: italic;">World</span> class to do it. Let's look at the publicly available methods.<br>
   <br>
-  <span style="font-style: italic;">World *World::get_handle(); -</span> Return the handle to the isometric level subsystem.<br>
+  <span style="font-style: italic;">World *World::get_handle(); -</span> Return the handle to the isometric map subsystem.<br>
   <br>
-  <span style="font-style: italic;">void World::initialize(const int tile_width, const int tile_height,</span></big> <big><span style="font-style: italic;">const int screen_width, const int screen_height</span></big><big><span style="font-style: italic;">); -</span> Initialize the subsystem.<br>
+  <span style="font-style: italic;">void World::initialize(const</span></big> <big><span style="font-style: italic;">unsigned</span></big> <big><span style="font-style: italic;">int tile_width, const</span></big> <big><span style="font-style: italic;">unsigned int</span></big> <big><span style="font-style: italic;">tile_height</span></big><big><span style="font-style: italic;">); -</span> Initialize the subsystem.<br></big><big><br></big><big><span style="font-style: italic;">unsigned</span></big> <big><span style="font-style: italic;">int World::get_row_amount(</span></big><big><span style="font-style: italic;">const unsigned int screen_height</span></big><big><span style="font-style: italic;">) const; -</span> Get the maximum number of the visible rows.<br>
+  <br></big><big><span style="font-style: italic;">unsigned</span></big> <big><span style="font-style: italic;">int World::get_column_amount(</span></big><big><span style="font-style: italic;">const unsigned int screen_width</span></big><big><span style="font-style: italic;">) const; -</span> Get the maximum number of the visible columns.<br>
   <br>
-  <span style="font-style: italic;">int World::get_target_x(const int row,</span></big> <big style="font-style: italic;">const int column</big><big><span style="font-style: italic;">) const; -</span> Get the target Cartesian x-coordinate from the row and column.<br>
-  <br>
-  <span style="font-style: italic;">int World::get_target_y(const int row</span></big><big style="font-style: italic;">,</big> <big style="font-style: italic;">const int column</big><big><span style="font-style: italic;">) const; -</span> Get the target Cartesian y-coordinate</big> <big>from the row and column.<br>
-  <br></big> <big><span style="font-style: italic;">int World::get_row(const int x,</span></big> <big style="font-style: italic;">const int y</big><big><span style="font-style: italic;">) const; -</span> Get a row from the target point.<br>
-  <br>
-  <span style="font-style: italic;">int World::get_column(const int y</span></big><big style="font-style: italic;">,</big> <big style="font-style: italic;">const int y</big><big><span style="font-style: italic;">) const; -</span> Get a column</big> <big>from the target point.<br>
-  <br>
-  <span style="font-style: italic;">int World::get_row_amount() const; -</span> Get the maximum number of the visible rows.<br>
-  <br>
-  <span style="font-style: italic;">int World::get_column_amount() const; -</span> Get the maximum number of the visible columns.<br>
-  <br>
-  <span style="font-style: italic;">int World::get_tile_amount() const; -</span> Get the maximum number of the visible isometric tiles.<br></big></p>
+  <span style="font-style: italic;">unsigned int World::get_tile_amount(</span></big><big><span style="font-style: italic;">const unsigned int screen_width, const unsigned int screen_height</span></big><big><span style="font-style: italic;">) const; -</span> Get the maximum number of the visible isometric tiles.<br></big></p>
   <h1><a class="mozTocH1" name="mozTocId64443" id="mozTocId64443"></a><big>Part 5. Common things</big></h1>
   <h2><a class="mozTocH2" name="mozTocId597525" id="mozTocId597525"></a><big>Chapter 1. The sub-namespace</big></h2>
   <p><big>All classes in this section are declared in the <span style="font-style: italic;">Common</span> sub-namespace.<br></big></p>
@@ -1556,7 +1546,8 @@
   </table>
   <h2><a class="mozTocH2" name="mozTocId692266" id="mozTocId692266"></a><big>Chapter 6. Audio</big></h2>
   <p><big>The audio subsystem is working over <a href="https://docs.microsoft.com/en-us/windows/desktop/DirectShow/directshow">DirectShow</a>. It is available as part of <a href="https://en.wikipedia.org/wiki/DirectX">DirectX</a>. DirectX is pre-installed by default under the modern versions of Windows.</big></p>
-  <h1><a class="mozTocH1" name="mozTocId670307" id="mozTocId670307"></a><big>Version history<br></big></h1><big>0.1: Initial version.<br>
+  <h1><a class="mozTocH1" name="mozTocId670307" id="mozTocId670307"></a><big>Version history<br></big></h1><big>
+  0.1: Initial version.<br>
   0.1.1-0.7.6: The internal unstable builds.<br>
   0.7.7: The small changes.<br>
   0.7.8: The small bug in the sprite subsystem has been fixed.<br>
@@ -2053,6 +2044,7 @@
   9.2.8: The small bug has been fixed.<br>
   9.2.9: The small changes.<br>
   9.3: The isometric subsystem has improved.<br>
-  9.3.1: The new subsystem has been added.<br></big>
+  9.3.1: The new subsystem has been added.<br>
+  9.3.2-9.3.5:The isometric map subsystem has improved.</big>
 </body>
 </html>
