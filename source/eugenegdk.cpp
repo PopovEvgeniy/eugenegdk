@@ -3903,6 +3903,139 @@ namespace EUGENEGDK
    return (x+y)*(entity_height/2);
   }
 
+ }
+
+ namespace Map
+ {
+
+  Tilemap::Tilemap()
+  {
+   cell_width=1;
+   cell_height=1;
+  }
+
+  Tilemap::~Tilemap()
+  {
+
+  }
+
+  Tilemap* Tilemap::get_handle()
+  {
+   return this;
+  }
+
+  void Tilemap::initialize(const unsigned int tile_width,const unsigned int tile_height)
+  {
+   if (tile_width>0)
+   {
+    cell_width=tile_width;
+   }
+   if (tile_height>0)
+   {
+    cell_height=tile_height;
+   }
+
+  }
+
+  unsigned int Tilemap::get_tile_width() const
+  {
+   return cell_width;
+  }
+
+  unsigned int Tilemap::get_tile_height() const
+  {
+   return cell_height;
+  }
+
+  unsigned int Tilemap::get_x(const unsigned int row) const
+  {
+   return row*cell_width;
+  }
+
+  unsigned int Tilemap::get_y(const unsigned int column) const
+  {
+   return column*cell_height;
+  }
+
+  unsigned int Tilemap::get_row(const unsigned int x) const
+  {
+   unsigned int row;
+   row=0;
+   if (x>cell_width)
+   {
+    row=x/cell_width;
+   }
+   return row;
+  }
+
+  unsigned int Tilemap::get_column(const unsigned int y) const
+  {
+   unsigned int column;
+   column=0;
+   if (y>cell_height)
+   {
+    column=y/cell_height;
+   }
+   return column;
+  }
+
+  unsigned int Tilemap::get_row_amount(const unsigned int viewport_width) const
+  {
+   unsigned int amount;
+   amount=0;
+   if (viewport_width>0)
+   {
+    amount=viewport_width/cell_width;
+    if ((viewport_width%cell_width)!=0)
+    {
+     ++amount;
+    }
+
+   }
+   return amount;
+  }
+
+  unsigned int Tilemap::get_column_amount(const unsigned int viewport_height) const
+  {
+   unsigned int amount;
+   amount=0;
+   if (viewport_height>0)
+   {
+    amount=viewport_height/cell_height;
+    if ((viewport_height%cell_height)!=0)
+    {
+     ++amount;
+    }
+
+   }
+   return amount;
+  }
+
+  unsigned int Tilemap::get_tile_amount(const unsigned int viewport_width,const unsigned int viewport_height) const
+  {
+   return this->get_row_amount(viewport_width)*this->get_column_amount(viewport_height);
+  }
+
+  bool Tilemap::check_row(const unsigned int row,const unsigned int viewport_width) const
+  {
+   return row<this->get_row_amount(viewport_width);
+  }
+
+  bool Tilemap::check_column(const unsigned int column,const unsigned int viewport_height) const
+  {
+   return column<this->get_column_amount(viewport_height);
+  }
+
+  EUGENEGDK::BOX Tilemap::get_box(const unsigned int row,const unsigned int column) const
+  {
+   EUGENEGDK::BOX collision;
+   collision.x=this->get_x(row);
+   collision.y=this->get_y(column);
+   collision.width=cell_width;
+   collision.height=cell_height;
+   return collision;
+  }
+
   World::World()
   {
    half_tile_width=1;
@@ -4034,134 +4167,6 @@ namespace EUGENEGDK
   {
    this->set_target(first_target,second_target);
    return this->check_collision();
-  }
-
-  Tilemap::Tilemap()
-  {
-   cell_width=1;
-   cell_height=1;
-  }
-
-  Tilemap::~Tilemap()
-  {
-
-  }
-
-  Tilemap* Tilemap::get_handle()
-  {
-   return this;
-  }
-
-  void Tilemap::initialize(const unsigned int tile_width,const unsigned int tile_height)
-  {
-   if (tile_width>0)
-   {
-    cell_width=tile_width;
-   }
-   if (tile_height>0)
-   {
-    cell_height=tile_height;
-   }
-
-  }
-
-  unsigned int Tilemap::get_tile_width() const
-  {
-   return cell_width;
-  }
-
-  unsigned int Tilemap::get_tile_height() const
-  {
-   return cell_height;
-  }
-
-  unsigned int Tilemap::get_x(const unsigned int row) const
-  {
-   return row*cell_width;
-  }
-
-  unsigned int Tilemap::get_y(const unsigned int column) const
-  {
-   return column*cell_height;
-  }
-
-  unsigned int Tilemap::get_row(const unsigned int x) const
-  {
-   unsigned int row;
-   row=0;
-   if (x>cell_width)
-   {
-    row=x/cell_width;
-   }
-   return row;
-  }
-
-  unsigned int Tilemap::get_column(const unsigned int y) const
-  {
-   unsigned int column;
-   column=0;
-   if (y>cell_height)
-   {
-    column=y/cell_height;
-   }
-   return column;
-  }
-
-  unsigned int Tilemap::get_row_amount(const unsigned int viewport_width) const
-  {
-   unsigned int amount;
-   amount=0;
-   if (viewport_width>0)
-   {
-    amount=viewport_width/cell_width;
-    if ((viewport_width%cell_width)!=0)
-    {
-     ++amount;
-    }
-
-   }
-   return amount;
-  }
-
-  unsigned int Tilemap::get_column_amount(const unsigned int viewport_height) const
-  {
-   unsigned int amount;
-   amount=0;
-   if (viewport_height>0)
-   {
-    amount=viewport_height/cell_height;
-    if ((viewport_height%cell_height)!=0)
-    {
-     ++amount;
-    }
-
-   }
-   return amount;
-  }
-
-  unsigned int Tilemap::get_tile_amount(const unsigned int viewport_width,const unsigned int viewport_height) const
-  {
-   return this->get_row_amount(viewport_width)*this->get_column_amount(viewport_height);
-  }
-
-  bool Tilemap::check_row(const unsigned int row,const unsigned int viewport_width) const
-  {
-   return row<this->get_row_amount(viewport_width);
-  }
-
-  bool Tilemap::check_column(const unsigned int column,const unsigned int viewport_height) const
-  {
-   return column<this->get_column_amount(viewport_height);
-  }
-
-  EUGENEGDK::BOX Tilemap::get_box(const unsigned int row,const unsigned int column) const
-  {
-   EUGENEGDK::BOX collision;
-   collision.x=this->get_x(row);
-   collision.y=this->get_y(column);
-   collision.width=cell_width;
-   collision.height=cell_height;
-   return collision;
   }
 
  }
