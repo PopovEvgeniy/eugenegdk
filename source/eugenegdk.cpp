@@ -3854,53 +3854,61 @@ namespace EUGENEGDK
    return cartesian_y;
   }
 
-  Entity::Entity()
+  Level::Level()
   {
-   entity_width=1;
-   entity_height=1;
+   start_x=0;
+   start_y=0;
+   halft_tile_width=0;
+   halft_tile_height=0;
   }
 
-  Entity::~Entity()
+  Level::~Level()
   {
-
-  }
-
-  void Entity::initialize(const int width,const int height)
-  {
-   if (width>0)
-   {
-    entity_width=width;
-   }
-   if (height>0)
-   {
-    entity_height=height;
-   }
 
   }
 
-  Entity* Entity::get_handle()
+  Level* Level::get_handle()
   {
    return this;
   }
 
-  int Entity::get_with() const
+  void Level::initialize(const int tile_width,const int tile_height)
   {
-   return entity_width;
+   if (tile_width>0)
+   {
+    halft_tile_width=tile_width/2;
+   }
+   if (tile_height>0)
+   {
+    halft_tile_height=tile_height/2;
+   }
+
   }
 
-  int Entity::get_height() const
+  void Level::set_offset(const int x_offset,const int y_offset)
   {
-   return entity_height;
+   start_x=x_offset;
+   start_y=y_offset;
   }
 
-  int Entity::get_x(const int x,const int y) const
+  int Level::get_x_offset() const
   {
-   return (x-y)*(entity_width/2);
+   return start_x;
   }
 
-  int Entity::get_y(const int x,const int y) const
+  int Level::get_y_offset() const
   {
-   return (x+y)*(entity_height/2);
+   return start_y;
+  }
+
+  int Level::get_x(const int row,const int column) const
+  {
+   return start_x+(row-column)*halft_tile_width;
+  }
+
+  int Level::get_y(const int row,const int column) const
+  {
+   return start_y+(row+column)*halft_tile_height;
   }
 
  }

@@ -1004,20 +1004,23 @@ typedef enum
    static int get_cartesian_y(const int x,const int y);
   };
 
-  class Entity
+  class Level
   {
    private:
-   int entity_width;
-   int entity_height;
+   int start_x;
+   int start_y;
+   int halft_tile_width;
+   int halft_tile_height;
    public:
-   Entity();
-   ~Entity();
-   void initialize(const int width,const int height);
-   Entity *get_handle();
-   int get_with() const;
-   int get_height() const;
-   int get_x(const int x,const int y) const;
-   int get_y(const int x,const int y) const;
+   Level();
+   ~Level();
+   Level *get_handle();
+   void initialize(const int tile_width,const int tile_height);
+   void set_offset(const int x_offset,const int y_offset);
+   int get_x_offset() const;
+   int get_y_offset() const;
+   int get_x(const int row,const int column) const;
+   int get_y(const int row,const int column) const;
   };
 
  }

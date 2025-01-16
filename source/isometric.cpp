@@ -8,7 +8,7 @@ int main()
  EUGENEGDK::Graphics::Cartoon ground;
  EUGENEGDK::Graphics::Text text;
  EUGENEGDK::Transformation::Coordinates cartesian;
- EUGENEGDK::Transformation::Entity level;
+ EUGENEGDK::Transformation::Level level;
  EUGENEGDK::Input::Keyboard keyboard;
  keyboard.initialize();
  screen.initialize();
