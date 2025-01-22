@@ -9,6 +9,8 @@ F1 - Disable background mirroring
 F2 - Do horizontal background mirror
 F3 - Do vertical background mirror
 F4 - Do both horizontal and vertical background mirrors
+F5 - Enable FPS limit
+F6 - Disable FPS limit
 
 Controls for the gamepad
 
