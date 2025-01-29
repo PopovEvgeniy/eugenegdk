@@ -2995,7 +2995,6 @@ namespace EUGENEGDK
    Image picture;
    picture.load(name);
    this->load(picture,kind,frames);
-   picture.destroy_image();
   }
 
   void Sprite::set_target(const unsigned int target)
@@ -3081,7 +3080,6 @@ namespace EUGENEGDK
    Image picture;
    picture.load(name);
    this->load(picture);
-   picture.destroy_image();
   }
 
   void Cartoon::destroy()
@@ -3299,7 +3297,6 @@ namespace EUGENEGDK
    Image picture;
    picture.load(name);
    this->load(picture,row_amount,column_amount);
-   picture.destroy_image();
   }
 
   Background::Background()
