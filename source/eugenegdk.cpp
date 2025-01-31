@@ -3888,8 +3888,92 @@ namespace EUGENEGDK
 
  }
 
- namespace Map
+ namespace Common
  {
+
+  Timer::Timer()
+  {
+   start=time(NULL);
+   interval=0.0;
+  }
+
+  Timer::~Timer()
+  {
+
+  }
+
+  Timer* Timer::get_handle()
+  {
+   return this;
+  }
+
+  void Timer::set_timer(const double seconds)
+  {
+   interval=seconds;
+   start=time(NULL);
+  }
+
+  double Timer::get_interval() const
+  {
+   return interval;
+  }
+
+  bool Timer::check_timer()
+  {
+   bool check;
+   check=difftime(time(NULL),start)>=interval;
+   if (check==true)
+   {
+    start=time(NULL);
+   }
+   return check;
+  }
+
+  Collision::Collision()
+  {
+   first.x=0;
+   first.y=0;
+   first.width=0;
+   first.height=0;
+   second=first;
+  }
+
+  Collision::~Collision()
+  {
+
+  }
+
+  Collision* Collision::get_handle()
+  {
+   return this;
+  }
+
+  bool Collision::check_horizontal_collision() const
+  {
+   return ((first.x+first.width)>=second.x) && (first.x<=(second.x+second.width));
+  }
+
+  bool Collision::check_vertical_collision() const
+  {
+   return ((first.y+first.height)>=second.y) && (first.y<=(second.y+second.height));
+  }
+
+  void Collision::set_target(const EUGENEGDK::BOX first_target,const EUGENEGDK::BOX second_target)
+  {
+   first=first_target;
+   second=second_target;
+  }
+
+  bool Collision::check_collision() const
+  {
+   return this->check_horizontal_collision() && this->check_vertical_collision();
+  }
+
+  bool Collision::check_collision(const EUGENEGDK::BOX first_target,const EUGENEGDK::BOX second_target)
+  {
+   this->set_target(first_target,second_target);
+   return this->check_collision();
+  }
 
   Tilemap::Tilemap()
   {
@@ -4005,139 +4089,6 @@ namespace EUGENEGDK
    collision.width=cell_width;
    collision.height=cell_height;
    return collision;
-  }
-
-  World::World()
-  {
-   half_tile_width=1;
-   full_tile_height=1;
-  }
-
-  World::~World()
-  {
-
-  }
-
-  World* World::get_handle()
-  {
-   return this;
-  }
-
-  void World::initialize(const unsigned int tile_width,const unsigned int tile_height)
-  {
-   if (tile_width>1)
-   {
-    half_tile_width=tile_width/2;
-   }
-   if (tile_height>1)
-   {
-    full_tile_height=tile_height;
-   }
-
-  }
-
-  unsigned int World::get_row_amount(const unsigned int screen_height) const
-  {
-   return screen_height/full_tile_height;
-  }
-
-  unsigned int World::get_column_amount(const unsigned int screen_width) const
-  {
-   return screen_width/half_tile_width;
-  }
-
-  unsigned int World::get_tile_amount(const unsigned int screen_width,const unsigned int screen_height) const
-  {
-   return this->get_row_amount(screen_height)*this->get_column_amount(screen_width);
-  }
-
- }
-
- namespace Common
- {
-
-  Timer::Timer()
-  {
-   start=time(NULL);
-   interval=0.0;
-  }
-
-  Timer::~Timer()
-  {
-
-  }
-
-  Timer* Timer::get_handle()
-  {
-   return this;
-  }
-
-  void Timer::set_timer(const double seconds)
-  {
-   interval=seconds;
-   start=time(NULL);
-  }
-
-  double Timer::get_interval() const
-  {
-   return interval;
-  }
-
-  bool Timer::check_timer()
-  {
-   bool check;
-   check=difftime(time(NULL),start)>=interval;
-   if (check==true)
-   {
-    start=time(NULL);
-   }
-   return check;
-  }
-
-  Collision::Collision()
-  {
-   first.x=0;
-   first.y=0;
-   first.width=0;
-   first.height=0;
-   second=first;
-  }
-
-  Collision::~Collision()
-  {
-
-  }
-
-  Collision* Collision::get_handle()
-  {
-   return this;
-  }
-
-  bool Collision::check_horizontal_collision() const
-  {
-   return ((first.x+first.width)>=second.x) && (first.x<=(second.x+second.width));
-  }
-
-  bool Collision::check_vertical_collision() const
-  {
-   return ((first.y+first.height)>=second.y) && (first.y<=(second.y+second.height));
-  }
-
-  void Collision::set_target(const EUGENEGDK::BOX first_target,const EUGENEGDK::BOX second_target)
-  {
-   first=first_target;
-   second=second_target;
-  }
-
-  bool Collision::check_collision() const
-  {
-   return this->check_horizontal_collision() && this->check_vertical_collision();
-  }
-
-  bool Collision::check_collision(const EUGENEGDK::BOX first_target,const EUGENEGDK::BOX second_target)
-  {
-   this->set_target(first_target,second_target);
-   return this->check_collision();
   }
 
  }

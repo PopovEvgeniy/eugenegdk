@@ -62,24 +62,17 @@
       </ul>
     </li>
     <li>
-      <a href="#mozTocId564239">Part 5. Maps</a>
-      <ul>
-        <li><a href="#mozTocId599694">Chapter 1. The sub-namespace</a></li>
-        <li><a href="#mozTocId429738">Chapter 1. Tile map</a></li>
-        <li><a href="#mozTocId143616">Chapter 2. Isometric map</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#mozTocId64443">Part 6. Common things</a>
+      <a href="#mozTocId64443">Part 5. Common things</a>
       <ul>
         <li><a href="#mozTocId597525">Chapter 1. The sub-namespace</a></li>
         <li><a href="#mozTocId853711">Chapter 2. Abnormal program termination</a></li>
         <li><a href="#mozTocId656377">Chapter 3. Timer</a></li>
         <li><a href="#mozTocId381935">Chapter 4. Collision</a></li>
+        <li><a href="#mozTocId429738">Chapter 5. Tile map</a></li>
       </ul>
     </li>
     <li>
-      <a href="#mozTocId611237">Part 7. Other important things</a>
+      <a href="#mozTocId611237">Part 6. Other important things</a>
       <ul>
         <li><a href="#mozTocId648026">Chapter 1. The sub-namespace</a></li>
         <li><a href="#mozTocId909723">Chapter 2. Memory</a></li>
@@ -87,7 +80,7 @@
       </ul>
     </li>
     <li>
-      <a href="#mozTocId209024">Part 8. Misc</a>
+      <a href="#mozTocId209024">Part 7. Misc</a>
       <ul>
         <li><a href="#mozTocId608755">Chapter 1. File system</a></li>
         <li><a href="#mozTocId59386">Chapter 2. Tools</a></li>
@@ -95,7 +88,7 @@
       </ul>
     </li>
     <li>
-      <a href="#mozTocId590919">Part 9. Binary files</a>
+      <a href="#mozTocId590919">Part 8. Binary files</a>
       <ul>
         <li><a href="#mozTocId200879">Chapter 1. The sub-namespace</a></li>
         <li><a href="#mozTocId961921">Chapter 2. Base binary file subsystem</a></li>
@@ -104,7 +97,7 @@
       </ul>
     </li>
     <li>
-      <a href="#mozTocId291572">Part 10. Input</a>
+      <a href="#mozTocId291572">Part 9. Input</a>
       <ul>
         <li><a href="#mozTocId783369">Chapter 1. The sub-namespace</a></li>
         <li><a href="#mozTocId685403">Chapter 2. Keyboard</a></li>
@@ -113,7 +106,7 @@
       </ul>
     </li>
     <li>
-      <a href="#mozTocId54918">Part 11. Internal details of the engine subsystems</a>
+      <a href="#mozTocId54918">Part 10. Internal details of the engine subsystems</a>
       <ul>
         <li><a href="#mozTocId383177">Chapter 1. A few words for a curious programmer</a></li>
         <li><a href="#mozTocId318160">Chapter 2. Internal classes</a></li>
@@ -836,50 +829,7 @@
   <p><big><span style="font-style: italic;">int Level::get_x(const int row, const int column) const; -</span> Return the target x-coordinate.<br>
   <br>
   <span style="font-style: italic;">int Level::get_y(const int row, const int column) const; -</span> Return the target y-coordinate.</big></p>
-  <h1><a id="mozTocId564239" class="mozTocH1" name="mozTocId564239"></a><big>Part 5. Maps<br></big></h1>
-  <h2><a id="mozTocId599694" class="mozTocH2" name="mozTocId599694"></a><big>Chapter 1. The sub-namespace</big></h2><big>All classes in this section are declared in the <span style="font-style: italic;">Map</span> sub-namespace.</big><big><br></big>
-  <h2><a class="mozTocH2" name="mozTocId429738" id="mozTocId429738"></a><big>Chapter 1. Tile</big> <big>map</big></h2>
-  <p><big><span style="text-decoration: underline;">A few words about tile maps</span><br>
-  <br>
-  The tile</big> <big>map is a tile matrix. A tile is a small, non</big><big>-</big><big>transparent sprite. A tile</big> <big>map is a very useful thing for the background.<br>
-  <br>
-  <span style="text-decoration: underline;">Rows and columns</span><br>
-  <br>
-  The first row index is 0. The first column index is 0.<br>
-  <br>
-  <span style="text-decoration: underline;">Work with the tile map</span><br>
-  <br>
-  The <span style="font-style: italic;">Tilemap</span> class provides easy access to the tile map.</big> <big>It is a simple class with few methods. Let's look at the publicly available methods.<br>
-  <br>
-  <span style="font-style: italic;">Tilemap *Tilemap::get_handle(); -</span> Return the handle to the tile-map subsystem.<br>
-  <br>
-  <span style="font-style: italic;">void Tilemap::initialize(const unsigned int tile_width, const unsigned int tile_height); -</span> Initialize the subsystem.<br>
-  <br></big> <big style="font-style: italic;">unsigned int</big> <big><span style="font-style: italic;">Tilemap::get_tile_width() const; -</span> Return the tile width in pixels.<br>
-  <br></big> <big style="font-style: italic;">unsigned int</big> <big><span style="font-style: italic;">Tilemap::get_tile_height() const; -</span> Return the tile height in pixels.<br>
-  <br></big> <big style="font-style: italic;">unsigned int</big> <big style="font-style: italic;">Tilemap::get_x(const</big> <big style="font-style: italic;">unsigned int row</big><big><span style="font-style: italic;">) const; -</span> Get the x-coordinate from the target row.<br>
-  <br></big> <big style="font-style: italic;">unsigned int</big> <big style="font-style: italic;">Tilemap::get_y(const</big> <big style="font-style: italic;">unsigned int column</big><big><span style="font-style: italic;">) const; -</span> Get the y-coordinate from the target column.<br>
-  <br></big> <big style="font-style: italic;">unsigned int</big> <big style="font-style: italic;">Tilemap::get_row(const</big> <big style="font-style: italic;">unsigned int x</big><big><span style="font-style: italic;">) const; -</span> Get the row from the x-coordinate.<br>
-  <br></big> <big style="font-style: italic;">unsigned int</big> <big style="font-style: italic;">Tilemap::get_column(const</big> <big style="font-style: italic;">unsigned int y</big><big><span style="font-style: italic;">) const; -</span> Get the column from the y-coordinate.<br>
-  <br></big> <big style="font-style: italic;">unsigned int</big> <big style="font-style: italic;">Tilemap::get_row_amount(const</big> <big style="font-style: italic;">unsigned int viewport_width</big><big><span style="font-style: italic;">) const; -</span> Get the maximum number of the visible rows.<br>
-  <br></big> <big style="font-style: italic;">unsigned int</big> <big style="font-style: italic;">Tilemap::get_column_amount(const</big> <big style="font-style: italic;">unsigned int viewport_width</big><big><span style="font-style: italic;">) const; -</span> Get the maximum number of the visible columns.<br>
-  <br>
-  <span style="font-style: italic;">unsigned int Tilemap::get_tile_amount(const unsigned int viewport_width, const unsigned int viewport_height) const; -</span> Get the maximum number of the visible tiles.<br>
-  <br>
-  <span style="font-style: italic;">bool Tilemap::check_row(const unsigned int row,const unsigned int viewport_width) const; -</span> Return true if the row is valid.<br>
-  <br>
-  <span style="font-style: italic;">bool Tilemap::check_column(const unsigned int column,const unsigned int viewport_height) const; -</span> Return true if the column is valid.<br>
-  <br>
-  <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big style="font-style: italic;">const</big> <big style="font-style: italic;">unsigned int row,const unsigned int column</big><big><span style="font-style: italic;">) const; -</span> Return the collision-related information.<br></big></p>
-  <h2><a class="mozTocH2" name="mozTocId143616" id="mozTocId143616"></a><big>Chapter 2. Isometric map<br></big></h2>
-  <p><big>The isometric map subsystem lets you calculate the isometric map size. Just use the <span style="font-style: italic;">World</span> class to do it. Let's look at the publicly available methods.<br>
-  <br>
-  <span style="font-style: italic;">World *World::get_handle(); -</span> Return the handle to the isometric map subsystem.<br>
-  <br>
-  <span style="font-style: italic;">void World::initialize(const</span></big> <big><span style="font-style: italic;">unsigned</span></big> <big><span style="font-style: italic;">int tile_width, const</span></big> <big><span style="font-style: italic;">unsigned int</span></big> <big><span style="font-style: italic;">tile_height</span></big><big><span style="font-style: italic;">); -</span> Initialize the subsystem.<br></big> <big><br></big> <big><span style="font-style: italic;">unsigned</span></big> <big><span style="font-style: italic;">int World::get_row_amount(</span></big><big><span style="font-style: italic;">const unsigned int screen_height</span></big><big><span style="font-style: italic;">) const; -</span> Get the maximum number of the visible rows.<br>
-  <br></big> <big><span style="font-style: italic;">unsigned</span></big> <big><span style="font-style: italic;">int World::get_column_amount(</span></big><big><span style="font-style: italic;">const unsigned int screen_width</span></big><big><span style="font-style: italic;">) const; -</span> Get the maximum number of the visible columns.<br>
-  <br>
-  <span style="font-style: italic;">unsigned int World::get_tile_amount(</span></big><big><span style="font-style: italic;">const unsigned int screen_width, const unsigned int screen_height</span></big><big><span style="font-style: italic;">) const; -</span> Get the maximum number of the visible isometric tiles.</big></p>
-  <h1><a class="mozTocH1" name="mozTocId64443" id="mozTocId64443"></a><big>Part 6. Common things</big></h1>
+  <h1><a class="mozTocH1" name="mozTocId64443" id="mozTocId64443"></a><big>Part 5. Common things</big></h1>
   <h2><a class="mozTocH2" name="mozTocId597525" id="mozTocId597525"></a><big>Chapter 1. The sub-namespace</big></h2>
   <p><big>All classes in this section are declared in the <span style="font-style: italic;">Common</span> sub-namespace.<br></big></p>
   <h2><a class="mozTocH2" name="mozTocId853711" id="mozTocId853711"></a><big>Chapter 2. Abnormal program termination</big></h2>
@@ -921,8 +871,40 @@
   <br>
   <span style="font-style: italic;">bool Collision::check_collision() const; -</span> Return true if the collision between two objects is accepted.<br>
   <br>
-  <span style="font-style: italic;">bool Collision::check_collision(const EUGENEGDK::BOX first_target, const EUGENEGDK::BOX second_target); -</span> Set the targets and check collisions between them.</big></p>
-  <h1><a class="mozTocH1" name="mozTocId611237" id="mozTocId611237"></a><big>Part 7. Other important things</big></h1>
+  <span style="font-style: italic;">bool Collision::check_collision(const EUGENEGDK::BOX first_target, const EUGENEGDK::BOX second_target); -</span> Set the targets and check collisions between them.<br></big></p>
+  <h2><a class="mozTocH2" name="mozTocId429738" id="mozTocId429738"></a><big>Chapter 5. Tile</big> <big>map</big></h2>
+  <p><big><span style="text-decoration: underline;">A few words about tile maps</span><br>
+  <br>
+  The tile</big> <big>map is a tile matrix. A tile is a small, non</big><big>-</big><big>transparent sprite. A tile</big> <big>map is a very useful thing for the background.<br>
+  <br>
+  <span style="text-decoration: underline;">Rows and columns</span><br>
+  <br>
+  The first row index is 0. The first column index is 0.<br>
+  <br>
+  <span style="text-decoration: underline;">Work with the tile map</span><br>
+  <br>
+  The <span style="font-style: italic;">Tilemap</span> class provides easy access to the tile map.</big> <big>It is a simple class with few methods. Let's look at the publicly available methods.<br>
+  <br>
+  <span style="font-style: italic;">Tilemap *Tilemap::get_handle(); -</span> Return the handle to the tile-map subsystem.<br>
+  <br>
+  <span style="font-style: italic;">void Tilemap::initialize(const unsigned int tile_width, const unsigned int tile_height); -</span> Initialize the subsystem.<br>
+  <br></big> <big style="font-style: italic;">unsigned int</big> <big><span style="font-style: italic;">Tilemap::get_tile_width() const; -</span> Return the tile width in pixels.<br>
+  <br></big> <big style="font-style: italic;">unsigned int</big> <big><span style="font-style: italic;">Tilemap::get_tile_height() const; -</span> Return the tile height in pixels.<br>
+  <br></big> <big style="font-style: italic;">unsigned int</big> <big style="font-style: italic;">Tilemap::get_x(const</big> <big style="font-style: italic;">unsigned int row</big><big><span style="font-style: italic;">) const; -</span> Get the x-coordinate from the target row.<br>
+  <br></big> <big style="font-style: italic;">unsigned int</big> <big style="font-style: italic;">Tilemap::get_y(const</big> <big style="font-style: italic;">unsigned int column</big><big><span style="font-style: italic;">) const; -</span> Get the y-coordinate from the target column.<br>
+  <br></big> <big style="font-style: italic;">unsigned int</big> <big style="font-style: italic;">Tilemap::get_row(const</big> <big style="font-style: italic;">unsigned int x</big><big><span style="font-style: italic;">) const; -</span> Get the row from the x-coordinate.<br>
+  <br></big> <big style="font-style: italic;">unsigned int</big> <big style="font-style: italic;">Tilemap::get_column(const</big> <big style="font-style: italic;">unsigned int y</big><big><span style="font-style: italic;">) const; -</span> Get the column from the y-coordinate.<br>
+  <br></big> <big style="font-style: italic;">unsigned int</big> <big style="font-style: italic;">Tilemap::get_row_amount(const</big> <big style="font-style: italic;">unsigned int viewport_width</big><big><span style="font-style: italic;">) const; -</span> Get the maximum number of the visible rows.<br>
+  <br></big> <big style="font-style: italic;">unsigned int</big> <big style="font-style: italic;">Tilemap::get_column_amount(const</big> <big style="font-style: italic;">unsigned int viewport_width</big><big><span style="font-style: italic;">) const; -</span> Get the maximum number of the visible columns.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Tilemap::get_tile_amount(const unsigned int viewport_width, const unsigned int viewport_height) const; -</span> Get the maximum number of the visible tiles.<br>
+  <br>
+  <span style="font-style: italic;">bool Tilemap::check_row(const unsigned int row,const unsigned int viewport_width) const; -</span> Return true if the row is valid.<br>
+  <br>
+  <span style="font-style: italic;">bool Tilemap::check_column(const unsigned int column,const unsigned int viewport_height) const; -</span> Return true if the column is valid.<br>
+  <br>
+  <span style="font-style: italic;">EUGENEGDK::BOX Tilemap::get_box(</span></big><big style="font-style: italic;">const</big> <big style="font-style: italic;">unsigned int row,const unsigned int column</big><big><span style="font-style: italic;">) const; -</span> Return the collision-related information.</big></p>
+  <h1><a class="mozTocH1" name="mozTocId611237" id="mozTocId611237"></a><big>Part 6. Other important things</big></h1>
   <h2><a class="mozTocH2" name="mozTocId648026" id="mozTocId648026"></a><big>Chapter 1. The sub-namespace</big></h2>
   <p><big>All classes in this section are declared in the <span style="font-style: italic;">Misc</span> sub-namespace.<br></big></p>
   <h2><a class="mozTocH2" name="mozTocId909723" id="mozTocId909723"></a><big>Chapter 2. Memory</big></h2>
@@ -968,7 +950,7 @@
   <span style="font-style: italic;">void Audio::stop(); -</span> Stop playing the content of the target file.<br>
   <br>
   <span style="font-style: italic;">bool Audio::check_playing(); -</span> Return true if the sound resource is playing.</big></p>
-  <h1><a class="mozTocH1" name="mozTocId209024" id="mozTocId209024"></a><big>Part 8. Misc</big></h1>
+  <h1><a class="mozTocH1" name="mozTocId209024" id="mozTocId209024"></a><big>Part 7. Misc</big></h1>
   <h2><a class="mozTocH2" name="mozTocId608755" id="mozTocId608755"></a><big>Chapter 1. File system</big></h2>
   <p><big>This module is implemented as two simple functions. All these functions are declared in the <span style="font-style: italic;">Filesystem</span> sub-namespace.<br>
   <br>
@@ -997,7 +979,7 @@
   <span style="font-style: italic;">create</span> creates a resources. The first form of this function creates a single resource. It takes a handle to a resource handle as an argument. The second form creates an array of resources. It takes a handle to a resource handle and a resource amount.<br></big></p>
   <p><big><span style="font-style: italic;">destroy</span> delete a resource if it already exists. This function takes a resource handle as an argument.</big></p>
   <p><big><span style="font-style: italic;">destroy_array</span> delete the resource array if it already exists. This function takes a resource array handle as an argument.<br></big></p>
-  <h1><a class="mozTocH1" name="mozTocId590919" id="mozTocId590919"></a><big>Part 9. Binary files</big></h1>
+  <h1><a class="mozTocH1" name="mozTocId590919" id="mozTocId590919"></a><big>Part 8. Binary files</big></h1>
   <h2><a class="mozTocH2" name="mozTocId200879" id="mozTocId200879"></a><big>Chapter 1. The sub-namespace</big></h2>
   <p><big>All classes in this section are declared in the <span style="font-style: italic;">File</span> sub-namespace.</big></p>
   <h2><a class="mozTocH2" name="mozTocId961921" id="mozTocId961921"></a><big>Chapter 2. Base binary file subsystem</big></h2>
@@ -1037,7 +1019,7 @@
   <em>void Output_File::create_temp(); -</em> Create a temporary file. This file will be deleted when it is closed.<br>
   <br></big> <big><em>void Output_File::write(const void *buffer,const size_t length); -</em> Write data to the file.<br>
   <br></big> <big><em>void Output_File::flush(); -</em> Force writing internal buffer data to the file.</big></p>
-  <h1><a class="mozTocH1" name="mozTocId291572" id="mozTocId291572"></a><big>Part 10. Input</big></h1>
+  <h1><a class="mozTocH1" name="mozTocId291572" id="mozTocId291572"></a><big>Part 9. Input</big></h1>
   <h2><a class="mozTocH2" name="mozTocId783369" id="mozTocId783369"></a><big>Chapter 1. The sub-namespace</big></h2>
   <p><big>All classes in this section are declared in the <span style="font-style: italic;">Input</span> sub-namespace.</big></p>
   <h2><a class="mozTocH2" name="mozTocId685403" id="mozTocId685403"></a><big>Chapter 2. Keyboard</big></h2>
@@ -1478,7 +1460,7 @@
   <span style="font-style: italic;">EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_x() const; -</span> Return the x-direction of the right stick.<br>
   <br>
   <span style="font-style: italic;">EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_y() const; -</span> Return the y-direction of the right stick.<br></big></p>
-  <h1><a class="mozTocH1" name="mozTocId54918" id="mozTocId54918"></a><big>Part 11. Internal details of the engine subsystems</big></h1>
+  <h1><a class="mozTocH1" name="mozTocId54918" id="mozTocId54918"></a><big>Part 10. Internal details of the engine subsystems</big></h1>
   <h2><a class="mozTocH2" name="mozTocId383177" id="mozTocId383177"></a><big>Chapter 1. A few words for a curious programmer</big></h2>
   <p><big>The engine subsystems have a different internal structure. It has been hidden from you, and you don't have access to it. Do you want to know about hidden things? Just read the next chapter.</big></p>
   <h2><a class="mozTocH2" name="mozTocId318160" id="mozTocId318160"></a><big>Chapter 2. Internal classes</big></h2>
@@ -2062,6 +2044,8 @@
   9.4.2: The small changes.<br>
   9.4.3: The sprite sheet subsystem has improved.<br>
   9.4.4: The resource manager has improved.<br>
-  9.4.5: The small changes.<br></big>
+  9.4.5: The small changes.<br>
+  9.4.6: The image resizer has improved.<br>
+  9.4.7: The small changes.<br></big>
 </body>
 </html>

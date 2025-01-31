@@ -6,7 +6,7 @@ int main()
  EUGENEGDK::Graphics::Text text;
  EUGENEGDK::Graphics::Sheet tile;
  EUGENEGDK::Input::Keyboard keyboard;
- EUGENEGDK::Map::Tilemap tilemap;
+ EUGENEGDK::Common::Tilemap tilemap;
  unsigned int row,column,row_amount,column_amount;
  keyboard.initialize();
  screen.initialize();
