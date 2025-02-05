@@ -908,6 +908,16 @@ namespace EUGENEGDK
    this->set_tile_offset(1.0f,1.0f,current,total);
   }
 
+  void Shape::set_texture_coordinates(const size_t index, const float u, const float v)
+  {
+   if (index<4)
+   {
+    point[index].u=u;
+    point[index].v=v;
+   }
+
+  }
+
   Rectangle::Rectangle()
   {
    texture=0;
@@ -2643,6 +2653,11 @@ namespace EUGENEGDK
   {
    billboard.set_total_size(width,height);
    billboard.prepare(picture);
+  }
+
+  void Billboard::set_texture_coordinates(const size_t index, const float u, const float v)
+  {
+   billboard.set_texture_coordinates(index,u,v);
   }
 
   void Billboard::set_transparent(const bool enabled)
