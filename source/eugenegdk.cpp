@@ -940,8 +940,8 @@ namespace EUGENEGDK
    glTexEnvi(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,GL_REPLACE);
    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
-   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_CLAMP);
-   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP);
+   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);
+   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);
    glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,width,height,0,GL_RGBA,GL_UNSIGNED_BYTE,buffer);
   }
 
@@ -3555,6 +3555,156 @@ namespace EUGENEGDK
   }
 
   unsigned int Scene::get_height() const
+  {
+   return stage.get_height();
+  }
+
+  Parallax::Parallax()
+  {
+   stage.set_size(0,0);
+   u_offset=0.0f;
+   v_offset=0.0f;
+  }
+
+  Parallax::~Parallax()
+  {
+   stage.destroy();
+  }
+
+  void Parallax::calculate_u_offset(const float speed)
+  {
+   if (speed>0.0f)
+   {
+    u_offset+=speed;
+   }
+
+  }
+
+  void Parallax::calculate_v_offset(const float speed)
+  {
+   if (speed>0.0f)
+   {
+    v_offset+=speed;
+   }
+
+  }
+
+  void Parallax::reset_u_offset()
+  {
+   if (u_offset>1.0f)
+   {
+    u_offset=0.0f;
+   }
+
+  }
+
+  void Parallax::reset_v_offset()
+  {
+   if (v_offset>1.0f)
+   {
+    v_offset=0.0f;
+   }
+
+  }
+
+  void Parallax::set_texture_coordinates()
+  {
+   stage.set_texture_coordinates(0,u_offset,1.0f+v_offset);
+   stage.set_texture_coordinates(1,1.0f+u_offset,1.0f+v_offset);
+   stage.set_texture_coordinates(2,1.0f+u_offset,v_offset);
+   stage.set_texture_coordinates(3,u_offset,v_offset);
+  }
+
+  Parallax* Parallax::get_handle()
+  {
+   return this;
+  }
+
+  void Parallax::prepare(const Screen *screen)
+  {
+   if (screen!=NULL)
+   {
+    stage.set_size(screen->get_width(),screen->get_height());
+   }
+
+  }
+
+  void Parallax::prepare(const unsigned int width,const unsigned int height)
+  {
+   stage.set_size(width,height);
+  }
+
+  void Parallax::prepare(Screen &screen)
+  {
+   this->prepare(screen.get_handle());
+  }
+
+  void Parallax::load(Image *background)
+  {
+   stage.load(background);
+  }
+
+  void Parallax::load(Image &background)
+  {
+   stage.load(background);
+  }
+
+  void Parallax::load(const char *name)
+  {
+   stage.load(name);
+  }
+
+  void Parallax::disable_mirror()
+  {
+   stage.disable_mirror();
+  }
+
+  void Parallax::horizontal_mirror()
+  {
+   stage.horizontal_mirror();
+  }
+
+  void Parallax::vertical_mirror()
+  {
+   stage.vertical_mirror();
+  }
+
+  void Parallax::complex_mirror()
+  {
+   stage.complex_mirror();
+  }
+
+  void Parallax::destroy_image()
+  {
+   stage.destroy_image();
+  }
+
+  void Parallax::draw(const float horizontal_speed,const float vertical_speed)
+  {
+   this->calculate_u_offset(horizontal_speed);
+   this->calculate_v_offset(vertical_speed);
+   this->reset_u_offset();
+   this->reset_v_offset();
+   this->set_texture_coordinates();
+   stage.draw(false);
+  }
+
+  void Parallax::destroy()
+  {
+   stage.destroy();
+  }
+
+  bool Parallax::is_load() const
+  {
+   return stage.is_load();
+  }
+
+  unsigned int Parallax::get_width() const
+  {
+   return stage.get_width();
+  }
+
+  unsigned int Parallax::get_height() const
   {
    return stage.get_height();
   }

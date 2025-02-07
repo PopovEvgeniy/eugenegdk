@@ -922,6 +922,39 @@ typedef enum
    unsigned int get_height() const;
   };
 
+  class Parallax
+  {
+   private:
+   Graphics::Cartoon stage;
+   float u_offset;
+   float v_offset;
+   void calculate_u_offset(const float speed);
+   void calculate_v_offset(const float speed);
+   void reset_u_offset();
+   void reset_v_offset();
+   void set_texture_coordinates();
+   public:
+   Parallax();
+   ~Parallax();
+   Parallax* get_handle();
+   void prepare(const Screen *screen);
+   void prepare(Screen &screen);
+   void prepare(const unsigned int width,const unsigned int height);
+   void load(Image *background);
+   void load(Image &background);
+   void load(const char *name);
+   void disable_mirror();
+   void horizontal_mirror();
+   void vertical_mirror();
+   void complex_mirror();
+   void draw(const float horizontal_speed,const float vertical_speed);
+   void destroy_image();
+   void destroy();
+   bool is_load() const;
+   unsigned int get_width() const;
+   unsigned int get_height() const;
+  };
+
   class Text
   {
    private:

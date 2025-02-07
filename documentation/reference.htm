@@ -44,10 +44,11 @@
         <li><a href="#mozTocId904725">Chapter 5. Image kind</a></li>
         <li><a href="#mozTocId738557">Chapter 6. Background</a></li>
         <li><a href="#mozTocId946803">Chapter 7. Static background</a></li>
-        <li><a href="#mozTocId309905">Chapter 8. Base sprite subsystem</a></li>
-        <li><a href="#mozTocId662651">Chapter 9. Ordinary sprites</a></li>
-        <li><a href="#mozTocId656897">Chapter 10. Static sprites</a></li>
-        <li><a href="#mozTocId146800">Chapter 11. Sprite sheet</a></li>
+        <li><a href="#mozTocId946803">Chapter 8. Parallax</a></li>
+        <li><a href="#mozTocId309905">Chapter 9. Base sprite subsystem</a></li>
+        <li><a href="#mozTocId662651">Chapter 10. Ordinary sprites</a></li>
+        <li><a href="#mozTocId656897">Chapter 11. Static sprites</a></li>
+        <li><a href="#mozTocId146800">Chapter 12. Sprite sheet</a></li>
         <li><a href="#mozTocId752257">Chapter 12. Text</a></li>
         <li><a href="#mozTocId67980">Chapter 13. Loading images</a></li>
       </ul>
@@ -514,7 +515,54 @@
   <br>
   <span style="text-decoration: underline;">Important notice</span></big></p>
   <p><big>Always call the <span style="font-style: italic;">prepare</span> after the background has been loaded.<br></big></p>
-  <h2><a class="mozTocH2" name="mozTocId309905" id="mozTocId309905"></a><big>Chapter 8. Base sprite subsystem</big></h2>
+  <h2><a class="mozTocH2" name="mozTocId946803" id="mozTocId946803"></a><big>Chapter 8. Parallax<br></big></h2>
+  <p><big><span style="text-decoration: underline;">A few words about parallax</span><br>
+  <br>
+  The parallax background is a background with scrolling support.</big></p>
+  <p style="text-decoration: underline;"><big>Speed</big></p>
+  <p><big>The scrolling speed should be a positive number.</big><br>
+  <big><br>
+  <span style="text-decoration: underline;">Work with the background</span><br>
+  <br>
+  Just use the <span style="font-style: italic;">Parallax</span> class to work with the parallax background. Let's look at the publicly available methods.<br>
+  <br>
+  <span style="font-style: italic;">Parallax *Parallax::get_handle(); -</span> Return the handle to the background object.<br>
+  <br></big> <big><span style="font-style: italic;">void Parallax::prepare(const Screen *screen); -</span> Prepare for drawing.<br>
+  <br>
+  <span style="font-style: italic;">void Parallax::prepare(Screen &amp;screen); -</span> Prepare for drawing.<br>
+  <br>
+  <span style="font-style: italic;">void Parallax::prepare(const unsigned int width, const unsigned int height); -</span> Prepare for drawing.<br>
+  <br>
+  <span style="font-style: italic;">void Parallax::disable_mirror(); -</span> Disable background mirroring mode.<br>
+  <br>
+  <span style="font-style: italic;">void Parallax::horizontal_mirror(); -</span> Set horizontal background mirroring mode.<br>
+  <br>
+  <span style="font-style: italic;">void Parallax::vertical_mirror(); -</span> Set vertical background mirroring mode.<br>
+  <br>
+  <span style="font-style: italic;">void Parallax::complex_mirror(); -</span> Set both horizontal and vertical background mirroring modes.<br></big> <big><br>
+  <span style="font-style: italic;">void Parallax::load(Image *background); -</span> Load a background from the buffer.<br>
+  <br>
+  <span style="font-style: italic;">void Parallax::load(Image &amp; background); -</span> Load a background</big> <big>from the buffer.</big><big><br>
+  <br></big> <big><span style="font-style: italic;">void Parallax::load(</span></big><big style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">); -</span> Load a background from the target file.</big><br>
+  <big><br>
+  <span style="font-style: italic;">void Parallax::draw(const float horizontal_speed, const vertical_speed); -</span> Draw a background.<br>
+  <br>
+  <span style="font-style: italic;">void Parallax::destroy_image(); -</span> Destroy a background image.<br>
+  <br>
+  <span style="font-style: italic;">void Parallax::destroy(); -</span> Destroy a background image and destroy the texture.<br>
+  <br></big> <big><span style="font-style: italic;">bool Parallax::is_load() const; -</span> Return true if a parallax background has already been loaded.</big><br>
+  <br>
+  <big><span style="font-style: italic;">unsigned int Parallax::get_width() const; -</span> Return the width of the background.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Parallax::get_height() const; -</span> Return the height of the background.<br>
+  <br>
+  <span style="text-decoration: underline;">A background texture</span><br>
+  <br>
+  The background doesn't draw if the background texture doesn't exist. It will automatically be created when you load an image.<br>
+  <br>
+  <span style="text-decoration: underline;">Important notice</span></big></p>
+  <p><big>Always call the <span style="font-style: italic;">prepare</span> after the background has been loaded.</big></p>
+  <h2><a class="mozTocH2" name="mozTocId309905" id="mozTocId309905"></a><big>Chapter 9. Base sprite subsystem</big></h2>
   <p><big><span style="text-decoration: underline;">A small, important thing</span><br>
   <br>
   A sprite is a transparent image. It is useful for many things: enemies, bonuses, etc.<br></big> <big><br>
@@ -572,7 +620,7 @@
   <br></big> <big><span style="font-style: italic;">void Billboard::draw(const unsigned int x, const unsigned int y); -</span> Set the sprite position and draw it.<br>
   <br></big> <big><em>void Billboard::draw(const bool transparency); -</em> Set the transparent mode and draw a sprite.<br>
   <br></big> <big><em>void Billboard::draw(const bool transparency, const unsigned int x, const unsigned int y); -</em> Set the transparent mode and draw a sprite at the target position.</big></p>
-  <h2><a class="mozTocH2" name="mozTocId662651" id="mozTocId662651"></a><big>Chapter 9. Ordinary sprites</big></h2>
+  <h2><a class="mozTocH2" name="mozTocId662651" id="mozTocId662651"></a><big>Chapter 10. Ordinary sprites</big></h2>
   <p><big><span style="text-decoration: underline;">Sprite types</span><br>
   <br>
   There are two kinds of ordinary sprites: the horizontal strips and the vertical strips. It is a small image with a few frames.<br>
@@ -600,7 +648,7 @@
   <span style="text-decoration: underline;">A sprite texture</span><br>
   <br>
   A sprite doesn't draw if the sprite texture doesn't exist. It will automatically be created when you load or clone a sprite.<br></big></p>
-  <h2><a class="mozTocH2" name="mozTocId656897" id="mozTocId656897"></a><big>Chapter 10. Static sprites</big></h2>
+  <h2><a class="mozTocH2" name="mozTocId656897" id="mozTocId656897"></a><big>Chapter 11. Static sprites</big></h2>
   <p><big><span style="text-decoration: underline;">A few words about static sprite</span><br>
   <br>
   The static sprite is a simple kind of sprite. It contains one frame only.<br>
@@ -621,7 +669,7 @@
   <span style="text-decoration: underline;">A sprite texture</span><br>
   <br>
   A sprite doesn't draw if the sprite texture doesn't exist. It will automatically be created when you load or clone a sprite.</big></p>
-  <h2><a class="mozTocH2" name="mozTocId146800" id="mozTocId146800"></a><big>Chapter 11. Sprite sheet</big></h2>
+  <h2><a class="mozTocH2" name="mozTocId146800" id="mozTocId146800"></a><big>Chapter 12. Sprite sheet</big></h2>
   <p><big><span style="text-decoration: underline;">Some words about a sprite sheet</span><br>
   <br>
   A sprite sheet is a special kind of animated sprite. Each frame has a fixed size. The sheet is a matrix of frames. Look at this picture to understand it.<br>
@@ -2048,6 +2096,7 @@
   9.4.5: The small changes.<br>
   9.4.6: The image resizer has improved.<br>
   9.4.7-9.4.8: The small changes.<br>
-  9.4.9: The base sprite subsystem has improved.<br></big>
+  9.4.9: The base sprite subsystem has improved.<br>
+  9.5: The source code synced with the Black game development kit 6.4.7.<br></big>
 </body>
 </html>

@@ -14,7 +14,8 @@ Features
  Two render backends: hardware-accelerated OPENGL and software OPENGL.
  Easy-to-use object-oriented API.
  Animated and static sprites.
- Scrollable and static backgrounds.
+ Animated backgrounds.
+ Parallax and static backgrounds.
  Sprite-sheets.
  Tile-maps.
  Image transformation: resizing and mirroring.
