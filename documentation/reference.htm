@@ -44,7 +44,7 @@
         <li><a href="#mozTocId904725">Chapter 5. Image kind</a></li>
         <li><a href="#mozTocId738557">Chapter 6. Background</a></li>
         <li><a href="#mozTocId946803">Chapter 7. Static background</a></li>
-        <li><a href="#mozTocId946803">Chapter 8. Parallax</a></li>
+        <li><a href="#mozTocId33595">Chapter 8. Parallax</a></li>
         <li><a href="#mozTocId309905">Chapter 9. Base sprite subsystem</a></li>
         <li><a href="#mozTocId662651">Chapter 10. Ordinary sprites</a></li>
         <li><a href="#mozTocId656897">Chapter 11. Static sprites</a></li>
@@ -515,7 +515,7 @@
   <br>
   <span style="text-decoration: underline;">Important notice</span></big></p>
   <p><big>Always call the <span style="font-style: italic;">prepare</span> after the background has been loaded.<br></big></p>
-  <h2><a class="mozTocH2" name="mozTocId946803" id="mozTocId946803"></a><big>Chapter 8. Parallax<br></big></h2>
+  <h2><a id="mozTocId33595" class="mozTocH2" name="mozTocId33595"></a><big>Chapter 8. Parallax<br></big></h2>
   <p><big><span style="text-decoration: underline;">A few words about parallax</span><br>
   <br>
   The parallax background is a background with scrolling support.</big></p>
@@ -543,9 +543,13 @@
   <span style="font-style: italic;">void Parallax::load(Image *background); -</span> Load a background from the buffer.<br>
   <br>
   <span style="font-style: italic;">void Parallax::load(Image &amp; background); -</span> Load a background</big> <big>from the buffer.</big><big><br>
-  <br></big> <big><span style="font-style: italic;">void Parallax::load(</span></big><big style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">); -</span> Load a background from the target file.</big><br>
-  <big><br>
-  <span style="font-style: italic;">void Parallax::draw(const float horizontal_speed, const vertical_speed); -</span> Draw a background.<br>
+  <br></big> <big><span style="font-style: italic;">void Parallax::load(</span></big><big style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">); -</span> Load a background from the target file.<br></big></p>
+  <p><big><span style="font-style: italic;">void Parallax::set_speed(const float horizontal,const float vertical);</span> - Set the scrolling speed.<br>
+  <br>
+  <span style="font-style: italic;">float Parallax::get_horizontal_speed() const; -</span> Return the horizontal speed.<br>
+  <br>
+  <span style="font-style: italic;">float Parallax::get_vertical_speed() const; -</span> Return the vertical speed.<br></big> <big><br>
+  <span style="font-style: italic;">void Parallax::draw(); -</span> Draw a background.<br>
   <br>
   <span style="font-style: italic;">void Parallax::destroy_image(); -</span> Destroy a background image.<br>
   <br>
@@ -2097,6 +2101,7 @@
   9.4.6: The image resizer has improved.<br>
   9.4.7-9.4.8: The small changes.<br>
   9.4.9: The base sprite subsystem has improved.<br>
-  9.5: The source code synced with the Black game development kit 6.4.7.<br></big>
+  9.5: The source code synced with the Black game development kit 6.4.7.<br>
+  9.5.1: The source code synced with the Black game development kit 6.4.9.<br></big>
 </body>
 </html>

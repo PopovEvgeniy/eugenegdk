@@ -18,6 +18,7 @@ int main()
  screen.initialize();
  sky.load("sky.tga");
  sky.prepare(screen);
+ sky.set_speed(0.0f,0.001f);
  ship.load("ship.tga",EUGENEGDK::HORIZONTAL_ANIMATED,2);
  ship.set_start(screen.get_width()/2,screen.get_height()/2);
  ship.go_start();
@@ -144,7 +145,7 @@ int main()
    ship.go_start_y();
   }
   itoa(screen.get_fps(),perfomance,10);
-  sky.draw(0.0f,0.001f);
+  sky.draw();
   text.print(perfomance);
   ship.draw();
   if (timer.check_timer()==true)
