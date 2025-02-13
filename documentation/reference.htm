@@ -41,16 +41,17 @@
         <li><a href="#mozTocId552078">Chapter 2. Base graphics subsystem</a></li>
         <li><a href="#mozTocId289525">Chapter 3. Picture subsystem</a></li>
         <li><a href="#mozTocId501089">Chapter 4. Animation subsystem</a></li>
-        <li><a href="#mozTocId904725">Chapter 5. Image kind</a></li>
-        <li><a href="#mozTocId738557">Chapter 6. Background</a></li>
-        <li><a href="#mozTocId946803">Chapter 7. Static background</a></li>
-        <li><a href="#mozTocId33595">Chapter 8. Parallax</a></li>
-        <li><a href="#mozTocId309905">Chapter 9. Base sprite subsystem</a></li>
-        <li><a href="#mozTocId662651">Chapter 10. Ordinary sprites</a></li>
-        <li><a href="#mozTocId656897">Chapter 11. Static sprites</a></li>
-        <li><a href="#mozTocId146800">Chapter 12. Sprite sheet</a></li>
-        <li><a href="#mozTocId752257">Chapter 12. Text</a></li>
-        <li><a href="#mozTocId67980">Chapter 13. Loading images</a></li>
+        <li><a href="#mozTocId102258">Chapter 5. Vertex index</a></li>
+        <li><a href="#mozTocId904725">Chapter 6. Image kind</a></li>
+        <li><a href="#mozTocId738557">Chapter 7. Background</a></li>
+        <li><a href="#mozTocId946803">Chapter 8. Static background</a></li>
+        <li><a href="#mozTocId33595">Chapter 9. Parallax</a></li>
+        <li><a href="#mozTocId309905">Chapter 10. Base sprite subsystem</a></li>
+        <li><a href="#mozTocId662651">Chapter 11. Ordinary sprites</a></li>
+        <li><a href="#mozTocId656897">Chapter 12. Static sprites</a></li>
+        <li><a href="#mozTocId146800">Chapter 13. Sprite sheet</a></li>
+        <li><a href="#mozTocId752257">Chapter 14. Text</a></li>
+        <li><a href="#mozTocId67980">Chapter 15. Loading images</a></li>
       </ul>
     </li>
     <li>
@@ -389,8 +390,34 @@
   <br>
   <span style="font-style: italic;">unsigned int Animation::get_frame() const; -</span> Return the current frame.<br>
   <br></big> <big><span style="font-style: italic;">bool Animation::is_last_frame() const; -</span> Return true if the current frame is the last frame.<br>
-  <br></big> <big><span style="font-style: italic;">bool Animation::check_frame(const unsigned int target) const; -</span> Return true if the target frame is valid.</big></p>
-  <h2><a class="mozTocH2" name="mozTocId904725" id="mozTocId904725"></a><big>Chapter 5. Image kind</big></h2>
+  <br></big> <big><span style="font-style: italic;">bool Animation::check_frame(const unsigned int target) const; -</span> Return true if the target frame is valid.<br></big></p>
+  <h2><a id="mozTocId102258" class="mozTocH2" name="mozTocId102258"></a><big>Chapter 5. Vertex index<br></big></h2>
+  <p><big>The vertex index looks like the predefined constants. You can see it below.</big></p>
+  <table style="width: 358px; height: 139px;" border="1">
+    <tbody>
+      <tr>
+        <td><big>Vertex index<br></big></td>
+        <td><big>Description</big></td>
+      </tr>
+      <tr>
+        <td><big>FIRST_VERTEX<br></big></td>
+        <td><big>The first vertex<br></big></td>
+      </tr>
+      <tr>
+        <td><big>SECOND_VERTEX</big></td>
+        <td><big>The second vertex<br></big></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top;"><big>THIRD_VERTEX</big></td>
+        <td style="vertical-align: top;"><big>The third vertex<br></big></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top;"><big>LAST_VERTEX</big></td>
+        <td style="vertical-align: top;"><big>The last vertex</big></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2><a class="mozTocH2" name="mozTocId904725" id="mozTocId904725"></a><big>Chapter 6. Image kind</big></h2>
   <p><big>The image types look like the predefined constants. You can see it below.</big></p>
   <table style="width: 723px; height: 106px;" border="1">
     <tbody>
@@ -408,7 +435,7 @@
       </tr>
     </tbody>
   </table>
-  <h2><a class="mozTocH2" name="mozTocId738557" id="mozTocId738557"></a><big>Chapter 6. Background</big></h2>
+  <h2><a class="mozTocH2" name="mozTocId738557" id="mozTocId738557"></a><big>Chapter 7. Background</big></h2>
   <p><big><span style="text-decoration: underline;">Level decoration</span><br>
   <br>
   A background is a big image</big> <big>with a few frames</big><big>. Any game has a background. The background will be stretched to the screen resolution before rendering the game scene. The background transparency is always disabled.<br>
@@ -471,7 +498,7 @@
   <span style="text-decoration: underline;">Important notice</span><br>
   <br>
   Always call the <span style="font-style: italic;">prepare</span> after the background has been loaded.<br></big></p>
-  <h2><a class="mozTocH2" name="mozTocId946803" id="mozTocId946803"></a><big>Chapter 7. Static background</big></h2>
+  <h2><a class="mozTocH2" name="mozTocId946803" id="mozTocId946803"></a><big>Chapter 8. Static background</big></h2>
   <p><big><span style="text-decoration: underline;">A few words about static background</span><br>
   <br>
   The static background is a simple kind of background. It contains one frame only.<br></big> <big><br>
@@ -515,7 +542,7 @@
   <br>
   <span style="text-decoration: underline;">Important notice</span></big></p>
   <p><big>Always call the <span style="font-style: italic;">prepare</span> after the background has been loaded.<br></big></p>
-  <h2><a id="mozTocId33595" class="mozTocH2" name="mozTocId33595"></a><big>Chapter 8. Parallax<br></big></h2>
+  <h2><a id="mozTocId33595" class="mozTocH2" name="mozTocId33595"></a><big>Chapter 9. Parallax<br></big></h2>
   <p><big><span style="text-decoration: underline;">A few words about parallax</span><br>
   <br>
   The parallax background is a background with scrolling support.</big></p>
@@ -566,14 +593,14 @@
   <br>
   <span style="text-decoration: underline;">Important notice</span></big></p>
   <p><big>Always call the <span style="font-style: italic;">prepare</span> after the background has been loaded.</big></p>
-  <h2><a class="mozTocH2" name="mozTocId309905" id="mozTocId309905"></a><big>Chapter 9. Base sprite subsystem</big></h2>
+  <h2><a class="mozTocH2" name="mozTocId309905" id="mozTocId309905"></a><big>Chapter 10. Base sprite subsystem</big></h2>
   <p><big><span style="text-decoration: underline;">A small, important thing</span><br>
   <br>
   A sprite is a transparent image. It is useful for many things: enemies, bonuses, etc.<br></big> <big><br>
   <span style="text-decoration: underline;">Work with the base sprite subsystem</span><br>
   <br>
   The <span style="font-style: italic;">Billboard</span> class provides simple access to the base sprite subsystem. Don't use it directly. Let's look at the publicly available methods.</big></p>
-  <p><big><span style="font-style: italic;">void Billboard::set_texture_coordinates(const size_t index, const float u, const float v);</span> - Set the texture coordinates.<br></big> <big><br></big> <big><span style="font-style: italic;">void Billboard::set_transparent(const bool enabled); -</span> Enable or disable the transparent mode.<br>
+  <p><big><span style="font-style: italic;">void Billboard::set_texture_coordinates(const EUGENEGDK::VERTEX_INDEX index, const float u, const float v);</span> - Set the texture coordinates.<br></big> <big><br></big> <big><span style="font-style: italic;">void Billboard::set_transparent(const bool enabled); -</span> Enable or disable the transparent mode.<br>
   <br>
   <span style="font-style: italic;">bool Billboard::get_transparent() const; -</span> Return true if the transparent mode is enabled.<br>
   <br></big> <big><span style="font-style: italic;">void Billboard::set_position(const unsigned int x, const unsigned int y); -</span> Set the sprite position.<br>
@@ -624,7 +651,7 @@
   <br></big> <big><span style="font-style: italic;">void Billboard::draw(const unsigned int x, const unsigned int y); -</span> Set the sprite position and draw it.<br>
   <br></big> <big><em>void Billboard::draw(const bool transparency); -</em> Set the transparent mode and draw a sprite.<br>
   <br></big> <big><em>void Billboard::draw(const bool transparency, const unsigned int x, const unsigned int y); -</em> Set the transparent mode and draw a sprite at the target position.</big></p>
-  <h2><a class="mozTocH2" name="mozTocId662651" id="mozTocId662651"></a><big>Chapter 10. Ordinary sprites</big></h2>
+  <h2><a class="mozTocH2" name="mozTocId662651" id="mozTocId662651"></a><big>Chapter 11. Ordinary sprites</big></h2>
   <p><big><span style="text-decoration: underline;">Sprite types</span><br>
   <br>
   There are two kinds of ordinary sprites: the horizontal strips and the vertical strips. It is a small image with a few frames.<br>
@@ -652,7 +679,7 @@
   <span style="text-decoration: underline;">A sprite texture</span><br>
   <br>
   A sprite doesn't draw if the sprite texture doesn't exist. It will automatically be created when you load or clone a sprite.<br></big></p>
-  <h2><a class="mozTocH2" name="mozTocId656897" id="mozTocId656897"></a><big>Chapter 11. Static sprites</big></h2>
+  <h2><a class="mozTocH2" name="mozTocId656897" id="mozTocId656897"></a><big>Chapter 12. Static sprites</big></h2>
   <p><big><span style="text-decoration: underline;">A few words about static sprite</span><br>
   <br>
   The static sprite is a simple kind of sprite. It contains one frame only.<br>
@@ -673,7 +700,7 @@
   <span style="text-decoration: underline;">A sprite texture</span><br>
   <br>
   A sprite doesn't draw if the sprite texture doesn't exist. It will automatically be created when you load or clone a sprite.</big></p>
-  <h2><a class="mozTocH2" name="mozTocId146800" id="mozTocId146800"></a><big>Chapter 12. Sprite sheet</big></h2>
+  <h2><a class="mozTocH2" name="mozTocId146800" id="mozTocId146800"></a><big>Chapter 13. Sprite sheet</big></h2>
   <p><big><span style="text-decoration: underline;">Some words about a sprite sheet</span><br>
   <br>
   A sprite sheet is a special kind of animated sprite. Each frame has a fixed size. The sheet is a matrix of frames. Look at this picture to understand it.<br>
@@ -714,7 +741,7 @@
   <span style="text-decoration: underline;">A sprite sheet texture</span><br>
   <br>
   A sprite sheet doesn't draw if the sprite sheet texture doesn't exist. It will automatically be created when you load a sheet.<br></big></p>
-  <h2><a class="mozTocH2" name="mozTocId752257" id="mozTocId752257"></a><big>Chapter 12. Text</big></h2>
+  <h2><a class="mozTocH2" name="mozTocId752257" id="mozTocId752257"></a><big>Chapter 14. Text</big></h2>
   <p><big><span style="text-decoration: underline;">How do I draw a text?</span><br>
   <br>
   Just use the text subsystem to draw a text. This subsystem needs a font for text drawing. You must load a font before starting to draw the text. The font is just a sprite sheet with 16 rows and 16 columns.<br>
@@ -787,7 +814,7 @@
   <span style="font-style: italic;">void Text::destroy_image(); -</span> Destroy a font image.<br>
   <br>
   <span style="font-style: italic;">void Text::destroy_font(); -</span> Destroy a font image and the texture.<br></big></p>
-  <h2><a class="mozTocH2" name="mozTocId67980" id="mozTocId67980"></a><big>Chapter 13. Loading images</big></h2>
+  <h2><a class="mozTocH2" name="mozTocId67980" id="mozTocId67980"></a><big>Chapter 15. Loading images</big></h2>
   <p><big><span style="text-decoration: underline;">Load an image from a file</span><br>
   <br>
   Use the image loader to load an image from a file. The <span style="font-style: italic;">Image</span> class provides simple access to the image loader. It is a simple class with a few methods.<br>
@@ -2102,6 +2129,7 @@
   9.4.7-9.4.8: The small changes.<br>
   9.4.9: The base sprite subsystem has improved.<br>
   9.5: The source code synced with the Black game development kit 6.4.7.<br>
-  9.5.1: The source code synced with the Black game development kit 6.4.9.<br></big>
+  9.5.1: The source code synced with the Black game development kit 6.4.9.<br>
+  9.5.2: The source code synced with the Black game development kit 6.5.1.<br></big>
 </body>
 </html>
