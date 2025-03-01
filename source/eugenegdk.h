@@ -772,14 +772,14 @@ typedef enum
    void set_position(const unsigned int x,const unsigned int y);
    void set_x(const unsigned int x);
    void set_y(const unsigned int y);
-   unsigned int decrease_x(const unsigned int decrement);
-   unsigned int decrease_y(const unsigned int decrement);
-   unsigned int decrease_x();
-   unsigned int decrease_y();
    unsigned int increase_x(const unsigned int increment);
    unsigned int increase_y(const unsigned int increment);
+   unsigned int decrease_x(const unsigned int decrement);
+   unsigned int decrease_y(const unsigned int decrement);
    unsigned int increase_x();
    unsigned int increase_y();
+   unsigned int decrease_x();
+   unsigned int decrease_y();
    unsigned int get_start_x() const;
    unsigned int get_start_y() const;
    unsigned int get_x() const;
