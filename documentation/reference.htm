@@ -1,5 +1,6 @@
 <html>
 <head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Windows version 5.9.14">
   <meta http-equiv="content-type" content="text/html; charset=us-ascii">
   <title>Programmer Reference</title>
 </head>
@@ -326,7 +327,7 @@
   <br>
   <span style="text-decoration: underline;">Work with the base graphics subsystem</span><br>
   <br>
-  The <span style="font-style: italic;">Screen</span> class provides access to the base graphic subsystem. Let's look at the publicly available methods.<br>
+  The <span style="font-style: italic;">Screen</span> class provides access to the base graphics subsystem. Let's look at the publicly available methods.<br>
   <br>
   <span style="font-style: italic;">void Screen::clear_screen(); -</span> Clear the screen. Fill it with black color.<br>
   <br>
@@ -353,7 +354,9 @@
   <span style="font-style: italic;">unsigned int Screen::get_height() const; -</span> Return the screen height in pixels.<br>
   <br>
   <span style="font-style: italic;">bool Screen::check_x(const unsigned int x) const; -</span> Return true if the x-coordinate is valid.<br>
-  <br></big> <big><span style="font-style: italic;">bool Screen::check_y(const unsigned int y) const; -</span> Return true if the y-coordinate is valid.</big><br>
+  <br></big> <big><span style="font-style: italic;">bool Screen::check_y(const unsigned int y) const; -</span> Return true if the y-coordinate is valid.<br></big></p>
+  <p><big><span style="font-style: italic;">bool Screen::check_horizontal_border(const EUGENEGDK::BOX target) const; -</span> Return true if a game object is collided with the horizontal screen border.<br></big></p>
+  <p><big><span style="font-style: italic;">bool Screen::check_vertical_border(const EUGENEGDK::BOX target) const; -</span> Return true if a game object is collided with the vertical screen border.</big><br>
   <br>
   <big><span style="font-style: italic;">Screen *Screen::get_handle(); -</span> Return the handle to the base graphics subsystem object.</big></p>
   <h2><a class="mozTocH2" name="mozTocId289525" id="mozTocId289525"></a><big>Chapter 3. Picture subsystem</big></h2>
@@ -1617,8 +1620,8 @@
   </table>
   <h2><a class="mozTocH2" name="mozTocId692266" id="mozTocId692266"></a><big>Chapter 6. Audio</big></h2>
   <p><big>The audio subsystem is working over <a href="https://docs.microsoft.com/en-us/windows/desktop/DirectShow/directshow">DirectShow</a>. It is available as part of <a href="https://en.wikipedia.org/wiki/DirectX">DirectX</a>. DirectX is pre-installed by default under the modern versions of Windows.</big></p>
-  <h1><a class="mozTocH1" name="mozTocId670307" id="mozTocId670307"></a><big>Version history<br></big></h1><big>
-  0.1: Initial version.<br>
+  <h1><a class="mozTocH1" name="mozTocId670307" id="mozTocId670307"></a><big>Version history<br></big></h1>
+  <big>0.1: Initial version.<br>
   0.1.1-0.7.6: The internal unstable builds.<br>
   0.7.7: The small changes.<br>
   0.7.8: The small bug in the sprite subsystem has been fixed.<br>
@@ -2133,6 +2136,7 @@
   9.5.2: The source code synced with the Black game development kit 6.5.1.<br>
   9.5.3: The small changes.<br>
   9.5.4: The parallax background subsystem has improved.<br>
-  9.5.5-9.5.6: The base sprite subsystem subsystem has improved.<br></big>
+  9.5.5-9.5.6: The base sprite subsystem subsystem has improved.<br>
+  9.5.7: The base graphics subsystem has improved.<br></big>
 </body>
 </html>

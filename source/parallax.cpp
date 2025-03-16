@@ -20,8 +20,7 @@ int main()
  sky.prepare(screen);
  sky.set_speed(0.0f,0.001f);
  ship.load("ship.tga",EUGENEGDK::HORIZONTAL_ANIMATED,2);
- ship.set_start(screen.get_width()/2,screen.get_height()/2);
- ship.go_start();
+ ship.set_position(screen.get_width()/2,screen.get_height()/2);
  text.load_font("font.tga");
  text.set_position(text.get_font_width(),text.get_font_height());
  mouse.hide();
@@ -68,19 +67,19 @@ int main()
   }
   if (keyboard.check_hold(72)==true)
   {
-   ship.decrease_y(2);
+   ship.decrease_y();
   }
   if (keyboard.check_hold(80)==true)
   {
-   ship.increase_y(2);
+   ship.increase_y();
   }
   if (keyboard.check_hold(75)==true)
   {
-   ship.decrease_x(2);
+   ship.decrease_x();
   }
   if (keyboard.check_hold(77)==true)
   {
-   ship.increase_x(2);
+   ship.increase_x();
   }
   if (gamepad.check_hold(EUGENEGDK::GAMEPAD_BUTTON2)==true)
   {
@@ -136,13 +135,13 @@ int main()
   {
    ship.increase_y();
   }
-  if (screen.check_x(ship.get_x())==false)
+  if (screen.check_horizontal_border(ship.get_box())==true)
   {
-   ship.go_start_x();
+   ship.decrease_x();
   }
-  if (screen.check_y(ship.get_y())==false)
+  if (screen.check_vertical_border(ship.get_box())==true)
   {
-   ship.go_start_y();
+   ship.decrease_y();
   }
   itoa(screen.get_fps(),perfomance,10);
   sky.draw();

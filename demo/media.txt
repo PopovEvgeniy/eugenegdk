@@ -2,10 +2,10 @@ Media resources license
 
 All media resources are public domain.
 
-Sprite has been created by zxbranden (http://opengameart.org/users/zxbranden).
-The background image has been created by Rawdanitsu (http://opengameart.org/users/rawdanitsu).
-Background music has been created by Nikke (http://opengameart.org/users/nikke).
-Grass tileset has been created by Angry Amish (https://opengameart.org/users/angry-amish).
-Ground image has been created by rubberduck (https://opengameart.org/users/rubberduck).
+The ship sprite has been created by zxbranden (http://opengameart.org/users/zxbranden).
+The space background image has been created by Rawdanitsu (http://opengameart.org/users/rawdanitsu).
+The background music has been created by Nikke (http://opengameart.org/users/nikke).
+The grass tileset has been created by Angry Amish (https://opengameart.org/users/angry-amish).
+The ground image has been created by rubberduck (https://opengameart.org/users/rubberduck).
 The sky image has been created by Fupi (https://opengameart.org/content/night-sky-stars-and-galaxies).
 The font is derived from Tuffy by Thatcher Ulrich (http://tulrich.com/fonts/).

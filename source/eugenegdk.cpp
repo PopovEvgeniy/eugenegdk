@@ -2212,6 +2212,16 @@ namespace EUGENEGDK
    return y<this->get_height();
   }
 
+  bool Screen::check_horizontal_border(const EUGENEGDK::BOX target) const
+  {
+   return (target.x+target.width)>=this->get_width();
+  }
+
+  bool Screen::check_vertical_border(const EUGENEGDK::BOX target) const
+  {
+   return (target.y+target.height)>=this->get_height();
+  }
+
   Screen* Screen::get_handle()
   {
    return this;
