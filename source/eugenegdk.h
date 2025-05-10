@@ -342,6 +342,7 @@ typedef enum
   ALPHA_COMPONENT=24
  } PIXEL_COMPONENT;
 
+  void set_camera(const float x,const float y,const float viewport_width,const float view_height,const float screen_width,const float screen_height);
   float get_start_offset(const float current,const float total);
   float get_end_offset(const float current,const float total);
   unsigned int get_pixel_component(const unsigned int pixel,const Core::PIXEL_COMPONENT component);
@@ -673,6 +674,61 @@ typedef enum
    bool check_horizontal_border(const EUGENEGDK::BOX target) const;
    bool check_vertical_border(const EUGENEGDK::BOX target) const;
    Screen* get_handle();
+  };
+
+  class Camera
+  {
+   private:
+   unsigned int screen_width;
+   unsigned int screen_height;
+   unsigned int viewport_width;
+   unsigned int viewport_height;
+   unsigned int x_offset;
+   unsigned int y_offset;
+   unsigned int highest_x_offset;
+   unsigned int highest_y_offset;
+   void calculate_limits();
+   bool check_viewport_width(const unsigned int width) const;
+   bool check_viewport_heigth(const unsigned int height) const;
+   void set_viewport_width(const unsigned int width);
+   void set_viewport_heigth(const unsigned int height);
+   public:
+   Camera();
+   ~Camera();
+   Camera* get_handle();
+   unsigned int get_x() const;
+   unsigned int get_y() const;
+   unsigned int get_screen_width() const;
+   unsigned int get_screen_height() const;
+   unsigned int get_viewport_width() const;
+   unsigned int get_viewport_height() const;
+   unsigned int get_highest_x() const;
+   unsigned int get_highest_y() const;
+   unsigned int get_highest_x_offset() const;
+   unsigned int get_highest_y_offset() const;
+   unsigned int get_world_x(const unsigned int screen_x);
+   unsigned int get_world_y(const unsigned int screen_y);
+   unsigned int get_screen_x(const unsigned int world_x);
+   unsigned int get_screen_y(const unsigned int world_y);
+   unsigned int set_x(const unsigned int x);
+   unsigned int set_y(const unsigned int y);
+   void initialize(const unsigned int width,const unsigned int height);
+   void initialize(Screen *screen);
+   void initialize(Screen &screen);
+   void set_viewport(const unsigned int width,const unsigned int height);
+   void set_offset(const unsigned int x,const unsigned int y);
+   unsigned int increase_x(const unsigned int increment);
+   unsigned int increase_y(const unsigned int increment);
+   unsigned int decrease_x(const unsigned int decrement);
+   unsigned int decrease_y(const unsigned int decrement);
+   unsigned int increase_x();
+   unsigned int increase_y();
+   unsigned int decrease_x();
+   unsigned int decrease_y();
+   bool check_horizontal_border(const EUGENEGDK::BOX target) const;
+   bool check_vertical_border(const EUGENEGDK::BOX target) const;
+   void update();
+   void reset();
   };
 
   class Image

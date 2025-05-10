@@ -1,0 +1,4 @@
+Quick help
+
+Arrow keys - Move
+Escape - Exit from demo

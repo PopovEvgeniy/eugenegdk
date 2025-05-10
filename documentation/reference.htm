@@ -1,6 +1,5 @@
 <html>
 <head>
-  <meta name="generator" content="HTML Tidy for HTML5 for Windows version 5.9.14">
   <meta http-equiv="content-type" content="text/html; charset=us-ascii">
   <title>Programmer Reference</title>
 </head>
@@ -53,6 +52,7 @@
         <li><a href="#mozTocId146800">Chapter 13. Sprite sheet</a></li>
         <li><a href="#mozTocId752257">Chapter 14. Text</a></li>
         <li><a href="#mozTocId67980">Chapter 15. Loading images</a></li>
+        <li><a href="#mozTocId450">Chapter 16. Camera</a></li>
       </ul>
     </li>
     <li>
@@ -845,6 +845,85 @@
   <p><big><span style="text-decoration: underline;">Recommend software</span><br>
   <br>
   You can use a wide range of graphics software to convert your images to the correct format. I recommend using <a href="https://www.gimp.org/">GIMP</a> to do it. It is a powerful image editor.<br></big></p>
+  <h2><a id="mozTocId450" class="mozTocH2" name="mozTocId450"></a><big>Chapter 16. Camera</big></h2><big><span style="text-decoration: underline;">A few words about the camera</span><br>
+  <br>
+  The 2D camera defines a size of visible area. It will be stretched to the screen resolution before rendering the game scene.<br>
+  <br style="text-decoration: underline;">
+  <span style="text-decoration: underline;">Work with the camera</span><br>
+  <br>
+  The <span style="font-style: italic;">Camera</span> class provides simple access to the camera subsystem. Let's look at the publicly available methods.<br>
+  <br>
+  <span style="font-style: italic;">Camera *Camera::get_handle(); -</span> Return the handle to the camera subsystem.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::increase_x(); -</span> Increase the x-coordinate of the camera offset and return it.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::decrease_x(); -</span> Decrease the x-coordinate of the camera offset and return it.<br>
+  <br style="font-style: italic;">
+  <span style="font-style: italic;">unsigned int Camera::increase_y(); -</span> Increase the y-coordinate of the camera offset and return it.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::decrease_y(); -</span> Decrease the y-coordinate of the camera offset and return it.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::increase_x(const unsigned int increment); -</span> Increase the x-coordinate of the camera offset with the user value and return it.<br>
+  <br style="font-style: italic;">
+  <span style="font-style: italic;">unsigned int Camera::decrease_x(const unsigned int decrement); -</span> Decrease the x-coordinate of the camera offset with the user value and return it.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::increase_y(const unsigned int increment); -</span> Increase the y-coordinate of the camera offset with the user value and return it.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::decrease_y(const unsigned int decrement); -</span> Decrease the y-coordinate of the camera offset with the user value and return it.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::get_x() const; -</span> Return the x-coordinate of the camera offset.<br>
+  <br style="font-style: italic;">
+  <span style="font-style: italic;">unsigned int Camera::get_y() const; -</span> Return the y-coordinate of the camera offset.<br>
+  <br style="font-style: italic;">
+  <span style="font-style: italic;">unsigned int Camera::get_screen_width() const; -</span> Return the screen width in pixels.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::get_screen_height() const; -</span> Return the screen height in pixels.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::get_viewport_width() const; -</span> Return the viewport width in pixels.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::get_viewport_height() const; -</span> Return the viewport height in pixels.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::get_highest_x() const; -</span> Return the highest allowable x-coordinate of the current visible area.<br>
+  <br style="font-style: italic;">
+  <span style="font-style: italic;">unsigned int Camera::get_highest_y() const; -</span> Return the highest allowable y-coordinate of the current visible area.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::get_highest_x_offset() const; -</span> Return the highest allowable x-offset of the camera.<br>
+  <br style="font-style: italic;">
+  <span style="font-style: italic;">unsigned int Camera::get_highest_y_offset() const; -</span> Return the highest allowable y-offset of the camera.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::get_world_x(const unsigned screen_int x) const; -</span> Convert the screen x-coordinate to the world x-coordinate.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::get_world_y(const unsigned screen_int y) const; -</span> Convert the screen y-coordinate to the world y-coordinate.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::get_screen_x(const unsigned int world_x) const; -</span> Convert the world x-coordinate to the screen x-coordinate.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::get_screen_y(const unsigned int world_y) const; -</span> Convert the world y-coordinate to the screen y-coordinate.<br>
+  <br>
+  <span style="font-style: italic;">unsigned int Camera::set_x(const unsigned int x); -</span> Set the x-coordinate of the camera offset and return it.<br>
+  <br style="font-style: italic;">
+  <span style="font-style: italic;">unsigned int Camera::set_y(const unsigned int y); -</span> Set the y-coordinate of the camera offset and return it.<br>
+  <br>
+  <span style="font-style: italic;">void Camera::initialize(const unsigned int width, const unsigned int height); -</span> Initialize the subsystem and set the screen size.<br>
+  <br style="font-style: italic;">
+  <span style="font-style: italic;">void Camera::initialize(Screen *screen); -</span> Initialize the subsystem and set the screen size.<br>
+  <br style="font-style: italic;">
+  <span style="font-style: italic;">void Camera::initialize(Screen &amp;screen); -</span> Initialize the subsystem and set the screen size.<br>
+  <br>
+  <span style="font-style: italic;">void Camera::set_viewport(const unsigned int width, const unsigned int height); -</span> Set the viewport settings.<br>
+  <br>
+  <span style="font-style: italic;">void Camera::set_offset(const unsigned int x, const unsigned int y); -</span> Set the camera offset.<br>
+  <br>
+  <span style="font-style: italic;">bool Camera::check_horizontal_border(const EUGENEGDK::BOX target) const; -</span> Return true if a game object is collided with the horizontal visible area border.<br>
+  <br>
+  <span style="font-style: italic;">bool Camera::check_vertical_border(const EUGENEGDK::BOX target) const; -</span> Return true if a game object is collided with the vertical visible area border.<br>
+  <br>
+  <span style="font-style: italic;">void Camera::update(); -</span> Update the camera.<br>
+  <br>
+  <span style="font-style: italic;">void Camera::reset(); -</span> Reset the camera settings.<br>
+  <br>
+  <span style="text-decoration: underline;">Important remark</span><br>
+  <br>
+  Always set the viewport size after initialize the camera. Always update the camera before drawing.</big>
   <h1><a class="mozTocH1" name="mozTocId130685" id="mozTocId130685"></a><big>Part 4. Transformation</big></h1>
   <h2><a class="mozTocH2" name="mozTocId679493" id="mozTocId679493"></a><a id="mozTocId833933" class="mozTocH2" name="mozTocId833933"></a><big>Chapter 1. The sub-namespace</big></h2>
   <p><big>All classes in this section are declared in the <span style="font-style: italic;">Transformation</span> sub-namespace.<br></big></p>
@@ -1620,8 +1699,7 @@
   </table>
   <h2><a class="mozTocH2" name="mozTocId692266" id="mozTocId692266"></a><big>Chapter 6. Audio</big></h2>
   <p><big>The audio subsystem is working over <a href="https://docs.microsoft.com/en-us/windows/desktop/DirectShow/directshow">DirectShow</a>. It is available as part of <a href="https://en.wikipedia.org/wiki/DirectX">DirectX</a>. DirectX is pre-installed by default under the modern versions of Windows.</big></p>
-  <h1><a class="mozTocH1" name="mozTocId670307" id="mozTocId670307"></a><big>Version history<br></big></h1>
-  <big>0.1: Initial version.<br>
+  <h1><a class="mozTocH1" name="mozTocId670307" id="mozTocId670307"></a><big>Version history<br></big></h1><big>0.1: Initial version.<br>
   0.1.1-0.7.6: The internal unstable builds.<br>
   0.7.7: The small changes.<br>
   0.7.8: The small bug in the sprite subsystem has been fixed.<br>
@@ -2137,6 +2215,7 @@
   9.5.3: The small changes.<br>
   9.5.4: The parallax background subsystem has improved.<br>
   9.5.5-9.5.6: The base sprite subsystem subsystem has improved.<br>
-  9.5.7: The base graphics subsystem has improved.<br></big>
+  9.5.7: The base graphics subsystem has improved.<br>
+  9.5.8: The source code synced with the Black game development kit 7.3.3.<br></big>
 </body>
 </html>

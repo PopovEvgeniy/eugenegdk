@@ -2,6 +2,8 @@ Media resources license
 
 All media resources are public domain.
 
+The punk sprite has been created by Aezur (https://opengameart.org/users/aezur).
+The city background image has been created by acasas (https://opengameart.org/users/acasas).
 The ship sprite has been created by zxbranden (http://opengameart.org/users/zxbranden).
 The space background image has been created by Rawdanitsu (http://opengameart.org/users/rawdanitsu).
 The background music has been created by Nikke (http://opengameart.org/users/nikke).

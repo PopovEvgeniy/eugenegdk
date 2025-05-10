@@ -26,6 +26,7 @@ Features
  Isometric.
  Timers.
  Collision detector.
+ 2D camera.
  Integrated FPS counter.
  Powerful input subsystem: keyboard, mouse, gamepad.
  Simple audio subsystem for playing music and sounds.
