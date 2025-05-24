@@ -688,8 +688,6 @@ typedef enum
    unsigned int highest_x_offset;
    unsigned int highest_y_offset;
    void calculate_limits();
-   bool check_viewport_width(const unsigned int width) const;
-   bool check_viewport_heigth(const unsigned int height) const;
    void set_viewport_width(const unsigned int width);
    void set_viewport_heigth(const unsigned int height);
    public:

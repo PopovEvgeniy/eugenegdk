@@ -331,8 +331,8 @@
   <br>
   <span style="font-style: italic;">void Screen::clear_screen(); -</span> Clear the screen. Fill it with black color.<br>
   <br>
-  <span style="font-style: italic;">void Screen::initialize(); -</span> Initializes the base graphic subsystem with the default screen resolution.<br>
-  <br></big> <big style="font-style: italic;">void Screen::initialize(const unsigned int width,</big> <big style="font-style: italic;">const unsigned int height</big><big><span style="font-style: italic;">); -</span> Initializes the base graphic subsystem with the custom screen resolution.<br>
+  <span style="font-style: italic;">void Screen::initialize(); -</span> Initialize the base graphic subsystem with the default screen resolution.<br>
+  <br></big> <big style="font-style: italic;">void Screen::initialize(const unsigned int width,</big> <big style="font-style: italic;">const unsigned int height</big><big><span style="font-style: italic;">); -</span> Initialize the base graphic subsystem with the custom screen resolution.<br>
   <br></big> <big><span style="font-style: italic;">bool Screen::sync(); -</span> Show the current content of the back buffer on the screen. Return false if a game is terminated. This method uses the FPS limits and waits between frames.<br>
   <br>
   <span style="font-style: italic;">bool Screen::update(); -</span> Show the current content of the back buffer on the screen. Return false if a game is terminated. This method ignores the FPS limit and needs high processor usage.<br>
@@ -927,7 +927,7 @@
   <br>
   <span style="text-decoration: underline;">Important remark</span><br>
   <br>
-  Always set the viewport size after initialize the camera. Always update the camera before drawing.</big>
+  Always set the viewport size after initializing the camera. Always update the camera before drawing.</big>
   <h1><a class="mozTocH1" name="mozTocId130685" id="mozTocId130685"></a><big>Part 4. Transformation</big></h1>
   <h2><a class="mozTocH2" name="mozTocId679493" id="mozTocId679493"></a><a id="mozTocId833933" class="mozTocH2" name="mozTocId833933"></a><big>Chapter 1. The sub-namespace</big></h2>
   <p><big>All classes in this section are declared in the <span style="font-style: italic;">Transformation</span> sub-namespace.<br></big></p>
@@ -1711,7 +1711,7 @@
   0.8.2: The sprite subsystem has improved.<br>
   0.8.3: PCX support has been removed.<br>
   0.8.4: The small changes.<br>
-  0.8.5: FPS counter has improved.<br>
+  0.8.5: The FPS counter has improved.<br>
   0.8.6-0.8.9: The small changes.<br>
   0.9: TGA support has improved.<br>
   0.9.1: The small bug in the sprite subsystem has been fixed.<br>
@@ -2218,10 +2218,11 @@
   9.5.2: The source code synced with the Black game development kit 6.5.1.<br>
   9.5.3: The small changes.<br>
   9.5.4: The parallax background subsystem has improved.<br>
-  9.5.5-9.5.6: The base sprite subsystem subsystem has improved.<br>
+  9.5.5-9.5.6: The base sprite subsystem has improved.<br>
   9.5.7: The base graphics subsystem has improved.<br>
   9.5.8: The source code synced with the Black game development kit 7.3.3.<br>
   9.5.9: The source code synced with the Black game development kit 7.3.5.<br>
-  9.6: The source code synced with the Black game development kit 7.3.8.<br></big>
+  9.6: The source code synced with the Black game development kit 7.3.8.<br>
+  9.6: The source code synced with the Black game development kit 7.3.9.<br></big>
 </body>
 </html>
