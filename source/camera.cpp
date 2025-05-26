@@ -5,7 +5,6 @@ int main()
  EUGENEGDK::Graphics::Screen screen;
  EUGENEGDK::Graphics::Scene city;
  EUGENEGDK::Graphics::Cartoon punk;
- EUGENEGDK::Graphics::Text text;
  EUGENEGDK::Graphics::Camera camera;
  EUGENEGDK::Input::Keyboard keyboard;
  EUGENEGDK::Input::Mouse mouse;
@@ -14,7 +13,6 @@ int main()
  screen.initialize(640,480);
  city.load("city.tga");
  punk.load("punk.tga");
- text.load_font("font.tga");
  city.prepare(screen);
  camera.initialize(screen);
  camera.set_viewport(320,screen.get_height());
