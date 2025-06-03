@@ -27,17 +27,27 @@ int main()
   }
   if (keyboard.check_hold(77)==true)
   {
-   punk.increase_x(3);
-   camera.increase_x(5);
+   if (camera.check_horizontal_border(punk.get_box())==true)
+   {
+    camera.increase_x(12);
+   }
+   else
+   {
+    punk.increase_x();
+   }
+
   }
   if (keyboard.check_hold(75)==true)
   {
-   punk.decrease_x(3);
-   camera.decrease_x(5);
-  }
-  if ((punk.get_x()+punk.get_width())>=camera.get_screen_width())
-  {
-   punk.decrease_x(3);
+   if (punk.get_x()<=camera.get_lowest_x())
+   {
+    camera.decrease_x(12);
+   }
+   else
+   {
+    punk.decrease_x();
+   }
+
   }
   camera.update();
   city.draw();

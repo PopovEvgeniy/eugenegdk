@@ -495,8 +495,8 @@ namespace EUGENEGDK
   {
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
-   glTranslatef(-1.0f*x,-1.0f*y,0.0f);
    glScalef(screen_width/viewport_width,screen_height/view_height,1.0f);
+   glTranslatef(-1.0f*x,-1.0f*y,0.0f);
   }
 
   float get_start_offset(const float current,const float total)
@@ -2254,8 +2254,8 @@ namespace EUGENEGDK
 
   void Camera::calculate_limits()
   {
-   highest_x_offset=((screen_width-viewport_width)*screen_width)/viewport_width;
-   highest_y_offset=((screen_height-viewport_height)*screen_height)/viewport_height;
+   highest_x_offset=screen_width-viewport_width;
+   highest_y_offset=screen_height-viewport_height;
   }
 
   void Camera::set_viewport_width(const unsigned int width)
@@ -2321,32 +2321,12 @@ namespace EUGENEGDK
 
   unsigned int Camera::get_highest_x() const
   {
-   unsigned int highest_x;
-   highest_x=x_offset+viewport_width;
-   if (highest_x>=highest_x_offset)
-   {
-    highest_x=screen_width;
-   }
-   if (highest_x>screen_width)
-   {
-    highest_x=x_offset;
-   }
-   return highest_x;
+   return x_offset+viewport_width;
   }
 
   unsigned int Camera::get_highest_y() const
   {
-   unsigned int highest_y;
-   highest_y=y_offset+viewport_height;
-   if (highest_y>=highest_y_offset)
-   {
-    highest_y=screen_height;
-   }
-   if (highest_y>screen_height)
-   {
-    highest_y=y_offset;
-   }
-   return highest_y;
+   return y_offset+viewport_height;
   }
 
   unsigned int Camera::get_lowest_x() const
@@ -2377,34 +2357,6 @@ namespace EUGENEGDK
   unsigned int Camera::get_world_y(const unsigned int screen_y)
   {
    return (screen_y*viewport_height)/screen_height+y_offset;
-  }
-
-  unsigned int Camera::get_screen_x(const unsigned int world_x)
-  {
-   unsigned int target_x;
-   if (world_x>x_offset)
-   {
-    target_x=world_x-x_offset;
-   }
-   else
-   {
-    target_x=world_x;
-   }
-   return (target_x*screen_width)/viewport_width;
-  }
-
-  unsigned int Camera::get_screen_y(const unsigned int world_y)
-  {
-   unsigned int target_y;
-   if (world_y>y_offset)
-   {
-    target_y=world_y-y_offset;
-   }
-   else
-   {
-    target_y=world_y;
-   }
-   return (target_y*screen_height)/viewport_height;
   }
 
   unsigned int Camera::set_x(const unsigned int x)
