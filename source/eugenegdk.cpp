@@ -606,22 +606,22 @@ namespace EUGENEGDK
 
   unsigned int Resizer::get_x_difference(const unsigned int x) const
   {
-   return (x*x_ratio+1)%UCHAR_MAX;
+   return (x*x_ratio)%UCHAR_MAX;
   }
 
   unsigned int Resizer::get_y_difference(const unsigned int y) const
   {
-   return (y*y_ratio+1)%UCHAR_MAX;
+   return (y*y_ratio)%UCHAR_MAX;
   }
 
   unsigned int Resizer::get_source_x(const unsigned int x) const
   {
-   return (x*x_ratio+1)/UCHAR_MAX;
+   return (x*x_ratio)/UCHAR_MAX;
   }
 
   unsigned int Resizer::get_source_y(const unsigned int y) const
   {
-   return (y*y_ratio+1)/UCHAR_MAX;
+   return (y*y_ratio)/UCHAR_MAX;
   }
 
   unsigned int Resizer::get_next_x(const unsigned int x) const
@@ -700,8 +700,8 @@ namespace EUGENEGDK
 
   void Resizer::calculate_ratio()
   {
-   x_ratio=((source_width-1)*UCHAR_MAX)/(target_width-1);
-   y_ratio=((source_height-1)*UCHAR_MAX)/(target_height-1);
+   x_ratio=(source_width*UCHAR_MAX)/target_width;
+   y_ratio=(source_height*UCHAR_MAX)/target_height;
   }
 
   void Resizer::calculate_size()
