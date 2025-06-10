@@ -702,8 +702,6 @@ typedef enum
    unsigned int get_viewport_height() const;
    unsigned int get_highest_x() const;
    unsigned int get_highest_y() const;
-   unsigned int get_lowest_x() const;
-   unsigned int get_lowest_y() const;
    unsigned int get_highest_x_offset() const;
    unsigned int get_highest_y_offset() const;
    unsigned int get_world_x(const unsigned int screen_x);
