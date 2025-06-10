@@ -39,7 +39,7 @@ int main()
   }
   if (keyboard.check_hold(75)==true)
   {
-   if (punk.get_x()<=camera.get_lowest_x())
+   if (punk.get_x()<=camera.get_x())
    {
     camera.decrease_x(12);
    }
