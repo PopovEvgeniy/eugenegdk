@@ -1009,6 +1009,8 @@ typedef enum
    void horizontal_mirror();
    void vertical_mirror();
    void complex_mirror();
+   void set_horizontal_speed(const float speed);
+   void set_vertical_speed(const float speed);
    void set_speed(const float horizontal,const float vertical);
    float get_horizontal_speed() const;
    float get_vertical_speed() const;

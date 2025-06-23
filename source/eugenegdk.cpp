@@ -3914,17 +3914,28 @@ namespace EUGENEGDK
    stage.destroy_image();
   }
 
-  void Parallax::set_speed(const float horizontal,const float vertical)
+  void Parallax::set_horizontal_speed(const float speed)
   {
-   if (horizontal>0.0f)
+   if (speed>0.0f)
    {
-    u_speed=horizontal;
-   }
-   if (vertical>0.0f)
-   {
-    v_speed=vertical;
+    u_speed=speed;
    }
 
+  }
+
+  void Parallax::set_vertical_speed(const float speed)
+  {
+   if (speed>0.0f)
+   {
+    v_speed=speed;
+   }
+
+  }
+
+  void Parallax::set_speed(const float horizontal,const float vertical)
+  {
+   this->set_horizontal_speed(horizontal);
+   this->set_vertical_speed(vertical);
   }
 
   float Parallax::get_horizontal_speed() const
