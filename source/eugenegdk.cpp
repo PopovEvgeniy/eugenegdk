@@ -357,6 +357,8 @@ namespace EUGENEGDK
     EUGENEGDK::Halt("Can't create the window");
    }
    UpdateWindow(window);
+   SetForegroundWindow(window);
+   SetFocus(window);
   }
 
   HDC Engine::get_context()
