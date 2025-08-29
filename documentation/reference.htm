@@ -67,7 +67,7 @@
           <li><a href="#mozTocId379038">Chapter 2. Abnormal program termination</a></li>
           <li><a href="#mozTocId566528">Chapter 3. Timer</a></li>
           <li><a href="#mozTocId908141">Chapter 4. Collision</a></li>
-          <li><a href="#mozTocId539746">Chapter 5. Tile map</a></li>
+          <li><a href="#mozTocId539746">Chapter 5. Tilemap</a></li>
         </ol>
       </li>
       <li><a href="#mozTocId181862">Part 6. Other important things</a>
@@ -399,8 +399,7 @@
       <br>
       The base graphics subsystem does render a game scene. This subsystem uses
       <a href="http://opengl.org">OPENGL</a> for rendering. All modern video cards support hardware-accelerated
-      OPENGL. The software OPENGL will be activated if the acceleration is
-      not available.<br>
+      OPENGL. The software implementation will be activated if the acceleration is not available.<br>
       <br>
       <u>Render performance</u><br>
       <br>
@@ -1148,10 +1147,10 @@
     </big>
     <h2><a id="mozTocId890973" class="mozTocH2"></a><big>Chapter 14. Text</big></h2>
     <big><br>
-      <u>How do I draw a text?</u><br>
+      <u>How to print a text?</u><br>
       <br>
-      Just use the text subsystem to draw a text. This subsystem needs a font
-      for text drawing. You must load a font before starting to draw the
+      Just use the text subsystem to print a text. This subsystem needs a font
+      for text printing. You must load a font before starting to print the
       text. The font is just a sprite sheet with 16 rows and 16 columns.<br>
       <br>
       <u>Valid characters</u><br>
@@ -1188,7 +1187,7 @@
       The <i>Text</i> class provides a simple interface to the text subsystem.
       Let's look at the publicly available methods.<br>
       <br>
-      <i>Text *Text::get_handle(); -</i> Return the handle to the text drawing subsystem.<br>
+      <i>Text *Text::get_handle(); -</i> Return the handle to the text printing subsystem.<br>
       <br>
       <i>EUGENEGDK::TEXT_KIND Text::get_orientation() const; -</i> Get the
       current text orientation.<br>
@@ -1231,17 +1230,17 @@
         void Text::load_font(const char *name); -</i> Load a font from the
       target file.<br>
       <br>
-      <i>void Text::print(const char target); -</i> Draw a single character at
+      <i>void Text::print(const char target); -</i> Print a single character at
       the current position.<br>
       <i><br>
         void Text::print(const unsigned int x, const unsigned int y, const char
-        target); -</i> Draw a single character at the specific position.<br>
+        target); -</i> Print a single character at the specific position.<br>
       <br>
-      <i>size_t Text::print(const char *target); -</i> Draw a text at the
+      <i>size_t Text::print(const char *target); -</i> Print a text at the
       current position and return the text length.<br>
       <br>
       <i>size_t Text::print(const unsigned int x, const unsigned int y, const
-        char *target); -</i> Draw a text at the specific position and return the
+        char *target); -</i> Print a text at the specific position and return the
       text length.<br>
       <br>
       <i>void Text::disable_mirror(); -</i> Disable text mirroring mode.<br>
@@ -1494,7 +1493,7 @@
     <big><br>
       <u>A few words about isometric games</u><br>
       <br>
-      <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometry</a>
+      <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometric projection</a>
       is a very popular way for pseudo-3D games. Many old-school games are
       isometric games.<br>
       <br>
@@ -1620,24 +1619,24 @@
         const EUGENEGDK::BOX second_target); -</i> Set the targets and check
       collisions between them.<br>
     </big>
-    <h2><a id="mozTocId539746" class="mozTocH2"></a><big>Chapter 5. Tile map</big></h2>
+    <h2><a id="mozTocId539746" class="mozTocH2"></a><big>Chapter 5. Tilemap</big></h2>
     <big><u><br>
-        A few words about tile maps</u><br>
+        A few words about a tilemaps</u><br>
       <br>
-      The tile map is a tile matrix. A tile is a small, non-transparent sprite.
-      A tile map is a very useful thing for the background.<br>
+      The tilemap is a tile matrix. A tile is a small, non-transparent sprite.
+      A tilemap is a very useful thing for the background.<br>
       <u><br>
         Rows and columns</u><br>
       <br>
       The first row index is 0. The first column index is 0.<br>
       <u><br>
-        Work with the tile map</u><br>
+        Work with the tilemap</u><br>
       <br>
       The <i>Tilemap</i> class provides easy access to the tile map. It is a
       simple class with few methods. Let's look at the publicly available
       methods.<br>
       <i><br>
-        Tilemap *Tilemap::get_handle(); -</i> Return the handle to the tile-map subsystem.<br>
+        Tilemap *Tilemap::get_handle(); -</i> Return the handle to the tilemap subsystem.<br>
       <i><br>
         void Tilemap::initialize(const unsigned int tile_width, const unsigned
         int tile_height); -</i> Initialize the subsystem.<br>
@@ -2232,7 +2231,7 @@
       arcade or an old-school style video game? A gamepad. This engine
       provides simple access to it.<br>
       <u><br>
-        Number of connected gamepads</u><br>
+        Number of the connected gamepads</u><br>
       <br>
       You can connect a few gamepads. Any connected gamepad has an internal
       index. The first gamepad index is 0. It will be activated by default.<br>
@@ -2549,10 +2548,10 @@
       1.3.3: The project name changed.<br>
       1.3.4: The sprite subsystem has improved.<br>
       1.3.5: The small changes.<br>
-      1.3.6: The tile-set subsystem has improved.<br>
+      1.3.6: The tileset subsystem has improved.<br>
       1.3.7: The small changes.<br>
       1.3.8: The sprite subsystem has improved.<br>
-      1.3.9: The tile-set subsystem has improved.<br>
+      1.3.9: The tileset subsystem has improved.<br>
       1.4: The sprite subsystem has improved.<br>
       1.4.1: The text subsystem has improved.<br>
       1.4.2-1.4.5: The small changes.<br>
@@ -2580,7 +2579,7 @@
       1.7.7-1.7.8: The sprite subsystem has improved.<br>
       1.7.9-1.8: The picture subsystem has improved.<br>
       1.8.1: The small changes.<br>
-      1.8.2: The tile-set subsystem has improved.<br>
+      1.8.2: The tileset subsystem has improved.<br>
       1.8.3: The small changes.<br>
       1.8.4-1.8.6: The binary file subsystem has improved.<br>
       1.8.7-1.8.8: The image loader has improved.<br>
@@ -2588,13 +2587,13 @@
       1.9-1.9.1: The image loader has improved.<br>
       1.9.2: The picture subsystem has improved.<br>
       1.9.3: The small changes.<br>
-      1.9.4: The tile-set subsystem has improved.<br>
+      1.9.4: The tileset subsystem has improved.<br>
       1.9.5-1.9.8: The small changes.<br>
       1.9.9: The background subsystem has improved.<br>
       2.0-2.0.3: The image loader has improved.<br>
       2.0.4: The sprite subsystem has improved.<br>
       2.0.5: The background subsystem has improved.<br>
-      2.0.6-2.1.2: The text drawing subsystem has improved.<br>
+      2.0.6-2.1.2: The text printing subsystem has improved.<br>
       2.1.3: The background subsystem has improved.<br>
       2.1.4-2.1.8: The small changes.<br>
       2.1.9-2.2.7: The multimedia subsystem has improved.<br>
@@ -2611,10 +2610,10 @@
       2.4.3-2.4.7: The small changes.<br>
       2.4.8: The background subsystem has improved.<br>
       2.4.9: The sprite subsystem has improved.<br>
-      2.5: The tile-set subsystem has improved.<br>
+      2.5: The tileset subsystem has improved.<br>
       2.5.1-2.5.2: The small changes.<br>
       2.5.3: The sprite subsystem has improved.<br>
-      2.5.4-2.5.6: The tile-set subsystem has improved.<br>
+      2.5.4-2.5.6: The tileset subsystem has improved.<br>
       2.5.7: The small changes.<br>
       2.5.8: The sprite subsystem has improved.<br>
       2.5.9-2.6: The small changes.<br>
@@ -2654,11 +2653,11 @@
       3.4.3: The sprite subsystem has improved.<br>
       3.4.4: The image loader has improved.<br>
       3.4.5: The image storage has improved.<br>
-      3.4.6: The tile-set subsystem has improved.<br>
+      3.4.6: The tileset subsystem has improved.<br>
       3.4.7: The background subsystem has improved.<br>
       3.4.8-3.4.9: The sprite subsystem has improved.<br>
       3.5-3.5.4: The small changes.<br>
-      3.5.5: The tile-set subsystem has improved.<br>
+      3.5.5: The tileset subsystem has improved.<br>
       3.5.6-3.6.4: The small changes.<br>
       3.6.5: The multimedia subsystem has improved.<br>
       3.6.6-3.6.8: The small changes.<br>
@@ -2736,7 +2735,7 @@
       4.9.7-5.0.8: The small changes.<br>
       5.0.9-5.2: The experimental branch.<br>
       5.2.1: The small changes.<br>
-      5.2.2: The text-drawing subsystem has improved.<br>
+      5.2.2: The text printing subsystem has improved.<br>
       5.2.3-5.2.5: The small changes.<br>
       5.2.6: The changes in the engine API.<br>
       5.2.7: The new subsystem has been added.<br>
@@ -2745,22 +2744,22 @@
       5.3.1-5.3.4: The small changes.<br>
       5.3.5: The new subsystem has been added.<br>
       5.3.6: The small changes.<br>
-      5.3.7: The tile-set subsystem was removed.<br>
+      5.3.7: The tileset subsystem was removed.<br>
       5.3.8: The small changes.<br>
       5.3.9: The sprite sheet subsystem has improved.<br>
       5.4-5.4.1: The small changes.<br>
-      5.4.2-5.4.5: The text drawing subsystem has improved.<br>
+      5.4.2-5.4.5: The text printing subsystem has improved.<br>
       5.4.6-5.5.2: The background subsystem has improved.<br>
       5.5.3-5.5.7: The small changes.<br>
       5.5.8: The background subsystem has improved.<br>
       5.5.9: The base sprite subsystem has improved.<br>
       5.6-5.6.4: The small changes.<br>
       5.6.5: The background subsystem has improved.<br>
-      5.6.6: The text-drawing subsystem has improved.<br>
+      5.6.6: The text printing subsystem has improved.<br>
       5.6.7: The background subsystem has improved.<br>
-      5.6.8: The text-drawing subsystem has improved.<br>
+      5.6.8: The text printing subsystem has improved.<br>
       5.6.9: The small changes.<br>
-      5.7: The text drawing subsystem has improved.<br>
+      5.7: The text printing subsystem has improved.<br>
       5.7.1-5.7.2: The sprite sheet subsystem has improved.<br>
       5.7.3-5.7.4: The small changes.<br>
       5.7.5-5.7.6: The resource manager has improved.<br>
@@ -2769,7 +2768,7 @@
       5.8.6: The small changes.<br>
       5.8.7-5.9.1: The sprite sheet subsystem has improved.<br>
       5.9.2-5.9.4: The small changes.<br>
-      5.9.5: The text-drawing subsystem has improved.<br>
+      5.9.5: The text printing subsystem has improved.<br>
       5.9.6-5.9.8: The small changes.<br>
       5.9.9: The Windows 2000 support has been removed.<br>
       6.0: The changes in the engine API.<br>
@@ -2783,7 +2782,7 @@
       6.0.8: The base graphics subsystem has improved.<br>
       6.0.8.1: The documentation has been updated.<br>
       6.0.9-6.1.1: The small changes.<br>
-      6.1.2: The text drawing subsystem has improved.<br>
+      6.1.2: The text printing subsystem has improved.<br>
       6.1.3: The small changes.<br>
       6.1.3.1: The documentation has been updated.<br>
       6.1.4: The small bug has been fixed.<br>
@@ -2803,7 +2802,7 @@
       6.3.6: The ordinary sprite subsystem has improved.<br>
       6.3.7: The sprite sheet subsystem has improved.<br>
       6.3.8: The background subsystem has improved.<br>
-      6.3.9: The text-drawing subsystem has improved.<br>
+      6.3.9: The text printing subsystem has improved.<br>
       6.4: The small changes.<br>
       6.4.1: The collision detection subsystem has improved.<br>
       6.4.1.1: The documentation has been updated.<br>
@@ -2812,17 +2811,17 @@
       6.4.4: The ordinary sprite subsystem has improved.<br>
       6.4.5-6.4.6: The background subsystem has improved.<br>
       6.4.7: The sprite sheet subsystem has improved.<br>
-      6.4.8-6.4.9: The text drawing subsystem has improved.<br>
+      6.4.8-6.4.9: The text printing subsystem has improved.<br>
       6.5: The ordinary sprite subsystem has improved.<br>
       6.5.1: The background subsystem has improved.<br>
       6.5.2: The sprite sheet subsystem has improved.<br>
-      6.5.3-6.5.4: The text-drawing subsystem has improved.<br>
+      6.5.3-6.5.4: The text printing subsystem has improved.<br>
       6.5.5: The resource manager has improved.<br>
       6.5.6: The processor usage has reduced.<br>
       6.5.7-6.5.8: The small changes.<br>
       6.5.9: The small bug in the gamepad subsystem has been fixed.<br>
       6.6: The source code synced with the Gray game development kit 2.2.7.<br>
-      6.6.1: The text-drawing subsystem has improved.<br>
+      6.6.1: The text printing subsystem has improved.<br>
       6.6.2: The simple sound subsystem is backported from the Neon game development kit 5.7.8.<br>
       6.6.3: The small bug in the multimedia subsystem has been fixed.<br>
       6.6.4-6.6.6: The small changes.<br>
@@ -2832,7 +2831,7 @@
       6.7.1: The timer subsystem has improved.<br>
       6.7.2-6.7.3: The sprite subsystem has improved.<br>
       6.7.4: The background subsystem has improved.<br>
-      6.7.5: The text-drawing subsystem has improved.<br>
+      6.7.5: The text printing subsystem has improved.<br>
       6.7.6: The sprite subsystem has improved.<br>
       6.7.7: The rendering performance has increased.<br>
       6.7.8-6.7.9: The image loader has improved.<br>
@@ -2875,7 +2874,7 @@
       7.3.7: The image resizer has improved.<br>
       7.3.8-7.4: The experimental branch.<br>
       7.4.1: The new subsystem has been added.<br>
-      7.4.2-7.4.4: The tile-map subsystem has improved.<br>
+      7.4.2-7.4.4: The tilemap subsystem has improved.<br>
       7.4.5: The image resizer is backported from the Eugene game development kit 7.3.5.<br>
       7.4.6: The image resizer is backported from the Eugene game development kit 7.3.6.<br>
       7.4.7-7.5: The image resizer has improved.<br>
@@ -2887,9 +2886,9 @@
       7.5.6-7.5.7: The isometric subsystem has improved.<br>
       7.5.8: The coordinates conversion subsystem has improved.<br>
       7.5.9-7.6.1: The isometric subsystem has improved.<br>
-      7.6.2: The tile-map subsystem has improved.<br>
+      7.6.2: The tilemap subsystem has improved.<br>
       7.6.3: The image resizer is backported from the Eugene game development kit 7.4.5.<br>
-      7.6.4: The small bug in the tile-map subsystem has been fixed.<br>
+      7.6.4: The small bug in the tilemap subsystem has been fixed.<br>
       7.6.5: The coordinates conversion subsystem has improved.<br>
       7.6.6: The base graphics subsystem has improved.<br>
       7.6.7-7.7.1: The image resizer has improved.<br>
@@ -2908,7 +2907,7 @@
       7.8.7: The sprite sheet subsystem has improved.<br>
       7.8.8: The small changes.<br>
       7.8.9: The base sprite subsystem has improved.<br>
-      7.9: The text drawing subsystem has improved.<br>
+      7.9: The text printing subsystem has improved.<br>
       7.9.1: The base sprite subsystem has improved.<br>
       7.9.2: The background subsystem has improved.<br>
       7.9.3: The new subsystem has been added.<br>
@@ -2928,7 +2927,7 @@
       8.1.4: The small changes.<br>
       8.1.5: The image resizer has improved.<br>
       8.1.6-8.1.7: The small changes.<br>
-      8.1.8: The small bug in the tile-map subsystem has been fixed.<br>
+      8.1.8: The small bug in the tilemap subsystem has been fixed.<br>
       8.1.9: The small bug with the keyboard and mouse input subsystem has been fixed.<br>
       8.2: The ordinary sprite subsystem has improved.<br>
       8.2.1: The background subsystem has improved.<br>
@@ -2993,7 +2992,7 @@
       9.0.3: The small changes.<br>
       9.0.4: The base sprite subsystem has improved.<br>
       9.0.5: The background subsystem has improved.<br>
-      9.0.6: The text-drawing subsystem has improved.<br>
+      9.0.6: The text printing subsystem has improved.<br>
       9.0.7-9.0.8: The small changes.<br>
       9.0.9: The image resizer has improved.<br>
       9.1: The small changes.<br>
@@ -3007,7 +3006,7 @@
       9.2.4: The small bug has been fixed.<br>
       9.2.4.1-9.2.4.4: The documentation has been updated.<br>
       9.2.5: The source code synced with the Gray Game Development Kit 4.2.<br>
-      9.2.6-9.2.7: The text drawing subsystem has improved.<br>
+      9.2.6-9.2.7: The text printing subsystem has improved.<br>
       9.2.7.1: The documentation has been updated.<br>
       9.2.8: The small bug has been fixed.<br>
       9.2.9: The small changes.<br>
@@ -3045,6 +3044,7 @@
       9.6.7-9.6.8: The small changes.<br>
       9.6.9: The base graphics subsystem has improved.<br>
       9.6.9.1-9.6.9.4: The documentation has been updated.<br>
+      9.6.9.5: The project files are updated.<br>
     </big>
   </body>
 </html>
