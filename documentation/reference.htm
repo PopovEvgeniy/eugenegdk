@@ -11,8 +11,7 @@
     </big>
     <ol id="mozToc">
       <!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
-      <li><a href="#mozTocId368114">Part 1. Welcome to Eugene game development
-          kit</a>
+      <li><a href="#mozTocId368114">Part 1. Welcome</a>
         <ol>
           <li><a href="#mozTocId929677">Chapter 1. Introduction</a></li>
           <li><a href="#mozTocId619515">Chapter 2. A special thanks</a></li>
@@ -38,7 +37,7 @@
           <li><a href="#mozTocId579031">Chapter 3. Picture subsystem</a></li>
           <li><a href="#mozTocId377293">Chapter 4. Animation subsystem</a></li>
           <li><a href="#mozTocId223691">Chapter 5. Vertex index</a></li>
-          <li><a href="#mozTocId293242">Chapter 6. Image kind</a></li>
+          <li><a href="#mozTocId293242">Chapter 6. Image Kind</a></li>
           <li><a href="#mozTocId901350">Chapter 7. Background</a></li>
           <li><a href="#mozTocId85917">Chapter 8. Static background</a></li>
           <li><a href="#mozTocId440826">Chapter 9. Parallax</a></li>
@@ -114,8 +113,7 @@
       </li>
       <li><a href="#mozTocId928107">Version history</a></li>
     </ol>
-    <h1><a id="mozTocId368114" class="mozTocH1"></a><big>Part 1. Welcome to
-        Eugene game development kit</big></h1>
+    <h1><a id="mozTocId368114" class="mozTocH1"></a><big>Part 1. Welcome</big></h1>
     <h2><a id="mozTocId929677" class="mozTocH2"></a><big>Chapter 1. Introduction</big></h2>
     <big><br>
       <u>Introduction</u><br>
@@ -145,7 +143,7 @@
     <big><u><br>
         Installation</u><br>
       <br>
-      How do I install this engine? Follow these steps:<br>
+      How to install this engine? Follow these steps:<br>
       <br>
       Copy these files to your project directory:<br>
       <br>
@@ -331,9 +329,9 @@
       <u><br>
         Notes for Visual C++ users</u><br>
       <br>
-      Disable precompiled headers before starting compilation. Old Visual C++
+      Disable the precompiled headers before starting compilation. The old Visual C++
       users can do it via the project creation wizard.<br>
-      Visual C++ 2017 or higher users must follow these steps:<br>
+      The Visual C++ 2017 or higher users must follow these steps:<br>
       <br>
       Go to «Project Properties — C/C++ — Precompiled Headers»<br>
       Set the «Precomiled Header» option to «Not Using Precompiled Headers».<br>
@@ -483,7 +481,7 @@
     <big><u><br>
         An important subsystem</u><br>
       <br>
-      The picture subsystem implements image storage.<br>
+      The picture subsystem implements an image storage.<br>
       <u><br>
         Work with the picture subsystem</u><br>
       <br>
@@ -576,7 +574,7 @@
     </table>
     <big><br>
     </big>
-    <h2><a id="mozTocId293242" class="mozTocH2"></a><big>Chapter 6. Image kind</big></h2>
+    <h2><a id="mozTocId293242" class="mozTocH2"></a><big>Chapter 6. Image Kind</big></h2>
     <big><br>
       The image types look like the predefined constants. You can see it below.<br>
       <br>
@@ -628,17 +626,15 @@
         void Background::prepare(const unsigned int width, const unsigned int
         height); -</i> Prepare for drawing.<br>
       <br>
-      <i>void Background::disable_mirror(); -</i> Disable background mirroring
+      <i>void Background::disable_mirror(); -</i> Disable the background mirroring
       mode.<br>
       <i><br>
-        void Background::horizontal_mirror(); -</i> Set horizontal background
-      mirroring mode.<br>
+        void Background::horizontal_mirror(); -</i> Set the horizontal background mirroring mode.<br>
       <br>
-      <i>void Background::vertical_mirror(); -</i> Set vertical background
-      mirroring mode.<br>
+      <i>void Background::vertical_mirror(); -</i> Set the vertical background mirroring mode.<br>
       <br>
-      <i>void Background::complex_mirror(); -</i> Set both horizontal and
-      vertical background mirroring modes.<br>
+      <i>void Background::complex_mirror(); -</i> Set both the horizontal and
+      the vertical background mirroring modes.<br>
       <br>
       <i>void Background::set_target(const unsigned int target); -</i> Set the
       target frame.<br>
@@ -702,8 +698,7 @@
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
     </big>
-    <h2><a id="mozTocId85917" class="mozTocH2"></a><big>Chapter 8. Static
-        background</big></h2>
+    <h2><a id="mozTocId85917" class="mozTocH2"></a><big>Chapter 8. Static background</big></h2>
     <big><u><br>
         A few words about static background</u><br>
       <br>
@@ -724,15 +719,13 @@
       <i>void Scene::prepare(const unsigned int width, const unsigned int
         height); -</i> Prepare for drawing.<br>
       <br>
-      <i>void Scene::disable_mirror(); -</i> Disable background mirroring mode.<br>
+      <i>void Scene::disable_mirror(); -</i> Disable the background mirroring mode.<br>
       <br>
-      <i>void Scene::horizontal_mirror(); -</i> Set horizontal background
-      mirroring mode.<br>
+      <i>void Scene::horizontal_mirror(); -</i> Set the horizontal background mirroring mode.<br>
       <i><br>
-        void Scene::vertical_mirror(); -</i> Set vertical background mirroring
-      mode.<br>
+        void Scene::vertical_mirror(); -</i> Set vertical the background mirroring mode.<br>
       <br>
-      <i>void Scene::complex_mirror(); -</i> Set both horizontal and vertical
+      <i>void Scene::complex_mirror(); -</i> Set both the horizontal and the vertical
       background mirroring modes.<br>
       <br>
       <i>void Scene::load(Image *background); -</i> Load a background from the
@@ -794,15 +787,13 @@
         void Parallax::prepare(const unsigned int width, const unsigned int
         height); -</i> Prepare for drawing.<br>
       <br>
-      <i>void Parallax::disable_mirror(); -</i> Disable background mirroring mode.<br>
+      <i>void Parallax::disable_mirror(); -</i> Disable the background mirroring mode.<br>
       <i><br>
-        void Parallax::horizontal_mirror(); -</i> Set horizontal background
-      mirroring mode.<br>
+        void Parallax::horizontal_mirror(); -</i> Set the horizontal background mirroring mode.<br>
       <i><br>
-        void Parallax::vertical_mirror(); -</i> Set vertical background
-      mirroring mode.<br>
+        void Parallax::vertical_mirror(); -</i> Set the vertical background mirroring mode.<br>
       <br>
-      <i>void Parallax::complex_mirror(); -</i> Set both horizontal and vertical
+      <i>void Parallax::complex_mirror(); -</i> Set both the horizontal and the vertical
       background mirroring modes.<br>
       <br>
       <i>void Parallax::load(Image *background); -</i> Load a background from
@@ -945,16 +936,14 @@
         EUGENEGDK::BOX Billboard::get_box() const; -</i> Return the
       collision-related information.<br>
       <br>
-      <i>void Billboard::disable_mirror(); -</i> Disable sprite mirroring mode.<br>
+      <i>void Billboard::disable_mirror(); -</i> Disable the sprite mirroring mode.<br>
       <br>
-      <i>void Billboard::horizontal_mirror(); -</i> Set horizontal sprite
-      mirroring mode.<br>
+      <i>void Billboard::horizontal_mirror(); -</i> Set the horizontal sprite mirroring mode.<br>
       <i><br>
-        void Billboard::vertical_mirror(); -</i> Set vertical sprite mirroring
-      mode.<br>
+        void Billboard::vertical_mirror(); -</i> Set the vertical sprite mirroring mode.<br>
       <br>
-      <i>void Billboard::complex_mirror(); -</i> Set both horizontal and
-      vertical sprite mirroring modes.<br>
+      <i>void Billboard::complex_mirror(); -</i> Set both the horizontal and
+      the vertical sprite mirroring modes.<br>
       <br>
       <i>void Billboard::go_start(); -</i> Set the sprite position to the start
       position.<br>
@@ -1690,7 +1679,7 @@
     <h2><a id="mozTocId983926" class="mozTocH2"></a><big>Chapter 2. Memory</big></h2>
     <big><br>
       RAM is an important resource. Just use the <i>Memory</i> class to get the
-      total memory size and free memory size. Let's look at the publicly
+      total memory size and the free memory size. Let's look at the publicly
       available methods.<br>
       <br>
       <i>unsigned long long int Memory::get_total_physical(); -</i> Return the
@@ -1796,7 +1785,7 @@
       resource manager is implemented as a few template functions. All these
       functions are declared in the <i>Resource</i> sub-namespace.<br>
       <br>
-      <i>create</i> creates a resources. The first form of this function
+      <i>create</i> create a resources. The first form of this function
       creates a single resource. It takes a handle to a resource handle as an
       argument. The second form creates an array of resources. It takes a
       handle to a resource handle and a resource amount.<br>
@@ -1875,7 +1864,7 @@
       <i>void Output_File::write(const void *buffer,const size_t length); -</i>
       Write data to the file.<br>
       <br>
-      <i>void Output_File::flush(); -</i> Force writing internal buffer data to
+      <i>void Output_File::flush(); -</i> Force writing the internal buffer data to
       the file.<br>
     </big>
     <h1><a id="mozTocId231501" class="mozTocH1"></a><big>Part 9. Input</big></h1>
@@ -2447,7 +2436,7 @@
       <u>Textures</u><br>
       <br>
       A texture width must be a power of two. A texture height also must be a
-      power of two. Any image will automatically be resized before uploading.<br>
+      power of two. Any image will be automatically resized before uploading.<br>
       <u><br>
         Vertex arrays and texture coordinate arrays</u><br>
       <br>
@@ -3045,6 +3034,7 @@
       9.6.9: The base graphics subsystem has improved.<br>
       9.6.9.1-9.6.9.4: The documentation has been updated.<br>
       9.6.9.5: The project files are updated.<br>
+      9.6.9.6: The documentation has been updated.<br>
     </big>
   </body>
 </html>

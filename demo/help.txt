@@ -1,0 +1,27 @@
+The camera demo help
+
+The arrow keys: Move.
+The Escape key: Exit from the demo.
+
+The parallax demo help
+
+The controls for a keyboard
+
+The arrow keys: Move.
+The space key: Exit from the demo.
+The left mouse button: Exit from the demo.
+The F1 key: Disable the background mirroring.
+The F2 key: Do the horizontal background mirror.
+The F3 key: Do the vertical background mirror.
+The F4 key: Do both the horizontal and the vertical background mirrors.
+The F5 key: Enable FPS limit.
+The F6 key: Disable FPS limit.
+
+The controls for a gamepad
+
+The D-pad or the right stick: Move.
+The button 2: Exit from the demo.
+
+The sprite demo
+
+Look at the parallax demo help.
