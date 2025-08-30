@@ -1,10 +1,10 @@
 Project Description
 
-Eugene game development kit is an ultra-fast 2D game engine for Windows XP or higher. It uses OPENGL for rendering.
+Eugene Game Development Kit is an ultra-fast 2D game engine for Windows XP or higher. It uses OPENGL for rendering.
 
 License
 
-Eugene game development kit is distributed under a zlib license.
+Eugene Game Development Kit is distributed under a zlib license.
 
 Features
 

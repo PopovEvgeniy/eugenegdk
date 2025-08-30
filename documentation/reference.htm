@@ -4,7 +4,7 @@
     <title>Programmer Reference</title>
   </head>
   <body>
-    <div align="center"><big>Eugene game development kit: Programmer Reference</big><br>
+    <div align="center"><big>Eugene Game Development Kit: Programmer Reference</big><br>
     </div>
     <big><br>
       <br>
@@ -179,7 +179,7 @@
     </big>
     <h2><a id="mozTocId591463" class="mozTocH2"></a><big>Chapter 3. License</big></h2>
     <big><br>
-      <u>Eugene game development kit license</u><br>
+      <u>Eugene Game Development Kit license</u><br>
       <br>
       Copyright (C) 2021 – 2025 Popov Evgeniy Alekseyevich<br>
       <br>
@@ -582,7 +582,7 @@
     <table style="width: 723px; height: 106px;" border="1">
       <tbody>
         <tr>
-          <td><big>Image kind<br>
+          <td><big>Image type<br>
             </big></td>
           <td><big>Description</big></td>
         </tr>
@@ -633,8 +633,8 @@
       <br>
       <i>void Background::vertical_mirror(); -</i> Set the vertical background mirroring mode.<br>
       <br>
-      <i>void Background::complex_mirror(); -</i> Set both the horizontal and
-      the vertical background mirroring modes.<br>
+      <i>void Background::complex_mirror(); -</i> Set both the horizontal background mirroring mode and
+      the vertical background mirroring mode.<br>
       <br>
       <i>void Background::set_target(const unsigned int target); -</i> Set the
       target frame.<br>
@@ -700,7 +700,7 @@
     </big>
     <h2><a id="mozTocId85917" class="mozTocH2"></a><big>Chapter 8. Static background</big></h2>
     <big><u><br>
-        A few words about static background</u><br>
+        A few words about the static background</u><br>
       <br>
       The static background is a simple kind of background. It contains one
       frame only.<br>
@@ -723,10 +723,10 @@
       <br>
       <i>void Scene::horizontal_mirror(); -</i> Set the horizontal background mirroring mode.<br>
       <i><br>
-        void Scene::vertical_mirror(); -</i> Set vertical the background mirroring mode.<br>
+        void Scene::vertical_mirror(); -</i> Set the vertical background mirroring mode.<br>
       <br>
-      <i>void Scene::complex_mirror(); -</i> Set both the horizontal and the vertical
-      background mirroring modes.<br>
+      <i>void Scene::complex_mirror(); -</i> Set both the horizontal background mirroring mode and the vertical
+      background mirroring mode.<br>
       <br>
       <i>void Scene::load(Image *background); -</i> Load a background from the
       buffer.<br>
@@ -764,7 +764,7 @@
     </big>
     <h2><a id="mozTocId440826" class="mozTocH2"></a><big>Chapter 9. Parallax</big></h2>
     <big><u><br>
-        A few words about parallax</u><br>
+        A few words about the parallax</u><br>
       <br>
       The parallax background is a background with scrolling support.<br>
       <u><br>
@@ -793,8 +793,8 @@
       <i><br>
         void Parallax::vertical_mirror(); -</i> Set the vertical background mirroring mode.<br>
       <br>
-      <i>void Parallax::complex_mirror(); -</i> Set both the horizontal and the vertical
-      background mirroring modes.<br>
+      <i>void Parallax::complex_mirror(); -</i> Set both the horizontal background mirroring mode and the vertical
+      background mirroring mode.<br>
       <br>
       <i>void Parallax::load(Image *background); -</i> Load a background from
       the buffer.<br>
@@ -942,8 +942,8 @@
       <i><br>
         void Billboard::vertical_mirror(); -</i> Set the vertical sprite mirroring mode.<br>
       <br>
-      <i>void Billboard::complex_mirror(); -</i> Set both the horizontal and
-      the vertical sprite mirroring modes.<br>
+      <i>void Billboard::complex_mirror(); -</i> Set both the horizontal sprite mirroring mode and
+      the vertical sprite mirroring mode.<br>
       <br>
       <i>void Billboard::go_start(); -</i> Set the sprite position to the start
       position.<br>
@@ -1023,7 +1023,7 @@
     <h2><a id="mozTocId425033" class="mozTocH2"></a><big>Chapter 12. Static
         sprites</big></h2>
     <big><u><br>
-        A few words about static sprites</u><br>
+        A few words about the static sprites</u><br>
       <br>
       The static sprite is a simple kind of sprite. It contains one frame only.<br>
       <u><br>
@@ -1060,7 +1060,7 @@
     <h2><a id="mozTocId825989" class="mozTocH2"></a><big>Chapter 13. Sprite
         sheet</big></h2>
     <big><br>
-      <u>Some words about a sprite sheet</u><br>
+      <u>Some words about the sprite sheet</u><br>
       <br>
       A sprite sheet is a special kind of animated sprite. Each frame has a
       fixed size. The sheet is a matrix of frames. Look at this picture to
@@ -1232,15 +1232,6 @@
         char *target); -</i> Print a text at the specific position and return the
       text length.<br>
       <br>
-      <i>void Text::disable_mirror(); -</i> Disable text mirroring mode.<br>
-      <i><br>
-        void Text::horizontal_mirror(); -</i> Set horizontal text mirroring mode.<br>
-      <i><br>
-        void Text::vertical_mirror(); -</i> Set vertical text mirroring mode.<br>
-      <br>
-      <i>void Text::complex_mirror(); -</i> Set both horizontal and vertical
-      text mirroring modes.<br>
-      <br>
       <i>void Text::destroy_image(); -</i> Destroy a font image.<br>
       <br>
       <i>void Text::destroy_font(); -</i> Destroy a font image and the texture.<br>
@@ -1280,7 +1271,7 @@
       A new image will replace the current image if the current image already
       exists. An incorrect image will be ignored and won't load.<br>
       The source image will be converted to <a href="https://en.wikipedia.org/wiki/RGBA">RGBA</a>
-      format. Pixels equal to the top-left pixel will be marked as transparent.<br>
+      format. The pixels equal to the top-left pixel will be marked as transparent.<br>
       <u><br>
         Supported format</u><br>
       <br>
@@ -1480,11 +1471,10 @@
     <h2><a id="mozTocId877752" class="mozTocH2"></a><big>Chapter 3. Cartesian
         coordinates and isometric coordinates</big></h2>
     <big><br>
-      <u>A few words about isometric games</u><br>
+      <u>A few words about the isometric games</u><br>
       <br>
       <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometric projection</a>
-      is a very popular way for pseudo-3D games. Many old-school games are
-      isometric games.<br>
+      is a very popular way for pseudo-3D games. The many old-school games are isometric games.<br>
       <br>
       <u>Coordinates conversion</u><br>
       <br>
@@ -1588,9 +1578,9 @@
         unsigned int height;<br>
         } BOX;</i><br>
       <u><br>
-        Work with a collision detector</u><br>
+        Work with the collision detector</u><br>
       <br>
-      The <i>Collision</i> class provides easy access to collision detectors.
+      The <i>Collision</i> class provides easy access to the collision detectors.
       It is a simple class with a few methods. Let's look at the publicly
       available methods.<br>
       <br>
@@ -1606,11 +1596,11 @@
       <br>
       <i>bool Collision::check_collision(const EUGENEGDK::BOX first_target,
         const EUGENEGDK::BOX second_target); -</i> Set the targets and check
-      collisions between them.<br>
+      the collision between them.<br>
     </big>
     <h2><a id="mozTocId539746" class="mozTocH2"></a><big>Chapter 5. Tilemap</big></h2>
     <big><u><br>
-        A few words about a tilemaps</u><br>
+        A few words about the tilemaps</u><br>
       <br>
       The tilemap is a tile matrix. A tile is a small, non-transparent sprite.
       A tilemap is a very useful thing for the background.<br>
@@ -1621,8 +1611,8 @@
       <u><br>
         Work with the tilemap</u><br>
       <br>
-      The <i>Tilemap</i> class provides easy access to the tile map. It is a
-      simple class with few methods. Let's look at the publicly available
+      The <i>Tilemap</i> class provides easy access to the tilemap. It is a
+      simple class with a few methods. Let's look at the publicly available
       methods.<br>
       <i><br>
         Tilemap *Tilemap::get_handle(); -</i> Return the handle to the tilemap subsystem.<br>
@@ -1750,7 +1740,7 @@
       <br>
       <i>file_exist</i> check the target file to see if one exists.<br>
       <br>
-      <i>delete_file</i> delete the target file.<br>
+      <i>delete_file</i> deletes the target file.<br>
       <br>
       All functions take the target file name as an argument and return false if
       the operation failed.<br>
@@ -1785,15 +1775,15 @@
       resource manager is implemented as a few template functions. All these
       functions are declared in the <i>Resource</i> sub-namespace.<br>
       <br>
-      <i>create</i> create a resources. The first form of this function
+      <i>create</i> create a resource. The first form of this function
       creates a single resource. It takes a handle to a resource handle as an
-      argument. The second form creates an array of resources. It takes a
+      argument. The second form creates an array of the resources. It takes a
       handle to a resource handle and a resource amount.<br>
       <br>
       <i>destroy</i> delete a resource if it already exists. This function takes
       a resource handle as an argument.<br>
       <br>
-      <i>destroy_array</i> delete the resource array if it already exists. This
+      <i>destroy_array</i> deletes the resource array if it already exists. This
       function takes a resource array handle as an argument.<br>
     </big>
     <h1><a id="mozTocId72710" class="mozTocH1"></a><big>Part 8. Binary files</big></h1>
@@ -2227,7 +2217,7 @@
       <br>
       <u>Ordinary button codes</u><br>
       <br>
-      Ordinary button codes look like predefined constants. The first button is
+      The ordinary button codes look like predefined constants. The first button is
       <i>GAMEPAD_BUTTON1</i>. The last button is <i>GAMEPAD_BUTTON32</i>.<br>
       <br>
       <u>D-Pad button codes</u><br>
@@ -2785,7 +2775,7 @@
       6.2.9: The small changes.<br>
       6.3: The base sprite subsystem has improved.<br>
       6.3.1-6.3.2: The small changes.<br>
-      6.3.3: The base graphics subsystem is backported from the Neon game development kit 5.8.4.<br>
+      6.3.3: The base graphics subsystem is backported from the Neon Game Development Kit 5.8.4.<br>
       6.3.4: The Visual C++ 2005 support has been added.<br>
       6.3.5: The small changes.<br>
       6.3.6: The ordinary sprite subsystem has improved.<br>
@@ -2809,9 +2799,9 @@
       6.5.6: The processor usage has reduced.<br>
       6.5.7-6.5.8: The small changes.<br>
       6.5.9: The small bug in the gamepad subsystem has been fixed.<br>
-      6.6: The source code synced with the Gray game development kit 2.2.7.<br>
+      6.6: The source code synced with the Gray Game Development Kit 2.2.7.<br>
       6.6.1: The text printing subsystem has improved.<br>
-      6.6.2: The simple sound subsystem is backported from the Neon game development kit 5.7.8.<br>
+      6.6.2: The simple sound subsystem is backported from the Neon Game Development Kit 5.7.8.<br>
       6.6.3: The small bug in the multimedia subsystem has been fixed.<br>
       6.6.4-6.6.6: The small changes.<br>
       6.6.7: The multimedia subsystem has improved.<br>
@@ -2834,14 +2824,14 @@
       6.8.7: The small changes.<br>
       6.8.8-6.9.1: The gamepad subsystem has improved.<br>
       6.9.2: The small changes.<br>
-      6.9.3: The source code synced with the Neon game development kit 6.2.6.<br>
+      6.9.3: The source code synced with the Neon Game Development Kit 6.2.6.<br>
       6.9.4: The sprite sheet subsystem has improved.<br>
-      6.9.5: The source code synced with the Neon game development kit 6.3.4.<br>
-      6.9.6: The source code synced with the Gray game development kit 2.5.7.<br>
+      6.9.5: The source code synced with the Neon Game Development Kit 6.3.4.<br>
+      6.9.6: The source code synced with the Gray Game Development Kit 2.5.7.<br>
       6.9.7: The gamepad support has improved.<br>
-      6.9.8: The source code synced with the Gray game development kit 2.6.<br>
+      6.9.8: The source code synced with the Gray Game Development Kit 2.6.<br>
       6.9.9: The image resizer has improved.<br>
-      7.0: The source code synced with the Neon game development kit 6.3.6.<br>
+      7.0: The source code synced with the Neon Game Development Kit 6.3.6.<br>
       7.0.1: The image resizer has improved.<br>
       7.0.2: The small changes.<br>
       7.0.3: The small bug has been fixed.<br>
@@ -2856,7 +2846,7 @@
       7.2.6-7.2.9: The image resizer has improved.<br>
       7.3-7.3.1: The small changes.<br>
       7.3.2: The small rendering bug has been fixed.<br>
-      7.3.3: The animation subsystem is backported from the Eugene game development kit 5.6.2.<br>
+      7.3.3: The animation subsystem is backported from the Eugene Game Development Kit 5.6.2.<br>
       7.3.4: The background subsystem has improved.<br>
       7.3.5: The small changes.<br>
       7.3.6: The source code synced with the Simple Windows Game Framework 7.3.5.<br>
@@ -2864,8 +2854,8 @@
       7.3.8-7.4: The experimental branch.<br>
       7.4.1: The new subsystem has been added.<br>
       7.4.2-7.4.4: The tilemap subsystem has improved.<br>
-      7.4.5: The image resizer is backported from the Eugene game development kit 7.3.5.<br>
-      7.4.6: The image resizer is backported from the Eugene game development kit 7.3.6.<br>
+      7.4.5: The image resizer is backported from the Eugene Game Development Kit 7.3.5.<br>
+      7.4.6: The image resizer is backported from the Eugene Game Development Kit 7.3.6.<br>
       7.4.7-7.5: The image resizer has improved.<br>
       7.5.1: The new subsystem has been added.<br>
       7.5.2: The small changes.<br>
@@ -2876,7 +2866,7 @@
       7.5.8: The coordinates conversion subsystem has improved.<br>
       7.5.9-7.6.1: The isometric subsystem has improved.<br>
       7.6.2: The tilemap subsystem has improved.<br>
-      7.6.3: The image resizer is backported from the Eugene game development kit 7.4.5.<br>
+      7.6.3: The image resizer is backported from the Eugene Game Development Kit 7.4.5.<br>
       7.6.4: The small bug in the tilemap subsystem has been fixed.<br>
       7.6.5: The coordinates conversion subsystem has improved.<br>
       7.6.6: The base graphics subsystem has improved.<br>
@@ -2907,11 +2897,11 @@
       7.9.9: The small changes.<br>
       8.0-8.0.2: The image resizer has improved.<br>
       8.0.3-8.0.5: The small changes.<br>
-      8.0.6: The image resizer is backported from the Eugene game development kit 7.9.9.<br>
+      8.0.6: The image resizer is backported from the Eugene Game Development Kit 7.9.9.<br>
       8.0.7: The image resizer has improved.<br>
       8.0.8-8.0.9: The texture loader has improved.<br>
       8.1-8.1.1: The picture subsystem has improved.<br>
-      8.1.2: The image resizer is backported from the Eugene game development kit 8.0.5.<br>
+      8.1.2: The image resizer is backported from the Eugene Game Development Kit 8.0.5.<br>
       8.1.3: The texture loader has improved.<br>
       8.1.4: The small changes.<br>
       8.1.5: The image resizer has improved.<br>
@@ -2928,12 +2918,12 @@
       8.3.2: The rendering performance has increased.<br>
       8.3.3: The animation subsystem has improved.<br>
       8.3.4: The background subsystem has improved.<br>
-      8.3.5: The source code synced with the Neon game development kit 7.2.9.<br>
+      8.3.5: The source code synced with the Neon Game Development Kit 7.2.9.<br>
       8.3.6: The small changes.<br>
-      8.3.7: The source code synced with the Neon game development kit 7.3.<br>
-      8.3.8: The source code synced with the Neon game development kit 7.3.1.<br>
-      8.3.9: The source code synced with the Neon game development kit 7.3.2.<br>
-      8.4: The source code synced with the Neon game development kit 7.3.3.<br>
+      8.3.7: The source code synced with the Neon Game Development Kit 7.3.<br>
+      8.3.8: The source code synced with the Neon Game Development Kit 7.3.1.<br>
+      8.3.9: The source code synced with the Neon Game Development Kit 7.3.2.<br>
+      8.4: The source code synced with the Neon Game Development Kit 7.3.3.<br>
       8.4.1: The small changes.<br>
       8.4.2: The base graphics subsystem has improved.<br>
       8.4.3-8.4.5: The small changes.<br>
@@ -2957,8 +2947,8 @@
       8.7.5: The source code synced with the Black Game Development Kit 5.6.9.<br>
       8.7.6-8.7.9: The small changes.<br>
       8.8: The source code synced with the Black Game Development Kit 5.7.6.<br>
-      8.8.1: The synchronization timer is backported from the Neon game development kit 7.5.8.<br>
-      8.8.2: The synchronization timer is backported from the Neon game development kit 7.7.7.<br>
+      8.8.1: The synchronization timer is backported from the Neon Game Development Kit 7.5.8.<br>
+      8.8.2: The synchronization timer is backported from the Neon Game Development Kit 7.7.7.<br>
       8.8.3: The memory subsystem has improved.<br>
       8.8.4: The small bug has been fixed.<br>
       8.8.5: The small changes.<br>
@@ -2968,11 +2958,11 @@
       8.8.9: The source code synced with the Black Game Development Kit 5.8.7.<br>
       8.9: The source code synced with the Black Game Development Kit 5.8.8.<br>
       8.9.0.1: The documentation has been updated.<br>
-      8.9.1: The synchronization timer is backported from the Eugene game development kit 8.8.1.<br>
+      8.9.1: The synchronization timer is backported from the Eugene Game Development Kit 8.8.1.<br>
       8.9.2: The source code synced with the Black Game Development Kit 5.9.<br>
       8.9.3: The source code synced with the Black Game Development Kit 5.9.4.<br>
       8.9.4: The source code synced with the Black Game Development Kit 5.9.6.<br>
-      8.9.5: The keyboard input subsystem is backported from the Neon game development kit 7.9.1.<br>
+      8.9.5: The keyboard input subsystem is backported from the Neon Game Development Kit 7.9.1.<br>
       8.9.6-8.9.7: The code page converter has improved.<br>
       8.9.8-8.9.9: The small changes.<br>
       9.0: The small bug has been fixed.<br>
@@ -3013,28 +3003,29 @@
       9.4.6: The image resizer has improved.<br>
       9.4.7-9.4.8: The small changes.<br>
       9.4.9: The base sprite subsystem has improved.<br>
-      9.5: The source code synced with the Black game development kit 6.4.7.<br>
-      9.5.1: The source code synced with the Black game development kit 6.4.9.<br>
-      9.5.2: The source code synced with the Black game development kit 6.5.1.<br>
+      9.5: The source code synced with the Black Game Development Kit 6.4.7.<br>
+      9.5.1: The source code synced with the Black Game Development Kit 6.4.9.<br>
+      9.5.2: The source code synced with the Black Game Development Kit 6.5.1.<br>
       9.5.3: The small changes.<br>
       9.5.4: The parallax background subsystem has improved.<br>
       9.5.5-9.5.6: The base sprite subsystem has improved.<br>
       9.5.7: The base graphics subsystem has improved.<br>
-      9.5.8: The source code synced with the Black game development kit 7.3.3.<br>
-      9.5.9: The source code synced with the Black game development kit 7.3.5.<br>
-      9.6: The source code synced with the Black game development kit 7.3.8.<br>
-      9.6.1: The source code synced with the Black game development kit 7.3.9.<br>
+      9.5.8: The source code synced with the Black Game Development Kit 7.3.3.<br>
+      9.5.9: The source code synced with the Black Game Development Kit 7.3.5.<br>
+      9.6: The source code synced with the Black Game Development Kit 7.3.8.<br>
+      9.6.1: The source code synced with the Black Game Development Kit 7.3.9.<br>
       9.6.2: The small bug has been fixed.<br>
-      9.6.3: The source code synced with the Black game development kit 7.4.8.<br>
-      9.6.4: The source code synced with the Black game development kit 7.5.<br>
-      9.6.5: The source code synced with the Black game development kit 7.5.1.<br>
+      9.6.3: The source code synced with the Black Game Development Kit 7.4.8.<br>
+      9.6.4: The source code synced with the Black Game Development Kit 7.5.<br>
+      9.6.5: The source code synced with the Black Game Development Kit 7.5.1.<br>
       9.6.5.1: The documentation has been updated.<br>
-      9.6.6: The source code synced with the Black game development kit 7.5.2.<br>
+      9.6.6: The source code synced with the Black Game Development Kit 7.5.2.<br>
       9.6.7-9.6.8: The small changes.<br>
       9.6.9: The base graphics subsystem has improved.<br>
       9.6.9.1-9.6.9.4: The documentation has been updated.<br>
       9.6.9.5: The project files are updated.<br>
       9.6.9.6: The documentation has been updated.<br>
+      9.7: The text printing subsystem has improved.<br>
     </big>
   </body>
 </html>

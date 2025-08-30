@@ -1054,10 +1054,6 @@ typedef enum
    void print(const unsigned int x,const unsigned int y,const char target);
    size_t print(const char *target);
    size_t print(const unsigned int x,const unsigned int y,const char *target);
-   void disable_mirror();
-   void horizontal_mirror();
-   void vertical_mirror();
-   void complex_mirror();
    void destroy_image();
    void destroy_font();
   };
