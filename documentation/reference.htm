@@ -53,18 +53,15 @@
       <li><a href="#mozTocId778712">Part 4. The transformation</a>
         <ol>
           <li><a href="#mozTocId798362">Chapter 1. The sub-namespace</a></li>
-          <li><a href="#mozTocId505409">Chapter 2. The Cartesian coordinates and
-              the screen coordinates</a></li>
-          <li><a href="#mozTocId876509">Chapter 3. The Cartesian coordinates and
-              the isometric coordinates</a></li>
+          <li><a href="#mozTocId505409">Chapter 2. The Cartesian coordinates and the screen coordinates</a></li>
+          <li><a href="#mozTocId876509">Chapter 3. The Cartesian coordinates and the isometric coordinates</a></li>
           <li><a href="#mozTocId909113">Chapter 4. An isometric level</a></li>
         </ol>
       </li>
       <li><a href="#mozTocId375391">Part 5. The common things</a>
         <ol>
           <li><a href="#mozTocId633183">Chapter 1. The sub-namespace</a></li>
-          <li><a href="#mozTocId673941">Chapter 2. The abnormal program
-              termination</a></li>
+          <li><a href="#mozTocId673941">Chapter 2. The abnormal program termination</a></li>
           <li><a href="#mozTocId284221">Chapter 3. The timer</a></li>
           <li><a href="#mozTocId674703">Chapter 4. The collision detector</a></li>
           <li><a href="#mozTocId560876">Chapter 5. The tilemap</a></li>
@@ -100,11 +97,9 @@
           <li><a href="#mozTocId243934">Chapter 4. The gamepad</a></li>
         </ol>
       </li>
-      <li><a href="#mozTocId41774">Part 10. The internal details of the engine
-          subsystems</a>
+      <li><a href="#mozTocId41774">Part 10. The internal details of the engine subsystems</a>
         <ol>
-          <li><a href="#mozTocId478780">Chapter 1. A few words for a curious
-              programmer</a></li>
+          <li><a href="#mozTocId478780">Chapter 1. A few words for a curious programmer</a></li>
           <li><a href="#mozTocId570462">Chapter 2. The internal classes</a></li>
           <li><a href="#mozTocId338619">Chapter 3. The base graphics subsystem</a></li>
           <li><a href="#mozTocId328098">Chapter 4. The gamepad</a></li>
@@ -115,8 +110,7 @@
       <li><a href="#mozTocId928107">Version history</a></li>
     </ol>
     <h1><a id="mozTocId368114" class="mozTocH1"></a><big>Part 1. Welcome</big></h1>
-    <h2><a id="mozTocId96569" class="mozTocH2"></a><big>Chapter 1. The
-        introduction</big></h2>
+    <h2><a id="mozTocId96569" class="mozTocH2"></a><big>Chapter 1. The introduction</big></h2>
     <big><br>
       <u>The introduction.</u><br>
       <br>
@@ -133,9 +127,9 @@
     </big>
     <ul>
       <li><big>Open-source code.</big></li>
-      <li><big>Easy-to-use object-oriented design.</big></li>
       <li><big>Very fast.</big></li>
-      <li><big>Minimum external dependencies: <a href="https://learn.microsoft.com/en-us/windows/win32/directx">DirectX</a>,
+      <li><big>The easy-to-use object-oriented design.</big></li>
+      <li><big>The minimum number of external dependencies: <a href="https://learn.microsoft.com/en-us/windows/win32/directx">DirectX</a>,
           <a href="https://opengl.org">OPENGL</a>, and the standard <a href="https://learn.microsoft.com/en-us/windows/win32/apiindex/windows-api-list">Windows
             API</a> libraries.</big></li>
       <li><big>You don't need to link a main program with the engine binary
@@ -250,15 +244,13 @@
     </table>
     <big><br>
     </big>
-    <h2><a id="mozTocId246473" class="mozTocH2"></a><big>Chapter 5. The
-        troubleshooting guide</big></h2>
+    <h2><a id="mozTocId246473" class="mozTocH2"></a><big>Chapter 5. The troubleshooting guide</big></h2>
     <big><br>
       You need <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170">Visual
         C++ Redistributable</a> packages if your game code is compiled under
       Visual C++.<br>
     </big>
-    <h2><a id="mozTocId341518" class="mozTocH2"></a><big>Chapter 6. The
-        compilers</big></h2>
+    <h2><a id="mozTocId341518" class="mozTocH2"></a><big>Chapter 6. The compilers</big></h2>
     <big><br>
       This engine was successfully tested with these compilers:<br>
       <br>
@@ -356,21 +348,18 @@
     <big><br>
       See the documentation of the compiler for more information about linking.<br>
     </big>
-    <h2><a id="mozTocId93850" class="mozTocH2"></a><big>Chapter 8. The engine
-        namespace</big></h2>
+    <h2><a id="mozTocId93850" class="mozTocH2"></a><big>Chapter 8. The engine namespace</big></h2>
     <big><br>
       <i>EUGENEGDK</i> is the main namespace. All the engine classes are
       declared in a few nested namespaces.<br>
     </big>
-    <h2><a id="mozTocId241696" class="mozTocH2"></a><big>Chapter 9. The custom
-        data types</big></h2>
+    <h2><a id="mozTocId241696" class="mozTocH2"></a><big>Chapter 9. The custom data types</big></h2>
     <big><br>
       Almost all custom data types are declared in the <i>EUGENEGDK</i>
       namespace.<br>
     </big>
     <h1><a id="mozTocId736492" class="mozTocH1"></a><big>Part 2. Basic things</big></h1>
-    <h2><a id="mozTocId74094" class="mozTocH2"></a><big>Chapter 1. The
-        coordinate system</big></h2>
+    <h2><a id="mozTocId74094" class="mozTocH2"></a><big>Chapter 1. The coordinate system</big></h2>
     <big><br>
       The engine uses the standard coordinate system by default. The coordinates
       start at the top-left corner. Look at this picture to understand it.<br>
@@ -386,25 +375,23 @@
       <br>
     </big>
     <h1><a id="mozTocId775315" class="mozTocH1"></a><big>Part 3. Graphics</big></h1>
-    <h2><a id="mozTocId660835" class="mozTocH2"></a><big>Chapter 1. The
-        sub-namespace</big></h2>
+    <h2><a id="mozTocId660835" class="mozTocH2"></a><big>Chapter 1. The sub-namespace</big></h2>
     <big><br>
       All classes in this section are declared in the <i>Graphics</i>
       sub-namespace.<br>
     </big>
-    <h2><a id="mozTocId307980" class="mozTocH2"></a><big>Chapter 2. The base
-        graphics subsystem</big></h2>
+    <h2><a id="mozTocId307980" class="mozTocH2"></a><big>Chapter 2. The base graphics subsystem</big></h2>
     <big><br>
-      <u>Introduce.</u><br>
+      <u>The introduction.</u><br>
       <br>
       The base graphics subsystem does render a game scene. This subsystem uses
       <a href="http://opengl.org">OPENGL</a> for rendering. All modern video
-      cards support hardware-accelerated OPENGL. The software implementation
+      cards support hardware acceleration. The software implementation
       will be activated if the acceleration is not available.<br>
       <br>
       <u>The render performance.</u><br>
       <br>
-      Always use the latest video card drivers. It may increase rendering
+      Always use the latest video card drivers. It may increase the rendering
       performance. You can also try to change the screen resolution if you have
       low rendering performance.<br>
       <br>
@@ -481,8 +468,7 @@
       <i>Screen *Screen::get_handle(); -</i> Return the handle to the base
       graphics subsystem object.<br>
     </big>
-    <h2><a id="mozTocId648437" class="mozTocH2"></a><big>Chapter 3. The picture
-        subsystem</big></h2>
+    <h2><a id="mozTocId648437" class="mozTocH2"></a><big>Chapter 3. The picture subsystem</big></h2>
     <big><u><br>
         An important subsystem.</u><br>
       <br>
@@ -513,8 +499,7 @@
       <i>size_t Picture::get_image_lenght() const; -</i> Return the image length
       in bytes.<br>
     </big>
-    <h2><a id="mozTocId467966" class="mozTocH2"></a><big>Chapter 4. The
-        animation subsystem</big></h2>
+    <h2><a id="mozTocId467966" class="mozTocH2"></a><big>Chapter 4. The animation subsystem</big></h2>
     <big><u><br>
         An important subsystem.</u><br>
       <br>
@@ -543,8 +528,7 @@
       Return true if the target frame is valid.<br>
       <br>
     </big>
-    <h2><a id="mozTocId259576" class="mozTocH2"></a><big>Chapter 5. The vertex
-        index</big></h2>
+    <h2><a id="mozTocId259576" class="mozTocH2"></a><big>Chapter 5. The vertex index</big></h2>
     <big><br>
       The vertex index looks like the predefined constants. You can see it
       below.<br>
@@ -581,8 +565,7 @@
     </table>
     <big><br>
     </big>
-    <h2><a id="mozTocId555408" class="mozTocH2"></a><big>Chapter 6. The image
-        kind</big></h2>
+    <h2><a id="mozTocId555408" class="mozTocH2"></a><big>Chapter 6. The image kind</big></h2>
     <big><br>
       The image types look like the predefined constants. You can see it below.<br>
       <br>
@@ -606,8 +589,7 @@
     </table>
     <big><br>
     </big>
-    <h2><a id="mozTocId893444" class="mozTocH2"></a><big>Chapter 7. The ordinary
-        background</big></h2>
+    <h2><a id="mozTocId893444" class="mozTocH2"></a><big>Chapter 7. The ordinary background</big></h2>
     <big><br>
       <u>The decoration for a level.</u><br>
       <br>
@@ -711,8 +693,7 @@
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
     </big>
-    <h2><a id="mozTocId910184" class="mozTocH2"></a><big>Chapter 8. The static
-        background</big></h2>
+    <h2><a id="mozTocId910184" class="mozTocH2"></a><big>Chapter 8. The static background</big></h2>
     <big><u><br>
         A few words about the static background.</u><br>
       <br>
@@ -780,9 +761,7 @@
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
     </big>
-    <h2><a id="mozTocId807594" class="mozTocH2"></a><big>Chapter 9. The parallax
-        background<br>
-      </big></h2>
+    <h2><a id="mozTocId807594" class="mozTocH2"></a><big>Chapter 9. The parallax background<br></big></h2>
     <big><u><br>
         A few words about the parallax.</u><br>
       <br>
@@ -869,8 +848,7 @@
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
     </big>
-    <h2><a id="mozTocId347790" class="mozTocH2"></a><big>Chapter 10. The base
-        sprite subsystem</big></h2>
+    <h2><a id="mozTocId347790" class="mozTocH2"></a><big>Chapter 10. The base sprite subsystem</big></h2>
     <big><u><br>
         A small, important thing.</u><br>
       <br>
@@ -994,8 +972,7 @@
         const unsigned int y); -</i> Set the transparent mode and draw a sprite
       at the target position.<br>
     </big>
-    <h2><a id="mozTocId156525" class="mozTocH2"></a><big>Chapter 11. The
-        ordinary sprites</big></h2>
+    <h2><a id="mozTocId156525" class="mozTocH2"></a><big>Chapter 11. The ordinary sprites</big></h2>
     <big><br>
       <u>The sprite types.</u><br>
       <br>
@@ -1048,8 +1025,7 @@
       A sprite doesn't draw if the sprite texture doesn't exist. It will
       automatically be created when you load or clone a sprite.<br>
     </big>
-    <h2><a id="mozTocId832010" class="mozTocH2"></a><big>Chapter 12. The static
-        sprites</big></h2>
+    <h2><a id="mozTocId832010" class="mozTocH2"></a><big>Chapter 12. The static sprites</big></h2>
     <big><u><br>
         A few words about the static sprites.</u><br>
       <br>
@@ -1086,8 +1062,7 @@
       A sprite doesn't draw if the sprite texture doesn't exist. It will
       automatically be created when you load or clone a sprite.<br>
     </big>
-    <h2><a id="mozTocId98487" class="mozTocH2"></a><big>Chapter 13. The sprite
-        sheet</big></h2>
+    <h2><a id="mozTocId98487" class="mozTocH2"></a><big>Chapter 13. The sprite sheet</big></h2>
     <big><br>
       <u>Some words about the sprite sheet.</u><br>
       <br>
@@ -1270,8 +1245,7 @@
       <br>
       <i>void Text::destroy_font(); -</i> Destroy a font image and the texture.<br>
     </big>
-    <h2><a id="mozTocId652638" class="mozTocH2"></a><big>Chapter 15. Loading an
-        image</big></h2>
+    <h2><a id="mozTocId652638" class="mozTocH2"></a><big>Chapter 15. Loading an image</big></h2>
     <big><u><br>
         Load an image from a file.</u><br>
       <br>
@@ -1437,16 +1411,13 @@
       Always set the viewport size after initializing the camera. Always update
       the camera before drawing.<br>
     </big>
-    <h1><a id="mozTocId778712" class="mozTocH1"></a><big>Part 4. The
-        transformation</big></h1>
-    <h2><a id="mozTocId798362" class="mozTocH2"></a><big>Chapter 1. The
-        sub-namespace</big></h2>
+    <h1><a id="mozTocId778712" class="mozTocH1"></a><big>Part 4. The transformation</big></h1>
+    <h2><a id="mozTocId798362" class="mozTocH2"></a><big>Chapter 1. The sub-namespace</big></h2>
     <big><br>
       All classes in this section are declared in the <i>Transformation</i>
       sub-namespace.<br>
     </big>
-    <h2><a id="mozTocId505409" class="mozTocH2"></a><big>Chapter 2. The
-        Cartesian coordinates and the screen coordinates</big></h2>
+    <h2><a id="mozTocId505409" class="mozTocH2"></a><big>Chapter 2. The Cartesian coordinates and the screen coordinates</big></h2>
     <big><br>
       <u>The Cartesian coordinates.</u><br>
       <br>
@@ -1505,13 +1476,12 @@
         int Coordinates::get_cartesian_y(const int y) const; -</i> Convert the
       screen y-coordinate to the Cartesian y-coordinate.<br>
     </big>
-    <h2><a id="mozTocId876509" class="mozTocH2"></a><big>Chapter 3. The
-        Cartesian coordinates and the isometric coordinates</big></h2>
+    <h2><a id="mozTocId876509" class="mozTocH2"></a><big>Chapter 3. The Cartesian coordinates and the isometric coordinates</big></h2>
     <big><br>
       <u>A few words about the isometric games.</u><br>
       <br>
       <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometric
-        projection</a> is a very popular way for pseudo-3D games. The many
+        projection</a> is a very popular way for pseudo-3D games. Many
       old-school games are isometric games.<br>
       <br>
       <u>The coordinates conversion.</u><br>
@@ -1564,14 +1534,12 @@
       the target y-coordinate.<br>
     </big>
     <h1><a id="mozTocId375391" class="mozTocH1"></a><big>Part 5. The common things</big></h1>
-    <h2><a id="mozTocId633183" class="mozTocH2"></a><big>Chapter 1. The
-        sub-namespace</big></h2>
+    <h2><a id="mozTocId633183" class="mozTocH2"></a><big>Chapter 1. The sub-namespace</big></h2>
     <big><br>
       All classes in this section are declared in the <i>Common</i>
       sub-namespace.<br>
     </big>
-    <h2><a id="mozTocId673941" class="mozTocH2"></a><big>Chapter 2. The abnormal
-        program termination</big></h2>
+    <h2><a id="mozTocId673941" class="mozTocH2"></a><big>Chapter 2. The abnormal program termination</big></h2>
     <big><br>
       You can use the <i>Halt</i> function to terminate a program. This
       function is declared in the <i>EGENEGDK</i> namespace.<br>
@@ -1596,8 +1564,7 @@
       point if the interval between the stop and start points is larger than or
       equal to a specific number of seconds.<br>
     </big>
-    <h2><a id="mozTocId674703" class="mozTocH2"></a><big>Chapter 4. The
-        collision detector<br>
+    <h2><a id="mozTocId674703" class="mozTocH2"></a><big>Chapter 4. The collision detector<br>
       </big></h2>
     <big><br>
       <u>An important thing for any game.</u><br>
@@ -1698,10 +1665,8 @@
       <i>EUGENEGDK::BOX Tilemap::get_box(const unsigned int row,const unsigned
         int column) const; -</i> Return the collision-related information.<br>
     </big><br>
-    <h1><a id="mozTocId208248" class="mozTocH1"></a><big>Part 6. The other
-        important things</big></h1>
-    <h2><a id="mozTocId605872" class="mozTocH2"></a><big>Chapter 1. The
-        sub-namespace</big></h2>
+    <h1><a id="mozTocId208248" class="mozTocH1"></a><big>Part 6. The other important things</big></h1>
+    <h2><a id="mozTocId605872" class="mozTocH2"></a><big>Chapter 1. The sub-namespace</big></h2>
     <big><br>
       All classes in this section are declared in the <i>Misc</i>
       sub-namespace.<br>
@@ -1774,15 +1739,14 @@
       playing.<br>
     </big>
     <h1><a id="mozTocId1450" class="mozTocH1"></a><big>Part 7. Misc</big></h1>
-    <h2><a id="mozTocId109433" class="mozTocH2"></a><big>Chapter 1. The
-        Filesystem</big></h2>
+    <h2><a id="mozTocId109433" class="mozTocH2"></a><big>Chapter 1. The Filesystem</big></h2>
     <big><br>
       This module is implemented as two simple functions. All these functions
       are declared in the <i>Filesystem</i> sub-namespace.<br>
       <br>
-      <i>file_exist</i> check the target file to see if one exists.<br>
+      <i>file_exist</i>: Check the target file to see if one exists.<br>
       <br>
-      <i>delete_file</i> deletes the target file.<br>
+      <i>delete_file</i>: Deletes the target file.<br>
       <br>
       All functions take the target file name as an argument and return false if
       the operation failed.<br>
@@ -1810,8 +1774,7 @@
         y,const unsigned int width,const unsigned int height); -</i> Generate
       the collision-related information.<br>
     </big>
-    <h2><a id="mozTocId256993" class="mozTocH2"></a><big>Chapter 3. The resource
-        manager</big></h2>
+    <h2><a id="mozTocId256993" class="mozTocH2"></a><big>Chapter 3. The resource manager</big></h2>
     <big><br>
       A resource is an instance of a user-defined class or structure. The
       resource manager is implemented as a few template functions. All these
@@ -1828,16 +1791,13 @@
       <i>destroy_array</i>: Deletes the resource array if it already exists. This
       function takes a resource array handle as an argument.<br>
     </big>
-    <h1><a id="mozTocId181875" class="mozTocH1"></a><big>Part 8. The binary
-        files</big></h1>
-    <h2><a id="mozTocId706443" class="mozTocH2"></a><big>Chapter 1. The
-        sub-namespace</big></h2>
+    <h1><a id="mozTocId181875" class="mozTocH1"></a><big>Part 8. The binary files</big></h1>
+    <h2><a id="mozTocId706443" class="mozTocH2"></a><big>Chapter 1. The sub-namespace</big></h2>
     <big><br>
       All classes in this section are declared in the <i>File</i>
       sub-namespace.<br>
     </big>
-    <h2><a id="mozTocId168093" class="mozTocH2"></a><big>Chapter 2. The base binary
-        file subsystem</big></h2>
+    <h2><a id="mozTocId168093" class="mozTocH2"></a><big>Chapter 2. The base binary file subsystem</big></h2>
     <big><br>
       <u>Work with the binary files.</u><br>
       <br>
@@ -1866,8 +1826,7 @@
       <br>
       The target file size limit is 2 gigabytes.<br>
     </big>
-    <h2><a id="mozTocId648748" class="mozTocH2"></a><big>Chapter 3. The file
-        reader</big></h2>
+    <h2><a id="mozTocId648748" class="mozTocH2"></a><big>Chapter 3. The file reader</big></h2>
     <big><br>
       The file reader is intended to read data from the binary files. The <i>Input_File</i>
       class provides access to a file reader. It is derived from the <i>Binary_File</i>
@@ -1881,8 +1840,7 @@
       <i>void Input_File::read(void *buffer,const size_t length); -</i> Read
       data from the file.<br>
     </big>
-    <h2><a id="mozTocId969117" class="mozTocH2"></a><big>Chapter 4. The file
-        writer</big></h2>
+    <h2><a id="mozTocId969117" class="mozTocH2"></a><big>Chapter 4. The file writer</big></h2>
     <big><br>
       The file writer is intended to write data to the binary files. The <i>Output_File</i>
       class provides access to a file writer. It is derived from the <i>Binary_File</i>
@@ -1903,8 +1861,7 @@
       to the file.<br>
     </big>
     <h1><a id="mozTocId527362" class="mozTocH1"></a><big>Part 9. The input</big></h1>
-    <h2><a id="mozTocId524623" class="mozTocH2"></a><big>Chapter 1. The
-        sub-namespace</big></h2>
+    <h2><a id="mozTocId524623" class="mozTocH2"></a><big>Chapter 1. The sub-namespace</big></h2>
     <big><br>
       All classes in this section are declared in the <i>Input</i>
       sub-namespace.<br>
@@ -2421,17 +2378,14 @@
         EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_y() const; -</i>
       Return the y-direction of the right stick.<br>
     </big>
-    <h1><a id="mozTocId41774" class="mozTocH1"></a><big>Part 10. The internal
-        details of the engine subsystems</big></h1>
-    <h2><a id="mozTocId478780" class="mozTocH2"></a><big>Chapter 1. A few words
-        for a curious programmer</big></h2>
+    <h1><a id="mozTocId41774" class="mozTocH1"></a><big>Part 10. The internal details of the engine subsystems</big></h1>
+    <h2><a id="mozTocId478780" class="mozTocH2"></a><big>Chapter 1. A few words for a curious programmer</big></h2>
     <big><br>
       The engine subsystems have a different internal structure. It has been
       hidden from you, and you don't have access to it. Do you want to know
       about the hidden things? Just read the next chapter.<br>
     </big>
-    <h2><a id="mozTocId570462" class="mozTocH2"></a><big>Chapter 2. The internal
-        classes</big></h2>
+    <h2><a id="mozTocId570462" class="mozTocH2"></a><big>Chapter 2. The internal classes</big></h2>
     <big><u><br>
         The internal classes.</u><br>
       <br>
@@ -2461,8 +2415,7 @@
       <i>Rectangle</i> is intended to draw a textured rectangle.<br>
       <i>Shape</i> is the base class of the <i>Rectangle</i> class.<br>
     </big>
-    <h2><a id="mozTocId338619" class="mozTocH2"></a><big>Chapter 3. The base
-        graphics subsystem</big></h2>
+    <h2><a id="mozTocId338619" class="mozTocH2"></a><big>Chapter 3. The base graphics subsystem</big></h2>
     <big><u><br>
         The visible object.</u><br>
       <br>
@@ -3071,7 +3024,7 @@
       9.6.9.5: The project files are updated.<br>
       9.6.9.6: The documentation has been updated.<br>
       9.7: The text printing subsystem has improved.<br>
-      9.7.0.1-9.7.0.2: The documentation has been updated.<br>
+      9.7.0.1-9.7.0.3: The documentation has been updated.<br>
     </big>
   </body>
 </html>
