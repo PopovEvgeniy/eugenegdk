@@ -10,6 +10,7 @@ Features.
 
 A wide range of the supported compilers.
 The minimum number of external dependencies: DirectX, OPENGL, and the standard Windows API libraries.
+You don't need to link a main program with the engine binary file. The engine is just the source code files.
 The easy-to-use object-oriented API.
 The sprites.
 The backgrounds.
