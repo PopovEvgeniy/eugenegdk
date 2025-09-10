@@ -1138,8 +1138,7 @@
    <br>
    <i>unsigned int Camera::increase_x(); -</i> Increase the x-coordinate of the camera offset and return it.<br>
    <br>
-   <i>unsigned int Camera::decrease_x(); -</i> Decrease the x-coordinate of
-   the camera offset and return it.<br>
+   <i>unsigned int Camera::decrease_x(); -</i> Decrease the x-coordinate of the camera offset and return it.<br>
    <i><br>
     unsigned int Camera::increase_y(); -</i> Increase the y-coordinate of the camera offset and return it.<br>
    <i><br>
@@ -1197,8 +1196,7 @@
    <i>void Camera::set_viewport(const unsigned int width, const unsigned int
     height); -</i> Set the viewport settings.<br>
    <br>
-   <i>void Camera::set_offset(const unsigned int x, const unsigned int y); -</i>
-   Set the camera offset.<br>
+   <i>void Camera::set_offset(const unsigned int x, const unsigned int y); -</i> Set the camera offset.<br>
    <br>
    <i>bool Camera::check_horizontal_border(const EUGENEGDK::BOX target)
     const; -</i> Return true if a game object has collided with the horizontal visible area border.<br>
@@ -1207,6 +1205,8 @@
    Return true if a game object has collided with the vertical visible area border.<br>
    <i><br>
     void Camera::update(); -</i> Update the camera.<br>
+   <i><br>
+    void Camera::update(const unsigned int x, const unsigned int y); -</i> Set the offsets and update the camera.<br>
    <br>
    <i>void Camera::reset(); -</i> Reset the camera settings.<br>
    <br>
@@ -2721,6 +2721,7 @@
    9.6.9.6: The documentation has been updated.<br>
    9.7: The text printing subsystem has improved.<br>
    9.7.0.1-9.7.0.6: The documentation has been updated.<br>
+   9.7.1: The camera subsystem has improved.<br>
   </big>
  </body>
 </html>
