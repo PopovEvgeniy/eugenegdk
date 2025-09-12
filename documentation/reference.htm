@@ -842,10 +842,9 @@
    <br>
    <i>void Billboard::go_start_y(); -</i> Set the y-coordinate of the sprite position to the y-coordinate of the start position.<br>
    <br>
-   <i>void Billboard::draw(); -</i> Draw a sprite.<br>
+   <i>bool Billboard::draw(); -</i> Draw a sprite and return the transparent mode status.<br>
    <br>
-   <i>void Billboard::draw(const unsigned int x, const unsigned int y); -</i>
-   Set the sprite position and draw it.<br>
+   <i>bool Billboard::draw(const unsigned int x, const unsigned int y); -</i> Draw a sprite at the target position and return the transparent mode status.<br>
    <br>
    <i>void Billboard::draw(const bool transparency); -</i> Set the transparent mode and draw a sprite.<br>
    <br>
@@ -2722,6 +2721,7 @@
    9.7: The text printing subsystem has improved.<br>
    9.7.0.1-9.7.0.6: The documentation has been updated.<br>
    9.7.1: The camera subsystem has improved.<br>
+   9.7.2: The base sprite subsystem has improved.<br>
   </big>
  </body>
 </html>

@@ -852,8 +852,8 @@ typedef enum
    void go_start();
    void go_start_x();
    void go_start_y();
-   void draw();
-   void draw(const unsigned int x,const unsigned int y);
+   bool draw();
+   bool draw(const unsigned int x,const unsigned int y);
    void draw(const bool transparency);
    void draw(const bool transparency,const unsigned int x,const unsigned int y);
   };
