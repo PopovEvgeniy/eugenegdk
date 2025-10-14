@@ -3259,7 +3259,7 @@ namespace EUGENEGDK
    this->set_kind(kind);
   }
 
-  void Sprite::load(Image *buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
+  bool Sprite::load(Image *buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
    this->load_image(buffer);
    if (this->is_storage_empty()==false)
@@ -3267,19 +3267,19 @@ namespace EUGENEGDK
     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
     this->set_settings(kind,frames);
    }
-
+   return this->is_load();
   }
 
-  void Sprite::load(Image &buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
+  bool Sprite::load(Image &buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
-   this->load(buffer.get_handle(),kind,frames);
+   return this->load(buffer.get_handle(),kind,frames);
   }
 
-  void Sprite::load(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
+  bool Sprite::load(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames)
   {
    Image picture;
    picture.load(name);
-   this->load(picture,kind,frames);
+   return this->load(picture,kind,frames);
   }
 
   void Sprite::set_target(const unsigned int target)
@@ -3343,7 +3343,7 @@ namespace EUGENEGDK
    return this;
   }
 
-  void Cartoon::load(Image *buffer)
+  bool Cartoon::load(Image *buffer)
   {
    this->load_image(buffer);
    if (this->is_storage_empty()==false)
@@ -3352,19 +3352,19 @@ namespace EUGENEGDK
     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
     this->set_size(this->get_image_width(),this->get_image_height());
    }
-
+   return this->is_load();
   }
 
-  void Cartoon::load(Image &buffer)
+  bool Cartoon::load(Image &buffer)
   {
-   this->load(buffer.get_handle());
+   return this->load(buffer.get_handle());
   }
 
-  void Cartoon::load(const char *name)
+  bool Cartoon::load(const char *name)
   {
    Image picture;
    picture.load(name);
-   this->load(picture);
+   return this->load(picture);
   }
 
   void Cartoon::destroy()
@@ -3549,7 +3549,7 @@ namespace EUGENEGDK
    this->select(this->get_row(this->get_frame()),this->get_column(this->get_frame()));
   }
 
-  void Sheet::load(Image *sheet,const unsigned int row_amount,const unsigned int column_amount)
+  bool Sheet::load(Image *sheet,const unsigned int row_amount,const unsigned int column_amount)
   {
    if (row_amount>0)
    {
@@ -3569,19 +3569,19 @@ namespace EUGENEGDK
     }
 
    }
-
+   return this->is_load();
   }
 
-  void Sheet::load(Image &sheet,const unsigned int row_amount,const unsigned int column_amount)
+  bool Sheet::load(Image &sheet,const unsigned int row_amount,const unsigned int column_amount)
   {
-   this->load(sheet.get_handle(),row_amount,column_amount);
+   return this->load(sheet.get_handle(),row_amount,column_amount);
   }
 
-  void Sheet::load(const char *name,const unsigned int row_amount,const unsigned int column_amount)
+  bool Sheet::load(const char *name,const unsigned int row_amount,const unsigned int column_amount)
   {
    Image picture;
    picture.load(name);
-   this->load(picture,row_amount,column_amount);
+   return this->load(picture,row_amount,column_amount);
   }
 
   Background::Background()

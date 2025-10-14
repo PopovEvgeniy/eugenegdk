@@ -114,7 +114,7 @@
   <big><br>
    <u>The introduction.</u><br>
    <br>
-   Hello from Russia. My name is Popov Evgeniy Alekseyevich. I am an
+   Hello! My name is Popov Evgeniy Alekseyevich. I am an
    individual programmer. I enjoy creating software. I also like
    old-school video games. Do you want to develop video games for Microsoft
    Windows? You need a good game engine to do it. I made my own engine. I
@@ -129,7 +129,7 @@
    <li><big>Open-source code.</big></li>
    <li><big>Very fast.</big></li>
    <li><big>The easy-to-use object-oriented design.</big></li>
-   <li><big>The minimum number of external dependencies: <a href="https://learn.microsoft.com/en-us/windows/win32/directx">DirectX</a>, <a href="https://opengl.org">OPENGL</a>, and the standard <a href="https://learn.microsoft.com/en-us/windows/win32/apiindex/windows-api-list">Windows API</a> libraries.</big></li>
+   <li><big>The minimum number of external dependencies: <a href="https://learn.microsoft.com/en-us/windows/win32/directx">DirectX</a>, <a href="https://opengl.org">OpenGL</a>, and the standard <a href="https://learn.microsoft.com/en-us/windows/win32/apiindex/windows-api-list">Windows API</a> libraries.</big></li>
    <li><big>You don't need to link a main program with the engine binary file. The engine is just the source code files.</big></li>
   </ul>
   <big><u><br>
@@ -372,7 +372,7 @@
    <u>The introduction.</u><br>
    <br>
    The base graphics subsystem does render a game scene. This subsystem uses
-   <a href="http://opengl.org">OPENGL</a> for rendering. All modern video
+   <a href="http://opengl.org">OpenGL</a> for rendering. All modern video
    cards support hardware acceleration. The software implementation
    will be activated if the acceleration is not available.<br>
    <br>
@@ -868,14 +868,14 @@
    <i>void Sprite::set_settings(const EUGENEGDK::IMAGE_KIND kind, const
     unsigned int frames); -</i> Set the sprite settings.<br>
    <br>
-   <i>void Sprite::load(Image *buffer, const EUGENEGDK::IMAGE_KIND kind, const
-    unsigned int frames); -</i> Load a sprite from the buffer.<br>
+   <i>bool Sprite::load(Image *buffer, const EUGENEGDK::IMAGE_KIND kind, const
+    unsigned int frames); -</i> Load a sprite from the buffer and return true if it is loaded.<br>
    <br>
-   <i>void Sprite::load(Image &amp;buffer, const EUGENEGDK::IMAGE_KIND kind,
-    const unsigned int frames); -</i> Load a sprite from the buffer.<br>
+   <i>bool Sprite::load(Image &amp;buffer, const EUGENEGDK::IMAGE_KIND kind,
+    const unsigned int frames); -</i> Load a sprite from the buffer and return true if it is loaded.<br>
    <br>
-   <i>void Sprite::load(const char *name, const EUGENEGDK::IMAGE_KIND kind,
-    const unsigned int frames); -</i> Load a sprite from the target file.<br>
+   <i>bool Sprite::load(const char *name, const EUGENEGDK::IMAGE_KIND kind,
+    const unsigned int frames); -</i> Load a sprite from the target file and return true if it is loaded.<br>
    <br>
    <i>void Sprite::set_target(const unsigned int target); </i>- Set the target frame.<br>
    <br>
@@ -907,11 +907,11 @@
    Just use the <i>Cartoon</i> class to work with a static sprite. It is
    derived from two classes: billboard and picture. Let's look at the publicly available methods.<br>
    <br>
-   <i>void Cartoon::load(Image *buffer); -</i> Load a sprite from the buffer.<br>
+   <i>bool Cartoon::load(Image *buffer); -</i> Load a sprite from the buffer and return true if it is loaded.<br>
    <i><br>
-    void Cartoon::load(Image &amp;buffer); -</i> Load a sprite from the buffer.<br>
+    bool Cartoon::load(Image &amp;buffer); -</i> Load a sprite from the buffer and return true if it is loaded.<br>
    <br>
-   <i>void Cartoon::load(const char *name); -</i> Load a sprite from the target file.<br>
+   <i>bool Cartoon::load(const char *name); -</i> Load a sprite from the target file and return true if it is loaded.<br>
    <br>
    <i>Cartoon *Cartoon::get_handle(); -</i> Return the handle to the sprite object.<br>
    <br>
@@ -971,14 +971,14 @@
    <br>
    <i>void Sheet::step(); -</i> Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
    <br>
-   <i>void Sheet::load(Image *sheet, const unsigned int row_amount, const
-    unsigned int column_amount); -</i> Load a sprite sheet from the buffer.<br>
+   <i>bool Sheet::load(Image *sheet, const unsigned int row_amount, const
+    unsigned int column_amount); -</i> Load a sprite sheet from the buffer and return true if it is loaded.<br>
    <br>
-   <i>void Sheet::load(Image &amp;sheet, const unsigned int row_amount, const
-    unsigned int column_amount); -</i> Load a sprite sheet from the buffer.<br>
+   <i>bool Sheet::load(Image &amp;sheet, const unsigned int row_amount, const
+    unsigned int column_amount); -</i> Load a sprite sheet from the buffer and return true if it is loaded.<br>
    <br>
-   <i>void Sheet::load(const char *name, const unsigned int row_amount, const
-    unsigned int column_amount); -</i> Load a sprite sheet from a target file.<br>
+   <i>bool Sheet::load(const char *name, const unsigned int row_amount, const
+    unsigned int column_amount); -</i> Load a sprite sheet from a target file and return true if it is loaded.<br>
    <br>
    <i>Sheet *Sheet::get_handle(); -</i> Return the handle to the sprite sheet.<br>
    <i><br>
@@ -995,7 +995,7 @@
   <big><br>
    <u>How to print a text?</u><br>
    <br>
-   Just use the text subsystem to print a text. This subsystem needs a font
+   Just use the text subsystem to print the text. This subsystem needs a font
    for text printing. You must load a font before starting to print the text.
    The font is just a sprite sheet with 16 rows and 16 columns.<br>
    <br>
@@ -2099,7 +2099,7 @@
    <i>Engine</i> creates the game window and does message processing.<br>
    <i>Synchronization</i> implements the synchronization timer.<br>
    <i>Display</i> implements the display manager.<br>
-   <i>WINGL</i> contains Windows-specific OPENGL initialization code.<br>
+   <i>WINGL</i> contains Windows-specific OpenGL initialization code.<br>
    <u><br>
     The core classes.</u><br>
    <br>
@@ -2107,7 +2107,7 @@
    <br>
    <i>FPS</i> implements the FPS counter.<br>
    <i>Unicode_Converter</i> implements the system code page to UTF-16 converter.<br>
-   <i>Render</i> implements the OPENGL render.<br>
+   <i>Render</i> implements the OpenGL render.<br>
    <i>Resizer</i> is intended to calculate the correct texture size.<br>
    <i>Rectangle</i> is intended to draw a textured rectangle.<br>
    <i>Shape</i> is the base class of the <i>Rectangle</i> class.<br>
@@ -2722,6 +2722,7 @@
    9.7.0.1-9.7.0.6: The documentation has been updated.<br>
    9.7.1: The camera subsystem has improved.<br>
    9.7.2: The base sprite subsystem has improved.<br>
+   9.7.3: The sprite subsystem has improved.<br>
   </big>
  </body>
 </html>
