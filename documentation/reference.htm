@@ -586,14 +586,14 @@
    <i>void Background::set_settings(const EUGENEGDK::IMAGE_KIND kind, const
     unsigned int frames); -</i> Set the background settings.<br>
    <br>
-   <i>void Background::load(Image *background, const EUGENEGDK::IMAGE_KIND
-    kind, const unsigned int frames); -</i> Load a background from the buffer.<br>
+   <i>bool Background::load(Image *background, const EUGENEGDK::IMAGE_KIND
+    kind, const unsigned int frames); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <br>
-   <i>void Background::load(Image &amp;background, const EUGENEGDK::IMAGE_KIND
-    kind, const unsigned int frames); -</i> Load a background from the buffer.<br>
+   <i>bool Background::load(Image &amp;background, const EUGENEGDK::IMAGE_KIND
+    kind, const unsigned int frames); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <br>
-   <i>void Background::load(const char *name, const EUGENEGDK::IMAGE_KIND
-    kind, const unsigned int frames); -</i> Load a background from the target file.<br>
+   <i>bool Background::load(const char *name, const EUGENEGDK::IMAGE_KIND
+    kind, const unsigned int frames); -</i> Load a background from the target file and return true if it is loaded.<br>
    <i><br>
     void Background::draw(); -</i> Draw a background.<br>
    <br>
@@ -607,8 +607,7 @@
    <br>
    <i>bool Background::is_last_frame() const; -</i> Return true if the current frame is the last frame.<br>
    <br>
-   <i>bool Background::check_frame(const unsigned int target) const; -</i>
-   Return true if the target frame is valid.<br>
+   <i>bool Background::check_frame(const unsigned int target) const; -</i>Return true if the target frame is valid.<br>
    <br>
    <i>unsigned int Background::get_frame() const; -</i> Return the current frame.<br>
    <i><br>
@@ -658,11 +657,11 @@
    <i>void Scene::complex_mirror(); -</i> Set both the horizontal background
    mirroring mode and the vertical background mirroring mode.<br>
    <br>
-   <i>void Scene::load(Image *background); -</i> Load a background from the buffer.<br>
+   <i>bool Scene::load(Image *background); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <br>
-   <i>void Scene::load(Image &amp; background); -</i> Load a background from the buffer.<br>
+   <i>bool Scene::load(Image &amp; background); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <br>
-   <i>void Scene::load(const char *name); -</i> Load a background from the target file.<br>
+   <i>bool Scene::load(const char *name); -</i> Load a background from the target file and return true if it is loaded.<br>
    <br>
    <i>void Scene::draw(); -</i> Draw a background.<br>
    <br>
@@ -718,11 +717,11 @@
    <i>void Parallax::complex_mirror(); -</i> Set both the horizontal
    background mirroring mode and the vertical background mirroring mode.<br>
    <br>
-   <i>void Parallax::load(Image *background); -</i> Load a background from the buffer.<br>
+   <i>bool Parallax::load(Image *background); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <i><br>
-    void Parallax::load(Image &amp; background); -</i> Load a background from the buffer.<br>
+    bool Parallax::load(Image &amp; background); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <br>
-   <i>void Parallax::load(const char *name); -</i> Load a background from the target file.<br>
+   <i>bool Parallax::load(const char *name); -</i> Load a background from the target file and return true if it is loaded.<br>
    <br>
    <i>void Parallax::set_horizontal_speed(const float speed); -</i> Set the horizontal scrolling speed.<br>
    <br>
@@ -2723,6 +2722,7 @@
    9.7.1: The camera subsystem has improved.<br>
    9.7.2: The base sprite subsystem has improved.<br>
    9.7.3: The sprite subsystem has improved.<br>
+   9.7.4: The background subsystem has improved.<br>
   </big>
  </body>
 </html>
