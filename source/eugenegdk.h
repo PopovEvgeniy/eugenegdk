@@ -1048,9 +1048,9 @@ typedef enum
    void set_width(const unsigned int width);
    void set_height(const unsigned int height);
    void set_settings(const unsigned int width,const unsigned int height,const EUGENEGDK::TEXT_KIND kind);
-   void load_font(Image *font);
-   void load_font(Image &font);
-   void load_font(const char *name);
+   bool load_font(Image *font);
+   bool load_font(Image &font);
+   bool load_font(const char *name);
    void print(const char target);
    void print(const unsigned int x,const unsigned int y,const char target);
    size_t print(const char *target);

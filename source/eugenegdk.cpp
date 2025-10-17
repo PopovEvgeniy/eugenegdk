@@ -4091,19 +4091,19 @@ namespace EUGENEGDK
    this->set_orientation(kind);
   }
 
-  void Text::load_font(Image *font)
+  bool Text::load_font(Image *font)
   {
-   text.load(font,16,16);
+   return text.load(font,16,16);
   }
 
-  void Text::load_font(Image &font)
+  bool Text::load_font(Image &font)
   {
-   text.load(font,16,16);
+   return text.load(font,16,16);
   }
 
-  void Text::load_font(const char *name)
+  bool Text::load_font(const char *name)
   {
-   text.load(name,16,16);
+   return text.load(name,16,16);
   }
 
   void Text::print(const char target)

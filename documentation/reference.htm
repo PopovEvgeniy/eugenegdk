@@ -1061,11 +1061,11 @@
    <i>void Text::set_settings(const unsigned int width, const unsigned int
     height, const EUGENEGDK::TEXT_KIND kind); -</i> Set the text output settings.<br>
    <i><br>
-    void Text::load_font(Image *font); -</i> Load a font from the buffer.<br>
+    bool Text::load_font(Image *font); -</i> Load a font from the buffer and return true if it is loaded.<br>
    <br>
-   <i>void Text::load_font(Image &amp;font); -</i> Load a font from the buffer.<br>
+   <i>bool Text::load_font(Image &amp;font); -</i> Load a font from the buffer and return true if it is loaded.<br>
    <i><br>
-    void Text::load_font(const char *name); -</i> Load a font from the target file.<br>
+    bool Text::load_font(const char *name); -</i> Load a font from the target file and return true if it is loaded.<br>
    <br>
    <i>void Text::print(const char target); -</i> Print a single character at the current position.<br>
    <i><br>
@@ -2723,6 +2723,7 @@
    9.7.2: The base sprite subsystem has improved.<br>
    9.7.3: The sprite subsystem has improved.<br>
    9.7.4: The background subsystem has improved.<br>
+   9.7.5: The text printing subsystem has improved.<br>
   </big>
  </body>
 </html>
