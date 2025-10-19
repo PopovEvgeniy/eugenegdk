@@ -993,7 +993,6 @@ namespace EUGENEGDK
    if (glIsEnabled(GL_ALPHA_TEST)==GL_FALSE)
    {
     glEnable(GL_ALPHA_TEST);
-    glEnable(GL_BLEND);
    }
 
   }
@@ -1003,7 +1002,6 @@ namespace EUGENEGDK
    if (glIsEnabled(GL_ALPHA_TEST)==GL_TRUE)
    {
     glDisable(GL_ALPHA_TEST);
-    glDisable(GL_BLEND);
    }
 
   }
@@ -1079,13 +1077,12 @@ namespace EUGENEGDK
 
   void Render::set_perfomance_settings()
   {
-   glDisable(GL_POINT_SMOOTH);
-   glDisable(GL_LINE_SMOOTH);
-   glDisable(GL_POLYGON_SMOOTH);
-   glDisable(GL_POLYGON_OFFSET_POINT);
-   glDisable(GL_POLYGON_OFFSET_LINE);
-   glDisable(GL_POLYGON_OFFSET_FILL);
-   glDisable(GL_POLYGON_STIPPLE);
+   glDisable(GL_TEXTURE_1D);
+   glDisable(GL_BLEND);
+   glDisable(GL_TEXTURE_GEN_Q);
+   glDisable(GL_TEXTURE_GEN_R);
+   glDisable(GL_TEXTURE_GEN_S);
+   glDisable(GL_TEXTURE_GEN_T);
    glDisable(GL_DITHER);
    glDisable(GL_LOGIC_OP);
    glDisable(GL_INDEX_LOGIC_OP);
@@ -1097,12 +1094,14 @@ namespace EUGENEGDK
    glDisable(GL_NORMALIZE);
    glDisable(GL_AUTO_NORMAL);
    glDisable(GL_COLOR_MATERIAL);
-   glDisable(GL_TEXTURE_GEN_Q);
-   glDisable(GL_TEXTURE_GEN_R);
-   glDisable(GL_TEXTURE_GEN_S);
-   glDisable(GL_TEXTURE_GEN_T);
-   glDisable(GL_TEXTURE_1D);
    glDisable(GL_CULL_FACE);
+   glDisable(GL_POINT_SMOOTH);
+   glDisable(GL_LINE_SMOOTH);
+   glDisable(GL_POLYGON_SMOOTH);
+   glDisable(GL_POLYGON_OFFSET_POINT);
+   glDisable(GL_POLYGON_OFFSET_LINE);
+   glDisable(GL_POLYGON_OFFSET_FILL);
+   glDisable(GL_POLYGON_STIPPLE);
    glDisable(GL_MAP1_COLOR_4);
    glDisable(GL_MAP1_INDEX);
    glDisable(GL_MAP1_NORMAL);
@@ -1123,7 +1122,6 @@ namespace EUGENEGDK
    glDisable(GL_MAP2_VERTEX_4);
    glEnable(GL_TEXTURE_2D);
    glEnable(GL_ALPHA_TEST);
-   glEnable(GL_BLEND);
    glEnableClientState(GL_VERTEX_ARRAY);
    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
    glDisableClientState(GL_COLOR_ARRAY);
@@ -1146,7 +1144,6 @@ namespace EUGENEGDK
    glDrawBuffer(GL_BACK);
    glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
    glShadeModel(GL_FLAT);
-   glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
    glAlphaFunc(GL_GREATER,0.6f);
    glClearColor(0.0,0.0,0.0,0.0);
   }
