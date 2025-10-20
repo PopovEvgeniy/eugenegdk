@@ -428,11 +428,9 @@
    <br>
    <i>bool Screen::check_y(const unsigned int y) const; -</i> Return true if the y-coordinate is valid.<br>
    <br>
-   <i>bool Screen::check_horizontal_border(const EUGENEGDK::BOX target)
-    const; -</i> Return true if a game object has collided with the horizontal screen border.<br>
+   <i>bool Screen::check_horizontal_border(const EUGENEGDK::BOX target) const; -</i> Return true if a game object has collided with the horizontal screen border.<br>
    <br>
-   <i>bool Screen::check_vertical_border(const EUGENEGDK::BOX target) const;
-    -</i> Return true if a game object has collided with the vertical screen border.<br>
+   <i>bool Screen::check_vertical_border(const EUGENEGDK::BOX target) const; -</i> Return true if a game object has collided with the vertical screen border.<br>
    <br>
    <i>Screen *Screen::get_handle(); -</i> Return the handle to the base graphics subsystem object.<br>
   </big>
@@ -567,8 +565,7 @@
    <i><br>
     void Background::prepare(Screen &amp;screen); -</i> Prepare for drawing.<br>
    <i><br>
-    void Background::prepare(const unsigned int width, const unsigned int
-    height); -</i> Prepare for drawing.<br>
+    void Background::prepare(const unsigned int width, const unsigned int height); -</i> Prepare for drawing.<br>
    <br>
    <i>void Background::disable_mirror(); -</i> Disable the background mirroring mode.<br>
    <i><br>
@@ -583,8 +580,7 @@
    <br>
    <i>void Background::step(); -</i> Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
    <br>
-   <i>void Background::set_settings(const EUGENEGDK::IMAGE_KIND kind, const
-    unsigned int frames); -</i> Set the background settings.<br>
+   <i>void Background::set_settings(const EUGENEGDK::IMAGE_KIND kind, const unsigned int frames); -</i> Set the background settings.<br>
    <br>
    <i>bool Background::load(Image *background, const EUGENEGDK::IMAGE_KIND
     kind, const unsigned int frames); -</i> Load a background from the buffer and return true if it is loaded.<br>
@@ -645,8 +641,7 @@
    <br>
    <i>void Scene::prepare(Screen &amp;screen); -</i> Prepare for drawing.<br>
    <br>
-   <i>void Scene::prepare(const unsigned int width, const unsigned int
-    height); -</i> Prepare for drawing.<br>
+   <i>void Scene::prepare(const unsigned int width, const unsigned int height); -</i> Prepare for drawing.<br>
    <br>
    <i>void Scene::disable_mirror(); -</i> Disable the background mirroring mode.<br>
    <br>
@@ -705,8 +700,7 @@
    <i><br>
     void Parallax::prepare(Screen &amp;screen); -</i> Prepare for drawing.<br>
    <i><br>
-    void Parallax::prepare(const unsigned int width, const unsigned int
-    height); -</i> Prepare for drawing.<br>
+    void Parallax::prepare(const unsigned int width, const unsigned int height); -</i> Prepare for drawing.<br>
    <br>
    <i>void Parallax::disable_mirror(); -</i> Disable the background mirroring mode.<br>
    <i><br>
@@ -727,8 +721,7 @@
    <br>
    <i>void Parallax::set_vertical_speed(const float speed); -</i> Set the vertical scrolling speed.<br>
    <br>
-   <i>void Parallax::set_speed(const float horizontal, const float vertical);
-    -</i> Set the scrolling speed.<br>
+   <i>void Parallax::set_speed(const float horizontal, const float vertical); -</i> Set the scrolling speed.<br>
    <br>
    <i>float Parallax::get_horizontal_speed() const; -</i> Return the horizontal speed.<br>
    <i><br>
@@ -773,14 +766,11 @@
    <br>
    <i>bool Billboard::get_transparent() const; -</i> Return true if the transparent mode is enabled.<br>
    <br>
-   <i>void Billboard::set_position(const unsigned int x, const unsigned int
-    y); -</i> Set the sprite position.<br>
+   <i>void Billboard::set_position(const unsigned int x, const unsigned int y); -</i> Set the sprite position.<br>
    <br>
-   <i>void Billboard::set_start(const unsigned int x, const unsigned int y);
-    -</i> Set the start position of the sprite.<br>
+   <i>void Billboard::set_start(const unsigned int x, const unsigned int y); -</i> Set the start position of the sprite.<br>
    <br>
-   <i>void Billboard::set_size(const unsigned int width, const unsigned int
-    height); -</i> Change the sprite size.<br>
+   <i>void Billboard::set_size(const unsigned int width, const unsigned int height); -</i> Change the sprite size.<br>
    <br>
    <i>void Billboard::set_x(const unsigned int x); -</i> Set the x-coordinate of the sprite position.<br>
    <br>
@@ -798,17 +788,13 @@
    <i><br>
     unsigned int Billboard::decrease_y(); -</i> Decrease the y-coordinate and return it.<br>
    <br>
-   <i>unsigned int Billboard::increase_x(const unsigned int increment); -</i>
-   Increase the x-coordinate with the user value and return it.<br>
+   <i>unsigned int Billboard::increase_x(const unsigned int increment); -</i> Increase the x-coordinate with the user value and return it.<br>
    <br>
-   <i>unsigned int Billboard::decrease_x(const unsigned int decrement); -</i>
-   Decrease the x-coordinate with the user value and return it.<br>
+   <i>unsigned int Billboard::decrease_x(const unsigned int decrement); -</i> Decrease the x-coordinate with the user value and return it.<br>
    <br>
-   <i>unsigned int Billboard::increase_y(const unsigned int increment); -</i>
-   Increase the y-coordinate with the user value and return it.<br>
+   <i>unsigned int Billboard::increase_y(const unsigned int increment); -</i> Increase the y-coordinate with the user value and return it.<br>
    <br>
-   <i>unsigned int Billboard::decrease_y(const unsigned int decrement); -</i>
-   Decrease the y-coordinate with the user value and return it.<br>
+   <i>unsigned int Billboard::decrease_y(const unsigned int decrement); -</i> Decrease the y-coordinate with the user value and return it.<br>
    <br>
    <i>unsigned int Billboard::get_start_x() const; -</i> Return the x-coordinate of the start position.<br>
    <br>
@@ -847,8 +833,7 @@
    <br>
    <i>void Billboard::draw(const bool transparency); -</i> Set the transparent mode and draw a sprite.<br>
    <br>
-   <i>void Billboard::draw(const bool transparency, const unsigned int x,
-    const unsigned int y); -</i> Set the transparent mode and draw a sprite at the target position.<br>
+   <i>void Billboard::draw(const bool transparency, const unsigned int x, const unsigned int y); -</i> Set the transparent mode and draw a sprite at the target position.<br>
   </big>
   <h2><a id="mozTocId156525" class="mozTocH2"></a><big>Chapter 11. The ordinary sprites</big></h2>
   <big><br>
@@ -864,17 +849,13 @@
    from three classes: <i>Billboard</i>, <i>Animation</i>, and <i>Picture</i>.
    Let's look at the publicly available methods.<br>
    <br>
-   <i>void Sprite::set_settings(const EUGENEGDK::IMAGE_KIND kind, const
-    unsigned int frames); -</i> Set the sprite settings.<br>
+   <i>void Sprite::set_settings(const EUGENEGDK::IMAGE_KIND kind, const unsigned int frames); -</i> Set the sprite settings.<br>
    <br>
-   <i>bool Sprite::load(Image *buffer, const EUGENEGDK::IMAGE_KIND kind, const
-    unsigned int frames); -</i> Load a sprite from the buffer and return true if it is loaded.<br>
+   <i>bool Sprite::load(Image *buffer, const EUGENEGDK::IMAGE_KIND kind, const unsigned int frames); -</i> Load a sprite from the buffer and return true if it is loaded.<br>
    <br>
-   <i>bool Sprite::load(Image &amp;buffer, const EUGENEGDK::IMAGE_KIND kind,
-    const unsigned int frames); -</i> Load a sprite from the buffer and return true if it is loaded.<br>
+   <i>bool Sprite::load(Image &amp;buffer, const EUGENEGDK::IMAGE_KIND kind, const unsigned int frames); -</i> Load a sprite from the buffer and return true if it is loaded.<br>
    <br>
-   <i>bool Sprite::load(const char *name, const EUGENEGDK::IMAGE_KIND kind,
-    const unsigned int frames); -</i> Load a sprite from the target file and return true if it is loaded.<br>
+   <i>bool Sprite::load(const char *name, const EUGENEGDK::IMAGE_KIND kind, const unsigned int frames); -</i> Load a sprite from the target file and return true if it is loaded.<br>
    <br>
    <i>void Sprite::set_target(const unsigned int target); </i>- Set the target frame.<br>
    <br>
@@ -948,14 +929,11 @@
    <br>
    <i>bool Sheet::check_column(const unsigned int target) const; -</i> Return true if the target column is valid.<br>
    <i><br>
-    unsigned int Sheet::get_row(const unsigned int target) const; -</i>
-   Return row of the target frame.<br>
+    unsigned int Sheet::get_row(const unsigned int target) const; -</i> Return row of the target frame.<br>
    <br>
-   <i>unsigned int Sheet::get_column(const unsigned int target) const; -</i>
-   Return column of the target frame.<br>
+   <i>unsigned int Sheet::get_column(const unsigned int target) const; -</i> Return column of the target frame.<br>
    <br>
-   <i>unsigned int Sheet::calculate(const unsigned int row, const unsigned
-    int column) const; -</i> Calculate the frame by row and column.<br>
+   <i>unsigned int Sheet::calculate(const unsigned int row, const unsigned int column) const; -</i> Calculate the frame by row and column.<br>
    <br>
    <i>unsigned int Sheet::get_rows() const; -</i> Return the number of rows.<br>
    <br>
@@ -963,21 +941,17 @@
    <br>
    <i>void Sheet::destroy(); -</i> Destroy a sprite sheet image and the texture.<br>
    <br>
-   <i>void Sheet::select(const unsigned int row, const unsigned int column); -</i>
-   Select the target frame by row and column.<br>
+   <i>void Sheet::select(const unsigned int row, const unsigned int column); -</i> Select the target frame by row and column.<br>
    <br>
    <i>void Sheet::set_target(const unsigned int target); -</i> Set the target frame.<br>
    <br>
    <i>void Sheet::step(); -</i> Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
    <br>
-   <i>bool Sheet::load(Image *sheet, const unsigned int row_amount, const
-    unsigned int column_amount); -</i> Load a sprite sheet from the buffer and return true if it is loaded.<br>
+   <i>bool Sheet::load(Image *sheet, const unsigned int row_amount, const unsigned int column_amount); -</i> Load a sprite sheet from the buffer and return true if it is loaded.<br>
    <br>
-   <i>bool Sheet::load(Image &amp;sheet, const unsigned int row_amount, const
-    unsigned int column_amount); -</i> Load a sprite sheet from the buffer and return true if it is loaded.<br>
+   <i>bool Sheet::load(Image &amp;sheet, const unsigned int row_amount, const unsigned int column_amount); -</i> Load a sprite sheet from the buffer and return true if it is loaded.<br>
    <br>
-   <i>bool Sheet::load(const char *name, const unsigned int row_amount, const
-    unsigned int column_amount); -</i> Load a sprite sheet from a target file and return true if it is loaded.<br>
+   <i>bool Sheet::load(const char *name, const unsigned int row_amount, const unsigned int column_amount); -</i> Load a sprite sheet from a target file and return true if it is loaded.<br>
    <br>
    <i>Sheet *Sheet::get_handle(); -</i> Return the handle to the sprite sheet.<br>
    <i><br>
@@ -1035,8 +1009,7 @@
    <br>
    <i>EUGENEGDK::TEXT_KIND Text::get_orientation() const; -</i> Get the current text orientation.<br>
    <br>
-   <i>void Text::set_orientation(const EUGENEGDK::TEXT_KIND target); -</i>
-   Set the current text orientation.<br>
+   <i>void Text::set_orientation(const EUGENEGDK::TEXT_KIND target); -</i> Set the current text orientation.<br>
    <br>
    <i>bool Text::is_font_load() const; -</i> Return true if the font has already been loaded.<br>
    <br>
@@ -1048,18 +1021,15 @@
    <br>
    <i>unsigned int Text::get_y() const; -</i> Get the y-coordinate of the text output position.<br>
    <br>
-   <i>void Text::set_position(const unsigned int x, const unsigned int y); -</i>
-   Set the output position.<br>
+   <i>void Text::set_position(const unsigned int x, const unsigned int y); -</i> Set the output position.<br>
    <i><br>
-    void Text::set_size(const unsigned int width, const unsigned int
-    height); -</i> Change the font size.<br>
+    void Text::set_size(const unsigned int width, const unsigned int height); -</i> Change the font size.<br>
    <i><br>
     void Text::set_width(const unsigned int width); -</i> Set the font width.<br>
    <br>
    <i>void Text::set_height(const unsigned int height); -</i> Set the font height.<br>
    <br>
-   <i>void Text::set_settings(const unsigned int width, const unsigned int
-    height, const EUGENEGDK::TEXT_KIND kind); -</i> Set the text output settings.<br>
+   <i>void Text::set_settings(const unsigned int width, const unsigned int height, const EUGENEGDK::TEXT_KIND kind); -</i> Set the text output settings.<br>
    <i><br>
     bool Text::load_font(Image *font); -</i> Load a font from the buffer and return true if it is loaded.<br>
    <br>
@@ -1069,13 +1039,11 @@
    <br>
    <i>void Text::print(const char target); -</i> Print a single character at the current position.<br>
    <i><br>
-    void Text::print(const unsigned int x, const unsigned int y, const char
-    target); -</i> Print a single character at the specific position.<br>
+    void Text::print(const unsigned int x, const unsigned int y, const char target); -</i> Print a single character at the specific position.<br>
    <br>
    <i>size_t Text::print(const char *target); -</i> Print a text at the current position and return the text length.<br>
    <br>
-   <i>size_t Text::print(const unsigned int x, const unsigned int y, const
-    char *target); -</i> Print a text at the specific position and return the text length.<br>
+   <i>size_t Text::print(const unsigned int x, const unsigned int y, const char *target); -</i> Print a text at the specific position and return the text length.<br>
    <br>
    <i>void Text::destroy_image(); -</i> Destroy a font image.<br>
    <br>
@@ -1142,17 +1110,13 @@
    <i><br>
     unsigned int Camera::decrease_y(); -</i> Decrease the y-coordinate of the camera offset and return it.<br>
    <br>
-   <i>unsigned int Camera::increase_x(const unsigned int increment); -</i>
-   Increase the x-coordinate of the camera offset with the user value and return it.<br>
+   <i>unsigned int Camera::increase_x(const unsigned int increment); -</i> Increase the x-coordinate of the camera offset with the user value and return it.<br>
    <br>
-   <i>unsigned int Camera::decrease_x(const unsigned int decrement); -</i>
-   Decrease the x-coordinate of the camera offset with the user value and return it.<br>
+   <i>unsigned int Camera::decrease_x(const unsigned int decrement); -</i> Decrease the x-coordinate of the camera offset with the user value and return it.<br>
    <i><br>
-    unsigned int Camera::increase_y(const unsigned int increment); -</i>
-   Increase the y-coordinate of the camera offset with the user value and return it.<br>
+    unsigned int Camera::increase_y(const unsigned int increment); -</i> Increase the y-coordinate of the camera offset with the user value and return it.<br>
    <i><br>
-    unsigned int Camera::decrease_y(const unsigned int decrement); -</i>
-   Decrease the y-coordinate of the camera offset with the user value and return it.<br>
+    unsigned int Camera::decrease_y(const unsigned int decrement); -</i> Decrease the y-coordinate of the camera offset with the user value and return it.<br>
    <i><br>
     unsigned int Camera::get_x() const; -</i> Return the x-coordinate of the camera offset.<br>
    <i><br>
@@ -1174,33 +1138,27 @@
    <i><br>
     unsigned int Camera::get_highest_y_offset() const; -</i> Return the highest allowable y-offset of the camera.<br>
    <i><br>
-    unsigned int Camera::get_world_x(const unsigned screen_int x) const; -</i>
-   Convert the screen x-coordinate to the world x-coordinate.<br>
+    unsigned int Camera::get_world_x(const unsigned screen_int x) const; -</i> Convert the screen x-coordinate to the world x-coordinate.<br>
    <br>
-   <i>unsigned int Camera::get_world_y(const unsigned screen_int y) const; -</i>
-   Convert the screen y-coordinate to the world y-coordinate.<br>
+   <i>unsigned int Camera::get_world_y(const unsigned screen_int y) const; -</i> Convert the screen y-coordinate to the world y-coordinate.<br>
    <br>
    <i>unsigned int Camera::set_x(const unsigned int x); -</i> Set the x-coordinate of the camera offset and return it.<br>
    <br>
    <i>unsigned int Camera::set_y(const unsigned int y); -</i> Set the y-coordinate of the camera offset and return it.<br>
    <i><br>
-    void Camera::initialize(const unsigned int width, const unsigned int
-    height); -</i> Initialize the subsystem and set the screen size.<br>
+    void Camera::initialize(const unsigned int width, const unsigned int height); -</i> Initialize the subsystem and set the screen size.<br>
    <i><br>
     void Camera::initialize(Screen *screen); -</i> Initialize the subsystem and set the screen size.<br>
    <br>
    <i>void Camera::initialize(Screen &amp;screen); -</i> Initialize the subsystem and set the screen size.<br>
    <br>
-   <i>void Camera::set_viewport(const unsigned int width, const unsigned int
-    height); -</i> Set the viewport settings.<br>
+   <i>void Camera::set_viewport(const unsigned int width, const unsigned int height); -</i> Set the viewport settings.<br>
    <br>
    <i>void Camera::set_offset(const unsigned int x, const unsigned int y); -</i> Set the camera offset.<br>
    <br>
-   <i>bool Camera::check_horizontal_border(const EUGENEGDK::BOX target)
-    const; -</i> Return true if a game object has collided with the horizontal visible area border.<br>
+   <i>bool Camera::check_horizontal_border(const EUGENEGDK::BOX target) const; -</i> Return true if a game object has collided with the horizontal visible area border.<br>
    <i><br>
-    bool Camera::check_vertical_border(const EUGENEGDK::BOX target) const; -</i>
-   Return true if a game object has collided with the vertical visible area border.<br>
+    bool Camera::check_vertical_border(const EUGENEGDK::BOX target) const; -</i> Return true if a game object has collided with the vertical visible area border.<br>
    <i><br>
     void Camera::update(); -</i> Update the camera.<br>
    <i><br>
@@ -1215,8 +1173,7 @@
   <h1><a id="mozTocId778712" class="mozTocH1"></a><big>Part 4. The transformation</big></h1>
   <h2><a id="mozTocId798362" class="mozTocH2"></a><big>Chapter 1. The sub-namespace</big></h2>
   <big><br>
-   All classes in this section are declared in the <i>Transformation</i>
-   sub-namespace.<br>
+   All classes in this section are declared in the <i>Transformation</i> sub-namespace.<br>
   </big>
   <h2><a id="mozTocId505409" class="mozTocH2"></a><big>Chapter 2. The Cartesian coordinates and the screen coordinates</big></h2>
   <big><br>
@@ -1235,8 +1192,7 @@
    <i><br>
     Coordinates *Coordinates::get_handle(); -</i> Return the handle to the coordinates conversion subsystem.<br>
    <br>
-   <i>void Coordinates::initialize(const int viewport_width, const int
-    viewport_height); -</i> Initialize the subsystem.<br>
+   <i>void Coordinates::initialize(const int viewport_width, const int viewport_height); -</i> Initialize the subsystem.<br>
    <br>
    <i>int Coordinates::get_viewport_width() const; -</i> Return the viewport width in pixels.<br>
    <br>
@@ -1275,17 +1231,13 @@
    You can also convert the isometric coordinates to the Cartesian
    coordinates. Just use the <i>Isometric</i> class to do it. Let's look at the publicly available methods.<br>
    <br>
-   <i>static int Isometric::get_isometric_x(const int x, const int y); -</i>
-   Convert the x-coordinate from the Cartesian system to the isometric system.<br>
+   <i>static int Isometric::get_isometric_x(const int x, const int y); -</i> Convert the x-coordinate from the Cartesian system to the isometric system.<br>
    <br>
-   <i>static int Isometric::get_isometric_y(const int x, const int y); -</i>
-   Convert the y-coordinate from the Cartesian system to the isometric system.<br>
+   <i>static int Isometric::get_isometric_y(const int x, const int y); -</i> Convert the y-coordinate from the Cartesian system to the isometric system.<br>
    <br>
-   <i>static int Isometric::get_cartesian_x(const int x, const int y); -</i>
-   Convert the x-coordinate from the isometric system to the Cartesian system.<br>
+   <i>static int Isometric::get_cartesian_x(const int x, const int y); -</i> Convert the x-coordinate from the isometric system to the Cartesian system.<br>
    <br>
-   <i>static int Isometric::get_cartesian_y(const int x, const int y); -</i>
-   Convert the y-coordinate from the isometric system to the Cartesian system.<br>
+   <i>static int Isometric::get_cartesian_y(const int x, const int y); -</i> Convert the y-coordinate from the isometric system to the Cartesian system.<br>
   </big>
   <h2><a id="mozTocId909113" class="mozTocH2"></a><big>Chapter 4. An isometric level</big></h2>
   <big><br>
@@ -1294,11 +1246,9 @@
    <br>
    <i>Level *Level::get_handle(); -</i> Return the handle to the isometric level subsystem.<br>
    <br>
-   <i>void Level::initialize(const int tile_width, const int tile_height); -</i>
-   Initialize the subsystem.<br>
+   <i>void Level::initialize(const int tile_width, const int tile_height); -</i> Initialize the subsystem.<br>
    <br>
-   <i>void Level::set_offset(const int x_offset, const int y_offset); -</i>
-   Set the coordinates offset.<br>
+   <i>void Level::set_offset(const int x_offset, const int y_offset); -</i> Set the coordinates offset.<br>
    <br>
    <i>int Level::get_x_offset() const; -</i> Return the x-offset.<br>
    <br>
@@ -1318,8 +1268,7 @@
    You can use the <i>Halt</i> function to terminate a program. This
    function is declared in the <i>EGENEGDK</i> namespace.<br>
    <i><br>
-    void EUGENEGDK::Halt(const char *message); -</i> Terminate the program.
-   Write an error message to the log file if logging is enabled.<br>
+    void EUGENEGDK::Halt(const char *message); -</i> Terminate the program. Write an error message to the log file if logging is enabled.<br>
   </big>
   <h2><a id="mozTocId284221" class="mozTocH2"></a><big>Chapter 3. The timers</big></h2>
   <big><br>
@@ -1363,13 +1312,11 @@
    <br>
    <i>Collision *Collision::get_handle(); -</i> Return the handle to the collision detector.<br>
    <br>
-   <i>void Collision::set_target(const EUGENEGDK::BOX first_target, const
-    EUGENEGDK::BOX second_target); -</i> Set the targets for the collision detector.<br>
+   <i>void Collision::set_target(const EUGENEGDK::BOX first_target, const EUGENEGDK::BOX second_target); -</i> Set the targets for the collision detector.<br>
    <br>
    <i>bool Collision::check_collision() const; -</i> Return true if the collision between two objects is accepted.<br>
    <br>
-   <i>bool Collision::check_collision(const EUGENEGDK::BOX first_target,
-    const EUGENEGDK::BOX second_target); -</i> Set the targets and check the collision between them.<br>
+   <i>bool Collision::check_collision(const EUGENEGDK::BOX first_target, const EUGENEGDK::BOX second_target); -</i> Set the targets and check the collision between them.<br>
   </big>
   <h2><a id="mozTocId560876" class="mozTocH2"></a><big>Chapter 5. The tilemaps</big></h2>
   <big><u><br>
@@ -1385,13 +1332,11 @@
     Work with the tilemap.</u><br>
    <br>
    The <i>Tilemap</i> class provides easy access to the tilemap. It is a
-   simple class with a few methods. Let's look at the publicly available
-   methods.<br>
+   simple class with a few methods. Let's look at the publicly available methods.<br>
    <i><br>
     Tilemap *Tilemap::get_handle(); -</i> Return the handle to the tilemap subsystem.<br>
    <i><br>
-    void Tilemap::initialize(const unsigned int tile_width, const unsigned
-    int tile_height); -</i> Initialize the subsystem.<br>
+    void Tilemap::initialize(const unsigned int tile_width, const unsigned int tile_height); -</i> Initialize the subsystem.<br>
    <i><br>
     unsigned int Tilemap::get_tile_width() const; -</i> Return the tile width in pixels.<br>
    <br>
@@ -1405,23 +1350,17 @@
    <i><br>
     unsigned int Tilemap::get_column(const unsigned int y) const; -</i> Get the column from the y-coordinate.<br>
    <i><br>
-    unsigned int Tilemap::get_row_amount(const unsigned int viewport_width)
-    const; -</i> Get the maximum number of the visible rows.<br>
+    unsigned int Tilemap::get_row_amount(const unsigned int viewport_width) const; -</i> Get the maximum number of the visible rows.<br>
    <i><br>
-    unsigned int Tilemap::get_column_amount(const unsigned int
-    viewport_width) const; -</i> Get the maximum number of the visible columns.<br>
+    unsigned int Tilemap::get_column_amount(const unsigned int viewport_width) const; -</i> Get the maximum number of the visible columns.<br>
    <br>
-   <i>unsigned int Tilemap::get_tile_amount(const unsigned int
-    viewport_width, const unsigned int viewport_height) const; -</i> Get the maximum number of the visible tiles.<br>
+   <i>unsigned int Tilemap::get_tile_amount(const unsigned int viewport_width, const unsigned int viewport_height) const; -</i> Get the maximum number of the visible tiles.<br>
    <i><br>
-    bool Tilemap::check_row(const unsigned int row, const unsigned int
-    viewport_width) const; -</i> Return true if the row is valid.<br>
+    bool Tilemap::check_row(const unsigned int row, const unsigned int viewport_width) const; -</i> Return true if the row is valid.<br>
    <i><br>
-    bool Tilemap::check_column(const unsigned int column, const unsigned int
-    viewport_height) const; -</i> Return true if the column is valid.<br>
+    bool Tilemap::check_column(const unsigned int column, const unsigned int viewport_height) const; -</i> Return true if the column is valid.<br>
    <br>
-   <i>EUGENEGDK::BOX Tilemap::get_box(const unsigned int row, const unsigned
-    int column) const; -</i> Return the collision-related information.<br>
+   <i>EUGENEGDK::BOX Tilemap::get_box(const unsigned int row, const unsigned int column) const; -</i> Return the collision-related information.<br>
   </big><br>
   <h1><a id="mozTocId208248" class="mozTocH1"></a><big>Part 6. The other important things</big></h1>
   <h2><a id="mozTocId605872" class="mozTocH2"></a><big>Chapter 1. The sub-namespace</big></h2>
@@ -1505,8 +1444,7 @@
    <br>
    <i>unsigned int get_texture_size(); -</i> Return the maximum width or height of the texture.<br>
    <br>
-   <i>EUGENEGDK::BOX generate_box(const unsigned int x, const unsigned int
-    y, const unsigned int width, const unsigned int height); -</i> Generate the collision-related information.<br>
+   <i>EUGENEGDK::BOX generate_box(const unsigned int x, const unsigned int y, const unsigned int width, const unsigned int height); -</i> Generate the collision-related information.<br>
   </big>
   <h2><a id="mozTocId256993" class="mozTocH2"></a><big>Chapter 3. The resource manager</big></h2>
   <big><br>
@@ -1574,8 +1512,7 @@
    <br>
    <i>void Output_File::create_temp(); -</i> Create a temporary file. This file will be deleted when it is closed.<br>
    <br>
-   <i>void Output_File::write(const void *buffer, const size_t length); -</i>
-   Write data to the file.<br>
+   <i>void Output_File::write(const void *buffer, const size_t length); -</i> Write data to the file.<br>
    <br>
    <i>void Output_File::flush(); -</i> Force writing the internal buffer data to the file.<br>
   </big>
@@ -1877,17 +1814,13 @@
    <br>
    <i>unsigned int Mouse::get_y(); -</i> Return the y-position of the mouse.<br>
    <br>
-   <i>void Mouse::set_position(const unsigned int x, const unsigned int y); -</i>
-   Set the position of the mouse.<br>
+   <i>void Mouse::set_position(const unsigned int x, const unsigned int y); -</i> Set the position of the mouse.<br>
    <i><br>
-    bool Mouse::check_hold(const EUGENEGDK::MOUSE_BUTTON button); -</i>
-   Return true if a mouse button is pressed or held.<br>
+    bool Mouse::check_hold(const EUGENEGDK::MOUSE_BUTTON button); -</i> Return true if a mouse button is pressed or held.<br>
    <br>
-   <i>bool Mouse::check_press(const EUGENEGDK::MOUSE_BUTTON button); -</i>
-   Return true if a mouse button was pressed.<br>
+   <i>bool Mouse::check_press(const EUGENEGDK::MOUSE_BUTTON button); -</i> Return true if a mouse button was pressed.<br>
    <br>
-   <i>bool Mouse::check_release(const EUGENEGDK::MOUSE_BUTTON button); -</i>
-   Return true if a mouse button was released.<br>
+   <i>bool Mouse::check_release(const EUGENEGDK::MOUSE_BUTTON button); -</i> Return true if a mouse button was released.<br>
    <u><br>
     The mouse buttons.</u><br>
    <br>
@@ -2051,32 +1984,23 @@
    <br>
    <i>EUGENEGDK::GAMEPAD_DPAD Gamepad::get_dpad() const; -</i> Return the code of the pressed or held D-pad button.<br>
    <i><br>
-    bool Gamepad::check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button) const;
-    -</i> Return true if the button is pressed or held.<br>
+    bool Gamepad::check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button) const; -</i> Return true if the button is pressed or held.<br>
    <i><br>
-    bool Gamepad::check_press(const EUGENEGDK::GAMEPAD_BUTTONS button)
-    const; -</i> Return true if the button was pressed.<br>
+    bool Gamepad::check_press(const EUGENEGDK::GAMEPAD_BUTTONS button) const; -</i> Return true if the button was pressed.<br>
    <br>
-   <i>bool Gamepad::check_released(const EUGENEGDK::GAMEPAD_BUTTONS button)
-    const; -</i> Return true if the button was released.<br>
+   <i>bool Gamepad::check_released(const EUGENEGDK::GAMEPAD_BUTTONS button) const; -</i> Return true if the button was released.<br>
    <br>
-   <i>EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const
-    EUGENEGDK::GAMEPAD_STICKS stick) const; -</i> Return the x-direction of a specific stick.<br>
+   <i>EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick) const; -</i> Return the x-direction of a specific stick.<br>
    <i><br>
-    EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const
-    EUGENEGDK::GAMEPAD_STICKS stick) const; -</i> Return the y-direction of a specific stick.<br>
+    EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick) const; -</i> Return the y-direction of a specific stick.<br>
    <i><br>
-    EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_x() const; -</i>
-   Return the x-direction of the left stick.<br>
+    EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_x() const; -</i> Return the x-direction of the left stick.<br>
    <br>
-   <i>EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_y() const; -</i>
-   Return the y-direction of the left stick.<br>
+   <i>EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_y() const; -</i> Return the y-direction of the left stick.<br>
    <i><br>
-    EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_x() const; -</i>
-   Return the x-direction of the right stick.<br>
+    EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_x() const; -</i> Return the x-direction of the right stick.<br>
    <i><br>
-    EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_y() const; -</i>
-   Return the y-direction of the right stick.<br>
+    EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_y() const; -</i> Return the y-direction of the right stick.<br>
   </big>
   <h1><a id="mozTocId41774" class="mozTocH1"></a><big>Part 10. The internal details of the engine subsystems</big></h1>
   <h2><a id="mozTocId478780" class="mozTocH2"></a><big>Chapter 1. A few words for a curious programmer</big></h2>
@@ -2725,6 +2649,7 @@
    9.7.4: The background subsystem has improved.<br>
    9.7.5: The text printing subsystem has improved.<br>
    9.7.6: The rendering performance has increased.<br>
+   9.7.6.1: The documentation has been updated.<br>
   </big>
  </body>
 </html>
