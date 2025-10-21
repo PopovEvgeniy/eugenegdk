@@ -857,7 +857,7 @@
    <br>
    <i>bool Sprite::load(const char *name, const EUGENEGDK::IMAGE_KIND kind, const unsigned int frames); -</i> Load a sprite from the target file and return true if it is loaded.<br>
    <br>
-   <i>void Sprite::set_target(const unsigned int target); </i>- Set the target frame.<br>
+   <i>unsigned int Sprite::set_target(const unsigned int target); -</i> Set the target frame and return it.<br>
    <br>
    <i>void Sprite::step(); -</i> Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
    <br>
@@ -943,7 +943,7 @@
    <br>
    <i>void Sheet::select(const unsigned int row, const unsigned int column); -</i> Select the target frame by row and column.<br>
    <br>
-   <i>void Sheet::set_target(const unsigned int target); -</i> Set the target frame.<br>
+   <i>unsigned int Sheet::set_target(const unsigned int target); -</i> Set the target frame and return it.<br>
    <br>
    <i>void Sheet::step(); -</i> Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
    <br>
@@ -2650,6 +2650,7 @@
    9.7.5: The text printing subsystem has improved.<br>
    9.7.6: The rendering performance has increased.<br>
    9.7.6.1: The documentation has been updated.<br>
+   9.7.7: The sprite subsystem has improved.<br>
   </big>
  </body>
 </html>
