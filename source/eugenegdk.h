@@ -945,7 +945,7 @@ typedef enum
    void horizontal_mirror();
    void vertical_mirror();
    void complex_mirror();
-   void set_target(const unsigned int target);
+   unsigned int set_target(const unsigned int target);
    void step();
    void draw();
    void draw(const unsigned int target);
