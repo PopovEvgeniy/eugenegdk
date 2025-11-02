@@ -576,6 +576,12 @@
    <i>void Background::complex_mirror(); -</i> Set both the horizontal
    background mirroring mode and the vertical background mirroring mode.<br>
    <br>
+   <i>bool Background::is_horizontally_mirrored(); -</i> Return true if the background is horizontally mirrored.<br>
+   <br>
+   <i>bool Background::is_vertically_mirrored(); -</i> Return true if the background is vertically mirrored.<br>
+   <br>
+   <i>bool Background::is_complex_mirrored(); -</i> Return true if the background is both horizontally and vertically mirrored.<br>      
+   <br>
    <i>unsigned int Background::set_target(const unsigned int target); -</i> Set the target frame and return it.<br>
    <br>
    <i>void Background::step(); -</i> Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
@@ -2660,6 +2666,7 @@
    9.7.8: The ordinary background subsystem has improved.<br>
    9.7.9-9.8: The small changes.<br>
    9.8.1: The base sprite subsystem has improved.<br>
+   9.8.2: The ordinary background subsystem has improved.<br>
   </big>
  </body>
 </html>
