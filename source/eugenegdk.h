@@ -985,6 +985,9 @@ typedef enum
    void horizontal_mirror();
    void vertical_mirror();
    void complex_mirror();
+   bool is_horizontally_mirrored() const;
+   bool is_vertically_mirrored() const;
+   bool is_complex_mirrored() const;
    void draw();
    void destroy_image();
    void destroy();
