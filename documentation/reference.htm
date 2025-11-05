@@ -722,7 +722,13 @@
    <br>
    <i>void Parallax::complex_mirror(); -</i> Set both the horizontal
    background mirroring mode and the vertical background mirroring mode.<br>
+   <br>   
+   <i>bool Parallax::is_horizontally_mirrored(); -</i> Return true if the background is horizontally mirrored.<br>
    <br>
+   <i>bool Parallax::is_vertically_mirrored(); -</i> Return true if the background is vertically mirrored.<br>
+   <br>
+   <i>bool Parallax::is_complex_mirrored(); -</i> Return true if the background is both horizontally and vertically mirrored.<br>
+   <br>   
    <i>bool Parallax::load(Image *background); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <i><br>
     bool Parallax::load(Image &amp; background); -</i> Load a background from the buffer and return true if it is loaded.<br>
@@ -2674,6 +2680,7 @@
    9.8.1: The base sprite subsystem has improved.<br>
    9.8.2: The ordinary background subsystem has improved.<br>
    9.8.3: The static background subsystem has improved.<br>
+   9.8.4: The parallax background subsystem has improved.<br>
   </big>
  </body>
 </html>
