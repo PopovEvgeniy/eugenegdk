@@ -3971,6 +3971,21 @@ namespace EUGENEGDK
    stage.complex_mirror();
   }
 
+  bool Parallax::is_horizontally_mirrored() const
+  {
+   return stage.is_horizontally_mirrored();
+  }
+
+  bool Parallax::is_vertically_mirrored() const
+  {
+   return stage.is_vertically_mirrored();
+  }
+
+  bool Parallax::is_complex_mirrored() const
+  {
+   return stage.is_complex_mirrored();
+  }
+
   void Parallax::destroy_image()
   {
    stage.destroy_image();
