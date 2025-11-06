@@ -852,6 +852,7 @@ typedef enum
    bool is_horizontally_mirrored() const;
    bool is_vertically_mirrored() const;
    bool is_complex_mirrored() const;
+   bool is_mirrored() const;
    void go_start();
    void go_start_x();
    void go_start_y();
