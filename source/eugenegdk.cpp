@@ -2156,7 +2156,7 @@ namespace EUGENEGDK
 
   }
 
-  bool Screen::update()
+  bool Screen::sync(const bool limit)
   {
    if (this->get_context()!=NULL)
    {
@@ -2164,22 +2164,21 @@ namespace EUGENEGDK
     this->update_counter();
     this->clear_stage();
    }
+   if (limit==true)
+   {
+    this->wait_timer();
+   }
    return this->process_message();
   }
 
   bool Screen::sync()
   {
-   this->wait_timer();
-   return this->update();
+   return this->sync(true);
   }
 
-  bool Screen::sync(const bool limit)
+  bool Screen::update()
   {
-   if (limit==true)
-   {
-    this->wait_timer();
-   }
-   return this->update();
+   return this->sync(false);
   }
 
   bool Screen::is_ready()
@@ -3158,6 +3157,11 @@ namespace EUGENEGDK
   bool Billboard::is_complex_mirrored() const
   {
    return mirror==Core::MIRROR_BOTH;
+  }
+
+  bool Billboard::is_mirrored() const
+  {
+   return mirror!=Core::MIRROR_NONE;
   }
 
   void Billboard::go_start()

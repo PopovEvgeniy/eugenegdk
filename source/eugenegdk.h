@@ -660,9 +660,9 @@ typedef enum
    void clear_screen();
    void initialize();
    void initialize(const unsigned int width,const unsigned int height);
-   bool update();
-   bool sync();
    bool sync(const bool limit);
+   bool sync();
+   bool update();
    bool is_ready();
    bool is_accelerated() const;
    bool is_software() const;
@@ -852,6 +852,7 @@ typedef enum
    bool is_horizontally_mirrored() const;
    bool is_vertically_mirrored() const;
    bool is_complex_mirrored() const;
+   bool is_mirrored() const;
    void go_start();
    void go_start_x();
    void go_start_y();
