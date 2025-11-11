@@ -990,6 +990,7 @@ typedef enum
    bool is_horizontally_mirrored() const;
    bool is_vertically_mirrored() const;
    bool is_complex_mirrored() const;
+   bool is_mirrored() const;
    void draw();
    void destroy_image();
    void destroy();
