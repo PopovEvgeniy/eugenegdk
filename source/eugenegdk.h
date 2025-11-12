@@ -1027,6 +1027,7 @@ typedef enum
    bool is_horizontally_mirrored() const;
    bool is_vertically_mirrored() const;
    bool is_complex_mirrored() const;
+   bool is_mirrored() const;
    void set_horizontal_speed(const float speed);
    void set_vertical_speed(const float speed);
    void set_speed(const float horizontal,const float vertical);

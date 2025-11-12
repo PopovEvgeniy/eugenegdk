@@ -658,15 +658,15 @@
     void Scene::vertical_mirror(); -</i> Set the vertical background mirroring mode.<br>
    <br>
    <i>void Scene::complex_mirror(); -</i> Set both the horizontal background
-   mirroring mode and the vertical background mirroring mode.<br>
-   <br>
-   <i>bool Scene::is_mirrored const(); -</i> Return true if the background is mirrored in any way.<br>   
+   mirroring mode and the vertical background mirroring mode.<br>      
    <br>
    <i>bool Scene::is_horizontally_mirrored const(); -</i> Return true if the background is horizontally mirrored.<br>
    <br>
    <i>bool Scene::is_vertically_mirrored const(); -</i> Return true if the background is vertically mirrored.<br>
    <br>
    <i>bool Scene::is_complex_mirrored const(); -</i> Return true if the background is both horizontally and vertically mirrored.<br>
+   <br>
+   <i>bool Scene::is_mirrored const(); -</i> Return true if the background is mirrored in any way.<br>
    <br>
    <i>bool Scene::load(Image *background); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <br>
@@ -732,6 +732,8 @@
    <i>bool Parallax::is_vertically_mirrored const(); -</i> Return true if the background is vertically mirrored.<br>
    <br>
    <i>bool Parallax::is_complex_mirrored const(); -</i> Return true if the background is both horizontally and vertically mirrored.<br>
+   <br>
+   <i>bool Parallax::is_mirrored() const; -</i> Return true if the background is mirrored in any way.<br>      
    <br>   
    <i>bool Parallax::load(Image *background); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <i><br>
@@ -2691,6 +2693,7 @@
    9.8.6-9.8.8: The small changes.<br>
    9.8.9: The ordinary background subsystem has improved.<br>
    9.9: The static background subsystem has improved.<br>
+   9.9.1: The parallax background subsystem has improved.<br>
   </big>
  </body>
 </html>
