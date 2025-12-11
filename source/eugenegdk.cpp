@@ -2973,82 +2973,52 @@ namespace EUGENEGDK
 
   void Billboard::set_start(const unsigned int x,const unsigned int y)
   {
-   if (billboard.is_texture_exist()==true)
-   {
-    start_x=x;
-    start_y=y;
-   }
-
+   start_x=x;
+   start_y=y;
   }
 
   void Billboard::set_position(const unsigned int x,const unsigned int y)
   {
-   if (billboard.is_texture_exist()==true)
-   {
-    current_x=x;
-    current_y=y;
-   }
-
+   current_x=x;
+   current_y=y;
   }
 
   void Billboard::set_x(const unsigned int x)
   {
-   if (billboard.is_texture_exist()==true)
-   {
-    current_x=x;
-   }
-
+   current_x=x;
   }
 
   void Billboard::set_y(const unsigned int y)
   {
-   if (billboard.is_texture_exist()==true)
-   {
-    current_y=y;
-   }
-
+   current_y=y;
   }
 
   unsigned int Billboard::increase_x(const unsigned int increment)
   {
-   if (billboard.is_texture_exist()==true)
-   {
-    current_x+=increment;
-   }
+   current_x+=increment;
    return current_x;
   }
 
   unsigned int Billboard::increase_y(const unsigned int increment)
   {
-   if (billboard.is_texture_exist()==true)
-   {
-    current_y+=increment;
-   }
+   current_y+=increment;
    return current_y;
   }
 
   unsigned int Billboard::decrease_x(const unsigned int decrement)
   {
-   if (billboard.is_texture_exist()==true)
+   if (current_x>=decrement)
    {
-    if (current_x>=decrement)
-    {
-     current_x-=decrement;
-    }
-
+    current_x-=decrement;
    }
    return current_x;
   }
 
   unsigned int Billboard::decrease_y(const unsigned int decrement)
   {
-   if (billboard.is_texture_exist()==true)
+   if (current_y>=decrement)
    {
-    if (current_y>=decrement)
-    {
-     current_y-=decrement;
-    }
-
+    current_y-=decrement;
    }
    return current_y;
   }
