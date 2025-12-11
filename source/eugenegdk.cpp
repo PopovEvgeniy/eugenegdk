@@ -2941,26 +2941,18 @@ namespace EUGENEGDK
 
   void Billboard::set_width(const unsigned int width)
   {
-   if (billboard.is_texture_exist()==true)
+   if (width>0)
    {
-    if (width>0)
-    {
-     sprite_width=width;
-    }
-
+    sprite_width=width;
    }
 
   }
 
   void Billboard::set_height(const unsigned int height)
   {
-   if (billboard.is_texture_exist()==true)
+   if (height>0)
    {
-    if (height>0)
-    {
-     sprite_height=height;
-    }
-
+    sprite_height=height;
    }
 
   }
