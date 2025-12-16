@@ -3500,13 +3500,9 @@ namespace EUGENEGDK
 
   void Sheet::select(const unsigned int row,const unsigned int column)
   {
-   if (this->check_row(row)==true)
+   if (this->check_cell(row,column)==true)
    {
-    if (this->check_column(column)==true)
-    {
-     billboard.set_tile_offset(static_cast<float>(row),static_cast<float>(rows),static_cast<float>(column),static_cast<float>(columns));
-    }
-
+    billboard.set_tile_offset(static_cast<float>(row),static_cast<float>(rows),static_cast<float>(column),static_cast<float>(columns));
    }
 
   }
