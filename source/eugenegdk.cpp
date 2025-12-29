@@ -3305,6 +3305,98 @@ namespace EUGENEGDK
    this->clone(target.get_handle());
   }
 
+  Ribbon::Ribbon()
+  {
+
+  }
+
+  Ribbon::~Ribbon()
+  {
+
+  }
+
+  void Ribbon::set_sprite_frame()
+  {
+   billboard.set_horizontal_offset(static_cast<float>(this->get_frame()),static_cast<float>(this->get_frames()));
+  }
+
+  Ribbon* Ribbon::get_handle()
+  {
+   return this;
+  }
+
+  bool Ribbon::load(Image *buffer,const unsigned int frames)
+  {
+   this->load_image(buffer);
+   if (this->is_storage_empty()==false)
+   {
+    this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
+    this->set_frames(frames);
+    this->set_size(this->get_image_width()/this->get_frames(),this->get_image_height());
+    this->set_sprite_frame();
+   }
+   return this->is_load();
+  }
+
+  bool Ribbon::load(Image &buffer,const unsigned int frames)
+  {
+   return this->load(buffer.get_handle(),frames);
+  }
+
+  bool Ribbon::load(const char *name,const unsigned int frames)
+  {
+   Image picture;
+   picture.load(name);
+   return this->load(picture,frames);
+  }
+
+  unsigned int Ribbon::set_target(const unsigned int target)
+  {
+   this->set_frame(target);
+   this->set_sprite_frame();
+   return this->get_frame();
+  }
+
+  void Ribbon::step()
+  {
+   this->increase_frame();
+   this->set_sprite_frame();
+  }
+
+  void Ribbon::destroy()
+  {
+   billboard.destroy_texture();
+   this->destroy_image();
+   this->reset_billboard_settings();
+   this->reset_animation_settings();
+  }
+
+  void Ribbon::clone(Ribbon *target)
+  {
+   if (target!=NULL)
+   {
+    if (target->get_image_length()>0)
+    {
+     this->destroy();
+     this->set_image_size(target->get_image_width(),target->get_image_height());
+     this->create_storage();
+     this->set_frames(target->get_frames());
+     this->set_transparent(target->get_transparent());
+     this->copy_image(target->get_image());
+     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
+     this->set_size(target->get_width(),target->get_height());
+     this->set_sprite_frame();
+    }
+
+   }
+
+  }
+
+  void Ribbon::clone(Ribbon &target)
+  {
+   this->clone(target.get_handle());
+  }
+
   Cartoon::Cartoon()
   {
 

@@ -887,6 +887,24 @@ typedef enum
    void clone(Sprite &target);
   };
 
+  class Ribbon:public Billboard,public Animation,public Picture
+  {
+   private:
+   void set_sprite_frame();
+   public:
+   Ribbon();
+   ~Ribbon();
+   Ribbon* get_handle();
+   bool load(Image *buffer,const unsigned int frames);
+   bool load(Image &buffer,const unsigned int frames);
+   bool load(const char *name,const unsigned int frames);
+   unsigned int set_target(const unsigned int target);
+   void step();
+   void destroy();
+   void clone(Ribbon *target);
+   void clone(Ribbon &target);
+  };
+
   class Cartoon:public Billboard,public Picture
   {
    public:
