@@ -4,7 +4,7 @@ Some code taken from wglext.h(https://www.khronos.org/registry/OpenGL/api/GL/wgl
 
 The Eugene Game Development Kit license
 
-Copyright (C) 2021 - 2025 Popov Evgeniy Alekseyevich
+Copyright (C) 2021 - 2026 Popov Evgeniy Alekseyevich
 
 This software is provided 'as-is', without any express or implied
 warranty.  In no event will the authors be held liable for any damages
@@ -3393,6 +3393,98 @@ namespace EUGENEGDK
   }
 
   void Ribbon::clone(Ribbon &target)
+  {
+   this->clone(target.get_handle());
+  }
+
+  Tier::Tier()
+  {
+
+  }
+
+  Tier::~Tier()
+  {
+
+  }
+
+  void Tier::set_sprite_frame()
+  {
+   billboard.set_vertical_offset(static_cast<float>(this->get_frame()),static_cast<float>(this->get_frames()));
+  }
+
+  Tier* Tier::get_handle()
+  {
+   return this;
+  }
+
+  bool Tier::load(Image *buffer,const unsigned int frames)
+  {
+   this->load_image(buffer);
+   if (this->is_storage_empty()==false)
+   {
+    this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
+    this->set_frames(frames);
+    this->set_size(this->get_image_width(),this->get_image_height()/this->get_frames());
+    this->set_sprite_frame();
+   }
+   return this->is_load();
+  }
+
+  bool Tier::load(Image &buffer,const unsigned int frames)
+  {
+   return this->load(buffer.get_handle(),frames);
+  }
+
+  bool Tier::load(const char *name,const unsigned int frames)
+  {
+   Image picture;
+   picture.load(name);
+   return this->load(picture,frames);
+  }
+
+  unsigned int Tier::set_target(const unsigned int target)
+  {
+   this->set_frame(target);
+   this->set_sprite_frame();
+   return this->get_frame();
+  }
+
+  void Tier::step()
+  {
+   this->increase_frame();
+   this->set_sprite_frame();
+  }
+
+  void Tier::destroy()
+  {
+   billboard.destroy_texture();
+   this->destroy_image();
+   this->reset_billboard_settings();
+   this->reset_animation_settings();
+  }
+
+  void Tier::clone(Tier *target)
+  {
+   if (target!=NULL)
+   {
+    if (target->get_image_length()>0)
+    {
+     this->destroy();
+     this->set_image_size(target->get_image_width(),target->get_image_height());
+     this->create_storage();
+     this->set_frames(target->get_frames());
+     this->set_transparent(target->get_transparent());
+     this->copy_image(target->get_image());
+     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
+     this->set_size(target->get_width(),target->get_height());
+     this->set_sprite_frame();
+    }
+
+   }
+
+  }
+
+  void Tier::clone(Tier &target)
   {
    this->clone(target.get_handle());
   }
