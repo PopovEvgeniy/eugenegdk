@@ -4059,6 +4059,161 @@ namespace EUGENEGDK
    return stage.get_height();
   }
 
+  Section::Section()
+  {
+   stage.set_position(0,0);
+  }
+
+  Section::~Section()
+  {
+   stage.destroy();
+  }
+
+  Section* Section::get_handle()
+  {
+   return this;
+  }
+
+  void Section::prepare(const Screen *screen)
+  {
+   if (screen!=NULL)
+   {
+    stage.set_size(screen->get_width(),screen->get_height());
+   }
+
+  }
+
+  void Section::prepare(const unsigned int width,const unsigned int height)
+  {
+   stage.set_size(width,height);
+  }
+
+  void Section::prepare(Screen &screen)
+  {
+   this->prepare(screen.get_handle());
+  }
+
+  bool Section::load(Image *background,const unsigned int frames)
+  {
+   return stage.load(background,frames);
+  }
+
+  bool Section::load(Image &background,const unsigned int frames)
+  {
+   return stage.load(background,frames);
+  }
+
+  bool Section::load(const char *name,const unsigned int frames)
+  {
+   return stage.load(name,frames);
+  }
+
+  void Section::disable_mirror()
+  {
+   stage.disable_mirror();
+  }
+
+  void Section::horizontal_mirror()
+  {
+   stage.horizontal_mirror();
+  }
+
+  void Section::vertical_mirror()
+  {
+   stage.vertical_mirror();
+  }
+
+  void Section::complex_mirror()
+  {
+   stage.complex_mirror();
+  }
+
+  bool Section::is_horizontally_mirrored() const
+  {
+   return stage.is_horizontally_mirrored();
+  }
+
+  bool Section::is_vertically_mirrored() const
+  {
+   return stage.is_vertically_mirrored();
+  }
+
+  bool Section::is_complex_mirrored() const
+  {
+   return stage.is_complex_mirrored();
+  }
+
+  bool Section::is_mirrored() const
+  {
+   return stage.is_mirrored();
+  }
+
+  unsigned int Section::set_target(const unsigned int target)
+  {
+   return stage.set_target(target);
+  }
+
+  void Section::step()
+  {
+   stage.step();
+  }
+
+  void Section::draw()
+  {
+   stage.draw(false);
+  }
+
+  void Section::draw(const unsigned int target)
+  {
+   stage.set_target(target);
+   stage.draw(false);
+  }
+
+  void Section::destroy_image()
+  {
+   stage.destroy_image();
+  }
+
+  void Section::destroy()
+  {
+   stage.destroy();
+  }
+
+  bool Section::is_load() const
+  {
+   return stage.is_load();
+  }
+
+  bool Section::is_last_frame() const
+  {
+   return stage.is_last_frame();
+  }
+
+  bool Section::check_frame(const unsigned int target) const
+  {
+   return stage.check_frame(target);
+  }
+
+  unsigned int Section::get_frame() const
+  {
+   return stage.get_frame();
+  }
+
+  unsigned int Section::get_frames() const
+  {
+   return stage.get_frames();
+  }
+
+  unsigned int Section::get_width() const
+  {
+   return stage.get_width();
+  }
+
+  unsigned int Section::get_height() const
+  {
+   return stage.get_height();
+  }
+
   Scene::Scene()
   {
    stage.set_position(0,0);

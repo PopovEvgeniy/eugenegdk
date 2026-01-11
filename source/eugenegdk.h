@@ -1006,36 +1006,6 @@ typedef enum
    EUGENEGDK::IMAGE_KIND get_kind() const;
   };
 
-  class Scene
-  {
-   private:
-   Graphics::Cartoon stage;
-   public:
-   Scene();
-   ~Scene();
-   Scene* get_handle();
-   void prepare(const Screen *screen);
-   void prepare(Screen &screen);
-   void prepare(const unsigned int width,const unsigned int height);
-   bool load(Image *background);
-   bool load(Image &background);
-   bool load(const char *name);
-   void disable_mirror();
-   void horizontal_mirror();
-   void vertical_mirror();
-   void complex_mirror();
-   bool is_horizontally_mirrored() const;
-   bool is_vertically_mirrored() const;
-   bool is_complex_mirrored() const;
-   bool is_mirrored() const;
-   void draw();
-   void destroy_image();
-   void destroy();
-   bool is_load() const;
-   unsigned int get_width() const;
-   unsigned int get_height() const;
-  };
-
   class Segment
   {
    private:
@@ -1069,6 +1039,73 @@ typedef enum
    bool check_frame(const unsigned int target) const;
    unsigned int get_frame() const;
    unsigned int get_frames() const;
+   unsigned int get_width() const;
+   unsigned int get_height() const;
+  };
+
+  class Section
+  {
+   private:
+   Graphics::Tier stage;
+   public:
+   Section();
+   ~Section();
+   Section* get_handle();
+   void prepare(const Screen *screen);
+   void prepare(Screen &screen);
+   void prepare(const unsigned int width,const unsigned int height);
+   bool load(Image *background,const unsigned int frames);
+   bool load(Image &background,const unsigned int frames);
+   bool load(const char *name,const unsigned int frames);
+   void disable_mirror();
+   void horizontal_mirror();
+   void vertical_mirror();
+   void complex_mirror();
+   bool is_mirrored() const;
+   bool is_horizontally_mirrored() const;
+   bool is_vertically_mirrored() const;
+   bool is_complex_mirrored() const;
+   unsigned int set_target(const unsigned int target);
+   void step();
+   void draw();
+   void draw(const unsigned int target);
+   void destroy_image();
+   void destroy();
+   bool is_load() const;
+   bool is_last_frame() const;
+   bool check_frame(const unsigned int target) const;
+   unsigned int get_frame() const;
+   unsigned int get_frames() const;
+   unsigned int get_width() const;
+   unsigned int get_height() const;
+  };
+
+  class Scene
+  {
+   private:
+   Graphics::Cartoon stage;
+   public:
+   Scene();
+   ~Scene();
+   Scene* get_handle();
+   void prepare(const Screen *screen);
+   void prepare(Screen &screen);
+   void prepare(const unsigned int width,const unsigned int height);
+   bool load(Image *background);
+   bool load(Image &background);
+   bool load(const char *name);
+   void disable_mirror();
+   void horizontal_mirror();
+   void vertical_mirror();
+   void complex_mirror();
+   bool is_horizontally_mirrored() const;
+   bool is_vertically_mirrored() const;
+   bool is_complex_mirrored() const;
+   bool is_mirrored() const;
+   void draw();
+   void destroy_image();
+   void destroy();
+   bool is_load() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
   };
