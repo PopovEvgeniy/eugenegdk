@@ -5,10 +5,8 @@
   </head>
   <body>
     <div align="center"><big>Eugene Game Development Kit: Programmer Reference</big><br>
-    </div>
-    <big><br>
-      <br>
-    </big>
+    </div>    
+    <br>    
     <ol id="mozToc">
       <!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
       <li><a href="#mozTocId368114">Part 1. Welcome</a>
@@ -39,8 +37,8 @@
           <li><a href="#mozTocId259576">Chapter 5. The vertex index</a></li>
           <li><a href="#mozTocId555408">Chapter 6. The image kind</a></li>
           <li><a href="#mozTocId893444">Chapter 7. The ordinary background</a></li>
-          <li><a href="#mozTocId461777">Chapter 8. The segment.</a></li>
-          <li><a href="#mozTocId461777">Chapter 9. The section.</a></li>
+          <li><a href="#mozTocId510609">Chapter 8. The segment</a></li>
+          <li><a href="#mozTocId419384">Chapter 9. The section</a></li>
           <li><a href="#mozTocId910184">Chapter 10. The static background</a></li>
           <li><a href="#mozTocId807594">Chapter 11. The parallax background</a></li>
           <li><a href="#mozTocId347790">Chapter 12. The base sprite subsystem</a></li>
@@ -115,12 +113,10 @@
     </ol>
     <h1><a id="mozTocId368114" class="mozTocH1"></a><big>Part 1. Welcome</big></h1>
     <h2><a id="mozTocId96569" class="mozTocH2"></a><big>Chapter 1. The introduction</big></h2>
-    <big><br>
-      <u>The introduction.</u><br>
+    <big><br><u>The introduction.</u><br>
       <br>
       Hello! My name is Popov Evgeniy Alekseyevich. I am an individual programmer. I enjoy creating software. I also like old-school video games. Do you want to develop video games for Microsoft Windows? You need a good game engine to do it. I made my own engine. I hope that my C++ game engine will be useful for many programmers.<br>
-      <br>
-      <u>Features.</u><br>
+      <br><u>Features.</u><br>
       <br>
       Let me show you the engine features. Let's go.<br>
       <br>
@@ -129,13 +125,10 @@
       <li><big>Open-source code.</big></li>
       <li><big>Very fast.</big></li>
       <li><big>The easy-to-use object-oriented design.</big></li>
-      <li><big>The minimum number of external dependencies: <a href="https://learn.microsoft.com/en-us/windows/win32/directx">DirectX</a>, <a
-
-            href="https://opengl.org">OpenGL</a>, and the standard <a href="https://learn.microsoft.com/en-us/windows/win32/apiindex/windows-api-list">Windows API</a> libraries.</big></li>
+      <li><big>The minimum number of external dependencies: <a href="https://learn.microsoft.com/en-us/windows/win32/directx">DirectX</a>, <a href="https://opengl.org">OpenGL</a>, and the standard <a href="https://learn.microsoft.com/en-us/windows/win32/apiindex/windows-api-list">Windows API</a> libraries.</big></li>
       <li><big>You don't need to link a main program with the engine binary file. The engine is just the source code files.</big></li>
     </ul>
-    <big><u><br>
-        Installation.</u><br>
+    <big><u><br>Installation.</u><br>
       <br>
       How to install this engine? Follow these steps:<br>
       <br>
@@ -188,8 +181,7 @@
       2. Altered source versions must be plainly marked as such, and must not be<br>
       misrepresented as being the original software.<br>
       3. This notice may not be removed or altered from any source distribution.<br>
-      <br>
-      <u>The third–party license.</u><br>
+      <br><u>The third–party license.</u><br>
       <br>
       Copyright (c) 2007 – 2010 The Khronos Group Inc.<br>
       <br>
@@ -278,9 +270,7 @@
       <li><big>C++ Builder 13 Florence</big></li>
     </ul>
     <h2><a id="mozTocId250267" class="mozTocH2"></a><big>Chapter 7. The platform-specific notes</big></h2>
-    <big><u><br>
-        The old processor support.<br>
-      </u><br>
+    <big><u><br>The old processor support.<br></u><br>
       You need one of the following compilers for the old processor support:<br>
       <br>
     </big>
@@ -290,8 +280,7 @@
       <li><big>Visual C++ 2003</big></li>
       <li><big>Visual C++ 2005</big></li>
     </ul>
-    <big><br>
-      <u>Windows XP support.</u><br>
+    <big><br><u>Windows XP support.</u><br>
       <br>
       You need one of the following compilers for <a href="https://en.wikipedia.org/wiki/Windows_XP">Windows XP</a> support:<br>
       <br>
@@ -304,14 +293,10 @@
       <li><big>Visual C++ 2005</big></li>
       <li><big>Visual C++ 2008</big></li>
     </ul>
-    <big><u><br>
-        Windows SDK and DirectX SDK.</u><br>
+    <big><u><br>Windows SDK and DirectX SDK.</u><br>
       <br>
-      You need <a href="https://www.microsoft.com/en-us/download/details.aspx?id=15656">Windows Server 2003 SP1 Platform SDK</a> and <a
-
-        href="https://archive.org/details/dxsdk_feb2005">DirectX SDK February 2005</a> if you are using Visual C++ 2005 Express.<br>
-      <u><br>
-        A note for the Visual C++ users.</u><br>
+      You need <a href="https://www.microsoft.com/en-us/download/details.aspx?id=15656">Windows Server 2003 SP1 Platform SDK</a> and <a href="https://archive.org/details/dxsdk_feb2005">DirectX SDK February 2005</a> if you are using Visual C++ 2005 Express.<br>
+      <u><br>A note for the Visual C++ users.</u><br>
       <br>
       Disable the precompiled headers before starting compilation. The old Visual C++ users can do it via the project creation wizard.<br>
       The Visual C++ 2017 or higher users must follow these steps:<br>
@@ -364,54 +349,48 @@
       All classes in this section are declared in the <i>Graphics</i> sub-namespace.<br>
     </big>
     <h2><a id="mozTocId307980" class="mozTocH2"></a><big>Chapter 2. The base graphics subsystem</big></h2>
-    <big><br>
-      <u>The introduction.</u><br>
+    <big><br><u>The introduction.</u><br>
       <br>
-      The base graphics subsystem does render a game scene. This subsystem uses <a
-
-        href="http://opengl.org">OpenGL</a> for rendering. All modern video cards support hardware acceleration. The software implementation will be activated if the acceleration is not available.<br>
-      <br>
-      <u>The render performance.</u><br>
+      The base graphics subsystem does render a game scene. This subsystem uses <a href="http://opengl.org">OpenGL</a> for rendering. All modern video cards support hardware acceleration. The software implementation will be activated if the acceleration is not available.<br>
+      <br><u>The render performance.</u><br>
       <br>
       Always use the latest video card drivers. It may increase the rendering performance. You can also try to change the screen resolution if you have low rendering performance.<br>
-      <br>
-      <u>The FPS limitation.</u><br>
+      <br><u>The FPS limitation.</u><br>
       <br>
       FPS is an important thing. Many FPS are needed for a good animation, but it also needs high processor usage. The FPS limit is 60 by default. It has an ideal value.<br>
-      <br>
-      <u>Work with the base graphics subsystem.</u><br>
+      <br><u>Work with the base graphics subsystem.</u><br>
       <br>
       The <i>Screen</i> class provides access to the base graphics subsystem. Let's look at the publicly available methods.<br>
       <br>
       <i>void Screen::clear_screen(); -</i> Clear the screen. Fill it with black color.<br>
       <br>
       <i>void Screen::initialize(); -</i> Initialize the base graphic subsystem with the default screen resolution.<br>
-      <i><br>
-        void Screen::initialize(const unsigned int width, const unsigned int height); -</i> Initialize the base graphic subsystem with the custom screen resolution.<br>
+      <br>
+      <i>void Screen::initialize(const unsigned int width, const unsigned int height); -</i> Initialize the base graphic subsystem with the custom screen resolution.<br>
       <br>
       <i>bool Screen::sync(); -</i> Show the current content of the back buffer on the screen. Return false if a game is terminated. This method uses the FPS limits and waits between frames.<br>
       <br>
       <i>bool Screen::update(); -</i> Show the current content of the back buffer on the screen. Return false if a game is terminated. This method ignores the FPS limit and needs high processor usage.<br>
-      <i><br>
-        bool Screen::sync(const bool limit); </i>- Show the current content of the back buffer on the screen. Return false if a game is terminated.<br>
-      <i><br>
-        bool Screen::is_ready(); -</i> Return true if the subsystem has already been initialized.<br>
+      <br>
+      <i>bool Screen::sync(const bool limit); </i>- Show the current content of the back buffer on the screen. Return false if a game is terminated.<br>
+      <br>
+      <i>bool Screen::is_ready(); -</i> Return true if the subsystem has already been initialized.<br>
       <br>
       <i>bool Screen::is_accelerated() const; -</i> Return true if the render is hardware-accelerated.<br>
       <br>
       <i>bool Screen::is_software() const; -</i> Return true if the software render is active.<br>
       <br>
       <i>unsigned int Screen::get_fps() const; -</i> Return the current FPS value.<br>
-      <i><br>
-        unsigned int Screen::get_color() const; -</i> Return the current color depth in bits per pixel.<br>
+      <br>
+      <i>unsigned int Screen::get_color() const; -</i> Return the current color depth in bits per pixel.<br>
       <br>
       <i>unsigned int Screen::get_width() const; -</i> Return the screen width in pixels.<br>
-      <i><br>
-        unsigned int Screen::get_height() const; -</i> Return the screen height in pixels.<br>
-      <i><br>
-        unsigned int Screen::get_rate() const; -</i> Return the screen refresh rate.<br>
-      <i><br>
-        bool Screen::check_x(const unsigned int x) const; -</i> Return true if the x-coordinate is valid.<br>
+      <br>
+      <i>unsigned int Screen::get_height() const; -</i> Return the screen height in pixels.<br>
+      <br>
+      <i>unsigned int Screen::get_rate() const; -</i> Return the screen refresh rate.<br>
+      <br>
+      <i>bool Screen::check_x(const unsigned int x) const; -</i> Return true if the x-coordinate is valid.<br>
       <br>
       <i>bool Screen::check_y(const unsigned int y) const; -</i> Return true if the y-coordinate is valid.<br>
       <br>
@@ -422,46 +401,41 @@
       <i>Screen *Screen::get_handle(); -</i> Return the handle to the base graphics subsystem object.<br>
     </big>
     <h2><a id="mozTocId648437" class="mozTocH2"></a><big>Chapter 3. The picture subsystem</big></h2>
-    <big><u><br>
-        An important subsystem.</u><br>
+    <big><u><br>An important subsystem.</u><br>
       <br>
       The picture subsystem implements an image storage.<br>
-      <u><br>
-        Work with the picture subsystem.</u><br>
+      <u><br>Work with the picture subsystem.</u><br>
       <br>
       The <i>Picture</i> class provides simple access to the picture subsystem. Don't use it directly. Let's look at the publicly available methods.<br>
-      <i><br>
-        unsigned int *Picture::get_image(); -</i> Return the handle to the image storage.<br>
-      <i><br>
-        void Picture::destroy_image(); -</i> Destroy an image in the storage.<br>
-      <i><br>
-        bool Picture::is_storage_empty() const; -</i> Return true if the storage is empty.<br>
-      <i><br>
-        unsigned int Picture::get_image_width() const; -</i> Return the image width in pixels.<br>
+      <br>
+      <i>unsigned int *Picture::get_image(); -</i> Return the handle to the image storage.<br>
+      <br>
+      <i>void Picture::destroy_image(); -</i> Destroy an image in the storage.<br>
+      <br>
+      <i>bool Picture::is_storage_empty() const; -</i> Return true if the storage is empty.<br>
+      <br>
+      <i>unsigned int Picture::get_image_width() const; -</i> Return the image width in pixels.<br>
       <br>
       <i>unsigned int Picture::get_image_height() const; -</i> Return the image height in pixels.<br>
-      <i><br>
-        size_t Picture::get_pixel_amount() const; -</i> Return the amount of the image pixels.<br>
+      <br>
+      <i>size_t Picture::get_pixel_amount() const; -</i> Return the amount of the image pixels.<br>
       <br>
       <i>size_t Picture::get_image_lenght() const; -</i> Return the image length in bytes.<br>
     </big>
     <h2><a id="mozTocId467966" class="mozTocH2"></a><big>Chapter 4. The animation subsystem</big></h2>
-    <big><u><br>
-        An important subsystem.</u><br>
+    <big><u><br>An important subsystem.</u><br>
       <br>
       The animation subsystem lets you control the animation frames.<br>
-      <u><br>
-        The frame index.</u><br>
+      <u><br>The frame index.</u><br>
       <br>
       The first frame index is 1.<br>
-      <br>
-      <u>Work with the animation subsystem.</u><br>
+      <br><u>Work with the animation subsystem.</u><br>
       <br>
       The <i>Animation</i> class provides simple access to the animation subsystem. Don't use it directly. Let's look at the publicly available methods.<br>
       <br>
       <i>unsigned int Animation::get_frames() const; -</i> Return the number of the frames.<br>
-      <i><br>
-        unsigned int Animation::get_frame() const; -</i> Return the current frame.<br>
+      <br>
+      <i>unsigned int Animation::get_frame() const; -</i> Return the current frame.<br>
       <br>
       <i>bool Animation::is_last_frame() const; -</i> Return true if the current frame is the last frame.<br>
       <br>
@@ -529,28 +503,26 @@
     <big><br>
     </big>
     <h2><a id="mozTocId893444" class="mozTocH2"></a><big>Chapter 7. The ordinary background</big></h2>
-    <big><br>
-      <u>The decoration for a level.</u><br>
+    <big><br><u>The decoration for a level.</u><br>
       <br>
       A background is a big image with a few frames. Any game has a background. The background will be stretched to the screen resolution before rendering the game scene. The background transparency is always disabled.<br>
       <br>
       The horizontal animated backgrounds look like the horizontal photo ribbons. The vertical animated backgrounds look like the vertical photo ribbons.<br>
-      <br>
-      <u>Work with the background.</u><br>
+      <br><u>Work with the background.</u><br>
       <br>
       Just use the <i>Background</i> class to work with the background. Let's look at the publicly available methods.<br>
       <br>
       <i>Background *Background::get_handle(); -</i> Return the handle to the background object.<br>
       <br>
       <i>void Background::prepare(const Screen *screen); -</i> Prepare for drawing.<br>
-      <i><br>
-        void Background::prepare(Screen &amp;screen); -</i> Prepare for drawing.<br>
-      <i><br>
-        void Background::prepare(const unsigned int width, const unsigned int height); -</i> Prepare for drawing.<br>
+      <br>
+      <i>void Background::prepare(Screen &amp;screen); -</i> Prepare for drawing.<br>
+      <br>
+      <i>void Background::prepare(const unsigned int width, const unsigned int height); -</i> Prepare for drawing.<br>
       <br>
       <i>void Background::disable_mirror(); -</i> Disable the background mirroring mode.<br>
-      <i><br>
-        void Background::horizontal_mirror(); -</i> Set the horizontal background mirroring mode.<br>
+      <br>
+      <i>void Background::horizontal_mirror(); -</i> Set the horizontal background mirroring mode.<br>
       <br>
       <i>void Background::vertical_mirror(); -</i> Set the vertical background mirroring mode.<br>
       <br>
@@ -575,12 +547,12 @@
       <i>bool Background::load(Image &amp;background, const EUGENEGDK::IMAGE_KIND kind, const unsigned int frames); -</i> Load a background from the buffer and return true if it is loaded.<br>
       <br>
       <i>bool Background::load(const char *name, const EUGENEGDK::IMAGE_KIND kind, const unsigned int frames); -</i> Load a background from the target file and return true if it is loaded.<br>
-      <i><br>
-        void Background::draw(); -</i> Draw a background.<br>
+      <br>
+      <i>void Background::draw(); -</i> Draw a background.<br>
       <br>
       <i>void Background::draw(const unsigned int target); -</i> Draw the target frame.<br>
-      <i><br>
-        void Background::destroy_image(); -</i> Destroy a background image.<br>
+      <br>
+      <i>void Background::destroy_image(); -</i> Destroy a background image.<br>
       <br>
       <i>void Background::destroy(); -</i> Destroy a background image and the texture.<br>
       <br>
@@ -591,14 +563,14 @@
       <i>bool Background::check_frame(const unsigned int target) const; -</i>Return true if the target frame is valid.<br>
       <br>
       <i>unsigned int Background::get_frame() const; -</i> Return the current frame.<br>
-      <i><br>
-        unsigned int Background::get_frames() const; -</i> Return the number of the frames.<br>
-      <i><br>
-        unsigned int Background::get_width() const; -</i> Return the width of the background.<br>
-      <i><br>
-        unsigned int Background::get_height() const; -</i> Return the height of the background.<br>
-      <i><br>
-        EUGENEGDK::IMAGE_KIND Background::get_kind() const; -</i> Get the background kind.<br>
+      <br>
+      <i>unsigned int Background::get_frames() const; -</i> Return the number of the frames.<br>
+      <br>
+      <i>unsigned int Background::get_width() const; -</i> Return the width of the background.<br>
+      <br>
+      <i>unsigned int Background::get_height() const; -</i> Return the height of the background.<br>
+      <br>
+      <i>EUGENEGDK::IMAGE_KIND Background::get_kind() const; -</i> Get the background kind.<br>
       <br>
       <u>A background texture</u><br>
       <br>
@@ -607,20 +579,18 @@
       Important notice<br>
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
-    </big>
-    <h2><a id="mozTocId461777" class="mozTocH2"></a><big>Chapter 8. The segment.</big></h2>
-    <big><br>
-      <u>A few words about the segmenr.</u><br>
+    </big><br>
+    <h2><a id="mozTocId510609" class="mozTocH2"></a><big>Chapter 8. The segment</big></h2>
+    <big><br><u>A few words about the segment.</u><br>
       <br>
       The segment is a horizontal animated background.<br>
-      <br>
-      <u>Work with the segment.</u><br>
+      <br><u>Work with the segment.</u><br>
       <br>
       Just use the <i>Segment</i> class to work with the segment. Let's look at the publicly available methods.<br>
-      <i> <br>
-        Segment *Segment::get_handle();</i> - Return the handle to the segment object.<br>
-      <i> <br>
-        void Segment::prepare(const Screen *screen);</i> - Prepare for drawing.<br>
+      <br>
+      <i>Segment *Segment::get_handle();</i> - Return the handle to the segment object.<br>
+      <br>
+      <i>void Segment::prepare(const Screen *screen);</i> - Prepare for drawing.<br>
       <br>
       <i>void Segment::prepare(Screen &amp;screen);</i> - Prepare for drawing.<br>
       <br>
@@ -631,26 +601,26 @@
       <i>void Segment::horizontal_mirror();</i> - Set the horizontal background mirroring mode.<br>
       <br>
       <i>void Segment::vertical_mirror();</i> - Set the vertical background mirroring mode.<br>
-      <i> <br>
-        void Segment::complex_mirror();</i> - Set both the horizontal background mirroring mode and the vertical background mirroring mode.<br>
-      <i> <br>
-        bool Segment::is_horizontally_mirrored const();</i> - Return true if the background is horizontally mirrored.<br>
-      <i> <br>
-        bool Segment::is_vertically_mirrored const();</i> - Return true if the background is vertically mirrored.<br>
+      <br>
+      <i>void Segment::complex_mirror();</i> - Set both the horizontal background mirroring mode and the vertical background mirroring mode.<br>
+      <br>
+      <i>bool Segment::is_horizontally_mirrored const();</i> - Return true if the background is horizontally mirrored.<br>
+      <br>
+      <i>bool Segment::is_vertically_mirrored const();</i> - Return true if the background is vertically mirrored.<br>
       <br>
       <i>bool Segment::is_complex_mirrored const();</i> - Return true if the background is both horizontally and vertically mirrored.<br>
-      <i> <br>
-        bool Segment::is_mirrored const();</i> - Return true if the background is mirrored in any way.<br>
-      <i> <br>
-        unsigned int Segment::set_target(const unsigned int target);</i> - Set the target frame and return it.<br>
-      <i> <br>
-        void Segment::step();</i> - Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
-      <i> <br>
-        bool Segment::load(Image *background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
-      <i> <br>
-        bool Segment::load(Image &amp;background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
-      <i> <br>
-        bool Segment::load(const char *name, const unsigned int frames);</i> - Load a background from the target file and return true if it is loaded.<br>
+      <br>
+      <i>bool Segment::is_mirrored const();</i> - Return true if the background is mirrored in any way.<br>
+      <br>
+      <i>unsigned int Segment::set_target(const unsigned int target);</i> - Set the target frame and return it.<br>
+      <br>
+      <i>void Segment::step();</i> - Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
+      <br>
+      <i>bool Segment::load(Image *background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
+      <br>
+      <i>bool Segment::load(Image &amp;background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
+      <br>
+      <i>bool Segment::load(const char *name, const unsigned int frames);</i> - Load a background from the target file and return true if it is loaded.<br>
       <br>
       <i>void Segment::draw();</i> - Draw a background.<br>
       <br>
@@ -663,38 +633,35 @@
       <i>bool Segment::is_load() const;</i> - Return true if a background has already been loaded.<br>
       <br>
       <i>bool Segment::is_last_frame() const;</i> - Return true if the current frame is the last frame.<br>
-      <i> <br>
-        bool Segment::check_frame(const unsigned int target) const;</i> - Return true if the target frame is valid.<br>
-      <i> <br>
-        unsigned int Segment::get_frame() const;</i> - Return the current frame.<br>
-      <i> <br>
-        unsigned int Segment::get_frames() const;</i> - Return the number of the frames.<br>
-      <i> <br>
-        unsigned int Segment::get_width() const;</i> - Return the width of the background.<br>
+      <br>
+      <i>bool Segment::check_frame(const unsigned int target) const;</i> - Return true if the target frame is valid.<br>
+      <br>
+      <i>unsigned int Segment::get_frame() const;</i> - Return the current frame.<br>
+      <br>
+      <i>unsigned int Segment::get_frames() const;</i> - Return the number of the frames.<br>
+      <br>
+      <i>unsigned int Segment::get_width() const;</i> - Return the width of the background.<br>
       <br>
       <i>unsigned int Segment::get_height() const;</i> - Return the height of the background.<br>
       <br>
       <u>A background texture.</u><br>
       <br>
       The background doesn't draw if the background texture doesn't exist. It will be automatically created when you load an image.<br>
-      <u><br>
-        An important notice.</u><br>
+      <u><br>An important notice.</u><br>
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
-    </big>
-    <h2><a id="mozTocId461777" class="mozTocH2"></a><big>Chapter 9. The section.</big></h2>
-    <big><br>
-      <u>A few words about the segmenr.</u><br>
+    </big><br>
+    <h2><a id="mozTocId419384" class="mozTocH2"></a><big>Chapter 9. The section</big></h2>
+    <big><br><u>A few words about the section.</u><br>
       <br>
       The section is a vertical animated background.<br>
-      <br>
-      <u>Work with the section.</u><br>
+      <br><u>Work with the section.</u><br>
       <br>
       Just use the <i>Section</i> class to work with the section. Let's look at the publicly available methods.<br>
-      <i><br>
-        Section *Section::get_handle();</i> - Return the handle to the segment object.<br>
-      <i><br>
-        void Section::prepare(const Screen *screen);</i> - Prepare for drawing.<br>
+      <br>
+      <i>Section *Section::get_handle();</i> - Return the handle to the section object.<br>
+      <br>
+      <i>void Section::prepare(const Screen *screen);</i> - Prepare for drawing.<br>
       <br>
       <i>void Section::prepare(Screen &amp;screen);</i> - Prepare for drawing.<br>
       <br>
@@ -705,26 +672,26 @@
       <i>void Section::horizontal_mirror();</i> - Set the horizontal background mirroring mode.<br>
       <br>
       <i>void Section::vertical_mirror();</i> - Set the vertical background mirroring mode.<br>
-      <i> <br>
-        void Section::complex_mirror();</i> - Set both the horizontal background mirroring mode and the vertical background mirroring mode.<br>
-      <i> <br>
-        bool Section::is_horizontally_mirrored const();</i> - Return true if the background is horizontally mirrored.<br>
-      <i> <br>
-        bool Section::is_vertically_mirrored const();</i> - Return true if the background is vertically mirrored.<br>
+      <br>
+      <i>void Section::complex_mirror();</i> - Set both the horizontal background mirroring mode and the vertical background mirroring mode.<br>
+      <br>
+      <i>bool Section::is_horizontally_mirrored const();</i> - Return true if the background is horizontally mirrored.<br>
+      <br>
+      <i>bool Section::is_vertically_mirrored const();</i> - Return true if the background is vertically mirrored.<br>
       <br>
       <i>bool Section::is_complex_mirrored const();</i> - Return true if the background is both horizontally and vertically mirrored.<br>
-      <i> <br>
-        bool Section::is_mirrored const();</i> - Return true if the background is mirrored in any way.<br>
-      <i> <br>
-        unsigned int Section::set_target(const unsigned int target);</i> - Set the target frame and return it.<br>
-      <i> <br>
-        void Section::step();</i> - Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
-      <i> <br>
-        bool Section::load(Image *background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
-      <i> <br>
-        bool Section::load(Image &amp;background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
-      <i> <br>
-        bool Section::load(const char *name, const unsigned int frames);</i> - Load a background from the target file and return true if it is loaded.<br>
+      <br>
+      <i>bool Section::is_mirrored const();</i> - Return true if the background is mirrored in any way.<br>
+      <br>
+      <i>unsigned int Section::set_target(const unsigned int target);</i> - Set the target frame and return it.<br>
+      <br>
+      <i>void Section::step();</i> - Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
+      <br>
+      <i>bool Section::load(Image *background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
+      <br>
+      <i>bool Section::load(Image &amp;background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
+      <br>
+      <i>bool Section::load(const char *name, const unsigned int frames);</i> - Load a background from the target file and return true if it is loaded.<br>
       <br>
       <i>void Section::draw();</i> - Draw a background.<br>
       <br>
@@ -737,38 +704,35 @@
       <i>bool Section::is_load() const;</i> - Return true if a background has already been loaded.<br>
       <br>
       <i>bool Section::is_last_frame() const;</i> - Return true if the current frame is the last frame.<br>
-      <i> <br>
-        bool Section::check_frame(const unsigned int target) const;</i> - Return true if the target frame is valid.<br>
-      <i> <br>
-        unsigned int Section::get_frame() const;</i> - Return the current frame.<br>
-      <i> <br>
-        unsigned int Section::get_frames() const;</i> - Return the number of the frames.<br>
-      <i> <br>
-        unsigned int Section::get_width() const;</i> - Return the width of the background.<br>
       <br>
-      <i>unsigned int Section::get_height() const;</i> - Return the height of the background.<br>
+      <i>bool Section::check_frame(const unsigned int target) const;</i> - Return true if the target frame is valid.<br>
       <br>
-      <u>A background texture.</u><br>
+      <i>unsigned int Section::get_frame() const;</i> - Return the current frame.<br>
+      <br>
+      <i>unsigned int Section::get_frames() const;</i> - Return the number of the frames.<br>
+      <br>
+      <i>unsigned int Section::get_width() const;</i> - Return the width of the background.<br>
+      <br>
+      <i>unsigned int Section::get_height() const;</i> - Return the height of the background.
+      <br>
+      <br><u>A background texture.</u><br>
       <br>
       The background doesn't draw if the background texture doesn't exist. It will be automatically created when you load an image.<br>
-      <u><br>
-        An important notice.</u><br>
+      <u><br>An important notice.</u><br>
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
     </big>
     <h2><a id="mozTocId910184" class="mozTocH2"></a><big>Chapter 10. The static background</big></h2>
-    <big><u><br>
-        A few words about the static background.</u><br>
+    <big><u><br>A few words about the static background.</u><br>
       <br>
       The static background is a simple kind of background. It contains one frame only.<br>
-      <u><br>
-        Work with the background.</u><br>
+      <u><br>Work with the background.</u><br>
       <br>
       Just use the <i>Scene</i> class to work with the static background. Let's look at the publicly available methods.<br>
       <br>
       <i>Scene *Scene::get_handle(); -</i> Return the handle to the background object.<br>
-      <i><br>
-        void Scene::prepare(const Screen *screen); -</i> Prepare for drawing.<br>
+      <br>
+      <i>void Scene::prepare(const Screen *screen); -</i> Prepare for drawing.<br>
       <br>
       <i>void Scene::prepare(Screen &amp;screen); -</i> Prepare for drawing.<br>
       <br>
@@ -777,8 +741,8 @@
       <i>void Scene::disable_mirror(); -</i> Disable the background mirroring mode.<br>
       <br>
       <i>void Scene::horizontal_mirror(); -</i> Set the horizontal background mirroring mode.<br>
-      <i><br>
-        void Scene::vertical_mirror(); -</i> Set the vertical background mirroring mode.<br>
+      <br>
+      <i>void Scene::vertical_mirror(); -</i> Set the vertical background mirroring mode.<br>
       <br>
       <i>void Scene::complex_mirror(); -</i> Set both the horizontal background mirroring mode and the vertical background mirroring mode.<br>
       <br>
@@ -805,45 +769,42 @@
       <i>bool Scene::is_load() const; -</i> Return true if a static background has already been loaded.<br>
       <br>
       <i>unsigned int Scene::get_width() const; -</i> Return the width of the background.<br>
-      <i><br>
-        unsigned int Scene::get_height() const; -</i> Return the height of the background.<br>
+      <br>
+      <i>unsigned int Scene::get_height() const; -</i> Return the height of the background.<br>
       <br>
       <u>A background texture</u><br>
       <br>
-      The background doesn't draw if the background texture doesn't exist. It will be automatically created when you load an image.<br>
+      The background doesn't draw if the background texture doesn't exist. It will be automatically created when you load an image.
       <br>
-      <u>Important notice</u><br>
+      <br><u>Important notice</u><br>
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
     </big>
-    <h2><a id="mozTocId807594" class="mozTocH2"></a><big>Chapter 11. The parallax background<br>
-      </big></h2>
-    <big><u><br>
-        A few words about the parallax.</u><br>
+    <h2><a id="mozTocId807594" class="mozTocH2"></a><big>Chapter 11. The parallax background<br></big></h2>
+    <big><u><br>A few words about the parallax.</u><br>
       <br>
       The parallax background is a background with scrolling support.<br>
-      <u><br>
-        The speed.</u><br>
+      <u><br>The speed.</u><br>
       <br>
-      The scrolling speed should be a positive number.<br>
+      The scrolling speed should be a positive number.
       <br>
-      <u>Work with the background.</u><br>
+      <br><u>Work with the background.</u><br>
       <br>
       Just use the <i>Parallax</i> class to work with the parallax background. Let's look at the publicly available methods.<br>
-      <i><br>
-        Parallax *Parallax::get_handle(); -</i> Return the handle to the background object.<br>
+      <br>
+      <i>Parallax *Parallax::get_handle(); -</i> Return the handle to the background object.<br>
       <br>
       <i>void Parallax::prepare(const Screen *screen); -</i> Prepare for drawing.<br>
-      <i><br>
-        void Parallax::prepare(Screen &amp;screen); -</i> Prepare for drawing.<br>
-      <i><br>
-        void Parallax::prepare(const unsigned int width, const unsigned int height); -</i> Prepare for drawing.<br>
+      <br>
+      <i>void Parallax::prepare(Screen &amp;screen); -</i> Prepare for drawing.<br>
+      <br>
+      <i>void Parallax::prepare(const unsigned int width, const unsigned int height); -</i> Prepare for drawing.<br>
       <br>
       <i>void Parallax::disable_mirror(); -</i> Disable the background mirroring mode.<br>
-      <i><br>
-        void Parallax::horizontal_mirror(); -</i> Set the horizontal background mirroring mode.<br>
-      <i><br>
-        void Parallax::vertical_mirror(); -</i> Set the vertical background mirroring mode.<br>
+      <br>
+      <i>void Parallax::horizontal_mirror(); -</i> Set the horizontal background mirroring mode.<br>
+      <br>
+      <i>void Parallax::vertical_mirror(); -</i> Set the vertical background mirroring mode.<br>
       <br>
       <i>void Parallax::complex_mirror(); -</i> Set both the horizontal background mirroring mode and the vertical background mirroring mode.<br>
       <br>
@@ -856,8 +817,8 @@
       <i>bool Parallax::is_mirrored() const; -</i> Return true if the background is mirrored in any way.<br>
       <br>
       <i>bool Parallax::load(Image *background); -</i> Load a background from the buffer and return true if it is loaded.<br>
-      <i><br>
-        bool Parallax::load(Image &amp; background); -</i> Load a background from the buffer and return true if it is loaded.<br>
+      <br>
+      <i>bool Parallax::load(Image &amp; background); -</i> Load a background from the buffer and return true if it is loaded.<br>
       <br>
       <i>bool Parallax::load(const char *name); -</i> Load a background from the target file and return true if it is loaded.<br>
       <br>
@@ -868,8 +829,8 @@
       <i>void Parallax::set_speed(const float horizontal, const float vertical); -</i> Set the scrolling speed.<br>
       <br>
       <i>float Parallax::get_horizontal_speed() const; -</i> Return the horizontal speed.<br>
-      <i><br>
-        float Parallax::get_vertical_speed() const; -</i> Return the vertical speed.<br>
+      <br>
+      <i>float Parallax::get_vertical_speed() const; -</i> Return the vertical speed.<br>
       <br>
       <i>void Parallax::draw(); -</i> Draw a background.<br>
       <br>
@@ -881,13 +842,13 @@
       <br>
       <i>unsigned int Parallax::get_width() const; -</i> Return the width of the background.<br>
       <br>
-      <i>unsigned int Parallax::get_height() const; -</i> Return the height of the background.<br>
-      <u><br>
-        A background texture.</u><br>
+      <i>unsigned int Parallax::get_height() const; -</i> Return the height of the background.
       <br>
-      The background doesn't draw if the background texture doesn't exist. It will be automatically created when you load an image.<br>
+      <u><br>A background texture.</u><br>
       <br>
-      <u>An important notice.</u><br>
+      The background doesn't draw if the background texture doesn't exist. It will be automatically created when you load an image.
+      <br>
+      <br><u>An important notice.</u><br>
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
     </big>
@@ -895,9 +856,9 @@
     <big><u><br>
         A small, important thing.</u><br>
       <br>
-      A sprite is a transparent image. It is useful for many things: enemies, bonuses, etc.<br>
-      <u><br>
-        Work with the base sprite subsystem.</u><br>
+      A sprite is a transparent image. It is useful for many things: enemies, bonuses, etc.
+      <br>
+      <u><br>Work with the base sprite subsystem.</u><br>
       <br>
       The <i>Billboard</i> class provides simple access to the base sprite subsystem. Don't use it directly. Let's look at the publicly available methods.<br>
       <br>
@@ -916,8 +877,8 @@
       <i>void Billboard::set_x(const unsigned int x); -</i> Set the x-coordinate of the sprite position.<br>
       <br>
       <i>void Billboard::set_y(const unsigned int y); -</i> Set the y-coordinate of the sprite position.<br>
-      <i><br>
-        void Billboard::set_width(const unsigned int width); -</i> Change the sprite width.<br>
+      <br>
+      <i>void Billboard::set_width(const unsigned int width); -</i> Change the sprite width.<br>
       <br>
       <i>void Billboard::set_height(const unsigned int height); -</i> Change the sprite height.<br>
       <br>
@@ -926,8 +887,8 @@
       <i>unsigned int Billboard::decrease_x(); -</i> Decrease the x-coordinate and return it.<br>
       <br>
       <i>unsigned int Billboard::increase_y(); -</i> Increase the y-coordinate and return it.<br>
-      <i><br>
-        unsigned int Billboard::decrease_y(); -</i> Decrease the y-coordinate and return it.<br>
+      <br>
+      <i>unsigned int Billboard::decrease_y(); -</i> Decrease the y-coordinate and return it.<br>
       <br>
       <i>unsigned int Billboard::increase_x(const unsigned int increment); -</i> Increase the x-coordinate with the user value and return it.<br>
       <br>
@@ -940,24 +901,24 @@
       <i>unsigned int Billboard::get_start_x() const; -</i> Return the x-coordinate of the start position.<br>
       <br>
       <i>unsigned int Billboard::get_start_y() const; -</i> Return the y-coordinate of the start position.<br>
-      <i><br>
-        unsigned int Billboard::get_x() const; -</i> Return the x-coordinate of the sprite position.<br>
+      <br>
+      <i>unsigned int Billboard::get_x() const; -</i> Return the x-coordinate of the sprite position.<br>
       <br>
       <i>unsigned int Billboard::get_y() const; -</i> Return the y-coordinate of the sprite position.<br>
       <br>
       <i>unsigned int Billboard::get_width() const; -</i> Return the width of the sprite.<br>
-      <i><br>
-        unsigned int Billboard::get_height() const; -</i> Return the height of the sprite.<br>
+      <br>
+      <i>unsigned int Billboard::get_height() const; -</i> Return the height of the sprite.<br>
       <br>
       <i>bool Billboard::is_load() const; -</i> Return true if the sprite has already been loaded.<br>
-      <i><br>
-        EUGENEGDK::BOX Billboard::get_box() const; -</i> Return the collision-related information.<br>
+      <br>
+      <i>EUGENEGDK::BOX Billboard::get_box() const; -</i> Return the collision-related information.<br>
       <br>
       <i>void Billboard::disable_mirror(); -</i> Disable the sprite mirroring mode.<br>
       <br>
       <i>void Billboard::horizontal_mirror(); -</i> Set the horizontal sprite mirroring mode.<br>
-      <i><br>
-        void Billboard::vertical_mirror(); -</i> Set the vertical sprite mirroring mode.<br>
+      <br>
+      <i>void Billboard::vertical_mirror(); -</i> Set the vertical sprite mirroring mode.<br>
       <br>
       <i>void Billboard::complex_mirror(); -</i> Set both the horizontal sprite mirroring mode and the vertical sprite mirroring mode.<br>
       <br>
@@ -984,13 +945,12 @@
       <i>void Billboard::draw(const bool transparency, const unsigned int x, const unsigned int y); -</i> Set the transparent mode and draw a sprite at the target position.<br>
     </big>
     <h2><a id="mozTocId156525" class="mozTocH2"></a><big>Chapter 13. The ordinary sprites</big></h2>
-    <big><br>
-      <u>The sprite types.</u><br>
+    <big><br><u>The sprite types.</u><br>
       <br>
       There are two kinds of ordinary sprites: the horizontal strips and the vertical strips. It is a small image with a few frames.<br>
-      The horizontal strip looks like the horizontal photo ribbon. The vertical strip looks like the vertical photo ribbon.<br>
+      The horizontal strip looks like the horizontal photo ribbon. The vertical strip looks like the vertical photo ribbon.
       <br>
-      <u>Work with the sprites.</u><br>
+      <br><u>Work with the sprites.</u><br>
       <br>
       Just use the <i>Sprite</i> class to work with a sprite. It is derived from three classes: <i>Billboard</i>, <i>Animation</i>, and <i>Picture</i>. Let's look at the publicly available methods.<br>
       <br>
@@ -1007,26 +967,25 @@
       <i>void Sprite::step(); -</i> Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
       <br>
       <i>EUGENEGDK::IMAGE_KIND Sprite::get_kind() const; -</i> Get the sprite kind.<br>
-      <i><br>
-        Sprite *Sprite::get_handle(); -</i> Return the handle to the sprite object.<br>
-      <i><br>
-        void Sprite::clone(Sprite *target); -</i> Create a copy of the sprite if the storage of the target sprite is not empty.<br>
+      <br>
+      <i>Sprite *Sprite::get_handle(); -</i> Return the handle to the sprite object.<br>
+      <br>
+      <i>void Sprite::clone(Sprite *target); -</i> Create a copy of the sprite if the storage of the target sprite is not empty.<br>
       <br>
       <i>void Sprite::clone(Sprite &amp;target); -</i> Create a copy of the sprite if the storage of the target sprite is not empty.<br>
       <br>
-      <i>void Sprite::destroy(); -</i> Destroy a sprite image and destroy the texture.<br>
+      <i>void Sprite::destroy(); -</i> Destroy a sprite image and destroy the texture.
       <br>
-      <u>A sprite texture</u><br>
+      <br><u>A sprite texture</u><br>
       <br>
       A sprite doesn't draw if the sprite texture doesn't exist. It will automatically be created when you load or clone a sprite.<br>
-    </big> <br>
-    <h2><a id="mozTocId412464" class="mozTocH2"></a><big>Chapter 14. The ribbons<br>
-      </big></h2>
-    <big> <u>A few words about the ribbons.</u><br>
+    </big><br>
+    <h2><a id="mozTocId412464" class="mozTocH2"></a><big>Chapter 14. The ribbons<br></big></h2>
+    <big><u>A few words about the ribbons.</u><br>
       <br>
-      The ribbons are horizontal strips.<br>
+      The ribbons are horizontal strips.
       <br>
-      <u>Work with the ribbons.</u><br>
+      <br><u>Work with the ribbons.</u><br>
       <br>
       Just use the <i>Ribbon</i> class to work with a ribbon. It is derived from three classes: <i>Billboard</i>, <i>Animation</i>, and <i>Picture</i>. Let's look at the publicly available methods.<br>
       <br>
@@ -1046,24 +1005,24 @@
       <br>
       <i>void Sprite::clone(Ribbon &amp;target); -</i> Create a copy of the sprite if the storage of the target sprite is not empty.<br>
       <br>
-      <i>void Ribbon::destroy(); -</i> Destroy a sprite image and destroy the texture.<br>
+      <i>void Ribbon::destroy(); -</i> Destroy a sprite image and destroy the texture.
       <br>
-      <u>A sprite texture</u><br>
+      <br><u>A sprite texture</u><br>
       <br>
       A sprite doesn't draw if the sprite texture doesn't exist. It will automatically be created when you load or clone a sprite.<br>
     </big>
     <h2><a id="mozTocId839836" class="mozTocH2"></a><big>Chapter 15. The tier</big></h2>
     <big><u>A few words about the tier.</u><br>
       <br>
-      The tier is a vertical strip.<br>
-      <u><br>
-        Work with the tier.</u><br>
+      The tier is a vertical strip.
+      <br>
+      <u><br>Work with the tier.</u><br>
       <br>
       Just use the <i>Tier</i> class to work with a tier. It is derived from three classes: <i>Billboard</i>, <i>Animation</i>, and <i>Picture</i>. Let's look at the publicly available methods.<br>
-      <i> <br>
-        bool Tier::load(Image *buffer, const unsigned int frames);</i> - Load a sprite from the buffer and return true if it is loaded.<br>
-      <i> <br>
-        bool Tier::load(Image &amp;buffer, const unsigned int frames);</i> - Load a sprite from the buffer and return true if it is loaded.<br>
+      <br>
+      <i>bool Tier::load(Image *buffer, const unsigned int frames);</i> - Load a sprite from the buffer and return true if it is loaded.<br>
+      <br>
+      <i>bool Tier::load(Image &amp;buffer, const unsigned int frames);</i> - Load a sprite from the buffer and return true if it is loaded.<br>
       <br>
       <i>bool Tier::load(const char *name, const unsigned int frames);</i> - Load a sprite from the target file and return true if it is loaded.<br>
       <br>
@@ -1076,26 +1035,25 @@
       <i>void Tier::clone(Tier *target);</i> - Create a copy of the sprite if the storage of the target sprite is not empty.<br>
       <br>
       <i>void Tier::clone(Tier &amp;target);</i> - Create a copy of the sprite if the storage of the target sprite is not empty.<br>
-      <i> <br>
-        void Tier::destroy();</i> - Destroy a sprite image and destroy the texture.<br>
+      <br>
+      <i>void Tier::destroy();</i> - Destroy a sprite image and destroy the texture.<br>
       <br>
       <u>A sprite texture</u><br>
       <br>
       A sprite doesn't draw if the sprite texture doesn't exist. It will automatically be created when you load or clone a sprite.<br>
     </big>
     <h2><a id="mozTocId832010" class="mozTocH2"></a><big>Chapter 16. The static sprites</big></h2>
-    <big><u><br>
-        A few words about the static sprites.</u><br>
+    <big><u><br>A few words about the static sprites.</u><br>
       <br>
-      The static sprite is a simple kind of sprite. It contains one frame only.<br>
-      <u><br>
-        Work with the static sprites.</u><br>
+      The static sprite is a simple kind of sprite. It contains one frame only.
+      <br>
+      <u><br>Work with the static sprites.</u><br>
       <br>
       Just use the <i>Cartoon</i> class to work with a static sprite. It is derived from two classes: billboard and picture. Let's look at the publicly available methods.<br>
       <br>
       <i>bool Cartoon::load(Image *buffer); -</i> Load a sprite from the buffer and return true if it is loaded.<br>
-      <i><br>
-        bool Cartoon::load(Image &amp;buffer); -</i> Load a sprite from the buffer and return true if it is loaded.<br>
+      <br>
+      <i>bool Cartoon::load(Image &amp;buffer); -</i> Load a sprite from the buffer and return true if it is loaded.<br>
       <br>
       <i>bool Cartoon::load(const char *name); -</i> Load a sprite from the target file and return true if it is loaded.<br>
       <br>
@@ -1105,35 +1063,33 @@
       <br>
       <i>void Cartoon::clone(Cartoon &amp;target); -</i> Create a copy of the sprite if the storage of the target sprite is not empty.<br>
       <br>
-      <i>void Cartoon::destroy(); -</i> Destroy a sprite image and the texture.<br>
-      <u><br>
-        A sprite texture</u><br>
+      <i>void Cartoon::destroy(); -</i> Destroy a sprite image and the texture.
+      <br>
+      <u><br>A sprite texture</u><br>
       <br>
       A sprite doesn't draw if the sprite texture doesn't exist. It will automatically be created when you load or clone a sprite.<br>
     </big>
     <h2><a id="mozTocId98487" class="mozTocH2"></a><big>Chapter 17. The sprite sheet</big></h2>
-    <big><br>
-      <u>Some words about the sprite sheet.</u><br>
+    <big><br><u>Some words about the sprite sheet.</u><br>
       <br>
       A sprite sheet is a special kind of animated sprite. Each frame has a fixed size. The sheet is a matrix of frames. Look at this picture to understand it.<br>
       <br>
       <img alt="" src="sheet.png" height="249" width="380"><br>
-      <u><br>
-        The rows and columns.</u><br>
+      <u><br>The rows and columns.</u><br>
       <br>
-      The first row index is 1. The first column index is 1.<br>
+      The first row index is 1. The first column index is 1.
       <br>
-      <u>Work with the sheet.</u><br>
+      <br><u>Work with the sheet.</u><br>
       <br>
       The <i>Sheet</i> class provides access to the sprite sheet subsystem. It is derived from three classes: <i>Billboard</i>, <i>Picture</i>, and <i>Animation</i>. Let's look at the publicly available methods.<br>
-      <i><br>
-        bool Sheet::check_row(const unsigned int target) const; -</i> Return true if the target row is valid.<br>
+      <br>
+      <i>bool Sheet::check_row(const unsigned int target) const; -</i> Return true if the target row is valid.<br>
       <br>
       <i>bool Sheet::check_column(const unsigned int target) const; -</i> Return true if the target column is valid.<br>
       <br>
       <i>bool Sheet::check_cell(const unsigned int row, const unsigned int column) const; -</i> Return true if the target cell is valid.<br>
-      <i><br>
-        unsigned int Sheet::get_row(const unsigned int target) const; -</i> Return row of the target frame.<br>
+      <br>
+      <i>unsigned int Sheet::get_row(const unsigned int target) const; -</i> Return row of the target frame.<br>
       <br>
       <i>unsigned int Sheet::get_column(const unsigned int target) const; -</i> Return column of the target frame.<br>
       <br>
@@ -1158,26 +1114,25 @@
       <i>bool Sheet::load(const char *name, const unsigned int row_amount, const unsigned int column_amount); -</i> Load a sprite sheet from a target file and return true if it is loaded.<br>
       <br>
       <i>Sheet *Sheet::get_handle(); -</i> Return the handle to the sprite sheet.<br>
-      <i><br>
-        void Sheet::clone(Sheet *target); -</i> Create a copy of the sprite sheet if the storage of the target sprite sheet is not empty.<br>
       <br>
-      <i>void Sheet::clone(Sheet &amp;target); -</i> Create a copy of the sprite sheet if the storage of the target sprite sheet is not empty.<br>
+      <i>void Sheet::clone(Sheet *target); -</i> Create a copy of the sprite sheet if the storage of the target sprite sheet is not empty.<br>
       <br>
-      <u>A sprite sheet texture.</u><br>
+      <i>void Sheet::clone(Sheet &amp;target); -</i> Create a copy of the sprite sheet if the storage of the target sprite sheet is not empty.
+      <br>
+      <br><u>A sprite sheet texture.</u><br>
       <br>
       A sprite sheet doesn't draw if the sprite sheet texture doesn't exist. It will be automatically created when you load a sheet.<br>
     </big>
     <h2><a id="mozTocId292221" class="mozTocH2"></a><big>Chapter 18. The text</big></h2>
-    <big><br>
-      <u>How to print a text?</u><br>
+    <big><br><u>How to print a text?</u><br>
       <br>
       Just use the text subsystem to print the text. This subsystem needs a font for text printing. You must load a font before starting to print the text. The font is just a sprite sheet with 16 rows and 16 columns.<br>
       <br>
       <u>The valid characters.</u><br>
       <br>
-      Only 8-bit characters are supported.<br>
+      Only 8-bit characters are supported.
       <br>
-      <u>The text orientation.</u><br>
+      <br><u>The text orientation.</u><br>
       <br>
       The text orientation looks like the predefined constants. You can see it below.<br>
       <br>
@@ -1200,8 +1155,7 @@
         </tr>
       </tbody>
     </table>
-    <big><br>
-      <u>Work with the text.</u><br>
+    <big><br><u>Work with the text.</u><br>
       <br>
       The <i>Text</i> class provides a simple interface to the text subsystem. Let's look at the publicly available methods.<br>
       <br>
@@ -1216,30 +1170,30 @@
       <i>unsigned int Text::get_font_width() const; -</i> Get the current font width in pixels.<br>
       <br>
       <i>unsigned int Text::get_font_height() const; -</i> Get the current font height in pixels.<br>
-      <i><br>
-        unsigned int Text::get_x() const; -</i> Get the x-coordinate of the text output position.<br>
+      <br>
+      <i>unsigned int Text::get_x() const; -</i> Get the x-coordinate of the text output position.<br>
       <br>
       <i>unsigned int Text::get_y() const; -</i> Get the y-coordinate of the text output position.<br>
       <br>
       <i>void Text::set_position(const unsigned int x, const unsigned int y); -</i> Set the output position.<br>
-      <i><br>
-        void Text::set_size(const unsigned int width, const unsigned int height); -</i> Change the font size.<br>
-      <i><br>
-        void Text::set_width(const unsigned int width); -</i> Set the font width.<br>
+      <br>
+      <i>void Text::set_size(const unsigned int width, const unsigned int height); -</i> Change the font size.<br>
+      <br>
+      <i>void Text::set_width(const unsigned int width); -</i> Set the font width.<br>
       <br>
       <i>void Text::set_height(const unsigned int height); -</i> Set the font height.<br>
       <br>
       <i>void Text::set_settings(const unsigned int width, const unsigned int height, const EUGENEGDK::TEXT_KIND kind); -</i> Set the text output settings.<br>
-      <i><br>
-        bool Text::load_font(Image *font); -</i> Load a font from the buffer and return true if it is loaded.<br>
+      <br>
+      <i>bool Text::load_font(Image *font); -</i> Load a font from the buffer and return true if it is loaded.<br>
       <br>
       <i>bool Text::load_font(Image &amp;font); -</i> Load a font from the buffer and return true if it is loaded.<br>
-      <i><br>
-        bool Text::load_font(const char *name); -</i> Load a font from the target file and return true if it is loaded.<br>
+      <br>
+      <i>bool Text::load_font(const char *name); -</i> Load a font from the target file and return true if it is loaded.<br>
       <br>
       <i>void Text::print(const char target); -</i> Print a single character at the current position.<br>
-      <i><br>
-        void Text::print(const unsigned int x, const unsigned int y, const char target); -</i> Print a single character at the specific position.<br>
+      <br>
+      <i>void Text::print(const unsigned int x, const unsigned int y, const char target); -</i> Print a single character at the specific position.<br>
       <br>
       <i>size_t Text::print(const char *target); -</i> Print a text at the current position and return the text length.<br>
       <br>
@@ -1250,16 +1204,15 @@
       <i>void Text::destroy_font(); -</i> Destroy a font image and the texture.<br>
     </big>
     <h2><a id="mozTocId652638" class="mozTocH2"></a><big>Chapter 19. Loading an image</big></h2>
-    <big><u><br>
-        Load an image from a file.</u><br>
+    <big><u><br>Load an image from a file.</u><br>
       <br>
       Use the image loader to load an image from a file. The <i>Image</i> class provides simple access to the image loader. It is a simple class with a few methods.<br>
       <br>
       <i>unsigned char *Image::load(const char *name); -</i> Load a Truevision TGA image and return the handle to the image buffer.<br>
-      <i><br>
-        unsigned char *Image::get_data(); -</i> Return the handle to the image buffer.<br>
-      <i><br>
-        unsigned int Image::get_width() const; -</i> Return the width of the current image.<br>
+      <br>
+      <i>unsigned char *Image::get_data(); -</i> Return the handle to the image buffer.<br>
+      <br>
+      <i>unsigned int Image::get_width() const; -</i> Return the width of the current image.<br>
       <br>
       <i>unsigned int Image::get_height() const; -</i> Return the height of the current image.<br>
       <br>
@@ -1272,51 +1225,46 @@
       <u>An important remark.</u><br>
       <br>
       A new image will replace the current image if the current image already exists. An incorrect image will be ignored and won't load.<br>
-      The source image will be converted to <a href="https://en.wikipedia.org/wiki/RGBA">RGBA</a> format. The pixels equal to the top-left pixel will be marked as transparent.<br>
-      <u><br>
-        The supported format.</u><br>
+      The source image will be converted to <a href="https://en.wikipedia.org/wiki/RGBA">RGBA</a> format. The pixels equal to the top-left pixel will be marked as transparent.
       <br>
-      All loading images must have the correct specifications. You can load an image from a 24-bit <a
-
-        href="https://en.wikipedia.org/wiki/Truevision_TGA">Truevision TGA</a> picture.<br>
+      <u><br>The supported format.</u><br>
       <br>
-      <u>The recommended software.</u><br>
+      All loading images must have the correct specifications. You can load an image from a 24-bit <a href="https://en.wikipedia.org/wiki/Truevision_TGA">Truevision TGA</a> picture.
       <br>
-      You can use a wide range of graphics software to convert your images to the correct format. I recommend using <a
-
-        href="https://www.gimp.org">GIMP</a> to do it. It is a powerful image editor.<br>
+      <br><u>The recommended software.</u><br>
+      <br>
+      You can use a wide range of graphics software to convert your images to the correct format. I recommend using <a href="https://www.gimp.org">GIMP</a> to do it. It is a powerful image editor.<br>
     </big>
     <h2><a id="mozTocId265884" class="mozTocH2"></a><big>Chapter 20. The camera</big></h2>
-    <big><br>
-      <u>A few words about the camera.</u><br>
+    <big><br><u>A few words about the camera.</u><br>
       <br>
-      The 2D camera defines the size of the visible area. It will be stretched to the screen resolution before rendering the game scene.<br>
+      The 2D camera defines the size of the visible area. It will be stretched to the screen resolution before rendering the game scene.
       <br>
-      <u>Work with the camera.</u><br>
+      <br><u>Work with the camera.</u><br>
       <br>
       The <i>Camera</i> class provides simple access to the camera subsystem. Let's look at the publicly available methods.<br>
-      <i><br>
-        Camera *Camera::get_handle(); -</i> Return the handle to the camera subsystem.<br>
+      <br>
+      <i>Camera *Camera::get_handle(); -</i> Return the handle to the camera subsystem.<br>
       <br>
       <i>unsigned int Camera::increase_x(); -</i> Increase the x-coordinate of the camera offset and return it.<br>
       <br>
       <i>unsigned int Camera::decrease_x(); -</i> Decrease the x-coordinate of the camera offset and return it.<br>
-      <i><br>
-        unsigned int Camera::increase_y(); -</i> Increase the y-coordinate of the camera offset and return it.<br>
-      <i><br>
-        unsigned int Camera::decrease_y(); -</i> Decrease the y-coordinate of the camera offset and return it.<br>
+      <br>
+      <i>unsigned int Camera::increase_y(); -</i> Increase the y-coordinate of the camera offset and return it.<br>
+      <br>
+      <i>unsigned int Camera::decrease_y(); -</i> Decrease the y-coordinate of the camera offset and return it.<br>
       <br>
       <i>unsigned int Camera::increase_x(const unsigned int increment); -</i> Increase the x-coordinate of the camera offset with the user value and return it.<br>
       <br>
       <i>unsigned int Camera::decrease_x(const unsigned int decrement); -</i> Decrease the x-coordinate of the camera offset with the user value and return it.<br>
-      <i><br>
-        unsigned int Camera::increase_y(const unsigned int increment); -</i> Increase the y-coordinate of the camera offset with the user value and return it.<br>
-      <i><br>
-        unsigned int Camera::decrease_y(const unsigned int decrement); -</i> Decrease the y-coordinate of the camera offset with the user value and return it.<br>
-      <i><br>
-        unsigned int Camera::get_x() const; -</i> Return the x-coordinate of the camera offset.<br>
-      <i><br>
-        unsigned int Camera::get_y() const; -</i> Return the y-coordinate of the camera offset.<br>
+      <br>
+      <i>unsigned int Camera::increase_y(const unsigned int increment); -</i> Increase the y-coordinate of the camera offset with the user value and return it.<br>
+      <br>
+      <i>unsigned int Camera::decrease_y(const unsigned int decrement); -</i> Decrease the y-coordinate of the camera offset with the user value and return it.<br>
+      <br>
+      <i>unsigned int Camera::get_x() const; -</i> Return the x-coordinate of the camera offset.<br>
+      <br>
+      <i>unsigned int Camera::get_y() const; -</i> Return the y-coordinate of the camera offset.<br>
       <br>
       <i>unsigned int Camera::get_screen_width() const; -</i> Return the screen width in pixels.<br>
       <br>
@@ -1327,24 +1275,24 @@
       <i>unsigned int Camera::get_viewport_height() const; -</i> Return the viewport height in pixels.<br>
       <br>
       <i>unsigned int Camera::get_highest_x() const; -</i> Return the highest allowable x-coordinate of the current visible area.<br>
-      <i><br>
-        unsigned int Camera::get_highest_y() const; -</i> Return the highest allowable y-coordinate of the current visible area.<br>
-      <i><br>
-        unsigned int Camera::get_highest_x_offset() const; -</i> Return the highest allowable x-offset of the camera.<br>
-      <i><br>
-        unsigned int Camera::get_highest_y_offset() const; -</i> Return the highest allowable y-offset of the camera.<br>
-      <i><br>
-        unsigned int Camera::get_world_x(const unsigned screen_int x) const; -</i> Convert the screen x-coordinate to the world x-coordinate.<br>
+      <br>
+      <i>unsigned int Camera::get_highest_y() const; -</i> Return the highest allowable y-coordinate of the current visible area.<br>
+      <br>
+      <i>unsigned int Camera::get_highest_x_offset() const; -</i> Return the highest allowable x-offset of the camera.<br>
+      <br>
+      <i>unsigned int Camera::get_highest_y_offset() const; -</i> Return the highest allowable y-offset of the camera.<br>
+      <br>
+      <i>unsigned int Camera::get_world_x(const unsigned screen_int x) const; -</i> Convert the screen x-coordinate to the world x-coordinate.<br>
       <br>
       <i>unsigned int Camera::get_world_y(const unsigned screen_int y) const; -</i> Convert the screen y-coordinate to the world y-coordinate.<br>
       <br>
       <i>unsigned int Camera::set_x(const unsigned int x); -</i> Set the x-coordinate of the camera offset and return it.<br>
       <br>
       <i>unsigned int Camera::set_y(const unsigned int y); -</i> Set the y-coordinate of the camera offset and return it.<br>
-      <i><br>
-        void Camera::initialize(const unsigned int width, const unsigned int height); -</i> Initialize the subsystem and set the screen size.<br>
-      <i><br>
-        void Camera::initialize(Screen *screen); -</i> Initialize the subsystem and set the screen size.<br>
+      <br>
+      <i>void Camera::initialize(const unsigned int width, const unsigned int height); -</i> Initialize the subsystem and set the screen size.<br>
+      <br>
+      <i>void Camera::initialize(Screen *screen); -</i> Initialize the subsystem and set the screen size.<br>
       <br>
       <i>void Camera::initialize(Screen &amp;screen); -</i> Initialize the subsystem and set the screen size.<br>
       <br>
@@ -1353,12 +1301,12 @@
       <i>void Camera::set_offset(const unsigned int x, const unsigned int y); -</i> Set the camera offset.<br>
       <br>
       <i>bool Camera::check_horizontal_border(const EUGENEGDK::BOX target) const; -</i> Return true if a game object has collided with the horizontal visible area border.<br>
-      <i><br>
-        bool Camera::check_vertical_border(const EUGENEGDK::BOX target) const; -</i> Return true if a game object has collided with the vertical visible area border.<br>
-      <i><br>
-        void Camera::update(); -</i> Update the camera.<br>
-      <i><br>
-        void Camera::update(const unsigned int x, const unsigned int y); -</i> Set the offsets and update the camera.<br>
+      <br>
+      <i>bool Camera::check_vertical_border(const EUGENEGDK::BOX target) const; -</i> Return true if a game object has collided with the vertical visible area border.<br>
+      <br>
+      <i>void Camera::update(); -</i> Update the camera.<br>
+      <br>
+      <i>void Camera::update(const unsigned int x, const unsigned int y); -</i> Set the offsets and update the camera.<br>
       <br>
       <i>void Camera::reset(); -</i> Reset the camera settings.<br>
       <br>
@@ -1372,20 +1320,18 @@
       All classes in this section are declared in the <i>Transformation</i> sub-namespace.<br>
     </big>
     <h2><a id="mozTocId505409" class="mozTocH2"></a><big>Chapter 2. The Cartesian coordinates and the screen coordinates</big></h2>
-    <big><br>
-      <u>The Cartesian coordinates.</u><br>
+    <big><br><u>The Cartesian coordinates.</u><br>
       <br>
       The Cartesian coordinates start at the center of the screen. Look at this picture to understand it.<br>
       <br>
       <img alt="" src="cartesian_system.png" height="111" width="107"><br>
-      <br>
-      <u>The coordinates conversion.</u><br>
+      <br><u>The coordinates conversion.</u><br>
       <br>
       You can convert the Cartesian coordinates to the screen coordinates. You can also convert the screen coordinates to the Cartesian coordinates.<br>
       <br>
       Just use the <i>Coordinates</i> class to do it. Let's look at the publicly available methods.<br>
-      <i><br>
-        Coordinates *Coordinates::get_handle(); -</i> Return the handle to the coordinates conversion subsystem.<br>
+      <br>
+      <i>Coordinates *Coordinates::get_handle(); -</i> Return the handle to the coordinates conversion subsystem.<br>
       <br>
       <i>void Coordinates::initialize(const int viewport_width, const int viewport_height); -</i> Initialize the subsystem.<br>
       <br>
@@ -1396,30 +1342,29 @@
       <i>int Coordinates::get_lowest_cartesian_x() const; -</i> Return the lowest allowable Cartesian x-coordinate.<br>
       <br>
       <i>int Coordinates::get_highest_cartesian_x() const; -</i> Return the highest allowable Cartesian x-coordinate.<br>
-      <i><br>
-        int Coordinates::get_lowest_cartesian_y() const; -</i> Return the lowest allowable Cartesian y-coordinate.<br>
-      <i><br>
-        int Coordinates::get_highest_cartesian_y() const; -</i> Return the highest allowable Cartesian y-coordinate.<br>
+      <br>
+      <i>int Coordinates::get_lowest_cartesian_y() const; -</i> Return the lowest allowable Cartesian y-coordinate.<br>
+      <br>
+      <i>int Coordinates::get_highest_cartesian_y() const; -</i> Return the highest allowable Cartesian y-coordinate.<br>
       <br>
       <i>bool Coordinates::check_cartesian_x(const int x) const; -</i> Return true if the Cartesian x-coordinate is valid.<br>
       <br>
       <i>bool Coordinates::check_cartesian_y(const int y) const; -</i> Return true if the Cartesian y-coordinate is valid.<br>
-      <i><br>
-        int Coordinates::get_screen_x(const int x) const; -</i> Convert the Cartesian x-coordinate to the screen x-coordinate.<br>
+      <br>
+      <i>int Coordinates::get_screen_x(const int x) const; -</i> Convert the Cartesian x-coordinate to the screen x-coordinate.<br>
       <br>
       <i>int Coordinates::get_screen_y(const int y) const; -</i> Convert the Cartesian y-coordinate to the screen y-coordinate.<br>
-      <i><br>
-        int Coordinates::get_cartesian_x(const int x) const; -</i> Convert the screen x-coordinate to the Cartesian x-coordinate.<br>
-      <i><br>
-        int Coordinates::get_cartesian_y(const int y) const; -</i> Convert the screen y-coordinate to the Cartesian y-coordinate.<br>
+      <br>
+      <i>int Coordinates::get_cartesian_x(const int x) const; -</i> Convert the screen x-coordinate to the Cartesian x-coordinate.<br>
+      <br>
+      <i>int Coordinates::get_cartesian_y(const int y) const; -</i> Convert the screen y-coordinate to the Cartesian y-coordinate.<br>
     </big>
     <h2><a id="mozTocId876509" class="mozTocH2"></a><big>Chapter 3. The Cartesian coordinates and the isometric coordinates</big></h2>
-    <big><br>
-      <u>A few words about the isometric games.</u><br>
+    <big><br><u>A few words about the isometric games.</u><br>
       <br>
-      <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometric projection</a> is a very popular way for pseudo-3D games. Many old-school games are isometric games.<br>
+      <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometric projection</a> is a very popular way for pseudo-3D games. Many old-school games are isometric games.
       <br>
-      <u>The coordinates conversion.</u><br>
+      <br><u>The coordinates conversion.</u><br>
       <br>
       You can convert the Cartesian coordinates to the isometric coordinates. You can also convert the isometric coordinates to the Cartesian coordinates. Just use the <i>Isometric</i> class to do it. Let's look at the publicly available methods.<br>
       <br>
@@ -1457,25 +1402,24 @@
     <h2><a id="mozTocId673941" class="mozTocH2"></a><big>Chapter 2. The abnormal program termination</big></h2>
     <big><br>
       You can use the <i>Halt</i> function to terminate a program. This function is declared in the <i>EGENEGDK</i> namespace.<br>
-      <i><br>
-        void EUGENEGDK::Halt(const char *message); -</i> Terminate the program. Write an error message to the log file if logging is enabled.<br>
+      <br>
+      <i>void EUGENEGDK::Halt(const char *message); -</i> Terminate the program. Write an error message to the log file if logging is enabled.<br>
     </big>
     <h2><a id="mozTocId284221" class="mozTocH2"></a><big>Chapter 3. The timers</big></h2>
     <big><br>
       A timer is a very useful thing. Just use the <i>Timer</i> class to work with the timer. Let's look at the publicly available methods.<br>
-      <i><br>
-        Timer *Timer::get_handle(); -</i> Return the handle to the timer.<br>
+      <br>
+      <i>Timer *Timer::get_handle(); -</i> Return the handle to the timer.<br>
       <br>
       <i>void Timer::set_timer(const double seconds); -</i> Set the timer interval and initialize the start point.<br>
-      <i><br>
-        double Timer::get_interval() const; -</i> Return the current timer interval.<br>
+      <br>
+      <i>double Timer::get_interval() const; -</i> Return the current timer interval.<br>
       <br>
       <i>bool Timer::check_timer(); -</i> Return true and reinitialize the start point if the interval between the stop and start points is larger than or equal to a specific number of seconds.<br>
     </big>
     <h2><a id="mozTocId674703" class="mozTocH2"></a><big>Chapter 4. The collision detector<br>
       </big></h2>
-    <big><br>
-      <u>An important thing for any game.</u><br>
+    <big><br><u>An important thing for any game.</u><br>
       <br>
       What is an important thing for a video game? A collision.<br>
       <br>
@@ -1489,9 +1433,9 @@
         unsigned int y;<br>
         unsigned int width;<br>
         unsigned int height;<br>
-        } BOX;</i><br>
-      <u><br>
-        Work with the collision detector.</u><br>
+        } BOX;</i>
+      <br>
+      <u><br>Work with the collision detector.</u><br>
       <br>
       The <i>Collision</i> class provides easy access to the collision detectors. It is a simple class with a few methods. Let's look at the publicly available methods.<br>
       <br>
@@ -1504,44 +1448,42 @@
       <i>bool Collision::check_collision(const EUGENEGDK::BOX first_target, const EUGENEGDK::BOX second_target); -</i> Set the targets and check the collision between them.<br>
     </big>
     <h2><a id="mozTocId560876" class="mozTocH2"></a><big>Chapter 5. The tilemaps</big></h2>
-    <big><u><br>
-        A few words about the tilemaps.</u><br>
+    <big><u><br>A few words about the tilemaps.</u><br>
       <br>
       The tilemap is a tile matrix. A tile is a small, non-transparent sprite. A tilemap is a very useful thing for the background.<br>
-      <u><br>
-        The rows and columns.</u><br>
+      <u><br>The rows and columns.</u><br>
       <br>
-      The first row index is 0. The first column index is 0.<br>
-      <u><br>
-        Work with the tilemap.</u><br>
+      The first row index is 0. The first column index is 0.
+      <br>
+      <u><br>Work with the tilemap.</u><br>
       <br>
       The <i>Tilemap</i> class provides easy access to the tilemap. It is a simple class with a few methods. Let's look at the publicly available methods.<br>
-      <i><br>
-        Tilemap *Tilemap::get_handle(); -</i> Return the handle to the tilemap subsystem.<br>
-      <i><br>
-        void Tilemap::initialize(const unsigned int tile_width, const unsigned int tile_height); -</i> Initialize the subsystem.<br>
-      <i><br>
-        unsigned int Tilemap::get_tile_width() const; -</i> Return the tile width in pixels.<br>
+      <br>
+      <i>Tilemap *Tilemap::get_handle(); -</i> Return the handle to the tilemap subsystem.<br>
+      <br>
+      <i>void Tilemap::initialize(const unsigned int tile_width, const unsigned int tile_height); -</i> Initialize the subsystem.<br>
+      <br>
+      <i>unsigned int Tilemap::get_tile_width() const; -</i> Return the tile width in pixels.<br>
       <br>
       <i>unsigned int Tilemap::get_tile_height() const; -</i> Return the tile height in pixels.<br>
-      <i><br>
-        unsigned int Tilemap::get_x(const unsigned int row) const; -</i> Get the x-coordinate from the target row.<br>
-      <i><br>
-        unsigned int Tilemap::get_y(const unsigned int column) const; -</i> Get the y-coordinate from the target column.<br>
-      <i><br>
-        unsigned int Tilemap::get_row(const unsigned int x) const; -</i> Get the row from the x-coordinate.<br>
-      <i><br>
-        unsigned int Tilemap::get_column(const unsigned int y) const; -</i> Get the column from the y-coordinate.<br>
-      <i><br>
-        unsigned int Tilemap::get_row_amount(const unsigned int viewport_width) const; -</i> Get the maximum number of the visible rows.<br>
-      <i><br>
-        unsigned int Tilemap::get_column_amount(const unsigned int viewport_width) const; -</i> Get the maximum number of the visible columns.<br>
+      <br>
+      <i>unsigned int Tilemap::get_x(const unsigned int row) const; -</i> Get the x-coordinate from the target row.<br>
+      <br>
+      <i>unsigned int Tilemap::get_y(const unsigned int column) const; -</i> Get the y-coordinate from the target column.<br>
+      <br>
+      <i>unsigned int Tilemap::get_row(const unsigned int x) const; -</i> Get the row from the x-coordinate.<br>
+      <br>
+      <i>unsigned int Tilemap::get_column(const unsigned int y) const; -</i> Get the column from the y-coordinate.<br>
+      <br>
+      <i>unsigned int Tilemap::get_row_amount(const unsigned int viewport_width) const; -</i> Get the maximum number of the visible rows.<br>
+      <br>
+      <i>unsigned int Tilemap::get_column_amount(const unsigned int viewport_width) const; -</i> Get the maximum number of the visible columns.<br>
       <br>
       <i>unsigned int Tilemap::get_tile_amount(const unsigned int viewport_width, const unsigned int viewport_height) const; -</i> Get the maximum number of the visible tiles.<br>
-      <i><br>
-        bool Tilemap::check_row(const unsigned int row, const unsigned int viewport_width) const; -</i> Return true if the row is valid.<br>
-      <i><br>
-        bool Tilemap::check_column(const unsigned int column, const unsigned int viewport_height) const; -</i> Return true if the column is valid.<br>
+      <br>
+      <i>bool Tilemap::check_row(const unsigned int row, const unsigned int viewport_width) const; -</i> Return true if the row is valid.<br>
+      <br>
+      <i>bool Tilemap::check_column(const unsigned int column, const unsigned int viewport_height) const; -</i> Return true if the column is valid.<br>
       <br>
       <i>EUGENEGDK::BOX Tilemap::get_box(const unsigned int row, const unsigned int column) const; -</i> Return the collision-related information.<br>
     </big><br>
@@ -1558,43 +1500,34 @@
       <br>
       <i>unsigned long long int Memory::get_free_physical(); -</i> Return the free physical memory size in bytes.<br>
       <br>
-      <i>unsigned long long int Memory::get_total_virtual(); -</i> Return the total <a
-
-        href="https://en.wikipedia.org/wiki/Virtual_memory">virtual memory</a> size in bytes.<br>
+      <i>unsigned long long int Memory::get_total_virtual(); -</i> Return the total <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual memory</a> size in bytes.<br>
       <br>
-      <i>unsigned long long int Memory::get_free_virtual(); -</i> Return the free <a
-
-        href="https://en.wikipedia.org/wiki/Virtual_memory">virtual memory</a> size in bytes.<br>
-      <i><br>
-        unsigned long long int Memory::get_physical_usge(); -</i> Return the physical memory usage in bytes.<br>
-      <i><br>
-        unsigned long long int Memory::get_virtual_usge(); -</i> Return the virtual memory usage in bytes.<br>
+      <i>unsigned long long int Memory::get_free_virtual(); -</i> Return the free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual memory</a> size in bytes.<br>
+      <br>
+      <i>unsigned long long int Memory::get_physical_usge(); -</i> Return the physical memory usage in bytes.<br>
+      <br>
+      <i>unsigned long long int Memory::get_virtual_usge(); -</i> Return the virtual memory usage in bytes.<br>
       <br>
       <i>unsigned long int Memory::get_usage(); -</i> Return the percentage of the physical memory used.<br>
     </big>
     <h2><a id="mozTocId995157" class="mozTocH2"></a><big>Chapter 3. The audio</big></h2>
-    <big><br>
-      <u>A few words about the audio subsystem.</u><br>
+    <big><br><u>A few words about the audio subsystem.</u><br>
       <br>
-      This subsystem is intended for playing music and sounds. <a href="https://en.wikipedia.org/wiki/WAV">Waveform Audio File Format</a>, <a
-
-        href="https://en.wikipedia.org/wiki/MP3">MPEG Audio Layer 3</a>, and <a
-
-        href="https://en.wikipedia.org/wiki/Windows_Media_Audio">Windows Media Audio</a> are supported.<br>
+      This subsystem is intended for playing music and sounds. <a href="https://en.wikipedia.org/wiki/WAV">Waveform Audio File Format</a>, <a href="https://en.wikipedia.org/wiki/MP3">MPEG Audio Layer 3</a>, and <a href="https://en.wikipedia.org/wiki/Windows_Media_Audio">Windows Media Audio</a> are supported.<br>
       <br>
       <u>The additional formats.</u><br>
       <br>
-      You can use an additional format if you install third-party codecs.<br>
+      You can use an additional format if you install third-party codecs.
       <br>
-      <u>Working with the audio.</u><br>
+      <br><u>Working with the audio.</u><br>
       <br>
       Just use the <i>Audio</i> class to work with the audio. Let's look at the publicly available methods.<br>
       <br>
       <i>void Audio::initialize(); -</i> Initialize the subsystem.<br>
       <br>
       <i>void Audio::initialize(const char *target); -</i> Initialize the subsystem and load a sound file.<br>
-      <i><br>
-        void Audio::load(const char *target); -</i> Load a sound file.<br>
+      <br>
+      <i>void Audio::load(const char *target); -</i> Load a sound file.<br>
       <br>
       <i>void Audio::play(); -</i> Play a sound.<br>
       <br>
@@ -1626,8 +1559,8 @@
       <i>bool enable_logging(const char *name); -</i> Enable redirecting error messages to a log file and return false if the operation failed.<br>
       <br>
       <i>void randomize(); -</i> Initialize the random number generator.<br>
-      <i><br>
-        unsigned int get_random(const unsigned int number); -</i> Return a random value between zero and the number.<br>
+      <br>
+      <i>unsigned int get_random(const unsigned int number); -</i> Return a random value between zero and the number.<br>
       <br>
       <i>unsigned int get_texture_size(); -</i> Return the maximum width or height of the texture.<br>
       <br>
@@ -1649,8 +1582,7 @@
       All classes in this section are declared in the <i>File</i> sub-namespace.<br>
     </big>
     <h2><a id="mozTocId168093" class="mozTocH2"></a><big>Chapter 2. The base binary file subsystem</big></h2>
-    <big><br>
-      <u>Work with the binary files.</u><br>
+    <big><br><u>Work with the binary files.</u><br>
       <br>
       The <i>Binary_File</i> class provides simple access to the base binary subsystem. Don't use it directly. Let's look at the publicly available methods.<br>
       <br>
@@ -1664,9 +1596,9 @@
       <br>
       <i>bool Binary_File::check_error(); -</i> Return true if the last file operation failed.<br>
       <br>
-      <i>bool Binary_File::is_open() const; -</i> Return true if the file was successfully opened.<br>
-      <u><br>
-        An important notice.</u><br>
+      <i>bool Binary_File::is_open() const; -</i> Return true if the file was successfully opened.
+      <br>
+      <u><br>An important notice.</u><br>
       <br>
       The target file size limit is 2 gigabytes.<br>
     </big>
@@ -1685,8 +1617,8 @@
       The file writer is intended to write data to the binary files. The <i>Output_File</i> class provides access to a file writer. It is derived from the <i>Binary_File</i> class. Let's look at the publicly available methods.<br>
       <br>
       <i>Output_File* Output_File::get_handle(); -</i> Return the handle to the file writer.<br>
-      <i><br>
-        void Output_File::open(const char *name); -</i> Open a file to write.<br>
+      <br>
+      <i>void Output_File::open(const char *name); -</i> Open a file to write.<br>
       <br>
       <i>void Output_File::create_temp(); -</i> Create a temporary file. This file will be deleted when it is closed.<br>
       <br>
@@ -1700,20 +1632,19 @@
       All classes in this section are declared in the <i>Input</i> sub-namespace.<br>
     </big>
     <h2><a id="mozTocId190470" class="mozTocH2"></a><big>Chapter 2. The keyboard</big></h2>
-    <big><u><br>
-        The low-level input.</u><br>
+    <big><u><br>The low-level input.</u><br>
       <br>
-      Any keyboard has a built-in chip. It generates a special code when the user presses or releases the key. This code is called a «scan code».<br>
+      Any keyboard has a built-in chip. It generates a special code when the user presses or releases the key. This code is called a «scan code».
       <br>
-      <u>Working with the keyboard.</u><br>
+      <br><u>Working with the keyboard.</u><br>
       <br>
       Just use the <i>Keyboard</i> class to work with a keyboard. Let's look at the publicly available methods.<br>
       <br>
       <i>void Keyboard::initialize(); -</i> Initialize the subsystem.<br>
       <br>
       <i>bool Keyboard::check_hold(const unsigned char code); -</i> Return true if a key with a specific scan code is pressed or held.<br>
-      <i><br>
-        bool Keyboard::check_press(const unsigned char code); -</i> Return true if a key with a specific scan code was pressed.<br>
+      <br>
+      <i>bool Keyboard::check_press(const unsigned char code); -</i> Return true if a key with a specific scan code was pressed.<br>
       <br>
       <i>bool Keyboard::check_release(const unsigned char code); -</i> Return true if a key with a specific scan code was released.<br>
       <br>
@@ -1972,32 +1903,31 @@
     <big><br>
     </big>
     <h2><a id="mozTocId599574" class="mozTocH2"></a><big>Chapter 3. The mouse</big></h2>
-    <big><u><br>
-        A few words about mice.</u><br>
+    <big><u><br>A few words about mice.</u><br>
       <br>
-      A mouse is very useful for interaction with a graphical user interface. But the mouse can also be used in video games.<br>
+      A mouse is very useful for interaction with a graphical user interface. But the mouse can also be used in video games.
       <br>
-      <u>Working with the mouse.</u><br>
+      <br><u>Working with the mouse.</u><br>
       <br>
       Just use the <i>Mouse</i> class to work with a mouse. Let's look at the publicly available methods.<br>
-      <i><br>
-        void Mouse::show(); -</i> Show the mouse cursor.<br>
-      <i><br>
-        void Mouse::hide(); -</i> Hide the mouse cursor.<br>
-      <i><br>
-        unsigned int Mouse::get_x(); -</i> Return the x-position of the mouse.<br>
+      <br>
+      <i>void Mouse::show(); -</i> Show the mouse cursor.<br>
+      <br>
+      <i>void Mouse::hide(); -</i> Hide the mouse cursor.<br>
+      <br>
+      <i>unsigned int Mouse::get_x(); -</i> Return the x-position of the mouse.<br>
       <br>
       <i>unsigned int Mouse::get_y(); -</i> Return the y-position of the mouse.<br>
       <br>
       <i>void Mouse::set_position(const unsigned int x, const unsigned int y); -</i> Set the position of the mouse.<br>
-      <i><br>
-        bool Mouse::check_hold(const EUGENEGDK::MOUSE_BUTTON button); -</i> Return true if a mouse button is pressed or held.<br>
+      <br>
+      <i>bool Mouse::check_hold(const EUGENEGDK::MOUSE_BUTTON button); -</i> Return true if a mouse button is pressed or held.<br>
       <br>
       <i>bool Mouse::check_press(const EUGENEGDK::MOUSE_BUTTON button); -</i> Return true if a mouse button was pressed.<br>
       <br>
-      <i>bool Mouse::check_release(const EUGENEGDK::MOUSE_BUTTON button); -</i> Return true if a mouse button was released.<br>
-      <u><br>
-        The mouse buttons.</u><br>
+      <i>bool Mouse::check_release(const EUGENEGDK::MOUSE_BUTTON button); -</i> Return true if a mouse button was released.
+      <br>
+      <u><br>The mouse buttons.</u><br>
       <br>
       The mouse button codes look like the predefined constants. You can see it below.<br>
       <br>
@@ -2025,20 +1955,19 @@
     <big><br>
     </big>
     <h2><a id="mozTocId243934" class="mozTocH2"></a><big>Chapter 4. The gamepad</big></h2>
-    <big><br>
-      <u>The best friend of a retro gamer.</u><br>
+    <big><br><u>The best friend of a retro gamer.</u><br>
       <br>
-      What is a good choice for a game control device when the user plays an arcade or an old-school video game? A gamepad. This engine provides simple access to it.<br>
-      <u><br>
-        The number of the connected gamepads.</u><br>
+      What is a good choice for a game control device when the user plays an arcade or an old-school video game? A gamepad. This engine provides simple access to it.
       <br>
-      You can connect a few gamepads. Any connected gamepad has an internal index. The first gamepad index is 0. It will be activated by default.<br>
+      <u><br>The number of the connected gamepads.</u><br>
       <br>
-      <u>The ordinary button codes.</u><br>
+      You can connect a few gamepads. Any connected gamepad has an internal index. The first gamepad index is 0. It will be activated by default.
       <br>
-      The ordinary button codes look like predefined constants. The first button is <i>GAMEPAD_BUTTON1</i>. The last button is <i>GAMEPAD_BUTTON32</i>.<br>
+      <br><u>The ordinary button codes.</u><br>
       <br>
-      <u>The D-pad button codes.</u><br>
+      The ordinary button codes look like predefined constants. The first button is <i>GAMEPAD_BUTTON1</i>. The last button is <i>GAMEPAD_BUTTON32</i>.
+      <br>
+      <br><u>The D-pad button codes.</u><br>
       <br>
       The D-pad button codes look like the predefined constants. You can see it below.<br>
       <br>
@@ -2087,8 +2016,7 @@
         </tr>
       </tbody>
     </table>
-    <big><br>
-      <u>The stick identifiers.</u><br>
+    <big><br><u>The stick identifiers.</u><br>
       <br>
       The stick identifiers look like the predefined constants. You can see it below.<br>
       <br>
@@ -2109,8 +2037,7 @@
         </tr>
       </tbody>
     </table>
-    <big><br>
-      <u>The stick direction</u><br>
+    <big><br><u>The stick direction</u><br>
       <br>
       The stick direction looks like the predefined constants. You can see it below.<br>
       <br>
@@ -2139,40 +2066,39 @@
         </tr>
       </tbody>
     </table>
-    <big><br>
-      <u>Working with the gamepad.</u><br>
+    <big><br><u>Working with the gamepad.</u><br>
       <br>
       Just use the <i>Gamepad</i> class to work with the gamepad. Let's look at the publicly available methods.<br>
       <br>
       <i>unsigned int Gamepad::get_amount(); -</i> Return the number of the connected gamepads.<br>
-      <i><br>
-        unsigned int Gamepad::get_button_amount() const; -</i> Return the number of the gamepad buttons.<br>
-      <i><br>
-        unsigned int Gamepad::get_stick_amount() const; -</i> Return the number of the gamepad sticks.<br>
-      <i><br>
-        void Gamepad::update(); -</i> Update the internal gamepad state.<br>
-      <i><br>
-        void Gamepad::set_active(const unsigned int gamepad); -</i> Set the current active gamepad.<br>
+      <br>
+      <i>unsigned int Gamepad::get_button_amount() const; -</i> Return the number of the gamepad buttons.<br>
+      <br>
+      <i>unsigned int Gamepad::get_stick_amount() const; -</i> Return the number of the gamepad sticks.<br>
+      <br>
+      <i>void Gamepad::update(); -</i> Update the internal gamepad state.<br>
+      <br>
+      <i>void Gamepad::set_active(const unsigned int gamepad); -</i> Set the current active gamepad.<br>
       <br>
       <i>EUGENEGDK::GAMEPAD_DPAD Gamepad::get_dpad() const; -</i> Return the code of the pressed or held D-pad button.<br>
-      <i><br>
-        bool Gamepad::check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button) const; -</i> Return true if the button is pressed or held.<br>
-      <i><br>
-        bool Gamepad::check_press(const EUGENEGDK::GAMEPAD_BUTTONS button) const; -</i> Return true if the button was pressed.<br>
+      <br>
+      <i>bool Gamepad::check_hold(const EUGENEGDK::GAMEPAD_BUTTONS button) const; -</i> Return true if the button is pressed or held.<br>
+      <br>
+      <i>bool Gamepad::check_press(const EUGENEGDK::GAMEPAD_BUTTONS button) const; -</i> Return true if the button was pressed.<br>
       <br>
       <i>bool Gamepad::check_released(const EUGENEGDK::GAMEPAD_BUTTONS button) const; -</i> Return true if the button was released.<br>
       <br>
       <i>EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick) const; -</i> Return the x-direction of a specific stick.<br>
-      <i><br>
-        EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick) const; -</i> Return the y-direction of a specific stick.<br>
-      <i><br>
-        EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_x() const; -</i> Return the x-direction of the left stick.<br>
+      <br>
+      <i>EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick) const; -</i> Return the y-direction of a specific stick.<br>
+      <br>
+      <i>EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_x() const; -</i> Return the x-direction of the left stick.<br>
       <br>
       <i>EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_left_stick_y() const; -</i> Return the y-direction of the left stick.<br>
-      <i><br>
-        EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_x() const; -</i> Return the x-direction of the right stick.<br>
-      <i><br>
-        EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_y() const; -</i> Return the y-direction of the right stick.<br>
+      <br>
+      <i>EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_x() const; -</i> Return the x-direction of the right stick.<br>
+      <br>
+      <i>EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_y() const; -</i> Return the y-direction of the right stick.<br>
     </big>
     <h1><a id="mozTocId41774" class="mozTocH1"></a><big>Part 10. The internal details of the engine subsystems</big></h1>
     <h2><a id="mozTocId478780" class="mozTocH2"></a><big>Chapter 1. A few words for a curious programmer</big></h2>
@@ -2180,12 +2106,11 @@
       The engine subsystems have a different internal structure. It has been hidden from you, and you don't have access to it. Do you want to know about the hidden things? Just read the next chapter.<br>
     </big>
     <h2><a id="mozTocId570462" class="mozTocH2"></a><big>Chapter 2. The internal classes</big></h2>
-    <big><u><br>
-        The internal classes.</u><br>
+    <big><u><br>The internal classes.</u><br>
       <br>
-      Some classes are designed for internal use only. Don't touch them. What are these strange classes doing?<br>
-      <u><br>
-        Microsoft Windows-specific classes.</u><br>
+      Some classes are designed for internal use only. Don't touch them. What are these strange classes doing?
+      <br>
+      <u><br>Microsoft Windows-specific classes.</u><br>
       <br>
       All Microsoft Windows-specific classes are declared in the <i>Internal</i> sub-namespace.<br>
       <br>
@@ -2193,8 +2118,7 @@
       <i>Synchronization</i> implements the synchronization timer.<br>
       <i>Display</i> implements the display manager.<br>
       <i>WINGL</i> contains Windows-specific OpenGL initialization code.<br>
-      <u><br>
-        The core classes.</u><br>
+      <u><br>The core classes.</u><br>
       <br>
       All engine core classes and functions are declared in the <i>Core</i> sub-namespace.<br>
       <br>
@@ -2206,16 +2130,15 @@
       <i>Shape</i> is the base class of the <i>Rectangle</i> class.<br>
     </big>
     <h2><a id="mozTocId338619" class="mozTocH2"></a><big>Chapter 3. The base graphics subsystem</big></h2>
-    <big><u><br>
-        The visible object.</u><br>
+    <big><u><br>The visible object.</u><br>
       <br>
-      Any visible object is a textured rectangle.<br>
+      Any visible object is a textured rectangle.
       <br>
-      <u>The textures.</u><br>
+      <br><u>The textures.</u><br>
       <br>
-      A texture width must be a power of two. A texture height also must be a power of two. Any image will be automatically resized before uploading.<br>
-      <u><br>
-        The vertex arrays and the texture coordinates array.</u><br>
+      A texture width must be a power of two. A texture height also must be a power of two. Any image will be automatically resized before uploading.
+      <br>
+      <u><br>The vertex arrays and the texture coordinates array.</u><br>
       <br>
       Any rectangle needs four vertices and four texture coordinates.<br>
       A single vertex represents the following custom data type:<br>
@@ -2241,12 +2164,11 @@
       The gamepad subsystem is working over the <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick Multimedia API</a>.<br>
     </big>
     <h2><a id="mozTocId304358" class="mozTocH2"></a><big>Chapter 5. The input</big></h2>
-    <big><u><br>
-        The input backend.</u><br>
+    <big><u><br>The input backend.</u><br>
       <br>
-      The input subsystem is the simple thing. It works over the standard Microsoft Windows API.<br>
+      The input subsystem is the simple thing. It works over the standard Microsoft Windows API.
       <br>
-      <u>The internal key state.</u><br>
+      <br><u>The internal key state.</u><br>
       <br>
       The internal state of a key looks like the predefined constants. You can see it below.<br>
       <br>
@@ -2271,9 +2193,7 @@
     </big>
     <h2><a id="mozTocId539190" class="mozTocH2"></a><big>Chapter 6. The audio</big></h2>
     <big><br>
-      The audio subsystem is working over <a href="https://docs.microsoft.com/en-us/windows/desktop/DirectShow/directshow">DirectShow</a>. It is available as part of <a
-
-        href="https://en.wikipedia.org/wiki/DirectX">DirectX</a>. DirectX is pre-installed by default under the modern versions of Windows.<br>
+      The audio subsystem is working over <a href="https://docs.microsoft.com/en-us/windows/desktop/DirectShow/directshow">DirectShow</a>. It is available as part of <a href="https://en.wikipedia.org/wiki/DirectX">DirectX</a>. DirectX is pre-installed by default under the modern versions of Windows.<br>
     </big>
     <h1><a id="mozTocId928107" class="mozTocH1"></a><big>Version history</big></h1>
     <big><br>
@@ -2840,6 +2760,7 @@
       10.1.4: The source code synced with the Black Game Development Kit 7.9.2.<br>
       10.1.5: The source code synced with the Black Game Development Kit 7.9.3.<br>
       10.1.6: The source code synced with the Black Game Development Kit 7.9.4.<br>
+      10.1.6.1-10.1.6.3: The documentation has been updated.<br>
     </big>
   </body>
 </html>
