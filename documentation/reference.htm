@@ -357,7 +357,8 @@
       Always use the latest video card drivers. It may increase the rendering performance. You can also try to change the screen resolution if you have low rendering performance.<br>
       <br><u>The FPS limitation.</u><br>
       <br>
-      FPS is an important thing. Many FPS are needed for a good animation, but it also needs high processor usage. The FPS limit is 60 by default. It has an ideal value.<br>
+      FPS is an important thing. Many FPS are needed for a good animation, but it also needs high processor usage. The FPS limit is 60 by default. It has an ideal value.
+      <br>
       <br><u>Work with the base graphics subsystem.</u><br>
       <br>
       The <i>Screen</i> class provides access to the base graphics subsystem. Let's look at the publicly available methods.<br>
@@ -393,7 +394,11 @@
       <i>bool Screen::check_x(const unsigned int x) const; -</i> Return true if the x-coordinate is valid.<br>
       <br>
       <i>bool Screen::check_y(const unsigned int y) const; -</i> Return true if the y-coordinate is valid.<br>
+      <br>      
+      <i>bool Screen::check_horizontal_border(const unsigned int x, const unsigned int width) const; -</i> Return true if a game object has collided with the horizontal screen border.<br>
       <br>
+      <i>bool Screen::check_vertical_border(const unsigned int y, const unsigned int height) const; -</i> Return true if a game object has collided with the vertical screen border.<br>
+      <br>      
       <i>bool Screen::check_horizontal_border(const EUGENEGDK::BOX target) const; -</i> Return true if a game object has collided with the horizontal screen border.<br>
       <br>
       <i>bool Screen::check_vertical_border(const EUGENEGDK::BOX target) const; -</i> Return true if a game object has collided with the vertical screen border.<br>
@@ -2761,6 +2766,7 @@
       10.1.5: The source code synced with the Black Game Development Kit 7.9.3.<br>
       10.1.6: The source code synced with the Black Game Development Kit 7.9.4.<br>
       10.1.6.1-10.1.6.3: The documentation has been updated.<br>
+      10.1.7: The base graphics subsystem has improved.<br>
     </big>
   </body>
 </html>

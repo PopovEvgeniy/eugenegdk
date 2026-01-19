@@ -673,6 +673,8 @@ typedef enum
    unsigned int get_rate() const;
    bool check_x(const unsigned int x) const;
    bool check_y(const unsigned int y) const;
+   bool check_horizontal_border(const unsigned int x,const unsigned int width) const;
+   bool check_vertical_border(const unsigned int y,const unsigned int height) const;
    bool check_horizontal_border(const EUGENEGDK::BOX target) const;
    bool check_vertical_border(const EUGENEGDK::BOX target) const;
    Screen* get_handle();
