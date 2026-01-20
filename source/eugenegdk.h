@@ -725,6 +725,8 @@ typedef enum
    unsigned int increase_y();
    unsigned int decrease_x();
    unsigned int decrease_y();
+   bool check_horizontal_border(const unsigned int x,const unsigned int width) const;
+   bool check_vertical_border(const unsigned int y,const unsigned int height) const;
    bool check_horizontal_border(const EUGENEGDK::BOX target) const;
    bool check_vertical_border(const EUGENEGDK::BOX target) const;
    void update();

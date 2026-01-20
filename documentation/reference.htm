@@ -1304,7 +1304,11 @@
       <i>void Camera::set_viewport(const unsigned int width, const unsigned int height); -</i> Set the viewport settings.<br>
       <br>
       <i>void Camera::set_offset(const unsigned int x, const unsigned int y); -</i> Set the camera offset.<br>
+      <br>      
+      <i>bool Camera::check_horizontal_border(const unsigned int x, const unsigned int width) const; -</i> Return true if a game object has collided with the horizontal visible area border.<br>
       <br>
+      <i>bool Camera::check_vertical_border(const unsigned int y, const unsigned int height) const; -</i> Return true if a game object has collided with the vertical visible area border.<br>
+      <br>      
       <i>bool Camera::check_horizontal_border(const EUGENEGDK::BOX target) const; -</i> Return true if a game object has collided with the horizontal visible area border.<br>
       <br>
       <i>bool Camera::check_vertical_border(const EUGENEGDK::BOX target) const; -</i> Return true if a game object has collided with the vertical visible area border.<br>
@@ -2254,7 +2258,7 @@
       1.6: The gamepad support has improved.<br>
       1.6.1: The small bug in the gamepad subsystem has been fixed.<br>
       1.6.2: The small changes.<br>
-      1.6.3: The Filesystem subsystem has improved.<br>
+      1.6.3: The filesystem subsystem has improved.<br>
       1.6.4-1.6.5: The small changes.<br>
       1.6.6: The base graphics subsystem has improved.<br>
       1.6.7: The small changes.<br>
@@ -2767,6 +2771,7 @@
       10.1.6: The source code synced with the Black Game Development Kit 7.9.4.<br>
       10.1.6.1-10.1.6.3: The documentation has been updated.<br>
       10.1.7: The base graphics subsystem has improved.<br>
+      10.1.8: The camera subsystem has improved.<br>
     </big>
   </body>
 </html>
