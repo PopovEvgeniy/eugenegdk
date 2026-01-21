@@ -751,6 +751,7 @@ typedef enum
    Image();
    ~Image();
    void destroy_image();
+   size_t get_pixel_amount() const;
    size_t get_length() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
