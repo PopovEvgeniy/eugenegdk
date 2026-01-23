@@ -708,8 +708,8 @@ typedef enum
    unsigned int get_highest_y() const;
    unsigned int get_highest_x_offset() const;
    unsigned int get_highest_y_offset() const;
-   unsigned int get_world_x(const unsigned int screen_x);
-   unsigned int get_world_y(const unsigned int screen_y);
+   unsigned int get_world_x(const unsigned int screen_x) const;
+   unsigned int get_world_y(const unsigned int screen_y) const;
    unsigned int set_x(const unsigned int x);
    unsigned int set_y(const unsigned int y);
    void initialize(const unsigned int width,const unsigned int height);
