@@ -54,13 +54,6 @@ namespace
 
  typedef struct
  {
-  unsigned short int index:16;
-  unsigned short int length:16;
-  unsigned char map_size:8;
- } TGA_map;
-
- typedef struct
- {
   unsigned short int x:16;
   unsigned short int y:16;
   unsigned short int width:16;
@@ -2638,12 +2631,11 @@ namespace EUGENEGDK
    unsigned char *buffer;
    size_t compressed_length;
    TGA_head head;
-   TGA_map color_map;
    TGA_image image;
    buffer=NULL;
    compressed_length=static_cast<size_t>(target.get_length()-18);
    target.read(&head,3);
-   target.read(&color_map,5);
+   target.set_position(8);
    target.read(&image,10);
    if (image.color==24)
    {
