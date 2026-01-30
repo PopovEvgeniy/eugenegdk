@@ -94,12 +94,6 @@ namespace EUGENEGDK
 
  typedef enum
  {
-  HORIZONTAL_ANIMATED=0,
-  VERTICAL_ANIMATED=1
- } IMAGE_KIND;
-
- typedef enum
- {
   HORIZONTAL_TEXT=0,
   VERTICAL_TEXT=1
  } TEXT_KIND;
@@ -867,31 +861,6 @@ typedef enum
    void draw(const bool transparency,const unsigned int x,const unsigned int y);
   };
 
-  class Sprite:public Billboard,public Animation,public Picture
-  {
-   private:
-   EUGENEGDK::IMAGE_KIND current_kind;
-   void reset_sprite_settings();
-   void set_sprite_settings();
-   void configure_sprite();
-   void set_sprite_frame();
-   void set_kind(const EUGENEGDK::IMAGE_KIND kind);
-   public:
-   Sprite();
-   ~Sprite();
-   Sprite* get_handle();
-   EUGENEGDK::IMAGE_KIND get_kind() const;
-   void set_settings(const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   bool load(Image *buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   bool load(Image &buffer,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   bool load(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   unsigned int set_target(const unsigned int target);
-   void step();
-   void destroy();
-   void clone(Sprite *target);
-   void clone(Sprite &target);
-  };
-
   class Ribbon:public Billboard,public Animation,public Picture
   {
    private:
@@ -970,45 +939,6 @@ typedef enum
    bool load(Image *sheet,const unsigned int row_amount,const unsigned int column_amount);
    bool load(Image &sheet,const unsigned int row_amount,const unsigned int column_amount);
    bool load(const char *name,const unsigned int row_amount,const unsigned int column_amount);
-  };
-
-  class Background
-  {
-   private:
-   Graphics::Sprite stage;
-   public:
-   Background();
-   ~Background();
-   Background* get_handle();
-   void prepare(const Screen *screen);
-   void prepare(Screen &screen);
-   void prepare(const unsigned int width,const unsigned int height);
-   void set_settings(const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   bool load(Image *background,const IMAGE_KIND kind,const unsigned int frames);
-   bool load(Image &background,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   bool load(const char *name,const EUGENEGDK::IMAGE_KIND kind,const unsigned int frames);
-   void disable_mirror();
-   void horizontal_mirror();
-   void vertical_mirror();
-   void complex_mirror();
-   bool is_horizontally_mirrored() const;
-   bool is_vertically_mirrored() const;
-   bool is_complex_mirrored() const;
-   bool is_mirrored() const;
-   unsigned int set_target(const unsigned int target);
-   void step();
-   void draw();
-   void draw(const unsigned int target);
-   void destroy_image();
-   void destroy();
-   bool is_load() const;
-   bool is_last_frame() const;
-   bool check_frame(const unsigned int target) const;
-   unsigned int get_frame() const;
-   unsigned int get_frames() const;
-   unsigned int get_width() const;
-   unsigned int get_height() const;
-   EUGENEGDK::IMAGE_KIND get_kind() const;
   };
 
   class Segment
