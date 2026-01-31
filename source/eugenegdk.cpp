@@ -3244,32 +3244,6 @@ namespace EUGENEGDK
    this->reset_animation_settings();
   }
 
-  void Ribbon::clone(Ribbon *target)
-  {
-   if (target!=NULL)
-   {
-    if (target->get_image_length()>0)
-    {
-     this->destroy();
-     this->set_image_size(target->get_image_width(),target->get_image_height());
-     this->create_storage();
-     this->set_frames(target->get_frames());
-     this->set_transparent(target->get_transparent());
-     this->copy_image(target->get_image());
-     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
-     this->set_size(target->get_width(),target->get_height());
-     this->set_sprite_frame();
-    }
-
-   }
-
-  }
-
-  void Ribbon::clone(Ribbon &target)
-  {
-   this->clone(target.get_handle());
-  }
-
   Tier::Tier()
   {
 
@@ -3336,32 +3310,6 @@ namespace EUGENEGDK
    this->reset_animation_settings();
   }
 
-  void Tier::clone(Tier *target)
-  {
-   if (target!=NULL)
-   {
-    if (target->get_image_length()>0)
-    {
-     this->destroy();
-     this->set_image_size(target->get_image_width(),target->get_image_height());
-     this->create_storage();
-     this->set_frames(target->get_frames());
-     this->set_transparent(target->get_transparent());
-     this->copy_image(target->get_image());
-     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
-     this->set_size(target->get_width(),target->get_height());
-     this->set_sprite_frame();
-    }
-
-   }
-
-  }
-
-  void Tier::clone(Tier &target)
-  {
-   this->clone(target.get_handle());
-  }
-
   Cartoon::Cartoon()
   {
 
@@ -3406,30 +3354,6 @@ namespace EUGENEGDK
    billboard.destroy_texture();
    this->destroy_image();
    this->reset_billboard_settings();
-  }
-
-  void Cartoon::clone(Cartoon *target)
-  {
-   if (target!=NULL)
-   {
-    if (target->get_image_length()>0)
-    {
-     this->destroy();
-     this->set_image_size(target->get_image_width(),target->get_image_height());
-     this->create_storage();
-     this->set_transparent(target->get_transparent());
-     this->copy_image(target->get_image());
-     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
-     this->set_size(target->get_width(),target->get_height());
-    }
-
-   }
-
-  }
-
-  void Cartoon::clone(Cartoon &target)
-  {
-   this->clone(target.get_handle());
   }
 
   Sheet::Sheet()
@@ -3525,34 +3449,6 @@ namespace EUGENEGDK
    this->reset_billboard_settings();
    this->reset_animation_settings();
    this->reset_sheet_settings();
-  }
-
-  void Sheet::clone(Sheet *target)
-  {
-   if (target!=NULL)
-   {
-    if (target->get_image_length()>0)
-    {
-     this->destroy();
-     this->set_image_size(target->get_image_width(),target->get_image_height());
-     this->create_storage();
-     this->copy_image(target->get_image());
-     rows=target->get_rows();
-     columns=target->get_columns();
-     this->set_frames(rows*columns);
-     this->prepare_sheet();
-     this->set_transparent(target->get_transparent());
-     this->set_target(target->get_frame());
-     this->set_size(target->get_width(),target->get_height());
-    }
-
-   }
-
-  }
-
-  void Sheet::clone(Sheet &target)
-  {
-   this->clone(target.get_handle());
   }
 
   void Sheet::select(const unsigned int row,const unsigned int column)

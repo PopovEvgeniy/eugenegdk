@@ -875,8 +875,6 @@ typedef enum
    unsigned int set_target(const unsigned int target);
    void step();
    void destroy();
-   void clone(Ribbon *target);
-   void clone(Ribbon &target);
   };
 
   class Tier:public Billboard,public Animation,public Picture
@@ -893,8 +891,6 @@ typedef enum
    unsigned int set_target(const unsigned int target);
    void step();
    void destroy();
-   void clone(Tier *target);
-   void clone(Tier &target);
   };
 
   class Cartoon:public Billboard,public Picture
@@ -907,8 +903,6 @@ typedef enum
    bool load(Image &buffer);
    bool load(const char *name);
    void destroy();
-   void clone(Cartoon *target);
-   void clone(Cartoon &target);
   };
 
   class Sheet:public Billboard,public Picture,public Animation
@@ -931,8 +925,6 @@ typedef enum
    unsigned int get_rows() const;
    unsigned int get_columns() const;
    void destroy();
-   void clone(Sheet *target);
-   void clone(Sheet &target);
    void select(const unsigned int row,const unsigned int column);
    unsigned int set_target(const unsigned int target);
    void step();
