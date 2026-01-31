@@ -2741,16 +2741,6 @@ namespace EUGENEGDK
    Resource::create(&image,pixels);
   }
 
-  void Picture::copy_image(const unsigned int *target)
-  {
-   size_t index;
-   for (index=0;index<pixels;++index)
-   {
-    image[index]=target[index];
-   }
-
-  }
-
   void Picture::convert_image(const unsigned char *target)
   {
    size_t index,position;
