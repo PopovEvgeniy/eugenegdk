@@ -766,6 +766,7 @@ typedef enum
    void create_storage();
    void convert_image(const unsigned char *target);
    void load_image(Image *buffer);
+   unsigned int *get_image();
    public:
    Picture();
    ~Picture();
@@ -775,7 +776,6 @@ typedef enum
    unsigned int get_image_height() const;
    size_t get_pixel_amount() const;
    size_t get_image_length() const;
-   unsigned int *get_image();
   };
 
   class Animation
