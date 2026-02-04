@@ -1181,6 +1181,7 @@ typedef enum
    time_t start;
    public:
    Timer();
+   Timer(const double seconds);
    ~Timer();
    Timer* get_handle();
    void set_timer(const double seconds);
