@@ -2773,11 +2773,6 @@ namespace EUGENEGDK
 
   }
 
-  unsigned int *Picture::get_image()
-  {
-   return image;
-  }
-
   void Picture::destroy_image()
   {
    Resource::destroy_array(image);
@@ -2808,6 +2803,11 @@ namespace EUGENEGDK
   size_t Picture::get_image_length() const
   {
    return pixels*sizeof(unsigned int);
+  }
+
+  unsigned int *Picture::get_image()
+  {
+   return image;
   }
 
   Animation::Animation()
