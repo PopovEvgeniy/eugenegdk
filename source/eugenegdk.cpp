@@ -577,9 +577,9 @@ namespace EUGENEGDK
   wchar_t *Unicode_Converter::convert(const char *source)
   {
    size_t length;
-   length=strlen(source);
-   Resource::create(&target,length+1);
-   memset(target,0,(length+1)*sizeof(wchar_t));
+   length=strlen(source)+1;
+   Resource::create(&target,length);
+   memset(target,0,sizeof(wchar_t)*length);
    MultiByteToWideChar(CP_ACP,0,source,-1,target,static_cast<int>(length));
    return target;
   }
