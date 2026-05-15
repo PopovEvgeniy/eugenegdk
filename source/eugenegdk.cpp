@@ -45,22 +45,26 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 namespace
 {
 
+ #pragma pack(push, 1)
  typedef struct
  {
-  unsigned char id:8;
-  unsigned char color_map:8;
-  unsigned char type:8;
+  unsigned char id;
+  unsigned char color_map;
+  unsigned char type;
  } TGA_head;
+ #pragma pack(pop)
 
+ #pragma pack(push, 1)
  typedef struct
  {
-  unsigned short int x:16;
-  unsigned short int y:16;
-  unsigned short int width:16;
-  unsigned short int height:16;
-  unsigned char color:8;
-  unsigned char descriptor:8;
+  unsigned short int x;
+  unsigned short int y;
+  unsigned short int width;
+  unsigned short int height;
+  unsigned char color;
+  unsigned char descriptor;
  } TGA_image;
+ #pragma pack(pop)
 
  unsigned int MAXIMUM_TEXTURE_SIZE=0;
  const size_t KEYBOARD=256;
@@ -2634,9 +2638,9 @@ namespace EUGENEGDK
    TGA_image image;
    buffer=NULL;
    compressed_length=static_cast<size_t>(target.get_length()-18);
-   target.read(&head,3);
+   target.read(&head,sizeof(TGA_head));
    target.set_position(8);
-   target.read(&image,10);
+   target.read(&image,sizeof(TGA_image));
    if (image.color==24)
    {
     this->set_size(image.width,image.height);
