@@ -528,9 +528,9 @@ namespace EUGENEGDK
 
   EUGENEGDK::GAMEPAD_DIRECTION get_horizontal_direction(const unsigned int current,const unsigned int maximum)
   {
-   EUGENEGDK::GAMEPAD_DIRECTION directional;
-   unsigned int center,dead;
-   directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
+   EUGENEGDK::GAMEPAD_DIRECTION directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
+   unsigned int center=0;
+   unsigned int dead=0;
    center=maximum/2;
    dead=maximum/10;
    if (current>(center+dead))
@@ -546,18 +546,14 @@ namespace EUGENEGDK
 
  EUGENEGDK::GAMEPAD_DIRECTION get_inverted_direction(const EUGENEGDK::GAMEPAD_DIRECTION target)
  {
-  EUGENEGDK::GAMEPAD_DIRECTION directional;
-  switch (target)
+  EUGENEGDK::GAMEPAD_DIRECTION directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
+  if (target==EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION)
   {
-   case EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION:
    directional=EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION;
-   break;
-   case EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION:
+  }
+  if (target==EUGENEGDK::GAMEPAD_NEGATIVE_DIRECTION)
+  {
    directional=EUGENEGDK::GAMEPAD_POSITIVE_DIRECTION;
-   break;
-   default:
-   directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
-   break;
   }
   return directional;
  }
@@ -1547,8 +1543,7 @@ namespace EUGENEGDK
 
   bool Keyboard::check_state(const unsigned char code,const unsigned char state)
   {
-   bool accept;
-   accept=false;
+   bool accept=false;
    if (preversion!=NULL)
    {
     accept=(Keys[code]==state) && (preversion[code]!=state);
@@ -1617,7 +1612,7 @@ namespace EUGENEGDK
 
   bool Mouse::check_state(const EUGENEGDK::MOUSE_BUTTON button,const unsigned char state)
   {
-   bool accept;
+   bool accept=false;
    accept=(Buttons[button]==state) && (preversion[button]!=state);
    preversion[button]=Buttons[button];
    return accept;
@@ -1734,8 +1729,7 @@ namespace EUGENEGDK
 
   EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_horizontal_directional() const
   {
-   EUGENEGDK::GAMEPAD_DIRECTION directional;
-   directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
+   EUGENEGDK::GAMEPAD_DIRECTION directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (configuration.wNumAxes==4)
    {
     directional=Core::get_horizontal_direction(current.dwRpos,configuration.wRmax); // An old gamepad
@@ -1757,8 +1751,7 @@ namespace EUGENEGDK
 
   EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_right_stick_vertical_directional() const
   {
-   EUGENEGDK::GAMEPAD_DIRECTION directional;
-   directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
+   EUGENEGDK::GAMEPAD_DIRECTION directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (configuration.wNumAxes==4)
    {
     directional=Core::get_vertical_direction(current.dwUpos,configuration.wUmax); // An old gamepad
@@ -1811,8 +1804,7 @@ namespace EUGENEGDK
 
   EUGENEGDK::GAMEPAD_DPAD Gamepad::get_dpad() const
   {
-   EUGENEGDK::GAMEPAD_DPAD dpad;
-   dpad=EUGENEGDK::GAMEPAD_NONE;
+   EUGENEGDK::GAMEPAD_DPAD dpad=EUGENEGDK::GAMEPAD_NONE;
    switch (current.dwPOV)
    {
     case JOY_POVFORWARD:
@@ -1848,8 +1840,7 @@ namespace EUGENEGDK
 
   EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_x(const EUGENEGDK::GAMEPAD_STICKS stick) const
   {
-   EUGENEGDK::GAMEPAD_DIRECTION directional;
-   directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
+   EUGENEGDK::GAMEPAD_DIRECTION directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
     if (this->get_stick_amount()>0)
@@ -1871,8 +1862,7 @@ namespace EUGENEGDK
 
   EUGENEGDK::GAMEPAD_DIRECTION Gamepad::get_stick_y(const EUGENEGDK::GAMEPAD_STICKS stick) const
   {
-   EUGENEGDK::GAMEPAD_DIRECTION directional;
-   directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
+   EUGENEGDK::GAMEPAD_DIRECTION directional=EUGENEGDK::GAMEPAD_NEUTRAL_DIRECTION;
    if (stick==EUGENEGDK::GAMEPAD_LEFT_STICK)
    {
     if (this->get_stick_amount()>0)
@@ -1947,6 +1937,15 @@ namespace EUGENEGDK
 
   }
 
+  void Binary_File::open_file(const char *name,const char *mode)
+  {
+   if (name!=NULL)
+   {
+    target=fopen(name,mode);
+   }
+
+  }
+
   void Binary_File::close()
   {
    if (target!=NULL)
@@ -1968,13 +1967,15 @@ namespace EUGENEGDK
 
   long int Binary_File::get_length()
   {
-   long int length;
-   length=0;
+   long int length=0;
    if (target!=NULL)
    {
-    fseek(target,0,SEEK_END);
-    length=ftell(target);
-    rewind(target);
+    if (fseek(target,0,SEEK_END)==0)
+    {
+     length=ftell(target);
+     rewind(target);
+    }
+
    }
    return length;
   }
@@ -2012,20 +2013,21 @@ namespace EUGENEGDK
   void Input_File::open(const char *name)
   {
    this->close();
-   target=fopen(name,"rb");
+   this->open_file(name,"rb");
   }
 
-  void Input_File::read(void *buffer,const size_t length)
+  size_t Input_File::read(void *buffer,const size_t length)
   {
+   size_t amount=0;
    if (this->target!=NULL)
    {
     if (buffer!=NULL)
     {
-     fread(buffer,sizeof(char),length,target);
+     amount=fread(buffer,sizeof(char),length,target);
     }
 
    }
-
+   return amount;
   }
 
   Output_File::Output_File()
@@ -2046,26 +2048,13 @@ namespace EUGENEGDK
   void Output_File::open(const char *name)
   {
    this->close();
-   target=fopen(name,"wb");
+   this->open_file(name,"wb");
   }
 
   void Output_File::create_temp()
   {
    this->close();
    target=tmpfile();
-  }
-
-  void Output_File::write(const void *buffer,const size_t length)
-  {
-   if (this->target!=NULL)
-   {
-    if (buffer!=NULL)
-    {
-     fwrite(buffer,sizeof(char),length,target);
-    }
-
-   }
-
   }
 
   void Output_File::flush()
@@ -2075,6 +2064,20 @@ namespace EUGENEGDK
     fflush(target);
    }
 
+  }
+
+  size_t Output_File::write(const void *buffer,const size_t length)
+  {
+   size_t written=0;
+   if (this->target!=NULL)
+   {
+    if (buffer!=NULL)
+    {
+     written=fwrite(buffer,sizeof(char),length,target);
+    }
+
+   }
+   return written;
   }
 
  }

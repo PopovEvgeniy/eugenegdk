@@ -120,7 +120,7 @@
   </big>
   <h2><a id="mozTocId619515" class="mozTocH2"></a><big>Chapter 2. A special thanks</big></h2>
   <big>
-   I want to say «Big thanks for the technical consultation» to these people:<br>
+   I want to say <Big thanks for the technical consultation> to these people:<br>
   </big>
   <ul>
   <li><a href="https://github.com/dmitrysmagin"><big>Dmitry Smagin</big></a></li>
@@ -139,9 +139,9 @@
   <big>
    <u>The Eugene Game Development Kit license.</u><br>
    <br>
-   Copyright (C) 2021 – 2026 Popov Evgeniy Alekseyevich<br>
+   Copyright (C) 2021 - 2026 Popov Evgeniy Alekseyevich<br>
    <br>
-   This software is provided 'as–is', without any express or implied<br>
+   This software is provided 'as-is', without any express or implied<br>
    warranty. In no event will the authors be held liable for any damages<br>
    arising from the use of this software.<br>
    Permission is granted to anyone to use this software for any purpose,<br>
@@ -154,9 +154,9 @@
    2. Altered source versions must be plainly marked as such, and must not be<br>
    misrepresented as being the original software.<br>
    3. This notice may not be removed or altered from any source distribution.<br>
-   <br><u>The third–party license.</u><br>
+   <br><u>The third-party license.</u><br>
    <br>
-   Copyright (c) 2007 – 2010 The Khronos Group Inc.<br>
+   Copyright (c) 2007 - 2010 The Khronos Group Inc.<br>
    <br>
    Permission is hereby granted, free of charge, to any person obtaining a<br>
    copy of this software and/or associated documentation files (the<br>
@@ -256,7 +256,7 @@
    You need one of the following compilers for <a href="https://en.wikipedia.org/wiki/Windows_XP">Windows XP</a> support:<br>
   </big>
   <ul>
-   <li><big>TDM–GCC</big></li>
+   <li><big>TDM-GCC</big></li>
    <li><big>Open Watcom</big></li>
    <li><big>Open Watcom V2 Fork</big></li>
    <li><big>Visual C++ 2003</big></li>
@@ -271,21 +271,21 @@
    Disable the precompiled headers before starting compilation. The old Visual C++ users can do it via the project creation wizard.<br>
    The Visual C++ 2017 or higher users must follow these steps:<br>
    <br>
-   Go to «Project Properties — C/C++ — Precompiled Headers»<br>
-   Set the «Precompiled Header» option to «Not Using Precompiled Headers».<br>
+   Go to <Project Properties - C/C++ - Precompiled Headers><br>
+   Set the <Precompiled Header> option to <Not Using Precompiled Headers>.<br>
    <br>
    <u>A note for the MINGW-w64 and TDM-GCC users.</u><br>
    <br>
    Don't forget to link your program with these files:<br>
   </big>
   <ul>
-   <li><big>user32.lib</big></li>
-   <li><big>kernel32.lib</big></li>
-   <li><big>gdi32.lib</big></li>
-   <li><big>opengl32.lib</big></li>
-   <li><big>ole32.lib</big></li>
-   <li><big>strmiids.lib</big></li>
-   <li><big>winmm.lib</big></li>
+   <li><big>libuser32.a</big></li>
+   <li><big>libkernel32.a</big></li>
+   <li><big>libgdi32.a</big></li>
+   <li><big>libopengl32.a</big></li>
+   <li><big>libole32.a</big></li>
+   <li><big>libstrmiids.a</big></li>
+   <li><big>libwinmm.a</big></li>
   </ul>
   <big><br>
    See the documentation of the compiler for more information about linking.<br>
@@ -1440,7 +1440,7 @@
    <br>
    <i>void Input_File::open(const char *name); -</i> Open a file to read.<br>
    <br>
-   <i>void Input_File::read(void *buffer, const size_t length); -</i> Read data from the file.<br>
+   <i>size_t Input_File::read(void *buffer, const size_t length); -</i> Read data from the file and return the number of read bytes.<br>
   </big>
   <h2><a id="mozTocId969117" class="mozTocH2"></a><big>Chapter 4. The file writer</big></h2>
   <big>
@@ -1452,7 +1452,7 @@
    <br>
    <i>void Output_File::create_temp(); -</i> Create a temporary file. This file will be deleted when it is closed.<br>
    <br>
-   <i>void Output_File::write(const void *buffer, const size_t length); -</i> Write data to the file.<br>
+   <i>size_t Output_File::write(const void *buffer, const size_t length); -</i> Write data to the file and return the number of written bytes.<br>
    <br>
    <i>void Output_File::flush(); -</i> Force writing the internal buffer data to the file.<br>
   </big>
@@ -1464,7 +1464,7 @@
   <h2><a id="mozTocId190470" class="mozTocH2"></a><big>Chapter 2. Keyboard</big></h2>
   <big><u>The low-level input.</u><br>
    <br>
-   Any keyboard has a built-in chip. It generates a special code when the user presses or releases the key. This code is called a «scan code».
+   Any keyboard has a built-in chip. It generates a special code when the user presses or releases the key. This code is called a <scan code>.
    <br>
    <br><u>Working with the keyboard.</u><br>
    <br>
@@ -2608,6 +2608,11 @@
    10.3.0.1: The documentation has been updated.<br>
    10.3.1-10.3.2: The small changes.<br>
    10.3.3: The image loader has improved.<br>
+   10.3.4-10.4: The binary file subsystem has improved.<br>
+   10.4.1-10.4.2: The gamepad subsystem has improved.<br>
+   10.4.3: The keyboard input subsystem has improved.<br>
+   10.4.4: The mouse input subsystem has improved.<br>
+   10.4.5: The binary file subsystem has improved.<br>
   </big>
 </body>
 </html>
