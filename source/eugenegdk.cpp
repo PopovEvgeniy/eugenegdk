@@ -139,18 +139,27 @@ namespace EUGENEGDK
    return DefWindowProc(window,Message,wParam,lParam);
   }
 
+  VOID CALLBACK set_event(PVOID lpParam,BOOLEAN TimerOrWaitFired)
+  {
+   if (lpParam!=NULL)
+   {
+    SetEvent(lpParam);
+   }
+
+  }
+
   Synchronization::Synchronization()
   {
    event=NULL;
-   timer=0;
+   timer=NULL;
   }
 
   Synchronization::~Synchronization()
   {
-   if (timer!=0)
+   if (timer!=NULL)
    {
-    timeKillEvent(timer);
-    timer=0;
+    DeleteTimerQueueTimer(NULL,timer,event);
+    timer=NULL;
    }
    if (event!=NULL)
    {
@@ -172,9 +181,9 @@ namespace EUGENEGDK
 
   void Synchronization::timer_setup(const unsigned int delay)
   {
-   timer=timeSetEvent(delay,0,reinterpret_cast<LPTIMECALLBACK>(event),0,TIME_PERIODIC|TIME_CALLBACK_EVENT_SET);
-   if (timer==0)
+   if (CreateTimerQueueTimer(&timer,NULL,Internal::set_event,event,0,delay,WT_EXECUTEINTIMERTHREAD)==FALSE)
    {
+    timer=NULL;
     EUGENEGDK::Halt("Can't set the timer settings");
    }
 
@@ -563,115 +572,94 @@ namespace EUGENEGDK
   return Core::get_inverted_direction(Core::get_horizontal_direction(current,maximum));
  }
 
-  Unicode_Converter::Unicode_Converter()
-  {
-   target=NULL;
-  }
+ Resizer::Resizer()
+ {
+  image=NULL;
+  source_width=0;
+  source_height=0;
+  x_ratio=0;
+  y_ratio=0;
+  target_width=1;
+  target_height=1;
+  normalization=UCHAR_MAX*UCHAR_MAX;
+ }
 
-  Unicode_Converter::~Unicode_Converter()
-  {
-   Resource::destroy_array(target);
-   target=NULL;
-  }
+ Resizer::~Resizer()
+ {
+  Resource::destroy_array(image);
+  image=NULL;
+ }
 
-  wchar_t *Unicode_Converter::convert(const char *source)
-  {
-   size_t length;
-   length=strlen(source)+1;
-   Resource::create(&target,length);
-   memset(target,0,sizeof(wchar_t)*length);
-   MultiByteToWideChar(CP_ACP,0,source,-1,target,static_cast<int>(length));
-   return target;
-  }
+ unsigned int Resizer::get_x_difference(const unsigned int x) const
+ {
+  return (x*x_ratio)%UCHAR_MAX;
+ }
 
-  Resizer::Resizer()
-  {
-   image=NULL;
-   source_width=0;
-   source_height=0;
-   x_ratio=0;
-   y_ratio=0;
-   target_width=1;
-   target_height=1;
-   normalization=UCHAR_MAX*UCHAR_MAX;
-  }
+ unsigned int Resizer::get_y_difference(const unsigned int y) const
+ {
+  return (y*y_ratio)%UCHAR_MAX;
+ }
 
-  Resizer::~Resizer()
-  {
-   Resource::destroy_array(image);
-   image=NULL;
-  }
+ unsigned int Resizer::get_source_x(const unsigned int x) const
+ {
+  return (x*x_ratio)/UCHAR_MAX;
+ }
 
-  unsigned int Resizer::get_x_difference(const unsigned int x) const
-  {
-   return (x*x_ratio)%UCHAR_MAX;
-  }
+ unsigned int Resizer::get_source_y(const unsigned int y) const
+ {
+  return (y*y_ratio)/UCHAR_MAX;
+ }
 
-  unsigned int Resizer::get_y_difference(const unsigned int y) const
+ unsigned int Resizer::get_next_x(const unsigned int x) const
+ {
+  unsigned int next_x;
+  next_x=x+1;
+  if (next_x==source_width)
   {
-   return (y*y_ratio)%UCHAR_MAX;
+   --next_x;
   }
+  return next_x;
+ }
 
-  unsigned int Resizer::get_source_x(const unsigned int x) const
+ unsigned int Resizer::get_next_y(const unsigned int y) const
+ {
+  unsigned int next_y;
+  next_y=y+1;
+  if (next_y==source_height)
   {
-   return (x*x_ratio)/UCHAR_MAX;
+   --next_y;
   }
+  return next_y;
+ }
 
-  unsigned int Resizer::get_source_y(const unsigned int y) const
+ void Resizer::scale_image(const unsigned int *target)
+ {
+  size_t index;
+  unsigned int x,y,source_x,source_y,next_x,next_y,first,second,third,last,red,green,blue,alpha,x_difference,y_difference,x_weigh,y_weigh;
+  index=0;
+  for (y=0;y<target_height;++y)
   {
-   return (y*y_ratio)/UCHAR_MAX;
-  }
-
-  unsigned int Resizer::get_next_x(const unsigned int x) const
-  {
-   unsigned int next_x;
-   next_x=x+1;
-   if (next_x==source_width)
+   source_y=this->get_source_y(y);
+   next_y=this->get_next_y(source_y);
+   y_difference=this->get_y_difference(y);
+   y_weigh=UCHAR_MAX-y_difference;
+   for (x=0;x<target_width;++x)
    {
-    --next_x;
+    source_x=this->get_source_x(x);
+    next_x=this->get_next_x(source_x);
+    x_difference=this->get_x_difference(x);
+    x_weigh=UCHAR_MAX-x_difference;
+    first=target[Core::get_offset(source_x,source_y,source_width)];
+    second=target[Core::get_offset(next_x,source_y,source_width)];
+    third=target[Core::get_offset(source_x,next_y,source_width)];
+    last=target[Core::get_offset(next_x,next_y,source_width)];
+    red=(get_pixel_component(first,Core::RED_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::RED_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::RED_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::RED_COMPONENT)*x_difference*y_difference)/normalization;
+    green=(get_pixel_component(first,Core::GREEN_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::GREEN_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::GREEN_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::GREEN_COMPONENT)*x_difference*y_difference)/normalization;
+    blue=(get_pixel_component(first,Core::BLUE_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::BLUE_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::BLUE_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::BLUE_COMPONENT)*x_difference*y_difference)/normalization;
+    alpha=(get_pixel_component(first,Core::ALPHA_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::ALPHA_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::ALPHA_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::ALPHA_COMPONENT)*x_difference*y_difference)/normalization;
+    image[index]=Core::make_pixel(red,green,blue,alpha);
+    ++index;
    }
-   return next_x;
-  }
-
-  unsigned int Resizer::get_next_y(const unsigned int y) const
-  {
-   unsigned int next_y;
-   next_y=y+1;
-   if (next_y==source_height)
-   {
-    --next_y;
-   }
-   return next_y;
-  }
-
-  void Resizer::scale_image(const unsigned int *target)
-  {
-   size_t index;
-   unsigned int x,y,source_x,source_y,next_x,next_y,first,second,third,last,red,green,blue,alpha,x_difference,y_difference,x_weigh,y_weigh;
-   index=0;
-   for (y=0;y<target_height;++y)
-   {
-    source_y=this->get_source_y(y);
-    next_y=this->get_next_y(source_y);
-    y_difference=this->get_y_difference(y);
-    y_weigh=UCHAR_MAX-y_difference;
-    for (x=0;x<target_width;++x)
-    {
-     source_x=this->get_source_x(x);
-     next_x=this->get_next_x(source_x);
-     x_difference=this->get_x_difference(x);
-     x_weigh=UCHAR_MAX-x_difference;
-     first=target[Core::get_offset(source_x,source_y,source_width)];
-     second=target[Core::get_offset(next_x,source_y,source_width)];
-     third=target[Core::get_offset(source_x,next_y,source_width)];
-     last=target[Core::get_offset(next_x,next_y,source_width)];
-     red=(get_pixel_component(first,Core::RED_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::RED_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::RED_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::RED_COMPONENT)*x_difference*y_difference)/normalization;
-     green=(get_pixel_component(first,Core::GREEN_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::GREEN_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::GREEN_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::GREEN_COMPONENT)*x_difference*y_difference)/normalization;
-     blue=(get_pixel_component(first,Core::BLUE_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::BLUE_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::BLUE_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::BLUE_COMPONENT)*x_difference*y_difference)/normalization;
-     alpha=(get_pixel_component(first,Core::ALPHA_COMPONENT)*x_weigh*y_weigh+get_pixel_component(second,Core::ALPHA_COMPONENT)*x_difference*y_weigh+get_pixel_component(third,Core::ALPHA_COMPONENT)*y_difference*x_weigh+get_pixel_component(last,Core::ALPHA_COMPONENT)*x_difference*y_difference)/normalization;
-     image[index]=Core::make_pixel(red,green,blue,alpha);
-     ++index;
-    }
 
    }
 
@@ -1191,217 +1179,106 @@ namespace EUGENEGDK
  namespace Misc
  {
 
-   Audio::Audio()
-   {
-    loader=NULL;
-    player=NULL;
-    controler=NULL;
-    video=NULL;
-   }
-
-   Audio::~Audio()
-   {
-    if (player!=NULL)
-    {
-     player->Stop();
-     player->Release();
-     player=NULL;
-    }
-    if (video!=NULL)
-    {
-     video->Release();
-     video=NULL;
-    }
-    if (controler!=NULL)
-    {
-     controler->Release();
-     controler=NULL;
-    }
-    if (loader!=NULL)
-    {
-     loader->Release();
-     loader=NULL;
-    }
-    CoUninitialize();
+  Audio::Audio()
+  {
+   target=0;
   }
 
-  void Audio::com_setup()
+  Audio::~Audio()
   {
-   if (CoInitializeEx(NULL,COINIT_APARTMENTTHREADED)!=S_OK)
+   if (target!=0)
    {
-    if (CoInitializeEx(NULL,COINIT_APARTMENTTHREADED)!=S_FALSE)
-    {
-     EUGENEGDK::Halt("Can't initialize COM");
-    }
-
+    mciSendCommand(target,MCI_STOP,MCI_WAIT,0);
+    mciSendCommand(target,MCI_CLOSE,MCI_WAIT,0);
    }
 
   }
 
-  void Audio::disable_video()
+  void Audio::open(const char *name)
   {
-   if (video!=NULL)
+   MCI_OPEN_PARMSA setting;
+   setting.dwCallback=0;
+   setting.wDeviceID=0;
+   setting.lpstrDeviceType=NULL;
+   setting.lpstrAlias=NULL;
+   setting.lpstrElementName=name;
+   target=0;
+   if (mciSendCommandA(target,MCI_OPEN,MCI_OPEN_ELEMENT|MCI_WAIT,reinterpret_cast<DWORD_PTR>(&setting))==0)
    {
-    video->put_FullScreenMode(OAFALSE);
-    video->put_AutoShow(OAFALSE);
-   }
-
-  }
-
-  void Audio::load_content(const wchar_t *target)
-  {
-   if (loader!=NULL)
-   {
-    loader->RenderFile(target,NULL);
-   }
-
-  }
-
-  bool Audio::is_play()
-  {
-   long long int current,total;
-   current=0;
-   total=0;
-   if (controler!=NULL)
-   {
-    if (controler->GetPositions(&current,&total)!=S_OK)
-    {
-     current=0;
-     total=0;
-    }
-
-   }
-   return current<total;
-  }
-
-  void Audio::rewind()
-  {
-   long long int position;
-   position=0;
-   if (controler!=NULL)
-   {
-    controler->SetPositions(&position,AM_SEEKING_AbsolutePositioning,NULL,AM_SEEKING_NoPositioning);
+    target=setting.wDeviceID;
    }
 
   }
 
   void Audio::play_content()
   {
-   if (player!=NULL)
+   MCI_PLAY_PARMS setting;
+   setting.dwCallback=0;
+   setting.dwFrom=0;
+   setting.dwTo=0;
+   if (target!=0)
    {
-    player->Run();
+    mciSendCommand(target,MCI_PLAY,MCI_FROM,reinterpret_cast<DWORD_PTR>(&setting));
    }
 
   }
 
-  void Audio::create_loader()
+  void Audio::disable_video()
   {
-   if (loader==NULL)
+   MCI_OVLY_WINDOW_PARMS setting;
+   setting.dwCallback=0;
+   setting.hWnd=NULL;
+   setting.lpstrText=NULL;
+   setting.nCmdShow=SW_HIDE;
+   if (target!=0)
    {
-    if (CoCreateInstance(CLSID_FilterGraph,NULL,CLSCTX_INPROC_SERVER,IID_IGraphBuilder,reinterpret_cast<void**>(&loader))!=S_OK)
-    {
-     loader=NULL;
-    }
-
+    mciSendCommand(target,MCI_WINDOW,MCI_OVLY_WINDOW_STATE,reinterpret_cast<DWORD_PTR>(&setting));
    }
 
-  }
-
-  void Audio::create_player()
-  {
-   if (loader!=NULL)
-   {
-    if (player==NULL)
-    {
-     if (loader->QueryInterface(IID_IMediaControl,reinterpret_cast<void**>(&player))!=S_OK)
-     {
-      player=NULL;
-     }
-
-    }
-
-   }
-
-  }
-
-  void Audio::create_controler()
-  {
-   if (loader!=NULL)
-   {
-    if (controler==NULL)
-    {
-     if (loader->QueryInterface(IID_IMediaSeeking,reinterpret_cast<void**>(&controler))!=S_OK)
-     {
-      controler=NULL;
-     }
-
-    }
-
-   }
-
-  }
-
-  void Audio::get_video_instance()
-  {
-   if (loader!=NULL)
-   {
-    if (video==NULL)
-    {
-     if (loader->QueryInterface(IID_IVideoWindow,reinterpret_cast<void**>(&video))!=S_OK)
-     {
-      video=NULL;
-     }
-
-    }
-
-   }
-
-  }
-
-  void Audio::initialize()
-  {
-   this->com_setup();
-   this->create_loader();
-   this->create_player();
-   this->create_controler();
-   this->get_video_instance();
-   this->disable_video();
   }
 
   bool Audio::check_playing()
   {
-   OAFilterState state;
-   bool playing;
-   playing=false;
-   if (player!=NULL)
+   MCI_STATUS_PARMS status;
+   status.dwCallback=0;
+   status.dwTrack=0;
+   status.dwItem=MCI_STATUS_MODE;
+   status.dwReturn=MCI_MODE_STOP;
+   if (target!=0)
    {
-    if (player->GetState(INFINITE,&state)!=E_FAIL)
+    if (mciSendCommand(target,MCI_STATUS,MCI_STATUS_ITEM|MCI_WAIT,reinterpret_cast<DWORD_PTR>(&status))!=0)
     {
-     if (state==State_Running)
-     {
-      playing=this->is_play();
-     }
-
+     status.dwReturn=MCI_MODE_STOP;
     }
 
    }
-   return playing;
+   return status.dwReturn==MCI_MODE_PLAY;
+  }
+
+  void Audio::close()
+  {
+   if (target!=0)
+   {
+    mciSendCommand(target,MCI_STOP,MCI_WAIT,0);
+    mciSendCommand(target,MCI_CLOSE,MCI_WAIT,0);
+    target=0;
+   }
+
   }
 
   void Audio::stop()
   {
-   if (player!=NULL)
+   if (target!=0)
    {
-    player->Stop();
+    mciSendCommand(target,MCI_STOP,MCI_WAIT,0);
    }
 
   }
 
   void Audio::play()
   {
-   this->stop();
-   this->rewind();
    this->play_content();
+   this->disable_video();
   }
 
   void Audio::play_loop()
@@ -1426,17 +1303,16 @@ namespace EUGENEGDK
 
   }
 
-  void Audio::load(const char *target)
+  bool Audio::is_load() const
   {
-   Core::Unicode_Converter converter;
-   this->stop();
-   this->load_content(converter.convert(target));
+   return target!=0;
   }
 
-  void Audio::initialize(const char *target)
+  bool Audio::load(const char *name)
   {
-   this->initialize();
-   this->load(target);
+   this->close();
+   this->open(name);
+   return this->is_load();
   }
 
   Memory::Memory()

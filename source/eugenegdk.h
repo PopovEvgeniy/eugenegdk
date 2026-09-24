@@ -52,7 +52,6 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #endif
 
 #if defined __WATCOMC__
-  #define OAFALSE 0
   #define WINVER 0x0501
   #define _WIN32_WINNT WINVER
 #endif
@@ -62,8 +61,6 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
  #pragma comment(lib,"user32.lib")
  #pragma comment(lib,"gdi32.lib")
  #pragma comment(lib,"opengl32.lib")
- #pragma comment(lib,"ole32.lib")
- #pragma comment(lib,"strmiids.lib")
  #pragma comment(lib,"winmm.lib")
 #endif
 
@@ -73,11 +70,8 @@ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 #include <string.h>
 #include <time.h>
 #include <limits.h>
-#include <cwchar>
 #include <new>
 #include <windows.h>
-#include <unknwn.h>
-#include <dshow.h>
 #include <mmsystem.h>
 #include <GL\gl.h>
 
@@ -183,12 +177,13 @@ typedef enum
   typedef BOOL (WINAPI * PFNWGLSWAPINTERVALEXTPROC) (int interval); // This code is taken from wglext.h by The Khronos Group Inc
 
   LRESULT CALLBACK Process_Message(HWND window,UINT Message,WPARAM wParam,LPARAM lParam);
+  VOID CALLBACK set_event(PVOID lpParam,BOOLEAN TimerOrWaitFired);
 
   class Synchronization
   {
    private:
    HANDLE event;
-   MMRESULT timer;
+   HANDLE timer;
    void create_event();
    void timer_setup(const unsigned int delay);
    protected:
@@ -347,16 +342,6 @@ typedef enum
   EUGENEGDK::GAMEPAD_DIRECTION get_inverted_direction(const EUGENEGDK::GAMEPAD_DIRECTION target);
   EUGENEGDK::GAMEPAD_DIRECTION get_vertical_direction(const unsigned int current,const unsigned int maximum);
 
-  class Unicode_Converter
-  {
-   private:
-   wchar_t *target;
-   public:
-   Unicode_Converter();
-   ~Unicode_Converter();
-   wchar_t *convert(const char *source);
-  };
-
   class Resizer
   {
    private:
@@ -478,31 +463,21 @@ typedef enum
   class Audio
   {
    private:
-   IGraphBuilder *loader;
-   IMediaControl *player;
-   IMediaSeeking *controler;
-   IVideoWindow *video;
-   void com_setup();
-   void disable_video();
-   void load_content(const wchar_t *target);
-   bool is_play();
-   void rewind();
+   unsigned int target;
+   void open(const char *name);
    void play_content();
-   void create_loader();
-   void create_player();
-   void create_controler();
-   void get_video_instance();
+   void disable_video();
    public:
    Audio();
    ~Audio();
-   void initialize();
    bool check_playing();
+   void close();
    void stop();
    void play();
    void play_loop();
    void play(const bool loop);
-   void load(const char *target);
-   void initialize(const char *target);
+   bool is_load() const;
+   bool load(const char *name);
   };
 
   class Memory

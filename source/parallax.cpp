@@ -2,7 +2,7 @@
 
 int main()
 {
- bool limit;
+ bool limit=true;
  char perfomance[8];
  EUGENEGDK::Common::Timer timer(1.0);
  EUGENEGDK::Input::Keyboard keyboard;
@@ -24,19 +24,13 @@ int main()
  text.load_font("font.tga");
  text.set_position(text.get_font_width(),text.get_font_height());
  mouse.hide();
- media.initialize();
  media.load("space.mp3");
  memset(perfomance,0,8);
- limit=true;
  while(screen.sync(limit))
  {
   gamepad.update();
   media.play_loop();
-  if (mouse.check_press(EUGENEGDK::MOUSE_LEFT)==true)
-  {
-   break;
-  }
-  if (keyboard.check_hold(57)==true)
+  if (keyboard.check_hold(1)==true)
   {
    break;
   }
