@@ -614,7 +614,7 @@ namespace EUGENEGDK
 
  unsigned int Resizer::get_next_x(const unsigned int x) const
  {
-  unsigned int next_x;
+  unsigned int next_x=0;
   next_x=x+1;
   if (next_x==source_width)
   {
@@ -625,7 +625,7 @@ namespace EUGENEGDK
 
  unsigned int Resizer::get_next_y(const unsigned int y) const
  {
-  unsigned int next_y;
+  unsigned int next_y=0;
   next_y=y+1;
   if (next_y==source_height)
   {
@@ -1726,7 +1726,7 @@ namespace EUGENEGDK
     dpad=EUGENEGDK::GAMEPAD_DOWNRIGHT;
     break;
     default:
-    ;
+    dpad=EUGENEGDK::GAMEPAD_NONE;
     break;
    }
    return dpad;
