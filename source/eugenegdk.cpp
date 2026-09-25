@@ -82,7 +82,9 @@ namespace EUGENEGDK
 
  void Halt(const char *message)
  {
-  puts(message);
+  fputc('\n',stderr);
+  fputs(message,stderr);
+  fputc('\n',stderr);
   exit(EXIT_FAILURE);
  }
 
@@ -451,7 +453,7 @@ namespace EUGENEGDK
 
   void WINGL::set_pixel_format(HDC device)
   {
-   int format;
+   int format=0;
    format=ChoosePixelFormat(device,&setting);
    if (format==0)
    {
@@ -634,9 +636,25 @@ namespace EUGENEGDK
 
  void Resizer::scale_image(const unsigned int *target)
  {
-  size_t index;
-  unsigned int x,y,source_x,source_y,next_x,next_y,first,second,third,last,red,green,blue,alpha,x_difference,y_difference,x_weigh,y_weigh;
-  index=0;
+  size_t index=0;
+  unsigned int x=0;
+  unsigned int y=0;
+  unsigned int source_x=0;
+  unsigned int source_y=0;
+  unsigned int next_x=0;
+  unsigned int next_y=0;
+  unsigned int first;
+  unsigned int second=0;
+  unsigned int third=0;
+  unsigned int last=0;
+  unsigned int red=0;
+  unsigned int green=0;
+  unsigned int blue=0;
+  unsigned int alpha=0;
+  unsigned int x_difference=0;
+  unsigned int y_difference=0;
+  unsigned int x_weigh=0;
+  unsigned int y_weigh=0;
   for (y=0;y<target_height;++y)
   {
    source_y=this->get_source_y(y);
@@ -1033,7 +1051,7 @@ namespace EUGENEGDK
 
   unsigned int Render::get_maximum_texture_size() const
   {
-   int maximum_size;
+   int maximum_size=0;
    glGetIntegerv(GL_MAX_TEXTURE_SIZE,&maximum_size);
    return maximum_size;
   }
@@ -1409,7 +1427,7 @@ namespace EUGENEGDK
 
   void Keyboard::prepare()
   {
-   size_t index;
+   size_t index=0;
    for (index=0;index<KEYBOARD;++index)
    {
     preversion[index]=KEY_RELEASE;
@@ -2403,7 +2421,7 @@ namespace EUGENEGDK
 
   size_t Image::get_source_position(const unsigned int x,const unsigned int y,const Core::MIRROR_KIND mirror) const
   {
-   size_t position;
+   size_t position=0;
    switch (mirror)
    {
     case Core::HORIZONTAL_MIRROR:
@@ -2431,12 +2449,11 @@ namespace EUGENEGDK
 
   void Image::mirror_image(const Core::MIRROR_KIND mirror)
   {
-   unsigned char *mirrored;
-   unsigned int x,y;
-   size_t index,position;
-   index=0;
-   position=0;
-   mirrored=NULL;
+   unsigned char *mirrored=NULL;
+   unsigned int x=0;
+   unsigned int y=0;
+   size_t index=0;
+   size_t position=0;
    Resource::create(&mirrored,length);
    for (y=0;y<height;++y)
    {
@@ -2456,9 +2473,9 @@ namespace EUGENEGDK
 
   void Image::uncompress_tga_data(const unsigned char *source)
   {
-   size_t index,position,amount;
-   index=0;
-   position=0;
+   size_t amount=0;
+   size_t index=0;
+   size_t position=0;
    while (index<length)
    {
     if (source[position]<128)
@@ -2511,11 +2528,10 @@ namespace EUGENEGDK
 
   void Image::load_tga(File::Input_File &target)
   {
-   unsigned char *buffer;
-   size_t compressed_length;
+   unsigned char *buffer=NULL;
+   size_t compressed_length=0;
    TGA_head head;
    TGA_image image;
-   buffer=NULL;
    compressed_length=static_cast<size_t>(target.get_length()-18);
    target.read(&head,sizeof(TGA_head));
    target.set_position(8);
@@ -2628,8 +2644,8 @@ namespace EUGENEGDK
 
   void Picture::convert_image(const unsigned char *target)
   {
-   size_t index,position;
-   position=0;
+   size_t index=0;
+   size_t position=0;
    for (index=0;index<pixels;++index)
    {
     image[index]=Core::make_pixel(target[position+2],target[position+1],target[position],0);
@@ -3276,8 +3292,7 @@ namespace EUGENEGDK
 
   unsigned int Sheet::get_row(const unsigned int target) const
   {
-   unsigned int row;
-   row=1;
+   unsigned int row=1;
    if (this->check_frame(target)==true)
    {
     row+=(target-1)%rows;
@@ -3287,8 +3302,7 @@ namespace EUGENEGDK
 
   unsigned int Sheet::get_column(const unsigned int target) const
   {
-   unsigned int column;
-   column=1;
+   unsigned int column=1;
    if (this->check_frame(target)==true)
    {
     column+=(target-1)/rows;
@@ -3298,8 +3312,7 @@ namespace EUGENEGDK
 
   unsigned int Sheet::calculate(const unsigned int row,const unsigned int column) const
   {
-   unsigned int target;
-   target=1;
+   unsigned int target=1;
    if (this->check_cell(row,column)==true)
    {
     target+=(row-1)+(column-1)*rows;
@@ -4362,11 +4375,11 @@ namespace EUGENEGDK
 
   bool Timer::check_timer()
   {
-   bool check;
-   check=difftime(time(NULL),start)>=interval;
-   if (check==true)
+   bool check=false;
+   if (difftime(time(NULL),start)>=interval)
    {
     start=time(NULL);
+    check=true;
    }
    return check;
   }
@@ -4478,7 +4491,7 @@ namespace EUGENEGDK
 
   unsigned int Tilemap::get_row_amount(const unsigned int viewport_width) const
   {
-   unsigned int amount;
+   unsigned int amount=0;
    amount=viewport_width/cell_width;
    if ((viewport_width%cell_width)!=0)
    {
@@ -4489,7 +4502,7 @@ namespace EUGENEGDK
 
   unsigned int Tilemap::get_column_amount(const unsigned int viewport_height) const
   {
-   unsigned int amount;
+   unsigned int amount=0;
    amount=viewport_height/cell_height;
    if ((viewport_height%cell_height)!=0)
    {
@@ -4535,10 +4548,12 @@ namespace EUGENEGDK
 
   bool file_exist(const char *name)
   {
-   FILE *target;
-   bool exist;
-   exist=false;
-   target=fopen(name,"rb");
+   FILE *target=NULL;
+   bool exist=false;
+   if (name!=NULL)
+   {
+    target=fopen(name,"rb");
+   }
    if (target!=NULL)
    {
     exist=true;
@@ -4569,7 +4584,7 @@ namespace EUGENEGDK
 
   bool enable_logging(const char *name)
   {
-   return freopen(name,"wt",stdout)!=NULL;
+   return freopen(name,"wt",stderr)!=NULL;
   }
 
   void randomize()

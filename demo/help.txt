@@ -8,8 +8,7 @@ The parallax demo help
 The controls for a keyboard
 
 The arrow keys: Move.
-The space key: Exit from the demo.
-The left mouse button: Exit from the demo.
+The Escape key: Exit from the demo.
 The F1 key: Disable the background mirroring.
 The F2 key: Do the horizontal background mirror.
 The F3 key: Do the vertical background mirror.
