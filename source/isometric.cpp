@@ -2,7 +2,8 @@
 
 int main()
 {
- int row,column;
+ int row=0;
+ int column=0;
  EUGENEGDK::Graphics::Screen screen;
  EUGENEGDK::Graphics::Scene sky;
  EUGENEGDK::Graphics::Cartoon ground;
