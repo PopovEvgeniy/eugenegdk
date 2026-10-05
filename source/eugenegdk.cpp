@@ -1105,6 +1105,7 @@ namespace EUGENEGDK
    glDisable(GL_NORMALIZE);
    glDisable(GL_AUTO_NORMAL);
    glDisable(GL_COLOR_MATERIAL);
+   glDisable(GL_CULL_FACE);
    glDisable(GL_POINT_SMOOTH);
    glDisable(GL_LINE_SMOOTH);
    glDisable(GL_POLYGON_SMOOTH);
@@ -1132,7 +1133,6 @@ namespace EUGENEGDK
    glDisable(GL_MAP2_VERTEX_4);
    glEnable(GL_TEXTURE_2D);
    glEnable(GL_ALPHA_TEST);
-   glEnable(GL_CULL_FACE);
    glEnableClientState(GL_VERTEX_ARRAY);
    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
    glDisableClientState(GL_COLOR_ARRAY);
@@ -1153,7 +1153,6 @@ namespace EUGENEGDK
   void Render::set_common_settings()
   {
    glDrawBuffer(GL_BACK);
-   glCullFace(GL_BACK);
    glFrontFace(GL_CCW);
    glPolygonMode(GL_FRONT,GL_FILL);
    glShadeModel(GL_FLAT);
