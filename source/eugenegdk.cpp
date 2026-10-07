@@ -412,32 +412,32 @@ namespace EUGENEGDK
   {
    render=NULL;
    wglSwapIntervalEXT=NULL;
-   setting.bReserved=0;
-   setting.cAccumAlphaBits=0;
-   setting.cAccumBits=0;
-   setting.cAccumBlueBits=0;
-   setting.cAccumGreenBits=0;
-   setting.cAccumRedBits=0;
-   setting.cAlphaBits=0;
-   setting.cAlphaShift=0;
-   setting.cAuxBuffers=0;
-   setting.cBlueBits=0;
-   setting.cBlueShift=0;
-   setting.cGreenBits=0;
-   setting.cGreenShift=0;
-   setting.cRedBits=0;
-   setting.cRedShift=0;
-   setting.cStencilBits=0;
-   setting.dwDamageMask=0;
-   setting.dwLayerMask=0;
-   setting.dwVisibleMask=0;
-   setting.cColorBits=24;
-   setting.cDepthBits=16;
-   setting.nSize=sizeof(PIXELFORMATDESCRIPTOR);
-   setting.nVersion=1;
-   setting.dwFlags=PFD_DRAW_TO_WINDOW|PFD_SUPPORT_OPENGL|PFD_DOUBLEBUFFER|PFD_STEREO_DONTCARE;
-   setting.iPixelType=PFD_TYPE_RGBA;
-   setting.iLayerType=PFD_MAIN_PLANE;
+   settings.bReserved=0;
+   settings.cAccumAlphaBits=0;
+   settings.cAccumBits=0;
+   settings.cAccumBlueBits=0;
+   settings.cAccumGreenBits=0;
+   settings.cAccumRedBits=0;
+   settings.cAlphaBits=0;
+   settings.cAlphaShift=0;
+   settings.cAuxBuffers=0;
+   settings.cBlueBits=0;
+   settings.cBlueShift=0;
+   settings.cGreenBits=0;
+   settings.cGreenShift=0;
+   settings.cRedBits=0;
+   settings.cRedShift=0;
+   settings.cStencilBits=0;
+   settings.dwDamageMask=0;
+   settings.dwLayerMask=0;
+   settings.dwVisibleMask=0;
+   settings.cColorBits=0;
+   settings.cDepthBits=16;
+   settings.nSize=sizeof(PIXELFORMATDESCRIPTOR);
+   settings.nVersion=1;
+   settings.dwFlags=PFD_DRAW_TO_WINDOW|PFD_SUPPORT_OPENGL|PFD_DOUBLEBUFFER|PFD_STEREO_DONTCARE;
+   settings.iPixelType=PFD_TYPE_RGBA;
+   settings.iLayerType=PFD_MAIN_PLANE;
   }
 
   WINGL::~WINGL()
@@ -454,13 +454,21 @@ namespace EUGENEGDK
   void WINGL::set_pixel_format(HDC device)
   {
    int format=0;
-   format=ChoosePixelFormat(device,&setting);
+   if (device!=NULL)
+   {
+    settings.cColorBits=GetDeviceCaps(device,BITSPIXEL);
+    if (settings.cColorBits>24)
+    {
+     settings.cColorBits=24;
+    }
+    format=ChoosePixelFormat(device,&settings);
+   }
    if (format==0)
    {
     EUGENEGDK::Halt("Invalid pixel format");
    }
-   DescribePixelFormat(device,format,setting.nSize,&setting);
-   if (SetPixelFormat(device,format,&setting)==FALSE)
+   DescribePixelFormat(device,format,settings.nSize,&settings);
+   if (SetPixelFormat(device,format,&settings)==FALSE)
    {
     EUGENEGDK::Halt("Can't set the pixel format");
    }
@@ -469,7 +477,10 @@ namespace EUGENEGDK
 
   void WINGL::create_render_context(HDC device)
   {
-   render=wglCreateContext(device);
+   if (device!=NULL)
+   {
+    render=wglCreateContext(device);
+   }
    if (render==NULL)
    {
     EUGENEGDK::Halt("Can't create the render context");
@@ -496,7 +507,7 @@ namespace EUGENEGDK
 
   bool WINGL::is_software_render() const
   {
-   return ((setting.dwFlags&PFD_GENERIC_FORMAT)!=0) && ((setting.dwFlags&PFD_GENERIC_ACCELERATED)==0);
+   return ((settings.dwFlags&PFD_GENERIC_FORMAT)!=0) && ((settings.dwFlags&PFD_GENERIC_ACCELERATED)==0);
   }
 
  }

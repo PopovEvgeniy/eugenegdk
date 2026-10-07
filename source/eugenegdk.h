@@ -239,7 +239,7 @@ typedef enum
   {
    private:
    HGLRC render;
-   PIXELFORMATDESCRIPTOR setting;
+   PIXELFORMATDESCRIPTOR settings;
    PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT;
    void set_pixel_format(HDC device);
    void create_render_context(HDC device);
