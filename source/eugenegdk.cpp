@@ -1221,43 +1221,43 @@ namespace EUGENEGDK
 
   void Audio::open(const char *name)
   {
-   MCI_OPEN_PARMSA setting;
-   setting.dwCallback=0;
-   setting.wDeviceID=0;
-   setting.lpstrDeviceType=NULL;
-   setting.lpstrAlias=NULL;
-   setting.lpstrElementName=name;
+   MCI_OPEN_PARMSA settings;
+   settings.dwCallback=0;
+   settings.wDeviceID=0;
+   settings.lpstrDeviceType=NULL;
+   settings.lpstrAlias=NULL;
+   settings.lpstrElementName=name;
    target=0;
-   if (mciSendCommandA(target,MCI_OPEN,MCI_OPEN_ELEMENT|MCI_WAIT,reinterpret_cast<DWORD_PTR>(&setting))==0)
+   if (mciSendCommandA(target,MCI_OPEN,MCI_OPEN_ELEMENT|MCI_WAIT,reinterpret_cast<DWORD_PTR>(&settings))==0)
    {
-    target=setting.wDeviceID;
+    target=settings.wDeviceID;
    }
 
   }
 
   void Audio::play_content()
   {
-   MCI_PLAY_PARMS setting;
-   setting.dwCallback=0;
-   setting.dwFrom=0;
-   setting.dwTo=0;
+   MCI_PLAY_PARMS settings;
+   settings.dwCallback=0;
+   settings.dwFrom=0;
+   settings.dwTo=0;
    if (target!=0)
    {
-    mciSendCommand(target,MCI_PLAY,MCI_FROM,reinterpret_cast<DWORD_PTR>(&setting));
+    mciSendCommand(target,MCI_PLAY,MCI_FROM,reinterpret_cast<DWORD_PTR>(&settings));
    }
 
   }
 
   void Audio::disable_video()
   {
-   MCI_OVLY_WINDOW_PARMS setting;
-   setting.dwCallback=0;
-   setting.hWnd=NULL;
-   setting.lpstrText=NULL;
-   setting.nCmdShow=SW_HIDE;
+   MCI_OVLY_WINDOW_PARMS settings;
+   settings.dwCallback=0;
+   settings.hWnd=NULL;
+   settings.lpstrText=NULL;
+   settings.nCmdShow=SW_HIDE;
    if (target!=0)
    {
-    mciSendCommand(target,MCI_WINDOW,MCI_OVLY_WINDOW_STATE,reinterpret_cast<DWORD_PTR>(&setting));
+    mciSendCommand(target,MCI_WINDOW,MCI_OVLY_WINDOW_STATE,reinterpret_cast<DWORD_PTR>(&settings));
    }
 
   }
@@ -4144,8 +4144,12 @@ namespace EUGENEGDK
 
   size_t Text::print(const char *target)
   {
-   size_t index,length;
-   length=strlen(target);
+   size_t index=0;
+   size_t length=0;
+   if (target!=NULL)
+   {
+    length=strlen(target);
+   }
    this->restore_position();
    for (index=0;index<length;++index)
    {
@@ -4553,20 +4557,20 @@ namespace EUGENEGDK
    return remove(name)==0;
   }
 
-  bool file_exist(const char *name)
+  bool file_exists(const char *name)
   {
    FILE *target=NULL;
-   bool exist=false;
+   bool exists=false;
    if (name!=NULL)
    {
     target=fopen(name,"rb");
    }
    if (target!=NULL)
    {
-    exist=true;
+    exists=true;
     fclose(target);
    }
-   return exist;
+   return exists;
   }
 
  }

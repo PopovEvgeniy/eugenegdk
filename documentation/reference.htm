@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=us-ascii">  
+<meta http-equiv="content-type" content="text/html; charset=windows-1251">  
  <title>Programmer Reference Guide</title>
  </head>
  <body>
@@ -794,13 +794,13 @@
    <br>
    <i>void Billboard::complex_mirror(); -</i> Set both the horizontal sprite mirroring mode and the vertical sprite mirroring mode.<br>
    <br>
-   <i>bool Billboard::is_horizontally_mirrored const(); -</i> Return true if the sprite is horizontally mirrored.<br>
+   <i>bool Billboard::is_horizontally_mirrored () const; -</i> Return true if the sprite is horizontally mirrored.<br>
    <br>
-   <i>bool Billboard::is_vertically_mirrored const(); -</i> Return true if the sprite is vertically mirrored.<br>
+   <i>bool Billboard::is_vertically_mirrored () const; -</i> Return true if the sprite is vertically mirrored.<br>
    <br>
-   <i>bool Billboard::is_complex_mirrored const(); -</i> Return true if the sprite is both horizontally and vertically mirrored.<br>
+   <i>bool Billboard::is_complex_mirrored () const; -</i> Return true if the sprite is both horizontally and vertically mirrored.<br>
    <br>
-   <i>bool Billboard::is_mirrored const(); -</i> Return true if the sprite is mirrored in any way.<br>
+   <i>bool Billboard::is_mirrored () const; -</i> Return true if the sprite is mirrored in any way.<br>
    <br>
    <i>void Billboard::go_start(); -</i> Set the sprite position to the start position.<br>
    <br>
@@ -1332,7 +1332,7 @@
    <br>
    <i>unsigned long long int Memory::get_free_virtual(); -</i> Return the free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual memory</a> size in bytes.<br>
    <br>
-   <i>unsigned long long int Memory::get_physical_usge(); -</i> Return the physical memory usage in bytes.<br>
+   <i>unsigned long long int Memory::get_physical_usage(); -</i> Return the physical memory usage in bytes.<br>
    <br>
    <i>unsigned long long int Memory::get_virtual_usage(); -</i> Return the virtual memory usage in bytes.<br>
    <br>
@@ -1372,7 +1372,7 @@
   <big>
    This module is implemented as two simple functions. All these functions are declared in the <i>Filesystem</i> sub-namespace.<br>
    <br>
-   <i>file_exist</i>: Check the target file to see if one exists.<br>
+   <i>file_exists</i>: Check the target file to see if one exists.<br>
    <br>
    <i>delete_file</i>: Deletes the target file.<br>
    <br>
@@ -2622,6 +2622,7 @@
    10.5.7: The source code synced with the Neon Game Development Kit 9.1.8.<br>
    10.5.8: The source code synced with the Neon Game Development Kit 9.1.9.<br>
    10.5.9: The source code synced with the Neon Game Development Kit 9.1.9.<br>
+   10.6: The text printing subsystem has improved.<br>
   </big>
 </body>
 </html>
