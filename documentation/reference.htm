@@ -16,7 +16,7 @@
 <li><a href="#mozTocId349565">Chapter 4. The system requirements</a></li>
 <li><a href="#mozTocId246473">Chapter 5. Troubleshooting.</a></li>
 <li><a href="#mozTocId891928">Chapter 6. The supported compilers</a></li>
-<li><a href="#mozTocId250267">Chapter 7. The platform-specific notes</a></li>
+<li><a href="#mozTocId250267">Chapter 7. The platform-specific note</a></li>
 <li><a href="#mozTocId93850">Chapter 8. The engine namespace</a></li>
 <li><a href="#mozTocId241696">Chapter 9. The custom data types</a></li></ol></li>
 <li><a href="#mozTocId736492">Part 2. Basic things</a>
@@ -88,7 +88,7 @@
 <li><a href="#mozTocId304358">Chapter 5. User input.</a></li>
 <li><a href="#mozTocId539190">Chapter 6. The audio</a></li></ol></li>
 <li><a href="#mozTocId928107">Version history</a></li></ol>
-  <h1><a id="mozTocId368114" class="mozTocH1"></a><big>Part 1. Welcome</big></h1>
+  <h1><a id="mozTocId368114" class="mozTocH1"></a><big>Part 1. Welcome.</big></h1>
   <h2><a id="mozTocId96569" class="mozTocH2"></a><big>Chapter 1. About the engine</big></h2>
   <big><u>About the engine.</u><br>
    <br>
@@ -118,7 +118,7 @@
    Add this directive to your code: <i>#include "eugenegdk.h"</i><br>
    Yes. This is really all you need to do.<br>
   </big>
-  <h2><a id="mozTocId619515" class="mozTocH2"></a><big>Chapter 2. Special thanks</big></h2>
+  <h2><a id="mozTocId619515" class="mozTocH2"></a><big>Chapter 2. Special thanks.</big></h2>
   <big>
    I want to say «Big thanks for the technical consultation» to these people:<br>
   </big>
@@ -144,7 +144,7 @@
    This software is provided 'as-is', without any express or implied<br>
    warranty. In no event will the authors be held liable for any damages<br>
    arising from the use of this software.<br>
-   Permission is granted to anyone to use this software for any purpose,<br>
+   Permission is granted to anyone to use this software for any purpose, <br>
    including commercial applications, and to alter it and redistribute it<br>
    freely, subject to the following restrictions:<br>
    1. The origin of this software must not be misrepresented; you must not<br>
@@ -161,7 +161,7 @@
    Permission is hereby granted, free of charge, to any person obtaining a<br>
    copy of this software and/or associated documentation files (the<br>
    "Materials"), to deal in the Materials without restriction, including<br>
-   without limitation the rights to use, copy, modify, merge, publish,<br>
+   without limitation the rights to use, copy, modify, merge, publish, <br>
    distribute, sublicense, and/or sell copies of the Materials, and to<br>
    permit persons to whom the Materials are furnished to do so, subject to<br>
    the following conditions:<br>
@@ -241,7 +241,7 @@
    <li><big>C++ Builder 12 Athens</big></li>
    <li><big>C++ Builder 13 Florence</big></li>
   </ul>
-  <h2><a id="mozTocId250267" class="mozTocH2"></a><big>Chapter 7. The platform-specific notes</big></h2>
+  <h2><a id="mozTocId250267" class="mozTocH2"></a><big>Chapter 7. The platform-specific note</big></h2>
   <big><u>The old processor support.<br></u><br>
    You need one of the following compilers for the old processor support:<br>
   </big>
@@ -265,7 +265,7 @@
   </ul>
   <big><u><br>Windows SDK</u><br>
    <br>
-   You need <a href="https://www.microsoft.com/en-us/download/details.aspx?id=15656">Windows Server 2003 SP1 Platform SDK</a> if you are using Visual C++ 2003 Toolkit or Visual C++ 2005 Express.<br>
+   You need the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=15656">Windows Server 2003 SP1 Platform SDK</a> if you are using the Visual C++ 2003 Toolkit or Visual C++ 2005 Express.<br>
    <u><br>A note for the Visual C++ users.</u><br>
    <br>
    Disable the precompiled headers before starting compilation. The old Visual C++ users can do it via the project creation wizard.<br>
@@ -305,7 +305,7 @@
   </big>
   <h2><a id="mozTocId889249" class="mozTocH2"></a><big>Chapter 2. A game loop</big></h2>
   <big>
-   What is the main point in your game? A game loop. You can see the structure of a typical game loop below.<br>
+   What is the main point of your game? A game loop. You can see the structure of a typical game loop below.<br>
    <br>
    <img alt="" src="game_loop.png" height="354" width="379"><br>
    <br>
@@ -332,7 +332,7 @@
    <br>
    <i>void Screen::clear_screen(); -</i> Clear the screen. Fill it with black color.<br>
    <br>
-   <i>void Screen::initialize(); -</i> Initialize the base graphic subsystem with the default screen resolution.<br>
+   <i>void Screen::initialize(); -</i> Initialize the base graphics subsystem with the default screen resolution.<br>
    <br>
    <i>void Screen::initialize(const unsigned int width, const unsigned int height); -</i> Initialize the base graphic subsystem with the custom screen resolution.<br>
    <br>
@@ -451,7 +451,7 @@
   </big>
   <h2><a id="mozTocId633113" class="mozTocH2"></a><big>Chapter 6. The background</big></h2>
   <big>
-   A background is a big image with a few frames. Any game has a background. The background will be stretched to the screen resolution before rendering the game scene. The background transparency is always disabled.<br>
+   A background is a big image with a few frames. Any game has a background. The background will be scaled to fit the screen resolution. The background transparency is always disabled.<br>
    <br>
    The horizontal animated backgrounds look like the horizontal photo ribbons. The vertical animated backgrounds look like the vertical photo ribbons.</big><br>
   <h2><a id="mozTocId308152" class="mozTocH2"></a><big>Chapter 7. The segment</big></h2>
@@ -656,7 +656,7 @@
   <h2><a id="mozTocId17101" class="mozTocH2"></a><big>Chapter 10. The parallax background<br></big></h2>
   <big><u>A few words about the parallax.</u><br>
    <br>
-   The parallax background is a background with scrolling support.<br>
+   A parallax background is a background that supports offset scrolling.<br>
    <u><br>The speed.</u><br>
    <br>
    The scrolling speed should be a positive number.
@@ -823,7 +823,7 @@
   <h2><a id="mozTocId839591" class="mozTocH2"></a><big>Chapter 13. The ribbons<br></big></h2>
   <big><u>A few words about the ribbons.</u><br>
    <br>
-   The ribbons are horizontal strips.
+   The ribbons are horizontal sprite strips.
    <br>
    <br><u>Work with the ribbons.</u><br>
    <br>
@@ -849,7 +849,7 @@
   <h2><a id="mozTocId292051" class="mozTocH2"></a><big>Chapter 14. The tier</big></h2>
   <big><u>A few words about the tier.</u><br>
    <br>
-   The tier is a vertical strip.
+   The tier is a vertical sprite strip.
    <br>
    <u><br>Work with the tier.</u><br>
    <br>
@@ -904,7 +904,7 @@
    <img alt="" src="sheet.png" height="249" width="380"><br>
    <u><br>The rows and columns.</u><br>
    <br>
-   The row indexing starts at 1. The column indexing at 1.
+   The row indexing starts at 1. The column indexing starts at 1.
    <br>
    <br><u>Work with the sheet.</u><br>
    <br>
@@ -1045,7 +1045,7 @@
    <br>
    <i>void Image::destroy_image(); -</i> Destroy the current image and free the image buffer.<br>
    <br>
-   <u>An important notes.</u><br>
+   <u>An important note.</u><br>
    <br>
    A new image will replace the current image if the current image already exists. An incorrect image will be ignored and won't load.<br>
    The source image will be converted to <a href="https://en.wikipedia.org/wiki/RGBA">RGBA</a> format. The pixels equal to the top-left pixel will be marked as transparent.
@@ -1137,7 +1137,7 @@
    <br>
    <i>void Camera::reset(); -</i> Reset the camera settings.<br>
    <br>
-   <u>An important notes.</u><br>
+   <u>An important note.</u><br>
    <br>
    Always set the viewport size after initializing the camera. Always update the camera before drawing.<br>
   </big>
@@ -1664,7 +1664,7 @@
     <tr>
      <td><big>U</big></td>
      <td><big>22</big></td>
-     <td><big>&lt; or ,</big></td>
+     <td><big>&lt; or , </big></td>
      <td><big>51</big></td>
      <td><big>Gray +</big></td>
      <td><big>78</big></td>
@@ -1993,7 +1993,7 @@
   <h2><a id="mozTocId304358" class="mozTocH2"></a><big>Chapter 5. User input.</big></h2>
   <big><u>The input backend.</u><br>
    <br>
-   The input subsystem is the simple thing. It works over the standard Microsoft Windows API.
+   The input subsystem is a simple thing. It works over the standard Microsoft Windows API.
    <br>
    <br><u>The internal key state.</u><br>
    <br>
@@ -2020,7 +2020,7 @@
   </big>
   <h2><a id="mozTocId539190" class="mozTocH2"></a><big>Chapter 6. The audio</big></h2>
   <big>
-   The audio subsystem is working over <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd743606%28v=vs.85%29.aspx">Media Control Interface</a>.<br>
+   The audio subsystem is working over the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd743606%28v=vs.85%29.aspx">Media Control Interface</a>.<br>
   </big>
   <h1><a id="mozTocId928107" class="mozTocH1"></a><big>Version history</big></h1>
   <big>
@@ -2625,6 +2625,7 @@
    10.6: The text printing subsystem has improved.<br>
    10.6.1: The small changes.<br>
    10.6.2: The image loader has improved.<br>
+   10.6.3: The small changes.<br>
   </big>
 </body>
 </html>

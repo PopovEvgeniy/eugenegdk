@@ -520,12 +520,12 @@ namespace EUGENEGDK
 
   float get_start_offset(const float current,const float total)
   {
-   return (1.0f/total)*(current-1.0f);
+   return (current-1.0f)/total;
   }
 
   float get_end_offset(const float current,const float total)
   {
-   return (1.0f/total)*current;
+   return current/total;
   }
 
   unsigned int get_pixel_component(const unsigned int pixel,const Core::PIXEL_COMPONENT component)
