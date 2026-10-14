@@ -30,7 +30,7 @@ int main()
  {
   for (column=0;column<column_amount;++column)
   {
-   tile.select(1,2);
+   tile.select(0,1);
    tile.draw(tilemap.get_x(row),tilemap.get_y(column));
   }
 
