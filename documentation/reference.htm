@@ -336,11 +336,11 @@
    <br>
    <i>void Screen::initialize(const unsigned int width, const unsigned int height); -</i> Initialize the base graphic subsystem with the custom screen resolution.<br>
    <br>
-   <i>bool Screen::sync(); -</i> Show the current content of the back buffer on the screen. Return false if the game is terminated. This method uses the FPS limits and waits between frames.<br>
+   <i>bool Screen::sync(); -</i> Show the game scene. Return false if the game is terminated. This method uses the FPS limits and waits between frames.<br>
    <br>
-   <i>bool Screen::update(); -</i> Show the current content of the back buffer on the screen. Return false if the game is terminated. This method ignores the FPS limit and needs high processor usage.<br>
+   <i>bool Screen::update(); -</i> Show the game scene. Return false if the game is terminated. This method ignores the FPS limit and needs high processor usage.<br>
    <br>
-   <i>bool Screen::sync(const bool limit); </i>- Show the current content of the back buffer on the screen. Return false if the game is terminated.<br>
+   <i>bool Screen::sync(const bool limit); </i>- Show the game scene. Return false if the game is terminated.<br>
    <br>
    <i>bool Screen::is_ready(); -</i> Return true if the subsystem is already initialized.<br>
    <br>
@@ -1012,9 +1012,9 @@
    <br>
    <i>bool Text::load_font(const char *name); -</i> Load a font from the target file and return true if it is loaded.<br>
    <br>
-   <i>void Text::print(const char target); -</i> Print a single character at the current position.<br>
+   <i>void Text::print(const char target); -</i> Print a single glyph at the current position.<br>
    <br>
-   <i>void Text::print(const unsigned int x, const unsigned int y, const char target); -</i> Print a single character at the specific position.<br>
+   <i>void Text::print(const unsigned int x, const unsigned int y, const char target); -</i> Print a single glyph at the specific position.<br>
    <br>
    <i>size_t Text::print(const char *target); -</i> Print text at the current position and return the text length.<br>
    <br>
@@ -1988,12 +1988,12 @@
   </big>
   <h2><a id="mozTocId328098" class="mozTocH2"></a><big>Chapter 4. Gamepad</big></h2>
   <big>
-   The gamepad subsystem is working over the <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick Multimedia API</a>.<br>
+   The gamepad subsystem works on the <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick Multimedia API</a>.<br>
   </big>
   <h2><a id="mozTocId304358" class="mozTocH2"></a><big>Chapter 5. User input.</big></h2>
   <big><u>The input backend.</u><br>
    <br>
-   The input subsystem is a simple thing. It works over the standard Microsoft Windows API.
+   The input subsystem is a simple thing. It works on the standard Microsoft Windows API.
    <br>
    <br><u>The internal key state.</u><br>
    <br>
@@ -2020,7 +2020,7 @@
   </big>
   <h2><a id="mozTocId539190" class="mozTocH2"></a><big>Chapter 6. Audio</big></h2>
   <big>
-   The audio subsystem is working over the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd743606%28v=vs.85%29.aspx">Media Control Interface</a>.<br>
+   The audio subsystem works on the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd743606%28v=vs.85%29.aspx">Media Control Interface</a>.<br>
   </big>
   <h1><a id="mozTocId928107" class="mozTocH1"></a><big>Version history</big></h1>
   <big>
@@ -2627,6 +2627,7 @@
    10.6.2: The image loader has improved.<br>
    10.6.3-10.6.4: The small changes.<br>
    10.6.5: The image indexing has been changed.<br>
+   10.6.6: The small bug has been fixed.<br>
   </big>
 </body>
 </html>
