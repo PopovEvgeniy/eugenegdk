@@ -380,7 +380,7 @@
    <br>
    The <i>Picture</i> class provides simple access to the picture subsystem. Don't use it directly. Let's look at the publicly available methods.<br>
    <br>
-   <i>void Picture::destroy_image(); -</i> Destroy an image in the storage.<br>
+   <i>void Picture::destroy_image(); -</i> Destroy the image in the storage.<br>
    <br>
    <i>bool Picture::is_storage_empty() const; -</i> Return true if the storage is empty.<br>
    <br>
@@ -500,9 +500,9 @@
    <br>
    <i>void Segment::draw(const unsigned int target);</i> - Draw the target frame.<br>
    <br>
-   <i>void Segment::destroy_image();</i> - Destroy a background image.<br>
+   <i>void Segment::destroy_image();</i> - Destroy the background image.<br>
    <br>
-   <i>void Segment::destroy();</i> - Destroy a background image and the texture.<br>
+   <i>void Segment::destroy();</i> - Destroy the background image and the texture.<br>
    <br>
    <i>bool Segment::is_load() const;</i> - Return true if a background has already been loaded.<br>
    <br>
@@ -570,9 +570,9 @@
    <br>
    <i>void Section::draw(const unsigned int target);</i> - Draw the target frame.<br>
    <br>
-   <i>void Section::destroy_image();</i> - Destroy a background image.<br>
+   <i>void Section::destroy_image();</i> - Destroy the background image.<br>
    <br>
-   <i>void Section::destroy();</i> - Destroy a background image and the texture.<br>
+   <i>void Section::destroy();</i> - Destroy the background image and the texture.<br>
    <br>
    <i>bool Section::is_load() const;</i> - Return true if a background has already been loaded.<br>
    <br>
@@ -635,9 +635,9 @@
    <br>
    <i>void Scene::draw(); -</i> Draw the background.<br>
    <br>
-   <i>void Scene::destroy_image(); -</i> Destroy a background image.<br>
+   <i>void Scene::destroy_image(); -</i> Destroy the background image.<br>
    <br>
-   <i>void Scene::destroy(); -</i> Destroy a background image and destroy the texture.<br>
+   <i>void Scene::destroy(); -</i> Destroy the background image and destroy the texture.<br>
    <br>
    <i>bool Scene::is_load() const; -</i> Return true if a static background has already been loaded.<br>
    <br>
@@ -707,9 +707,9 @@
    <br>
    <i>void Parallax::draw(); -</i> Draw the background.<br>
    <br>
-   <i>void Parallax::destroy_image(); -</i> Destroy a background image.<br>
+   <i>void Parallax::destroy_image(); -</i> Destroy the background image.<br>
    <br>
-   <i>void Parallax::destroy(); -</i> Destroy a background image and destroy the texture.<br>
+   <i>void Parallax::destroy(); -</i> Destroy the background image and destroy the texture.<br>
    <br>
    <i>bool Parallax::is_load() const; -</i> Return true if a parallax background has already been loaded.<br>
    <br>
@@ -840,7 +840,7 @@
    <i>void Ribbon::step(); -</i> Go to the next frame or jump to start if the next frame is the last.<br>
    <br>
    <i>Ribbon *Ribbon::get_pointer(); -</i> Return the pointer to the ribbon object.<br><br>
-   <i>void Ribbon::destroy(); -</i> Destroy a sprite image and destroy the texture.
+   <i>void Ribbon::destroy(); -</i> Destroy the sprite image and destroy the texture.
    <br>
    <br><u>A sprite texture</u><br>
    <br>
@@ -867,7 +867,7 @@
    <br>
    <i>Tier *Tier::get_pointer();</i> - Return the pointer to the tier object.<br>
    <br>
-   <i>void Tier::destroy();</i> - Destroy a sprite image and destroy the texture.<br>
+   <i>void Tier::destroy();</i> - Destroy the sprite image and destroy the texture.<br>
    <br>
    <u>A sprite texture</u><br>
    <br>
@@ -890,7 +890,7 @@
    <br>
    <i>Cartoon *Cartoon::get_pointer(); -</i> Return the pointer to the sprite object.<br>
    <br>
-   <i>void Cartoon::destroy(); -</i> Destroy a sprite image and the texture.
+   <i>void Cartoon::destroy(); -</i> Destroy the sprite image and the texture.
    <br>
    <u><br>A sprite texture</u><br>
    <br>
@@ -926,7 +926,7 @@
    <br>
    <i>unsigned int Sheet::get_columns() const; -</i> Return the number of columns.<br>
    <br>
-   <i>void Sheet::destroy(); -</i> Destroy a sprite sheet image and the texture.<br>
+   <i>void Sheet::destroy(); -</i> Destroy the sprite sheet image and the texture.<br>
    <br>
    <i>void Sheet::select(const unsigned int row, const unsigned int column); -</i> Select the target frame by row and column.<br>
    <br>
@@ -1069,25 +1069,25 @@
    <br>
    <i>Camera *Camera::get_pointer(); -</i> Return the pointer to the camera subsystem.<br>
    <br>
-   <i>unsigned int Camera::increase_x(); -</i> Increase the x-coordinate of the camera offset and return it.<br>
+   <i>unsigned int Camera::increase_x(); -</i> Increase the the horizontal camera offset and return it.<br>
    <br>
-   <i>unsigned int Camera::decrease_x(); -</i> Decrease the x-coordinate of the camera offset and return it.<br>
+   <i>unsigned int Camera::decrease_x(); -</i> Decrease the the horizontal camera offset and return it.<br>
    <br>
-   <i>unsigned int Camera::increase_y(); -</i> Increase the y-coordinate of the camera offset and return it.<br>
+   <i>unsigned int Camera::increase_y(); -</i> Increase the the vertical camera offset and return it.<br>
    <br>
-   <i>unsigned int Camera::decrease_y(); -</i> Decrease the y-coordinate of the camera offset and return it.<br>
+   <i>unsigned int Camera::decrease_y(); -</i> Decrease the the vertical camera offset and return it.<br>
    <br>
-   <i>unsigned int Camera::increase_x(const unsigned int increment); -</i> Increase the x-coordinate of the camera offset by the value and return it.<br>
+   <i>unsigned int Camera::increase_x(const unsigned int increment); -</i> Increase the the horizontal camera offset by the value and return it.<br>
    <br>
-   <i>unsigned int Camera::decrease_x(const unsigned int decrement); -</i> Decrease the x-coordinate of the camera offset by the value and return it.<br>
+   <i>unsigned int Camera::decrease_x(const unsigned int decrement); -</i> Decrease the the horizontal camera offset by the value and return it.<br>
    <br>
-   <i>unsigned int Camera::increase_y(const unsigned int increment); -</i> Increase the y-coordinate of the camera offset by the value and return it.<br>
+   <i>unsigned int Camera::increase_y(const unsigned int increment); -</i> Increase the the vertical camera offset by the value and return it.<br>
    <br>
-   <i>unsigned int Camera::decrease_y(const unsigned int decrement); -</i> Decrease the y-coordinate of the camera offset by the value and return it.<br>
+   <i>unsigned int Camera::decrease_y(const unsigned int decrement); -</i> Decrease the the vertical camera offset by the value and return it.<br>
    <br>
-   <i>unsigned int Camera::get_x() const; -</i> Return the x-coordinate of the camera offset.<br>
+   <i>unsigned int Camera::get_x() const; -</i> Return the the horizontal camera offset.<br>
    <br>
-   <i>unsigned int Camera::get_y() const; -</i> Return the y-coordinate of the camera offset.<br>
+   <i>unsigned int Camera::get_y() const; -</i> Return the the vertical camera offset.<br>
    <br>
    <i>unsigned int Camera::get_screen_width() const; -</i> Return the screen width in pixels.<br>
    <br>
@@ -1109,9 +1109,9 @@
    <br>
    <i>unsigned int Camera::get_world_y(const unsigned screen_int y) const; -</i> Convert the screen y-coordinate to the world y-coordinate.<br>
    <br>
-   <i>unsigned int Camera::set_x(const unsigned int x); -</i> Set the x-coordinate of the camera offset and return it.<br>
+   <i>unsigned int Camera::set_x(const unsigned int x); -</i> Set the the horizontal camera offset and return it.<br>
    <br>
-   <i>unsigned int Camera::set_y(const unsigned int y); -</i> Set the y-coordinate of the camera offset and return it.<br>
+   <i>unsigned int Camera::set_y(const unsigned int y); -</i> Set the the vertical camera offset and return it.<br>
    <br>
    <i>void Camera::initialize(const unsigned int width, const unsigned int height); -</i> Initialize the subsystem and set the screen size.<br>
    <br>
@@ -1757,7 +1757,7 @@
    <br>
    <u><br>The mouse buttons.</u><br>
    <br>
-   The mouse button codes look like the predefined constants. You can see it below.<br>
+   The mouse button codes correspond to the predefined constants. You can see it below.<br>
    <br>
   </big>
   <table border="1">
@@ -1797,7 +1797,7 @@
    <br>
    <br><u>The D-pad button codes.</u><br>
    <br>
-   The D-pad button codes look like the predefined constants. You can see it below.<br>
+   The D-pad button codes correspond to the predefined constants. You can see it below.<br>
    <br>
   </big>
   <table border="1">
@@ -1846,7 +1846,7 @@
   </table>
   <big><br><u>The stick identifiers.</u><br>
    <br>
-   The stick identifiers look like the predefined constants. You can see it below.<br>
+   The stick identifiers correspond to the predefined constants. You can see it below.<br>
    <br>
   </big>
   <table border="1">
@@ -2628,7 +2628,7 @@
    10.6.3-10.6.4: The small changes.<br>
    10.6.5: The image indexing has been changed.<br>
    10.6.6: The small bug has been fixed.<br>
-   10.6.7: The animation subsystem has improved.<br>
+   10.6.7-10.6.8: The animation subsystem has improved.<br>
   </big>
 </body>
 </html>
