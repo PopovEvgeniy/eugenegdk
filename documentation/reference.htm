@@ -324,9 +324,9 @@
    Always use the latest video card drivers. It may increase the rendering performance. You can also try to change the screen resolution if you have low rendering performance.<br>
    <br><u>The FPS limitation.</u><br>
    <br>
-   FPS is an important thing. Many FPS are needed for a good animation, but it also needs high processor usage. The FPS limit is 60 by default. It has an ideal value.
+   FPS is an important thing. Many FPS are needed for a good animation, but it also needs high processor usage. The FPS limit is 60 by default.
    <br>
-   <br><u>Work with the base graphics subsystem.</u><br>
+   <br><u>Working with the base graphics subsystem.</u><br>
    <br>
    The <i>Screen</i> class provides access to the base graphics subsystem. Let's look at the publicly available methods.<br>
    <br>
@@ -376,7 +376,7 @@
   <big><u>An important subsystem.</u><br>
    <br>
    The picture subsystem implements image storage.<br>
-   <u><br>Work with the picture subsystem.</u><br>
+   <u><br>Working with the picture subsystem.</u><br>
    <br>
    The <i>Picture</i> class provides simple access to the picture subsystem. Don't use it directly. Let's look at the publicly available methods.<br>
    <br>
@@ -400,8 +400,8 @@
    The animation subsystem lets you control the animation frames.<br>
    <u><br>The frame index.</u><br>
    <br>
-   The frame indexing starts at 0.<br>
-   <br><u>Work with the animation subsystem.</u><br>
+   The frame index starts at 0.<br>
+   <br><u>Working with the animation subsystem.</u><br>
    <br>
    The <i>Animation</i> class provides simple access to the animation subsystem. Don't use it directly. Let's look at the publicly available methods.<br>
    <br>
@@ -458,7 +458,7 @@
   <big><u>A few words about the segment.</u><br>
    <br>
    The segment is a horizontal animated background.<br>
-   <br><u>Work with the segment.</u><br>
+   <br><u>Working with the segment.</u><br>
    <br>
    Use the <i>Segment</i> class to work with the segment. Let's look at the publicly available methods.<br>
    <br>
@@ -488,7 +488,7 @@
    <br>
    <i>unsigned int Segment::set_target(const unsigned int target);</i> - Set the target frame and return it.<br>
    <br>
-   <i>void Segment::step();</i> - Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
+   <i>void Segment::step();</i> - Go to the next frame or jump to start if the next frame is the last.<br>
    <br>
    <i>bool Segment::load(Image *background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
    <br>
@@ -496,7 +496,7 @@
    <br>
    <i>bool Segment::load(const char *name, const unsigned int frames);</i> - Load a background from the target file and return true if it is loaded.<br>
    <br>
-   <i>void Segment::draw();</i> - Draw a background.<br>
+   <i>void Segment::draw();</i> - Draw the background.<br>
    <br>
    <i>void Segment::draw(const unsigned int target);</i> - Draw the target frame.<br>
    <br>
@@ -528,7 +528,7 @@
   <big><u>A few words about the section.</u><br>
    <br>
    The section is a vertical animated background.<br>
-   <br><u>Work with the section.</u><br>
+   <br><u>Working with the section.</u><br>
    <br>
    Use the <i>Section</i> class to work with the section. Let's look at the publicly available methods.<br>
    <br>
@@ -558,7 +558,7 @@
    <br>
    <i>unsigned int Section::set_target(const unsigned int target);</i> - Set the target frame and return it.<br>
    <br>
-   <i>void Section::step();</i> - Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
+   <i>void Section::step();</i> - Go to the next frame or jump to start if the next frame is the last.<br>
    <br>
    <i>bool Section::load(Image *background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
    <br>
@@ -566,7 +566,7 @@
    <br>
    <i>bool Section::load(const char *name, const unsigned int frames);</i> - Load a background from the target file and return true if it is loaded.<br>
    <br>
-   <i>void Section::draw();</i> - Draw a background.<br>
+   <i>void Section::draw();</i> - Draw the background.<br>
    <br>
    <i>void Section::draw(const unsigned int target);</i> - Draw the target frame.<br>
    <br>
@@ -599,7 +599,7 @@
   <big><u>A few words about the static background.</u><br>
    <br>
    The static background is a simple kind of background. It contains one frame only.<br>
-   <u><br>Work with the background.</u><br>
+   <u><br>Working with the background.</u><br>
    <br>
    Use the <i>Scene</i> class to work with the static background. Let's look at the publicly available methods.<br>
    <br>
@@ -633,7 +633,7 @@
    <br>
    <i>bool Scene::load(const char *name); -</i> Load a background from the target file and return true if it is loaded.<br>
    <br>
-   <i>void Scene::draw(); -</i> Draw a background.<br>
+   <i>void Scene::draw(); -</i> Draw the background.<br>
    <br>
    <i>void Scene::destroy_image(); -</i> Destroy a background image.<br>
    <br>
@@ -645,11 +645,11 @@
    <br>
    <i>unsigned int Scene::get_height() const; -</i> Return the height of the background.<br>
    <br>
-   <u>A background texture</u><br>
+   <u>A background texture.</u><br>
    <br>
    The background doesn't draw if the background texture doesn't exist. It will be automatically created when you load an image.
    <br>
-   <br><u>Important notice</u><br>
+   <br><u>Important notice.</u><br>
    <br>
    Always call the <i>prepare</i> method after the background has been loaded.<br>
   </big>
@@ -661,7 +661,7 @@
    <br>
    The scrolling speed should be a positive number.
    <br>
-   <br><u>Work with the background.</u><br>
+   <br><u>Working with the background.</u><br>
    <br>
    Use the <i>Parallax</i> class to work with the parallax background. Let's look at the publicly available methods.<br>
    <br>
@@ -705,7 +705,7 @@
    <br>
    <i>float Parallax::get_vertical_speed() const; -</i> Return the vertical speed.<br>
    <br>
-   <i>void Parallax::draw(); -</i> Draw a background.<br>
+   <i>void Parallax::draw(); -</i> Draw the background.<br>
    <br>
    <i>void Parallax::destroy_image(); -</i> Destroy a background image.<br>
    <br>
@@ -730,7 +730,7 @@
    <br>
    A sprite is a transparent image. It is useful for many things: enemies, bonuses, etc.
    <br>
-   <u><br>Work with the base sprite subsystem.</u><br>
+   <u><br>Working with the base sprite subsystem.</u><br>
    <br>
    The <i>Billboard</i> class provides simple access to the base sprite subsystem. Don't use it directly. Let's look at the publicly available methods.<br>
    <br>
@@ -762,13 +762,13 @@
    <br>
    <i>unsigned int Billboard::decrease_y(); -</i> Decrease the y-coordinate and return it.<br>
    <br>
-   <i>unsigned int Billboard::increase_x(const unsigned int increment); -</i> Increase the x-coordinate with the user value and return it.<br>
+   <i>unsigned int Billboard::increase_x(const unsigned int increment); -</i> Increase the x-coordinate by the value and return it.<br>
    <br>
-   <i>unsigned int Billboard::decrease_x(const unsigned int decrement); -</i> Decrease the x-coordinate with the user value and return it.<br>
+   <i>unsigned int Billboard::decrease_x(const unsigned int decrement); -</i> Decrease the x-coordinate by the value and return it.<br>
    <br>
-   <i>unsigned int Billboard::increase_y(const unsigned int increment); -</i> Increase the y-coordinate with the user value and return it.<br>
+   <i>unsigned int Billboard::increase_y(const unsigned int increment); -</i> Increase the y-coordinate by the value and return it.<br>
    <br>
-   <i>unsigned int Billboard::decrease_y(const unsigned int decrement); -</i> Decrease the y-coordinate with the user value and return it.<br>
+   <i>unsigned int Billboard::decrease_y(const unsigned int decrement); -</i> Decrease the y-coordinate by the value and return it.<br>
    <br>
    <i>unsigned int Billboard::get_start_x() const; -</i> Return the x-coordinate of the start position.<br>
    <br>
@@ -825,7 +825,7 @@
    <br>
    The ribbons are horizontal sprite strips.
    <br>
-   <br><u>Work with the ribbons.</u><br>
+   <br><u>Working with the ribbons.</u><br>
    <br>
    Use the <i>Ribbon</i> class to work with a ribbon. It is derived from three classes: <i>Billboard</i>, <i>Animation</i>, and <i>Picture</i>. Let's look at the publicly available methods.<br>
    <br>
@@ -837,7 +837,7 @@
    <br>
    <i>unsigned int Ribbon::set_target(const unsigned int target); -</i> Set the target frame and return it.<br>
    <br>
-   <i>void Ribbon::step(); -</i> Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
+   <i>void Ribbon::step(); -</i> Go to the next frame or jump to start if the next frame is the last.<br>
    <br>
    <i>Ribbon *Ribbon::get_pointer(); -</i> Return the pointer to the ribbon object.<br><br>
    <i>void Ribbon::destroy(); -</i> Destroy a sprite image and destroy the texture.
@@ -851,7 +851,7 @@
    <br>
    The tier is a vertical sprite strip.
    <br>
-   <u><br>Work with the tier.</u><br>
+   <u><br>Working with the tier.</u><br>
    <br>
    Use the <i>Tier</i> class to work with a tier. It is derived from three classes: <i>Billboard</i>, <i>Animation</i>, and <i>Picture</i>. Let's look at the publicly available methods.<br>
    <br>
@@ -863,7 +863,7 @@
    <br>
    <i>unsigned int Tier::set_target(const unsigned int target);</i> - Set the target frame and return it.<br>
    <br>
-   <i>void Tier::step();</i> - Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
+   <i>void Tier::step();</i> - Go to the next frame or jump to start if the next frame is the last.<br>
    <br>
    <i>Tier *Tier::get_pointer();</i> - Return the pointer to the tier object.<br>
    <br>
@@ -878,7 +878,7 @@
    <br>
    The static sprite is a simple kind of sprite. It contains one frame only.
    <br>
-   <u><br>Work with the static sprites.</u><br>
+   <u><br>Working with the static sprites.</u><br>
    <br>
    Use the <i>Cartoon</i> class to work with a static sprite. It is derived from two classes: billboard and picture. Let's look at the publicly available methods.<br>
    <br>
@@ -904,9 +904,9 @@
    <img alt="" src="sheet.png" height="249" width="380"><br>
    <u><br>The rows and columns.</u><br>
    <br>
-   The row indexing starts at 0. The column indexing starts at 0.
+   The row index starts at 0. The column index starts at 0.
    <br>
-   <br><u>Work with the sheet.</u><br>
+   <br><u>Working with the sheet.</u><br>
    <br>
    The <i>Sheet</i> class provides access to the sprite sheet subsystem. It is derived from three classes: <i>Billboard</i>, <i>Picture</i>, and <i>Animation</i>. Let's look at the publicly available methods.<br>
    <br>
@@ -932,7 +932,7 @@
    <br>
    <i>unsigned int Sheet::set_target(const unsigned int target); -</i> Set the target frame and return it.<br>
    <br>
-   <i>void Sheet::step(); -</i> Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
+   <i>void Sheet::step(); -</i> Go to the next frame or jump to start if the next frame is the last.<br>
    <br>
    <i>bool Sheet::load(Image *sheet, const unsigned int row_amount, const unsigned int column_amount); -</i> Load a sprite sheet from the buffer and return true if it is loaded.<br>
    <br>
@@ -976,7 +976,7 @@
     </tr>
    </tbody>
   </table>
-  <big><br><u>Work with the text.</u><br>
+  <big><br><u>Working with the text.</u><br>
    <br>
    The <i>Text</i> class provides a simple interface to the text subsystem. Let's look at the publicly available methods.<br>
    <br>
@@ -1063,7 +1063,7 @@
    <br>
    The 2D camera defines the visible world area. During rendering, this area is scaled to match the screen resolution.
    <br>
-   <br><u>Work with the camera.</u><br>
+   <br><u>Working with the camera.</u><br>
    <br>
    The <i>Camera</i> class provides simple access to the camera subsystem. Let's look at the publicly available methods.<br>
    <br>
@@ -1077,13 +1077,13 @@
    <br>
    <i>unsigned int Camera::decrease_y(); -</i> Decrease the y-coordinate of the camera offset and return it.<br>
    <br>
-   <i>unsigned int Camera::increase_x(const unsigned int increment); -</i> Increase the x-coordinate of the camera offset with the user value and return it.<br>
+   <i>unsigned int Camera::increase_x(const unsigned int increment); -</i> Increase the x-coordinate of the camera offset by the value and return it.<br>
    <br>
-   <i>unsigned int Camera::decrease_x(const unsigned int decrement); -</i> Decrease the x-coordinate of the camera offset with the user value and return it.<br>
+   <i>unsigned int Camera::decrease_x(const unsigned int decrement); -</i> Decrease the x-coordinate of the camera offset by the value and return it.<br>
    <br>
-   <i>unsigned int Camera::increase_y(const unsigned int increment); -</i> Increase the y-coordinate of the camera offset with the user value and return it.<br>
+   <i>unsigned int Camera::increase_y(const unsigned int increment); -</i> Increase the y-coordinate of the camera offset by the value and return it.<br>
    <br>
-   <i>unsigned int Camera::decrease_y(const unsigned int decrement); -</i> Decrease the y-coordinate of the camera offset with the user value and return it.<br>
+   <i>unsigned int Camera::decrease_y(const unsigned int decrement); -</i> Decrease the y-coordinate of the camera offset by the value and return it.<br>
    <br>
    <i>unsigned int Camera::get_x() const; -</i> Return the x-coordinate of the camera offset.<br>
    <br>
@@ -1264,7 +1264,7 @@
     unsigned int height;<br>
     } BOX;</i>
    <br>
-   <u><br>Work with the collision detector.</u><br>
+   <u><br>Working with the collision detector.</u><br>
    <br>
    The <i>Collision</i> class provides easy access to the collision detectors. It is a simple class with a few methods. Let's look at the publicly available methods.<br>
    <br>
@@ -1282,9 +1282,9 @@
    The tilemap is a tile matrix. A tile is a small, non-transparent sprite. A tilemap is a very useful thing for the background.<br>
    <u><br>The rows and columns.</u><br>
    <br>
-   The row indexing starts at 0. The column indexing starts at 0.
+   The row index starts at 0. The column index starts at 0.
    <br>
-   <u><br>Work with the tilemap.</u><br>
+   <u><br>Working with the tilemap.</u><br>
    <br>
    The <i>Tilemap</i> class provides easy access to the tilemap. It is a simple class with a few methods. Let's look at the publicly available methods.<br>
    <br>
@@ -1410,7 +1410,7 @@
    All classes in this section are declared in the <i>File</i> sub-namespace.<br>
   </big>
   <h2><a id="mozTocId168093" class="mozTocH2"></a><big>Chapter 2. Base binary file subsystem</big></h2>
-  <big><u>Work with the binary files.</u><br>
+  <big><u>Working with the binary files.</u><br>
    <br>
    The <i>Binary_File</i> class provides simple access to the base binary subsystem. Don't use it directly. Let's look at the publicly available methods.<br>
    <br>
@@ -2628,6 +2628,7 @@
    10.6.3-10.6.4: The small changes.<br>
    10.6.5: The image indexing has been changed.<br>
    10.6.6: The small bug has been fixed.<br>
+   10.6.7: The animation subsystem has improved.<br>
   </big>
 </body>
 </html>
