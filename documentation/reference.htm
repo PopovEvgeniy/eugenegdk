@@ -318,13 +318,13 @@
   <h2><a id="mozTocId307980" class="mozTocH2"></a><big>Chapter 2. Base graphics subsystem</big></h2>
   <big><u>About the graphics subsystem.</u><br>
    <br>
-   The base graphics subsystem renders a game scene. This subsystem uses <a href="http://opengl.org">OpenGL</a> for rendering. All modern video cards support hardware acceleration. The software implementation will be activated if the acceleration is not available.<br>
+   The base graphics subsystem renders a game scene. This subsystem uses <a href="http://opengl.org">OpenGL</a> for rendering. All modern video cards support hardware acceleration. The software implementation will activate if the acceleration is not available.<br>
    <br><u>The rendering performance.</u><br>
    <br>
-   Always use the latest video card drivers. It may increase the rendering performance. You can also try to change the screen resolution if you have low rendering performance.<br>
+   Always use the latest video card drivers. It may improve the rendering performance. You can also try to change the screen resolution if you have low rendering performance.<br>
    <br><u>The FPS limitation.</u><br>
    <br>
-   FPS is an important thing. Many FPS are needed for a good animation, but it also needs high processor usage. The FPS limit is 60 by default.
+   FPS is an important thing. A high FPS is needed for a good animation, but it also needs high processor usage. The FPS limit is 60 by default.
    <br>
    <br><u>Working with the base graphics subsystem.</u><br>
    <br>
@@ -415,7 +415,7 @@
   </big>
   <h2><a id="mozTocId259576" class="mozTocH2"></a><big>Chapter 5. Vertex index</big></h2>
   <big>
-   The vertex index looks like the predefined constants. You can see it below.<br>
+   The vertex index correspond to the predefined constants. You can see it below.<br>
    <br>
   </big>
   <table style="width: 358px; height: 139px;" border="1">
@@ -488,7 +488,7 @@
    <br>
    <i>unsigned int Segment::set_target(const unsigned int target);</i> - Set the target frame and return it.<br>
    <br>
-   <i>void Segment::step();</i> - Go to the next frame or jump to start if the next frame is the last.<br>
+   <i>void Segment::step();</i> - Go to the next frame or jump to start if the current frame is the last.<br>
    <br>
    <i>bool Segment::load(Image *background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
    <br>
@@ -558,7 +558,7 @@
    <br>
    <i>unsigned int Section::set_target(const unsigned int target);</i> - Set the target frame and return it.<br>
    <br>
-   <i>void Section::step();</i> - Go to the next frame or jump to start if the next frame is the last.<br>
+   <i>void Section::step();</i> - Go to the next frame or jump to start if the current frame is the last.<br>
    <br>
    <i>bool Section::load(Image *background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
    <br>
@@ -837,7 +837,7 @@
    <br>
    <i>unsigned int Ribbon::set_target(const unsigned int target); -</i> Set the target frame and return it.<br>
    <br>
-   <i>void Ribbon::step(); -</i> Go to the next frame or jump to start if the next frame is the last.<br>
+   <i>void Ribbon::step(); -</i> Go to the next frame or jump to start if the current frame is the last.<br>
    <br>
    <i>Ribbon *Ribbon::get_pointer(); -</i> Return the pointer to the ribbon object.<br><br>
    <i>void Ribbon::destroy(); -</i> Destroy the sprite image and destroy the texture.
@@ -863,7 +863,7 @@
    <br>
    <i>unsigned int Tier::set_target(const unsigned int target);</i> - Set the target frame and return it.<br>
    <br>
-   <i>void Tier::step();</i> - Go to the next frame or jump to start if the next frame is the last.<br>
+   <i>void Tier::step();</i> - Go to the next frame or jump to start if the current frame is the last.<br>
    <br>
    <i>Tier *Tier::get_pointer();</i> - Return the pointer to the tier object.<br>
    <br>
@@ -932,7 +932,7 @@
    <br>
    <i>unsigned int Sheet::set_target(const unsigned int target); -</i> Set the target frame and return it.<br>
    <br>
-   <i>void Sheet::step(); -</i> Go to the next frame or jump to start if the next frame is the last.<br>
+   <i>void Sheet::step(); -</i> Go to the next frame or jump to start if the current frame is the last.<br>
    <br>
    <i>bool Sheet::load(Image *sheet, const unsigned int row_amount, const unsigned int column_amount); -</i> Load a sprite sheet from the buffer and return true if it is loaded.<br>
    <br>
@@ -955,7 +955,7 @@
    <br>
    <br><u>The text orientation.</u><br>
    <br>
-   The text orientation looks like the predefined constants. You can see it below.<br>
+   The text orientation correspond to the predefined constants. You can see it below.<br>
    <br>
   </big>
   <table border="1" height="85" width="443">
@@ -1047,8 +1047,8 @@
    <br>
    <u>An important note.</u><br>
    <br>
-   A new image will replace the current image if the current image already exists. An incorrect image will be ignored and will not load.<br>
-   The source image will be converted to <a href="https://en.wikipedia.org/wiki/RGBA">RGBA</a> format. The pixels matching the top-left pixel will be marked as transparent.
+   A new image will replace the current image if the current image already exists. An incorrect image will be ignored and will fail to load.<br>
+   The source image will be converted to the <a href="https://en.wikipedia.org/wiki/RGBA">RGBA</a> format. The pixels matching the top-left pixel will be marked as transparent.
    <br>
    <u><br>The supported format.</u><br>
    <br>
@@ -1069,25 +1069,25 @@
    <br>
    <i>Camera *Camera::get_pointer(); -</i> Return the pointer to the camera subsystem.<br>
    <br>
-   <i>unsigned int Camera::increase_x(); -</i> Increase the the horizontal camera offset and return it.<br>
+   <i>unsigned int Camera::increase_x(); -</i> Increase the horizontal camera offset and return it.<br>
    <br>
-   <i>unsigned int Camera::decrease_x(); -</i> Decrease the the horizontal camera offset and return it.<br>
+   <i>unsigned int Camera::decrease_x(); -</i> Decrease the horizontal camera offset and return it.<br>
    <br>
-   <i>unsigned int Camera::increase_y(); -</i> Increase the the vertical camera offset and return it.<br>
+   <i>unsigned int Camera::increase_y(); -</i> Increase the vertical camera offset and return it.<br>
    <br>
-   <i>unsigned int Camera::decrease_y(); -</i> Decrease the the vertical camera offset and return it.<br>
+   <i>unsigned int Camera::decrease_y(); -</i> Decrease the vertical camera offset and return it.<br>
    <br>
-   <i>unsigned int Camera::increase_x(const unsigned int increment); -</i> Increase the the horizontal camera offset by the value and return it.<br>
+   <i>unsigned int Camera::increase_x(const unsigned int increment); -</i> Increase the horizontal camera offset by the value and return it.<br>
    <br>
-   <i>unsigned int Camera::decrease_x(const unsigned int decrement); -</i> Decrease the the horizontal camera offset by the value and return it.<br>
+   <i>unsigned int Camera::decrease_x(const unsigned int decrement); -</i> Decrease the horizontal camera offset by the value and return it.<br>
    <br>
-   <i>unsigned int Camera::increase_y(const unsigned int increment); -</i> Increase the the vertical camera offset by the value and return it.<br>
+   <i>unsigned int Camera::increase_y(const unsigned int increment); -</i> Increase the vertical camera offset by the value and return it.<br>
    <br>
-   <i>unsigned int Camera::decrease_y(const unsigned int decrement); -</i> Decrease the the vertical camera offset by the value and return it.<br>
+   <i>unsigned int Camera::decrease_y(const unsigned int decrement); -</i> Decrease the vertical camera offset by the value and return it.<br>
    <br>
-   <i>unsigned int Camera::get_x() const; -</i> Return the the horizontal camera offset.<br>
+   <i>unsigned int Camera::get_x() const; -</i> Return the horizontal camera offset.<br>
    <br>
-   <i>unsigned int Camera::get_y() const; -</i> Return the the vertical camera offset.<br>
+   <i>unsigned int Camera::get_y() const; -</i> Return the vertical camera offset.<br>
    <br>
    <i>unsigned int Camera::get_screen_width() const; -</i> Return the screen width in pixels.<br>
    <br>
@@ -1109,9 +1109,9 @@
    <br>
    <i>unsigned int Camera::get_world_y(const unsigned screen_int y) const; -</i> Convert the screen y-coordinate to the world y-coordinate.<br>
    <br>
-   <i>unsigned int Camera::set_x(const unsigned int x); -</i> Set the the horizontal camera offset and return it.<br>
+   <i>unsigned int Camera::set_x(const unsigned int x); -</i> Set the horizontal camera offset and return it.<br>
    <br>
-   <i>unsigned int Camera::set_y(const unsigned int y); -</i> Set the the vertical camera offset and return it.<br>
+   <i>unsigned int Camera::set_y(const unsigned int y); -</i> Set the vertical camera offset and return it.<br>
    <br>
    <i>void Camera::initialize(const unsigned int width, const unsigned int height); -</i> Initialize the subsystem and set the screen size.<br>
    <br>
@@ -1791,9 +1791,9 @@
    <br>
    You can connect a few gamepads. Any connected gamepad has an internal index. The first gamepad index is 0. It will be activated by default.
    <br>
-   <br><u>The ordinary button codes.</u><br>
+   <br><u>The standart button codes.</u><br>
    <br>
-   The ordinary button codes look like predefined constants. The first button is <i>GAMEPAD_BUTTON1</i>. The last button is <i>GAMEPAD_BUTTON32</i>.
+   The standart button codes corresponds to the predefined constants. The first button is <i>GAMEPAD_BUTTON1</i>. The last button is <i>GAMEPAD_BUTTON32</i>.
    <br>
    <br><u>The D-pad button codes.</u><br>
    <br>
@@ -1867,7 +1867,7 @@
   </table>
   <big><br><u>The stick direction</u><br>
    <br>
-   The stick direction looks like the predefined constants. You can see it below.<br>
+   The stick direction correspond to the predefined constants. You can see it below.<br>
    <br>
   </big>
   <table border="1">
@@ -1997,7 +1997,7 @@
    <br>
    <br><u>The internal key state.</u><br>
    <br>
-   The internal state of a key looks like the predefined constants. You can see it below.<br>
+   The internal state of a key correspond to the predefined constants. You can see it below.<br>
    <br>
   </big>
   <table border="1">
@@ -2629,6 +2629,7 @@
    10.6.5: The image indexing has been changed.<br>
    10.6.6: The small bug has been fixed.<br>
    10.6.7-10.6.8: The animation subsystem has improved.<br>
+   10.6.9: The ribbon subsystem has improved.<br>
   </big>
 </body>
 </html>
