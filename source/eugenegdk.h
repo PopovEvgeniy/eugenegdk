@@ -402,6 +402,7 @@ typedef enum
    unsigned int total_height;
    unsigned int current_x;
    unsigned int current_y;
+   void set_texture_offset(const float row,const float rows,const float column,const float columns);
    protected:
    Vertex vertex[4];
    Point point[4];
@@ -414,9 +415,9 @@ typedef enum
    void set_total_size(const unsigned int width,const unsigned int height);
    void set_size(const unsigned int width,const unsigned int height);
    void set_position(const unsigned int x,const unsigned int y);
-   void set_tile_offset(const float row,const float rows,const float column,const float columns);
-   void set_horizontal_offset(const float current,const float total);
-   void set_vertical_offset(const float current,const float total);
+   void set_tile_offset(const unsigned int row,const unsigned int rows,const unsigned int column,const unsigned int columns);
+   void set_horizontal_offset(const unsigned int current,const unsigned int total);
+   void set_vertical_offset(const unsigned int current,const unsigned int total);
    void set_texture_coordinates(const EUGENEGDK::VERTEX_INDEX index,const float u,const float v);
   };
 
