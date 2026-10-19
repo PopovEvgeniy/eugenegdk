@@ -481,7 +481,7 @@ typedef enum
    void play();
    void play_loop();
    void play(const bool loop);
-   bool is_load() const;
+   bool is_loaded() const;
    bool load(const char *name);
   };
 
@@ -822,7 +822,7 @@ typedef enum
    unsigned int get_y() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
-   bool is_load() const;
+   bool is_loaded() const;
    EUGENEGDK::BOX get_box() const;
    void disable_mirror();
    void horizontal_mirror();
@@ -941,7 +941,7 @@ typedef enum
    void draw(const unsigned int target);
    void destroy_image();
    void destroy();
-   bool is_load() const;
+   bool is_loaded() const;
    bool is_last_frame() const;
    bool check_frame(const unsigned int target) const;
    unsigned int get_frame() const;
@@ -978,7 +978,7 @@ typedef enum
    void draw(const unsigned int target);
    void destroy_image();
    void destroy();
-   bool is_load() const;
+   bool is_loaded() const;
    bool is_last_frame() const;
    bool check_frame(const unsigned int target) const;
    unsigned int get_frame() const;
@@ -1012,7 +1012,7 @@ typedef enum
    void draw();
    void destroy_image();
    void destroy();
-   bool is_load() const;
+   bool is_loaded() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
   };
@@ -1054,7 +1054,7 @@ typedef enum
    void draw();
    void destroy_image();
    void destroy();
-   bool is_load() const;
+   bool is_loaded() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
   };
