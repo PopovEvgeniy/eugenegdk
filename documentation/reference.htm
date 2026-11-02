@@ -87,7 +87,7 @@
      <li><a href="#mozTocId706443">Chapter 1. Sub-namespace</a></li>
      <li><a href="#mozTocId168093">Chapter 2. Base binary file subsystem</a></li>
      <li><a href="#mozTocId648748">Chapter 3. File reading</a></li>
-     <li><a href="#mozTocId969117">Chapter 4. The file writing</a></li>
+     <li><a href="#mozTocId383009">Chapter 4. File writing</a></li>
     </ol>
    </li>
    <li><a href="#mozTocId527362">Part 9. User input</a>
@@ -124,8 +124,7 @@
    <li><big>Open-source code.</big></li>
    <li><big>Very fast.</big></li>
    <li><big>An easy-to-use object-oriented design.</big></li>
-   <li><big>A minimum set of external dependencies: <a href="https://opengl.org">OpenGL</a> and the standard <a
-      href="https://learn.microsoft.com/en-us/windows/win32/apiindex/windows-api-list">Windows API</a> libraries.</big></li>
+   <li><big>A minimum set of external dependencies: <a href="https://opengl.org">OpenGL</a> and the standard <a href="https://learn.microsoft.com/en-us/windows/win32/apiindex/windows-api-list">Windows API</a> libraries.</big></li>
    <li><big>You don't need to link a main program with the engine binary file. The engine is just the source code files.</big></li>
   </ul>
   <big><u><br>
@@ -138,7 +137,7 @@
    <li><big>eugenegdk.h</big></li>
    <li><big>eugenegdk.cpp</big></li>
   </ul>
-  <big> Add them to your project.<br>
+  <big>Add them to your project.<br>
    Add this directive to your code: <i>#include "eugenegdk.h"</i><br>
    Yes. This is really all you need to do.<br>
   </big>
@@ -159,7 +158,7 @@
    Thanks to the PVS-Studio team for the <a href="https://www.viva64.com/en/b/0614/">free license</a>.<br>
   </big>
   <h2><a id="mozTocId705350" class="mozTocH2"></a><big>Chapter 3. License</big></h2>
-  <big> <u>The Eugene Game Development Kit license.</u><br>
+  <big><u>The Eugene Game Development Kit license.</u><br>
    <br>
    Copyright (C) 2021 - 2026 Popov Evgeniy Alekseyevich<br>
    <br>
@@ -193,7 +192,7 @@
    THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.<br>
   </big>
   <h2><a id="mozTocId349565" class="mozTocH2"></a><big>Chapter 4. System requirements</big></h2>
-  <big> You can see the minimum system requirements below.<br>
+  <big>You can see the minimum system requirements below.<br>
    <br>
   </big>
   <table border="1">
@@ -222,10 +221,10 @@
   <big><br>
   </big>
   <h2><a id="mozTocId631010" class="mozTocH2"></a><big>Chapter 5. Troubleshooting</big></h2>
-  <big> You need the <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170">Visual C++ Redistributable</a> packages if your game code is compiled with Visual C++.<br>
+  <big>You need the <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170">Visual C++ Redistributable</a> packages if your game code was compiled with Visual C++.<br>
   </big>
   <h2><a id="mozTocId891928" class="mozTocH2"></a><big>Chapter 6. Supported compiler list</big></h2>
-  <big> This engine was successfully tested with these compilers:<br>
+  <big>This engine was successfully tested with these compilers:<br>
   </big>
   <ul>
    <li><a href="https://jmeubank.github.io/tdm-gcc/"><big>TDM-GCC</big></a></li>
@@ -313,31 +312,32 @@
    See the documentation of the compiler for more information about linking.<br>
   </big>
   <h2><a id="mozTocId93850" class="mozTocH2"></a><big>Chapter 8. Engine namespace</big></h2>
-  <big> <i>EUGENEGDK</i> is the main namespace. All the engine classes are declared in several nested namespaces.<br>
+  <big><i>EUGENEGDK</i> is the main namespace. All the engine classes are declared in several nested namespaces.<br>
   </big>
   <h2><a id="mozTocId241696" class="mozTocH2"></a><big>Chapter 9. Custom data types</big></h2>
-  <big> Almost all custom data types are declared in the <i>EUGENEGDK</i> namespace.<br>
+  <big>Almost all custom data types are declared in the <i>EUGENEGDK</i> namespace.<br>
   </big>
   <h1><a id="mozTocId736492" class="mozTocH1"></a><big>Part 2. Basic things</big></h1>
   <h2><a id="mozTocId74094" class="mozTocH2"></a><big>Chapter 1. Coordinate system</big></h2>
-  <big> The engine uses the standard coordinate system by default. The coordinates start at the top-left corner. Look at this picture to understand it.<br>
+  <big>The engine uses the standard coordinate system by default. The coordinates start at the top-left corner. Look at this picture to understand it.<br>
    <br>
    <img alt="" src="coordinate_system.png" height="111" width="107"><br>
   </big>
   <h2><a id="mozTocId889249" class="mozTocH2"></a><big>Chapter 2. Game loop</big></h2>
-  <big> What is the main point of your game? A game loop. You can see the structure of a typical game loop below.<br>
+  <big>What is the main point of your game? A game loop. You can see the structure of a typical game loop below.<br>
    <br>
    <img alt="" src="game_loop.png" height="354" width="379"><br>
    <br>
   </big>
   <h1><a id="mozTocId775315" class="mozTocH1"></a><big>Part 3. Graphics</big></h1>
   <h2><a id="mozTocId660835" class="mozTocH2"></a><big>Chapter 1. Sub-namespace</big></h2>
-  <big> All classes in this section are declared in the <i>Graphics</i> sub-namespace.<br>
+  <big>All classes in this section are declared in the <i>Graphics</i> sub-namespace.<br>
   </big>
   <h2><a id="mozTocId307980" class="mozTocH2"></a><big>Chapter 2. Base graphics subsystem</big></h2>
   <big><u>About the graphics subsystem.</u><br>
    <br>
-   The base graphics subsystem renders a game scene. This subsystem uses <a
+   The base graphics subsystem renders a game scene. This subsystem uses <a
+
     href="http://opengl.org">OpenGL</a> for rendering. Most modern video cards support hardware acceleration. The software implementation will be activated if hardware acceleration is not available.<br>
    <br>
    <u>The rendering performance.</u><br>
@@ -346,7 +346,7 @@
    <br>
    <u>The FPS limitation.</u><br>
    <br>
-   FPS is an important thing. A high FPS is needed for a smooth animation, but it also needs high processor usage. The FPS limit is 60 by default. <br>
+   FPS is an important thing. A high FPS is needed for a smooth animation, but it also needs high processor usage. The FPS limit is 60 by default.<br>
    <br>
    <u>Working with the base graphics subsystem.</u><br>
    <br>
@@ -439,7 +439,7 @@
    <i>bool Animation::check_frame(const unsigned int target) const; -</i> Return true if the target frame is valid.<br>
   </big>
   <h2><a id="mozTocId259576" class="mozTocH2"></a><big>Chapter 5. Vertex index</big></h2>
-  <big> The vertex index corresponds to the predefined constants. You can see them below.<br>
+  <big>The vertex index corresponds to the predefined constants. You can see them below.<br>
    <br>
   </big>
   <table style="width: 358px; height: 139px;" border="1">
@@ -474,8 +474,8 @@
   <big><br>
   </big>
   <h2><a id="mozTocId633113" class="mozTocH2"></a><big>Chapter 6. Background</big></h2>
-  <big> A background is a large image. It contains one or more frames. The background will be scaled to fit the screen. The background transparency is always disabled.<br>
-   The horizontal animated backgrounds look like horizontal photo ribbons. The vertical animated backgrounds look like vertical photo ribbons.</big><br>
+  <big>A background is a large image. It contains one or more frames. The background will be scaled to fit the screen. The background transparency is always disabled.<br>
+   The horizontal animated backgrounds look like a horizontal photo ribbons. The vertical animated backgrounds look like a vertical photo ribbons.</big><br>
   <h2><a id="mozTocId308152" class="mozTocH2"></a><big>Chapter 7. Segment</big></h2>
   <big><u>A few words about the segment.</u><br>
    <br>
@@ -611,7 +611,7 @@
    <br>
    <i>unsigned int Section::get_width() const;</i> - Return the width of the background.<br>
    <br>
-   <i>unsigned int Section::get_height() const;</i> - Return the height of the background. <br>
+   <i>unsigned int Section::get_height() const;</i> - Return the height of the background.<br>
    <br>
    <u>A background texture.</u><br>
    <br>
@@ -674,7 +674,7 @@
    <br>
    <u>A background texture.</u><br>
    <br>
-   The background isn't drawn if the background texture doesn't exist. It will be created when you load an image. <br>
+   The background isn't drawn if the background texture doesn't exist. It will be created when you load an image.<br>
    <br>
    <u>Important notice.</u><br>
    <br>
@@ -688,7 +688,7 @@
    <u><br>
     The speed.</u><br>
    <br>
-   The scrolling speed should be a positive number. <br>
+   The scrolling speed should be a positive number.<br>
    <br>
    <u>Working with the background.</u><br>
    <br>
@@ -744,11 +744,11 @@
    <br>
    <i>unsigned int Parallax::get_width() const; -</i> Return the width of the background.<br>
    <br>
-   <i>unsigned int Parallax::get_height() const; -</i> Return the height of the background. <br>
+   <i>unsigned int Parallax::get_height() const; -</i> Return the height of the background.<br>
    <u><br>
     A background texture.</u><br>
    <br>
-   The background isn't drawn if the background texture doesn't exist. It will be created when you load an image. <br>
+   The background isn't drawn if the background texture doesn't exist. It will be created when you load an image.<br>
    <br>
    <u>An important notice.</u><br>
    <br>
@@ -757,7 +757,7 @@
   <h2><a id="mozTocId371769" class="mozTocH2"></a><big>Chapter 11. Base sprite subsystem</big></h2>
   <big><u>A small, important thing.</u><br>
    <br>
-   A sprite is a transparent image. It is useful for many things: enemies, bonuses, etc. <br>
+   A sprite is a transparent image. It is useful for many things: enemies, bonuses, etc.<br>
    <u><br>
     Working with the base sprite subsystem.</u><br>
    <br>
@@ -846,13 +846,13 @@
    <i>void Billboard::draw(const bool transparency, const unsigned int x, const unsigned int y); -</i> Set the transparent mode and draw a sprite at the target position.<br>
   </big>
   <h2><a id="mozTocId146195" class="mozTocH2"></a><big>Chapter 12. Animated sprites</big></h2>
-  <big> There are two kinds of animated sprites: the horizontal strips and the vertical strips. Each sprite is a small image with a few frames.<br>
-   The horizontal strip looks like horizontal photo ribbon. The vertical strip looks like vertical photo ribbon.</big><br>
+  <big>There are two kinds of animated sprites: the horizontal strips and the vertical strips. Each sprite is a small image with a few frames.<br>
+   The horizontal strip looks like a horizontal photo ribbon. The vertical strip looks like a vertical photo ribbon.</big><br>
   <h2><a id="mozTocId839591" class="mozTocH2"></a><big>Chapter 13. Ribbons<br>
    </big></h2>
   <big><u>A few words about the ribbons.</u><br>
    <br>
-   The ribbons are horizontal sprite strips. <br>
+   The ribbons are horizontal sprite strips.<br>
    <br>
    <u>Working with the ribbons.</u><br>
    <br>
@@ -879,7 +879,7 @@
   <h2><a id="mozTocId292051" class="mozTocH2"></a><big>Chapter 14. Tier</big></h2>
   <big><u>A few words about the tier.</u><br>
    <br>
-   The tier is a vertical sprite strip. <br>
+   The tier is a vertical sprite strip.<br>
    <u><br>
     Working with the tier.</u><br>
    <br>
@@ -906,7 +906,7 @@
   <h2><a id="mozTocId799349" class="mozTocH2"></a><big>Chapter 15. Static sprites</big></h2>
   <big><u>A few words about the static sprites.</u><br>
    <br>
-   The static sprite is a simple kind of sprite. It contains one frame only. <br>
+   The static sprite is a simple kind of sprite. It contains one frame only.<br>
    <u><br>
     Working with the static sprites.</u><br>
    <br>
@@ -920,7 +920,7 @@
    <br>
    <i>Cartoon *Cartoon::get_pointer(); -</i> Return a pointer to the sprite object.<br>
    <br>
-   <i>void Cartoon::destroy(); -</i> Completely destroy the sprite. <br>
+   <i>void Cartoon::destroy(); -</i> Completely destroy the sprite.<br>
    <u><br>
     A sprite texture</u><br>
    <br>
@@ -935,7 +935,7 @@
    <u><br>
     The rows and columns.</u><br>
    <br>
-   The row index starts at 0. The column index starts at 0. <br>
+   The row index starts at 0. The column index starts at 0.<br>
    <br>
    <u>Working with the sheet.</u><br>
    <br>
@@ -984,7 +984,7 @@
    <br>
    <u>The supported characters.</u><br>
    <br>
-   Only 8-bit characters are supported. <br>
+   Only 8-bit characters are supported.<br>
    <br>
    <u>The text orientation.</u><br>
    <br>
@@ -1082,11 +1082,11 @@
    <u>An important note.</u><br>
    <br>
    A new image will replace the current image if the current image already exists. An incorrect image will fail to load.<br>
-   The source image will be converted to the <a href="https://en.wikipedia.org/wiki/RGBA">RGBA</a> format. The pixels matching the top-left pixel will be marked as transparent. <br>
+   The source image will be converted to the <a href="https://en.wikipedia.org/wiki/RGBA">RGBA</a> format. The pixels matching the top-left pixel will be marked as transparent.<br>
    <u><br>
     The supported format.</u><br>
    <br>
-   All images must comply with the correct specifications. You can load an image from a 24-bit <a href="https://en.wikipedia.org/wiki/Truevision_TGA">Truevision TGA</a> picture. <br>
+   All images must comply with the correct specifications. You can load an image from a 24-bit <a href="https://en.wikipedia.org/wiki/Truevision_TGA">Truevision TGA</a> picture.<br>
    <br>
    <u>The recommended software.</u><br>
    <br>
@@ -1095,7 +1095,7 @@
   <h2><a id="mozTocId863222" class="mozTocH2"></a><big>Chapter 19. Camera</big></h2>
   <big><u>A few words about the camera.</u><br>
    <br>
-   The 2D camera defines the visible world area. During rendering, this area is scaled to match the screen. <br>
+   The 2D camera defines the visible world area. During rendering, this area is scaled to match the screen.<br>
    <br>
    <u>Working with the camera.</u><br>
    <br>
@@ -1177,7 +1177,7 @@
   </big>
   <h1><a id="mozTocId778712" class="mozTocH1"></a><big>Part 4. Transformation</big></h1>
   <h2><a id="mozTocId798362" class="mozTocH2"></a><big>Chapter 1. Sub-namespace</big></h2>
-  <big> All classes in this section are declared in the <i>Transformation</i> sub-namespace.<br>
+  <big>All classes in this section are declared in the <i>Transformation</i> sub-namespace.<br>
   </big>
   <h2><a id="mozTocId505409" class="mozTocH2"></a><big>Chapter 2. Cartesian coordinates and the screen coordinates</big></h2>
   <big><u>The Cartesian coordinates.</u><br>
@@ -1223,7 +1223,7 @@
   <h2><a id="mozTocId876509" class="mozTocH2"></a><big>Chapter 3. Cartesian coordinates and the isometric coordinates</big></h2>
   <big><u>A few words about the isometric games.</u><br>
    <br>
-   <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometric projection</a> is a very popular way of making pseudo-3D games. Many old-school games are isometric games. <br>
+   <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometric projection</a> is a very popular way of making pseudo-3D games. Many old-school games are isometric games.<br>
    <br>
    <u>Coordinate conversion.</u><br>
    <br>
@@ -1238,7 +1238,7 @@
    <i>static int Isometric::get_cartesian_y(const int x, const int y); -</i> Convert the y-coordinate from the isometric system to the Cartesian system.<br>
   </big>
   <h2><a id="mozTocId909113" class="mozTocH2"></a><big>Chapter 4. Isometric Level</big></h2>
-  <big> The isometric level subsystem is intended to help you create an isometric level. Use the <i>Level</i> class to do it. Let's look at the publicly available methods.<br>
+  <big>The isometric level subsystem is intended to help you create an isometric level. Use the <i>Level</i> class to do it. Let's look at the publicly available methods.<br>
    <br>
    <i>Level *Level::get_pointer(); -</i> Return a pointer to the isometric level subsystem.<br>
    <br>
@@ -1256,15 +1256,15 @@
   </big>
   <h1><a id="mozTocId375391" class="mozTocH1"></a><big>Part 5. Common things</big></h1>
   <h2><a id="mozTocId633183" class="mozTocH2"></a><big>Chapter 1. Sub-namespace</big></h2>
-  <big> All classes in this section are declared in the <i>Common</i> sub-namespace.<br>
+  <big>All classes in this section are declared in the <i>Common</i> sub-namespace.<br>
   </big>
   <h2><a id="mozTocId673941" class="mozTocH2"></a><big>Chapter 2. Terminating the application</big></h2>
-  <big> You can use the <i>Halt</i> function to terminate a program. This function is declared in the <i>EUGENEGDK</i> namespace.<br>
+  <big>You can use the <i>Halt</i> function to terminate a program. This function is declared in the <i>EUGENEGDK</i> namespace.<br>
    <br>
-   <i>void EUGENEGDK::Halt(const char *message); -</i> Terminate the program. Write an error message to the standard error stream.<br>
+   <i>void EUGENEGDK::Halt(const char *message); -</i> Terminate the application. Write an error message to the standard error stream.<br>
   </big>
   <h2><a id="mozTocId284221" class="mozTocH2"></a><big>Chapter 3. Timers</big></h2>
-  <big> A timer is a very useful thing. Use the <i>Timer</i> class to work with the timer. Let's look at the publicly available methods.<br>
+  <big>A timer is a very useful thing. Use the <i>Timer</i> class to work with the timer. Let's look at the publicly available methods.<br>
    <br>
    <i>Timer::Timer(const double seconds); -</i> Create the timer and set the timer interval.<br>
    <br>
@@ -1313,7 +1313,7 @@
    <u><br>
     The rows and columns.</u><br>
    <br>
-   The row index starts at 0. The column index starts at 0. <br>
+   The row index starts at 0. The column index starts at 0.<br>
    <u><br>
     Working with the tilemap.</u><br>
    <br>
@@ -1337,7 +1337,7 @@
    <br>
    <i>unsigned int Tilemap::get_row_amount(const unsigned int viewport_width) const; -</i> Return the maximum number of visible rows.<br>
    <br>
-   <i>unsigned int Tilemap::get_column_amount(const unsigned int viewport_width) const; -</i> Return the maximum number of visible columns.<br>
+   <i>unsigned int Tilemap::get_column_amount(const unsigned int viewport_height) const; -</i> Return the maximum number of visible columns.<br>
    <br>
    <i>unsigned int Tilemap::get_tile_amount(const unsigned int viewport_width, const unsigned int viewport_height) const; -</i> Return the maximum number of visible tiles.<br>
    <br>
@@ -1348,10 +1348,10 @@
    <i>EUGENEGDK::BOX Tilemap::get_box(const unsigned int row, const unsigned int column) const; -</i> Return the collision-related information.</big><br>
   <h1><a id="mozTocId208248" class="mozTocH1"></a><big>Part 6. Other important things</big></h1>
   <h2><a id="mozTocId605872" class="mozTocH2"></a><big>Chapter 1. Sub-namespace</big></h2>
-  <big> All classes in this section are declared in the <i>Misc</i> sub-namespace.<br>
+  <big>All classes in this section are declared in the <i>Misc</i> sub-namespace.<br>
   </big>
   <h2><a id="mozTocId893520" class="mozTocH2"></a><big>Chapter 2. Memory</big></h2>
-  <big> RAM is an important resource. Use the <i>Memory</i> class to get the total memory size and the free memory size. Let's look at the publicly available methods.<br>
+  <big>RAM is an important resource. Use the <i>Memory</i> class to get the total memory size and the free memory size. Let's look at the publicly available methods.<br>
    <br>
    <i>unsigned long long int Memory::get_total_physical(); -</i> Return the total physical memory size in bytes.<br>
    <br>
@@ -1374,7 +1374,7 @@
    <br>
    <u>Additional formats.</u><br>
    <br>
-   You can use an additional format if you install third-party codecs. <br>
+   You can use an additional format if you install third-party codecs.<br>
    <br>
    <u>Working with the audio.</u><br>
    <br>
@@ -1398,7 +1398,7 @@
   </big>
   <h1><a id="mozTocId1450" class="mozTocH1"></a><big>Part 7. Misc</big></h1>
   <h2><a id="mozTocId109433" class="mozTocH2"></a><big>Chapter 1. Filesystem</big></h2>
-  <big> This module is implemented as two simple functions. Both functions is declared in the <i>Filesystem</i> sub-namespace.<br>
+  <big>This module is implemented as two simple functions. Both functions is declared in the <i>Filesystem</i> sub-namespace.<br>
    <br>
    <i>file_exists</i>: Check the target file to see if one exists.<br>
    <br>
@@ -1407,7 +1407,7 @@
    All functions take the target file name as an argument and return false if the operation failed.<br>
   </big>
   <h2><a id="mozTocId260090" class="mozTocH2"></a><big>Chapter 2. Tools</big></h2>
-  <big> This module is implemented as a few functions. All these functions are declared in the <i>Tools</i> sub-namespace.<br>
+  <big>This module is implemented as a few functions. All these functions are declared in the <i>Tools</i> sub-namespace.<br>
    <br>
    <i>void quit(); -</i> Exit from the application.<br>
    <br>
@@ -1422,7 +1422,7 @@
    <i>EUGENEGDK::BOX generate_box(const unsigned int x, const unsigned int y, const unsigned int width, const unsigned int height); -</i> Generate the collision-related information.<br>
   </big>
   <h2><a id="mozTocId256993" class="mozTocH2"></a><big>Chapter 3. Resource management</big></h2>
-  <big> A resource is an instance of a user-defined class or structure. The resource manager is implemented as a few template functions. All these functions are declared in the <i>Resource</i> sub-namespace.<br>
+  <big>A resource is an instance of a user-defined class or structure. The resource manager is implemented as a few template functions. All these functions are declared in the <i>Resource</i> sub-namespace.<br>
    <br>
    <i>create</i>: Create a resource. The first form of this function creates a single resource. It takes a pointer to a resource pointer as an argument. The second form creates an array of the resources. It takes a pointer to a resource pointer and a resource amount.<br>
    <br>
@@ -1432,7 +1432,7 @@
   </big>
   <h1><a id="mozTocId181875" class="mozTocH1"></a><big>Part 8. Binary files</big></h1>
   <h2><a id="mozTocId706443" class="mozTocH2"></a><big>Chapter 1. Sub-namespace</big></h2>
-  <big> All classes in this section are declared in the <i>File</i> sub-namespace.<br>
+  <big>All classes in this section are declared in the <i>File</i> sub-namespace.<br>
   </big>
   <h2><a id="mozTocId168093" class="mozTocH2"></a><big>Chapter 2. Base binary file subsystem</big></h2>
   <big><u>Working with the binary files.</u><br>
@@ -1449,14 +1449,14 @@
    <br>
    <i>bool Binary_File::check_error(); -</i> Return true if the last file operation failed.<br>
    <br>
-   <i>bool Binary_File::is_open() const; -</i> Return true if the file was successfully opened. <br>
+   <i>bool Binary_File::is_open() const; -</i> Return true if the file was successfully opened.<br>
    <u><br>
     An important notice.</u><br>
    <br>
    The target file size limit is 2 gigabytes.<br>
   </big>
   <h2><a id="mozTocId648748" class="mozTocH2"></a><big>Chapter 3. File reading</big></h2>
-  <big> The file reader is intended to read data from binary files. The <i>Input_File</i> class provides access to a file reader. It is derived from the <i>Binary_File</i> class. Let's look at the publicly available methods.<br>
+  <big>The file reader is intended to read data from binary files. The <i>Input_File</i> class provides access to a file reader. It is derived from the <i>Binary_File</i> class. Let's look at the publicly available methods.<br>
    <br>
    <i>Input_File* Input_File::get_pointer(); -</i> Return a pointer to the file reader.<br>
    <br>
@@ -1464,8 +1464,8 @@
    <br>
    <i>size_t Input_File::read(void *buffer, const size_t length); -</i> Read data from the file and return the number of bytes read.<br>
   </big>
-  <h2><a id="mozTocId969117" class="mozTocH2"></a><big>Chapter 4. The file writing</big></h2>
-  <big> The file writer is intended to write data to binary files. The <i>Output_File</i> class provides access to a file writer. It is derived from the <i>Binary_File</i> class. Let's look at the publicly available methods.<br>
+  <h2><a id="mozTocId383009" class="mozTocH2"></a><big>Chapter 4. File writing</big></h2>
+  <big>The file writer is intended to write data to binary files. The <i>Output_File</i> class provides access to a file writer. It is derived from the <i>Binary_File</i> class. Let's look at the publicly available methods.<br>
    <br>
    <i>Output_File* Output_File::get_pointer(); -</i> Return a pointer to the file writer.<br>
    <br>
@@ -1475,16 +1475,16 @@
    <br>
    <i>size_t Output_File::write(const void *buffer, const size_t length); -</i> Write data to the file and return the number of bytes written.<br>
    <br>
-   <i>void Output_File::flush(); -</i> Force writing the internal buffer data to the file.<br>
+   <i>void Output_File::flush(); -</i> Flush data to the file.<br>
   </big>
   <h1><a id="mozTocId527362" class="mozTocH1"></a><big>Part 9. User input</big></h1>
   <h2><a id="mozTocId524623" class="mozTocH2"></a><big>Chapter 1. Sub-namespace</big></h2>
-  <big> All classes in this section are declared in the <i>Input</i> sub-namespace.<br>
+  <big>All classes in this section are declared in the <i>Input</i> sub-namespace.<br>
   </big>
   <h2><a id="mozTocId190470" class="mozTocH2"></a><big>Chapter 2. Keyboard</big></h2>
   <big><u>Low-level input.</u><br>
    <br>
-   Any keyboard contains a built-in controller. It generates a special code when the user presses or releases a key. This code is called a «scan code». <br>
+   Any keyboard contains a built-in controller. It generates a special code when the user presses or releases a key. This code is called a «scan code».<br>
    <br>
    <u>Working with the keyboard.</u><br>
    <br>
@@ -1755,7 +1755,7 @@
   <h2><a id="mozTocId599574" class="mozTocH2"></a><big>Chapter 3. Mouse</big></h2>
   <big><u>A few words about mice.</u><br>
    <br>
-   A mouse is very useful for interaction with a graphical user interface. But the mouse can also be used in video games. <br>
+   A mouse is very useful for interaction with a graphical user interface. But the mouse can also be used in video games.<br>
    <br>
    <u>Working with the mouse.</u><br>
    <br>
@@ -1775,7 +1775,7 @@
    <br>
    <i>bool Mouse::check_press(const EUGENEGDK::MOUSE_BUTTON button); -</i> Return true if a mouse button was pressed.<br>
    <br>
-   <i>bool Mouse::check_release(const EUGENEGDK::MOUSE_BUTTON button); -</i> Return true if a mouse button was released. <br>
+   <i>bool Mouse::check_release(const EUGENEGDK::MOUSE_BUTTON button); -</i> Return true if a mouse button was released.<br>
    <u><br>
     The mouse buttons.</u><br>
    <br>
@@ -1807,15 +1807,15 @@
   <h2><a id="mozTocId243934" class="mozTocH2"></a><big>Chapter 4. Gamepad</big></h2>
   <big><u>The best friend of a retro gamer.</u><br>
    <br>
-   What is a good choice for a game control device when the user plays an arcade game or an old-school video game? A gamepad. This engine provides simple access to it. <br>
+   What is a good choice for a game control device when the user plays an arcade game or an old-school video game? A gamepad. This engine provides simple access to it.<br>
    <u><br>
     The number of connected gamepads.</u><br>
    <br>
-   You can connect several gamepads. Any connected gamepad has an internal index. The first gamepad index is 0. It is selected by default. <br>
+   You can connect several gamepads. Any connected gamepad has an internal index. The first gamepad index is 0. It is selected by default.<br>
    <br>
    <u>The standard button codes.</u><br>
    <br>
-   The standard button codes correspond to the predefined constants. The first button is <i>GAMEPAD_BUTTON1</i>. The last button is <i>GAMEPAD_BUTTON32</i>. <br>
+   The standard button codes correspond to the predefined constants. The first button is <i>GAMEPAD_BUTTON1</i>. The last button is <i>GAMEPAD_BUTTON32</i>.<br>
    <br>
    <u>The D-pad button codes.</u><br>
    <br>
@@ -1984,11 +1984,11 @@
   <h2><a id="mozTocId338619" class="mozTocH2"></a><big>Chapter 3. Base graphics subsystem</big></h2>
   <big><u>The visible object.</u><br>
    <br>
-   Any visible object is a textured rectangle. <br>
+   Any visible object is a textured rectangle.<br>
    <br>
    <u>Textures.</u><br>
    <br>
-   The texture width must be a power of two. The texture height must also be a power of two. Any image will be resized before uploading to the video card. <br>
+   The texture width must be a power of two. The texture height must also be a power of two. Any image will be resized before uploading to the video card.<br>
    <u><br>
     The vertex arrays and the texture coordinates array.</u><br>
    <br>
@@ -2012,12 +2012,12 @@
    All these custom types are declared in the <i>Core</i> sub-namespace.<br>
   </big>
   <h2><a id="mozTocId328098" class="mozTocH2"></a><big>Chapter 4. Gamepad</big></h2>
-  <big> The gamepad subsystem works on the <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick Multimedia API</a>.<br>
+  <big>The gamepad subsystem works on the <a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd757116%28v=vs.85%29.aspx">Joystick Multimedia API</a>.<br>
   </big>
   <h2><a id="mozTocId986503" class="mozTocH2"></a><big>Chapter 5. User input</big></h2>
   <big><u>The input backend.</u><br>
    <br>
-   The input subsystem is a simple thing. It works on top of the standard Microsoft Windows API. <br>
+   The input subsystem is a simple thing. It works on top of the standard Microsoft Windows API.<br>
    <br>
    <u>The internal key state.</u><br>
    <br>
@@ -2043,10 +2043,10 @@
   <big><br>
   </big>
   <h2><a id="mozTocId539190" class="mozTocH2"></a><big>Chapter 6. Audio</big></h2>
-  <big> The audio subsystem works on top of the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd743606%28v=vs.85%29.aspx">Media Control Interface</a>.<br>
+  <big>The audio subsystem works on top of the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd743606%28v=vs.85%29.aspx">Media Control Interface</a>.<br>
   </big>
   <h1><a id="mozTocId928107" class="mozTocH1"></a><big>Version history</big></h1>
-  <big> 0.1: Initial version.<br>
+  <big>0.1: Initial version.<br>
    0.1.1-0.7.6: The internal unstable builds.<br>
    0.7.7: The small changes.<br>
    0.7.8: The small bug in the sprite subsystem has been fixed.<br>
@@ -2656,6 +2656,7 @@
    10.7.0.1-10.7.0.2: The documentation has been updated.<br>
    10.7.1-10.7.2: The small changes.<br>
    10.7.3: The ribbon subsystem has been improved.<br>
+   10.7.4: The tier subsystem has been improved.<br>
   </big>
  </body>
 </html>
