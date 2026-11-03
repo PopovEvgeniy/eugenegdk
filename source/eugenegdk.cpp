@@ -3296,6 +3296,10 @@ namespace EUGENEGDK
    {
     row=target%rows;
    }
+   else
+   {
+    row=this->get_frame()%rows;
+   }
    return row;
   }
 
@@ -3306,6 +3310,10 @@ namespace EUGENEGDK
    {
     column=target/rows;
    }
+   else
+   {
+    column=this->get_frame()/rows;
+   }
    return column;
   }
 
@@ -3315,6 +3323,10 @@ namespace EUGENEGDK
    if (this->check_cell(row,column)==true)
    {
     target=row+(column*rows);
+   }
+   else
+   {
+    target=this->get_frame();
    }
    return target;
   }
