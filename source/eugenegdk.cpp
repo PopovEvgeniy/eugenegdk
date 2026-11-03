@@ -3356,8 +3356,7 @@ namespace EUGENEGDK
 
   void Sheet::step()
   {
-   this->increase_frame();
-   this->select(this->get_row(this->get_frame()),this->get_column(this->get_frame()));
+   this->set_frame(this->increase_frame());
   }
 
   bool Sheet::load(Image *sheet,const unsigned int row_amount,const unsigned int column_amount)
