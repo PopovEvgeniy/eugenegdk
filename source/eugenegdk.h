@@ -901,7 +901,7 @@ typedef enum
    unsigned int get_rows() const;
    unsigned int get_columns() const;
    void destroy();
-   void select(const unsigned int row,const unsigned int column);
+   unsigned int select(const unsigned int row,const unsigned int column);
    unsigned int set_target(const unsigned int target);
    void step();
    bool load(Image *sheet,const unsigned int row_amount,const unsigned int column_amount);

@@ -3350,13 +3350,14 @@ namespace EUGENEGDK
    this->reset_sheet_settings();
   }
 
-  void Sheet::select(const unsigned int row,const unsigned int column)
+  unsigned int Sheet::select(const unsigned int row,const unsigned int column)
   {
    if (this->check_cell(row,column)==true)
    {
     billboard.set_tile_offset(row,rows,column,columns);
+    this->set_frame(this->calculate(row,column));
    }
-
+   return this->get_frame();
   }
 
   unsigned int Sheet::set_target(const unsigned int target)

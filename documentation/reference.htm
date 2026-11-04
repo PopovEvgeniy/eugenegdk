@@ -142,7 +142,7 @@
    Yes. This is really all you need to do.<br>
   </big>
   <h2><a id="mozTocId73205" class="mozTocH2"></a><big>Chapter 2. Special thanks</big></h2>
-  <big>Special thanks for technical consultation to these people:<br>
+  <big>Special thanks to these people for technical consultation:<br>
   </big>
   <ul>
    <li><a href="https://github.com/dmitrysmagin"><big>Dmitry Smagin</big></a></li>
@@ -358,7 +358,7 @@
    <br>
    <i>void Screen::initialize(const unsigned int width, const unsigned int height); -</i> Initialize the base graphics subsystem with the custom screen resolution.<br>
    <br>
-   <i>bool Screen::sync(); -</i> Show the game scene. Return false if the game is terminated. This method uses the FPS limits and waits between frames.<br>
+   <i>bool Screen::sync(); -</i> Show the game scene. Return false if the game is terminated. This method uses the FPS limit and waits between frames.<br>
    <br>
    <i>bool Screen::update(); -</i> Show the game scene. Return false if the game is terminated. This method ignores the FPS limit.<br>
    <br>
@@ -475,7 +475,7 @@
   </big>
   <h2><a id="mozTocId633113" class="mozTocH2"></a><big>Chapter 6. Background</big></h2>
   <big>A background is a large image. It contains one or more frames. The background will be scaled to fit the screen. The background transparency is always disabled.<br>
-   The horizontal animated backgrounds look like a horizontal photo ribbons. The vertical animated backgrounds look like a vertical photo ribbons.</big><br>
+   The horizontal animated background looks like a horizontal photo ribbon. The vertical animated background looks like a vertical photo ribbon.</big><br>
   <h2><a id="mozTocId308152" class="mozTocH2"></a><big>Chapter 7. Segment</big></h2>
   <big><u>A few words about the segment.</u><br>
    <br>
@@ -959,7 +959,7 @@
    <br>
    <i>void Sheet::destroy(); -</i> Destroy the sprite sheet image and the texture.<br>
    <br>
-   <i>void Sheet::select(const unsigned int row, const unsigned int column); -</i> Select the target frame by row and column.<br>
+   <i>unsigned int Sheet::select(const unsigned int row, const unsigned int column); -</i> Select the target frame by row and column and return it.<br>
    <br>
    <i>unsigned int Sheet::set_target(const unsigned int target); -</i> Set the target frame and return it.<br>
    <br>
@@ -2657,7 +2657,7 @@
    10.7.1-10.7.2: The small changes.<br>
    10.7.3: The ribbon subsystem has been improved.<br>
    10.7.4: The tier subsystem has been improved.<br>
-   10.7.5-10.7.6: The sheet subsystem has been improved.<br>
+   10.7.5-10.7.7: The sheet subsystem has been improved.<br>
   </big>
  </body>
 </html>
